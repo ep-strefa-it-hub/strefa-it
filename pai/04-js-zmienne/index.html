@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 04 – JavaScript: Zmienne | Strefa IT</title>
+
+    <!-- Prism – kolorowanie składni -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Wspólny CSS STREFY IT -->
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#vscode">1. Visual Studio Code</a>
+        <a href="#projekt">2. Struktura projektu</a>
+        <a href="#zmienna">3. Co to jest zmienna?</a>
+        <a href="#let">4. Deklarowanie zmiennych – let</a>
+        <a href="#zmiana">5. Zmiana wartości zmiennej</a>
+        <a href="#const">6. Stałe – const</a>
+        <a href="#var">7. var – starszy sposób</a>
+        <a href="#porownanie">8. let, const czy var?</a>
+        <a href="#nazwy">9. Zasady nazywania zmiennych</a>
+        <a href="#typy">10. Typy danych</a>
+        <a href="#wyswietlanie">11. Wyświetlanie wartości</a>
+        <a href="#typeof">12. Operator typeof</a>
+        <a href="#przyklad">13. Przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PAI • LEKCJA 04
+            </div>
+
+            <h2>JavaScript: Zmienne – let, const i var</h2>
+
+            <p>
+                Przygotowanie środowiska pracy w Visual Studio Code,
+                deklarowanie zmiennych oraz podstawowe typy danych w JavaScript.
+            </p>
+        </div>
+
+        <section id="vscode">
+            <h2>1. Przygotowanie środowiska pracy – Visual Studio Code</h2>
+
+            <p>
+                <strong>Visual Studio Code (VS Code)</strong> jest edytorem kodu
+                umożliwiającym tworzenie i edytowanie plików HTML, CSS
+                oraz JavaScript.
+            </p>
+
+            <p>
+                Do pracy z projektem należy utworzyć osobny folder,
+                a następnie otworzyć go w Visual Studio Code.
+            </p>
+
+            <div class="definition">
+                <strong>Visual Studio Code</strong> nie jest tym samym programem
+                co Visual Studio. VS Code jest lekkim edytorem kodu,
+                często wykorzystywanym do tworzenia stron internetowych.
+            </div>
+
+            <p>Podstawowe czynności:</p>
+
+            <ol>
+                <li>uruchomienie Visual Studio Code,</li>
+                <li>utworzenie folderu projektu,</li>
+                <li>otwarcie folderu za pomocą <strong>File → Open Folder</strong>,</li>
+                <li>utworzenie plików HTML, CSS i JavaScript.</li>
+            </ol>
+        </section>
+
+        <section id="projekt">
+            <h2>2. Struktura projektu HTML + CSS + JavaScript</h2>
+
+            <p>
+                Przykładowy projekt może składać się z trzech plików:
+            </p>
+
+            <pre><code class="language-none">lekcja04/
+│
+├── index.html
+├── style.css
+└── skrypt.js</code></pre>
+
+            <p>
+                Poszczególne pliki pełnią różne funkcje:
+            </p>
+
+            <ul>
+                <li><strong>index.html</strong> – struktura i treść strony,</li>
+                <li><strong>style.css</strong> – wygląd strony,</li>
+                <li><strong>skrypt.js</strong> – kod JavaScript.</li>
+            </ul>
+
+            <div class="diagram">STRONA INTERNETOWA
+│
+├── index.html → STRUKTURA
+├── style.css  → WYGLĄD
+└── skrypt.js  → DZIAŁANIE</div>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Lekcja 04&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;JavaScript – zmienne&lt;/h1&gt;
+
+    &lt;script src="skrypt.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+}</code></pre>
+
+            <h3>Plik skrypt.js</h3>
+
+            <pre><code class="language-javascript">console.log("Plik JavaScript został poprawnie podłączony.");</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Poprawność podłączenia pliku JavaScript można sprawdzić
+                w konsoli przeglądarki.
+            </div>
+        </section>
+
+        <section id="zmienna">
+            <h2>3. Co to jest zmienna?</h2>
+
+            <div class="definition">
+                <strong>Zmienna</strong> jest nazwanym miejscem w pamięci programu,
+                służącym do przechowywania danych.
+            </div>
+
+            <p>
+                W zmiennych można przechowywać między innymi:
+            </p>
+
+            <ul>
+                <li>liczby,</li>
+                <li>tekst,</li>
+                <li>wartości logiczne,</li>
+                <li>wyniki obliczeń.</li>
+            </ul>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 18;</code></pre>
+
+            <p>
+                Zmienna <code>imie</code> przechowuje tekst
+                <code>"Anna"</code>, natomiast zmienna <code>wiek</code>
+                przechowuje liczbę <code>18</code>.
+            </p>
+        </section>
+
+        <section id="let">
+            <h2>4. Deklarowanie zmiennych – let</h2>
+
+            <p>
+                Zmienną, której wartość może ulegać zmianie,
+                deklaruje się za pomocą słowa kluczowego
+                <code>let</code>.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Kasia";</code></pre>
+
+            <div class="diagram">let      imie       =       "Kasia";
+↓         ↓         ↓          ↓
+słowo     nazwa     operator   wartość
+kluczowe  zmiennej  przypisania</div>
+
+            <p>
+                Możliwe jest również najpierw zadeklarowanie zmiennej,
+                a następnie przypisanie jej wartości:
+            </p>
+
+            <pre><code class="language-javascript">let imie;
+
+imie = "Kasia";</code></pre>
+        </section>
+
+        <section id="zmiana">
+            <h2>5. Zmiana wartości zmiennej</h2>
+
+            <p>
+                Wartość zmiennej zadeklarowanej za pomocą <code>let</code>
+                może zostać zmieniona.
+            </p>
+
+            <pre><code class="language-javascript">let punkty = 10;
+
+punkty = 15;
+
+console.log(punkty);</code></pre>
+
+            <p>
+                W konsoli zostanie wyświetlona wartość:
+            </p>
+
+            <pre><code class="language-none">15</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Przy zmianie wartości istniejącej zmiennej nie zapisuje się
+                ponownie słowa <code>let</code>.
+            </div>
+        </section>
+
+        <section id="const">
+            <h2>6. Stałe – const</h2>
+
+            <p>
+                Jeżeli do zmiennej nie ma być ponownie przypisywana
+                inna wartość, można użyć słowa kluczowego
+                <code>const</code>.
+            </p>
+
+            <pre><code class="language-javascript">const pi = 3.14;</code></pre>
+
+            <p>
+                Próba ponownego przypisania innej wartości:
+            </p>
+
+            <pre><code class="language-javascript">pi = 3.14159;</code></pre>
+
+            <p>
+                spowoduje błąd.
+            </p>
+
+            <div class="important">
+                Komunikat o błędzie można odczytać w konsoli przeglądarki.
+            </div>
+        </section>
+
+        <section id="var">
+            <h2>7. var – starszy sposób deklarowania zmiennych</h2>
+
+            <p>
+                <code>var</code> jest starszym sposobem deklarowania zmiennych
+                w JavaScript.
+            </p>
+
+            <pre><code class="language-javascript">var liczba = 10;</code></pre>
+
+            <p>
+                Zapis ten można spotkać w starszych skryptach,
+                podręcznikach i materiałach edukacyjnych.
+            </p>
+
+            <div class="definition">
+                W nowych skryptach zaleca się stosowanie
+                <code>let</code> oraz <code>const</code>.
+            </div>
+
+            <p>
+                Szczegółowe różnice związane z zakresem zmiennych
+                zostaną omówione w osobnej lekcji.
+            </p>
+        </section>
+
+        <section id="porownanie">
+            <h2>8. let, const czy var?</h2>
+
+            <table>
+                <tr>
+                    <th>Sposób</th>
+                    <th>Czy można ponownie przypisać wartość?</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>let</code></td>
+                    <td>tak</td>
+                    <td>gdy wartość może się zmieniać</td>
+                </tr>
+
+                <tr>
+                    <td><code>const</code></td>
+                    <td>nie</td>
+                    <td>gdy nie planuje się ponownego przypisania</td>
+                </tr>
+
+                <tr>
+                    <td><code>var</code></td>
+                    <td>tak</td>
+                    <td>starszy sposób deklarowania zmiennych</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Zasada stosowana w STREFIE IT:</strong><br>
+                <code>let</code> – gdy wartość może się zmieniać.<br>
+                <code>const</code> – gdy nie będzie ponownie przypisywana.<br>
+                <code>var</code> – należy rozpoznawać, ale nie jest stosowane
+                w nowych przykładach.
+            </div>
+        </section>
+
+        <section id="nazwy">
+            <h2>9. Zasady nazywania zmiennych</h2>
+
+            <p>
+                Nazwa zmiennej powinna informować,
+                jakie dane są w niej przechowywane.
+            </p>
+
+            <p>Przykłady czytelnych nazw:</p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 17;
+let cenaProduktu = 29.99;
+let liczbaPunktow = 45;</code></pre>
+
+            <p>
+                Nazwa zmiennej:
+            </p>
+
+            <ul>
+                <li>nie może zawierać spacji,</li>
+                <li>nie może zaczynać się od cyfry,</li>
+                <li>może zawierać litery, cyfry, znak <code>_</code> i <code>$</code>,</li>
+                <li>rozróżnia wielkie i małe litery.</li>
+            </ul>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let wiek = 18;
+let Wiek = 20;</code></pre>
+
+            <p>
+                <code>wiek</code> oraz <code>Wiek</code> są dwiema
+                różnymi zmiennymi.
+            </p>
+
+            <h3>camelCase</h3>
+
+            <p>
+                Przy nazwach składających się z kilku słów
+                często stosuje się zapis <strong>camelCase</strong>.
+            </p>
+
+            <pre><code class="language-javascript">let cenaProduktu;
+let liczbaUczniow;
+let wynikEgzaminu;</code></pre>
+        </section>
+
+        <section id="typy">
+            <h2>10. Typy danych</h2>
+
+            <h3>Number – liczby</h3>
+
+            <pre><code class="language-javascript">let wiek = 18;
+let cena = 29.99;</code></pre>
+
+            <h3>String – tekst</h3>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let miasto = "Lublin";</code></pre>
+
+            <h3>Boolean – wartość logiczna</h3>
+
+            <p>
+                Typ logiczny może przyjmować dwie wartości:
+            </p>
+
+            <pre><code class="language-javascript">true
+false</code></pre>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let pelnoletni = true;
+let zalogowany = false;</code></pre>
+
+            <h3>undefined</h3>
+
+            <p>
+                Jeżeli zmienna zostanie zadeklarowana bez przypisania wartości,
+                jej wartością będzie <code>undefined</code>.
+            </p>
+
+            <pre><code class="language-javascript">let wynik;</code></pre>
+
+            <h3>null</h3>
+
+            <p>
+                Wartość <code>null</code> może zostać przypisana celowo,
+                aby oznaczyć brak wartości.
+            </p>
+
+            <pre><code class="language-javascript">let wybranyProdukt = null;</code></pre>
+        </section>
+
+        <section id="wyswietlanie">
+            <h2>11. Wyświetlanie wartości zmiennych</h2>
+
+            <p>
+                Do sprawdzania wartości zmiennych można wykorzystać
+                metodę <code>console.log()</code>.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Kasia";
+let wiek = 18;
+
+console.log(imie);
+console.log(wiek);</code></pre>
+
+            <p>
+                Możliwe jest również wyświetlenie tekstu
+                wraz z wartością zmiennej:
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Kasia";
+
+console.log("Imię:", imie);</code></pre>
+
+            <p>W konsoli:</p>
+
+            <pre><code class="language-none">Imię: Kasia</code></pre>
+        </section>
+
+        <section id="typeof">
+            <h2>12. typeof – sprawdzanie typu danych</h2>
+
+            <p>
+                Operator <code>typeof</code> służy do sprawdzania
+                typu wartości.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 18;
+let uczen = true;
+
+console.log(typeof imie);
+console.log(typeof wiek);
+console.log(typeof uczen);</code></pre>
+
+            <p>W konsoli zostanie wyświetlone:</p>
+
+            <pre><code class="language-none">string
+number
+boolean</code></pre>
+        </section>
+
+        <section id="przyklad">
+            <h2>13. Przykład</h2>
+
+            <p>
+                Poniższy przykład wykorzystuje zmienne,
+                stałą oraz metodę <code>console.log()</code>.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 17;
+const szkola = "Technikum";
+
+console.log("Imię:", imie);
+console.log("Wiek:", wiek);
+console.log("Szkoła:", szkola);
+
+wiek = 18;
+
+console.log("Nowy wiek:", wiek);</code></pre>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Zmienna służy do przechowywania danych.</li>
+
+                <li>
+                    <code>let</code> stosuje się wtedy,
+                    gdy wartość może się zmieniać.
+                </li>
+
+                <li>
+                    <code>const</code> stosuje się wtedy,
+                    gdy nie planuje się ponownego przypisania wartości.
+                </li>
+
+                <li>
+                    <code>var</code> jest starszym sposobem
+                    deklarowania zmiennych.
+                </li>
+
+                <li>
+                    JavaScript rozróżnia wielkie i małe litery.
+                </li>
+
+                <li>
+                    Nazwy składające się z kilku słów można zapisywać
+                    w stylu <strong>camelCase</strong>.
+                </li>
+
+                <li>
+                    Do podstawowych typów danych należą
+                    <code>number</code>, <code>string</code>
+                    oraz <code>boolean</code>.
+                </li>
+
+                <li>
+                    Operator <code>typeof</code> pozwala sprawdzić typ danych.
+                </li>
+
+                <li>
+                    <code>console.log()</code> służy do wyświetlania
+                    informacji w konsoli.
+                </li>
+            </ul>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+
+            <p>
+                Utwórz projekt zawierający pliki:
+                <code>index.html</code>, <code>style.css</code>
+                oraz <code>skrypt.js</code>.
+                Połącz wszystkie pliki.
+            </p>
+
+            <h3>Zadanie 2</h3>
+
+            <p>
+                Utwórz zmienne przechowujące:
+                imię, wiek oraz nazwę klasy.
+                Wyświetl ich wartości za pomocą <code>console.log()</code>.
+            </p>
+
+            <h3>Zadanie 3</h3>
+
+            <p>Utwórz zmienną:</p>
+
+            <pre><code class="language-javascript">let punkty = 20;</code></pre>
+
+            <p>
+                Wyświetl jej wartość, zmień ją na <code>30</code>
+                i ponownie wyświetl w konsoli.
+            </p>
+
+            <h3>Zadanie 4</h3>
+
+            <p>Utwórz stałą:</p>
+
+            <pre><code class="language-javascript">const rok = 2026;</code></pre>
+
+            <p>
+                Spróbuj ponownie przypisać jej inną wartość.
+                Sprawdź komunikat w konsoli.
+            </p>
+
+            <h3>Zadanie 5</h3>
+
+            <p>
+                Utwórz trzy zmienne przechowujące:
+                tekst, liczbę oraz wartość logiczną.
+                Za pomocą <code>typeof</code> sprawdź ich typy.
+            </p>
+
+            <h3>Zadanie 6</h3>
+
+            <p>
+                Oceń, które z poniższych nazw mogą być nazwami zmiennych:
+            </p>
+
+            <pre><code class="language-none">imie
+2liczba
+cenaProduktu
+moje imie
+liczba_punktow
+wiekUcznia</code></pre>
+
+            <h3>Zadanie 7</h3>
+
+            <p>
+                Utwórz zmienne:
+                <code>cenaProduktu</code>,
+                <code>liczbaSztuk</code> oraz
+                <code>dostepny</code>.
+                Przypisz im odpowiednie wartości i wyświetl
+                wszystkie dane w konsoli.
+            </p>
+        </section>
+
+        <section id="sprawdz" class="check">
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>przygotować projekt HTML + CSS + JavaScript,</li>
+                <li>podłączyć arkusz CSS do dokumentu HTML,</li>
+                <li>podłączyć zewnętrzny plik JavaScript,</li>
+                <li>wyjaśnić, czym jest zmienna,</li>
+                <li>zadeklarować zmienną za pomocą <code>let</code>,</li>
+                <li>utworzyć stałą za pomocą <code>const</code>,</li>
+                <li>wyjaśnić podstawową różnicę między <code>let</code>, <code>const</code> i <code>var</code>,</li>
+                <li>zmienić wartość zmiennej,</li>
+                <li>poprawnie nazwać zmienną,</li>
+                <li>rozpoznać podstawowe typy danych,</li>
+                <li>użyć operatora <code>typeof</code>,</li>
+                <li>wyświetlić wartość za pomocą <code>console.log()</code>.</li>
+            </ul>
+        </section>
+
+        <section id="materialy" class="materials">
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-zmienne/"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                Technik Programista – JavaScript: Zmienne
+            </a>
+
+            <a class="material-link"
+               href="https://code.visualstudio.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                Visual Studio Code – strona oficjalna
+            </a>
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 04
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
