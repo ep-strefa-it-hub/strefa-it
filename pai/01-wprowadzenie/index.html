@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 01 – Wprowadzenie | Strefa IT</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #263238;
+            line-height: 1.7;
+        }
+
+        /* NAGŁÓWEK */
+
+        header {
+            background: #18212f;
+            color: white;
+            padding: 28px 40px;
+        }
+
+        .header-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            margin: 6px 0 0;
+            color: #d7dde5;
+        }
+
+        /* PASEK NAWIGACJI */
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #dfe3e8;
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 12px 30px;
+        }
+
+        nav a {
+            color: #18212f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* UKŁAD STRONY */
+
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            max-width: 1250px;
+            margin: 30px auto;
+            padding: 0 25px;
+        }
+
+        /* SPIS TREŚCI */
+
+        aside {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+        }
+
+        aside h3 {
+            margin-top: 0;
+            color: #18212f;
+        }
+
+        aside a {
+            display: block;
+            padding: 7px 0;
+            color: #46515d;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f1f2;
+        }
+
+        aside a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* TREŚĆ */
+
+        main {
+            min-width: 0;
+        }
+
+        .lesson-title {
+            background: white;
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+        }
+
+        .lesson-number {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #607080;
+            letter-spacing: 1px;
+        }
+
+        .lesson-title h2 {
+            font-size: 32px;
+            margin: 7px 0 8px;
+            color: #18212f;
+        }
+
+        .lesson-title p {
+            margin-bottom: 0;
+            color: #5c6773;
+        }
+
+        section {
+            background: white;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #18212f;
+            border-bottom: 2px solid #edf0f2;
+            padding-bottom: 12px;
+        }
+
+        section h3 {
+            color: #2e3c4b;
+            margin-top: 26px;
+        }
+
+        /* DEFINICJE */
+
+        .definition {
+            background: #f1f5f9;
+            border-left: 5px solid #18212f;
+            padding: 17px 20px;
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .definition strong {
+            color: #18212f;
+        }
+
+        /* KOD */
+
+        pre {
+            background: #18212f;
+            color: #f2f4f7;
+            padding: 18px;
+            border-radius: 9px;
+            overflow-x: auto;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        /* SCHEMAT */
+
+        .diagram {
+            background: #f7f8fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: Consolas, monospace;
+            white-space: pre-line;
+        }
+
+        /* TABELA */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #d7dce1;
+            padding: 13px;
+            text-align: left;
+        }
+
+        th {
+            background: #edf1f4;
+            color: #18212f;
+        }
+
+        /* OOP */
+
+        .oop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .oop-card {
+            background: #f7f8fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .oop-card h3 {
+            margin-top: 0;
+        }
+
+        /* PODSUMOWANIE */
+
+        .remember {
+            border-top: 6px solid #e0a800;
+        }
+
+        .tasks {
+            border-top: 6px solid #2878b5;
+        }
+
+        .check {
+            border-top: 6px solid #3a8b5c;
+        }
+
+        .materials {
+            border-top: 6px solid #7a5da8;
+        }
+
+        .remember ul,
+        .tasks ol,
+        .check ol {
+            padding-left: 24px;
+        }
+
+        .remember li,
+        .tasks li,
+        .check li {
+            margin-bottom: 10px;
+        }
+
+        /* MATERIAŁY */
+
+        .material-link {
+            display: block;
+            background: #f7f8fa;
+            border: 1px solid #e2e5e9;
+            border-radius: 9px;
+            padding: 14px 16px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #263238;
+        }
+
+        .material-link:hover {
+            background: #eef1f4;
+        }
+
+        /* STOPKA */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #73808c;
+        }
+
+        /* TELEFON */
+
+        @media (max-width: 850px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .oop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 25px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .lesson-title h2 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../../index.html">← Strona główna</a>
+    </div>
+</nav>
+
+
+<div class="layout">
+
+    <!-- SPIS TREŚCI -->
+
+    <aside>
+
+        <h3>📚 Spis treści</h3>
+
+        <a href="#program">1. Program i języki programowania</a>
+        <a href="#kompilator">2. Kompilator</a>
+        <a href="#analiza">3. Analiza kodu</a>
+        <a href="#konsolidacja">4. Kompilacja i konsolidacja</a>
+        <a href="#skryptowe">5. Języki skryptowe</a>
+        <a href="#algorytm">6. Algorytmy</a>
+        <a href="#ide">7. IDE i debugger</a>
+        <a href="#oop">8. Programowanie obiektowe</a>
+        <a href="#klient-serwer">9. Klient i serwer</a>
+        <a href="#technologie">10. Technologie</a>
+        <a href="#mvc">11. Architektura MVC</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+
+    </aside>
+
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PAI • Lekcja 01
+            </div>
+
+            <h2>
+                Wprowadzenie do programowania aplikacji internetowych
+            </h2>
+
+            <p>
+                Podstawowe pojęcia związane z programowaniem,
+                tworzeniem aplikacji internetowych oraz programowaniem obiektowym.
+            </p>
+
+        </div>
+
+
+        <!-- 1 -->
+
+        <section id="program">
+
+            <h2>1. Program komputerowy i języki programowania</h2>
+
+            <div class="definition">
+                <strong>Program komputerowy</strong> to zestaw instrukcji
+                zapisanych w określonym języku programowania, które komputer
+                wykonuje w celu realizacji określonego zadania.
+            </div>
+
+            <p>
+                Programy tworzymy za pomocą języków programowania.
+                Pozwalają one zapisać algorytm w postaci zrozumiałej
+                dla programisty, a następnie przetworzyć go do postaci,
+                którą może wykonać komputer.
+            </p>
+
+            <p>
+                Języki programowania możemy podzielić między innymi na:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>języki niskiego poziomu</strong> –
+                    związane bezpośrednio ze sposobem działania procesora,
+                    np. język maszynowy i asembler,
+                </li>
+
+                <li>
+                    <strong>języki wysokiego poziomu</strong> –
+                    bardziej czytelne dla człowieka,
+                    np. C++, Java, Python, PHP czy JavaScript.
+                </li>
+            </ul>
+
+            <p>
+                Kod napisany przez programistę nazywamy
+                <strong>kodem źródłowym</strong>.
+            </p>
+
+        </section>
+
+
+        <!-- 2 -->
+
+        <section id="kompilator">
+
+            <h2>2. Kompilator i proces powstawania programu</h2>
+
+            <div class="definition">
+                <strong>Kompilator</strong> to program tłumaczący kod
+                zapisany w języku źródłowym na odpowiadający mu kod
+                w języku wynikowym.
+            </div>
+
+            <p>
+                Najczęściej kod źródłowy jest przekształcany
+                w kod maszynowy lub inną postać możliwą
+                do dalszego wykonania przez komputer.
+            </p>
+
+            <div class="diagram">
+KOD ŹRÓDŁOWY
+↓
+KOMPILATOR
+↓
+KOD WYNIKOWY
+↓
+PROGRAM
+            </div>
+
+        </section>
+
+
+        <!-- 3 -->
+
+        <section id="analiza">
+
+            <h2>3. Analiza leksykalna, syntaktyczna i semantyczna</h2>
+
+            <h3>Analiza leksykalna</h3>
+
+            <p>
+                Polega na rozpoznawaniu podstawowych elementów kodu,
+                takich jak słowa kluczowe, identyfikatory,
+                liczby czy operatory.
+            </p>
+
+            <pre><code>if
+liczba
+=
+10
+;</code></pre>
+
+
+            <h3>Analiza syntaktyczna</h3>
+
+            <div class="definition">
+                <strong>Analiza syntaktyczna</strong>,
+                nazywana również analizą składniową,
+                sprawdza poprawność zapisu kodu zgodnie
+                z regułami danego języka programowania.
+            </div>
+
+            <p>
+                Przykładem błędu syntaktycznego może być brak nawiasu
+                albo nieprawidłowo zapisana instrukcja.
+            </p>
+
+
+            <h3>Analiza semantyczna</h3>
+
+            <p>
+                Sprawdza znaczenie instrukcji oraz zależności
+                pomiędzy elementami programu.
+            </p>
+
+            <p>
+                Program może być poprawny składniowo,
+                ale wykonywać operację, która w danym miejscu
+                nie ma prawidłowego znaczenia.
+            </p>
+
+        </section>
+
+
+        <!-- 4 -->
+
+        <section id="konsolidacja">
+
+            <h2>4. Kompilacja i konsolidacja</h2>
+
+            <div class="definition">
+                <strong>Kompilacja</strong> polega na przetłumaczeniu
+                kodu źródłowego do odpowiedniej postaci wynikowej.
+            </div>
+
+            <p>
+                Program może składać się z wielu modułów.
+                Po ich skompilowaniu muszą zostać połączone.
+            </p>
+
+            <div class="definition">
+                <strong>Konsolidacja (linkowanie)</strong>
+                to proces łączenia skompilowanych modułów
+                oraz potrzebnych bibliotek w jeden program.
+            </div>
+
+            <div class="diagram">
+KOD ŹRÓDŁOWY
+↓
+KOMPILACJA
+↓
+MODUŁY
+↓
+KONSOLIDACJA
+↓
+PROGRAM
+            </div>
+
+        </section>
+
+
+        <!-- 5 -->
+
+        <section id="skryptowe">
+
+            <h2>5. Języki skryptowe</h2>
+
+            <div class="definition">
+                <strong>Języki skryptowe</strong> są często
+                wykorzystywane podczas tworzenia aplikacji internetowych.
+            </div>
+
+            <p>
+                Należą do nich między innymi:
+                <strong>PHP, JavaScript oraz Perl.</strong>
+            </p>
+
+            <p>
+                W naszym kursie szczególnie ważne będą:
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>JavaScript</strong> –
+                    wykonywany przede wszystkim po stronie
+                    przeglądarki użytkownika,
+                </li>
+
+                <li>
+                    <strong>PHP</strong> –
+                    wykonywany po stronie serwera.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 6 -->
+
+        <section id="algorytm">
+
+            <h2>6. Algorytm i sposoby jego przedstawiania</h2>
+
+            <div class="definition">
+                <strong>Algorytm</strong> to skończony i uporządkowany
+                ciąg czynności prowadzących do rozwiązania
+                określonego problemu.
+            </div>
+
+            <p>
+                Algorytm możemy przedstawić między innymi za pomocą:
+            </p>
+
+            <ul>
+                <li>opisu słownego,</li>
+                <li>listy kroków,</li>
+                <li>pseudokodu,</li>
+                <li>schematu blokowego,</li>
+                <li>kodu programu.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Problem: sprawdzenie, czy podana liczba jest dodatnia.
+            </p>
+
+            <pre><code>Wczytaj liczba
+
+JEŻELI liczba > 0
+    Wypisz "Liczba dodatnia"</code></pre>
+
+        </section>
+
+
+        <!-- 7 -->
+
+        <section id="ide">
+
+            <h2>7. IDE i debugger</h2>
+
+            <h3>IDE</h3>
+
+            <div class="definition">
+                <strong>IDE – Integrated Development Environment</strong>
+                oznacza zintegrowane środowisko programistyczne.
+            </div>
+
+            <p>
+                Może zawierać między innymi:
+            </p>
+
+            <ul>
+                <li>edytor kodu,</li>
+                <li>podpowiadanie składni,</li>
+                <li>kompilator lub interpreter,</li>
+                <li>narzędzia do uruchamiania programu,</li>
+                <li>debugger.</li>
+            </ul>
+
+            <p>
+                Przykładem zintegrowanego środowiska programistycznego
+                jest <strong>Microsoft Visual Studio</strong>.
+            </p>
+
+
+            <h3>Debugger</h3>
+
+            <div class="definition">
+                <strong>Debugger</strong> to narzędzie służące
+                do analizy działania programu oraz odnajdywania
+                i usuwania błędów.
+            </div>
+
+        </section>
+
+
+        <!-- 8 -->
+
+        <section id="oop">
+
+            <h2>8. Podstawy programowania obiektowego</h2>
+
+            <p>
+                W programowaniu obiektowym program tworzymy
+                z wykorzystaniem obiektów.
+            </p>
+
+
+            <h3>Klasa i obiekt</h3>
+
+            <div class="definition">
+                <strong>Klasa</strong> jest wzorcem opisującym,
+                jakie właściwości i zachowania będą posiadały
+                tworzone na jej podstawie obiekty.
+            </div>
+
+            <div class="definition">
+                <strong>Obiekt</strong> jest konkretnym
+                wystąpieniem klasy.
+            </div>
+
+            <p>
+                Przykładowo klasą może być <strong>Samochód</strong>,
+                a jej obiektami:
+            </p>
+
+            <pre><code>samochod1 → Toyota Corolla
+samochod2 → Ford Focus
+samochod3 → Volkswagen Golf</code></pre>
+
+
+            <h3>Właściwości i metody</h3>
+
+            <p>
+                <strong>Właściwości</strong> opisują stan obiektu,
+                natomiast <strong>metody</strong> opisują jego zachowanie.
+            </p>
+
+            <pre><code>Właściwości:
+marka
+model
+kolor
+predkosc
+
+Metody:
+uruchom()
+przyspiesz()
+hamuj()
+zatrzymaj()</code></pre>
+
+            <div class="definition">
+                <strong>OBIEKT = STAN + ZACHOWANIE</strong><br>
+                stan → właściwości<br>
+                zachowanie → metody
+            </div>
+
+
+            <h3>Cechy programowania obiektowego</h3>
+
+            <div class="oop-grid">
+
+                <div class="oop-card">
+                    <h3>Abstrakcja</h3>
+
+                    <p>
+                        Polega na skupieniu się na najważniejszych
+                        cechach obiektu i pominięciu szczegółów,
+                        które nie są w danym momencie potrzebne.
+                    </p>
+                </div>
+
+
+                <div class="oop-card">
+                    <h3>Hermetyzacja</h3>
+
+                    <p>
+                        Polega na ukrywaniu wybranych danych
+                        lub metod obiektu oraz kontrolowaniu
+                        dostępu do nich.
+                    </p>
+                </div>
+
+
+                <div class="oop-card">
+                    <h3>Dziedziczenie</h3>
+
+                    <p>
+                        Pozwala utworzyć nową klasę na podstawie
+                        klasy już istniejącej.
+                    </p>
+
+                    <p>
+                        Klasa potomna może przejąć właściwości
+                        i metody klasy nadrzędnej.
+                    </p>
+                </div>
+
+
+                <div class="oop-card">
+                    <h3>Polimorfizm</h3>
+
+                    <p>
+                        Oznacza wielopostaciowość.
+                        Pozwala obiektom różnych klas korzystać
+                        z operacji o tej samej nazwie,
+                        ale realizować je w różny sposób.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="diagram">
+POJAZD
+↙      ↘
+SAMOCHÓD    MOTOCYKL
+            </div>
+
+        </section>
+
+
+        <!-- 9 -->
+
+        <section id="klient-serwer">
+
+            <h2>9. Aplikacje internetowe – klient i serwer</h2>
+
+            <p>
+                Aplikacja internetowa zazwyczaj działa
+                w modelu <strong>klient–serwer</strong>.
+            </p>
+
+            <div class="definition">
+                <strong>Klient</strong> to najczęściej
+                przeglądarka internetowa użytkownika.
+            </div>
+
+            <div class="definition">
+                <strong>Serwer</strong> odbiera żądania klienta,
+                wykonuje odpowiednie operacje i wysyła odpowiedź.
+            </div>
+
+            <div class="diagram">
+UŻYTKOWNIK
+↓
+PRZEGLĄDARKA
+↓
+ŻĄDANIE
+↓
+SERWER
+↓
+BAZA DANYCH
+↓
+SERWER
+↓
+ODPOWIEDŹ
+↓
+PRZEGLĄDARKA
+            </div>
+
+        </section>
+
+
+        <!-- 10 -->
+
+        <section id="technologie">
+
+            <h2>10. Technologie po stronie klienta i serwera</h2>
+
+            <table>
+
+                <tr>
+                    <th>Strona klienta</th>
+                    <th>Strona serwera</th>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td>PHP</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td>ASP.NET</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript</td>
+                    <td>JSP</td>
+                </tr>
+
+            </table>
+
+
+            <h3>Po stronie klienta</h3>
+
+            <p>
+                Kod jest przetwarzany przede wszystkim
+                przez przeglądarkę użytkownika.
+            </p>
+
+
+            <h3>Po stronie serwera</h3>
+
+            <p>
+                Kod wykonywany jest na serwerze.
+                PHP może na przykład:
+            </p>
+
+            <ul>
+                <li>odebrać dane z formularza,</li>
+                <li>wykonać obliczenia,</li>
+                <li>zapisać dane,</li>
+                <li>połączyć się z bazą MySQL,</li>
+                <li>pobrać informacje z bazy danych,</li>
+                <li>wygenerować kod HTML.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- 11 -->
+
+        <section id="mvc">
+
+            <h2>11. Architektura MVC</h2>
+
+            <div class="definition">
+                <strong>MVC – Model, View, Controller</strong>
+                to sposób organizacji aplikacji poprzez podział
+                jej na trzy główne części.
+            </div>
+
+
+            <h3>Model</h3>
+
+            <p>
+                Odpowiada za dane i logikę aplikacji,
+                np. komunikację z bazą danych.
+            </p>
+
+
+            <h3>View – widok</h3>
+
+            <p>
+                Odpowiada za prezentację informacji użytkownikowi.
+            </p>
+
+
+            <h3>Controller – kontroler</h3>
+
+            <p>
+                Pośredniczy pomiędzy modelem a widokiem.
+                Odbiera działania użytkownika i decyduje,
+                jakie operacje należy wykonać.
+            </p>
+
+            <div class="diagram">
+UŻYTKOWNIK
+↓
+CONTROLLER
+↙        ↘
+MODEL      VIEW
+            </div>
+
+        </section>
+
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li><strong>Kompilator</strong> – tłumaczy kod źródłowy na kod wynikowy.</li>
+                <li><strong>Analiza leksykalna</strong> – rozpoznaje podstawowe elementy kodu.</li>
+                <li><strong>Analiza syntaktyczna</strong> – sprawdza poprawność składni.</li>
+                <li><strong>Analiza semantyczna</strong> – sprawdza znaczenie instrukcji.</li>
+                <li><strong>Konsolidacja</strong> – łączy skompilowane moduły w program.</li>
+                <li><strong>Debugger</strong> – pomaga odnajdywać i analizować błędy.</li>
+                <li><strong>IDE</strong> – zintegrowane środowisko programistyczne.</li>
+                <li><strong>Obiekt</strong> – posiada stan i zachowanie.</li>
+                <li><strong>Dziedziczenie</strong> – pozwala przejmować właściwości i metody innej klasy.</li>
+                <li><strong>Hermetyzacja</strong> – kontroluje dostęp do wybranych elementów obiektu.</li>
+                <li><strong>Polimorfizm</strong> – oznacza wielopostaciowość.</li>
+                <li><strong>MVC</strong> – Model + View + Controller.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <ol>
+
+                <li>
+                    Wyjaśnij własnymi słowami różnicę
+                    między kompilatorem a debuggerem.
+                </li>
+
+                <li>
+                    Podaj po trzy przykłady technologii
+                    wykorzystywanych po stronie klienta
+                    i po stronie serwera.
+                </li>
+
+                <li>
+                    Utwórz opis klasy <strong>Uczen</strong>.
+                    Podaj co najmniej cztery jej właściwości
+                    i trzy metody.
+                </li>
+
+                <li>
+                    Wyjaśnij na własnym przykładzie,
+                    na czym polega dziedziczenie.
+                </li>
+
+                <li>
+                    Narysuj schemat działania aplikacji internetowej
+                    wykorzystującej przeglądarkę, serwer i bazę danych.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- SPRAWDŹ -->
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ol>
+
+                <li>Czym jest kompilator?</li>
+
+                <li>
+                    Czym różni się analiza syntaktyczna
+                    od analizy semantycznej?
+                </li>
+
+                <li>Na czym polega konsolidacja?</li>
+
+                <li>Do czego służy debugger?</li>
+
+                <li>Co oznacza skrót IDE?</li>
+
+                <li>Czym różni się klasa od obiektu?</li>
+
+                <li>
+                    Co to są właściwości i metody obiektu?
+                </li>
+
+                <li>Na czym polega hermetyzacja?</li>
+
+                <li>Co oznacza polimorfizm?</li>
+
+                <li>Na czym polega dziedziczenie?</li>
+
+                <li>
+                    Jakie technologie mogą działać
+                    po stronie serwera?
+                </li>
+
+                <li>
+                    Za co odpowiadają Model,
+                    View i Controller?
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- MATERIAŁY -->
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <p>
+                Materiały pomocnicze do lekcji będą pojawiały się tutaj.
+            </p>
+
+            <!--
+            PRZYKŁAD LINKU:
+
+            <a class="material-link"
+               href="https://adres-strony.pl"
+               target="_blank">
+                🔗 Materiał dodatkowy
+            </a>
+
+            PRZYKŁAD PDF:
+
+            <a class="material-link"
+               href="notatka.pdf"
+               target="_blank">
+                📄 Notatka PDF
+            </a>
+
+            PRZYKŁAD ZIP:
+
+            <a class="material-link"
+               href="pliki.zip">
+                📦 Pliki do ćwiczeń
+            </a>
+            -->
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<footer>
+    STREFA IT • PAI • Materiały edukacyjne
+</footer>
+
+
+</body>
+</html>
