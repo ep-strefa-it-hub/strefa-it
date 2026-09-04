@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 03 – JavaScript: Błędy w kodzie | Strefa IT</title>
+
+    <!-- Prism – podstawowy styl -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Wspólny CSS STREFY IT -->
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+
+<div class="layout">
+
+    <!-- =========================
+         MENU BOCZNE
+    ========================== -->
+
+    <aside>
+
+        <h3>Spis treści</h3>
+
+        <a href="#bledy">1. Błędy w programowaniu</a>
+        <a href="#rodzaje">2. Rodzaje błędów</a>
+        <a href="#konsola">3. Konsola przeglądarki</a>
+        <a href="#narzedzia">4. Narzędzia deweloperskie</a>
+        <a href="#komunikaty">5. Komunikaty o błędach</a>
+        <a href="#lokalizacja">6. Numer linii i lokalizacja błędu</a>
+        <a href="#console">7. console.log()</a>
+        <a href="#szukanie">8. Jak szukać błędu?</a>
+        <a href="#najczestsze">9. Najczęstsze błędy</a>
+        <a href="#poprawianie">10. Poprawianie błędnego kodu</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+
+    </aside>
+
+
+    <!-- =========================
+         TREŚĆ LEKCJI
+    ========================== -->
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PAI • LEKCJA 03
+            </div>
+
+            <h2>JavaScript: Błędy w kodzie</h2>
+
+            <p>
+                Rodzaje błędów w JavaScript, konsola przeglądarki
+                oraz sposoby odnajdywania i poprawiania błędów w kodzie.
+            </p>
+
+        </div>
+
+
+        <!-- 1 -->
+
+        <section id="bledy">
+
+            <h2>1. Błędy w programowaniu</h2>
+
+            <p>
+                Podczas pisania programu mogą pojawić się błędy,
+                przez które kod nie zostanie wykonany albo jego wynik
+                będzie inny niż oczekiwany.
+            </p>
+
+            <p>Przykład poprawnego kodu:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+document.write(liczba);</code></pre>
+
+            <p>
+                Niewielka pomyłka, np. błędna nazwa zmiennej,
+                może jednak spowodować problem:
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+document.write(liczbaa);</code></pre>
+
+            <div class="definition">
+                Zmienna została utworzona jako <strong>liczba</strong>,
+                ale później użyto nazwy <strong>liczbaa</strong>.
+            </div>
+
+            <p>
+                W większych programach odnalezienie takiej pomyłki
+                może być trudniejsze. Dlatego podczas programowania
+                korzystamy z narzędzi pomagających odnajdywać,
+                analizować i usuwać błędy.
+            </p>
+
+        </section>
+
+
+        <!-- 2 -->
+
+        <section id="rodzaje">
+
+            <h2>2. Rodzaje błędów</h2>
+
+            <p>
+                Podczas tworzenia programów możemy spotkać różne
+                rodzaje błędów.
+            </p>
+
+
+            <h3>Błąd składniowy</h3>
+
+            <p>
+                Powstaje wtedy, gdy kod został zapisany niezgodnie
+                z zasadami składni języka JavaScript.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+if (liczba > 5 {
+    document.write("Liczba jest większa od 5");
+}</code></pre>
+
+            <p>
+                W instrukcji <code>if</code> brakuje nawiasu
+                <code>)</code>.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Przy błędzie składniowym przeglądarka może nie być
+                w stanie prawidłowo wykonać kodu.
+            </div>
+
+
+            <h3>Błąd wykonania</h3>
+
+            <p>
+                Kod może wyglądać poprawnie składniowo, ale podczas
+                jego wykonywania pojawi się problem.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+document.write(liczbaa);</code></pre>
+
+            <p>
+                Próbujemy użyć zmiennej <code>liczbaa</code>,
+                która nie została wcześniej utworzona.
+            </p>
+
+
+            <h3>Błąd logiczny</h3>
+
+            <p>
+                Program działa, ale daje inny wynik niż oczekiwaliśmy.
+            </p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 5;
+
+let suma = a - b;
+
+document.write(suma);</code></pre>
+
+            <p>
+                Program się wykona, ale zamiast dodać liczby,
+                odejmuje je.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Błędy logiczne bywają trudniejsze do znalezienia,
+                ponieważ program może działać bez wyświetlenia
+                komunikatu o błędzie.
+            </div>
+
+        </section>
+
+
+        <!-- 3 -->
+
+        <section id="konsola">
+
+            <h2>3. Konsola przeglądarki</h2>
+
+            <p>
+                Przeglądarka może pomóc nam znaleźć błędy
+                w kodzie JavaScript.
+            </p>
+
+            <p>
+                W przeglądarce <strong>Google Chrome</strong>
+                otwieramy <strong>Narzędzia dla deweloperów</strong>.
+                Możemy to zrobić naciskając:
+            </p>
+
+            <div class="diagram">F12</div>
+
+            <p>
+                Następnie wybieramy zakładkę:
+                <strong>Console (Konsola)</strong>.
+            </p>
+
+            <p>W konsoli możemy zobaczyć między innymi:</p>
+
+            <ul>
+                <li>komunikaty generowane przez JavaScript,</li>
+                <li>błędy,</li>
+                <li>ostrzeżenia,</li>
+                <li>informacje o miejscu wystąpienia błędu.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Zapamiętaj!</strong><br>
+                Jeśli skrypt JavaScript nie działa tak, jak powinien,
+                jednym z pierwszych miejsc, które warto sprawdzić,
+                jest konsola przeglądarki.
+            </div>
+
+        </section>
+
+
+        <!-- 4 -->
+
+        <section id="narzedzia">
+
+            <h2>4. Narzędzia deweloperskie</h2>
+
+            <p>
+                Narzędzia deweloperskie przeglądarki pomagają
+                programiście sprawdzać działanie strony i kodu.
+            </p>
+
+            <p>
+                Podczas pracy z JavaScript szczególnie przydatne są:
+            </p>
+
+            <div class="definition">
+                <strong>Console</strong> – komunikaty i błędy JavaScript.
+            </div>
+
+            <div class="definition">
+                <strong>Sources</strong> – pliki źródłowe strony
+                i skrypty JavaScript.
+            </div>
+
+            <div class="definition">
+                <strong>Elements</strong> – struktura dokumentu HTML.
+            </div>
+
+            <p>
+                Na początku nauki JavaScript najczęściej będziemy
+                korzystać z zakładki <strong>Console</strong>.
+            </p>
+
+        </section>
+
+
+        <!-- 5 -->
+
+        <section id="komunikaty">
+
+            <h2>5. Komunikaty o błędach</h2>
+
+            <p>Spójrz na poniższy kod:</p>
+
+            <pre><code class="language-javascript">console.logg("Wykonanie kodu JavaScript");</code></pre>
+
+            <p>Zamiast:</p>
+
+            <pre><code class="language-javascript">console.log("Wykonanie kodu JavaScript");</code></pre>
+
+            <p>
+                zapisano <code>console.logg</code>.
+                Jest to zwykła literówka.
+            </p>
+
+            <p>
+                Po uruchomieniu strony przeglądarka wyświetli
+                w konsoli informację o błędzie.
+            </p>
+
+            <div class="definition">
+                <strong>Komunikat o błędzie jest podpowiedzią.</strong><br>
+                Nie należy go ignorować. Trzeba przeczytać komunikat
+                i sprawdzić wskazane miejsce w kodzie.
+            </div>
+
+            <p>
+                Możemy spotkać między innymi następujące nazwy błędów:
+            </p>
+
+            <pre><code class="language-none">SyntaxError
+ReferenceError
+TypeError</code></pre>
+
+            <div class="important">
+                Na tym etapie nie musisz zapamiętywać wszystkich nazw
+                błędów. Ważniejsze jest nauczenie się czytania
+                komunikatu i odnajdywania miejsca problemu.
+            </div>
+
+        </section>
+
+
+        <!-- 6 -->
+
+        <section id="lokalizacja">
+
+            <h2>6. Numer linii i lokalizacja błędu</h2>
+
+            <p>
+                Konsola często podaje również nazwę pliku
+                oraz numer linii, np.:
+            </p>
+
+            <pre><code class="language-none">index.html:18</code></pre>
+
+            <p>lub:</p>
+
+            <pre><code class="language-none">skrypt.js:12</code></pre>
+
+            <p>
+                Informacja <code>skrypt.js:12</code> wskazuje
+                12. linię pliku <code>skrypt.js</code>.
+            </p>
+
+            <p>
+                Po kliknięciu informacji znajdującej się przy błędzie
+                narzędzia deweloperskie mogą pokazać odpowiedni
+                fragment kodu.
+            </p>
+
+            <div class="important">
+                <strong>Uwaga!</strong><br>
+                Wskazana linia jest miejscem, w którym przeglądarka
+                zauważyła problem. Przyczyna błędu może czasem
+                znajdować się również nieco wcześniej.
+            </div>
+
+        </section>
+
+
+        <!-- 7 -->
+
+        <section id="console">
+
+            <h2>7. console.log() – sprawdzanie działania programu</h2>
+
+            <p>
+                Polecenie <code>console.log()</code> pozwala
+                wyświetlać informacje w konsoli.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+console.log(liczba);</code></pre>
+
+            <p>W konsoli zobaczymy:</p>
+
+            <pre><code class="language-none">10</code></pre>
+
+            <p>
+                Możemy również sprawdzać wartości kilku zmiennych:
+            </p>
+
+            <pre><code class="language-javascript">let a = 5;
+let b = 7;
+
+console.log("a =", a);
+console.log("b =", b);
+
+let wynik = a + b;
+
+console.log("wynik =", wynik);</code></pre>
+
+            <p>
+                Dzięki temu możemy sprawdzić, jakie wartości mają
+                zmienne podczas wykonywania programu.
+            </p>
+
+            <div class="definition">
+                <code>console.log()</code> może służyć nie tylko
+                do wyświetlania komunikatów, ale również pomagać
+                w poszukiwaniu błędów.
+            </div>
+
+        </section>
+
+
+        <!-- 8 -->
+
+        <section id="szukanie">
+
+            <h2>8. Jak szukać błędu w kodzie?</h2>
+
+            <p>
+                Jeżeli program nie działa prawidłowo, warto postępować
+                według prostego schematu:
+            </p>
+
+            <div class="diagram">KOD NIE DZIAŁA
+↓
+OTWÓRZ NARZĘDZIA DEWELOPERSKIE – F12
+↓
+WYBIERZ CONSOLE
+↓
+PRZECZYTAJ KOMUNIKAT O BŁĘDZIE
+↓
+SPRAWDŹ NUMER LINII
+↓
+SPRAWDŹ WSKAZANY FRAGMENT KODU
+↓
+W RAZIE POTRZEBY UŻYJ console.log()
+↓
+POPRAW BŁĄD
+↓
+ZAPISZ PLIK
+↓
+ODŚWIEŻ STRONĘ I SPRAWDŹ PONOWNIE</div>
+
+            <div class="important">
+                To będzie nasz podstawowy sposób postępowania
+                podczas kolejnych lekcji JavaScript.
+            </div>
+
+        </section>
+
+
+        <!-- 9 -->
+
+        <section id="najczestsze">
+
+            <h2>9. Najczęstsze błędy początkujących</h2>
+
+
+            <h3>Literówka w poleceniu</h3>
+
+            <p><strong>Znajdź błąd:</strong></p>
+
+            <pre><code class="language-javascript">console.logg("Witaj");</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-javascript">console.log("Witaj");</code></pre>
+
+
+            <h3>Literówka w nazwie zmiennej</h3>
+
+            <p><strong>Znajdź błąd:</strong></p>
+
+            <pre><code class="language-javascript">let liczba = 20;
+
+document.write(liczbaa);</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-javascript">let liczba = 20;
+
+document.write(liczba);</code></pre>
+
+
+            <h3>Brak cudzysłowu</h3>
+
+            <p><strong>Znajdź błąd:</strong></p>
+
+            <pre><code class="language-javascript">let imie = "Anna;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-javascript">let imie = "Anna";</code></pre>
+
+
+            <h3>Brak nawiasu</h3>
+
+            <p><strong>Znajdź błąd:</strong></p>
+
+            <pre><code class="language-javascript">let liczba = 15;
+
+if (liczba > 10 {
+    document.write("Liczba jest większa od 10");
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-javascript">let liczba = 15;
+
+if (liczba > 10) {
+    document.write("Liczba jest większa od 10");
+}</code></pre>
+
+
+            <h3>Błąd logiczny</h3>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 5;
+
+let suma = a - b;
+
+document.write(suma);</code></pre>
+
+            <p>
+                Kod nie zawiera błędu składniowego.
+                Program się uruchomi, ale wykonuje odejmowanie
+                zamiast dodawania.
+            </p>
+
+            <p>Powinno być:</p>
+
+            <pre><code class="language-javascript">let suma = a + b;</code></pre>
+
+        </section>
+
+
+        <!-- 10 -->
+
+        <section id="poprawianie">
+
+            <h2>10. Poprawianie błędnego kodu</h2>
+
+            <p>
+                Podczas szukania błędu nie zmieniamy przypadkowo
+                wielu fragmentów programu naraz.
+            </p>
+
+            <p>Najpierw:</p>
+
+            <ol>
+                <li>sprawdzamy konsolę,</li>
+                <li>czytamy komunikat,</li>
+                <li>odnajdujemy wskazane miejsce,</li>
+                <li>sprawdzamy zapis kodu,</li>
+                <li>poprawiamy błąd,</li>
+                <li>zapisujemy plik,</li>
+                <li>ponownie uruchamiamy lub odświeżamy stronę.</li>
+            </ol>
+
+            <p>
+                Jeżeli nadal występuje problem, powtarzamy
+                te czynności.
+            </p>
+
+        </section>
+
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Błędy są naturalną częścią tworzenia programów.</li>
+
+                <li>
+                    Błąd <strong>składniowy</strong> oznacza
+                    niepoprawny zapis kodu.
+                </li>
+
+                <li>
+                    Błąd <strong>wykonania</strong> pojawia się
+                    podczas wykonywania programu.
+                </li>
+
+                <li>
+                    Przy błędzie <strong>logicznym</strong> program
+                    działa, ale daje nieprawidłowy wynik.
+                </li>
+
+                <li>
+                    <strong>F12</strong> pozwala otworzyć narzędzia
+                    deweloperskie w Chrome.
+                </li>
+
+                <li>
+                    W zakładce <strong>Console</strong> możemy znaleźć
+                    informacje o błędach JavaScript.
+                </li>
+
+                <li>
+                    Konsola może wskazać plik oraz numer linii,
+                    w której wystąpił problem.
+                </li>
+
+                <li>
+                    <code>console.log()</code> pozwala wyświetlać
+                    informacje i wartości zmiennych w konsoli.
+                </li>
+
+                <li>
+                    Po poprawieniu błędu należy zapisać plik,
+                    odświeżyć stronę i ponownie sprawdzić
+                    działanie programu.
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+
+            <p>
+                Utwórz stronę HTML i umieść w niej:
+            </p>
+
+            <pre><code class="language-html">&lt;script&gt;
+    console.log("JavaScript działa");
+&lt;/script&gt;</code></pre>
+
+            <p>
+                Uruchom stronę, otwórz narzędzia deweloperskie
+                za pomocą <strong>F12</strong> i odszukaj
+                komunikat w konsoli.
+            </p>
+
+
+            <h3>Zadanie 2</h3>
+
+            <p>Uruchom kod:</p>
+
+            <pre><code class="language-javascript">console.logg("JavaScript działa");</code></pre>
+
+            <p>
+                Sprawdź komunikat w konsoli i odszukaj informację
+                o miejscu wystąpienia błędu. Następnie popraw kod.
+            </p>
+
+
+            <h3>Zadanie 3</h3>
+
+            <p>Znajdź i popraw błąd:</p>
+
+            <pre><code class="language-javascript">let liczba = 15;
+
+if (liczba > 10 {
+    document.write("Liczba jest większa od 10");
+}</code></pre>
+
+
+            <h3>Zadanie 4</h3>
+
+            <p>Sprawdź poniższy program:</p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 20;
+
+let suma = a - b;
+
+document.write(suma);</code></pre>
+
+            <p>
+                Program działa, ale wynik jest nieprawidłowy.
+                Znajdź przyczynę i popraw kod.
+            </p>
+
+
+            <h3>Zadanie 5</h3>
+
+            <p>
+                Dodaj odpowiednie polecenia
+                <code>console.log()</code>, aby w konsoli zostały
+                wyświetlone wartości zmiennych
+                <code>a</code>, <code>b</code> oraz <code>wynik</code>.
+            </p>
+
+            <pre><code class="language-javascript">let a = 8;
+let b = 4;
+
+let wynik = a * b;
+
+document.write(wynik);</code></pre>
+
+        </section>
+
+
+        <!-- SPRAWDŹ -->
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <p>Po tej lekcji powinieneś potrafić:</p>
+
+            <ol>
+                <li>wyjaśnić, czym jest błąd w kodzie,</li>
+                <li>rozróżnić podstawowe rodzaje błędów,</li>
+                <li>otworzyć narzędzia deweloperskie i konsolę,</li>
+                <li>odczytać podstawowy komunikat o błędzie,</li>
+                <li>odnaleźć wskazany numer linii,</li>
+                <li>użyć <code>console.log()</code>,</li>
+                <li>znaleźć i poprawić prosty błąd w JavaScript.</li>
+            </ol>
+
+        </section>
+
+
+        <!-- MATERIAŁY -->
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/jak-znalezc-blad-w-kodzie-javascript/"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                Technik Programista –
+                Jak znaleźć błąd w kodzie JavaScript?
+
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer>
+    STREFA IT • PAI • Lekcja 03
+</footer>
+
+
+<!-- Wspólny PrismJS STREFY IT -->
+<script src="../../prism.js"></script>
+
+</body>
+</html>
