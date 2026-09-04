@@ -47,12 +47,21 @@
         }
 
         .przedmiot {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 3px 10px #ccc;
-        }
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px #ccc;
+    text-decoration: none;
+    color: #263238;
+    display: block;
+    transition: 0.2s;
+}
+
+.przedmiot:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 16px #bbb;
+}
 
         .przedmiot h3 {
             font-size: 25px;
@@ -79,11 +88,11 @@
 
     <div class="przedmioty">
 
-        <div class="przedmiot">
-            <h3>PAI</h3>
-            <p>Programowanie aplikacji internetowych</p>
-        </div>
-
+    <a href="pai/index.html" class="przedmiot">
+    <h3>PAI</h3>
+    <p>Programowanie aplikacji internetowych</p>
+    </a>
+        
         <div class="przedmiot">
             <h3>PSW</h3>
             <p>Projektowanie stron internetowych</p>
