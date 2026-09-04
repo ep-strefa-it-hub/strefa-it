@@ -344,3 +344,63 @@ footer {
         padding: 22px;
     }
 }
+/* =================================
+   STRONA GŁÓWNA – KAFELKI PRZEDMIOTÓW
+================================= */
+
+body > main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+body > main > h2 {
+    text-align: center;
+    color: #2f4a55;
+    margin-bottom: 30px;
+}
+
+.przedmioty {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.przedmiot {
+    display: block;
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+
+    text-decoration: none;
+    color: #2f3a40;
+
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+
+    transition: 0.2s;
+}
+
+.przedmiot:visited {
+    color: #2f3a40;
+}
+
+.przedmiot:hover {
+    transform: translateY(-3px);
+    background: #f6f9fa;
+    box-shadow: 0 7px 20px rgba(70, 90, 100, 0.13);
+}
+
+.przedmiot h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #304b57;
+}
+
+.przedmiot p {
+    margin: 0;
+    color: #53666f;
+    line-height: 1.4;
+}
