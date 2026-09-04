@@ -404,3 +404,77 @@ body > main > h2 {
     color: #53666f;
     line-height: 1.4;
 }
+/* =================================
+   STRONA PAI – LISTA LEKCJI
+================================= */
+
+.intro {
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+    margin-bottom: 25px;
+}
+
+.intro h3 {
+    margin-top: 0;
+    color: #2f4a55;
+    font-size: 24px;
+}
+
+.intro p {
+    margin-bottom: 0;
+    color: #53666f;
+}
+
+.dzial {
+    margin-top: 35px;
+}
+
+.dzial h2 {
+    color: #2f4a55;
+    border-bottom: 1px solid #dce5e8;
+    padding-bottom: 10px;
+}
+
+.lekcja {
+    display: block;
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    padding: 22px;
+    margin: 14px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #2f3a40;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+    transition: 0.2s;
+}
+
+.lekcja:visited {
+    color: #2f3a40;
+}
+
+.lekcja:hover {
+    transform: translateY(-2px);
+    background: #f6f9fa;
+    box-shadow: 0 6px 18px rgba(70, 90, 100, 0.12);
+}
+
+.numer {
+    font-size: 13px;
+    font-weight: bold;
+    color: #607983;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lekcja h3 {
+    margin: 6px 0 5px;
+    color: #304b57;
+}
+
+.lekcja p {
+    margin: 0;
+    color: #53666f;
+}
