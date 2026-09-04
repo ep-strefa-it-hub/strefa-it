@@ -1,0 +1,346 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef3f5;
+    color: #2f3a40;
+    line-height: 1.7;
+}
+
+/* ===== NAGŁÓWEK ===== */
+
+header {
+    background: #78939d;
+    color: white;
+    padding: 28px 40px;
+}
+
+.header-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+header p {
+    margin: 5px 0 0;
+    color: #f0f5f6;
+}
+
+/* ===== NAWIGACJA ===== */
+
+nav {
+    background: #f9fbfc;
+    border-bottom: 1px solid #d7e0e3;
+}
+
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 12px 30px;
+}
+
+nav a {
+    color: #354c56;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+nav a:hover {
+    color: #263b44;
+}
+
+/* ===== UKŁAD LEKCJI ===== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+main {
+    min-width: 0;
+}
+
+/* ===== MENU BOCZNE ===== */
+
+aside {
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    border-radius: 14px;
+    padding: 22px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+}
+
+aside h3 {
+    margin-top: 0;
+    color: #314d58;
+}
+
+aside a {
+    display: block;
+    padding: 8px 7px;
+    color: #40545d;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #edf1f2;
+    border-radius: 5px;
+}
+
+aside a:hover {
+    background: #e8f0f2;
+    color: #273e47;
+}
+
+/* ===== TYTUŁ LEKCJI ===== */
+
+.lesson-title {
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    border-radius: 14px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+}
+
+.lesson-number {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #607983;
+    letter-spacing: 2px;
+}
+
+.lesson-title h2 {
+    font-size: 32px;
+    margin: 7px 0 8px;
+    color: #263f49;
+}
+
+.lesson-title p {
+    margin-bottom: 0;
+    color: #53666f;
+}
+
+/* ===== SEKCJE ===== */
+
+section {
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.07);
+}
+
+section h2 {
+    margin-top: 0;
+    color: #2f4a55;
+    border-bottom: 1px solid #dce5e8;
+    padding-bottom: 12px;
+}
+
+section h3 {
+    color: #405861;
+    margin-top: 26px;
+}
+
+section p,
+section li {
+    color: #2f3a40;
+}
+
+/* ===== DEFINICJE ===== */
+
+.definition {
+    background: #edf4f5;
+    border-left: 5px solid #89a7b0;
+    padding: 17px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    color: #2f3a40;
+}
+
+.definition strong {
+    color: #2e4852;
+}
+
+/* ===== WAŻNE ===== */
+
+.important {
+    background: #f5f3eb;
+    border-left: 5px solid #b2a477;
+    padding: 17px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    color: #3b3b35;
+}
+
+/* ===== SCHEMATY ===== */
+
+.diagram {
+    background: #eaf0f2;
+    border: 1px solid #d3dee2;
+    border-radius: 9px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: Consolas, monospace;
+    white-space: pre-line;
+    color: #2c3940;
+}
+
+/* ===== BLOKI KODU ===== */
+
+pre[class*="language-"] {
+    background: #e7eef1 !important;
+    border: 1px solid #d0dde1;
+    border-radius: 9px;
+    padding: 18px !important;
+    margin: 18px 0;
+    box-shadow: none;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+code[class*="language-"] {
+    font-family: Consolas, "Courier New", monospace;
+    color: #29353b;
+    text-shadow: none !important;
+}
+
+/* ===== KOLOROWANIE SKŁADNI ===== */
+
+/* znaczniki HTML i słowa kluczowe JS */
+.token.tag,
+.token.keyword {
+    color: #245c8a;
+}
+
+/* nazwy atrybutów */
+.token.attr-name {
+    color: #4f7180;
+}
+
+/* wartości atrybutów i teksty */
+.token.attr-value,
+.token.string {
+    color: #367553;
+}
+
+/* funkcje JavaScript */
+.token.function {
+    color: #66508a;
+}
+
+/* znaki składni */
+.token.punctuation {
+    color: #465a63;
+}
+
+/* operatory */
+.token.operator {
+    color: #536d78;
+}
+
+/* komentarze */
+.token.comment {
+    color: #7f8b90;
+    font-style: italic;
+}
+
+/* ===== KOŃCOWE BLOKI LEKCJI ===== */
+
+.remember {
+    border-top: 5px solid #b8a66d;
+}
+
+.tasks {
+    border-top: 5px solid #7195aa;
+}
+
+.check {
+    border-top: 5px solid #75a08a;
+}
+
+.materials {
+    border-top: 5px solid #9182aa;
+}
+
+.remember li,
+.tasks li,
+.check li {
+    margin-bottom: 10px;
+}
+
+/* ===== MATERIAŁY ===== */
+
+.material-link {
+    display: block;
+    background: #edf3f5;
+    border: 1px solid #d5e0e3;
+    border-radius: 9px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #314d58;
+}
+
+.material-link:hover {
+    background: #e3edef;
+}
+
+/* ===== STOPKA ===== */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #60737c;
+}
+
+/* ===== TELEFON / TABLET ===== */
+
+@media (max-width: 850px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: static;
+    }
+
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .lesson-title h2 {
+        font-size: 26px;
+    }
+
+    section {
+        padding: 22px;
+    }
+}
