@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PAI | Strefa IT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #263238;
+        }
+
+        header {
+            background: #18212f;
+            color: white;
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #d7dde5;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #dfe3e8;
+        }
+
+        nav div {
+            max-width: 1000px;
+            margin: auto;
+            padding: 12px 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #18212f;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            margin-top: 0;
+            color: #18212f;
+        }
+
+        .dzial {
+            margin-top: 35px;
+        }
+
+        .dzial h2 {
+            color: #18212f;
+            border-bottom: 2px solid #dfe3e8;
+            padding-bottom: 10px;
+        }
+
+        .lekcja {
+            display: block;
+            background: white;
+            padding: 22px;
+            margin: 14px 0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #263238;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .lekcja:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+        }
+
+        .numer {
+            font-size: 13px;
+            font-weight: bold;
+            color: #6d7884;
+            text-transform: uppercase;
+        }
+
+        .lekcja h3 {
+            margin: 6px 0 5px;
+            color: #18212f;
+        }
+
+        .lekcja p {
+            margin: 0;
+            color: #66727d;
+        }
+
+        .planowana {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            color: #73808c;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>PAI</h1>
+    <p>Programowanie aplikacji internetowych</p>
+</header>
+
+<nav>
+    <div>
+        <a href="../index.html">← Strona główna</a>
+    </div>
+</nav>
+
+<main>
+
+    <div class="intro">
+        <h2>Materiały do zajęć</h2>
+        <p>
+            Wybierz lekcję z listy poniżej. Materiały będą sukcesywnie
+            uzupełniane o notatki, zadania, pliki i materiały dodatkowe.
+        </p>
+    </div>
+
+    <div class="dzial">
+
+        <h2>Wprowadzenie</h2>
+
+        <a class="lekcja" href="01-wprowadzenie/index.html">
+            <div class="numer">Lekcja 01</div>
+            <h3>Wprowadzenie do programowania aplikacji internetowych</h3>
+            <p>
+                Programy, kompilator, algorytmy, IDE, debugger,
+                programowanie obiektowe, klient–serwer i MVC.
+            </p>
+        </a>
+
+    </div>
+
+    <div class="dzial">
+
+        <h2>PHP</h2>
+
+        <div class="lekcja planowana">
+            <div class="numer">Lekcja 02</div>
+            <h3>PHP – składnia</h3>
+            <p>Materiał w przygotowaniu.</p>
+        </div>
+
+        <div class="lekcja planowana">
+            <div class="numer">Lekcja 03</div>
+            <h3>PHP – zmienne i typy danych</h3>
+            <p>Materiał w przygotowaniu.</p>
+        </div>
+
+        <div class="lekcja planowana">
+            <div class="numer">Lekcja 04</div>
+            <h3>PHP – operatory</h3>
+            <p>Materiał w przygotowaniu.</p>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    STREFA IT • PAI • Materiały edukacyjne
+</footer>
+
+</body>
+</html>
