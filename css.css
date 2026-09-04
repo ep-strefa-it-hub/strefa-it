@@ -1,3 +1,6 @@
+/* ==========================================
+   STREFA IT - WSPÓLNY ARKUSZ STYLÓW
+========================================== */
 
 * {
     box-sizing: border-box;
@@ -15,7 +18,10 @@ body {
     line-height: 1.7;
 }
 
-/* ===== NAGŁÓWEK ===== */
+
+/* ==========================================
+   NAGŁÓWEK
+========================================== */
 
 header {
     background: #78939d;
@@ -39,7 +45,10 @@ header p {
     color: #f0f5f6;
 }
 
-/* ===== NAWIGACJA ===== */
+
+/* ==========================================
+   NAWIGACJA
+========================================== */
 
 nav {
     background: #f9fbfc;
@@ -63,7 +72,10 @@ nav a:hover {
     color: #263b44;
 }
 
-/* ===== UKŁAD LEKCJI ===== */
+
+/* ==========================================
+   UKŁAD LEKCJI
+========================================== */
 
 .layout {
     display: grid;
@@ -78,7 +90,10 @@ main {
     min-width: 0;
 }
 
-/* ===== MENU BOCZNE ===== */
+
+/* ==========================================
+   MENU BOCZNE LEKCJI
+========================================== */
 
 aside {
     background: #fbfcfc;
@@ -111,7 +126,10 @@ aside a:hover {
     color: #273e47;
 }
 
-/* ===== TYTUŁ LEKCJI ===== */
+
+/* ==========================================
+   TYTUŁ LEKCJI
+========================================== */
 
 .lesson-title {
     background: #fbfcfc;
@@ -141,7 +159,10 @@ aside a:hover {
     color: #53666f;
 }
 
-/* ===== SEKCJE ===== */
+
+/* ==========================================
+   SEKCJE LEKCJI
+========================================== */
 
 section {
     background: #fbfcfc;
@@ -169,7 +190,10 @@ section li {
     color: #2f3a40;
 }
 
-/* ===== DEFINICJE ===== */
+
+/* ==========================================
+   DEFINICJE
+========================================== */
 
 .definition {
     background: #edf4f5;
@@ -184,7 +208,10 @@ section li {
     color: #2e4852;
 }
 
-/* ===== WAŻNE ===== */
+
+/* ==========================================
+   WAŻNE INFORMACJE
+========================================== */
 
 .important {
     background: #f5f3eb;
@@ -195,7 +222,10 @@ section li {
     color: #3b3b35;
 }
 
-/* ===== SCHEMATY ===== */
+
+/* ==========================================
+   SCHEMATY
+========================================== */
 
 .diagram {
     background: #eaf0f2;
@@ -208,7 +238,10 @@ section li {
     color: #2c3940;
 }
 
-/* ===== BLOKI KODU ===== */
+
+/* ==========================================
+   BLOKI KODU
+========================================== */
 
 pre[class*="language-"] {
     background: #e7eef1 !important;
@@ -219,6 +252,7 @@ pre[class*="language-"] {
     box-shadow: none;
     font-size: 15px;
     line-height: 1.6;
+    overflow-x: auto;
 }
 
 code[class*="language-"] {
@@ -227,47 +261,60 @@ code[class*="language-"] {
     text-shadow: none !important;
 }
 
-/* ===== KOLOROWANIE SKŁADNI ===== */
+
+/* ==========================================
+   PRISM - KOLOROWANIE SKŁADNI
+========================================== */
 
 /* znaczniki HTML i słowa kluczowe JS */
+
 .token.tag,
 .token.keyword {
     color: #245c8a;
 }
 
 /* nazwy atrybutów */
+
 .token.attr-name {
     color: #4f7180;
 }
 
 /* wartości atrybutów i teksty */
+
 .token.attr-value,
 .token.string {
     color: #367553;
 }
 
 /* funkcje JavaScript */
+
 .token.function {
     color: #66508a;
 }
 
 /* znaki składni */
+
 .token.punctuation {
     color: #465a63;
 }
 
 /* operatory */
+
 .token.operator {
     color: #536d78;
 }
 
 /* komentarze */
+
 .token.comment {
     color: #7f8b90;
     font-style: italic;
 }
 
-/* ===== KOŃCOWE BLOKI LEKCJI ===== */
+
+/* ==========================================
+   KOŃCOWE BLOKI LEKCJI
+========================================== */
 
 .remember {
     border-top: 5px solid #b8a66d;
@@ -291,7 +338,10 @@ code[class*="language-"] {
     margin-bottom: 10px;
 }
 
-/* ===== MATERIAŁY ===== */
+
+/* ==========================================
+   MATERIAŁY
+========================================== */
 
 .material-link {
     display: block;
@@ -308,7 +358,182 @@ code[class*="language-"] {
     background: #e3edef;
 }
 
-/* ===== STOPKA ===== */
+
+/* ==========================================
+   STRONA GŁÓWNA
+========================================== */
+
+body > main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+body > main > h2 {
+    text-align: center;
+    color: #2f4a55;
+    margin-bottom: 30px;
+}
+
+
+/* KAFELKI PRZEDMIOTÓW */
+
+.przedmioty {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.przedmiot {
+    display: block;
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #2f3a40;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
+    transition: 0.2s;
+}
+
+.przedmiot:visited {
+    color: #2f3a40;
+}
+
+.przedmiot:hover {
+    transform: translateY(-3px);
+    background: #f6f9fa;
+    box-shadow: 0 7px 20px rgba(70, 90, 100, 0.13);
+}
+
+.przedmiot h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #304b57;
+}
+
+.przedmiot p {
+    margin: 0;
+    color: #53666f;
+    line-height: 1.4;
+}
+
+
+/* ==========================================
+   STRONA PAI
+========================================== */
+
+/* INFORMACJA NAD LISTĄ LEKCJI */
+
+.intro {
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    padding: 22px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.07);
+    margin-bottom: 25px;
+}
+
+.intro h3 {
+    margin: 0 0 5px;
+    color: #2f4a55;
+    font-size: 21px;
+}
+
+.intro p {
+    margin: 0;
+    color: #53666f;
+}
+
+
+/* NAGŁÓWEK "LEKCJE" */
+
+.dzial {
+    margin-top: 25px;
+}
+
+.dzial h2 {
+    color: #2f4a55;
+    border-bottom: 1px solid #dce5e8;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+
+/* ==========================================
+   PAI - ZWARTA LISTA LEKCJI
+========================================== */
+
+.lekcja {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+
+    padding: 10px 16px;
+    margin: 6px 0;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    color: #2f3a40;
+
+    transition: 0.15s;
+}
+
+.lekcja:visited {
+    color: #2f3a40;
+}
+
+.lekcja:hover {
+    background: #eaf1f3;
+    border-color: #cbdadd;
+}
+
+
+/* NUMER LEKCJI */
+
+.numer {
+    flex: 0 0 82px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #607983;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* TEMAT LEKCJI */
+
+.lekcja h3 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #304b57;
+
+    line-height: 1.35;
+}
+
+
+/* OPIS LEKCJI - UKRYTY */
+
+.lekcja p {
+    display: none;
+}
+
+
+/* ==========================================
+   STOPKA
+========================================== */
 
 footer {
     text-align: center;
@@ -316,7 +541,10 @@ footer {
     color: #60737c;
 }
 
-/* ===== TELEFON / TABLET ===== */
+
+/* ==========================================
+   TELEFON / TABLET
+========================================== */
 
 @media (max-width: 850px) {
 
@@ -343,138 +571,18 @@ footer {
     section {
         padding: 22px;
     }
-}
-/* =================================
-   STRONA GŁÓWNA – KAFELKI PRZEDMIOTÓW
-================================= */
 
-body > main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-}
+    .lekcja {
+        gap: 12px;
+        padding: 10px 12px;
+    }
 
-body > main > h2 {
-    text-align: center;
-    color: #2f4a55;
-    margin-bottom: 30px;
-}
+    .numer {
+        flex-basis: 75px;
+        font-size: 11px;
+    }
 
-.przedmioty {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.przedmiot {
-    display: block;
-    background: #fbfcfc;
-    border: 1px solid #dfe7e9;
-    padding: 30px;
-    border-radius: 14px;
-    text-align: center;
-
-    text-decoration: none;
-    color: #2f3a40;
-
-    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
-
-    transition: 0.2s;
-}
-
-.przedmiot:visited {
-    color: #2f3a40;
-}
-
-.przedmiot:hover {
-    transform: translateY(-3px);
-    background: #f6f9fa;
-    box-shadow: 0 7px 20px rgba(70, 90, 100, 0.13);
-}
-
-.przedmiot h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 25px;
-    color: #304b57;
-}
-
-.przedmiot p {
-    margin: 0;
-    color: #53666f;
-    line-height: 1.4;
-}
-/* =================================
-   STRONA PAI – LISTA LEKCJI
-================================= */
-
-.intro {
-    background: #fbfcfc;
-    border: 1px solid #dfe7e9;
-    padding: 28px;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
-    margin-bottom: 25px;
-}
-
-.intro h3 {
-    margin-top: 0;
-    color: #2f4a55;
-    font-size: 24px;
-}
-
-.intro p {
-    margin-bottom: 0;
-    color: #53666f;
-}
-
-.dzial {
-    margin-top: 35px;
-}
-
-.dzial h2 {
-    color: #2f4a55;
-    border-bottom: 1px solid #dce5e8;
-    padding-bottom: 10px;
-}
-
-.lekcja {
-    display: block;
-    background: #fbfcfc;
-    border: 1px solid #dfe7e9;
-    padding: 22px;
-    margin: 14px 0;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #2f3a40;
-    box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
-    transition: 0.2s;
-}
-
-.lekcja:visited {
-    color: #2f3a40;
-}
-
-.lekcja:hover {
-    transform: translateY(-2px);
-    background: #f6f9fa;
-    box-shadow: 0 6px 18px rgba(70, 90, 100, 0.12);
-}
-
-.numer {
-    font-size: 13px;
-    font-weight: bold;
-    color: #607983;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.lekcja h3 {
-    margin: 6px 0 5px;
-    color: #304b57;
-}
-
-.lekcja p {
-    margin: 0;
-    color: #53666f;
+    .lekcja h3 {
+        font-size: 15px;
+    }
 }
