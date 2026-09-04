@@ -586,3 +586,56 @@ footer {
         font-size: 15px;
     }
 }
+/* ==========================================
+   PAI – BARDZO ZWARTA LISTA LEKCJI
+========================================== */
+
+body > main .dzial .lekcja {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    align-items: center;
+
+    padding: 7px 14px;
+    margin: 4px 0;
+
+    min-height: 0;
+
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    border-radius: 6px;
+
+    box-shadow: none;
+}
+
+body > main .dzial .lekcja .numer {
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+    line-height: 1.2;
+
+    font-weight: bold;
+    color: #607983;
+
+    white-space: nowrap;
+}
+
+body > main .dzial .lekcja h3 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 15px;
+    line-height: 1.25;
+
+    font-weight: 600;
+    color: #304b57;
+}
+
+body > main .dzial .lekcja p {
+    display: none !important;
+}
+
+body > main .dzial .lekcja:hover {
+    transform: none;
+    background: #eaf1f3;
+}
