@@ -6,21 +6,35 @@
 
     <title>Lekcja 02 – JavaScript: obsługa kodu JS | Strefa IT</title>
 
-    <style>
-        * { box-sizing: border-box; }
+    <!-- PRISM.JS - kolorowanie składni -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
 
-        html { scroll-behavior: smooth; }
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #263238;
+            background: #eef3f5;
+            color: #34434b;
             line-height: 1.7;
         }
 
+
+        /* ================================
+           NAGŁÓWEK
+        ================================= */
+
         header {
-            background: #18212f;
+            background: #78939d;
             color: white;
             padding: 28px 40px;
         }
@@ -32,17 +46,23 @@
 
         header h1 {
             margin: 0;
-            font-size: 34px;
+            font-size: 36px;
+            letter-spacing: 2px;
         }
 
         header p {
-            margin: 6px 0 0;
-            color: #d7dde5;
+            margin: 5px 0 0;
+            color: #f0f5f6;
         }
 
+
+        /* ================================
+           NAWIGACJA
+        ================================= */
+
         nav {
-            background: white;
-            border-bottom: 1px solid #dfe3e8;
+            background: #f9fbfc;
+            border-bottom: 1px solid #d7e0e3;
         }
 
         .nav-container {
@@ -52,13 +72,20 @@
         }
 
         nav a {
-            color: #18212f;
+            color: #435c66;
             text-decoration: none;
             font-weight: bold;
             margin-right: 25px;
         }
 
-        nav a:hover { text-decoration: underline; }
+        nav a:hover {
+            color: #263b44;
+        }
+
+
+        /* ================================
+           UKŁAD STRONY
+        ================================= */
 
         .layout {
             display: grid;
@@ -69,129 +96,238 @@
             padding: 0 25px;
         }
 
+
+        /* ================================
+           SPIS TREŚCI
+        ================================= */
+
         aside {
-            background: white;
-            border-radius: 12px;
+            background: #fbfcfc;
+            border: 1px solid #dfe7e9;
+            border-radius: 14px;
             padding: 22px;
             height: fit-content;
+
             position: sticky;
             top: 20px;
-            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+
+            box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
         }
 
         aside h3 {
             margin-top: 0;
-            color: #18212f;
+            color: #3f5964;
         }
 
         aside a {
             display: block;
-            padding: 7px 0;
-            color: #46515d;
+            padding: 8px 7px;
+            color: #526872;
             text-decoration: none;
             font-size: 14px;
-            border-bottom: 1px solid #f0f1f2;
+            border-bottom: 1px solid #edf1f2;
+            border-radius: 5px;
         }
 
         aside a:hover {
-            color: #000;
-            font-weight: bold;
+            background: #e8f0f2;
+            color: #314b56;
         }
 
-        main { min-width: 0; }
+
+        /* ================================
+           TREŚĆ
+        ================================= */
+
+        main {
+            min-width: 0;
+        }
 
         .lesson-title {
-            background: white;
+            background: #fbfcfc;
+            border: 1px solid #dfe7e9;
             border-radius: 14px;
             padding: 32px;
             margin-bottom: 25px;
-            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+
+            box-shadow: 0 4px 15px rgba(70, 90, 100, 0.08);
         }
 
         .lesson-number {
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
-            color: #607080;
-            letter-spacing: 1px;
+            color: #6f8b95;
+            letter-spacing: 2px;
         }
 
         .lesson-title h2 {
             font-size: 32px;
             margin: 7px 0 8px;
-            color: #18212f;
+            color: #304b57;
         }
 
         .lesson-title p {
             margin-bottom: 0;
-            color: #5c6773;
+            color: #62757e;
         }
 
+
+        /* ================================
+           SEKCJE LEKCJI
+        ================================= */
+
         section {
-            background: white;
+            background: #fbfcfc;
+            border: 1px solid #dfe7e9;
             border-radius: 14px;
             padding: 30px;
             margin-bottom: 24px;
-            box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+
+            box-shadow: 0 4px 15px rgba(70, 90, 100, 0.07);
         }
 
         section h2 {
             margin-top: 0;
-            color: #18212f;
-            border-bottom: 2px solid #edf0f2;
+            color: #36525e;
+
+            border-bottom: 1px solid #dce5e8;
             padding-bottom: 12px;
         }
 
         section h3 {
-            color: #2e3c4b;
+            color: #49626c;
             margin-top: 26px;
         }
 
+
+        /* ================================
+           DEFINICJE
+        ================================= */
+
         .definition {
-            background: #f1f5f9;
-            border-left: 5px solid #18212f;
+            background: #edf4f5;
+            border-left: 5px solid #89a7b0;
             padding: 17px 20px;
             margin: 18px 0;
             border-radius: 0 8px 8px 0;
         }
+
+        .definition strong {
+            color: #36525e;
+        }
+
+
+        /* ================================
+           WAŻNE
+        ================================= */
 
         .important {
-            background: #fff8dd;
-            border-left: 5px solid #e0a800;
+            background: #f5f3eb;
+            border-left: 5px solid #b2a477;
             padding: 17px 20px;
             margin: 18px 0;
             border-radius: 0 8px 8px 0;
         }
 
-        pre {
-            background: #18212f;
-            color: #f2f4f7;
-            padding: 18px;
-            border-radius: 9px;
-            overflow-x: auto;
-            font-size: 15px;
-            line-height: 1.5;
-        }
 
-        code {
-            font-family: Consolas, monospace;
-        }
+        /* ================================
+           SCHEMAT
+        ================================= */
 
         .diagram {
-            background: #f7f8fa;
-            border: 1px solid #e1e5e9;
-            border-radius: 10px;
+            background: #eaf0f2;
+            border: 1px solid #d3dee2;
+            border-radius: 9px;
             padding: 20px;
-            text-align: center;
+
             margin: 20px 0;
+
             font-family: Consolas, monospace;
             white-space: pre-line;
         }
 
-        .remember { border-top: 6px solid #e0a800; }
-        .tasks { border-top: 6px solid #2878b5; }
-        .check { border-top: 6px solid #3a8b5c; }
-        .materials { border-top: 6px solid #7a5da8; }
+
+        /* ================================
+           KOD
+        ================================= */
+
+        pre[class*="language-"] {
+            background: #e7eef1 !important;
+            border: 1px solid #d0dde1;
+            border-radius: 9px;
+
+            padding: 18px !important;
+            margin: 18px 0;
+
+            box-shadow: none;
+
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        code[class*="language-"] {
+            font-family: Consolas, "Courier New", monospace;
+            color: #34434b;
+            text-shadow: none !important;
+        }
+
+
+        /*
+           DELIKATNE KOLORY SKŁADNI
+        */
+
+        .token.tag,
+        .token.keyword {
+            color: #315f8a;
+        }
+
+        .token.attr-name {
+            color: #597a8c;
+        }
+
+        .token.attr-value,
+        .token.string {
+            color: #4b8a6c;
+        }
+
+        .token.function {
+            color: #745f97;
+        }
+
+        .token.punctuation {
+            color: #52666f;
+        }
+
+        .token.operator {
+            color: #627e89;
+        }
+
+        .token.comment {
+            color: #8b979c;
+            font-style: italic;
+        }
+
+
+        /* ================================
+           PODSUMOWANIA
+        ================================= */
+
+        .remember {
+            border-top: 5px solid #b8a66d;
+        }
+
+        .tasks {
+            border-top: 5px solid #7195aa;
+        }
+
+        .check {
+            border-top: 5px solid #75a08a;
+        }
+
+        .materials {
+            border-top: 5px solid #9182aa;
+        }
 
         .remember li,
         .tasks li,
@@ -199,103 +335,239 @@
             margin-bottom: 10px;
         }
 
+
+        /* ================================
+           LINKI DO MATERIAŁÓW
+        ================================= */
+
         .material-link {
             display: block;
-            background: #f7f8fa;
-            border: 1px solid #e2e5e9;
+            background: #edf3f5;
+            border: 1px solid #d5e0e3;
+
             border-radius: 9px;
             padding: 14px 16px;
             margin: 10px 0;
+
             text-decoration: none;
-            color: #263238;
+            color: #405b66;
         }
 
         .material-link:hover {
-            background: #eef1f4;
+            background: #e3edef;
         }
+
+
+        /* ================================
+           STOPKA
+        ================================= */
 
         footer {
             text-align: center;
             padding: 35px 20px;
-            color: #73808c;
+            color: #70838c;
         }
 
+
+        /* ================================
+           TELEFON
+        ================================= */
+
         @media (max-width: 850px) {
-            .layout { grid-template-columns: 1fr; }
-            aside { position: static; }
-            header { padding: 25px; }
-            header h1 { font-size: 28px; }
-            .lesson-title h2 { font-size: 26px; }
-            section { padding: 22px; }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            header {
+                padding: 25px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .lesson-title h2 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 22px;
+            }
         }
+
     </style>
 </head>
 
+
 <body>
 
+
 <header>
+
     <div class="header-container">
+
         <h1>STREFA IT</h1>
-        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+
+        <p>
+            Materiały do zajęć z przedmiotów informatycznych
+        </p>
+
     </div>
+
 </header>
 
+
 <nav>
+
     <div class="nav-container">
-        <a href="../index.html">← PAI</a>
-        <a href="../../index.html">🏠 Strona główna</a>
+
+        <a href="../index.html">
+            ← PAI
+        </a>
+
+        <a href="../../index.html">
+            🏠 Strona główna
+        </a>
+
     </div>
+
 </nav>
+
+
 
 <div class="layout">
 
+
+    <!-- ===================================
+         SPIS TREŚCI
+    ==================================== -->
+
     <aside>
-        <h3>📚 Spis treści</h3>
 
-        <a href="#javascript">1. Co to jest JavaScript?</a>
-        <a href="#umieszczanie">2. Gdzie umieścić kod JS?</a>
-        <a href="#script">3. Znacznik script</a>
-        <a href="#body">4. JavaScript w body</a>
-        <a href="#head">5. JavaScript w head</a>
-        <a href="#plik">6. Zewnętrzny plik .js</a>
-        <a href="#src">7. Atrybut src</a>
-        <a href="#katalogi">8. Struktura katalogów</a>
-        <a href="#dolaczanie">9. Dołączanie JavaScript</a>
-        <a href="#zasady">10. Zasady poprawnego dołączania</a>
+        <h3>PAI</h3>
 
-        <a href="#zapamietaj">📌 Zapamiętaj</a>
-        <a href="#zadania">📝 Zadania</a>
-        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
-        <a href="#materialy">📚 Materiały dodatkowe</a>
+        <a href="../index.html">
+            ← Lista lekcji
+        </a>
+
+        <br>
+
+        <a href="#javascript">
+            1. Co to jest JavaScript?
+        </a>
+
+        <a href="#umieszczanie">
+            2. Gdzie umieścić kod JS?
+        </a>
+
+        <a href="#script">
+            3. Znacznik &lt;script&gt;
+        </a>
+
+        <a href="#body">
+            4. JavaScript w sekcji &lt;body&gt;
+        </a>
+
+        <a href="#head">
+            5. JavaScript w sekcji &lt;head&gt;
+        </a>
+
+        <a href="#plik">
+            6. Zewnętrzny plik .js
+        </a>
+
+        <a href="#src">
+            7. Atrybut src
+        </a>
+
+        <a href="#katalogi">
+            8. Struktura katalogów projektu
+        </a>
+
+        <a href="#dolaczanie">
+            9. Gdzie dołączać JavaScript?
+        </a>
+
+        <a href="#zasady">
+            10. Zasady poprawnego dołączania
+        </a>
+
+        <br>
+
+        <a href="#zapamietaj">
+            📌 Zapamiętaj
+        </a>
+
+        <a href="#zadania">
+            📝 Zadania
+        </a>
+
+        <a href="#sprawdz">
+            🎯 Sprawdź, czy potrafisz
+        </a>
+
+        <a href="#materialy">
+            📚 Materiały dodatkowe
+        </a>
+
     </aside>
+
+
 
     <main>
 
-        <div class="lesson-title">
-            <div class="lesson-number">PAI • Lekcja 02</div>
 
-            <h2>JavaScript: obsługa kodu JS</h2>
+        <!-- TYTUŁ -->
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PAI • LEKCJA 02
+            </div>
+
+            <h2>
+                JavaScript: obsługa kodu JS
+            </h2>
 
             <p>
                 Sposoby umieszczania kodu JavaScript w dokumencie HTML
                 oraz dołączanie zewnętrznych plików JavaScript.
             </p>
+
         </div>
 
+
+
+        <!-- 1 -->
+
         <section id="javascript">
+
             <h2>1. Co to jest JavaScript?</h2>
 
             <div class="definition">
-                <strong>JavaScript (JS)</strong> jest językiem skryptowym
-                wykorzystywanym przede wszystkim do tworzenia interaktywnych
-                elementów stron internetowych.
+
+                <strong>JavaScript (JS)</strong>
+                jest językiem skryptowym wykorzystywanym przede wszystkim
+                do tworzenia interaktywnych elementów stron internetowych.
+
             </div>
 
+
             <div class="important">
+
                 <strong>Ważne!</strong><br>
-                JavaScript jest interpretowany po stronie klienta,
+
+                JavaScript jest interpretowany
+                <strong>po stronie klienta</strong>,
                 czyli w przeglądarce internetowej użytkownika.
+
             </div>
+
 
             <div class="diagram">
 JavaScript
@@ -305,73 +577,145 @@ PRZEGLĄDARKA INTERNETOWA
 KOMPUTER UŻYTKOWNIKA
             </div>
 
+
             <p>
-                HTML odpowiada przede wszystkim za <strong>strukturę strony</strong>,
-                CSS za jej <strong>wygląd</strong>, natomiast JavaScript pozwala
-                określić jej <strong>zachowanie</strong>.
+
+                HTML odpowiada przede wszystkim za
+                <strong>strukturę strony</strong>,
+
+                CSS za jej
+                <strong>wygląd</strong>,
+
+                natomiast JavaScript pozwala określić jej
+                <strong>zachowanie</strong>.
+
             </p>
 
-            <p>Za pomocą JavaScript możemy między innymi:</p>
+
+            <p>
+                Za pomocą JavaScript możemy między innymi:
+            </p>
+
 
             <ul>
+
                 <li>reagować na działania użytkownika,</li>
+
                 <li>zmieniać zawartość strony,</li>
+
                 <li>wykonywać obliczenia,</li>
+
                 <li>pobierać dane wprowadzone przez użytkownika,</li>
+
                 <li>sprawdzać formularze,</li>
+
                 <li>modyfikować wygląd elementów strony.</li>
+
             </ul>
+
         </section>
 
+
+
+        <!-- 2 -->
+
         <section id="umieszczanie">
-            <h2>2. Gdzie można umieścić kod JavaScript?</h2>
 
-            <p>Kod JavaScript możemy umieścić na kilka sposobów.</p>
+            <h2>
+                2. Gdzie można umieścić kod JavaScript?
+            </h2>
 
-            <h3>Bezpośrednio w dokumencie HTML</h3>
+            <p>
+                Kod JavaScript możemy umieścić na kilka sposobów.
+            </p>
 
-            <pre><code>&lt;script&gt;
+
+            <h3>
+                Bezpośrednio w dokumencie HTML
+            </h3>
+
+            <pre><code class="language-html">&lt;script&gt;
     // kod JavaScript
 &lt;/script&gt;</code></pre>
 
-            <h3>W osobnym lokalnym pliku .js</h3>
 
-            <pre><code>&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+            <h3>
+                W osobnym lokalnym pliku .js
+            </h3>
 
-            <h3>W pliku znajdującym się pod zewnętrznym adresem</h3>
+            <pre><code class="language-html">&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
 
-            <pre><code>&lt;script src="https://adres-strony.pl/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
+            <h3>
+                W pliku znajdującym się pod zewnętrznym adresem
+            </h3>
+
+            <pre><code class="language-html">&lt;script src="https://adres-strony.pl/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
         </section>
 
+
+
+        <!-- 3 -->
+
         <section id="script">
-            <h2>3. Znacznik &lt;script&gt;</h2>
+
+            <h2>
+                3. Znacznik &lt;script&gt;
+            </h2>
 
             <p>
+
                 Do umieszczania kodu JavaScript bezpośrednio
                 w dokumencie HTML służy znacznik
+
                 <strong>&lt;script&gt;</strong>.
+
             </p>
 
-            <pre><code>&lt;script&gt;
+
+            <pre><code class="language-html">&lt;script&gt;
     document.write("Witaj na stronie!");
 &lt;/script&gt;</code></pre>
 
+
             <div class="important">
+
                 W HTML5 nie ma potrzeby stosowania
+
                 <strong>type="text/javascript"</strong>.
-                Wystarczy znacznik <strong>&lt;script&gt;</strong>.
+
+                Wystarczy znacznik
+
+                <strong>&lt;script&gt;</strong>.
+
             </div>
+
         </section>
 
+
+
+        <!-- 4 -->
+
         <section id="body">
-            <h2>4. JavaScript w sekcji &lt;body&gt;</h2>
+
+            <h2>
+                4. JavaScript w sekcji &lt;body&gt;
+            </h2>
 
             <p>
+
                 Kod JavaScript możemy umieścić bezpośrednio
-                wewnątrz części <strong>&lt;body&gt;</strong> dokumentu HTML.
+                wewnątrz części
+
+                <strong>&lt;body&gt;</strong>
+
+                dokumentu HTML.
+
             </p>
 
-            <pre><code>&lt;!DOCTYPE html&gt;
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pl"&gt;
 
 &lt;head&gt;
@@ -390,93 +734,170 @@ KOMPUTER UŻYTKOWNIKA
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
+
         </section>
 
+
+
+        <!-- 5 -->
+
         <section id="head">
-            <h2>5. JavaScript w sekcji &lt;head&gt;</h2>
+
+            <h2>
+                5. JavaScript w sekcji &lt;head&gt;
+            </h2>
+
 
             <p>
+
                 Kod JavaScript może znajdować się również
-                w części <strong>&lt;head&gt;</strong> dokumentu.
+                w części
+
+                <strong>&lt;head&gt;</strong>
+
+                dokumentu.
+
             </p>
 
-            <pre><code>&lt;!DOCTYPE html&gt;
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pl"&gt;
 
 &lt;head&gt;
+
     &lt;meta charset="UTF-8"&gt;
     &lt;title&gt;JavaScript&lt;/title&gt;
 
     &lt;script&gt;
+
         function komunikat() {
             alert("Witaj!");
         }
+
     &lt;/script&gt;
 
 &lt;/head&gt;
 
 &lt;body&gt;
 
-    &lt;button onclick="komunikat()"&gt;Kliknij&lt;/button&gt;
+    &lt;button onclick="komunikat()"&gt;
+        Kliknij
+    &lt;/button&gt;
 
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
 
-            <p>
-                W tym przykładzie funkcja została zdefiniowana w części
-                <strong>&lt;head&gt;</strong>, a uruchamia się po kliknięciu
-                przycisku.
-            </p>
         </section>
+
+
+
+        <!-- 6 -->
 
         <section id="plik">
-            <h2>6. Zewnętrzny plik .js</h2>
+
+            <h2>
+                6. Zewnętrzny plik .js
+            </h2>
+
 
             <p>
-                Kod JavaScript możemy przechowywać w oddzielnym pliku
-                z rozszerzeniem <strong>.js</strong>.
+
+                Kod JavaScript możemy przechowywać
+                w oddzielnym pliku z rozszerzeniem
+
+                <strong>.js</strong>.
+
             </p>
 
-            <p>Przykładowa nazwa pliku:</p>
 
-            <pre><code>skrypt.js</code></pre>
+            <p>
+                Przykładowa nazwa:
+            </p>
 
-            <p>W pliku zapisujemy sam kod JavaScript:</p>
 
-            <pre><code>alert("Plik JavaScript został poprawnie dołączony!");</code></pre>
+            <pre><code class="language-none">skrypt.js</code></pre>
+
+
+            <p>
+                W pliku zapisujemy sam kod JavaScript:
+            </p>
+
+
+            <pre><code class="language-javascript">alert("Plik JavaScript został poprawnie dołączony!");</code></pre>
+
 
             <div class="important">
-                W pliku <strong>.js</strong> zapisujemy kod JavaScript
-                bez znaczników HTML <strong>&lt;script&gt;</strong>.
+
+                W pliku <strong>.js</strong>
+                zapisujemy kod JavaScript
+                bez znaczników HTML
+
+                <strong>&lt;script&gt;</strong>.
+
             </div>
+
         </section>
+
+
+
+        <!-- 7 -->
 
         <section id="src">
-            <h2>7. Atrybut src</h2>
+
+            <h2>
+                7. Atrybut src
+            </h2>
+
 
             <div class="definition">
-                Atrybut <strong>src</strong> wskazuje ścieżkę lub adres
-                pliku zawierającego kod JavaScript.
+
+                Atrybut <strong>src</strong>
+                wskazuje ścieżkę lub adres pliku
+                zawierającego kod JavaScript.
+
             </div>
 
+
             <p>
-                Jeżeli plik <strong>skrypt.js</strong> znajduje się
-                w folderze <strong>js</strong>, zapisujemy:
+
+                Jeżeli plik
+
+                <strong>skrypt.js</strong>
+
+                znajduje się w folderze
+
+                <strong>js</strong>,
+
+                zapisujemy:
+
             </p>
 
-            <pre><code>&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
+            <pre><code class="language-html">&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
         </section>
 
+
+
+        <!-- 8 -->
+
         <section id="katalogi">
-            <h2>8. Struktura katalogów projektu</h2>
+
+            <h2>
+                8. Struktura katalogów projektu
+            </h2>
+
 
             <p>
-                Podczas tworzenia strony warto od początku zachowywać
-                uporządkowaną strukturę katalogów.
+
+                Podczas tworzenia strony warto od początku
+                zachowywać uporządkowaną strukturę katalogów.
+
             </p>
 
-            <pre><code>moja-strona/
+
+            <pre><code class="language-none">moja-strona/
 │
 ├── index.html
 │
@@ -486,199 +907,423 @@ KOMPUTER UŻYTKOWNIKA
 └── js/
     └── skrypt.js</code></pre>
 
-            <p>Arkusz stylów dołączamy:</p>
 
-            <pre><code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+            <p>
+                Arkusz stylów dołączamy:
+            </p>
 
-            <p>Plik JavaScript dołączamy:</p>
 
-            <pre><code>&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+
+
+            <p>
+                Plik JavaScript dołączamy:
+            </p>
+
+
+            <pre><code class="language-html">&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
         </section>
 
+
+
+        <!-- 9 -->
+
         <section id="dolaczanie">
-            <h2>9. Gdzie dołączać JavaScript?</h2>
+
+            <h2>
+                9. Gdzie dołączać JavaScript?
+            </h2>
+
 
             <p>
-                W prostych ćwiczeniach kod JavaScript może występować
-                zarówno w części <strong>&lt;head&gt;</strong>,
-                jak i <strong>&lt;body&gt;</strong>.
+
+                W prostych ćwiczeniach kod JavaScript
+                może występować zarówno w części
+
+                <strong>&lt;head&gt;</strong>,
+
+                jak i
+
+                <strong>&lt;body&gt;</strong>.
+
             </p>
 
+
             <p>
+
                 Zewnętrzny plik JavaScript możemy dołączyć
-                pod koniec części <strong>&lt;body&gt;</strong>:
+                pod koniec części
+
+                <strong>&lt;body&gt;</strong>.
+
             </p>
 
-            <pre><code>&lt;body&gt;
+
+            <pre><code class="language-html">&lt;body&gt;
 
     &lt;h1&gt;Moja strona&lt;/h1&gt;
+
     &lt;p&gt;Treść strony...&lt;/p&gt;
 
     &lt;script src="js/skrypt.js"&gt;&lt;/script&gt;
 
 &lt;/body&gt;</code></pre>
 
+
             <p>
+
                 Możemy również umieścić odwołanie do skryptu
-                w części <strong>&lt;head&gt;</strong> i zastosować
-                atrybut <strong>defer</strong>:
+                w części
+
+                <strong>&lt;head&gt;</strong>
+
+                i zastosować atrybut
+
+                <strong>defer</strong>.
+
             </p>
 
-            <pre><code>&lt;script src="js/skrypt.js" defer&gt;&lt;/script&gt;</code></pre>
 
-            <p>
-                Atrybut <strong>defer</strong> powoduje, że wykonanie
-                skryptu zostanie odłożone do czasu przetworzenia
-                dokumentu HTML.
-            </p>
+            <pre><code class="language-html">&lt;script src="js/skrypt.js" defer&gt;&lt;/script&gt;</code></pre>
+
+
+            <div class="definition">
+
+                Atrybut <strong>defer</strong>
+                powoduje, że wykonanie skryptu zostanie
+                odłożone do czasu przetworzenia dokumentu HTML.
+
+            </div>
+
         </section>
 
-        <section id="zasady">
-            <h2>10. Zasady poprawnego dołączania JavaScript</h2>
 
-            <p>
-                Podczas pracy z zewnętrznym plikiem JavaScript
-                pamiętaj o kilku zasadach:
-            </p>
+
+        <!-- 10 -->
+
+        <section id="zasady">
+
+            <h2>
+                10. Zasady poprawnego dołączania JavaScript
+            </h2>
+
 
             <ul>
-                <li>plik JavaScript zapisujemy z rozszerzeniem <strong>.js</strong>,</li>
-                <li>w pliku .js zapisujemy sam kod JavaScript,</li>
-                <li>atrybut <strong>src</strong> musi wskazywać właściwy plik,</li>
-                <li>ścieżka musi uwzględniać położenie pliku w katalogach projektu,</li>
-                <li>nazwa podana w HTML musi odpowiadać nazwie pliku.</li>
+
+                <li>
+                    plik JavaScript zapisujemy z rozszerzeniem
+                    <strong>.js</strong>,
+                </li>
+
+                <li>
+                    w pliku .js zapisujemy sam kod JavaScript,
+                </li>
+
+                <li>
+                    atrybut <strong>src</strong>
+                    musi wskazywać właściwy plik,
+                </li>
+
+                <li>
+                    ścieżka musi uwzględniać położenie pliku
+                    w katalogach projektu,
+                </li>
+
+                <li>
+                    nazwa zapisana w HTML musi odpowiadać
+                    nazwie pliku.
+                </li>
+
             </ul>
 
-            <p>Poprawna struktura:</p>
 
-            <pre><code>projekt/
+            <p>
+                Przykładowa struktura:
+            </p>
+
+
+            <pre><code class="language-none">projekt/
 │
 ├── index.html
 └── js/
     └── skrypt.js</code></pre>
 
-            <p>Poprawne dołączenie:</p>
 
-            <pre><code>&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+            <p>
+                Dołączenie pliku:
+            </p>
+
+
+            <pre><code class="language-html">&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
         </section>
 
-        <section id="zapamietaj" class="remember">
-            <h2>📌 Zapamiętaj</h2>
+
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj"
+                 class="remember">
+
+            <h2>
+                📌 Zapamiętaj
+            </h2>
+
 
             <ul>
-                <li>
-                    <strong>JavaScript jest interpretowany po stronie klienta,
-                    czyli w przeglądarce internetowej.</strong>
-                </li>
 
                 <li>
-                    Kod JavaScript możemy zapisać bezpośrednio
-                    w dokumencie HTML lub w osobnym pliku .js.
+
+                    <strong>
+                        JavaScript jest interpretowany
+                        po stronie klienta,
+                        czyli w przeglądarce internetowej.
+                    </strong>
+
                 </li>
 
-                <li>
-                    Do umieszczania kodu JS w HTML służy
-                    znacznik <strong>&lt;script&gt;</strong>.
-                </li>
 
                 <li>
-                    Atrybut <strong>src</strong> określa ścieżkę
-                    lub adres do pliku JavaScript.
+
+                    Kod JavaScript możemy zapisać
+                    bezpośrednio w dokumencie HTML
+                    lub w osobnym pliku .js.
+
                 </li>
 
+
                 <li>
-                    W pliku .js nie umieszczamy znaczników
+
+                    Do umieszczania kodu JS w HTML
+                    służy znacznik
+
                     <strong>&lt;script&gt;</strong>.
+
                 </li>
 
+
                 <li>
+
+                    Atrybut <strong>src</strong>
+                    określa ścieżkę lub adres
+                    do pliku JavaScript.
+
+                </li>
+
+
+                <li>
+
+                    W pliku .js nie umieszczamy
+                    znaczników
+
+                    <strong>&lt;script&gt;</strong>.
+
+                </li>
+
+
+                <li>
+
                     W HTML5 nie trzeba stosować
+
                     <strong>type="text/javascript"</strong>.
+
                 </li>
+
             </ul>
+
         </section>
 
-        <section id="zadania" class="tasks">
-            <h2>📝 Zadania</h2>
+
+
+        <!-- ZADANIA -->
+
+        <section id="zadania"
+                 class="tasks">
+
+            <h2>
+                📝 Zadania
+            </h2>
+
 
             <ol>
-                <li>
-                    Utwórz dokument <strong>index.html</strong>.
-                    W części body umieść kod JavaScript wyświetlający
-                    napis „Witaj na mojej stronie!”.
-                </li>
 
                 <li>
+
+                    Utwórz dokument
+
+                    <strong>index.html</strong>.
+
+                    W części body umieść kod JavaScript
+                    wyświetlający napis:
+
+                    <strong>Witaj na mojej stronie!</strong>
+
+                </li>
+
+
+                <li>
+
                     Utwórz projekt zawierający plik
-                    <strong>index.html</strong> oraz folder
-                    <strong>js</strong> z plikiem
-                    <strong>skrypt.js</strong>. W pliku JavaScript
-                    wyświetl okno z komunikatem
-                    „Skrypt działa poprawnie!”.
-                </li>
 
-                <li>
-                    Utwórz projekt zawierający plik index.html
-                    oraz foldery <strong>css</strong> i <strong>js</strong>.
-                    Utwórz i poprawnie dołącz pliki
-                    <strong>style.css</strong> oraz
+                    <strong>index.html</strong>
+
+                    oraz folder
+
+                    <strong>js</strong>
+
+                    z plikiem
+
                     <strong>skrypt.js</strong>.
+
+                    W pliku JavaScript wyświetl okno
+                    z komunikatem:
+
+                    <strong>Skrypt działa poprawnie!</strong>
+
                 </li>
 
+
                 <li>
-                    Utwórz stronę zawierającą nagłówek i przycisk.
-                    Kod JavaScript zapisz w osobnym pliku
-                    <strong>skrypt.js</strong> i poprawnie dołącz
-                    go do dokumentu HTML.
+
+                    Utwórz projekt zawierający plik
+                    index.html oraz foldery
+
+                    <strong>css</strong>
+
+                    i
+
+                    <strong>js</strong>.
+
+                    Utwórz i poprawnie dołącz pliki
+                    style.css oraz skrypt.js.
+
                 </li>
+
+
+                <li>
+
+                    Utwórz stronę zawierającą nagłówek
+                    i przycisk.
+
+                    Kod JavaScript zapisz w osobnym
+                    pliku skrypt.js i poprawnie
+                    dołącz go do dokumentu HTML.
+
+                </li>
+
             </ol>
+
         </section>
 
-        <section id="sprawdz" class="check">
-            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+
+        <!-- SPRAWDŹ -->
+
+        <section id="sprawdz"
+                 class="check">
+
+            <h2>
+                🎯 Sprawdź, czy potrafisz
+            </h2>
+
 
             <ol>
-                <li>Do czego służy JavaScript?</li>
-                <li>Po której stronie interpretowany jest JavaScript?</li>
-                <li>Co oznacza określenie „po stronie klienta”?</li>
-                <li>Jakiego znacznika używamy do obsługi JavaScript w HTML?</li>
-                <li>W jakich częściach dokumentu HTML może znajdować się skrypt?</li>
-                <li>Jakie rozszerzenie ma plik JavaScript?</li>
-                <li>Do czego służy atrybut src?</li>
-                <li>Jak dołączyć plik skrypt.js znajdujący się w folderze js?</li>
-                <li>Czy w pliku .js zapisujemy znacznik script?</li>
-                <li>Do czego służy atrybut defer?</li>
+
+                <li>
+                    Do czego służy JavaScript?
+                </li>
+
+                <li>
+                    Po której stronie interpretowany jest JavaScript?
+                </li>
+
+                <li>
+                    Co oznacza określenie „po stronie klienta”?
+                </li>
+
+                <li>
+                    Jakiego znacznika używamy
+                    do obsługi JavaScript w HTML?
+                </li>
+
+                <li>
+                    W jakich częściach dokumentu HTML
+                    może znajdować się skrypt?
+                </li>
+
+                <li>
+                    Jakie rozszerzenie ma plik JavaScript?
+                </li>
+
+                <li>
+                    Do czego służy atrybut src?
+                </li>
+
+                <li>
+                    Jak dołączyć plik skrypt.js
+                    znajdujący się w folderze js?
+                </li>
+
+                <li>
+                    Czy w pliku .js zapisujemy
+                    znacznik script?
+                </li>
+
+                <li>
+                    Do czego służy atrybut defer?
+                </li>
+
             </ol>
+
         </section>
 
-        <section id="materialy" class="materials">
-            <h2>📚 Materiały dodatkowe</h2>
+
+
+        <!-- MATERIAŁY -->
+
+        <section id="materialy"
+                 class="materials">
+
+            <h2>
+                📚 Materiały dodatkowe
+            </h2>
+
 
             <a class="material-link"
                href="https://technikprogramista.pl/kurs/javascript/lekcja/gdzie-umiescic-kod-javascript/"
                target="_blank">
-                🔗 Technik Programista – Gdzie umieścić kod JavaScript?
+
+                🔗 Technik Programista –
+                Gdzie umieścić kod JavaScript?
+
             </a>
 
-            <!--
-            Tu później możemy dodawać:
-
-            <a class="material-link" href="notatka.pdf">
-                📄 Notatka PDF
-            </a>
-
-            <a class="material-link" href="pliki.zip">
-                📦 Pliki do ćwiczeń
-            </a>
-            -->
         </section>
 
+
     </main>
+
 </div>
 
+
+
 <footer>
+
     STREFA IT • PAI • Materiały edukacyjne
+
 </footer>
 
+
+<!-- PRISM.JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+
+
 </body>
+
 </html>
