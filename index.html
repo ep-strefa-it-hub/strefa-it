@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Strefa IT</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+        }
+
+        header {
+            background: #18212f;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .przedmioty {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .przedmiot {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .przedmiot h3 {
+            font-size: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>STREFA IT</h1>
+    <p>Materiały do zajęć z przedmiotów informatycznych</p>
+</header>
+
+<main>
+
+    <h2>Wybierz przedmiot</h2>
+
+    <div class="przedmioty">
+
+        <div class="przedmiot">
+            <h3>PAI</h3>
+            <p>Programowanie aplikacji internetowych</p>
+        </div>
+
+        <div class="przedmiot">
+            <h3>PSW</h3>
+            <p>Projektowanie stron internetowych</p>
+        </div>
+
+        <div class="przedmiot">
+            <h3>AB</h3>
+            <p>Aplikacje biurowe</p>
+        </div>
+
+        <div class="przedmiot">
+            <h3>INF</h3>
+            <p>Informatyka - liceum</p>
+        </div>
+
+        <div class="przedmiot">
+            <h3>INF.03</h3>
+            <p>Materiały do egzaminu zawodowego</p>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    STREFA IT • Materiały edukacyjne
+</footer>
+
+</body>
+</html>
