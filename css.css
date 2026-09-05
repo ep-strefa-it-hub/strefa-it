@@ -300,9 +300,12 @@ code[class*="language-"] {
 
 /* operatory */
 
+
 .token.operator {
     color: #536d78;
+    background: transparent !important;
 }
+
 
 /* komentarze */
 
