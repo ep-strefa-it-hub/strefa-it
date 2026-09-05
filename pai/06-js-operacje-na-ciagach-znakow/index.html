@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 06 – JavaScript: Operacje na ciągach znaków | Strefa IT</title>
+
+    <!-- Prism – kolorowanie składni -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Wspólny CSS STREFY IT -->
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#string">1. Typ String</a>
+        <a href="#length">2. Długość tekstu – length</a>
+        <a href="#znaki">3. Dostęp do znaków</a>
+        <a href="#charat">4. charAt()</a>
+        <a href="#konkatenacja">5. Konkatenacja</a>
+        <a href="#template">6. Template literals</a>
+        <a href="#wielkosc">7. Wielkość liter</a>
+        <a href="#trim">8. Usuwanie spacji</a>
+        <a href="#includes">9. Sprawdzanie zawartości</a>
+        <a href="#indexof">10. Wyszukiwanie pozycji</a>
+        <a href="#fragmenty">11. Pobieranie fragmentów tekstu</a>
+        <a href="#replace">12. Zamiana tekstu</a>
+        <a href="#split">13. Dzielenie tekstu</a>
+        <a href="#repeat">14. Powtarzanie tekstu</a>
+        <a href="#specjalne">15. Znaki specjalne</a>
+        <a href="#kody">16. Kody znaków</a>
+        <a href="#uri">17. Kodowanie adresów</a>
+        <a href="#laczenie">18. Łączenie metod</a>
+        <a href="#przyklady">19. Przykłady praktyczne</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PAI • LEKCJA 06
+            </div>
+
+            <h2>JavaScript: Operacje na ciągach znaków</h2>
+
+            <p>
+                Tworzenie, łączenie, przeszukiwanie i modyfikowanie tekstu
+                w JavaScript oraz wykorzystanie podstawowych metod typu String.
+            </p>
+        </div>
+
+
+        <section id="string">
+
+            <h2>1. Ciągi znaków – typ String</h2>
+
+            <div class="definition">
+                <strong>String</strong> jest typem danych służącym
+                do przechowywania ciągów znaków.
+            </div>
+
+            <p>
+                Ciąg znaków może zawierać litery, cyfry, spacje
+                oraz znaki specjalne.
+            </p>
+
+            <p>
+                Tekst można zapisać przy użyciu cudzysłowu:
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";</code></pre>
+
+            <p>
+                Można również zastosować apostrofy:
+            </p>
+
+            <pre><code class="language-javascript">let imie = 'Anna';</code></pre>
+
+            <p>
+                Trzecim sposobem jest zastosowanie znaków backtick:
+            </p>
+
+            <pre><code class="language-javascript">let imie = `Anna`;</code></pre>
+
+            <p>
+                Wszystkie powyższe zapisy tworzą wartość typu
+                <code>string</code>.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(typeof tekst);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">string</code></pre>
+
+        </section>
+
+
+        <section id="length">
+
+            <h2>2. Długość tekstu – length</h2>
+
+            <p>
+                Właściwość <code>length</code> zwraca liczbę znaków
+                znajdujących się w ciągu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst.length);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">10</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Do długości tekstu wliczane są również spacje
+                i inne znaki specjalne.
+            </div>
+
+            <pre><code class="language-javascript">let tekst = "Ala ma kota";
+console.log(tekst.length);</code></pre>
+
+        </section>
+
+
+        <section id="znaki">
+
+            <h2>3. Dostęp do pojedynczych znaków</h2>
+
+            <p>
+                Znaki w ciągu są numerowane od <strong>0</strong>.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst[0]);
+console.log(tekst[1]);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">J
+a</code></pre>
+
+            <p>
+                Ostatni znak można pobrać na podstawie długości tekstu:
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst[tekst.length - 1]);</code></pre>
+
+            <p>
+                Współczesnym sposobem dostępu do znaków jest również
+                metoda <code>at()</code>.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst.at(0));
+console.log(tekst.at(-1));</code></pre>
+
+            <div class="definition">
+                W metodzie <code>at()</code> można zastosować wartość
+                ujemną. <code>at(-1)</code> zwraca ostatni znak ciągu.
+            </div>
+
+        </section>
+
+
+        <section id="charat">
+
+            <h2>4. Metoda charAt()</h2>
+
+            <p>
+                Metoda <code>charAt()</code> zwraca znak znajdujący się
+                pod wskazanym indeksem.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst.charAt(0));
+console.log(tekst.charAt(4));</code></pre>
+
+            <p>
+                Dostęp do znaków można więc uzyskać na kilka sposobów:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Sposób</th>
+                    <th>Przykład</th>
+                </tr>
+                <tr>
+                    <td>indeks</td>
+                    <td><code>tekst[0]</code></td>
+                </tr>
+                <tr>
+                    <td>charAt()</td>
+                    <td><code>tekst.charAt(0)</code></td>
+                </tr>
+                <tr>
+                    <td>at()</td>
+                    <td><code>tekst.at(0)</code></td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <section id="konkatenacja">
+
+            <h2>5. Konkatenacja ciągów znaków</h2>
+
+            <div class="definition">
+                <strong>Konkatenacja</strong> oznacza łączenie
+                ciągów znaków.
+            </div>
+
+            <p>
+                Do łączenia tekstów można zastosować operator
+                <code>+</code>.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let tekst = "Witaj " + imie;
+console.log(tekst);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Witaj Anna</code></pre>
+
+            <p>
+                Możliwe jest również zastosowanie operatora
+                skróconego przypisania:
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+tekst += " jest ciekawy";
+console.log(tekst);</code></pre>
+
+        </section>
+
+
+        <section id="template">
+
+            <h2>6. Template literals – tekst ze zmiennymi</h2>
+
+            <p>
+                Wartości zmiennych można łączyć z tekstem
+                za pomocą konkatenacji:
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 17;
+let tekst = "Mam na imię " + imie + " i mam " + wiek + " lat.";
+document.write(tekst);</code></pre>
+
+            <p>
+                Współczesnym sposobem tworzenia takiego tekstu
+                są <strong>template literals</strong>.
+            </p>
+
+            <p>
+                Tekst zapisuje się wtedy pomiędzy znakami backtick,
+                a wartości zmiennych umieszcza się w zapisie
+                <code>${...}</code>.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+let wiek = 17;
+let tekst = `Mam na imię ${imie} i mam ${wiek} lat.`;
+document.write(tekst);</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Oba sposoby są poprawne i należy umieć je odczytać.
+                Template literals są wygodnym współczesnym sposobem
+                wstawiania wartości zmiennych do tekstu.
+            </div>
+
+        </section>
+
+
+        <section id="wielkosc">
+
+            <h2>7. Zmiana wielkości liter</h2>
+
+            <h3>toUpperCase()</h3>
+
+            <p>
+                Metoda <code>toUpperCase()</code> zamienia wszystkie
+                litery na wielkie.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst.toUpperCase());</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">JAVASCRIPT</code></pre>
+
+
+            <h3>toLowerCase()</h3>
+
+            <p>
+                Metoda <code>toLowerCase()</code> zamienia wszystkie
+                litery na małe.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+console.log(tekst.toLowerCase());</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">javascript</code></pre>
+
+        </section>
+
+
+        <section id="trim">
+
+            <h2>8. Usuwanie zbędnych spacji</h2>
+
+            <p>
+                Metoda <code>trim()</code> usuwa białe znaki
+                z początku i końca tekstu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "   JavaScript   ";
+tekst = tekst.trim();
+console.log(tekst);</code></pre>
+
+            <p>
+                Dostępne są również:
+            </p>
+
+            <ul>
+                <li><code>trimStart()</code> – usuwa białe znaki z początku,</li>
+                <li><code>trimEnd()</code> – usuwa białe znaki z końca.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Praktyczne zastosowanie:</strong><br>
+                <code>trim()</code> jest przydatne podczas przetwarzania
+                danych wprowadzonych przez użytkownika.
+            </div>
+
+        </section>
+
+
+        <section id="includes">
+
+            <h2>9. Sprawdzanie zawartości tekstu</h2>
+
+            <h3>includes()</h3>
+
+            <p>
+                Metoda <code>includes()</code> sprawdza,
+                czy wskazany fragment znajduje się w tekście.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "Programowanie JavaScript";
+console.log(tekst.includes("JavaScript"));</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true</code></pre>
+
+
+            <h3>startsWith()</h3>
+
+            <p>
+                Metoda <code>startsWith()</code> sprawdza,
+                czy tekst rozpoczyna się od podanego fragmentu.
+            </p>
+
+            <pre><code class="language-javascript">let adres = "https://example.com";
+console.log(adres.startsWith("https://"));</code></pre>
+
+
+            <h3>endsWith()</h3>
+
+            <p>
+                Metoda <code>endsWith()</code> sprawdza,
+                czy tekst kończy się podanym fragmentem.
+            </p>
+
+            <pre><code class="language-javascript">let email = "anna@szkola.pl";
+console.log(email.endsWith(".pl"));</code></pre>
+
+        </section>
+
+
+        <section id="indexof">
+
+            <h2>10. Wyszukiwanie pozycji tekstu</h2>
+
+            <h3>indexOf()</h3>
+
+            <p>
+                Metoda <code>indexOf()</code> zwraca indeks pierwszego
+                wystąpienia wskazanego fragmentu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript jest językiem JavaScript";
+console.log(tekst.indexOf("JavaScript"));</code></pre>
+
+            <p>
+                Jeżeli fragment nie zostanie znaleziony,
+                metoda zwraca wartość <code>-1</code>.
+            </p>
+
+
+            <h3>lastIndexOf()</h3>
+
+            <p>
+                Metoda <code>lastIndexOf()</code> zwraca indeks
+                ostatniego wystąpienia wskazanego fragmentu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript jest językiem JavaScript";
+console.log(tekst.lastIndexOf("JavaScript"));</code></pre>
+
+            <table>
+                <tr>
+                    <th>Metoda</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>includes()</code></td>
+                    <td>sprawdza, czy fragment występuje</td>
+                </tr>
+                <tr>
+                    <td><code>indexOf()</code></td>
+                    <td>zwraca pozycję pierwszego wystąpienia</td>
+                </tr>
+                <tr>
+                    <td><code>lastIndexOf()</code></td>
+                    <td>zwraca pozycję ostatniego wystąpienia</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <section id="fragmenty">
+
+            <h2>11. Pobieranie fragmentów tekstu</h2>
+
+            <h3>slice()</h3>
+
+            <p>
+                Metoda <code>slice()</code> zwraca fragment tekstu
+                znajdujący się pomiędzy wskazanymi indeksami.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+let fragment = tekst.slice(4, 10);
+console.log(fragment);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Script</code></pre>
+
+
+            <h3>substring()</h3>
+
+            <p>
+                Metoda <code>substring()</code> również zwraca
+                fragment tekstu pomiędzy wskazanymi indeksami.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+let fragment = tekst.substring(4, 10);
+console.log(fragment);</code></pre>
+
+
+            <h3>substr()</h3>
+
+            <p>
+                Metoda <code>substr()</code> określa pozycję początkową
+                oraz liczbę znaków, które mają zostać pobrane.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "JavaScript";
+let fragment = tekst.substr(4, 6);
+console.log(fragment);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Script</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                <code>substr()</code> jest starszą metodą,
+                którą można spotkać w starszym kodzie oraz zadaniach egzaminacyjnych.
+                Należy znać jej sposób działania.
+                W nowych projektach częściej stosuje się
+                <code>slice()</code> lub <code>substring()</code>.
+            </div>
+
+            <table>
+                <tr>
+                    <th>Metoda</th>
+                    <th>Znaczenie parametrów</th>
+                </tr>
+                <tr>
+                    <td><code>slice(4, 10)</code></td>
+                    <td>od indeksu 4 do indeksu 10</td>
+                </tr>
+                <tr>
+                    <td><code>substring(4, 10)</code></td>
+                    <td>od indeksu 4 do indeksu 10</td>
+                </tr>
+                <tr>
+                    <td><code>substr(4, 6)</code></td>
+                    <td>od indeksu 4 pobierz 6 znaków</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <section id="replace">
+
+            <h2>12. Zamiana fragmentów tekstu</h2>
+
+            <h3>replace()</h3>
+
+            <p>
+                Metoda <code>replace()</code> zamienia pierwsze
+                wystąpienie wskazanego fragmentu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "Lubię JavaScript";
+let wynik = tekst.replace("JavaScript", "PHP");
+console.log(wynik);</code></pre>
+
+
+            <h3>replaceAll()</h3>
+
+            <p>
+                Metoda <code>replaceAll()</code> zamienia wszystkie
+                wystąpienia wskazanego fragmentu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "kot kot kot";
+let wynik = tekst.replaceAll("kot", "pies");
+console.log(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">pies pies pies</code></pre>
+
+        </section>
+
+
+        <section id="split">
+
+            <h2>13. Dzielenie tekstu – split()</h2>
+
+            <p>
+                Metoda <code>split()</code> dzieli tekst
+                według wskazanego separatora.
+            </p>
+
+            <pre><code class="language-javascript">let dane = "Anna;Kowalska;3TI";
+let wynik = dane.split(";");
+console.log(wynik);</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Wynikiem działania <code>split()</code> jest tablica.
+                Tablice zostaną dokładnie omówione w osobnej lekcji.
+            </div>
+
+        </section>
+
+
+        <section id="repeat">
+
+            <h2>14. Powtarzanie tekstu – repeat()</h2>
+
+            <p>
+                Metoda <code>repeat()</code> powtarza ciąg znaków
+                określoną liczbę razy.
+            </p>
+
+            <pre><code class="language-javascript">let znak = "*";
+console.log(znak.repeat(10));</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">**********</code></pre>
+
+        </section>
+
+
+        <section id="specjalne">
+
+            <h2>15. Znaki specjalne w tekście</h2>
+
+            <p>
+                W ciągach znaków można stosować sekwencje specjalne.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zapis</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>\n</code></td>
+                    <td>nowa linia</td>
+                </tr>
+                <tr>
+                    <td><code>\t</code></td>
+                    <td>tabulator</td>
+                </tr>
+                <tr>
+                    <td><code>\"</code></td>
+                    <td>cudzysłów</td>
+                </tr>
+                <tr>
+                    <td><code>\'</code></td>
+                    <td>apostrof</td>
+                </tr>
+                <tr>
+                    <td><code>\\</code></td>
+                    <td>znak backslash</td>
+                </tr>
+            </table>
+
+            <pre><code class="language-javascript">let tekst = "Pierwsza linia\nDruga linia";
+console.log(tekst);</code></pre>
+
+        </section>
+
+
+        <section id="kody">
+
+            <h2>16. Kody znaków</h2>
+
+            <h3>charCodeAt()</h3>
+
+            <p>
+                Metoda <code>charCodeAt()</code> zwraca kod
+                UTF-16 znaku znajdującego się pod wskazanym indeksem.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "A";
+console.log(tekst.charCodeAt(0));</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">65</code></pre>
+
+
+            <h3>String.fromCharCode()</h3>
+
+            <p>
+                Metoda <code>String.fromCharCode()</code> wykonuje
+                operację odwrotną – tworzy znak na podstawie kodu.
+            </p>
+
+            <pre><code class="language-javascript">let znak = String.fromCharCode(65);
+console.log(znak);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">A</code></pre>
+
+        </section>
+
+
+        <section id="uri">
+
+            <h2>17. Kodowanie adresów – encodeURI() i decodeURI()</h2>
+
+            <p>
+                Funkcja <code>encodeURI()</code> służy do kodowania
+                znaków występujących w adresach URI.
+            </p>
+
+            <pre><code class="language-javascript">let adres = "https://example.com/moja strona";
+let wynik = encodeURI(adres);
+console.log(wynik);</code></pre>
+
+            <p>
+                Funkcja <code>decodeURI()</code> wykonuje operację odwrotną.
+            </p>
+
+            <pre><code class="language-javascript">let adres = "https://example.com/moja%20strona";
+let wynik = decodeURI(adres);
+console.log(wynik);</code></pre>
+
+        </section>
+
+
+        <section id="laczenie">
+
+            <h2>18. Łączenie metod</h2>
+
+            <p>
+                Kilka metod można wykonywać kolejno na tym samym tekście.
+            </p>
+
+            <pre><code class="language-javascript">let imie = prompt("Podaj imię:");
+imie = imie.trim().toLowerCase();
+console.log(imie);</code></pre>
+
+            <p>
+                Najpierw zostają usunięte białe znaki z początku i końca tekstu,
+                a następnie wszystkie litery zostają zamienione na małe.
+            </p>
+
+        </section>
+
+
+        <section id="przyklady">
+
+            <h2>19. Przykłady praktyczne</h2>
+
+
+            <h3>Przykład 1 – przygotowanie imienia</h3>
+
+            <pre><code class="language-javascript">let imie = prompt("Podaj imię:");
+imie = imie.trim();
+imie = imie.toLowerCase();
+console.log(imie);</code></pre>
+
+
+            <h3>Przykład 2 – analiza adresu e-mail</h3>
+
+            <pre><code class="language-javascript">let email = prompt("Podaj adres e-mail:");
+email = email.trim();
+console.log(email.includes("@"));
+console.log(email.endsWith(".pl"));</code></pre>
+
+
+            <h3>Przykład 3 – informacje o tekście</h3>
+
+            <pre><code class="language-javascript">let tekst = prompt("Wpisz tekst:");
+console.log("Liczba znaków: " + tekst.length);
+console.log("Pierwszy znak: " + tekst[0]);
+console.log("Ostatni znak: " + tekst.at(-1));
+console.log("Wielkie litery: " + tekst.toUpperCase());</code></pre>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li><code>String</code> jest typem danych służącym do przechowywania tekstu.</li>
+                <li><code>length</code> zwraca długość ciągu znaków.</li>
+                <li>Indeksy znaków rozpoczynają się od 0.</li>
+                <li><code>at(-1)</code> zwraca ostatni znak ciągu.</li>
+                <li>Konkatenacja oznacza łączenie tekstów.</li>
+                <li>Template literals umożliwiają wygodne wstawianie wartości zmiennych do tekstu.</li>
+                <li><code>toUpperCase()</code> i <code>toLowerCase()</code> zmieniają wielkość liter.</li>
+                <li><code>trim()</code> usuwa białe znaki z początku i końca tekstu.</li>
+                <li><code>includes()</code> sprawdza, czy fragment występuje w tekście.</li>
+                <li><code>indexOf()</code> zwraca indeks pierwszego wystąpienia.</li>
+                <li><code>slice()</code>, <code>substring()</code> i <code>substr()</code> służą do pobierania fragmentów tekstu.</li>
+                <li><code>replace()</code> i <code>replaceAll()</code> służą do zamiany fragmentów tekstu.</li>
+                <li><code>split()</code> dzieli tekst i zwraca tablicę.</li>
+                <li><code>repeat()</code> powtarza tekst określoną liczbę razy.</li>
+                <li><code>charCodeAt()</code> zwraca kod znaku.</li>
+                <li><code>String.fromCharCode()</code> tworzy znak na podstawie kodu.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+            <p>
+                Wczytaj tekst za pomocą <code>prompt()</code>.
+                Wyświetl liczbę jego znaków.
+            </p>
+
+            <h3>Zadanie 2</h3>
+            <p>
+                Wczytaj imię. Wyświetl je najpierw wielkimi,
+                a następnie małymi literami.
+            </p>
+
+            <h3>Zadanie 3</h3>
+            <p>
+                Wczytaj tekst. Wyświetl pierwszy oraz ostatni znak.
+            </p>
+
+            <h3>Zadanie 4</h3>
+            <p>
+                Wczytaj tekst zawierający zbędne spacje na początku
+                i końcu. Usuń je za pomocą <code>trim()</code>.
+            </p>
+
+            <h3>Zadanie 5</h3>
+            <p>
+                Wczytaj adres e-mail. Sprawdź za pomocą
+                <code>includes()</code>, czy zawiera znak <code>@</code>.
+            </p>
+
+            <h3>Zadanie 6</h3>
+            <p>
+                Wczytaj adres strony internetowej. Sprawdź,
+                czy rozpoczyna się od <code>https://</code>.
+            </p>
+
+            <h3>Zadanie 7</h3>
+            <p>
+                Dla tekstu <code>"Programowanie JavaScript"</code>
+                znajdź pozycję słowa <code>"JavaScript"</code>.
+            </p>
+
+            <h3>Zadanie 8</h3>
+            <p>
+                Z tekstu <code>"JavaScript"</code> pobierz fragment
+                <code>"Script"</code> za pomocą
+                <code>slice()</code>, <code>substring()</code>
+                oraz <code>substr()</code>.
+            </p>
+
+            <h3>Zadanie 9</h3>
+            <p>
+                W tekście <code>"Lubię JavaScript"</code>
+                zamień słowo <code>"JavaScript"</code>
+                na <code>"PHP"</code>.
+            </p>
+
+            <h3>Zadanie 10</h3>
+            <p>
+                Utwórz tekst <code>"kot kot kot"</code>.
+                Zamień wszystkie wystąpienia słowa
+                <code>"kot"</code> na <code>"pies"</code>.
+            </p>
+
+            <h3>Zadanie 11</h3>
+            <p>
+                Utwórz tekst <code>"Anna;Kowalska;3TI"</code>
+                i podziel go za pomocą średnika.
+                Wynik wyświetl w konsoli.
+            </p>
+
+            <h3>Zadanie 12</h3>
+            <p>
+                Wyświetl na ekranie 20 znaków <code>*</code>
+                za pomocą metody <code>repeat()</code>.
+            </p>
+
+            <h3>Zadanie 13</h3>
+            <p>
+                Wczytaj imię. Usuń zbędne spacje,
+                zamień wszystkie litery na małe
+                i wyświetl wynik.
+            </p>
+
+            <h3>Zadanie 14</h3>
+            <p>
+                Wczytaj imię oraz wiek. Utwórz komunikat
+                <code>Mam na imię ... i mam ... lat.</code>
+                najpierw za pomocą konkatenacji,
+                a następnie za pomocą template literals.
+            </p>
+
+        </section>
+
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>utworzyć zmienną typu String,</li>
+                <li>sprawdzić długość tekstu,</li>
+                <li>pobrać wybrany znak z ciągu,</li>
+                <li>połączyć teksty za pomocą konkatenacji,</li>
+                <li>zastosować template literals,</li>
+                <li>zmienić wielkość liter,</li>
+                <li>usunąć zbędne spacje,</li>
+                <li>sprawdzić, czy tekst zawiera wskazany fragment,</li>
+                <li>odnaleźć pozycję fragmentu tekstu,</li>
+                <li>pobrać fragment ciągu znaków,</li>
+                <li>zastosować <code>slice()</code>, <code>substring()</code> i <code>substr()</code>,</li>
+                <li>zamienić fragment tekstu,</li>
+                <li>podzielić tekst za pomocą <code>split()</code>,</li>
+                <li>powtórzyć tekst za pomocą <code>repeat()</code>,</li>
+                <li>odczytać kod znaku,</li>
+                <li>połączyć kilka metod w jednym wyrażeniu.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-operacje-na-ciagach-znakow/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – JavaScript: Operacje na ciągach znaków
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-operacje-na-ciagach-znakow-cwiczenia-interaktywne/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Operacje na ciągach znaków: ćwiczenia interaktywne
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 06
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
