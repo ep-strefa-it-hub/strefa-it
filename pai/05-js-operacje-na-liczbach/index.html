@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 05 – JavaScript: Operacje na liczbach | Strefa IT</title>
+
+    <!-- Prism – kolorowanie składni -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Wspólny CSS STREFY IT -->
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <!-- =========================
+         SPIS TREŚCI
+    ========================== -->
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#operatory">1. Operatory arytmetyczne</a>
+        <a href="#modulo">2. Reszta z dzielenia</a>
+        <a href="#potegowanie">3. Potęgowanie i pierwiastek</a>
+        <a href="#kolejnosc">4. Kolejność działań</a>
+        <a href="#przypisanie">5. Operatory przypisania</a>
+        <a href="#inkrementacja">6. Inkrementacja i dekrementacja</a>
+        <a href="#tekst-liczba">7. Liczba a tekst</a>
+        <a href="#konkatenacja">8. Konkatenacja</a>
+        <a href="#konwersja">9. Konwersja danych</a>
+        <a href="#alert">10. Okno alert()</a>
+        <a href="#prompt">11. Okno prompt()</a>
+        <a href="#confirm">12. Okno confirm()</a>
+        <a href="#wyswietlanie">13. Wyświetlanie wyników</a>
+        <a href="#zaokraglanie">14. Zaokrąglanie liczb</a>
+        <a href="#abs">15. Wartość bezwzględna</a>
+        <a href="#random">16. Liczby losowe</a>
+        <a href="#porownanie">17. Operatory porównania</a>
+        <a href="#logiczne">18. Operatory logiczne</a>
+        <a href="#przyklad">19. Przykład praktyczny</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+    </aside>
+
+
+    <main>
+
+        <!-- =========================
+             TYTUŁ
+        ========================== -->
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PAI • LEKCJA 05
+            </div>
+
+            <h2>JavaScript: Operacje na liczbach</h2>
+
+            <p>
+                Operatory arytmetyczne, konwersja danych, pobieranie danych
+                od użytkownika, funkcje obiektu Math oraz podstawowe
+                operatory porównania i logiczne.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             1. OPERATORY
+        ========================== -->
+
+        <section id="operatory">
+
+            <h2>1. Operatory arytmetyczne</h2>
+
+            <p>
+                Operatory arytmetyczne służą do wykonywania
+                podstawowych działań matematycznych.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Działanie</th>
+                    <th>Przykład</th>
+                </tr>
+
+                <tr>
+                    <td><code>+</code></td>
+                    <td>dodawanie</td>
+                    <td><code>a + b</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>-</code></td>
+                    <td>odejmowanie</td>
+                    <td><code>a - b</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>*</code></td>
+                    <td>mnożenie</td>
+                    <td><code>a * b</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>/</code></td>
+                    <td>dzielenie</td>
+                    <td><code>a / b</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>%</code></td>
+                    <td>reszta z dzielenia</td>
+                    <td><code>a % b</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>**</code></td>
+                    <td>potęgowanie</td>
+                    <td><code>a ** b</code></td>
+                </tr>
+            </table>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 4;
+
+document.write("Suma: " + (a + b) + "&lt;br&gt;");
+document.write("Różnica: " + (a - b) + "&lt;br&gt;");
+document.write("Iloczyn: " + (a * b) + "&lt;br&gt;");
+document.write("Iloraz: " + (a / b));</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             2. MODULO
+        ========================== -->
+
+        <section id="modulo">
+
+            <h2>2. Reszta z dzielenia – operator %</h2>
+
+            <p>
+                Operator <code>%</code>, nazywany operatorem
+                <strong>modulo</strong>, zwraca resztę z dzielenia.
+            </p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 3;
+
+let wynik = a % b;
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1</code></pre>
+
+            <p>
+                Liczba 10 podzielona przez 3 daje resztę równą 1.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Operator <code>%</code> będzie często wykorzystywany
+                między innymi do sprawdzania podzielności liczb.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             3. POTĘGA I PIERWIASTEK
+        ========================== -->
+
+        <section id="potegowanie">
+
+            <h2>3. Potęgowanie i pierwiastek</h2>
+
+            <h3>Potęgowanie – operator **</h3>
+
+            <pre><code class="language-javascript">let a = 2;
+let b = 3;
+
+let wynik = a ** b;
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">8</code></pre>
+
+
+            <h3>Math.pow()</h3>
+
+            <p>
+                Potęgowanie można również wykonać za pomocą
+                metody <code>Math.pow()</code>.
+            </p>
+
+            <pre><code class="language-javascript">let a = 2;
+let b = 3;
+
+let wynik = Math.pow(a, b);
+
+document.write(wynik);</code></pre>
+
+
+            <h3>Math.sqrt()</h3>
+
+            <p>
+                Metoda <code>Math.sqrt()</code> oblicza
+                pierwiastek kwadratowy z liczby.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 25;
+
+let wynik = Math.sqrt(liczba);
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">5</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             4. KOLEJNOŚĆ DZIAŁAŃ
+        ========================== -->
+
+        <section id="kolejnosc">
+
+            <h2>4. Kolejność wykonywania działań</h2>
+
+            <p>
+                JavaScript wykonuje działania matematyczne zgodnie
+                z kolejnością wykonywania działań.
+            </p>
+
+            <pre><code class="language-javascript">let wynik = 2 + 3 * 4;
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">14</code></pre>
+
+            <p>
+                Mnożenie zostaje wykonane przed dodawaniem.
+            </p>
+
+            <p>
+                Nawiasy umożliwiają zmianę kolejności wykonywania działań:
+            </p>
+
+            <pre><code class="language-javascript">let wynik = (2 + 3) * 4;
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">20</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             5. PRZYPISANIE
+        ========================== -->
+
+        <section id="przypisanie">
+
+            <h2>5. Operatory przypisania</h2>
+
+            <p>
+                Operator <code>=</code> służy do przypisywania
+                wartości do zmiennej.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 10;</code></pre>
+
+            <p>
+                JavaScript udostępnia również skrócone operatory przypisania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zapis</th>
+                    <th>Odpowiednik</th>
+                </tr>
+
+                <tr>
+                    <td><code>a += 5</code></td>
+                    <td><code>a = a + 5</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>a -= 5</code></td>
+                    <td><code>a = a - 5</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>a *= 5</code></td>
+                    <td><code>a = a * 5</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>a /= 5</code></td>
+                    <td><code>a = a / 5</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>a %= 5</code></td>
+                    <td><code>a = a % 5</code></td>
+                </tr>
+            </table>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+
+liczba += 5;
+
+document.write(liczba);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">15</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             6. INKREMENTACJA
+        ========================== -->
+
+        <section id="inkrementacja">
+
+            <h2>6. Inkrementacja i dekrementacja</h2>
+
+            <div class="definition">
+                <strong>Inkrementacja</strong> oznacza zwiększenie
+                wartości zmiennej o 1.
+            </div>
+
+            <pre><code class="language-javascript">let liczba = 5;
+
+liczba++;
+
+document.write(liczba);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">6</code></pre>
+
+
+            <div class="definition">
+                <strong>Dekrementacja</strong> oznacza zmniejszenie
+                wartości zmiennej o 1.
+            </div>
+
+            <pre><code class="language-javascript">let liczba = 5;
+
+liczba--;
+
+document.write(liczba);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">4</code></pre>
+
+
+            <h3>Postinkrementacja i preinkrementacja</h3>
+
+            <p>
+                Operator <code>++</code> może znajdować się
+                przed lub po nazwie zmiennej.
+            </p>
+
+            <pre><code class="language-javascript">let a = 4;
+
+document.write(a++);
+document.write("&lt;br&gt;");
+document.write(++a);
+document.write("&lt;br&gt;");
+document.write(a);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">4
+6
+6</code></pre>
+
+            <p>
+                Zapis <code>a++</code> najpierw wykorzystuje aktualną
+                wartość zmiennej, a następnie zwiększa ją o 1.
+            </p>
+
+            <p>
+                Zapis <code>++a</code> najpierw zwiększa wartość
+                zmiennej o 1, a następnie wykorzystuje nową wartość.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             7. LICZBA A TEKST
+        ========================== -->
+
+        <section id="tekst-liczba">
+
+            <h2>7. Liczba a tekst</h2>
+
+            <p>
+                Liczba oraz tekst zawierający cyfry są różnymi
+                rodzajami danych.
+            </p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = "10";</code></pre>
+
+            <p>
+                Zmienna <code>a</code> przechowuje liczbę,
+                natomiast zmienna <code>b</code> przechowuje tekst.
+            </p>
+
+            <pre><code class="language-javascript">console.log(typeof a);
+console.log(typeof b);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">number
+string</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                <code>10</code> i <code>"10"</code> nie są tym samym
+                rodzajem danych.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             8. KONKATENACJA
+        ========================== -->
+
+        <section id="konkatenacja">
+
+            <h2>8. Konkatenacja</h2>
+
+            <div class="definition">
+                <strong>Konkatenacja</strong> oznacza łączenie
+                ciągów znaków.
+            </div>
+
+            <p>
+                Operator <code>+</code> może służyć zarówno do
+                dodawania liczb, jak i do łączenia tekstów.
+            </p>
+
+            <pre><code class="language-javascript">let imie = "Anna";
+
+let tekst = "Witaj " + imie;
+
+document.write(tekst);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Witaj Anna</code></pre>
+
+
+            <h3>Liczba + tekst</h3>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = "10";
+
+let wynik = a + b;
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1010</code></pre>
+
+            <p>
+                Nie wykonano dodawania matematycznego.
+                Liczba została połączona z tekstem.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Jeżeli jeden z argumentów operatora <code>+</code>
+                jest tekstem, może nastąpić konkatenacja zamiast
+                dodawania matematycznego.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             9. KONWERSJA
+        ========================== -->
+
+        <section id="konwersja">
+
+            <h2>9. Konwersja tekstu na liczbę</h2>
+
+            <p>
+                Dane zapisane jako tekst można przekształcić
+                na wartości liczbowe.
+            </p>
+
+
+            <h3>Number()</h3>
+
+            <p>
+                Funkcja <code>Number()</code> przekształca wartość
+                na liczbę.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "25";
+
+let liczba = Number(tekst);
+
+document.write(liczba + 5);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">30</code></pre>
+
+
+            <h3>parseInt()</h3>
+
+            <p>
+                Funkcja <code>parseInt()</code> służy do odczytania
+                liczby całkowitej z tekstu.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "25";
+
+let liczba = parseInt(tekst);
+
+document.write(liczba);</code></pre>
+
+
+            <h3>parseFloat()</h3>
+
+            <p>
+                Funkcja <code>parseFloat()</code> pozwala odczytać
+                liczbę zawierającą część dziesiętną.
+            </p>
+
+            <pre><code class="language-javascript">let tekst = "12.5";
+
+let liczba = parseFloat(tekst);
+
+document.write(liczba);</code></pre>
+
+            <div class="important">
+                <strong>Uwaga!</strong><br>
+                W kodzie JavaScript separatorem części dziesiętnej
+                liczby jest kropka, np. <code>12.5</code>.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             10. ALERT
+        ========================== -->
+
+        <section id="alert">
+
+            <h2>10. Okno alert()</h2>
+
+            <p>
+                Funkcja <code>alert()</code> wyświetla okno
+                z komunikatem i przyciskiem OK.
+            </p>
+
+            <pre><code class="language-javascript">alert("Witaj na stronie!");</code></pre>
+
+            <p>
+                W oknie można również wyświetlić wartość zmiennej.
+            </p>
+
+            <pre><code class="language-javascript">let wynik = 25;
+
+alert("Wynik: " + wynik);</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             11. PROMPT
+        ========================== -->
+
+        <section id="prompt">
+
+            <h2>11. Okno prompt()</h2>
+
+            <p>
+                Funkcja <code>prompt()</code> wyświetla okno
+                umożliwiające wpisanie danych przez użytkownika.
+            </p>
+
+            <pre><code class="language-javascript">let imie = prompt("Podaj imię:");
+
+document.write("Witaj " + imie);</code></pre>
+
+            <div class="important">
+                <strong>Bardzo ważne!</strong><br>
+                Dane pobrane za pomocą <code>prompt()</code>
+                są tekstem.
+            </div>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let a = prompt("Podaj pierwszą liczbę:");
+let b = prompt("Podaj drugą liczbę:");
+
+document.write(a + b);</code></pre>
+
+            <p>
+                Po wpisaniu wartości <code>10</code> oraz
+                <code>20</code> zostanie wyświetlone:
+            </p>
+
+            <pre><code class="language-none">1020</code></pre>
+
+            <p>
+                Aby wykonać dodawanie matematyczne,
+                należy przeprowadzić konwersję:
+            </p>
+
+            <pre><code class="language-javascript">let a = Number(prompt("Podaj pierwszą liczbę:"));
+let b = Number(prompt("Podaj drugą liczbę:"));
+
+let suma = a + b;
+
+document.write(suma);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">30</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             12. CONFIRM
+        ========================== -->
+
+        <section id="confirm">
+
+            <h2>12. Okno confirm()</h2>
+
+            <p>
+                Funkcja <code>confirm()</code> wyświetla okno
+                zawierające pytanie oraz przyciski potwierdzenia
+                i anulowania.
+            </p>
+
+            <pre><code class="language-javascript">let odpowiedz = confirm("Czy chcesz kontynuować?");
+
+console.log(odpowiedz);</code></pre>
+
+            <p>
+                Wynikiem działania funkcji jest wartość logiczna:
+            </p>
+
+            <ul>
+                <li><code>true</code> – po potwierdzeniu,</li>
+                <li><code>false</code> – po anulowaniu.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             13. WYŚWIETLANIE
+        ========================== -->
+
+        <section id="wyswietlanie">
+
+            <h2>13. Sposoby wyświetlania wyników</h2>
+
+            <h3>console.log()</h3>
+
+            <pre><code class="language-javascript">console.log("Wynik obliczenia");</code></pre>
+
+            <p>
+                Wyświetla informację w konsoli przeglądarki.
+            </p>
+
+
+            <h3>document.write()</h3>
+
+            <pre><code class="language-javascript">document.write("Wynik obliczenia");</code></pre>
+
+            <p>
+                Wyświetla treść bezpośrednio w dokumencie HTML.
+            </p>
+
+
+            <h3>alert()</h3>
+
+            <pre><code class="language-javascript">alert("Wynik obliczenia");</code></pre>
+
+            <p>
+                Wyświetla komunikat w osobnym oknie dialogowym.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             14. ZAOKRĄGLANIE
+        ========================== -->
+
+        <section id="zaokraglanie">
+
+            <h2>14. Zaokrąglanie liczb</h2>
+
+            <p>
+                Obiekt <code>Math</code> udostępnia metody
+                służące do zaokrąglania liczb.
+            </p>
+
+            <h3>Math.round()</h3>
+
+            <p>
+                Zaokrągla liczbę do najbliższej liczby całkowitej.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 4.6;
+
+document.write(Math.round(liczba));</code></pre>
+
+            <p>Wynik: <strong>5</strong></p>
+
+
+            <h3>Math.floor()</h3>
+
+            <p>
+                Zaokrągla liczbę w dół do najbliższej liczby całkowitej.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 4.9;
+
+document.write(Math.floor(liczba));</code></pre>
+
+            <p>Wynik: <strong>4</strong></p>
+
+
+            <h3>Math.ceil()</h3>
+
+            <p>
+                Zaokrągla liczbę w górę do najbliższej liczby całkowitej.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = 4.1;
+
+document.write(Math.ceil(liczba));</code></pre>
+
+            <p>Wynik: <strong>5</strong></p>
+
+        </section>
+
+
+        <!-- =========================
+             15. ABS
+        ========================== -->
+
+        <section id="abs">
+
+            <h2>15. Wartość bezwzględna – Math.abs()</h2>
+
+            <p>
+                Metoda <code>Math.abs()</code> zwraca wartość
+                bezwzględną liczby.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = -8;
+
+let wynik = Math.abs(liczba);
+
+document.write(wynik);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">8</code></pre>
+
+        </section>
+
+
+        <!-- =========================
+             16. RANDOM
+        ========================== -->
+
+        <section id="random">
+
+            <h2>16. Liczby losowe – Math.random()</h2>
+
+            <p>
+                Metoda <code>Math.random()</code> zwraca
+                pseudolosową liczbę z przedziału od 0
+                (włącznie) do 1 (bez 1).
+            </p>
+
+            <pre><code class="language-javascript">let liczba = Math.random();
+
+document.write(liczba);</code></pre>
+
+            <p>
+                Aby otrzymać liczbę całkowitą z przedziału
+                od 0 do 100, można zastosować:
+            </p>
+
+            <pre><code class="language-javascript">let liczba = Math.random() * 101;
+
+liczba = Math.floor(liczba);
+
+document.write(liczba);</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                <code>Math.random()</code> nie zwraca liczby 1.
+                Pomnożenie przez 101 i zastosowanie
+                <code>Math.floor()</code> umożliwia otrzymanie
+                liczby całkowitej od 0 do 100.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             17. PORÓWNANIA
+        ========================== -->
+
+        <section id="porownanie">
+
+            <h2>17. Operatory porównania</h2>
+
+            <p>
+                Operatory porównania służą do porównywania wartości.
+                Wynikiem porównania jest wartość logiczna
+                <code>true</code> albo <code>false</code>.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>==</code></td>
+                    <td>równe wartości</td>
+                </tr>
+
+                <tr>
+                    <td><code>!=</code></td>
+                    <td>różne wartości</td>
+                </tr>
+
+                <tr>
+                    <td><code>===</code></td>
+                    <td>równa wartość i ten sam typ danych</td>
+                </tr>
+
+                <tr>
+                    <td><code>!==</code></td>
+                    <td>różna wartość lub różny typ danych</td>
+                </tr>
+
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>większe niż</td>
+                </tr>
+
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>mniejsze niż</td>
+                </tr>
+
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>większe lub równe</td>
+                </tr>
+
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>mniejsze lub równe</td>
+                </tr>
+            </table>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 20;
+
+console.log(a &lt; b);
+console.log(a &gt; b);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true
+false</code></pre>
+
+
+            <h3>== a ===</h3>
+
+            <pre><code class="language-javascript">console.log(5 == "5");
+console.log(5 === "5");</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true
+false</code></pre>
+
+            <p>
+                Operator <code>==</code> porównuje wartości
+                z możliwością konwersji typów.
+            </p>
+
+            <p>
+                Operator <code>===</code> porównuje zarówno wartość,
+                jak i typ danych.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                W nowych skryptach JavaScript zaleca się stosowanie
+                operatorów <code>===</code> oraz <code>!==</code>,
+                gdy wymagane jest ścisłe porównanie wartości i typów.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             18. LOGICZNE
+        ========================== -->
+
+        <section id="logiczne">
+
+            <h2>18. Operatory logiczne</h2>
+
+            <p>
+                Operatory logiczne służą do łączenia lub negowania
+                wyrażeń logicznych.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Nazwa</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>&amp;&amp;</code></td>
+                    <td>AND</td>
+                    <td>i</td>
+                </tr>
+
+                <tr>
+                    <td><code>||</code></td>
+                    <td>OR</td>
+                    <td>lub</td>
+                </tr>
+
+                <tr>
+                    <td><code>!</code></td>
+                    <td>NOT</td>
+                    <td>negacja</td>
+                </tr>
+            </table>
+
+
+            <h3>AND – &&</h3>
+
+            <p>
+                Wynikiem jest <code>true</code>, gdy oba
+                wyrażenia mają wartość <code>true</code>.
+            </p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 20;
+
+console.log(a &gt; 5 &amp;&amp; b &gt; 10);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true</code></pre>
+
+
+            <h3>OR – ||</h3>
+
+            <p>
+                Wynikiem jest <code>true</code>, gdy przynajmniej
+                jedno z wyrażeń ma wartość <code>true</code>.
+            </p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 20;
+
+console.log(a &gt; 15 || b &gt; 10);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true</code></pre>
+
+
+            <h3>NOT – !</h3>
+
+            <p>
+                Operator <code>!</code> odwraca wartość logiczną.
+            </p>
+
+            <pre><code class="language-javascript">let zalogowany = true;
+
+console.log(!zalogowany);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">false</code></pre>
+
+            <div class="important">
+                Operatory logiczne zostaną ponownie wykorzystane
+                i dokładniej omówione podczas pracy
+                z instrukcjami warunkowymi.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             19. PRZYKŁAD
+        ========================== -->
+
+        <section id="przyklad">
+
+            <h2>19. Przykład praktyczny – koszt przejazdu</h2>
+
+            <p>
+                Program pobiera cenę paliwa, długość trasy
+                oraz średnie spalanie samochodu.
+                Następnie oblicza ilość potrzebnego paliwa
+                i koszt przejazdu.
+            </p>
+
+            <pre><code class="language-javascript">let cenaPaliwa = Number(prompt("Podaj cenę paliwa za litr:"));
+let trasa = Number(prompt("Podaj długość trasy w km:"));
+let spalanie = Number(prompt("Podaj spalanie na 100 km:"));
+
+let potrzebnePaliwo = trasa * spalanie / 100;
+let koszt = potrzebnePaliwo * cenaPaliwa;
+
+document.write("Potrzebne paliwo: " + potrzebnePaliwo + " l&lt;br&gt;");
+document.write("Koszt przejazdu: " + koszt + " zł");</code></pre>
+
+            <p>
+                Wynik można zaokrąglić do dwóch miejsc po przecinku
+                za pomocą metody <code>toFixed(2)</code>:
+            </p>
+
+            <pre><code class="language-javascript">document.write("Koszt przejazdu: " + koszt.toFixed(2) + " zł");</code></pre>
+
+            <div class="definition">
+                <code>toFixed(2)</code> formatuje liczbę tak,
+                aby wynik zawierał dwie cyfry po separatorze dziesiętnym.
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ZAPAMIĘTAJ
+        ========================== -->
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>
+                    Operatory <code>+</code>, <code>-</code>,
+                    <code>*</code> i <code>/</code> wykonują
+                    podstawowe działania matematyczne.
+                </li>
+
+                <li>
+                    Operator <code>%</code> zwraca resztę z dzielenia.
+                </li>
+
+                <li>
+                    Operator <code>**</code> służy do potęgowania.
+                </li>
+
+                <li>
+                    <code>Math.sqrt()</code> oblicza pierwiastek kwadratowy.
+                </li>
+
+                <li>
+                    <code>++</code> zwiększa, a <code>--</code>
+                    zmniejsza wartość o 1.
+                </li>
+
+                <li>
+                    Operator <code>+</code> może również służyć
+                    do konkatenacji tekstów.
+                </li>
+
+                <li>
+                    <code>Number()</code>, <code>parseInt()</code>
+                    i <code>parseFloat()</code> umożliwiają
+                    konwersję tekstu na liczbę.
+                </li>
+
+                <li>
+                    <code>prompt()</code> zwraca dane w postaci tekstu.
+                </li>
+
+                <li>
+                    <code>alert()</code> wyświetla komunikat,
+                    a <code>confirm()</code> zwraca
+                    <code>true</code> lub <code>false</code>.
+                </li>
+
+                <li>
+                    <code>Math.round()</code>,
+                    <code>Math.floor()</code> i
+                    <code>Math.ceil()</code> służą do zaokrąglania liczb.
+                </li>
+
+                <li>
+                    <code>Math.abs()</code> zwraca wartość bezwzględną.
+                </li>
+
+                <li>
+                    <code>Math.random()</code> generuje liczbę pseudolosową.
+                </li>
+
+                <li>
+                    Wynikiem działania operatorów porównania
+                    jest <code>true</code> albo <code>false</code>.
+                </li>
+
+                <li>
+                    Podstawowe operatory logiczne to
+                    <code>&amp;&amp;</code>, <code>||</code> oraz <code>!</code>.
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             ZADANIA
+        ========================== -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+
+            <h3>Zadanie 1</h3>
+            <p>
+                Wczytaj dwie liczby. Oblicz ich sumę, różnicę,
+                iloczyn oraz iloraz. Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 2</h3>
+            <p>
+                Wczytaj liczbę. Oblicz jej kwadrat, sześcian
+                oraz pierwiastek kwadratowy. Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 3</h3>
+            <p>
+                Wczytaj dwie liczby całkowite. Oblicz resztę
+                z dzielenia pierwszej liczby przez drugą.
+                Wynik wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 4</h3>
+            <p>
+                Wczytaj długość i szerokość prostokąta.
+                Oblicz jego pole oraz obwód.
+                Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 5</h3>
+            <p>
+                Wczytaj promień koła. Oblicz pole i obwód koła.
+                Wartość liczby π pobierz za pomocą <code>Math.PI</code>.
+                Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 6</h3>
+            <p>
+                Wczytaj cenę produktu oraz liczbę kupowanych sztuk.
+                Oblicz całkowity koszt zakupu i wyświetl go na ekranie.
+            </p>
+
+
+            <h3>Zadanie 7</h3>
+            <p>
+                Wczytaj trzy liczby. Oblicz ich średnią arytmetyczną.
+                Wynik wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 8</h3>
+            <p>
+                Wczytaj temperaturę w stopniach Celsjusza.
+                Oblicz temperaturę w stopniach Fahrenheita według wzoru
+                <code>F = C * 1.8 + 32</code>.
+                Wynik wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 9</h3>
+            <p>
+                Wczytaj cenę produktu oraz wysokość rabatu w procentach.
+                Oblicz wartość rabatu oraz cenę produktu po obniżce.
+                Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 10</h3>
+            <p>
+                Wczytaj cenę benzyny za litr, długość trasy
+                oraz spalanie samochodu w litrach na 100 km.
+                Oblicz ilość potrzebnego paliwa oraz koszt przejazdu.
+                Wyniki wyświetl na ekranie.
+            </p>
+
+
+            <h3>Zadanie 11</h3>
+            <p>
+                Wylosuj liczbę całkowitą z przedziału od 0 do 100
+                i wyświetl ją na ekranie.
+            </p>
+
+
+            <h3>Zadanie 12</h3>
+            <p>
+                Wczytaj dwie liczby. Za pomocą operatorów porównania
+                sprawdź, czy pierwsza liczba jest większa od drugiej
+                oraz czy obie liczby są sobie równe.
+                Wyniki wyświetl w konsoli.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             SPRAWDŹ
+        ========================== -->
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>wykonać podstawowe działania arytmetyczne,</li>
+                <li>obliczyć resztę z dzielenia,</li>
+                <li>wykonać potęgowanie i pierwiastkowanie,</li>
+                <li>zastosować skrócone operatory przypisania,</li>
+                <li>zastosować inkrementację i dekrementację,</li>
+                <li>wyjaśnić pojęcie konkatenacji,</li>
+                <li>odróżnić liczbę od tekstu zawierającego cyfry,</li>
+                <li>przekształcić tekst na liczbę,</li>
+                <li>pobrać dane za pomocą <code>prompt()</code>,</li>
+                <li>użyć <code>alert()</code> i <code>confirm()</code>,</li>
+                <li>zaokrąglić liczbę,</li>
+                <li>obliczyć wartość bezwzględną,</li>
+                <li>wygenerować liczbę pseudolosową,</li>
+                <li>zastosować operatory porównania,</li>
+                <li>rozpoznać operatory logiczne <code>&amp;&amp;</code>, <code>||</code> i <code>!</code>.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             MATERIAŁY
+        ========================== -->
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-operacje-na-liczbach/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – JavaScript: Operacje na liczbach
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-operacje-na-liczbach-cwiczenia-interaktywne/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Operacje na liczbach: ćwiczenia interaktywne
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-operacje-na-liczbach-zadania/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Operacje na liczbach: zadania
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 05
+</footer>
+
+<!-- PrismJS -->
+<script src="../../prism.js"></script>
+
+</body>
+</html>
