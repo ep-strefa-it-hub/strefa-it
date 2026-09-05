@@ -634,6 +634,16 @@ body > main .dzial .lekcja h3 {
 body > main .dzial .lekcja p {
     display: none !important;
 }
+/* ===== ZADANIA – MNIEJSZE ODSTĘPY ===== */
+
+.tasks h3 {
+    margin: 12px 0 2px;
+    font-size: 16px;
+}
+
+.tasks p {
+    margin: 0 0 8px;
+}
 
 body > main .dzial .lekcja:hover {
     transform: none;
