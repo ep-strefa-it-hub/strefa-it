@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 08 – JavaScript: Pętle | Strefa IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#petla">1. Czym jest pętla?</a>
+        <a href="#for">2. Pętla for</a>
+        <a href="#budowa">3. Budowa pętli for</a>
+        <a href="#licznik">4. Licznik pętli</a>
+        <a href="#krok">5. Zmiana licznika</a>
+        <a href="#obliczenia">6. Obliczenia w pętli</a>
+        <a href="#while">7. Pętla while</a>
+        <a href="#dowhile">8. Pętla do...while</a>
+        <a href="#porownanie">9. while a do...while</a>
+        <a href="#break">10. break</a>
+        <a href="#continue">11. continue</a>
+        <a href="#nieskonczona">12. Pętla nieskończona</a>
+        <a href="#uzytkownik">13. Pętla zależna od użytkownika</a>
+        <a href="#warunek">14. Pętla i instrukcja warunkowa</a>
+        <a href="#zagniezdzone">15. Pętle zagnieżdżone</a>
+        <a href="#wybor">16. Jak wybrać pętlę?</a>
+        <a href="#przyklady">17. Przykłady praktyczne</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PAI • LEKCJA 08
+            </div>
+
+            <h2>JavaScript: Pętle</h2>
+
+            <p>
+                Wielokrotne wykonywanie instrukcji za pomocą pętli
+                for, while i do...while oraz wykorzystanie break i continue.
+            </p>
+        </div>
+
+
+        <section id="petla">
+
+            <h2>1. Czym jest pętla?</h2>
+
+            <div class="definition">
+                <strong>Pętla</strong> jest konstrukcją programistyczną
+                umożliwiającą wielokrotne wykonanie tego samego fragmentu kodu.
+            </div>
+
+            <p>
+                Zastosowanie pętli pozwala uniknąć wielokrotnego
+                powtarzania tych samych instrukcji.
+            </p>
+
+            <p>Zamiast:</p>
+
+            <pre><code class="language-javascript">document.write("1&lt;br&gt;");
+document.write("2&lt;br&gt;");
+document.write("3&lt;br&gt;");
+document.write("4&lt;br&gt;");
+document.write("5&lt;br&gt;");</code></pre>
+
+            <p>można zastosować pętlę:</p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 5; i++) {
+    document.write(i + "&lt;br&gt;");
+}</code></pre>
+
+        </section>
+
+
+        <section id="for">
+
+            <h2>2. Pętla for</h2>
+
+            <p>
+                Pętla <code>for</code> jest najczęściej stosowana wtedy,
+                gdy liczba powtórzeń jest znana.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 10; i++) {
+    document.write(i + " ");
+}</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1 2 3 4 5 6 7 8 9 10</code></pre>
+
+        </section>
+
+
+        <section id="budowa">
+
+            <h2>3. Budowa pętli for</h2>
+
+            <p>
+                Pętla <code>for</code> składa się z trzech podstawowych części.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 10; i++) {
+    instrukcje;
+}</code></pre>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>let i = 1</code></td>
+                    <td>wartość początkowa licznika</td>
+                </tr>
+                <tr>
+                    <td><code>i &lt;= 10</code></td>
+                    <td>warunek wykonywania pętli</td>
+                </tr>
+                <tr>
+                    <td><code>i++</code></td>
+                    <td>zmiana licznika po każdym obiegu</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Pętla wykonuje się tak długo, jak długo warunek ma wartość
+                <code>true</code>.
+            </div>
+
+        </section>
+
+
+        <section id="licznik">
+
+            <h2>4. Licznik pętli</h2>
+
+            <p>
+                Zmienna sterująca pętlą jest często nazywana licznikiem.
+                Najczęściej stosuje się nazwę <code>i</code>.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 5; i++) {
+    console.log(i);
+}</code></pre>
+
+            <p>
+                W kolejnych obiegach zmienna <code>i</code>
+                przyjmuje wartości:
+            </p>
+
+            <pre><code class="language-none">1
+2
+3
+4
+5</code></pre>
+
+        </section>
+
+
+        <section id="krok">
+
+            <h2>5. Zwiększanie i zmniejszanie licznika</h2>
+
+            <h3>Liczenie w górę</h3>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 10; i++) {
+    document.write(i + " ");
+}</code></pre>
+
+            <h3>Liczenie w dół</h3>
+
+            <pre><code class="language-javascript">for (let i = 10; i &gt;= 1; i--) {
+    document.write(i + " ");
+}</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">10 9 8 7 6 5 4 3 2 1</code></pre>
+
+
+            <h3>Zmiana licznika o inną wartość</h3>
+
+            <pre><code class="language-javascript">for (let i = 2; i &lt;= 20; i += 2) {
+    document.write(i + " ");
+}</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">2 4 6 8 10 12 14 16 18 20</code></pre>
+
+            <p>
+                Licznik może być zwiększany lub zmniejszany
+                o dowolną wartość.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 20; i &gt;= 0; i -= 5) {
+    document.write(i + " ");
+}</code></pre>
+
+        </section>
+
+
+        <section id="obliczenia">
+
+            <h2>6. Obliczenia wykonywane w pętli</h2>
+
+            <h3>Sumowanie</h3>
+
+            <p>
+                Do obliczania sumy wielu wartości stosuje się
+                zmienną sumującą.
+            </p>
+
+            <pre><code class="language-javascript">let suma = 0;
+for (let i = 1; i &lt;= 10; i++) {
+    suma += i;
+}
+document.write(suma);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">55</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Zmienna przechowująca sumę powinna mieć wartość początkową
+                równą <code>0</code>.
+            </div>
+
+
+            <h3>Iloczyn</h3>
+
+            <p>
+                Przy obliczaniu iloczynu wartość początkowa powinna wynosić
+                <code>1</code>.
+            </p>
+
+            <pre><code class="language-javascript">let iloczyn = 1;
+for (let i = 1; i &lt;= 5; i++) {
+    iloczyn *= i;
+}
+document.write(iloczyn);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">120</code></pre>
+
+            <div class="important">
+                Zapis ten stanowi również podstawę obliczania silni liczby.
+            </div>
+
+        </section>
+
+
+        <section id="while">
+
+            <h2>7. Pętla while</h2>
+
+            <p>
+                Pętla <code>while</code> wykonuje instrukcje tak długo,
+                jak długo podany warunek jest prawdziwy.
+            </p>
+
+            <pre><code class="language-javascript">let i = 1;
+while (i &lt;= 10) {
+    document.write(i + " ");
+    i++;
+}</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                W pętli <code>while</code> należy pamiętać o zmianie wartości
+                zmiennej sterującej. Brak takiej zmiany może spowodować
+                powstanie pętli nieskończonej.
+            </div>
+
+        </section>
+
+
+        <section id="dowhile">
+
+            <h2>8. Pętla do...while</h2>
+
+            <p>
+                W pętli <code>do...while</code> instrukcje są wykonywane
+                przed sprawdzeniem warunku.
+            </p>
+
+            <pre><code class="language-javascript">let i = 1;
+do {
+    document.write(i + " ");
+    i++;
+} while (i &lt;= 10);</code></pre>
+
+            <div class="definition">
+                Pętla <code>do...while</code> wykonuje się
+                przynajmniej jeden raz.
+            </div>
+
+        </section>
+
+
+        <section id="porownanie">
+
+            <h2>9. while a do...while</h2>
+
+            <table>
+                <tr>
+                    <th>Pętla</th>
+                    <th>Moment sprawdzania warunku</th>
+                    <th>Minimalna liczba wykonań</th>
+                </tr>
+                <tr>
+                    <td><code>while</code></td>
+                    <td>przed wykonaniem kodu</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td><code>do...while</code></td>
+                    <td>po wykonaniu kodu</td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let i = 11;
+do {
+    document.write(i);
+    i++;
+} while (i &lt;= 10);</code></pre>
+
+            <p>
+                Mimo niespełnionego warunku zostanie wyświetlona wartość
+                <code>11</code>, ponieważ sprawdzenie warunku następuje dopiero
+                po wykonaniu instrukcji.
+            </p>
+
+        </section>
+
+
+        <section id="break">
+
+            <h2>10. Instrukcja break</h2>
+
+            <p>
+                Instrukcja <code>break</code> natychmiast kończy
+                wykonywanie pętli.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1
+2
+3
+4</code></pre>
+
+            <div class="definition">
+                Po wykonaniu <code>break</code> dalsze obiegi pętli
+                nie są wykonywane.
+            </div>
+
+        </section>
+
+
+        <section id="continue">
+
+            <h2>11. Instrukcja continue</h2>
+
+            <p>
+                Instrukcja <code>continue</code> pomija pozostałą część
+                bieżącego obiegu pętli i przechodzi do następnej iteracji.
+            </p>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    console.log(i);
+}</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1
+2
+4
+5</code></pre>
+
+            <div class="important">
+                <strong>Różnica:</strong><br>
+                <code>break</code> kończy całą pętlę,
+                natomiast <code>continue</code> pomija tylko
+                bieżący obieg.
+            </div>
+
+        </section>
+
+
+        <section id="nieskonczona">
+
+            <h2>12. Pętla nieskończona</h2>
+
+            <div class="definition">
+                <strong>Pętla nieskończona</strong> jest pętlą,
+                której warunek zakończenia nigdy nie zostaje spełniony.
+            </div>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let i = 1;
+while (i &lt;= 10) {
+    console.log(i);
+}</code></pre>
+
+            <p>
+                Wartość <code>i</code> nie ulega zmianie, dlatego warunek
+                <code>i &lt;= 10</code> pozostaje cały czas prawdziwy.
+            </p>
+
+            <div class="important">
+                Pętla nieskończona może spowodować zawieszenie
+                wykonywanego skryptu lub strony internetowej.
+            </div>
+
+        </section>
+
+
+        <section id="uzytkownik">
+
+            <h2>13. Pętla zależna od danych użytkownika</h2>
+
+            <p>
+                Liczba obiegów pętli nie zawsze jest znana przed
+                rozpoczęciem programu.
+            </p>
+
+            <pre><code class="language-javascript">let liczba;
+while (true) {
+    liczba = Number(prompt("Podaj liczbę. Wpisz 0, aby zakończyć."));
+    if (liczba === 0) {
+        break;
+    }
+    document.write(liczba + "&lt;br&gt;");
+}</code></pre>
+
+            <p>
+                Pętla wykonuje się do momentu podania wartości
+                <code>0</code>.
+            </p>
+
+        </section>
+
+
+        <section id="warunek">
+
+            <h2>14. Pętla i instrukcja warunkowa</h2>
+
+            <p>
+                Instrukcje warunkowe można umieszczać wewnątrz pętli.
+            </p>
+
+
+            <h3>Liczby parzyste</h3>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 20; i++) {
+    if (i % 2 === 0) {
+        document.write(i + " ");
+    }
+}</code></pre>
+
+
+            <h3>Liczby podzielne przez 3</h3>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 30; i++) {
+    if (i % 3 === 0) {
+        document.write(i + " ");
+    }
+}</code></pre>
+
+
+            <h3>Sumowanie liczb parzystych</h3>
+
+            <pre><code class="language-javascript">let suma = 0;
+for (let i = 1; i &lt;= 20; i++) {
+    if (i % 2 === 0) {
+        suma += i;
+    }
+}
+document.write(suma);</code></pre>
+
+        </section>
+
+
+        <section id="zagniezdzone">
+
+            <h2>15. Pętle zagnieżdżone</h2>
+
+            <div class="definition">
+                <strong>Pętla zagnieżdżona</strong> jest pętlą
+                znajdującą się wewnątrz innej pętli.
+            </div>
+
+            <pre><code class="language-javascript">for (let i = 1; i &lt;= 3; i++) {
+    for (let j = 1; j &lt;= 3; j++) {
+        document.write(i + " " + j + "&lt;br&gt;");
+    }
+}</code></pre>
+
+            <p>
+                Dla każdego obiegu pętli zewnętrznej pętla wewnętrzna
+                wykonuje wszystkie swoje obiegi.
+            </p>
+
+            <div class="important">
+                Pętle zagnieżdżone będą wykorzystywane również
+                przy pracy z tablicami wielowymiarowymi.
+            </div>
+
+        </section>
+
+
+        <section id="wybor">
+
+            <h2>16. Jak wybrać odpowiednią pętlę?</h2>
+
+            <table>
+                <tr>
+                    <th>Pętla</th>
+                    <th>Kiedy stosować?</th>
+                </tr>
+                <tr>
+                    <td><code>for</code></td>
+                    <td>gdy liczba powtórzeń jest znana lub łatwa do określenia</td>
+                </tr>
+                <tr>
+                    <td><code>while</code></td>
+                    <td>gdy wykonywanie zależy przede wszystkim od warunku</td>
+                </tr>
+                <tr>
+                    <td><code>do...while</code></td>
+                    <td>gdy kod musi wykonać się przynajmniej jeden raz</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                Wiele problemów można rozwiązać za pomocą różnych rodzajów pętli.
+                Należy wybierać zapis najbardziej czytelny dla danego zadania.
+            </div>
+
+        </section>
+
+
+        <section id="przyklady">
+
+            <h2>17. Przykłady praktyczne</h2>
+
+
+            <h3>Tabliczka mnożenia</h3>
+
+            <pre><code class="language-javascript">let liczba = Number(prompt("Podaj liczbę:"));
+for (let i = 1; i &lt;= 10; i++) {
+    document.write(liczba + " * " + i + " = " + liczba * i + "&lt;br&gt;");
+}</code></pre>
+
+
+            <h3>Silnia liczby</h3>
+
+            <pre><code class="language-javascript">let liczba = Number(prompt("Podaj liczbę:"));
+let silnia = 1;
+for (let i = 1; i &lt;= liczba; i++) {
+    silnia *= i;
+}
+document.write(silnia);</code></pre>
+
+
+            <h3>Sumowanie liczb do momentu podania 0</h3>
+
+            <pre><code class="language-javascript">let suma = 0;
+let liczba = Number(prompt("Podaj liczbę. Wpisz 0, aby zakończyć."));
+while (liczba !== 0) {
+    suma += liczba;
+    liczba = Number(prompt("Podaj kolejną liczbę. Wpisz 0, aby zakończyć."));
+}
+document.write("Suma: " + suma);</code></pre>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Pętla umożliwia wielokrotne wykonanie tego samego fragmentu kodu.</li>
+                <li><code>for</code> jest wygodna, gdy liczba powtórzeń jest znana.</li>
+                <li><code>while</code> sprawdza warunek przed wykonaniem kodu.</li>
+                <li><code>do...while</code> wykonuje kod przynajmniej jeden raz.</li>
+                <li><code>i++</code> zwiększa licznik o 1, a <code>i--</code> zmniejsza go o 1.</li>
+                <li>Licznik można zmieniać również za pomocą <code>+=</code> i <code>-=</code>.</li>
+                <li>Do sumowania wartości stosuje się zwykle wartość początkową <code>0</code>.</li>
+                <li>Do obliczania iloczynu stosuje się zwykle wartość początkową <code>1</code>.</li>
+                <li><code>break</code> kończy działanie pętli.</li>
+                <li><code>continue</code> pomija bieżącą iterację.</li>
+                <li>Brak zmiany zmiennej sterującej może doprowadzić do pętli nieskończonej.</li>
+                <li>W pętli można stosować instrukcje warunkowe.</li>
+                <li>Pętle mogą być zagnieżdżane.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+            <p>
+                Wyświetl liczby od <strong>1 do 20</strong>.
+            </p>
+
+            <h3>Zadanie 2</h3>
+            <p>
+                Wyświetl liczby od <strong>20 do 1</strong>.
+            </p>
+
+            <h3>Zadanie 3</h3>
+            <p>
+                Wyświetl wszystkie liczby parzyste od
+                <strong>2 do 50</strong>.
+            </p>
+
+            <h3>Zadanie 4</h3>
+            <p>
+                Oblicz sumę wszystkich liczb od
+                <strong>1 do 100</strong>.
+            </p>
+
+            <h3>Zadanie 5</h3>
+            <p>
+                Wczytaj liczbę i wyświetl jej tabliczkę mnożenia
+                od <strong>1 do 10</strong>.
+            </p>
+
+            <h3>Zadanie 6</h3>
+            <p>
+                Wczytaj liczbę całkowitą nieujemną i oblicz jej
+                <strong>silnię</strong>.
+            </p>
+
+            <h3>Zadanie 7</h3>
+            <p>
+                Wczytuj liczby za pomocą <code>prompt()</code>
+                do momentu podania wartości <strong>0</strong>.
+                Oblicz sumę wszystkich wcześniej podanych liczb.
+            </p>
+
+            <h3>Zadanie 8</h3>
+            <p>
+                Wyświetl liczby od 1 do 20,
+                ale pomiń liczby podzielne przez 3
+                za pomocą instrukcji <code>continue</code>.
+            </p>
+
+        </section>
+
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>wyjaśnić, do czego służy pętla,</li>
+                <li>zastosować pętlę <code>for</code>,</li>
+                <li>określić wartość początkową, warunek i zmianę licznika,</li>
+                <li>zliczać w górę i w dół,</li>
+                <li>zmieniać licznik o dowolną wartość,</li>
+                <li>obliczyć sumę lub iloczyn w pętli,</li>
+                <li>zastosować pętlę <code>while</code>,</li>
+                <li>zastosować pętlę <code>do...while</code>,</li>
+                <li>wyjaśnić różnicę między <code>while</code> i <code>do...while</code>,</li>
+                <li>zastosować <code>break</code> i <code>continue</code>,</li>
+                <li>rozpoznać pętlę nieskończoną,</li>
+                <li>połączyć pętlę z instrukcją warunkową,</li>
+                <li>zastosować pętle zagnieżdżone.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-petle/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – JavaScript: Pętle
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-petle-cwiczenia-interaktywne/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Pętle: ćwiczenia interaktywne
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-petle-zadania/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Pętle: zadania
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 08
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
