@@ -526,24 +526,64 @@ switch (kolor) {
 
 
         <section id="break">
+<section id="break">
 
-            <h2>14. break i default</h2>
+    <h2>14. break, default i continue</h2>
 
-            <div class="definition">
-                <strong>break</strong> kończy wykonywanie
-                aktualnego przypadku w instrukcji <code>switch</code>.
-            </div>
+    <div class="definition">
+        <strong>break</strong> kończy wykonywanie aktualnego przypadku
+        w instrukcji <code>switch</code>.
+    </div>
 
-            <div class="definition">
-                <strong>default</strong> określa kod wykonywany wtedy,
-                gdy żaden z przypadków <code>case</code> nie pasuje
-                do sprawdzanej wartości.
-            </div>
+    <div class="definition">
+        <strong>default</strong> określa kod wykonywany wtedy,
+        gdy żaden z przypadków <code>case</code> nie pasuje
+        do sprawdzanej wartości.
+    </div>
 
-            <div class="important">
-                Brak <code>break</code> może spowodować wykonanie
-                kolejnych przypadków znajdujących się poniżej.
-            </div>
+    <div class="important">
+        Brak <code>break</code> może spowodować wykonanie kolejnych
+        przypadków znajdujących się poniżej.
+    </div>
+
+    <h3>Instrukcja continue</h3>
+
+    <p>
+        Instrukcja <code>continue</code> stosowana jest w pętlach.
+        Powoduje przerwanie bieżącej iteracji pętli i przejście
+        do następnej.
+    </p>
+
+    <pre><code class="language-javascript">for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    console.log(i);
+}</code></pre>
+
+    <p>Wynik:</p>
+
+    <pre><code class="language-none">1
+2
+4
+5</code></pre>
+
+    <p>
+        Dla wartości <code>i === 3</code> wykonana zostaje instrukcja
+        <code>continue</code>, dlatego instrukcja
+        <code>console.log(i)</code> zostaje pominięta.
+        Pętla przechodzi bezpośrednio do kolejnej iteracji.
+    </p>
+
+    <div class="important">
+        <strong>Ważne!</strong><br>
+        Instrukcja <code>break</code> kończy wykonywanie,
+        natomiast <code>continue</code> pomija tylko bieżącą iterację pętli.
+        Instrukcja <code>continue</code> zostanie dokładniej omówiona
+        w lekcji dotyczącej pętli.
+    </div>
+
+</section>         
 
         </section>
 
