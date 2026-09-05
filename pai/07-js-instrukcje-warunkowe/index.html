@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 07 – JavaScript: Instrukcje warunkowe | Strefa IT</title>
+
+    <!-- Prism – kolorowanie składni -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Wspólny CSS STREFY IT -->
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#warunkowa">1. Instrukcja warunkowa</a>
+        <a href="#boolean">2. true i false</a>
+        <a href="#if">3. Instrukcja if</a>
+        <a href="#ifelse">4. if...else</a>
+        <a href="#elseif">5. if...else if...else</a>
+        <a href="#porownania">6. Operatory porównania</a>
+        <a href="#logiczne">7. Operatory logiczne</a>
+        <a href="#klamry">8. Klamry i blok instrukcji</a>
+        <a href="#parzystosc">9. Parzystość liczby</a>
+        <a href="#znak">10. Znak liczby</a>
+        <a href="#laczenie">11. Łączenie warunków</a>
+        <a href="#zagniezdzone">12. Zagnieżdżone if</a>
+        <a href="#switch">13. Instrukcja switch</a>
+        <a href="#break">14. break i default</a>
+        <a href="#ternary">15. Operator warunkowy ?:</a>
+        <a href="#truthy">16. Truthy i falsy</a>
+        <a href="#przyklady">17. Przykłady praktyczne</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+        <a href="#materialy">📚 Materiały dodatkowe</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PAI • LEKCJA 07
+            </div>
+
+            <h2>JavaScript: Instrukcje warunkowe</h2>
+
+            <p>
+                Podejmowanie decyzji w programie za pomocą instrukcji
+                if, else if, else, operatorów porównania i operatorów logicznych.
+            </p>
+        </div>
+
+
+        <section id="warunkowa">
+
+            <h2>1. Do czego służy instrukcja warunkowa?</h2>
+
+            <div class="definition">
+                <strong>Instrukcja warunkowa</strong> umożliwia wykonanie
+                określonego fragmentu programu tylko wtedy,
+                gdy podany warunek jest spełniony.
+            </div>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let wiek = 18;
+if (wiek >= 18) {
+    console.log("Osoba pełnoletnia");
+}</code></pre>
+
+            <p>
+                Instrukcja wewnątrz bloku <code>if</code> zostanie wykonana
+                tylko wtedy, gdy warunek:
+            </p>
+
+            <pre><code class="language-javascript">wiek >= 18</code></pre>
+
+            <p>
+                ma wartość <code>true</code>.
+            </p>
+
+        </section>
+
+
+        <section id="boolean">
+
+            <h2>2. Wartość logiczna warunku – true i false</h2>
+
+            <p>
+                Wynikiem sprawdzenia warunku jest wartość logiczna:
+            </p>
+
+            <ul>
+                <li><code>true</code> – prawda,</li>
+                <li><code>false</code> – fałsz.</li>
+            </ul>
+
+            <pre><code class="language-javascript">let liczba = 10;
+console.log(liczba > 5);
+console.log(liczba < 5);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true
+false</code></pre>
+
+        </section>
+
+
+        <section id="if">
+
+            <h2>3. Instrukcja if</h2>
+
+            <p>
+                Instrukcja <code>if</code> wykonuje blok kodu,
+                jeżeli warunek ma wartość <code>true</code>.
+            </p>
+
+            <p>Składnia:</p>
+
+            <pre><code class="language-javascript">if (warunek) {
+    instrukcje;
+}</code></pre>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let temperatura = 30;
+if (temperatura > 25) {
+    document.write("Jest gorąco");
+}</code></pre>
+
+        </section>
+
+
+        <section id="ifelse">
+
+            <h2>4. Instrukcja if...else</h2>
+
+            <p>
+                Instrukcja <code>else</code> określa kod wykonywany wtedy,
+                gdy warunek w instrukcji <code>if</code> nie jest spełniony.
+            </p>
+
+            <pre><code class="language-javascript">let wiek = 17;
+if (wiek >= 18) {
+    document.write("Osoba pełnoletnia");
+} else {
+    document.write("Osoba niepełnoletnia");
+}</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong><br>
+                Przy konstrukcji <code>if...else</code> wykonana zostaje
+                tylko jedna z dwóch gałęzi.
+            </div>
+
+        </section>
+
+
+        <section id="elseif">
+
+            <h2>5. Instrukcja if...else if...else</h2>
+
+            <p>
+                Jeżeli należy sprawdzić kilka różnych przypadków,
+                stosuje się konstrukcję <code>else if</code>.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = Number(prompt("Podaj liczbę:"));
+if (liczba > 0) {
+    document.write("Liczba dodatnia");
+} else if (liczba < 0) {
+    document.write("Liczba ujemna");
+} else {
+    document.write("Liczba równa 0");
+}</code></pre>
+
+            <p>
+                Warunki sprawdzane są kolejno od góry.
+                Po znalezieniu pierwszego spełnionego warunku
+                dalsze gałęzie nie są wykonywane.
+            </p>
+
+        </section>
+
+
+        <section id="porownania">
+
+            <h2>6. Operatory porównania</h2>
+
+            <p>
+                Operatory porównania służą do porównywania wartości.
+                Wynikiem jest <code>true</code> albo <code>false</code>.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>większe niż</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>mniejsze niż</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>większe lub równe</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>mniejsze lub równe</td>
+                </tr>
+                <tr>
+                    <td><code>===</code></td>
+                    <td>równa wartość i ten sam typ danych</td>
+                </tr>
+                <tr>
+                    <td><code>!==</code></td>
+                    <td>różna wartość lub różny typ danych</td>
+                </tr>
+            </table>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let a = 10;
+let b = 20;
+console.log(a < b);
+console.log(a === b);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">true
+false</code></pre>
+
+            <div class="important">
+                <strong>Uwaga!</strong><br>
+                Operator <code>=</code> nie oznacza tego samego co
+                operator przypisania <code>=</code>.
+            </div>
+
+        </section>
+
+
+        <section id="logiczne">
+
+            <h2>7. Operatory logiczne</h2>
+
+            <p>
+                Operatory logiczne umożliwiają łączenie
+                i negowanie warunków.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Nazwa</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&amp;&amp;</code></td>
+                    <td>AND</td>
+                    <td>i</td>
+                </tr>
+                <tr>
+                    <td><code>||</code></td>
+                    <td>OR</td>
+                    <td>lub</td>
+                </tr>
+                <tr>
+                    <td><code>!</code></td>
+                    <td>NOT</td>
+                    <td>negacja</td>
+                </tr>
+            </table>
+
+
+            <h3>AND – &&</h3>
+
+            <p>
+                Wynikiem jest <code>true</code> wtedy,
+                gdy oba warunki są prawdziwe.
+            </p>
+
+            <pre><code class="language-javascript">let wiek = 20;
+let bilet = true;
+if (wiek >= 18 && bilet === true) {
+    document.write("Można wejść");
+}</code></pre>
+
+
+            <h3>OR – ||</h3>
+
+            <p>
+                Wynikiem jest <code>true</code> wtedy,
+                gdy przynajmniej jeden warunek jest prawdziwy.
+            </p>
+
+            <pre><code class="language-javascript">let dzien = "sobota";
+if (dzien === "sobota" || dzien === "niedziela") {
+    document.write("Weekend");
+}</code></pre>
+
+
+            <h3>NOT – !</h3>
+
+            <p>
+                Operator <code>!</code> odwraca wartość logiczną.
+            </p>
+
+            <pre><code class="language-javascript">let zalogowany = false;
+if (!zalogowany) {
+    document.write("Należy się zalogować");
+}</code></pre>
+
+        </section>
+
+
+        <section id="klamry">
+
+            <h2>8. Klamry i blok instrukcji</h2>
+
+            <p>
+                Klamry <code>{ }</code> wyznaczają blok instrukcji
+                należących do danego warunku.
+            </p>
+
+            <p>Przykład bez klamer:</p>
+
+            <pre><code class="language-javascript">let a = 1;
+let b = 1;
+let c = 1;
+if (a > 5)
+    b++;
+c++;</code></pre>
+
+            <p>
+                Warunek dotyczy wyłącznie instrukcji:
+            </p>
+
+            <pre><code class="language-javascript">b++;</code></pre>
+
+            <p>
+                Instrukcja:
+            </p>
+
+            <pre><code class="language-javascript">c++;</code></pre>
+
+            <p>
+                wykona się niezależnie od warunku.
+            </p>
+
+            <div class="important">
+                <strong>Zasada:</strong><br>
+                W blokach <code>if</code>, <code>else if</code> i
+                <code>else</code> należy stosować klamry
+                <code>{ }</code>, również wtedy, gdy blok zawiera
+                tylko jedną instrukcję.
+            </div>
+
+        </section>
+
+
+        <section id="parzystosc">
+
+            <h2>9. Sprawdzanie parzystości liczby</h2>
+
+            <p>
+                Liczba jest parzysta, jeżeli reszta z dzielenia
+                przez 2 jest równa 0.
+            </p>
+
+            <pre><code class="language-javascript">let liczba = Number(prompt("Podaj liczbę:"));
+if (liczba % 2 === 0) {
+    document.write("Liczba parzysta");
+} else {
+    document.write("Liczba nieparzysta");
+}</code></pre>
+
+        </section>
+
+
+        <section id="znak">
+
+            <h2>10. Sprawdzanie znaku liczby</h2>
+
+            <pre><code class="language-javascript">let liczba = Number(prompt("Podaj liczbę:"));
+if (liczba > 0) {
+    document.write("Liczba dodatnia");
+} else if (liczba < 0) {
+    document.write("Liczba ujemna");
+} else {
+    document.write("Liczba równa 0");
+}</code></pre>
+
+        </section>
+
+
+        <section id="laczenie">
+
+            <h2>11. Łączenie kilku warunków</h2>
+
+            <p>
+                Kilka warunków można połączyć za pomocą
+                operatorów logicznych.
+            </p>
+
+            <p>Sprawdzenie, czy liczba należy do przedziału:</p>
+
+            <pre><code class="language-javascript">let liczba = 15;
+if (liczba >= 10 && liczba <= 20) {
+    document.write("Liczba należy do przedziału od 10 do 20");
+}</code></pre>
+
+            <p>Sprawdzenie jednej z kilku możliwych wartości:</p>
+
+            <pre><code class="language-javascript">let miesiac = "lipiec";
+if (miesiac === "lipiec" || miesiac === "sierpień") {
+    document.write("Wakacje");
+}</code></pre>
+
+        </section>
+
+
+        <section id="zagniezdzone">
+
+            <h2>12. Zagnieżdżone instrukcje if</h2>
+
+            <div class="definition">
+                <strong>Zagnieżdżenie</strong> oznacza umieszczenie
+                jednej instrukcji warunkowej wewnątrz drugiej.
+            </div>
+
+            <pre><code class="language-javascript">let dzien = "wtorek";
+let pora = "rano";
+if (dzien === "wtorek") {
+    if (pora === "rano") {
+        console.log("Wtorek rano");
+    }
+}</code></pre>
+
+            <p>
+                Ten sam warunek można w niektórych przypadkach
+                zapisać za pomocą operatora <code>&amp;&amp;</code>:
+            </p>
+
+            <pre><code class="language-javascript">let dzien = "wtorek";
+let pora = "rano";
+if (dzien === "wtorek" && pora === "rano") {
+    console.log("Wtorek rano");
+}</code></pre>
+
+        </section>
+
+
+        <section id="switch">
+
+            <h2>13. Instrukcja switch</h2>
+
+            <p>
+                Instrukcja <code>switch</code> służy do wyboru
+                jednej z wielu możliwych gałęzi programu.
+            </p>
+
+            <pre><code class="language-javascript">let opcja = Number(prompt("Wybierz opcję 1, 2 lub 3:"));
+switch (opcja) {
+    case 1:
+        document.write("Wybrano opcję 1");
+        break;
+    case 2:
+        document.write("Wybrano opcję 2");
+        break;
+    case 3:
+        document.write("Wybrano opcję 3");
+        break;
+    default:
+        document.write("Nieprawidłowa opcja");
+}</code></pre>
+
+            <p>
+                W instrukcji <code>switch</code> można również
+                porównywać wartości tekstowe.
+            </p>
+
+            <pre><code class="language-javascript">let kolor = "czerwony";
+switch (kolor) {
+    case "czerwony":
+        document.write("STOP");
+        break;
+    case "zielony":
+        document.write("IDŹ");
+        break;
+    default:
+        document.write("Nieznany kolor");
+}</code></pre>
+
+        </section>
+
+
+        <section id="break">
+
+            <h2>14. break i default</h2>
+
+            <div class="definition">
+                <strong>break</strong> kończy wykonywanie
+                aktualnego przypadku w instrukcji <code>switch</code>.
+            </div>
+
+            <div class="definition">
+                <strong>default</strong> określa kod wykonywany wtedy,
+                gdy żaden z przypadków <code>case</code> nie pasuje
+                do sprawdzanej wartości.
+            </div>
+
+            <div class="important">
+                Brak <code>break</code> może spowodować wykonanie
+                kolejnych przypadków znajdujących się poniżej.
+            </div>
+
+        </section>
+
+
+        <section id="ternary">
+
+            <h2>15. Operator warunkowy ?:</h2>
+
+            <p>
+                Prosty warunek <code>if...else</code> można czasem
+                zapisać w krótszej formie za pomocą operatora warunkowego.
+            </p>
+
+            <p>Klasyczny zapis:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+let wynik;
+if (liczba > 0) {
+    wynik = "dodatnia";
+} else {
+    wynik = "niedodatnia";
+}</code></pre>
+
+            <p>Zapis skrócony:</p>
+
+            <pre><code class="language-javascript">let liczba = 10;
+let wynik = liczba > 0 ? "dodatnia" : "niedodatnia";</code></pre>
+
+            <div class="important">
+                Operator <code>?:</code> najlepiej stosować przy
+                prostych warunkach. Przy bardziej rozbudowanej logice
+                czytelniejsza jest konstrukcja <code>if...else</code>.
+            </div>
+
+        </section>
+
+
+        <section id="truthy">
+
+            <h2>16. Wartości truthy i falsy</h2>
+
+            <p>
+                JavaScript może traktować niektóre wartości
+                jako prawdę lub fałsz również bez bezpośredniego
+                porównania.
+            </p>
+
+            <p>
+                Do podstawowych wartości <strong>falsy</strong> należą:
+            </p>
+
+            <pre><code class="language-javascript">false
+0
+""
+null
+undefined
+NaN</code></pre>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-javascript">let tekst = "";
+if (tekst) {
+    console.log("Tekst nie jest pusty");
+}</code></pre>
+
+            <p>
+                Warunek nie zostanie spełniony,
+                ponieważ pusty ciąg znaków jest wartością falsy.
+            </p>
+
+            <div class="important">
+                Pozostałe wartości są zazwyczaj traktowane
+                jako <strong>truthy</strong>.
+            </div>
+
+        </section>
+
+
+        <section id="przyklady">
+
+            <h2>17. Przykłady praktyczne</h2>
+
+
+            <h3>Pełnoletność</h3>
+
+            <pre><code class="language-javascript">let wiek = Number(prompt("Podaj wiek:"));
+if (wiek >= 18) {
+    document.write("Osoba pełnoletnia");
+} else {
+    document.write("Osoba niepełnoletnia");
+}</code></pre>
+
+
+            <h3>Podzielność dwóch liczb</h3>
+
+            <pre><code class="language-javascript">let a = Number(prompt("Podaj pierwszą liczbę:"));
+let b = Number(prompt("Podaj drugą liczbę:"));
+if (a % b === 0) {
+    document.write("Pierwsza liczba jest podzielna przez drugą");
+} else {
+    document.write("Pierwsza liczba nie jest podzielna przez drugą");
+}</code></pre>
+
+
+            <h3>Bezpieczne dzielenie</h3>
+
+            <pre><code class="language-javascript">let a = Number(prompt("Podaj liczbę a:"));
+let b = Number(prompt("Podaj liczbę b:"));
+if (b !== 0) {
+    document.write(a / b);
+} else {
+    document.write("Nie można dzielić przez zero");
+}</code></pre>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Instrukcja <code>if</code> wykonuje kod po spełnieniu warunku.</li>
+                <li><code>else</code> określa kod wykonywany po niespełnieniu warunku.</li>
+                <li><code>else if</code> umożliwia sprawdzanie kolejnych warunków.</li>
+                <li>Wynikiem warunku jest <code>true</code> albo <code>false</code>.</li>
+                <li>Do porównywania wartości stosuje się operatory porównania.</li>
+                <li><code>&amp;&amp;</code> oznacza AND, <code>||</code> oznacza OR, a <code>!</code> oznacza negację.</li>
+                <li>Klamry <code>{ }</code> wyznaczają blok instrukcji.</li>
+                <li>Operator <code>%</code> jest przydatny przy sprawdzaniu parzystości i podzielności.</li>
+                <li><code>switch</code> umożliwia wybór jednej z wielu gałęzi.</li>
+                <li><code>break</code> kończy wykonywanie przypadku <code>case</code>.</li>
+                <li><code>default</code> obsługuje przypadek niepasujący do żadnego <code>case</code>.</li>
+                <li>Operator <code>?:</code> jest skróconą formą prostego warunku.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+            <p>
+                Wczytaj dwie liczby <code>a</code> i <code>b</code>.
+                Wykonaj dzielenie <code>a / b</code>.
+                Jeżeli <code>b</code> jest równe 0,
+                wyświetl komunikat o braku możliwości wykonania dzielenia.
+            </p>
+
+            <h3>Zadanie 2</h3>
+            <p>
+                Wczytaj liczbę i określ, czy jest parzysta
+                czy nieparzysta.
+            </p>
+
+            <h3>Zadanie 3</h3>
+            <p>
+                Wczytaj liczbę i określ, czy jest dodatnia,
+                ujemna czy równa 0.
+            </p>
+
+            <h3>Zadanie 4</h3>
+            <p>
+                Wczytaj dwie liczby i sprawdź,
+                czy pierwsza jest podzielna przez drugą.
+            </p>
+
+            <h3>Zadanie 5</h3>
+            <p>
+                Wczytaj trzy liczby i wyświetl największą z nich.
+            </p>
+
+            <h3>Zadanie 6</h3>
+            <p>
+                Wczytaj wynik procentowy od 0 do 100.
+                Wyświetl odpowiedni komunikat:
+                bardzo dobry, dobry, dostateczny lub niedostateczny
+                według ustalonych progów.
+            </p>
+
+            <h3>Zadanie 7</h3>
+            <p>
+                Wczytaj numer od 1 do 7.
+                Za pomocą instrukcji <code>switch</code>
+                wyświetl odpowiadającą mu nazwę dnia tygodnia.
+            </p>
+
+        </section>
+
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>zastosować instrukcję <code>if</code>,</li>
+                <li>zastosować <code>if...else</code>,</li>
+                <li>zastosować <code>if...else if...else</code>,</li>
+                <li>wykorzystać operatory porównania,</li>
+                <li>połączyć warunki za pomocą <code>&amp;&amp;</code> i <code>||</code>,</li>
+                <li>zastosować negację <code>!</code>,</li>
+                <li>sprawdzić parzystość i podzielność liczby,</li>
+                <li>zastosować zagnieżdżoną instrukcję <code>if</code>,</li>
+                <li>zastosować instrukcję <code>switch</code>,</li>
+                <li>wyjaśnić działanie <code>break</code> i <code>default</code>,</li>
+                <li>zastosować operator warunkowy <code>?:</code>.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="materialy" class="materials">
+
+            <h2>📚 Materiały dodatkowe</h2>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-instrukcje-warunkowe/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – JavaScript: Instrukcje warunkowe
+            </a>
+
+            <a class="material-link"
+               href="https://technikprogramista.pl/kurs/javascript/lekcja/javascript-instrukcje-warunkowe-zadania/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Technik Programista – Instrukcje warunkowe: zadania
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 07
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
