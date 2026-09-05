@@ -681,3 +681,41 @@ td:last-child,
 th:last-child {
     width: 68%;
 }
+
+/* ===== BARDZIEJ ZWARTA TREŚĆ LEKCJI ===== */
+
+section {
+    padding: 22px 30px;
+    margin-bottom: 16px;
+}
+
+section h2 {
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+}
+
+section h3 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+section p {
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+section ul,
+section ol {
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+section li {
+    margin-bottom: 5px;
+}
+
+/* kod zostaje czytelny */
+pre[class*="language-"] {
+    margin: 12px 0;
+    line-height: 1.6;
+}
