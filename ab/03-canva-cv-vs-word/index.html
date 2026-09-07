@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Lekcja 03 – Canva – kreator CV vs CV stworzone w MS Word | Strefa IT</title>
-
+    <title>Lekcja 01 – Technologie internetowe | Strefa IT</title>
     <link rel="stylesheet" href="../../css.css">
 </head>
 
@@ -21,7 +19,7 @@
 
 <nav>
     <div class="nav-container">
-        <a href="../index.html">← AB</a>
+        <a href="../index.html">← PSI</a>
         <a href="../../index.html">⌂ Strona główna</a>
     </div>
 </nav>
@@ -30,682 +28,791 @@
 
     <aside>
         <h3>Spis treści</h3>
-
-        <a href="#zadania">📝 Zadania</a>
-        <a href="#cv">1. Czym jest CV?</a>
-        <a href="#zawartosc">2. Co powinno zawierać CV?</a>
-        <a href="#dane">3. Jakich danych nie umieszczać?</a>
-        <a href="#zdjecie">4. Zdjęcie w CV</a>
-        <a href="#wyglad">5. Wygląd dobrego CV</a>
-        <a href="#canva">6. Canva – czym jest?</a>
-        <a href="#szablon">7. Wybór szablonu CV w Canva</a>
-        <a href="#edycja-canva">8. Edycja CV w Canva</a>
-        <a href="#pdf-canva">9. Zapis CV z Canva do PDF</a>
-        <a href="#word">10. CV w Microsoft Word</a>
-        <a href="#uklad-word">11. Układ CV w Wordzie</a>
-        <a href="#formatowanie-word">12. Formatowanie CV w Wordzie</a>
-        <a href="#pdf-word">13. Zapis CV w Wordzie do PDF</a>
-        <a href="#porownanie">14. Canva czy Word?</a>
-        <a href="#bledy">15. Najczęstsze błędy w CV</a>
+        <a href="#internet-www">1. Internet a WWW</a>
+        <a href="#strona">2. Strona, witryna i serwis internetowy</a>
+        <a href="#klient-serwer">3. Model klient–serwer</a>
+        <a href="#klient">4. Klient</a>
+        <a href="#serwer">5. Serwer WWW</a>
+        <a href="#dzialanie-www">6. Jak działa WWW?</a>
+        <a href="#url">7. Adres URL</a>
+        <a href="#domena-dns">8. Domena i DNS</a>
+        <a href="#http">9. Protokół HTTP</a>
+        <a href="#zadanie-odpowiedz">10. Żądanie i odpowiedź HTTP</a>
+        <a href="#metody">11. GET i POST</a>
+        <a href="#kody">12. Kody odpowiedzi HTTP</a>
+        <a href="#https">13. HTTPS</a>
+        <a href="#technologie">14. Technologie stron WWW</a>
+        <a href="#frontend-backend">15. Front-end i back-end</a>
+        <a href="#narzedzia">16. Narzędzia do tworzenia stron</a>
+        <a href="#vscode">17. Visual Studio Code</a>
+        <a href="#przegladarka">18. Przeglądarka i DevTools</a>
+        <a href="#projekt">19. Struktura projektu</a>
+        <a href="#serwer-lokalny">20. Lokalny serwer WWW</a>
         <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
     </aside>
-
 
     <main>
 
         <div class="lesson-title">
 
             <div class="lesson-number">
-                AB • LEKCJA 03
+                PSI • LEKCJA 01
             </div>
 
-            <h2>Canva – kreator CV vs CV stworzone w MS Word</h2>
+            <h2>
+                Technologie internetowe. Zasada działania WWW, klient, serwer,
+                HTTP/HTTPS oraz narzędzia do tworzenia stron
+            </h2>
 
             <p>
-                Tworzenie profesjonalnego CV z wykorzystaniem gotowego
-                szablonu w Canva oraz samodzielnie w programie Microsoft Word.
-                Porównanie możliwości obu narzędzi.<br>
                 <strong>Cel główny:</strong>
-                Poznanie zasad tworzenia poprawnego i czytelnego CV
-                oraz porównanie możliwości przygotowania tego dokumentu
-                za pomocą kreatora Canva i programu Microsoft Word.
+                Poznanie zasady działania usługi WWW, modelu klient–serwer,
+                sposobu komunikacji za pomocą protokołów HTTP i HTTPS
+                oraz podstawowych narzędzi wykorzystywanych podczas
+                tworzenia stron internetowych.
             </p>
 
         </div>
 
 
-        <section id="zadania" class="tasks">
+        <section id="internet-www">
 
-            <h2>📝 Zadania</h2>
-
-            <p>
-                <strong>Utwórz dwie wersje własnego CV na podstawie tych samych danych:</strong>
-            </p>
+            <h2>1. Internet a WWW</h2>
 
             <p>
-                <strong>1. CV w Canva</strong> – wybierz odpowiedni szablon
-                i dostosuj jego wygląd oraz zawartość.
+                Pojęcia <strong>Internet</strong> i <strong>WWW</strong>
+                nie oznaczają tego samego.
             </p>
-
-            <p>
-                <strong>2. CV w Microsoft Word</strong> – utwórz dokument
-                samodzielnie, wykorzystując poznane narzędzia formatowania.
-            </p>
-
-            <p>
-                Oba dokumenty zapisz w formacie <strong>PDF</strong>.
-                Porównaj ich wygląd, czytelność oraz sposób tworzenia.
-            </p>
-             <p>
-                W obydwu dokumentach zastosuj wymyślone dane. 
-            </p>
-
-            <p>
-                <strong>Wykonane zadanie, czyli dwa pliki PDF,
-                prześlij na Zadanie w TEAMS.</strong>
-            </p>
-
-        </section>
-
-
-        <section id="cv">
-
-            <h2>1. Czym jest CV?</h2>
 
             <div class="definition">
-                <strong>CV</strong> – Curriculum Vitae – jest dokumentem
-                przedstawiającym najważniejsze informacje o wykształceniu,
-                doświadczeniu, umiejętnościach i kwalifikacjach danej osoby.
+                <strong>Internet</strong> – globalna sieć połączonych
+                ze sobą sieci i urządzeń komputerowych umożliwiająca
+                przesyłanie danych.
+            </div>
+
+            <div class="definition">
+                <strong>WWW (World Wide Web)</strong> – jedna z usług
+                działających w Internecie, umożliwiająca korzystanie
+                ze stron i zasobów internetowych za pomocą przeglądarki.
             </div>
 
             <p>
-                CV jest najczęściej wykorzystywane podczas ubiegania się
-                o pracę, praktyki, staż lub udział w rekrutacji.
+                Internet jest infrastrukturą umożliwiającą komunikację,
+                natomiast WWW jest jedną z usług wykorzystujących
+                tę infrastrukturę.
             </p>
 
             <p>
-                Dokument powinien być przede wszystkim:
+                Oprócz WWW w Internecie działają również inne usługi,
+                np. poczta elektroniczna, komunikatory, przesyłanie plików
+                czy usługi chmurowe.
             </p>
-
-            <ul>
-                <li>czytelny,</li>
-                <li>uporządkowany,</li>
-                <li>zgodny z prawdą,</li>
-                <li>aktualny,</li>
-                <li>estetyczny,</li>
-                <li>dostosowany do celu, w jakim jest przygotowywany.</li>
-            </ul>
 
         </section>
 
 
-        <section id="zawartosc">
+        <section id="strona">
 
-            <h2>2. Co powinno zawierać CV?</h2>
+            <h2>2. Strona, witryna i serwis internetowy</h2>
 
-            <p>
-                Zakres informacji zależy od doświadczenia i celu dokumentu,
-                jednak najczęściej CV zawiera następujące sekcje:
-            </p>
-
-            <h3>Dane kontaktowe</h3>
-
-            <p>
-                Powinny umożliwić kontakt z kandydatem.
-            </p>
-
-            <p>Najczęściej podaje się:</p>
-
-            <ul>
-                <li>imię i nazwisko,</li>
-                <li>numer telefonu,</li>
-                <li>adres e-mail,</li>
-                <li>miejscowość – opcjonalnie.</li>
-            </ul>
-
-            <h3>Profil zawodowy</h3>
-
-            <p>
-                Krótka informacja przedstawiająca najważniejsze
-                umiejętności, cechy i cel zawodowy.
-            </p>
-
-            <h3>Wykształcenie</h3>
-
-            <p>
-                Należy podać nazwę szkoły, kierunek lub profil
-                oraz okres nauki.
-            </p>
-
-            <h3>Doświadczenie</h3>
-
-            <p>
-                Można tutaj wpisać:
-            </p>
-
-            <ul>
-                <li>pracę zawodową,</li>
-                <li>praktyki zawodowe,</li>
-                <li>staże,</li>
-                <li>wolontariat,</li>
-                <li>ważniejsze projekty.</li>
-            </ul>
-
-            <div class="important">
-                <strong>Ważne!</strong><br>
-                Brak doświadczenia zawodowego nie oznacza,
-                że CV musi być puste. Uczeń może wpisać praktyki,
-                projekty szkolne, konkursy, kursy, certyfikaty
-                i konkretne umiejętności.
+            <div class="definition">
+                <strong>Strona internetowa</strong> – pojedynczy dokument
+                udostępniany w sieci WWW i wyświetlany przez przeglądarkę.
             </div>
 
-            <h3>Umiejętności</h3>
-
             <p>
-                Powinny być konkretne i zgodne z rzeczywistymi kompetencjami,
-                np.:
+                Strona może zawierać między innymi tekst, obrazy,
+                odnośniki, formularze, multimedia i elementy interaktywne.
             </p>
 
-            <ul>
-                <li>Microsoft Word,</li>
-                <li>Microsoft Excel,</li>
-                <li>HTML i CSS,</li>
-                <li>obsługa programu GIMP,</li>
-                <li>prawo jazdy,</li>
-                <li>znajomość języka obcego.</li>
-            </ul>
-
-            <h3>Kursy i certyfikaty</h3>
-
-            <p>
-                Warto wpisać kursy i certyfikaty istotne
-                z punktu widzenia przyszłej pracy lub praktyk.
-            </p>
-
-            <h3>Zainteresowania</h3>
-
-            <p>
-                Sekcja jest opcjonalna. Warto podawać rzeczywiste
-                i w miarę konkretne zainteresowania.
-            </p>
-
-        </section>
-
-
-        <section id="dane">
-
-            <h2>3. Jakich danych nie należy niepotrzebnie umieszczać w CV?</h2>
-
-            <p>
-                CV powinno zawierać tylko dane potrzebne
-                w procesie rekrutacji.
-            </p>
-
-            <p>
-                Nie należy bez potrzeby umieszczać między innymi:
-            </p>
-
-            <ul>
-                <li>numeru PESEL,</li>
-                <li>numeru dowodu osobistego,</li>
-                <li>numeru konta bankowego,</li>
-                <li>haseł i danych logowania,</li>
-                <li>bardzo szczegółowych danych adresowych, jeśli nie są potrzebne.</li>
-            </ul>
-
-            <div class="important">
-                <strong>Ważne!</strong><br>
-                CV powinno zawierać tylko informacje potrzebne do kontaktu
-                i oceny kwalifikacji kandydata.
+            <div class="definition">
+                <strong>Witryna internetowa</strong> – zbiór powiązanych
+                ze sobą stron internetowych dostępnych zwykle
+                w obrębie jednej domeny.
             </div>
 
-        </section>
-
-
-        <section id="zdjecie">
-
-            <h2>4. Zdjęcie w CV</h2>
-
-            <p>
-                Zdjęcie nie powinno być przypadkowe.
-                Jeżeli zostanie umieszczone w CV, powinno wyglądać
-                profesjonalnie i pasować do charakteru dokumentu.
-            </p>
-
-            <p>Zdjęcie powinno być:</p>
-
-            <ul>
-                <li>wyraźne,</li>
-                <li>aktualne,</li>
-                <li>dobrze wykadrowane,</li>
-                <li>wykonane na spokojnym tle,</li>
-                <li>odpowiednie do dokumentu zawodowego.</li>
-            </ul>
-
-            <p>
-                Nie należy stosować przypadkowych selfie,
-                zdjęć grupowych lub fotografii z wakacji.
-            </p>
-
-        </section>
-
-
-        <section id="wyglad">
-
-            <h2>5. Wygląd dobrego CV</h2>
-
-            <p>
-                CV powinno umożliwiać szybkie odnalezienie
-                najważniejszych informacji.
-            </p>
-
-            <p>Należy zadbać o:</p>
-
-            <ul>
-                <li>czytelną czcionkę,</li>
-                <li>odpowiedni rozmiar tekstu,</li>
-                <li>wyraźne nagłówki sekcji,</li>
-                <li>spójną kolorystykę,</li>
-                <li>równe odstępy,</li>
-                <li>jednolity sposób zapisywania dat,</li>
-                <li>uporządkowany układ informacji.</li>
-            </ul>
-
-            <div class="important">
-                Duża liczba kolorów, ikon i efektów nie oznacza,
-                że CV jest lepsze. Najważniejsze są czytelność,
-                przejrzystość i spójność.
+            <div class="definition">
+                <strong>Serwis internetowy</strong> – rozbudowana witryna
+                oferująca użytkownikowi określone informacje lub usługi.
             </div>
 
+            <p>
+                Przykładem może być serwis informacyjny, sklep internetowy,
+                portal społecznościowy lub platforma edukacyjna.
+            </p>
+
         </section>
 
 
-        <section id="canva">
+        <section id="klient-serwer">
 
-            <h2>6. Canva – czym jest?</h2>
+            <h2>3. Model klient–serwer</h2>
 
             <p>
-                Canva jest internetowym narzędziem graficznym
-                umożliwiającym tworzenie dokumentów i projektów
-                na podstawie gotowych szablonów.
+                Większość usług internetowych działa w modelu
+                <strong>klient–serwer</strong>.
             </p>
 
+            <div class="definition">
+                <strong>Klient</strong> wysyła żądanie,
+                a <strong>serwer</strong> odbiera je, przetwarza
+                i przesyła odpowiedź.
+            </div>
+
+            <p>Uproszczony schemat komunikacji:</p>
+
+            <pre><code>UŻYTKOWNIK
+    ↓
+PRZEGLĄDARKA – KLIENT
+    ↓
+żądanie HTTP/HTTPS
+    ↓
+SERWER WWW
+    ↓
+odpowiedź HTTP/HTTPS
+    ↓
+PRZEGLĄDARKA
+    ↓
+WYŚWIETLONA STRONA</code></pre>
+
             <p>
-                W Canva można przygotować między innymi:
+                Taka komunikacja zachodzi podczas otwierania stron,
+                wysyłania formularzy, logowania do serwisów
+                oraz wykonywania wielu innych czynności w Internecie.
+            </p>
+
+        </section>
+
+
+        <section id="klient">
+
+            <h2>4. Klient</h2>
+
+            <div class="definition">
+                <strong>Klient</strong> – program lub urządzenie,
+                które wysyła żądania do serwera i korzysta
+                z udostępnianych przez niego usług.
+            </div>
+
+            <p>
+                W przypadku stron WWW rolę klienta pełni najczęściej
+                <strong>przeglądarka internetowa</strong>.
+            </p>
+
+            <p>Przykładowe przeglądarki:</p>
+
+            <ul>
+                <li>Google Chrome,</li>
+                <li>Microsoft Edge,</li>
+                <li>Mozilla Firefox,</li>
+                <li>Safari.</li>
+            </ul>
+
+            <p>
+                Przeglądarka pobiera zasoby strony, interpretuje
+                otrzymany kod i wyświetla użytkownikowi gotową stronę.
+            </p>
+
+        </section>
+
+
+        <section id="serwer">
+
+            <h2>5. Serwer WWW</h2>
+
+            <div class="definition">
+                <strong>Serwer WWW</strong> – oprogramowanie działające
+                na komputerze serwerowym, które odbiera żądania klientów
+                i udostępnia zasoby stron internetowych.
+            </div>
+
+            <p>
+                Na serwerze mogą znajdować się między innymi:
             </p>
 
             <ul>
-                <li>CV,</li>
-                <li>prezentacje,</li>
-                <li>plakaty,</li>
-                <li>ulotki,</li>
-                <li>grafiki do mediów społecznościowych.</li>
+                <li>pliki HTML,</li>
+                <li>arkusze CSS,</li>
+                <li>pliki JavaScript,</li>
+                <li>obrazy,</li>
+                <li>pliki do pobrania,</li>
+                <li>skrypty wykonywane po stronie serwera.</li>
             </ul>
 
-            <a class="material-link"
-               href="https://www.canva.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Otwórz Canva
-            </a>
+            <p>
+                Serwer może również komunikować się z bazą danych
+                i na podstawie otrzymanego żądania generować
+                odpowiednią zawartość.
+            </p>
 
         </section>
 
 
-        <section id="szablon">
+        <section id="dzialanie-www">
 
-            <h2>7. Wybór szablonu CV w Canva</h2>
+            <h2>6. Jak działa WWW?</h2>
 
             <p>
-                Jedną z największych zalet Canva jest możliwość
-                korzystania z gotowych szablonów.
+                Po wpisaniu adresu strony internetowej w przeglądarce
+                wykonywany jest szereg operacji.
             </p>
-
-            <h3>Jak znaleźć szablon CV?</h3>
 
             <ol>
-                <li>Otworzyć Canva.</li>
-                <li>W polu wyszukiwania wpisać <strong>CV</strong>.</li>
-                <li>Przejrzeć dostępne projekty.</li>
-                <li>Wybrać odpowiedni szablon.</li>
-                <li>Rozpocząć edycję.</li>
+                <li>Użytkownik wpisuje adres strony.</li>
+                <li>Przeglądarka ustala, z jakim serwerem należy się połączyć.</li>
+                <li>Do serwera wysyłane jest żądanie.</li>
+                <li>Serwer odbiera i przetwarza żądanie.</li>
+                <li>Serwer przesyła odpowiedź.</li>
+                <li>Przeglądarka pobiera potrzebne zasoby.</li>
+                <li>Kod strony jest interpretowany przez przeglądarkę.</li>
+                <li>Gotowa strona zostaje wyświetlona użytkownikowi.</li>
             </ol>
 
             <div class="important">
-                Szablon jest jedynie punktem wyjścia.
-                Należy usunąć przykładowe dane
-                i zastąpić je własnymi informacjami.
+                Strona internetowa nie jest przesyłana do użytkownika
+                jako gotowy „obraz”. Przeglądarka otrzymuje zasoby
+                i na ich podstawie tworzy widok strony.
             </div>
 
         </section>
 
 
-        <section id="edycja-canva">
+        <section id="url">
 
-            <h2>8. Edycja CV w Canva</h2>
-
-            <h3>Zmiana tekstu</h3>
-
-            <p>
-                Aby zmienić tekst, należy kliknąć wybrane pole tekstowe
-                i zastąpić istniejącą treść własną.
-            </p>
-
-            <h3>Zmiana czcionki</h3>
-
-            <p>
-                Po zaznaczeniu tekstu można zmienić krój,
-                rozmiar, kolor i sposób wyrównania.
-            </p>
-
-            <h3>Zmiana kolorów</h3>
-
-            <p>
-                Kolory szablonu można dostosować,
-                zachowując jednak spójność projektu.
-            </p>
-
-            <h3>Przesuwanie elementów</h3>
-
-            <p>
-                Element można przesuwać metodą przeciągnij i upuść.
-            </p>
-
-            <h3>Usuwanie elementów</h3>
-
-            <p>
-                Elementy, które nie są potrzebne,
-                powinny zostać usunięte.
-            </p>
-
-            <h3>Zmiana zdjęcia</h3>
-
-            <p>
-                Można przesłać własne zdjęcie,
-                a następnie zastąpić nim fotografię znajdującą się
-                w szablonie.
-            </p>
-
-            <div class="important">
-                <strong>Ważne!</strong><br>
-                Gotowy szablon należy dostosować do własnej treści,
-                a nie dopasowywać własnych informacji na siłę
-                do wszystkich pól znajdujących się w projekcie.
-            </div>
-
-        </section>
-
-
-        <section id="pdf-canva">
-
-            <h2>9. Zapis CV z Canva do PDF</h2>
-
-            <p>
-                Gotowy dokument należy zapisać w formacie PDF.
-            </p>
-
-            <p>
-                W Canva należy wybrać opcję pobierania projektu,
-                a następnie jako format pliku wybrać
-                <strong>PDF</strong>.
-            </p>
-
-            <p>
-                Po zapisaniu dokument należy otworzyć i sprawdzić,
-                czy wszystkie elementy są poprawnie rozmieszczone.
-            </p>
-
-        </section>
-
-
-        <section id="word">
-
-            <h2>10. CV tworzone w Microsoft Word</h2>
-
-            <p>
-                Microsoft Word pozwala stworzyć CV samodzielnie,
-                bez korzystania z gotowego układu.
-            </p>
-
-            <p>
-                Wymaga to większej liczby decyzji dotyczących:
-            </p>
-
-            <ul>
-                <li>rozmieszczenia elementów,</li>
-                <li>czcionek,</li>
-                <li>nagłówków,</li>
-                <li>kolorystyki,</li>
-                <li>odstępów,</li>
-                <li>wyrównania.</li>
-            </ul>
-
-            <p>
-                Dzięki temu możliwe jest uzyskanie pełnej kontroli
-                nad wyglądem dokumentu.
-            </p>
-
-        </section>
-
-
-        <section id="uklad-word">
-
-            <h2>11. Tworzenie układu CV w Microsoft Word</h2>
-
-            <h3>Ustawienie strony</h3>
-
-            <p>
-                Przed rozpoczęciem pracy warto ustawić odpowiednie
-                marginesy dokumentu.
-            </p>
+            <h2>7. Adres URL</h2>
 
             <div class="definition">
-                <strong>Ścieżka:</strong>
-                Układ → Marginesy
+                <strong>URL (Uniform Resource Locator)</strong> – adres
+                określający położenie zasobu dostępnego w sieci.
             </div>
-
-            <h3>Prosty układ</h3>
-
-            <p>
-                CV może być zbudowane z kolejnych nagłówków
-                i akapitów.
-            </p>
 
             <p>Przykład:</p>
 
+            <pre><code>https://www.example.pl/oferta/index.html</code></pre>
+
+            <p>Adres można podzielić na elementy:</p>
+
+            <pre><code>https://         → protokół
+www.example.pl   → nazwa domeny
+/oferta/         → ścieżka
+index.html       → nazwa zasobu / pliku</code></pre>
+
             <p>
-                <strong>ANNA KOWALSKA</strong><br>
-                Technik informatyk
+                URL może prowadzić nie tylko do strony HTML,
+                ale również np. do obrazu, dokumentu lub innego zasobu.
+            </p>
+
+        </section>
+
+
+        <section id="domena-dns">
+
+            <h2>8. Domena i DNS</h2>
+
+            <div class="definition">
+                <strong>Domena internetowa</strong> – czytelna dla człowieka
+                nazwa wykorzystywana do identyfikowania zasobów
+                dostępnych w Internecie.
+            </div>
+
+            <p>
+                Komputery komunikują się za pomocą adresów IP.
+                Potrzebny jest więc mechanizm pozwalający powiązać
+                nazwę domeny z odpowiednim adresem IP.
+            </p>
+
+            <div class="definition">
+                <strong>DNS (Domain Name System)</strong> – system
+                umożliwiający między innymi tłumaczenie nazw domen
+                na odpowiadające im adresy IP.
+            </div>
+
+            <p>W uproszczeniu:</p>
+
+            <pre><code>nazwa domeny
+     ↓
+    DNS
+     ↓
+adres IP serwera</code></pre>
+
+        </section>
+
+
+        <section id="http">
+
+            <h2>9. Protokół HTTP</h2>
+
+            <div class="definition">
+                <strong>HTTP (Hypertext Transfer Protocol)</strong> –
+                protokół wykorzystywany do komunikacji pomiędzy
+                klientem a serwerem w sieci WWW.
+            </div>
+
+            <p>
+                Określa zasady przesyłania żądań i odpowiedzi
+                pomiędzy przeglądarką a serwerem.
+            </p>
+
+            <p>Komunikacja HTTP opiera się na mechanizmie:</p>
+
+            <pre><code>KLIENT → ŻĄDANIE → SERWER
+KLIENT ← ODPOWIEDŹ ← SERWER</code></pre>
+
+        </section>
+
+
+        <section id="zadanie-odpowiedz">
+
+            <h2>10. Żądanie i odpowiedź HTTP</h2>
+
+            <h3>Żądanie</h3>
+
+            <p>
+                Żądanie jest komunikatem wysyłanym przez klienta
+                do serwera.
             </p>
 
             <p>
-                <strong>WYKSZTAŁCENIE</strong>
+                Może dotyczyć np. pobrania strony, wysłania formularza
+                lub przesłania danych.
+            </p>
+
+            <h3>Odpowiedź</h3>
+
+            <p>
+                Po otrzymaniu żądania serwer przesyła odpowiedź.
+            </p>
+
+            <p>Odpowiedź może zawierać między innymi:</p>
+
+            <ul>
+                <li>kod statusu HTTP,</li>
+                <li>nagłówki,</li>
+                <li>treść dokumentu HTML,</li>
+                <li>dane,</li>
+                <li>informację o błędzie.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="metody">
+
+            <h2>11. Podstawowe metody HTTP – GET i POST</h2>
+
+            <h3>GET</h3>
+
+            <p>
+                Metoda <strong>GET</strong> służy przede wszystkim
+                do pobierania zasobów lub danych z serwera.
             </p>
 
             <p>
-                <strong>UMIEJĘTNOŚCI</strong>
+                Przeglądarka wykorzystuje GET między innymi podczas
+                zwykłego otwierania strony internetowej.
             </p>
 
-            <p>
-                <strong>DOŚWIADCZENIE</strong>
-            </p>
-
-            <h3>Tabela bez widocznych obramowań</h3>
+            <h3>POST</h3>
 
             <p>
-                Do stworzenia bardziej rozbudowanego układu można
-                wykorzystać tabelę, np. dwie kolumny.
-            </p>
-
-            <p>
-                Po rozmieszczeniu treści obramowanie tabeli można usunąć.
+                Metoda <strong>POST</strong> służy do przesyłania
+                danych do serwera, np. danych wprowadzonych
+                do formularza.
             </p>
 
             <div class="important">
-                Tabela bez widocznych linii jest dobrym sposobem
-                na równe rozmieszczenie elementów CV w Wordzie.
+                Na tym etapie wystarczy rozróżniać podstawowe zastosowanie:
+                <strong>GET – pobieranie</strong>,
+                <strong>POST – przesyłanie danych do serwera</strong>.
             </div>
 
         </section>
 
 
-        <section id="formatowanie-word">
+        <section id="kody">
 
-            <h2>12. Formatowanie CV w Microsoft Word</h2>
-
-            <h3>Nagłówki</h3>
+            <h2>12. Kody odpowiedzi HTTP</h2>
 
             <p>
-                Nagłówki poszczególnych sekcji powinny być
-                wyraźnie widoczne i formatowane w jednolity sposób.
+                Serwer wraz z odpowiedzią przesyła kod informujący
+                o wyniku obsługi żądania.
             </p>
-
-            <h3>Czcionka</h3>
-
-            <p>
-                Należy zastosować czytelną czcionkę
-                i ograniczyć liczbę różnych krojów.
-            </p>
-
-            <h3>Kolor</h3>
-
-            <p>
-                Można zastosować jeden dodatkowy kolor
-                do wyróżnienia nagłówków lub ważniejszych elementów.
-            </p>
-
-            <h3>Wstawianie zdjęcia</h3>
-
-            <div class="definition">
-                <strong>Ścieżka:</strong>
-                Wstawianie → Obrazy
-            </div>
-
-            <p>
-                Po wstawieniu zdjęcia można zmienić jego rozmiar,
-                przyciąć je oraz ustawić sposób zawijania tekstu.
-            </p>
-
-            <h3>Ikony i kształty</h3>
-
-            <p>
-                Można zastosować proste elementy graficzne,
-                ale nie powinny one utrudniać odczytywania treści.
-            </p>
-
-        </section>
-
-
-        <section id="pdf-word">
-
-            <h2>13. Zapis CV z Microsoft Word do PDF</h2>
-
-            <p>
-                Po zakończeniu pracy gotowe CV należy zapisać
-                również w formacie PDF.
-            </p>
-
-            <p>
-                W zależności od wersji programu można użyć:
-            </p>
-
-            <div class="definition">
-                Plik → Zapisz jako → PDF
-            </div>
-
-            <p>
-                lub:
-            </p>
-
-            <div class="definition">
-                Plik → Eksportuj → Utwórz dokument PDF/XPS
-            </div>
-
-            <div class="important">
-                Przed przesłaniem PDF należy go otworzyć
-                i sprawdzić wygląd całego dokumentu.
-            </div>
-
-        </section>
-
-
-        <section id="porownanie">
-
-            <h2>14. Canva czy Microsoft Word?</h2>
 
             <table>
                 <tr>
-                    <th>Canva</th>
-                    <th>Microsoft Word</th>
+                    <th>Kod</th>
+                    <th>Znaczenie</th>
                 </tr>
                 <tr>
-                    <td>Dużo gotowych szablonów</td>
-                    <td>Możliwość stworzenia własnego układu</td>
+                    <td>200</td>
+                    <td>OK – żądanie zostało poprawnie obsłużone</td>
                 </tr>
                 <tr>
-                    <td>Szybkie przygotowanie atrakcyjnego projektu</td>
-                    <td>Duża kontrola nad strukturą dokumentu</td>
+                    <td>301</td>
+                    <td>zasób został trwale przeniesiony</td>
                 </tr>
                 <tr>
-                    <td>Łatwe przesuwanie elementów graficznych</td>
-                    <td>Bardzo dobre narzędzia do pracy z tekstem</td>
+                    <td>404</td>
+                    <td>nie znaleziono żądanego zasobu</td>
                 </tr>
                 <tr>
-                    <td>Łatwe dopasowanie kolorów i grafiki</td>
-                    <td>Więcej samodzielnego formatowania</td>
-                </tr>
-                <tr>
-                    <td>Praca w przeglądarce lub aplikacji</td>
-                    <td>Praca w klasycznym edytorze tekstu</td>
-                </tr>
-                <tr>
-                    <td>Możliwość eksportu do PDF</td>
-                    <td>Możliwość eksportu do PDF</td>
+                    <td>500</td>
+                    <td>wewnętrzny błąd serwera</td>
                 </tr>
             </table>
 
             <div class="important">
-                Nie istnieje jedno narzędzie najlepsze do każdego zadania.
-                Należy dobierać program do celu, rodzaju dokumentu
-                i sposobu pracy.
+                Kod <strong>404</strong> oznacza, że serwer został
+                osiągnięty, ale nie znaleziono żądanego zasobu.
             </div>
 
         </section>
 
 
-        <section id="bledy">
+        <section id="https">
 
-            <h2>15. Najczęstsze błędy w CV</h2>
+            <h2>13. HTTPS</h2>
 
-            <ul>
-                <li>błędy ortograficzne i językowe,</li>
-                <li>nieaktualny numer telefonu lub adres e-mail,</li>
-                <li>zbyt duża liczba kolorów i czcionek,</li>
-                <li>nieczytelny układ,</li>
-                <li>przypadkowe zdjęcie,</li>
-                <li>zbyt dużo niepotrzebnych informacji,</li>
-                <li>brak uporządkowania dat i doświadczenia,</li>
-                <li>pozostawione przykładowe dane z szablonu,</li>
-                <li>nieprofesjonalna nazwa pliku.</li>
-            </ul>
-
-            <h3>Nazwa pliku</h3>
+            <div class="definition">
+                <strong>HTTPS (Hypertext Transfer Protocol Secure)</strong> –
+                sposób komunikacji HTTP wykorzystujący szyfrowane
+                połączenie zabezpieczone za pomocą TLS.
+            </div>
 
             <p>
-                Plik powinien mieć prostą i profesjonalną nazwę, np.:
+                Dzięki zastosowaniu szyfrowania dane przesyłane
+                pomiędzy przeglądarką a serwerem są chronione
+                przed prostym odczytaniem przez osoby trzecie.
+            </p>
+
+            <table>
+                <tr>
+                    <th>HTTP</th>
+                    <th>HTTPS</th>
+                </tr>
+                <tr>
+                    <td>brak szyfrowania zapewnianego przez TLS</td>
+                    <td>połączenie szyfrowane przy użyciu TLS</td>
+                </tr>
+                <tr>
+                    <td>adres rozpoczyna się od http://</td>
+                    <td>adres rozpoczyna się od https://</td>
+                </tr>
+                <tr>
+                    <td>nie powinien być używany do przesyłania poufnych danych</td>
+                    <td>standard współczesnych stron internetowych</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                HTTPS zabezpiecza transmisję danych, ale samo użycie HTTPS
+                nie oznacza, że dana strona jest uczciwa lub bezpieczna
+                pod każdym względem.
+            </div>
+
+        </section>
+
+
+        <section id="technologie">
+
+            <h2>14. Technologie wykorzystywane na stronach WWW</h2>
+
+            <p>
+                Do tworzenia stron i aplikacji internetowych wykorzystuje się
+                różne technologie. Każda z nich pełni inną funkcję.
+            </p>
+
+            <h3>HTML</h3>
+
+            <div class="definition">
+                <strong>HTML (HyperText Markup Language)</strong> jest językiem
+                znaczników wykorzystywanym do tworzenia struktury
+                i zawartości strony internetowej.
+            </div>
+
+            <p>
+                Za pomocą HTML tworzone są między innymi nagłówki,
+                akapity, listy, tabele, formularze, obrazy i odnośniki.
+            </p>
+
+            <h3>CSS</h3>
+
+            <div class="definition">
+                <strong>CSS (Cascading Style Sheets)</strong> odpowiada
+                za wygląd i sposób prezentacji elementów strony.
+            </div>
+
+            <p>
+                CSS pozwala określać między innymi kolory, czcionki,
+                rozmiary, odstępy, obramowania oraz układ strony.
+            </p>
+
+            <h3>JavaScript</h3>
+
+            <div class="definition">
+                <strong>JavaScript</strong> jest językiem programowania
+                wykorzystywanym między innymi do tworzenia interaktywnych
+                elementów stron internetowych.
+            </div>
+
+            <p>
+                JavaScript może reagować na działania użytkownika,
+                wykonywać obliczenia, obsługiwać formularze
+                oraz zmieniać zawartość strony.
+            </p>
+
+            <h3>PHP</h3>
+
+            <div class="definition">
+                <strong>PHP</strong> jest językiem programowania
+                wykorzystywanym do tworzenia dynamicznych stron
+                i aplikacji internetowych. Kod PHP jest wykonywany
+                po stronie serwera.
+            </div>
+
+            <p>
+                PHP może służyć między innymi do przetwarzania danych
+                z formularzy, obsługi użytkowników, generowania zawartości
+                strony oraz komunikacji z bazą danych.
+            </p>
+
+            <h3>SQL</h3>
+
+            <div class="definition">
+                <strong>SQL (Structured Query Language)</strong> jest językiem
+                służącym do komunikacji z relacyjnymi bazami danych.
+            </div>
+
+            <p>
+                Za pomocą SQL można między innymi pobierać, dodawać,
+                modyfikować i usuwać dane przechowywane w bazie danych.
+            </p>
+
+            <p>W dużym uproszczeniu:</p>
+
+            <pre><code>HTML       → struktura strony
+CSS        → wygląd strony
+JavaScript → interakcja i zachowanie
+PHP        → działanie po stronie serwera
+SQL        → komunikacja z bazą danych</code></pre>
+
+        </section>
+
+
+        <section id="frontend-backend">
+
+            <h2>15. Front-end i back-end</h2>
+
+            <h3>Front-end</h3>
+
+            <div class="definition">
+                <strong>Front-end</strong> – część aplikacji internetowej,
+                z którą użytkownik bezpośrednio korzysta
+                w przeglądarce.
+            </div>
+
+            <p>
+                Do podstawowych technologii front-end należą
+                HTML, CSS i JavaScript.
+            </p>
+
+            <h3>Back-end</h3>
+
+            <div class="definition">
+                <strong>Back-end</strong> – część aplikacji działająca
+                po stronie serwera.
+            </div>
+
+            <p>
+                Może odpowiadać między innymi za:
+            </p>
+
+            <ul>
+                <li>przetwarzanie danych,</li>
+                <li>obsługę formularzy,</li>
+                <li>logowanie użytkowników,</li>
+                <li>komunikację z bazą danych,</li>
+                <li>generowanie odpowiedzi dla klienta.</li>
+            </ul>
+
+            <p>
+                Przykładem technologii wykorzystywanej po stronie
+                serwera jest PHP, natomiast SQL może służyć
+                do komunikacji aplikacji z relacyjną bazą danych.
+            </p>
+
+        </section>
+
+
+        <section id="narzedzia">
+
+            <h2>16. Narzędzia do tworzenia stron internetowych</h2>
+
+            <p>
+                Do tworzenia i testowania stron potrzebne są
+                odpowiednie narzędzia.
+            </p>
+
+            <p>Podstawowy zestaw obejmuje:</p>
+
+            <ul>
+                <li>edytor kodu,</li>
+                <li>przeglądarkę internetową,</li>
+                <li>narzędzia deweloperskie przeglądarki,</li>
+                <li>w razie potrzeby lokalny serwer WWW.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="vscode">
+
+            <h2>17. Edytor kodu – Visual Studio Code</h2>
+
+            <p>
+                Do pisania kodu HTML, CSS, JavaScript i PHP
+                można wykorzystać edytor <strong>Visual Studio Code</strong>.
+            </p>
+
+            <p>Edytor kodu ułatwia między innymi:</p>
+
+            <ul>
+                <li>tworzenie i edytowanie plików,</li>
+                <li>organizowanie folderów projektu,</li>
+                <li>kolorowanie składni,</li>
+                <li>odnajdywanie błędów,</li>
+                <li>pracę z wieloma plikami jednocześnie.</li>
+            </ul>
+
+            <div class="important">
+                Pliki projektu powinny być przechowywane
+                w uporządkowanej strukturze folderów.
+            </div>
+
+        </section>
+
+
+        <section id="przegladarka">
+
+            <h2>18. Przeglądarka i narzędzia DevTools</h2>
+
+            <p>
+                Przeglądarka służy nie tylko do oglądania strony,
+                ale również do jej testowania.
+            </p>
+
+            <p>
+                W większości przeglądarek narzędzia deweloperskie
+                można uruchomić klawiszem:
             </p>
 
             <div class="definition">
-                Anna_Kowalska_CV.pdf
+                <strong>F12</strong>
             </div>
 
+            <p>DevTools pozwalają między innymi:</p>
+
+            <ul>
+                <li>sprawdzać strukturę HTML,</li>
+                <li>analizować style CSS,</li>
+                <li>sprawdzać błędy JavaScript,</li>
+                <li>korzystać z konsoli,</li>
+                <li>obserwować żądania wysyłane do serwera,</li>
+                <li>sprawdzać wygląd strony na różnych rozmiarach ekranu.</li>
+            </ul>
+
+            <h3>Karta Network / Sieć</h3>
+
             <p>
-                Należy unikać nazw typu:
+                Karta <strong>Network</strong> pozwala obserwować
+                komunikację przeglądarki z serwerem.
+            </p>
+
+            <p>
+                Można zobaczyć między innymi pobierane zasoby,
+                metodę żądania oraz kod odpowiedzi HTTP.
+            </p>
+
+        </section>
+
+
+        <section id="projekt">
+
+            <h2>19. Podstawowa struktura projektu strony</h2>
+
+            <p>
+                Pliki strony powinny być przechowywane
+                w jednym uporządkowanym folderze projektu.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code>moja-strona/
+├── index.html
+├── css.css
+├── script.js
+└── img/
+    └── obraz.jpg</code></pre>
+
+            <p>
+                <strong>index.html</strong> – główny dokument HTML.
+            </p>
+
+            <p>
+                <strong>css.css</strong> – arkusz stylów.
+            </p>
+
+            <p>
+                <strong>script.js</strong> – kod JavaScript.
+            </p>
+
+            <p>
+                <strong>img</strong> – folder przeznaczony
+                na pliki graficzne.
             </p>
 
             <div class="important">
-                cv_nowe2_poprawione_ostateczne.pdf
+                Nazwy plików i folderów powinny być krótkie,
+                czytelne i konsekwentne. W praktyce warto unikać
+                spacji oraz polskich znaków w nazwach plików.
             </div>
+
+        </section>
+
+
+        <section id="serwer-lokalny">
+
+            <h2>20. Lokalny serwer WWW</h2>
+
+            <div class="definition">
+                <strong>Lokalny serwer WWW</strong> pozwala uruchamiać
+                i testować strony oraz aplikacje internetowe
+                na własnym komputerze.
+            </div>
+
+            <p>
+                Proste dokumenty HTML można otworzyć bezpośrednio
+                w przeglądarce.
+            </p>
+
+            <p>
+                Serwer lokalny staje się potrzebny między innymi wtedy,
+                gdy wykorzystywane są technologie działające
+                po stronie serwera, np. PHP.
+            </p>
+
+            <p>
+                Przykładowym środowiskiem umożliwiającym uruchomienie
+                lokalnego serwera jest <strong>XAMPP</strong>.
+            </p>
+
+            <p>
+                Po uruchomieniu lokalnego serwera strony mogą być
+                dostępne pod adresem rozpoczynającym się np. od:
+            </p>
+
+            <pre><code>http://localhost/</code></pre>
 
         </section>
 
@@ -715,18 +822,92 @@
             <h2>📌 Zapamiętaj</h2>
 
             <ul>
-                <li>CV powinno być czytelne, uporządkowane i zgodne z prawdą.</li>
-                <li>Najważniejsze informacje powinny być łatwe do odnalezienia.</li>
-                <li>Nie należy umieszczać zbędnych danych osobowych.</li>
-                <li>Brak doświadczenia zawodowego można uzupełnić informacjami o praktykach, projektach, kursach i umiejętnościach.</li>
-                <li>Gotowy szablon Canva należy dostosować do własnych informacji.</li>
-                <li>Canva ułatwia szybkie przygotowanie atrakcyjnego projektu.</li>
-                <li>Microsoft Word daje dużą kontrolę nad układem i formatowaniem dokumentu.</li>
-                <li>W CV należy stosować spójne czcionki, kolory i nagłówki.</li>
-                <li>Przed wysłaniem dokumentu należy sprawdzić błędy językowe i dane kontaktowe.</li>
-                <li>Gotowe CV należy zapisać jako PDF.</li>
-                <li>Nazwa pliku powinna być prosta i profesjonalna.</li>
+                <li>Internet i WWW nie oznaczają tego samego.</li>
+                <li>WWW jest jedną z usług działających w Internecie.</li>
+                <li>Przeglądarka pełni rolę klienta WWW.</li>
+                <li>Klient wysyła żądanie, a serwer przesyła odpowiedź.</li>
+                <li>URL określa adres zasobu dostępnego w sieci.</li>
+                <li>DNS umożliwia między innymi tłumaczenie nazw domen na adresy IP.</li>
+                <li>HTTP określa zasady komunikacji pomiędzy klientem a serwerem WWW.</li>
+                <li>GET służy przede wszystkim do pobierania, a POST do przesyłania danych do serwera.</li>
+                <li>Kod 200 oznacza poprawną odpowiedź, 404 brak zasobu, a 500 błąd serwera.</li>
+                <li>HTTPS wykorzystuje szyfrowane połączenie zabezpieczone za pomocą TLS.</li>
+                <li>HTML odpowiada za strukturę strony, CSS za wygląd, JavaScript za interakcję, PHP za działanie po stronie serwera, a SQL służy do komunikacji z bazą danych.</li>
+                <li>Front-end jest częścią aplikacji działającą po stronie użytkownika, a back-end obejmuje część działającą po stronie serwera.</li>
+                <li>Visual Studio Code może służyć do tworzenia kodu stron internetowych.</li>
+                <li>DevTools uruchamiane klawiszem F12 pomagają analizować i testować stronę.</li>
+                <li>Pliki projektu powinny być przechowywane w uporządkowanej strukturze folderów.</li>
             </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+
+            <p>
+                Wyjaśnij własnymi słowami różnicę pomiędzy
+                Internetem a usługą WWW.
+            </p>
+
+            <h3>Zadanie 2</h3>
+
+            <p>
+                Narysuj schemat przedstawiający komunikację
+                pomiędzy klientem a serwerem WWW.
+                Zaznacz żądanie i odpowiedź.
+            </p>
+
+            <h3>Zadanie 3</h3>
+
+            <p>Dla adresu:</p>
+
+            <pre><code>https://www.example.pl/sklep/produkt.html</code></pre>
+
+            <p>
+                wskaż protokół, nazwę domeny, ścieżkę
+                oraz nazwę zasobu.
+            </p>
+
+            <h3>Zadanie 4</h3>
+
+            <p>
+                Wyjaśnij znaczenie kodów HTTP:
+                <strong>200, 301, 404 i 500</strong>.
+            </p>
+
+            <h3>Zadanie 5</h3>
+
+            <p>
+                Utwórz na komputerze folder o nazwie
+                <strong>moja-strona</strong>.
+                W folderze utwórz:
+            </p>
+
+            <ul>
+                <li>plik <strong>index.html</strong>,</li>
+                <li>plik <strong>css.css</strong>,</li>
+                <li>plik <strong>script.js</strong>,</li>
+                <li>folder <strong>img</strong>.</li>
+            </ul>
+
+            <h3>Zadanie 6</h3>
+
+            <p>
+                Otwórz dowolną stronę internetową w przeglądarce.
+                Uruchom narzędzia deweloperskie klawiszem
+                <strong>F12</strong> i odszukaj kartę
+                <strong>Network / Sieć</strong>.
+            </p>
+
+            <p>
+                Odśwież stronę i sprawdź, jakie zasoby
+                zostały pobrane oraz jakie kody odpowiedzi HTTP
+                pojawiają się na liście.
+            </p>
 
         </section>
 
@@ -734,9 +915,8 @@
 
 </div>
 
-
 <footer>
-    STREFA IT • AB • Lekcja 03
+    STREFA IT • PSI • Lekcja 01
 </footer>
 
 </body>
