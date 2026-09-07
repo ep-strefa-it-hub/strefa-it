@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lekcja 02 – Standard HTML5 | Strefa IT</title>
     <link rel="stylesheet" href="../../css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
 </head>
 <body>
 
@@ -49,9 +50,7 @@
     <main>
 
         <div class="lesson-title">
-            <div class="lesson-number">
-                PSI • LEKCJA 02
-            </div>
+            <div class="lesson-number">PSI • LEKCJA 02</div>
 
             <h2>Standard HTML5. Struktura dokumentu, DOCTYPE, html, head, body, metadane i kodowanie znaków</h2>
 
@@ -106,7 +105,7 @@
 
             <p>Przykładowe nazwy plików:</p>
 
-            <pre><code>index.html
+            <pre><code class="language-text">index.html
 kontakt.html
 oferta.html
 galeria.html</code></pre>
@@ -135,7 +134,7 @@ galeria.html</code></pre>
                 Podstawowy szkielet dokumentu HTML5 wygląda następująco:
             </p>
 
-            <pre><code>&lt;!DOCTYPE html&gt;
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pl"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -159,11 +158,9 @@ galeria.html</code></pre>
 
             <h2>4. Deklaracja DOCTYPE</h2>
 
-            <p>
-                Dokument HTML5 rozpoczyna się deklaracją:
-            </p>
+            <p>Dokument HTML5 rozpoczyna się deklaracją:</p>
 
-            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;</code></pre>
 
             <div class="definition">
                 <strong>DOCTYPE</strong> informuje przeglądarkę,
@@ -192,7 +189,7 @@ galeria.html</code></pre>
                 Po deklaracji DOCTYPE rozpoczyna się właściwy dokument HTML.
             </p>
 
-            <pre><code>&lt;html lang="pl"&gt;
+            <pre><code class="language-html">&lt;html lang="pl"&gt;
     ...
 &lt;/html&gt;</code></pre>
 
@@ -201,15 +198,13 @@ galeria.html</code></pre>
                 Obejmuje całą jego zawartość – sekcję head oraz body.
             </div>
 
-            <p>
-                Znacznik:
-            </p>
+            <p>Znacznik:</p>
 
-            <pre><code>&lt;html&gt;</code></pre>
+            <pre><code class="language-html">&lt;html&gt;</code></pre>
 
             <p>rozpoczyna element, natomiast:</p>
 
-            <pre><code>&lt;/html&gt;</code></pre>
+            <pre><code class="language-html">&lt;/html&gt;</code></pre>
 
             <p>go zamyka.</p>
 
@@ -228,11 +223,11 @@ galeria.html</code></pre>
 
             <p>Dla strony w języku polskim:</p>
 
-            <pre><code>&lt;html lang="pl"&gt;</code></pre>
+            <pre><code class="language-html">&lt;html lang="pl"&gt;</code></pre>
 
             <p>Dla strony w języku angielskim:</p>
 
-            <pre><code>&lt;html lang="en"&gt;</code></pre>
+            <pre><code class="language-html">&lt;html lang="en"&gt;</code></pre>
 
             <div class="definition">
                 <strong>Atrybut</strong> przekazuje dodatkową informację
@@ -258,7 +253,7 @@ galeria.html</code></pre>
                 przed sekcją <strong>&lt;body&gt;</strong>.
             </p>
 
-            <pre><code>&lt;head&gt;
+            <pre><code class="language-html">&lt;head&gt;
     ...
 &lt;/head&gt;</code></pre>
 
@@ -303,11 +298,11 @@ galeria.html</code></pre>
 
             <p>Przykład opisu strony:</p>
 
-            <pre><code>&lt;meta name="description" content="Materiały do nauki HTML5"&gt;</code></pre>
+            <pre><code class="language-html">&lt;meta name="description" content="Materiały do nauki HTML5"&gt;</code></pre>
 
             <p>Informacja o autorze:</p>
 
-            <pre><code>&lt;meta name="author" content="Jan Kowalski"&gt;</code></pre>
+            <pre><code class="language-html">&lt;meta name="author" content="Jan Kowalski"&gt;</code></pre>
 
             <p>
                 Metadane umieszcza się w sekcji
@@ -332,7 +327,7 @@ galeria.html</code></pre>
                 w sekcji head jest sposób kodowania znaków.
             </p>
 
-            <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            <pre><code class="language-html">&lt;meta charset="UTF-8"&gt;</code></pre>
 
             <div class="definition">
                 <strong>UTF-8</strong> jest kodowaniem znaków pozwalającym
@@ -345,7 +340,7 @@ galeria.html</code></pre>
                 prawidłowo wyświetlać między innymi polskie znaki:
             </p>
 
-            <pre><code>ą ć ę ł ń ó ś ź ż</code></pre>
+            <pre><code class="language-text">ą ć ę ł ń ó ś ź ż</code></pre>
 
             <div class="important">
                 Deklarację kodowania należy umieszczać możliwie wcześnie
@@ -363,7 +358,7 @@ galeria.html</code></pre>
                 We współczesnym dokumencie HTML często umieszcza się również:
             </p>
 
-            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
 
             <p>
                 Ustawienie to informuje przeglądarkę, jak ma określić
@@ -398,7 +393,7 @@ galeria.html</code></pre>
                 dokumentu HTML.
             </p>
 
-            <pre><code>&lt;title&gt;Moja pierwsza strona&lt;/title&gt;</code></pre>
+            <pre><code class="language-html">&lt;title&gt;Moja pierwsza strona&lt;/title&gt;</code></pre>
 
             <p>
                 Tytuł nie jest wyświetlany jako treść wewnątrz strony.
@@ -422,7 +417,7 @@ galeria.html</code></pre>
                 dokumentu przeznaczoną do prezentacji użytkownikowi.
             </div>
 
-            <pre><code>&lt;body&gt;
+            <pre><code class="language-html">&lt;body&gt;
     ...
 &lt;/body&gt;</code></pre>
 
@@ -500,11 +495,11 @@ galeria.html</code></pre>
 
             <p>Nieczytelny zapis:</p>
 
-            <pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Strona&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+            <pre><code class="language-html">&lt;html&gt;&lt;head&gt;&lt;title&gt;Strona&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
 
             <p>Czytelniejszy zapis:</p>
 
-            <pre><code>&lt;html&gt;
+            <pre><code class="language-html">&lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Strona&lt;/title&gt;
 &lt;/head&gt;
@@ -533,7 +528,7 @@ galeria.html</code></pre>
 
             <p>Komentarz w HTML zapisuje się następująco:</p>
 
-            <pre><code>&lt;!-- To jest komentarz w kodzie HTML --&gt;</code></pre>
+            <pre><code class="language-html">&lt;!-- To jest komentarz w kodzie HTML --&gt;</code></pre>
 
             <p>Komentarze mogą służyć między innymi do:</p>
 
@@ -546,7 +541,7 @@ galeria.html</code></pre>
 
             <p>Przykład:</p>
 
-            <pre><code>&lt;!-- Początek głównej zawartości strony --&gt;
+            <pre><code class="language-html">&lt;!-- Początek głównej zawartości strony --&gt;
 &lt;body&gt;
 &lt;/body&gt;</code></pre>
 
@@ -562,9 +557,7 @@ galeria.html</code></pre>
                 dokumentu pod kątem zgodności z regułami języka HTML.
             </div>
 
-            <p>
-                Walidator może pomóc wykryć między innymi:
-            </p>
+            <p>Walidator może pomóc wykryć między innymi:</p>
 
             <ul>
                 <li>niepoprawne znaczniki,</li>
@@ -645,24 +638,18 @@ galeria.html</code></pre>
 
             <h3>Zadanie 2</h3>
 
-            <p>
-                Do sekcji head utworzonego dokumentu dodaj:
-            </p>
+            <p>Do sekcji head utworzonego dokumentu dodaj:</p>
 
-            <pre><code>&lt;meta name="description" content="Moja pierwsza strona HTML5"&gt;
+            <pre><code class="language-html">&lt;meta name="description" content="Moja pierwsza strona HTML5"&gt;
 &lt;meta name="author" content="Twoje imię i nazwisko"&gt;</code></pre>
 
-            <p>
-                Uzupełnij autora własnymi danymi.
-            </p>
+            <p>Uzupełnij autora własnymi danymi.</p>
 
             <h3>Zadanie 3</h3>
 
-            <p>
-                Ustaw tytuł dokumentu:
-            </p>
+            <p>Ustaw tytuł dokumentu:</p>
 
-            <pre><code>&lt;title&gt;HTML5 – moja pierwsza strona&lt;/title&gt;</code></pre>
+            <pre><code class="language-html">&lt;title&gt;HTML5 – moja pierwsza strona&lt;/title&gt;</code></pre>
 
             <p>
                 Otwórz dokument w przeglądarce i sprawdź,
@@ -676,7 +663,7 @@ galeria.html</code></pre>
                 najważniejsze części dokumentu, np.:
             </p>
 
-            <pre><code>&lt;!-- Informacje o dokumencie --&gt;
+            <pre><code class="language-html">&lt;!-- Informacje o dokumencie --&gt;
 &lt;!-- Początek zawartości strony --&gt;
 &lt;!-- Koniec zawartości strony --&gt;</code></pre>
 
@@ -688,7 +675,7 @@ galeria.html</code></pre>
                 aby powstał prawidłowy dokument HTML5.
             </p>
 
-            <pre><code>&lt;html lang="pl"&gt;
+            <pre><code class="language-html">&lt;html lang="pl"&gt;
 &lt;body&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;title&gt;Moja strona&lt;/title&gt;
@@ -714,6 +701,9 @@ galeria.html</code></pre>
 <footer>
     STREFA IT • PSI • Lekcja 02
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
 
 </body>
 </html>
