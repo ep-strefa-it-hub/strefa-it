@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 01 – Technologie internetowe | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#internet-www">1. Internet a WWW</a>
+        <a href="#strona">2. Strona, witryna i serwis internetowy</a>
+        <a href="#klient-serwer">3. Model klient–serwer</a>
+        <a href="#klient">4. Klient</a>
+        <a href="#serwer">5. Serwer WWW</a>
+        <a href="#dzialanie-www">6. Jak działa WWW?</a>
+        <a href="#url">7. Adres URL</a>
+        <a href="#domena-dns">8. Domena i DNS</a>
+        <a href="#http">9. Protokół HTTP</a>
+        <a href="#zadanie-odpowiedz">10. Żądanie i odpowiedź HTTP</a>
+        <a href="#metody">11. GET i POST</a>
+        <a href="#kody">12. Kody odpowiedzi HTTP</a>
+        <a href="#https">13. HTTPS</a>
+        <a href="#technologie">14. Technologie stron WWW</a>
+        <a href="#frontend-backend">15. Front-end i back-end</a>
+        <a href="#narzedzia">16. Narzędzia do tworzenia stron</a>
+        <a href="#vscode">17. Visual Studio Code</a>
+        <a href="#przegladarka">18. Przeglądarka i DevTools</a>
+        <a href="#projekt">19. Struktura projektu</a>
+        <a href="#serwer-lokalny">20. Lokalny serwer WWW</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+    </aside>
+
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 01
+            </div>
+
+            <h2>
+                Technologie internetowe. Zasada działania WWW, klient, serwer,
+                HTTP/HTTPS oraz narzędzia do tworzenia stron
+            </h2>
+
+            <p>
+                <strong>Cel główny:</strong>
+                Poznanie zasady działania usługi WWW, modelu klient–serwer,
+                sposobu komunikacji za pomocą protokołów HTTP i HTTPS
+                oraz podstawowych narzędzi wykorzystywanych podczas
+                tworzenia stron internetowych.
+            </p>
+
+        </div>
+
+
+        <section id="internet-www">
+
+            <h2>1. Internet a WWW</h2>
+
+            <p>
+                Pojęcia <strong>Internet</strong> i <strong>WWW</strong>
+                nie oznaczają tego samego.
+            </p>
+
+            <div class="definition">
+                <strong>Internet</strong> – globalna sieć połączonych
+                ze sobą sieci i urządzeń komputerowych umożliwiająca
+                przesyłanie danych.
+            </div>
+
+            <div class="definition">
+                <strong>WWW (World Wide Web)</strong> – jedna z usług
+                działających w Internecie, umożliwiająca korzystanie
+                ze stron i zasobów internetowych za pomocą przeglądarki.
+            </div>
+
+            <p>
+                Internet jest więc infrastrukturą umożliwiającą komunikację,
+                natomiast WWW jest jedną z usług wykorzystujących tę
+                infrastrukturę.
+            </p>
+
+            <p>
+                Oprócz WWW w Internecie działają również inne usługi,
+                np. poczta elektroniczna, komunikatory, przesyłanie plików
+                czy usługi chmurowe.
+            </p>
+
+        </section>
+
+
+        <section id="strona">
+
+            <h2>2. Strona, witryna i serwis internetowy</h2>
+
+            <div class="definition">
+                <strong>Strona internetowa</strong> – pojedynczy dokument
+                udostępniany w sieci WWW i wyświetlany przez przeglądarkę.
+            </div>
+
+            <p>
+                Strona może zawierać między innymi tekst, obrazy,
+                odnośniki, formularze, multimedia i elementy interaktywne.
+            </p>
+
+            <div class="definition">
+                <strong>Witryna internetowa</strong> – zbiór powiązanych
+                ze sobą stron internetowych dostępnych zwykle
+                w obrębie jednej domeny.
+            </div>
+
+            <div class="definition">
+                <strong>Serwis internetowy</strong> – rozbudowana witryna
+                oferująca użytkownikowi określone informacje lub usługi.
+            </div>
+
+            <p>
+                Przykładem może być serwis informacyjny, sklep internetowy,
+                portal społecznościowy lub platforma edukacyjna.
+            </p>
+
+        </section>
+
+
+        <section id="klient-serwer">
+
+            <h2>3. Model klient–serwer</h2>
+
+            <p>
+                Większość usług internetowych działa w modelu
+                <strong>klient–serwer</strong>.
+            </p>
+
+            <div class="definition">
+                <strong>Klient</strong> wysyła żądanie,
+                a <strong>serwer</strong> odbiera je, przetwarza
+                i przesyła odpowiedź.
+            </div>
+
+            <p>Uproszczony schemat komunikacji:</p>
+
+            <pre><code>UŻYTKOWNIK
+    ↓
+PRZEGLĄDARKA – KLIENT
+    ↓
+żądanie HTTP/HTTPS
+    ↓
+SERWER WWW
+    ↓
+odpowiedź HTTP/HTTPS
+    ↓
+PRZEGLĄDARKA
+    ↓
+WYŚWIETLONA STRONA</code></pre>
+
+            <p>
+                Taka komunikacja zachodzi podczas otwierania stron,
+                wysyłania formularzy, logowania do serwisów
+                oraz wykonywania wielu innych czynności w Internecie.
+            </p>
+
+        </section>
+
+
+        <section id="klient">
+
+            <h2>4. Klient</h2>
+
+            <div class="definition">
+                <strong>Klient</strong> – program lub urządzenie,
+                które wysyła żądania do serwera i korzysta
+                z udostępnianych przez niego usług.
+            </div>
+
+            <p>
+                W przypadku stron WWW rolę klienta pełni najczęściej
+                <strong>przeglądarka internetowa</strong>.
+            </p>
+
+            <p>Przykładowe przeglądarki:</p>
+
+            <ul>
+                <li>Google Chrome,</li>
+                <li>Microsoft Edge,</li>
+                <li>Mozilla Firefox,</li>
+                <li>Safari.</li>
+            </ul>
+
+            <p>
+                Przeglądarka pobiera zasoby strony, interpretuje
+                otrzymany kod i wyświetla użytkownikowi gotową stronę.
+            </p>
+
+        </section>
+
+
+        <section id="serwer">
+
+            <h2>5. Serwer WWW</h2>
+
+            <div class="definition">
+                <strong>Serwer WWW</strong> – oprogramowanie działające
+                na komputerze serwerowym, które odbiera żądania klientów
+                i udostępnia zasoby stron internetowych.
+            </div>
+
+            <p>
+                Na serwerze mogą znajdować się między innymi:
+            </p>
+
+            <ul>
+                <li>pliki HTML,</li>
+                <li>arkusze CSS,</li>
+                <li>pliki JavaScript,</li>
+                <li>obrazy,</li>
+                <li>pliki do pobrania,</li>
+                <li>skrypty wykonywane po stronie serwera.</li>
+            </ul>
+
+            <p>
+                Serwer może również komunikować się z bazą danych
+                i na podstawie otrzymanego żądania generować
+                odpowiednią zawartość.
+            </p>
+
+        </section>
+
+
+        <section id="dzialanie-www">
+
+            <h2>6. Jak działa WWW?</h2>
+
+            <p>
+                Po wpisaniu adresu strony internetowej w przeglądarce
+                wykonywany jest szereg operacji.
+            </p>
+
+            <ol>
+                <li>Użytkownik wpisuje adres strony.</li>
+                <li>Przeglądarka ustala, z jakim serwerem należy się połączyć.</li>
+                <li>Do serwera wysyłane jest żądanie.</li>
+                <li>Serwer odbiera i przetwarza żądanie.</li>
+                <li>Serwer przesyła odpowiedź.</li>
+                <li>Przeglądarka pobiera potrzebne zasoby.</li>
+                <li>Kod strony jest interpretowany przez przeglądarkę.</li>
+                <li>Gotowa strona zostaje wyświetlona użytkownikowi.</li>
+            </ol>
+
+            <div class="important">
+                Strona internetowa nie jest przesyłana do użytkownika
+                jako gotowy „obraz”. Przeglądarka otrzymuje zasoby
+                i na ich podstawie tworzy widok strony.
+            </div>
+
+        </section>
+
+
+        <section id="url">
+
+            <h2>7. Adres URL</h2>
+
+            <div class="definition">
+                <strong>URL (Uniform Resource Locator)</strong> – adres
+                określający położenie zasobu dostępnego w sieci.
+            </div>
+
+            <p>Przykład:</p>
+
+            <pre><code>https://www.example.pl/oferta/index.html</code></pre>
+
+            <p>Adres można podzielić na elementy:</p>
+
+            <pre><code>https://         → protokół
+www.example.pl   → nazwa domeny
+/oferta/         → ścieżka
+index.html       → nazwa zasobu / pliku</code></pre>
+
+            <p>
+                URL może prowadzić nie tylko do strony HTML,
+                ale również np. do obrazu, dokumentu lub innego zasobu.
+            </p>
+
+        </section>
+
+
+        <section id="domena-dns">
+
+            <h2>8. Domena i DNS</h2>
+
+            <div class="definition">
+                <strong>Domena internetowa</strong> – czytelna dla człowieka
+                nazwa wykorzystywana do identyfikowania zasobów
+                dostępnych w Internecie.
+            </div>
+
+            <p>
+                Komputery komunikują się jednak za pomocą adresów IP.
+                Potrzebny jest więc mechanizm pozwalający powiązać
+                nazwę domeny z odpowiednim adresem IP.
+            </p>
+
+            <div class="definition">
+                <strong>DNS (Domain Name System)</strong> – system
+                umożliwiający między innymi tłumaczenie nazw domen
+                na odpowiadające im adresy IP.
+            </div>
+
+            <p>W uproszczeniu:</p>
+
+            <pre><code>nazwa domeny
+     ↓
+    DNS
+     ↓
+adres IP serwera</code></pre>
+
+        </section>
+
+
+        <section id="http">
+
+            <h2>9. Protokół HTTP</h2>
+
+            <div class="definition">
+                <strong>HTTP (Hypertext Transfer Protocol)</strong> –
+                protokół wykorzystywany do komunikacji pomiędzy
+                klientem a serwerem w sieci WWW.
+            </div>
+
+            <p>
+                Określa zasady przesyłania żądań i odpowiedzi
+                pomiędzy przeglądarką a serwerem.
+            </p>
+
+            <p>
+                Komunikacja HTTP opiera się na mechanizmie:
+            </p>
+
+            <pre><code>KLIENT → ŻĄDANIE → SERWER
+KLIENT ← ODPOWIEDŹ ← SERWER</code></pre>
+
+        </section>
+
+
+        <section id="zadanie-odpowiedz">
+
+            <h2>10. Żądanie i odpowiedź HTTP</h2>
+
+            <h3>Żądanie</h3>
+
+            <p>
+                Żądanie jest komunikatem wysyłanym przez klienta
+                do serwera.
+            </p>
+
+            <p>
+                Może dotyczyć np. pobrania strony, wysłania formularza
+                lub przesłania danych.
+            </p>
+
+            <h3>Odpowiedź</h3>
+
+            <p>
+                Po otrzymaniu żądania serwer przesyła odpowiedź.
+            </p>
+
+            <p>
+                Odpowiedź może zawierać między innymi:
+            </p>
+
+            <ul>
+                <li>kod statusu HTTP,</li>
+                <li>nagłówki,</li>
+                <li>treść dokumentu HTML,</li>
+                <li>dane,</li>
+                <li>informację o błędzie.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="metody">
+
+            <h2>11. Podstawowe metody HTTP – GET i POST</h2>
+
+            <h3>GET</h3>
+
+            <p>
+                Metoda <strong>GET</strong> służy przede wszystkim
+                do pobierania zasobów lub danych z serwera.
+            </p>
+
+            <p>
+                Przeglądarka wykorzystuje GET między innymi podczas
+                zwykłego otwierania strony internetowej.
+            </p>
+
+            <h3>POST</h3>
+
+            <p>
+                Metoda <strong>POST</strong> służy do przesyłania
+                danych do serwera, np. danych wprowadzonych
+                do formularza.
+            </p>
+
+            <div class="important">
+                Na tym etapie wystarczy rozróżniać podstawowe zastosowanie:
+                <strong>GET – pobieranie</strong>,
+                <strong>POST – przesyłanie danych do serwera</strong>.
+            </div>
+
+        </section>
+
+
+        <section id="kody">
+
+            <h2>12. Kody odpowiedzi HTTP</h2>
+
+            <p>
+                Serwer wraz z odpowiedzią przesyła kod informujący
+                o wyniku obsługi żądania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Kod</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>OK – żądanie zostało poprawnie obsłużone</td>
+                </tr>
+                <tr>
+                    <td>301</td>
+                    <td>zasób został trwale przeniesiony</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>nie znaleziono żądanego zasobu</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>wewnętrzny błąd serwera</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                Kod <strong>404</strong> oznacza, że serwer został
+                osiągnięty, ale nie znaleziono żądanego zasobu.
+            </div>
+
+        </section>
+
+
+        <section id="https">
+
+            <h2>13. HTTPS</h2>
+
+            <div class="definition">
+                <strong>HTTPS (Hypertext Transfer Protocol Secure)</strong> –
+                sposób komunikacji HTTP wykorzystujący szyfrowane
+                połączenie zabezpieczone za pomocą TLS.
+            </div>
+
+            <p>
+                Dzięki zastosowaniu szyfrowania dane przesyłane
+                pomiędzy przeglądarką a serwerem są chronione
+                przed prostym odczytaniem przez osoby trzecie.
+            </p>
+
+            <table>
+                <tr>
+                    <th>HTTP</th>
+                    <th>HTTPS</th>
+                </tr>
+                <tr>
+                    <td>brak szyfrowania zapewnianego przez TLS</td>
+                    <td>połączenie szyfrowane przy użyciu TLS</td>
+                </tr>
+                <tr>
+                    <td>adres rozpoczyna się od http://</td>
+                    <td>adres rozpoczyna się od https://</td>
+                </tr>
+                <tr>
+                    <td>nie powinien być używany do przesyłania poufnych danych</td>
+                    <td>standard współczesnych stron internetowych</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                HTTPS zabezpiecza transmisję danych, ale samo użycie HTTPS
+                nie oznacza, że dana strona jest uczciwa lub bezpieczna
+                pod każdym względem.
+            </div>
+
+        </section>
+
+
+        <section id="technologie">
+
+            <h2>14. Technologie wykorzystywane na stronach WWW</h2>
+
+            <p>
+                Do tworzenia stron internetowych wykorzystuje się
+                różne technologie pełniące odmienne funkcje.
+            </p>
+
+            <h3>HTML</h3>
+
+            <div class="definition">
+                <strong>HTML</strong> odpowiada za strukturę
+                i zawartość strony.
+            </div>
+
+            <p>
+                Za pomocą HTML tworzone są między innymi nagłówki,
+                akapity, listy, tabele, formularze, obrazy i odnośniki.
+            </p>
+
+            <h3>CSS</h3>
+
+            <div class="definition">
+                <strong>CSS</strong> odpowiada za wygląd
+                i sposób prezentacji elementów strony.
+            </div>
+
+            <p>
+                CSS pozwala określać między innymi kolory,
+                czcionki, rozmiary, odstępy i układ strony.
+            </p>
+
+            <h3>JavaScript</h3>
+
+            <div class="definition">
+                <strong>JavaScript</strong> umożliwia tworzenie
+                interaktywnych zachowań strony wykonywanych
+                między innymi w przeglądarce użytkownika.
+            </div>
+
+            <p>W dużym uproszczeniu:</p>
+
+            <pre><code>HTML       → struktura
+CSS        → wygląd
+JavaScript → zachowanie i interakcja</code></pre>
+
+        </section>
+
+
+        <section id="frontend-backend">
+
+            <h2>15. Front-end i back-end</h2>
+
+            <h3>Front-end</h3>
+
+            <div class="definition">
+                <strong>Front-end</strong> – część aplikacji internetowej,
+                z którą użytkownik bezpośrednio korzysta
+                w przeglądarce.
+            </div>
+
+            <p>
+                Do podstawowych technologii front-end należą
+                HTML, CSS i JavaScript.
+            </p>
+
+            <h3>Back-end</h3>
+
+            <div class="definition">
+                <strong>Back-end</strong> – część aplikacji działająca
+                po stronie serwera.
+            </div>
+
+            <p>
+                Może odpowiadać między innymi za:
+            </p>
+
+            <ul>
+                <li>przetwarzanie danych,</li>
+                <li>obsługę formularzy,</li>
+                <li>logowanie użytkowników,</li>
+                <li>komunikację z bazą danych,</li>
+                <li>generowanie odpowiedzi dla klienta.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="narzedzia">
+
+            <h2>16. Narzędzia do tworzenia stron internetowych</h2>
+
+            <p>
+                Do tworzenia i testowania stron potrzebne są
+                odpowiednie narzędzia.
+            </p>
+
+            <p>Podstawowy zestaw obejmuje:</p>
+
+            <ul>
+                <li>edytor kodu,</li>
+                <li>przeglądarkę internetową,</li>
+                <li>narzędzia deweloperskie przeglądarki,</li>
+                <li>w razie potrzeby lokalny serwer WWW.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="vscode">
+
+            <h2>17. Edytor kodu – Visual Studio Code</h2>
+
+            <p>
+                Do pisania kodu HTML, CSS i JavaScript można wykorzystać
+                edytor <strong>Visual Studio Code</strong>.
+            </p>
+
+            <p>
+                Edytor kodu ułatwia między innymi:
+            </p>
+
+            <ul>
+                <li>tworzenie i edytowanie plików,</li>
+                <li>organizowanie folderów projektu,</li>
+                <li>kolorowanie składni,</li>
+                <li>odnajdywanie błędów,</li>
+                <li>pracę z wieloma plikami jednocześnie.</li>
+            </ul>
+
+            <div class="important">
+                Pliki projektu powinny być przechowywane
+                w uporządkowanej strukturze folderów.
+            </div>
+
+        </section>
+
+
+        <section id="przegladarka">
+
+            <h2>18. Przeglądarka i narzędzia DevTools</h2>
+
+            <p>
+                Przeglądarka służy nie tylko do oglądania strony,
+                ale również do jej testowania.
+            </p>
+
+            <p>
+                W większości przeglądarek narzędzia deweloperskie
+                można uruchomić klawiszem:
+            </p>
+
+            <div class="definition">
+                <strong>F12</strong>
+            </div>
+
+            <p>
+                DevTools pozwalają między innymi:
+            </p>
+
+            <ul>
+                <li>sprawdzać strukturę HTML,</li>
+                <li>analizować style CSS,</li>
+                <li>sprawdzać błędy JavaScript,</li>
+                <li>korzystać z konsoli,</li>
+                <li>obserwować żądania wysyłane do serwera,</li>
+                <li>sprawdzać wygląd strony na różnych rozmiarach ekranu.</li>
+            </ul>
+
+            <h3>Karta Network / Sieć</h3>
+
+            <p>
+                Karta <strong>Network</strong> pozwala obserwować
+                komunikację przeglądarki z serwerem.
+            </p>
+
+            <p>
+                Można zobaczyć między innymi pobierane zasoby,
+                metodę żądania oraz kod odpowiedzi HTTP.
+            </p>
+
+        </section>
+
+
+        <section id="projekt">
+
+            <h2>19. Podstawowa struktura projektu strony</h2>
+
+            <p>
+                Pliki strony powinny być przechowywane
+                w jednym uporządkowanym folderze projektu.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code>moja-strona/
+├── index.html
+├── css.css
+├── script.js
+└── img/
+    └── obraz.jpg</code></pre>
+
+            <p>
+                <strong>index.html</strong> – główny dokument HTML.
+            </p>
+
+            <p>
+                <strong>css.css</strong> – arkusz stylów.
+            </p>
+
+            <p>
+                <strong>script.js</strong> – kod JavaScript.
+            </p>
+
+            <p>
+                <strong>img</strong> – folder przeznaczony
+                na pliki graficzne.
+            </p>
+
+            <div class="important">
+                Nazwy plików i folderów powinny być krótkie,
+                czytelne i konsekwentne. W praktyce warto unikać
+                spacji oraz polskich znaków w nazwach plików.
+            </div>
+
+        </section>
+
+
+        <section id="serwer-lokalny">
+
+            <h2>20. Lokalny serwer WWW</h2>
+
+            <div class="definition">
+                <strong>Lokalny serwer WWW</strong> pozwala uruchamiać
+                i testować strony oraz aplikacje internetowe
+                na własnym komputerze.
+            </div>
+
+            <p>
+                Proste dokumenty HTML można otworzyć bezpośrednio
+                w przeglądarce.
+            </p>
+
+            <p>
+                Serwer lokalny staje się potrzebny między innymi wtedy,
+                gdy wykorzystywane są technologie działające
+                po stronie serwera, np. PHP.
+            </p>
+
+            <p>
+                Przykładowym środowiskiem umożliwiającym uruchomienie
+                lokalnego serwera jest <strong>XAMPP</strong>.
+            </p>
+
+            <p>
+                Po uruchomieniu lokalnego serwera strony mogą być
+                dostępne pod adresem rozpoczynającym się np. od:
+            </p>
+
+            <pre><code>http://localhost/</code></pre>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Internet i WWW nie oznaczają tego samego.</li>
+                <li>WWW jest jedną z usług działających w Internecie.</li>
+                <li>Przeglądarka pełni rolę klienta WWW.</li>
+                <li>Klient wysyła żądanie, a serwer przesyła odpowiedź.</li>
+                <li>URL określa adres zasobu dostępnego w sieci.</li>
+                <li>DNS umożliwia między innymi tłumaczenie nazw domen na adresy IP.</li>
+                <li>HTTP określa zasady komunikacji pomiędzy klientem a serwerem WWW.</li>
+                <li>GET służy przede wszystkim do pobierania, a POST do przesyłania danych do serwera.</li>
+                <li>Kod 200 oznacza poprawną odpowiedź, 404 brak zasobu, a 500 błąd serwera.</li>
+                <li>HTTPS wykorzystuje szyfrowane połączenie zabezpieczone za pomocą TLS.</li>
+                <li>HTML odpowiada za strukturę, CSS za wygląd, a JavaScript za zachowanie i interakcję.</li>
+                <li>Front-end działa po stronie użytkownika, a back-end po stronie serwera.</li>
+                <li>Visual Studio Code może służyć do tworzenia kodu stron internetowych.</li>
+                <li>DevTools uruchamiane klawiszem F12 pomagają analizować i testować stronę.</li>
+                <li>Pliki projektu powinny być przechowywane w uporządkowanej strukturze folderów.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+
+            <p>
+                Wyjaśnij własnymi słowami różnicę pomiędzy
+                Internetem a usługą WWW.
+            </p>
+
+            <h3>Zadanie 2</h3>
+
+            <p>
+                Narysuj schemat przedstawiający komunikację
+                pomiędzy klientem a serwerem WWW.
+                Zaznacz żądanie i odpowiedź.
+            </p>
+
+            <h3>Zadanie 3</h3>
+
+            <p>
+                Dla adresu:
+            </p>
+
+            <pre><code>https://www.example.pl/sklep/produkt.html</code></pre>
+
+            <p>
+                wskaż protokół, nazwę domeny, ścieżkę
+                oraz nazwę zasobu.
+            </p>
+
+            <h3>Zadanie 4</h3>
+
+            <p>
+                Wyjaśnij znaczenie kodów HTTP:
+                <strong>200, 301, 404 i 500</strong>.
+            </p>
+
+            <h3>Zadanie 5</h3>
+
+            <p>
+                Utwórz na komputerze folder o nazwie
+                <strong>moja-strona</strong>.
+                W folderze utwórz:
+            </p>
+
+            <ul>
+                <li>plik <strong>index.html</strong>,</li>
+                <li>plik <strong>css.css</strong>,</li>
+                <li>plik <strong>script.js</strong>,</li>
+                <li>folder <strong>img</strong>.</li>
+            </ul>
+
+            <h3>Zadanie 6</h3>
+
+            <p>
+                Otwórz dowolną stronę internetową w przeglądarce.
+                Uruchom narzędzia deweloperskie klawiszem
+                <strong>F12</strong> i odszukaj kartę
+                <strong>Network / Sieć</strong>.
+            </p>
+
+            <p>
+                Odśwież stronę i sprawdź, jakie zasoby
+                zostały pobrane oraz jakie kody odpowiedzi HTTP
+                pojawiają się na liście.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer>
+    STREFA IT • PSI • Lekcja 01
+</footer>
+
+</body>
+
+</html>
