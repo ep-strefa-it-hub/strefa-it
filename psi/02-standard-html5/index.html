@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 02 – Standard HTML5 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#html5">1. Czym jest HTML5?</a>
+        <a href="#dokument">2. Dokument HTML</a>
+        <a href="#struktura">3. Struktura dokumentu HTML5</a>
+        <a href="#doctype">4. DOCTYPE</a>
+        <a href="#html">5. Element html</a>
+        <a href="#lang">6. Atrybut lang</a>
+        <a href="#head">7. Sekcja head</a>
+        <a href="#meta">8. Metadane</a>
+        <a href="#charset">9. Kodowanie znaków UTF-8</a>
+        <a href="#viewport">10. Meta viewport</a>
+        <a href="#title">11. Element title</a>
+        <a href="#body">12. Sekcja body</a>
+        <a href="#head-body">13. head a body</a>
+        <a href="#wciecia">14. Wcięcia i czytelność kodu</a>
+        <a href="#komentarze">15. Komentarze w HTML</a>
+        <a href="#walidacja">16. Walidacja HTML</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 02
+            </div>
+
+            <h2>Standard HTML5. Struktura dokumentu, DOCTYPE, html, head, body, metadane i kodowanie znaków</h2>
+
+            <p>
+                <strong>Cel główny:</strong>
+                Poznanie standardu HTML5, podstawowej struktury dokumentu HTML
+                oraz przeznaczenia deklaracji DOCTYPE, elementów html, head
+                i body, metadanych oraz sposobu określania kodowania znaków.
+            </p>
+        </div>
+
+
+        <section id="html5">
+
+            <h2>1. Czym jest HTML5?</h2>
+
+            <div class="definition">
+                <strong>HTML (HyperText Markup Language)</strong> jest językiem
+                znaczników służącym do tworzenia struktury i zawartości
+                stron internetowych.
+            </div>
+
+            <p>
+                HTML nie jest językiem programowania. Za pomocą znaczników
+                określa się znaczenie i strukturę poszczególnych elementów
+                dokumentu, np. nagłówków, akapitów, obrazów, odnośników,
+                tabel czy formularzy.
+            </p>
+
+            <div class="definition">
+                <strong>HTML5</strong> to współczesny standard HTML
+                wykorzystywany podczas tworzenia stron internetowych.
+            </div>
+
+            <p>
+                Dokument HTML jest odczytywany i interpretowany przez
+                przeglądarkę internetową, która na podstawie jego kodu
+                tworzy widok strony.
+            </p>
+
+        </section>
+
+
+        <section id="dokument">
+
+            <h2>2. Dokument HTML</h2>
+
+            <p>
+                Kod HTML zapisuje się w pliku tekstowym posiadającym
+                rozszerzenie <strong>.html</strong>.
+            </p>
+
+            <p>Przykładowe nazwy plików:</p>
+
+            <pre><code>index.html
+kontakt.html
+oferta.html
+galeria.html</code></pre>
+
+            <div class="important">
+                <strong>index.html</strong> jest nazwą często stosowaną
+                dla głównego dokumentu witryny internetowej.
+                Serwer WWW może być skonfigurowany tak, aby automatycznie
+                wyszukiwać taki plik po wejściu do danego katalogu.
+            </div>
+
+            <p>
+                Plik HTML można utworzyć w edytorze kodu, np.
+                Visual Studio Code, a następnie otworzyć w przeglądarce.
+            </p>
+
+        </section>
+
+
+        <section id="struktura">
+
+            <h2>3. Podstawowa struktura dokumentu HTML5</h2>
+
+            <p>
+                Każdy dokument HTML powinien posiadać uporządkowaną strukturę.
+                Podstawowy szkielet dokumentu HTML5 wygląda następująco:
+            </p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja pierwsza strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Poszczególne elementy tego kodu pełnią różne funkcje.
+                Dlatego ważne jest nie tylko zapamiętanie struktury,
+                ale również rozumienie jej poszczególnych części.
+            </p>
+
+        </section>
+
+
+        <section id="doctype">
+
+            <h2>4. Deklaracja DOCTYPE</h2>
+
+            <p>
+                Dokument HTML5 rozpoczyna się deklaracją:
+            </p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+
+            <div class="definition">
+                <strong>DOCTYPE</strong> informuje przeglądarkę,
+                że dokument powinien być interpretowany zgodnie
+                ze współczesnym standardem HTML.
+            </div>
+
+            <div class="important">
+                <strong>DOCTYPE nie jest znacznikiem HTML.</strong>
+                Jest deklaracją umieszczaną na początku dokumentu.
+            </div>
+
+            <p>
+                W HTML5 zapis deklaracji jest krótki i nie wymaga
+                podawania dodatkowych informacji o wersji HTML.
+            </p>
+
+        </section>
+
+
+        <section id="html">
+
+            <h2>5. Element &lt;html&gt;</h2>
+
+            <p>
+                Po deklaracji DOCTYPE rozpoczyna się właściwy dokument HTML.
+            </p>
+
+            <pre><code>&lt;html lang="pl"&gt;
+    ...
+&lt;/html&gt;</code></pre>
+
+            <div class="definition">
+                <strong>&lt;html&gt;</strong> jest elementem głównym dokumentu.
+                Obejmuje całą jego zawartość – sekcję head oraz body.
+            </div>
+
+            <p>
+                Znacznik:
+            </p>
+
+            <pre><code>&lt;html&gt;</code></pre>
+
+            <p>rozpoczyna element, natomiast:</p>
+
+            <pre><code>&lt;/html&gt;</code></pre>
+
+            <p>go zamyka.</p>
+
+        </section>
+
+
+        <section id="lang">
+
+            <h2>6. Atrybut lang</h2>
+
+            <p>
+                W znaczniku <strong>&lt;html&gt;</strong> można określić
+                język treści dokumentu za pomocą atrybutu
+                <strong>lang</strong>.
+            </p>
+
+            <p>Dla strony w języku polskim:</p>
+
+            <pre><code>&lt;html lang="pl"&gt;</code></pre>
+
+            <p>Dla strony w języku angielskim:</p>
+
+            <pre><code>&lt;html lang="en"&gt;</code></pre>
+
+            <div class="definition">
+                <strong>Atrybut</strong> przekazuje dodatkową informację
+                dotyczącą elementu HTML. Najczęściej umieszcza się go
+                w znaczniku otwierającym.
+            </div>
+
+            <div class="important">
+                Określenie języka dokumentu pomaga między innymi
+                przeglądarkom, wyszukiwarkom i technologiom
+                wspomagającym prawidłowo interpretować treść strony.
+            </div>
+
+        </section>
+
+
+        <section id="head">
+
+            <h2>7. Sekcja &lt;head&gt;</h2>
+
+            <p>
+                Sekcja <strong>&lt;head&gt;</strong> znajduje się
+                przed sekcją <strong>&lt;body&gt;</strong>.
+            </p>
+
+            <pre><code>&lt;head&gt;
+    ...
+&lt;/head&gt;</code></pre>
+
+            <div class="definition">
+                <strong>&lt;head&gt;</strong> zawiera informacje
+                dotyczące dokumentu oraz odwołania do zasobów potrzebnych
+                do jego działania i prezentacji.
+            </div>
+
+            <p>W sekcji head można umieszczać między innymi:</p>
+
+            <ul>
+                <li>kodowanie znaków,</li>
+                <li>tytuł dokumentu,</li>
+                <li>metadane opisujące stronę,</li>
+                <li>ustawienia viewportu,</li>
+                <li>odwołania do arkuszy stylów CSS,</li>
+                <li>inne informacje dotyczące dokumentu.</li>
+            </ul>
+
+            <div class="important">
+                Elementy znajdujące się w sekcji head nie tworzą
+                zwykłej treści wyświetlanej w głównym obszarze strony.
+            </div>
+
+        </section>
+
+
+        <section id="meta">
+
+            <h2>8. Metadane dokumentu</h2>
+
+            <div class="definition">
+                <strong>Metadane</strong> to informacje opisujące dokument
+                HTML i sposób jego przetwarzania.
+            </div>
+
+            <p>
+                Do ich definiowania często wykorzystywany jest element
+                <strong>&lt;meta&gt;</strong>.
+            </p>
+
+            <p>Przykład opisu strony:</p>
+
+            <pre><code>&lt;meta name="description" content="Materiały do nauki HTML5"&gt;</code></pre>
+
+            <p>Informacja o autorze:</p>
+
+            <pre><code>&lt;meta name="author" content="Jan Kowalski"&gt;</code></pre>
+
+            <p>
+                Metadane umieszcza się w sekcji
+                <strong>&lt;head&gt;</strong>.
+            </p>
+
+            <div class="important">
+                Element <strong>&lt;meta&gt;</strong> jest elementem pustym –
+                nie posiada znacznika zamykającego
+                <strong>&lt;/meta&gt;</strong>.
+            </div>
+
+        </section>
+
+
+        <section id="charset">
+
+            <h2>9. Kodowanie znaków – UTF-8</h2>
+
+            <p>
+                Jedną z najważniejszych informacji umieszczanych
+                w sekcji head jest sposób kodowania znaków.
+            </p>
+
+            <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+
+            <div class="definition">
+                <strong>UTF-8</strong> jest kodowaniem znaków pozwalającym
+                poprawnie reprezentować bardzo dużą liczbę znaków
+                używanych w różnych językach.
+            </div>
+
+            <p>
+                Dzięki poprawnemu określeniu kodowania przeglądarka może
+                prawidłowo wyświetlać między innymi polskie znaki:
+            </p>
+
+            <pre><code>ą ć ę ł ń ó ś ź ż</code></pre>
+
+            <div class="important">
+                Deklarację kodowania należy umieszczać możliwie wcześnie
+                w sekcji <strong>&lt;head&gt;</strong>.
+            </div>
+
+        </section>
+
+
+        <section id="viewport">
+
+            <h2>10. Meta viewport</h2>
+
+            <p>
+                We współczesnym dokumencie HTML często umieszcza się również:
+            </p>
+
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+            <p>
+                Ustawienie to informuje przeglądarkę, jak ma określić
+                obszar wyświetlania strony na urządzeniu.
+            </p>
+
+            <p>
+                <strong>width=device-width</strong> – ustawia szerokość
+                obszaru strony zgodnie z szerokością urządzenia.
+            </p>
+
+            <p>
+                <strong>initial-scale=1.0</strong> – określa początkową
+                skalę wyświetlania strony.
+            </p>
+
+            <div class="important">
+                Meta viewport jest szczególnie istotny podczas tworzenia
+                stron dostosowanych do różnych rozmiarów ekranów,
+                np. komputerów, tabletów i smartfonów.
+            </div>
+
+        </section>
+
+
+        <section id="title">
+
+            <h2>11. Element &lt;title&gt;</h2>
+
+            <p>
+                Element <strong>&lt;title&gt;</strong> określa tytuł
+                dokumentu HTML.
+            </p>
+
+            <pre><code>&lt;title&gt;Moja pierwsza strona&lt;/title&gt;</code></pre>
+
+            <p>
+                Tytuł nie jest wyświetlany jako treść wewnątrz strony.
+                Można go zobaczyć między innymi na karcie przeglądarki.
+            </p>
+
+            <div class="important">
+                Każdy dokument HTML powinien posiadać odpowiedni,
+                opisowy tytuł.
+            </div>
+
+        </section>
+
+
+        <section id="body">
+
+            <h2>12. Sekcja &lt;body&gt;</h2>
+
+            <div class="definition">
+                <strong>&lt;body&gt;</strong> zawiera właściwą treść
+                dokumentu przeznaczoną do prezentacji użytkownikowi.
+            </div>
+
+            <pre><code>&lt;body&gt;
+    ...
+&lt;/body&gt;</code></pre>
+
+            <p>
+                W sekcji body będą później umieszczane między innymi:
+            </p>
+
+            <ul>
+                <li>nagłówki,</li>
+                <li>akapity,</li>
+                <li>listy,</li>
+                <li>obrazy,</li>
+                <li>odnośniki,</li>
+                <li>tabele,</li>
+                <li>formularze,</li>
+                <li>inne elementy tworzące zawartość strony.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="head-body">
+
+            <h2>13. &lt;head&gt; a &lt;body&gt;</h2>
+
+            <p>
+                Sekcje head i body pełnią zupełnie inne funkcje.
+            </p>
+
+            <table>
+                <tr>
+                    <th>&lt;head&gt;</th>
+                    <th>&lt;body&gt;</th>
+                </tr>
+                <tr>
+                    <td>informacje dotyczące dokumentu</td>
+                    <td>właściwa zawartość strony</td>
+                </tr>
+                <tr>
+                    <td>metadane</td>
+                    <td>tekst i elementy treści</td>
+                </tr>
+                <tr>
+                    <td>kodowanie znaków</td>
+                    <td>obrazy</td>
+                </tr>
+                <tr>
+                    <td>tytuł dokumentu</td>
+                    <td>odnośniki</td>
+                </tr>
+                <tr>
+                    <td>odwołania do dodatkowych zasobów</td>
+                    <td>tabele i formularze</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                Najprościej zapamiętać:<br>
+                <strong>head → informacje o dokumencie</strong><br>
+                <strong>body → zawartość prezentowana użytkownikowi</strong>
+            </div>
+
+        </section>
+
+
+        <section id="wciecia">
+
+            <h2>14. Wcięcia i czytelność kodu</h2>
+
+            <p>
+                Przeglądarka potrafi odczytać kod zapisany bez wcięć,
+                ale odpowiednie formatowanie znacznie ułatwia jego
+                czytanie i edycję.
+            </p>
+
+            <p>Nieczytelny zapis:</p>
+
+            <pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Strona&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+
+            <p>Czytelniejszy zapis:</p>
+
+            <pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <div class="important">
+                Elementy znajdujące się wewnątrz innych elementów
+                warto przesuwać za pomocą wcięć. Dzięki temu łatwiej
+                zauważyć strukturę dokumentu i odnaleźć błędy.
+            </div>
+
+        </section>
+
+
+        <section id="komentarze">
+
+            <h2>15. Komentarze w HTML</h2>
+
+            <div class="definition">
+                <strong>Komentarz</strong> jest informacją umieszczoną
+                w kodzie dla osoby tworzącej lub analizującej dokument.
+                Nie jest wyświetlany jako zwykła treść strony.
+            </div>
+
+            <p>Komentarz w HTML zapisuje się następująco:</p>
+
+            <pre><code>&lt;!-- To jest komentarz w kodzie HTML --&gt;</code></pre>
+
+            <p>Komentarze mogą służyć między innymi do:</p>
+
+            <ul>
+                <li>opisywania fragmentów kodu,</li>
+                <li>oznaczania poszczególnych części dokumentu,</li>
+                <li>zapisywania krótkich informacji dla autora kodu,</li>
+                <li>tymczasowego wyłączania fragmentów kodu HTML.</li>
+            </ul>
+
+            <p>Przykład:</p>
+
+            <pre><code>&lt;!-- Początek głównej zawartości strony --&gt;
+&lt;body&gt;
+&lt;/body&gt;</code></pre>
+
+        </section>
+
+
+        <section id="walidacja">
+
+            <h2>16. Walidacja dokumentu HTML</h2>
+
+            <div class="definition">
+                <strong>Walidacja</strong> polega na sprawdzeniu kodu
+                dokumentu pod kątem zgodności z regułami języka HTML.
+            </div>
+
+            <p>
+                Walidator może pomóc wykryć między innymi:
+            </p>
+
+            <ul>
+                <li>niepoprawne znaczniki,</li>
+                <li>błędne zagnieżdżenie elementów,</li>
+                <li>niepoprawnie użyte atrybuty,</li>
+                <li>inne błędy składni dokumentu.</li>
+            </ul>
+
+            <p>
+                Do sprawdzania dokumentów HTML można wykorzystać
+                walidator organizacji W3C.
+            </p>
+
+            <a class="material-link"
+               href="https://validator.w3.org/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Otwórz walidator HTML
+            </a>
+
+            <div class="important">
+                Brak widocznego błędu w przeglądarce nie oznacza,
+                że kod HTML jest zapisany poprawnie. Przeglądarki
+                potrafią automatycznie interpretować wiele błędów
+                występujących w kodzie.
+            </div>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>HTML jest językiem znaczników służącym do tworzenia struktury i zawartości stron internetowych.</li>
+                <li>Dokument HTML zapisuje się w pliku z rozszerzeniem .html.</li>
+                <li>Dokument HTML5 rozpoczyna deklaracja &lt;!DOCTYPE html&gt;.</li>
+                <li>&lt;html&gt; jest głównym elementem dokumentu.</li>
+                <li>Atrybut lang określa język treści dokumentu.</li>
+                <li>&lt;head&gt; zawiera informacje dotyczące dokumentu i jego przetwarzania.</li>
+                <li>&lt;body&gt; zawiera właściwą zawartość strony prezentowaną użytkownikowi.</li>
+                <li>&lt;meta charset="UTF-8"&gt; określa kodowanie znaków.</li>
+                <li>Meta viewport pomaga prawidłowo wyświetlać stronę na urządzeniach o różnych szerokościach ekranu.</li>
+                <li>&lt;title&gt; określa tytuł dokumentu widoczny między innymi na karcie przeglądarki.</li>
+                <li>Metadane opisują dokument i umieszczane są w sekcji head.</li>
+                <li>Wcięcia nie zmieniają działania HTML, ale zwiększają czytelność kodu.</li>
+                <li>Komentarz HTML zapisuje się pomiędzy &lt;!-- i --&gt;.</li>
+                <li>Walidacja pozwala sprawdzić poprawność kodu HTML.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <h3>Zadanie 1</h3>
+
+            <p>
+                Utwórz w Visual Studio Code nowy plik
+                <strong>index.html</strong> i samodzielnie wpisz
+                podstawową strukturę dokumentu HTML5.
+            </p>
+
+            <p>Dokument powinien zawierać:</p>
+
+            <ul>
+                <li>deklarację DOCTYPE,</li>
+                <li>element html z ustawionym językiem polskim,</li>
+                <li>sekcję head,</li>
+                <li>kodowanie UTF-8,</li>
+                <li>meta viewport,</li>
+                <li>tytuł dokumentu,</li>
+                <li>sekcję body.</li>
+            </ul>
+
+            <h3>Zadanie 2</h3>
+
+            <p>
+                Do sekcji head utworzonego dokumentu dodaj:
+            </p>
+
+            <pre><code>&lt;meta name="description" content="Moja pierwsza strona HTML5"&gt;
+&lt;meta name="author" content="Twoje imię i nazwisko"&gt;</code></pre>
+
+            <p>
+                Uzupełnij autora własnymi danymi.
+            </p>
+
+            <h3>Zadanie 3</h3>
+
+            <p>
+                Ustaw tytuł dokumentu:
+            </p>
+
+            <pre><code>&lt;title&gt;HTML5 – moja pierwsza strona&lt;/title&gt;</code></pre>
+
+            <p>
+                Otwórz dokument w przeglądarce i sprawdź,
+                gdzie wyświetlany jest wpisany tytuł.
+            </p>
+
+            <h3>Zadanie 4</h3>
+
+            <p>
+                Dodaj do kodu co najmniej trzy komentarze opisujące
+                najważniejsze części dokumentu, np.:
+            </p>
+
+            <pre><code>&lt;!-- Informacje o dokumencie --&gt;
+&lt;!-- Początek zawartości strony --&gt;
+&lt;!-- Koniec zawartości strony --&gt;</code></pre>
+
+            <h3>Zadanie 5 – znajdź i popraw błędy</h3>
+
+            <p>
+                Poniższy dokument zawiera błędy. Przepisz go do
+                Visual Studio Code, znajdź błędy i popraw kod tak,
+                aby powstał prawidłowy dokument HTML5.
+            </p>
+
+            <pre><code>&lt;html lang="pl"&gt;
+&lt;body&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;head&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Zadanie 6 – walidacja</h3>
+
+            <p>
+                Sprawdź poprawiony dokument za pomocą walidatora HTML.
+                Jeżeli walidator wykryje błędy, popraw je i ponownie
+                sprawdź dokument.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 02
+</footer>
+
+</body>
+</html>
