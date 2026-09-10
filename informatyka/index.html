@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatyka | Strefa IT</title>
+    <link rel="stylesheet" href="../css.css">
+
+    <style>
+        .klasy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 25px;
+        }
+
+        .klasa-column {
+            background: #f9fbfc;
+            border: 1px solid #d7e0e3;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .klasa-column h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #2f3a40;
+        }
+
+        .klasa-column .lekcja {
+            display: block;
+            text-decoration: none;
+            color: #2f3a40;
+            background: #ffffff;
+            border: 1px solid #d7e0e3;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            transition: 0.2s;
+        }
+
+        .klasa-column .lekcja:hover {
+            transform: translateY(-2px);
+        }
+
+        .klasa-column .numer {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #78939d;
+            margin-bottom: 4px;
+        }
+
+        .klasa-column h3 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 900px) {
+            .klasy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Strona główna</a>
+    </div>
+</nav>
+
+<main>
+
+    <div class="intro">
+        <h2>INFORMATYKA</h2>
+        <p>
+            Materiały do zajęć z informatyki w zakresie podstawowym.
+            Wybierz klasę i lekcję.
+        </p>
+    </div>
+
+    <div class="klasy-grid">
+
+        <!-- KLASA 1 -->
+        <section class="klasa-column">
+            <h2>KL 1</h2>
+
+            <a class="lekcja" href="kl1/01-temat/index.html">
+                <div class="numer">Lekcja 01</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl1/02-temat/index.html">
+                <div class="numer">Lekcja 02</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl1/03-temat/index.html">
+                <div class="numer">Lekcja 03</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+        </section>
+
+
+        <!-- KLASA 2 -->
+        <section class="klasa-column">
+            <h2>KL 2</h2>
+
+            <a class="lekcja" href="kl2/01-temat/index.html">
+                <div class="numer">Lekcja 01</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl2/02-temat/index.html">
+                <div class="numer">Lekcja 02</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl2/03-temat/index.html">
+                <div class="numer">Lekcja 03</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+        </section>
+
+
+        <!-- KLASA 3 -->
+        <section class="klasa-column">
+            <h2>KL 3</h2>
+
+            <a class="lekcja" href="kl3/01-temat/index.html">
+                <div class="numer">Lekcja 01</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl3/02-temat/index.html">
+                <div class="numer">Lekcja 02</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+            <a class="lekcja" href="kl3/03-temat/index.html">
+                <div class="numer">Lekcja 03</div>
+                <h3>Tutaj wpisz temat lekcji</h3>
+            </a>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer>
+    STREFA IT • INFORMATYKA
+</footer>
+
+</body>
+</html>
