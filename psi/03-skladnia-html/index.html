@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 03 – Składnia języka HTML | Strefa IT>
+
+    <link rel="stylesheet" href="../../css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#skladnia">1. Czym jest składnia HTML?</a>
+        <a href="#znaczniki">2. Znaczniki HTML</a>
+        <a href="#otwierajace">3. Znacznik otwierający i zamykający</a>
+        <a href="#element">4. Znacznik a element HTML</a>
+        <a href="#puste">5. Elementy puste</a>
+        <a href="#atrybuty">6. Atrybuty HTML</a>
+        <a href="#wartosci">7. Atrybut i jego wartość</a>
+        <a href="#wiele-atrybutow">8. Kilka atrybutów</a>
+        <a href="#id">9. Atrybut id</a>
+        <a href="#class">10. Atrybut class</a>
+        <a href="#zagniezdzanie">11. Zagnieżdżanie elementów</a>
+        <a href="#rodzic-dziecko">12. Element nadrzędny i podrzędny</a>
+        <a href="#rodzenstwo">13. Elementy rodzeństwa</a>
+        <a href="#poprawne">14. Poprawne zagnieżdżanie</a>
+        <a href="#bledne">15. Błędne zagnieżdżanie</a>
+        <a href="#wciecia">16. Wcięcia i czytelność kodu</a>
+        <a href="#wielkosc-liter">17. Wielkość liter</a>
+        <a href="#cudzyslowy">18. Cudzysłowy w atrybutach</a>
+        <a href="#kolejnosc">19. Kolejność atrybutów</a>
+        <a href="#komentarze">20. Komentarze w HTML</a>
+        <a href="#bledy">21. Najczęstsze błędy</a>
+        <a href="#przegladarka">22. Przeglądarka a błędy</a>
+        <a href="#walidacja">23. Walidacja kodu HTML</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 03
+            </div>
+
+            <h2>Składnia języka HTML. Znaczniki, elementy, atrybuty i zasady poprawnego zagnieżdżania</h2>
+
+            <p>
+                <strong>Cel główny:</strong>
+                Poznanie zasad składni języka HTML oraz nabycie umiejętności
+                poprawnego zapisywania znaczników, elementów i atrybutów,
+                a także prawidłowego zagnieżdżania elementów w dokumencie HTML.
+            </p>
+        </div>
+
+
+        <section id="skladnia">
+
+            <h2>1. Czym jest składnia języka HTML?</h2>
+
+            <p>
+                Każdy język komputerowy posiada określone zasady zapisu.
+                Zasady te nazywamy <strong>składnią</strong>.
+            </p>
+
+            <p>W HTML składnia określa między innymi:</p>
+
+            <ul>
+                <li>jak zapisujemy znaczniki,</li>
+                <li>gdzie umieszczamy atrybuty,</li>
+                <li>jak zapisujemy wartości atrybutów,</li>
+                <li>które elementy posiadają znacznik zamykający,</li>
+                <li>w jaki sposób elementy mogą być umieszczane jeden wewnątrz drugiego,</li>
+                <li>jak zachować poprawną strukturę dokumentu.</li>
+            </ul>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;p&gt;To jest akapit.&lt;/p&gt;</code></pre>
+
+            <p>
+                Przeglądarka interpretuje ten zapis jako element będący akapitem tekstu.
+            </p>
+
+        </section>
+
+
+        <section id="znaczniki">
+
+            <h2>2. Znaczniki HTML</h2>
+
+            <p>
+                Podstawą języka HTML są <strong>znaczniki</strong>.
+            </p>
+
+            <p>
+                Znacznik zapisuje się pomiędzy znakami
+                <strong>&lt;</strong> i <strong>&gt;</strong>.
+            </p>
+
+            <p>Przykłady:</p>
+
+            <pre><code class="language-html">&lt;p&gt;
+&lt;h1&gt;
+&lt;strong&gt;
+&lt;body&gt;</code></pre>
+
+            <p>
+                Każdy znacznik ma określone znaczenie i pełni konkretną funkcję.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja pierwsza strona&lt;/h1&gt;</code></pre>
+
+            <p>
+                Element <code>&lt;h1&gt;</code> oznacza nagłówek pierwszego poziomu.
+            </p>
+
+        </section>
+
+
+        <section id="otwierajace">
+
+            <h2>3. Znacznik otwierający i zamykający</h2>
+
+            <p>
+                Wiele elementów HTML posiada dwa znaczniki.
+            </p>
+
+            <p><strong>Znacznik otwierający:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;</code></pre>
+
+            <p><strong>Znacznik zamykający:</strong></p>
+
+            <pre><code class="language-html">&lt;/p&gt;</code></pre>
+
+            <p>
+                Znacznik zamykający zawiera znak <strong>/</strong>.
+            </p>
+
+            <p>Całość:</p>
+
+            <pre><code class="language-html">&lt;p&gt;To jest tekst.&lt;/p&gt;</code></pre>
+
+            <p>Można ją rozłożyć na części:</p>
+
+            <pre><code class="language-text">&lt;p&gt;             → znacznik otwierający
+To jest tekst.   → zawartość
+&lt;/p&gt;            → znacznik zamykający</code></pre>
+
+        </section>
+
+
+        <section id="element">
+
+            <h2>4. Znacznik a element HTML</h2>
+
+            <p>
+                Pojęcia <strong>znacznik</strong> i <strong>element</strong>
+                nie oznaczają dokładnie tego samego.
+            </p>
+
+            <p><strong>Znacznik:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;</code></pre>
+
+            <p><strong>Element HTML:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;To jest akapit.&lt;/p&gt;</code></pre>
+
+            <p>
+                Element obejmuje znaczniki oraz znajdującą się między nimi zawartość.
+            </p>
+
+            <p>Inny przykład:</p>
+
+            <pre><code class="language-html">&lt;h2&gt;Moje zainteresowania&lt;/h2&gt;</code></pre>
+
+            <p>Tutaj:</p>
+
+            <ul>
+                <li><code>&lt;h2&gt;</code> – znacznik otwierający,</li>
+                <li><code>Moje zainteresowania</code> – zawartość,</li>
+                <li><code>&lt;/h2&gt;</code> – znacznik zamykający,</li>
+                <li>całość – element HTML.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="puste">
+
+            <h2>5. Elementy puste</h2>
+
+            <p>
+                Nie wszystkie elementy HTML posiadają zawartość
+                i osobny znacznik zamykający.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;br&gt;</code></pre>
+
+            <p>
+                Element <code>br</code> oznacza przejście do nowego wiersza.
+            </p>
+
+            <p>Inny przykład:</p>
+
+            <pre><code class="language-html">&lt;img src="kot.jpg" alt="Kot"&gt;</code></pre>
+
+            <p>
+                Element <code>img</code> służy do umieszczania obrazu.
+            </p>
+
+            <div class="important">
+                Elementów pustych nie zapisuje się z osobną zawartością
+                i znacznikiem zamykającym.
+            </div>
+
+            <p>Przykładowe elementy puste:</p>
+
+            <pre><code class="language-html">&lt;br&gt;
+&lt;hr&gt;
+&lt;img src="obraz.jpg" alt="Opis obrazu"&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;input type="text"&gt;</code></pre>
+
+        </section>
+
+
+        <section id="atrybuty">
+
+            <h2>6. Atrybuty HTML</h2>
+
+            <p>
+                Element HTML może posiadać dodatkowe informacje
+                opisujące jego właściwości.
+            </p>
+
+            <div class="definition">
+                <strong>Atrybut</strong> przekazuje dodatkową informację
+                dotyczącą danego elementu HTML.
+            </div>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;html lang="pl"&gt;</code></pre>
+
+            <p>Tutaj:</p>
+
+            <ul>
+                <li><code>html</code> – nazwa elementu,</li>
+                <li><code>lang</code> – nazwa atrybutu,</li>
+                <li><code>"pl"</code> – wartość atrybutu.</li>
+            </ul>
+
+            <div class="important">
+                Atrybuty zapisuje się wewnątrz znacznika otwierającego.
+            </div>
+
+        </section>
+
+
+        <section id="wartosci">
+
+            <h2>7. Atrybut i jego wartość</h2>
+
+            <p>
+                Najczęściej spotykany zapis atrybutu ma postać:
+            </p>
+
+            <pre><code class="language-text">nazwa="wartość"</code></pre>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;a href="https://example.com"&gt;Otwórz stronę&lt;/a&gt;</code></pre>
+
+            <p>Tutaj:</p>
+
+            <ul>
+                <li><code>a</code> – nazwa elementu,</li>
+                <li><code>href</code> – atrybut,</li>
+                <li><code>"https://example.com"</code> – wartość atrybutu,</li>
+                <li><code>Otwórz stronę</code> – zawartość elementu.</li>
+            </ul>
+
+            <p>
+                Atrybut <code>href</code> określa adres,
+                do którego prowadzi odnośnik.
+            </p>
+
+        </section>
+
+
+        <section id="wiele-atrybutow">
+
+            <h2>8. Jeden element może mieć kilka atrybutów</h2>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;img src="kwiaty.jpg" alt="Kwiaty na łące" width="400"&gt;</code></pre>
+
+            <p>Element <code>img</code> posiada trzy atrybuty:</p>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>określa źródło obrazu</td>
+                </tr>
+                <tr>
+                    <td><code>alt</code></td>
+                    <td>zawiera tekst alternatywny</td>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>określa szerokość obrazu</td>
+                </tr>
+            </table>
+
+            <p>
+                Kolejne atrybuty oddziela się od siebie spacją.
+            </p>
+
+        </section>
+
+
+        <section id="id">
+
+            <h2>9. Atrybut id</h2>
+
+            <p>
+                Atrybut <code>id</code> pozwala nadać elementowi
+                unikalny identyfikator.
+            </p>
+
+            <pre><code class="language-html">&lt;h2 id="kontakt"&gt;Kontakt&lt;/h2&gt;</code></pre>
+
+            <p>
+                Identyfikator może być później wykorzystywany
+                między innymi w CSS, JavaScript lub odnośnikach
+                prowadzących do konkretnego miejsca strony.
+            </p>
+
+            <div class="important">
+                W obrębie jednego dokumentu dana wartość
+                <code>id</code> powinna identyfikować tylko jeden element.
+            </div>
+
+        </section>
+
+
+        <section id="class">
+
+            <h2>10. Atrybut class</h2>
+
+            <p>
+                Atrybut <code>class</code> pozwala przypisać element
+                do określonej klasy.
+            </p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;Ważna informacja&lt;/p&gt;</code></pre>
+
+            <p>
+                Ta sama klasa może być użyta dla wielu elementów:
+            </p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;Pierwsza informacja&lt;/p&gt;
+&lt;p class="wazne"&gt;Druga informacja&lt;/p&gt;</code></pre>
+
+            <div class="important">
+                <strong>id</strong> identyfikuje konkretny element,
+                natomiast ta sama <strong>class</strong> może być
+                przypisana wielu elementom.
+            </div>
+
+        </section>
+
+
+        <section id="zagniezdzanie">
+
+            <h2>11. Zagnieżdżanie elementów</h2>
+
+            <p>
+                HTML ma strukturę hierarchiczną. Jeden element może
+                zawierać inne elementy.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Uczę się &lt;strong&gt;języka HTML&lt;/strong&gt;.
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Element <code>strong</code> znajduje się wewnątrz
+                elementu <code>p</code>.
+            </p>
+
+            <div class="definition">
+                Umieszczanie jednego elementu wewnątrz innego
+                nazywa się <strong>zagnieżdżaniem</strong>.
+            </div>
+
+        </section>
+
+
+        <section id="rodzic-dziecko">
+
+            <h2>12. Element nadrzędny i podrzędny</h2>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;div&gt;
+    &lt;p&gt;To jest akapit.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Element <code>div</code> zawiera element <code>p</code>.
+            </p>
+
+            <ul>
+                <li><code>div</code> jest elementem nadrzędnym – rodzicem,</li>
+                <li><code>p</code> jest elementem podrzędnym – dzieckiem.</li>
+            </ul>
+
+            <p>Bardziej rozbudowany przykład:</p>
+
+            <pre><code class="language-html">&lt;body&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Aktualności&lt;/h2&gt;
+            &lt;p&gt;Treść aktualności.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+&lt;/body&gt;</code></pre>
+
+            <p>Hierarchia elementów:</p>
+
+            <pre><code class="language-text">body
+└── main
+    └── section
+        ├── h2
+        └── p</code></pre>
+
+        </section>
+
+
+        <section id="rodzenstwo">
+
+            <h2>13. Elementy rodzeństwa</h2>
+
+            <p>
+                Elementy mające tego samego bezpośredniego rodzica
+                można określić jako elementy rodzeństwa.
+            </p>
+
+            <pre><code class="language-html">&lt;section&gt;
+    &lt;h2&gt;O mnie&lt;/h2&gt;
+    &lt;p&gt;Mam na imię Anna.&lt;/p&gt;
+    &lt;p&gt;Interesuję się informatyką.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Elementy <code>h2</code> i oba elementy <code>p</code>
+                są bezpośrednimi dziećmi elementu <code>section</code>.
+            </p>
+
+        </section>
+
+
+        <section id="poprawne">
+
+            <h2>14. Poprawne zagnieżdżanie</h2>
+
+            <p>
+                Jeżeli jeden element zostanie otwarty wewnątrz drugiego,
+                należy go zamknąć przed zamknięciem elementu nadrzędnego.
+            </p>
+
+            <p>Poprawny zapis:</p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    To jest &lt;strong&gt;ważna informacja&lt;/strong&gt;.
+&lt;/p&gt;</code></pre>
+
+            <p>Można to przedstawić jako:</p>
+
+            <pre><code class="language-text">&lt;p&gt;
+    &lt;strong&gt;
+    &lt;/strong&gt;
+&lt;/p&gt;</code></pre>
+
+            <div class="important">
+                Element otwarty jako ostatni należy zamknąć jako pierwszy.
+            </div>
+
+        </section>
+
+
+        <section id="bledne">
+
+            <h2>15. Błędne zagnieżdżanie</h2>
+
+            <p>Niepoprawny przykład:</p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    To jest &lt;strong&gt;ważna informacja.
+&lt;/p&gt;
+&lt;/strong&gt;</code></pre>
+
+            <p>
+                Element <code>strong</code> został otwarty wewnątrz
+                elementu <code>p</code>, ale element <code>p</code>
+                zamknięto wcześniej.
+            </p>
+
+            <p>Poprawna wersja:</p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    To jest &lt;strong&gt;ważna informacja&lt;/strong&gt;.
+&lt;/p&gt;</code></pre>
+
+        </section>
+
+
+        <section id="wciecia">
+
+            <h2>16. Wcięcia i czytelność kodu</h2>
+
+            <p>
+                Przeglądarka często odczyta kod również wtedy,
+                gdy wszystkie znaczniki znajdują się przy lewej krawędzi.
+            </p>
+
+            <p>Mało czytelny zapis:</p>
+
+            <pre><code class="language-html">&lt;body&gt;
+&lt;main&gt;
+&lt;section&gt;
+&lt;h2&gt;O mnie&lt;/h2&gt;
+&lt;p&gt;To jest moja strona.&lt;/p&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;/body&gt;</code></pre>
+
+            <p>Czytelniejszy zapis:</p>
+
+            <pre><code class="language-html">&lt;body&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;O mnie&lt;/h2&gt;
+            &lt;p&gt;To jest moja strona.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+&lt;/body&gt;</code></pre>
+
+            <div class="important">
+                Wcięcia pozwalają szybciej rozpoznać strukturę dokumentu
+                i ułatwiają wyszukiwanie błędów.
+            </div>
+
+        </section>
+
+
+        <section id="wielkosc-liter">
+
+            <h2>17. Wielkość liter w HTML</h2>
+
+            <p>
+                W składni HTML nazwy elementów nie są rozróżniane
+                ze względu na wielkość liter.
+            </p>
+
+            <p>Przeglądarka może więc zinterpretować:</p>
+
+            <pre><code class="language-html">&lt;P&gt;Tekst&lt;/P&gt;</code></pre>
+
+            <p>oraz:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Tekst&lt;/p&gt;</code></pre>
+
+            <p>
+                Przyjętą i zalecaną praktyką jest jednak zapisywanie
+                nazw elementów oraz atrybutów małymi literami.
+            </p>
+
+            <pre><code class="language-html">&lt;p class="opis"&gt;Tekst&lt;/p&gt;</code></pre>
+
+        </section>
+
+
+        <section id="cudzyslowy">
+
+            <h2>18. Cudzysłowy w wartościach atrybutów</h2>
+
+            <p>
+                Wartości atrybutów najlepiej zapisywać w cudzysłowie.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg" alt="Moje zdjęcie"&gt;</code></pre>
+
+            <p>
+                Cudzysłów jest szczególnie istotny wtedy,
+                gdy wartość zawiera spacje:
+            </p>
+
+            <pre><code class="language-html">alt="Zdjęcie mojego kota"</code></pre>
+
+            <div class="important">
+                W materiałach i własnym kodzie przyjmujemy zasadę:
+                <strong>wartości atrybutów zapisujemy w cudzysłowie.</strong>
+            </div>
+
+        </section>
+
+
+        <section id="kolejnosc">
+
+            <h2>19. Kolejność atrybutów</h2>
+
+            <p>
+                Element może posiadać kilka atrybutów.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="pies.jpg" alt="Pies" width="300"&gt;</code></pre>
+
+            <p>
+                Możliwy jest również zapis:
+            </p>
+
+            <pre><code class="language-html">&lt;img width="300" alt="Pies" src="pies.jpg"&gt;</code></pre>
+
+            <p>
+                Kolejność tych atrybutów nie zmienia podstawowego
+                znaczenia elementu.
+            </p>
+
+            <p>
+                Dla czytelności warto jednak stosować konsekwentny
+                sposób zapisu.
+            </p>
+
+        </section>
+
+
+        <section id="komentarze">
+
+            <h2>20. Komentarze w HTML</h2>
+
+            <p>Komentarz w HTML zapisuje się:</p>
+
+            <pre><code class="language-html">&lt;!-- To jest komentarz --&gt;</code></pre>
+
+            <p>Komentarz:</p>
+
+            <ul>
+                <li>jest widoczny w kodzie źródłowym,</li>
+                <li>nie jest wyświetlany jako zwykła treść strony,</li>
+                <li>może służyć do opisywania fragmentów kodu.</li>
+            </ul>
+
+            <p>Przykład:</p>
+
+            <pre><code class="language-html">&lt;!-- Sekcja z informacjami o autorze --&gt;
+&lt;section&gt;
+    &lt;h2&gt;O mnie&lt;/h2&gt;
+    &lt;p&gt;Mam na imię Jan.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+        </section>
+
+
+        <section id="bledy">
+
+            <h2>21. Najczęstsze błędy składniowe</h2>
+
+            <h3>Brak znacznika zamykającego</h3>
+
+            <p>Błędnie:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Pierwszy akapit
+&lt;p&gt;Drugi akapit</code></pre>
+
+            <p>W nauce poprawnego zapisu stosujemy:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Pierwszy akapit&lt;/p&gt;
+&lt;p&gt;Drugi akapit&lt;/p&gt;</code></pre>
+
+
+            <h3>Brak znaku &gt;</h3>
+
+            <p>Błędnie:</p>
+
+            <pre><code class="language-html">&lt;h1 Tytuł strony&lt;/h1&gt;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;h1&gt;Tytuł strony&lt;/h1&gt;</code></pre>
+
+
+            <h3>Błędnie zapisany znacznik zamykający</h3>
+
+            <p>Błędnie:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Tekst&lt;p/&gt;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Tekst&lt;/p&gt;</code></pre>
+
+
+            <h3>Atrybut poza znacznikiem</h3>
+
+            <p>Błędnie:</p>
+
+            <pre><code class="language-html">&lt;img&gt; src="kot.jpg"</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;img src="kot.jpg" alt="Kot"&gt;</code></pre>
+
+
+            <h3>Niepoprawne zagnieżdżenie</h3>
+
+            <p>Błędnie:</p>
+
+            <pre><code class="language-html">&lt;p&gt;&lt;strong&gt;Tekst&lt;/p&gt;&lt;/strong&gt;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;p&gt;&lt;strong&gt;Tekst&lt;/strong&gt;&lt;/p&gt;</code></pre>
+
+        </section>
+
+
+        <section id="przegladarka">
+
+            <h2>22. Przeglądarka czasami poprawia nasze błędy</h2>
+
+            <p>
+                Kod HTML może zawierać błąd, a strona mimo wszystko
+                może wyglądać poprawnie.
+            </p>
+
+            <p>
+                Przeglądarki próbują interpretować niepoprawny HTML
+                i w wielu sytuacjach automatycznie tworzą strukturę,
+                która pozwala wyświetlić stronę.
+            </p>
+
+            <div class="important">
+                Nie stosujemy zasady:
+                <strong>„Skoro działa, to jest dobrze”.</strong><br>
+                Kod powinien być poprawny, czytelny i zgodny ze standardem HTML.
+            </div>
+
+        </section>
+
+
+        <section id="walidacja">
+
+            <h2>23. Walidacja kodu HTML</h2>
+
+            <div class="definition">
+                <strong>Walidacja</strong> polega na sprawdzeniu,
+                czy dokument jest zgodny z regułami składni HTML.
+            </div>
+
+            <p>Walidator może wskazać między innymi:</p>
+
+            <ul>
+                <li>niepoprawne znaczniki,</li>
+                <li>błędy struktury dokumentu,</li>
+                <li>niepoprawnie użyte atrybuty,</li>
+                <li>inne problemy ze składnią HTML.</li>
+            </ul>
+
+            <a class="material-link"
+               href="https://validator.w3.org/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Otwórz walidator HTML
+            </a>
+
+            <div class="important">
+                Brak widocznego błędu w przeglądarce
+                nie jest dowodem poprawności kodu.
+            </div>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>HTML opisuje strukturę i znaczenie treści strony.</li>
+                <li>Znaczniki zapisuje się pomiędzy znakami &lt; i &gt;.</li>
+                <li>Wiele elementów posiada znacznik otwierający i zamykający.</li>
+                <li>Znacznik i element HTML nie oznaczają dokładnie tego samego.</li>
+                <li>Niektóre elementy HTML są elementami pustymi i nie mają osobnego znacznika zamykającego.</li>
+                <li>Element może posiadać atrybuty.</li>
+                <li>Atrybuty umieszcza się w znaczniku otwierającym.</li>
+                <li>Wartości atrybutów zapisujemy w cudzysłowie.</li>
+                <li>Atrybut id powinien identyfikować konkretny element, a ta sama class może być używana wielokrotnie.</li>
+                <li>Elementy HTML mogą być zagnieżdżane.</li>
+                <li>Element otwarty jako ostatni należy zamknąć jako pierwszy.</li>
+                <li>Wcięcia pomagają odczytać strukturę dokumentu.</li>
+                <li>Nazwy elementów i atrybutów zapisujemy małymi literami.</li>
+                <li>To, że przeglądarka wyświetla stronę, nie oznacza jeszcze, że kod jest poprawny.</li>
+                <li>Walidator pomaga odnajdywać błędy składni HTML.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+
+            <h3>Zadanie 1. Rozpoznaj elementy kodu</h3>
+
+            <p>Dla kodu:</p>
+
+            <pre><code class="language-html">&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <p>Wskaż:</p>
+
+            <ol>
+                <li>znacznik otwierający,</li>
+                <li>znacznik zamykający,</li>
+                <li>nazwę elementu,</li>
+                <li>atrybut,</li>
+                <li>wartość atrybutu,</li>
+                <li>zawartość elementu.</li>
+            </ol>
+
+
+            <h3>Zadanie 2. Znajdź błędy</h3>
+
+            <p>Popraw poniższy kod:</p>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja strona&lt;h1&gt;
+&lt;p&gt;Uczę się &lt;strong&gt;języka HTML.&lt;/p&gt;&lt;/strong&gt;
+&lt;img&gt; src="komputer.jpg" alt="Komputer"
+&lt;p class="opis&gt;HTML jest językiem znaczników.&lt;/p&gt;</code></pre>
+
+            <p>
+                Po poprawieniu sprawdź dokument w przeglądarce.
+            </p>
+
+
+            <h3>Zadanie 3. Zagnieżdżanie</h3>
+
+            <p>Utwórz fragment strony zawierający:</p>
+
+            <ul>
+                <li>nagłówek <code>h2</code>,</li>
+                <li>pod nim akapit <code>p</code>,</li>
+                <li>w akapicie jedno słowo wyróżnione elementem <code>strong</code>,</li>
+                <li>drugie słowo wyróżnione elementem <code>em</code>.</li>
+            </ul>
+
+
+            <h3>Zadanie 4. Atrybuty</h3>
+
+            <p>
+                Utwórz element obrazu i dodaj do niego atrybuty określające:
+            </p>
+
+            <ul>
+                <li>nazwę pliku obrazu,</li>
+                <li>tekst alternatywny,</li>
+                <li>szerokość 300.</li>
+            </ul>
+
+
+            <h3>Zadanie 5. Hierarchia elementów</h3>
+
+            <p>Przeanalizuj kod:</p>
+
+            <pre><code class="language-html">&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Moje hobby&lt;/h2&gt;
+        &lt;p&gt;Interesuję się fotografią.&lt;/p&gt;
+        &lt;p&gt;Lubię również programowanie.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+
+            <p>Odpowiedz:</p>
+
+            <ol>
+                <li>Który element jest rodzicem elementu <code>section</code>?</li>
+                <li>Które elementy są dziećmi elementu <code>section</code>?</li>
+                <li>Które elementy są względem siebie rodzeństwem?</li>
+                <li>Który element znajduje się najwyżej w przedstawionej strukturze?</li>
+            </ol>
+
+
+            <h3>Zadanie 6. Utwórz poprawny fragment HTML</h3>
+
+            <p>Napisz kod zawierający:</p>
+
+            <ul>
+                <li>element <code>div</code>,</li>
+                <li>wewnątrz niego nagłówek <code>h2</code>,</li>
+                <li>dwa akapity,</li>
+                <li>w pierwszym akapicie element <code>strong</code>,</li>
+                <li>w drugim akapicie element <code>em</code>.</li>
+            </ul>
+
+            <p>
+                Zadbaj o poprawne zagnieżdżenie oraz czytelne wcięcia.
+            </p>
+
+
+            <h3>Zadanie 7. Popraw czytelność kodu</h3>
+
+            <p>Otrzymujesz kod:</p>
+
+            <pre><code class="language-html">&lt;body&gt;&lt;main&gt;&lt;section&gt;&lt;h2&gt;O mnie&lt;/h2&gt;&lt;p&gt;Uczę się HTML.&lt;/p&gt;&lt;p&gt;Tworzę swoją pierwszą stronę.&lt;/p&gt;&lt;/section&gt;&lt;/main&gt;&lt;/body&gt;</code></pre>
+
+            <p>
+                Przepisz go tak, aby dzięki odpowiednim wcięciom
+                jego struktura była od razu widoczna.
+            </p>
+
+
+            <h3>Zadanie 8. Samodzielny fragment strony</h3>
+
+            <p>Utwórz dokument HTML zawierający:</p>
+
+            <ul>
+                <li>poprawną podstawową strukturę dokumentu HTML5 poznaną na poprzedniej lekcji,</li>
+                <li>tytuł strony,</li>
+                <li>nagłówek,</li>
+                <li>dwa akapity,</li>
+                <li>wyróżnienie <code>strong</code>,</li>
+                <li>wyróżnienie <code>em</code>,</li>
+                <li>obraz z atrybutami <code>src</code> i <code>alt</code>,</li>
+                <li>co najmniej jeden element posiadający <code>id</code>,</li>
+                <li>co najmniej dwa elementy posiadające tę samą <code>class</code>,</li>
+                <li>komentarz HTML.</li>
+            </ul>
+
+            <p>
+                Zwróć szczególną uwagę na poprawne zagnieżdżanie
+                elementów oraz czytelne wcięcia.
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer>
+    STREFA IT • PSI • Lekcja 03
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+</body>
+</html>
