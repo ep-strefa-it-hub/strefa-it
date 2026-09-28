@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkusz kalkulacyjny – Excel 2016 | Strefa IT</title>
+    <link rel="stylesheet" href="../../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z informatyki</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../../index.html">← INFORMATYKA</a>
+        <a href="../../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">Arkusz kalkulacyjny</a>
+        <a href="#cw1">Ćw. 01 – Podstawy pracy z arkuszem</a>
+        <a href="#cw2">Ćw. 02 – Instrukcje warunkowe</a>
+        <a href="#cw3">Ćw. 03 – Porównywanie ofert</a>
+        <a href="#cw4">Ćw. 04 – Zakupy grupowe</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title" id="wprowadzenie">
+            <div class="lesson-number">INFORMATYKA • KL 1 • ARKUSZ KALKULACYJNY</div>
+            <h2>Arkusz kalkulacyjny – Microsoft Excel 2016</h2>
+
+            <p>
+                W tym dziale poznasz podstawowe możliwości arkusza kalkulacyjnego
+                Microsoft Excel 2016. Nauczysz się wykonywać obliczenia za pomocą
+                formuł i funkcji, kopiować formuły, stosować formatowanie,
+                instrukcje warunkowe oraz tworzyć wykresy.
+            </p>
+
+            <p>
+                <strong>Cel główny:</strong>
+                Wykorzystanie arkusza kalkulacyjnego do wykonywania obliczeń,
+                analizowania danych oraz czytelnego prezentowania wyników.
+            </p>
+        </div>
+
+
+        <!-- ĆWICZENIE 1 -->
+
+        <section id="cw1">
+
+            <div class="lesson-number">ĆWICZENIE 01 • 45 MINUT</div>
+            <h2>Podstawy pracy z arkuszem</h2>
+
+            <p>
+                W pierwszym ćwiczeniu przygotujesz miesięczny budżet.
+                Poznasz podstawowe zasady tworzenia formuł, kopiowania ich
+                do kolejnych komórek oraz wykorzystasz podstawowe funkcje Excela.
+            </p>
+
+            <h3>Komórki i adresy komórek</h3>
+
+            <p>
+                Arkusz kalkulacyjny składa się z <strong>wierszy i kolumn</strong>.
+                Miejsce ich przecięcia nazywamy <strong>komórką</strong>.
+            </p>
+
+            <p>
+                Każda komórka posiada własny adres składający się z litery kolumny
+                oraz numeru wiersza, np.:
+            </p>
+
+            <ul>
+                <li><code>A1</code> – kolumna A, wiersz 1,</li>
+                <li><code>B5</code> – kolumna B, wiersz 5,</li>
+                <li><code>D10</code> – kolumna D, wiersz 10.</li>
+            </ul>
+
+            <h3>Tworzenie formuł</h3>
+
+            <p>
+                Formułę w Excelu zawsze rozpoczynamy znakiem
+                <strong>=</strong>.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code>=B5-C5</code></pre>
+
+            <p>
+                Excel pobiera wartości znajdujące się w komórkach B5 i C5,
+                wykonuje odejmowanie i wyświetla wynik w komórce zawierającej formułę.
+            </p>
+
+            <h3>Kopiowanie formuły</h3>
+
+            <p>
+                Nie trzeba wpisywać tej samej formuły w każdym wierszu.
+                Można wykorzystać <strong>uchwyt wypełniania</strong> –
+                mały kwadrat znajdujący się w prawym dolnym rogu zaznaczonej komórki.
+            </p>
+
+            <p>
+                Podczas kopiowania Excel automatycznie dostosowuje adresy komórek.
+                Jeżeli:
+            </p>
+
+            <pre><code>=B5-C5</code></pre>
+
+            <p>skopiujemy o jeden wiersz niżej, otrzymamy:</p>
+
+            <pre><code>=B6-C6</code></pre>
+
+
+            <h3>Podstawowe funkcje</h3>
+
+            <h4>SUMA</h4>
+
+            <p>Dodaje wartości znajdujące się w podanym zakresie.</p>
+
+            <pre><code>=SUMA(B5:B9)</code></pre>
+
+            <p>
+                Zapis <code>B5:B9</code> oznacza wszystkie komórki
+                od B5 do B9.
+            </p>
+
+
+            <h4>ŚREDNIA</h4>
+
+            <p>Oblicza średnią arytmetyczną wartości.</p>
+
+            <pre><code>=ŚREDNIA(C5:C9)</code></pre>
+
+
+            <h4>MAX</h4>
+
+            <p>Zwraca największą wartość z podanego zakresu.</p>
+
+            <pre><code>=MAX(C5:C9)</code></pre>
+
+
+            <h3>Formatowanie liczb</h3>
+
+            <p>
+                Wartości pieniężne warto wyświetlać w odpowiednim formacie.
+                W Excelu 2016 możesz użyć:
+            </p>
+
+            <p>
+                <strong>Ctrl + 1 → Liczby → Walutowe → symbol zł → 2 miejsca dziesiętne</strong>
+            </p>
+
+
+            <h3>Wykres kolumnowy</h3>
+
+            <p>
+                Wykres pozwala przedstawić dane w sposób graficzny.
+                Aby porównać planowane i rzeczywiste wydatki:
+            </p>
+
+            <p>
+                <strong>
+                    zaznacz dane → Wstawianie → Wykresy →
+                    Kolumnowy → Kolumnowy grupowany
+                </strong>
+            </p>
+
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <ul>
+                    <li>Każda formuła rozpoczyna się znakiem <strong>=</strong>.</li>
+                    <li><code>B5:B9</code> oznacza zakres komórek od B5 do B9.</li>
+                    <li>Uchwyt wypełniania pozwala szybko kopiować formuły.</li>
+                    <li><code>SUMA</code> dodaje wartości.</li>
+                    <li><code>ŚREDNIA</code> oblicza średnią.</li>
+                    <li><code>MAX</code> zwraca największą wartość.</li>
+                </ul>
+            </div>
+
+
+            <div class="tasks">
+                <h3>📝 Ćwiczenie 01</h3>
+                <p><strong>Podstawy pracy z arkuszem – budżet miesięczny</strong></p>
+                <p>
+                    Pobierz plik i wykonaj wszystkie polecenia znajdujące się
+                    w arkuszu <strong>Instrukcja</strong>.
+                </p>
+
+                <!-- TU WKLEJ LINK DO ĆWICZENIA 01 -->
+                <p>
+                    <a href="#" target="_blank">
+                        📥 Pobierz ćwiczenie 01
+                    </a>
+                </p>
+
+                <p>
+                    Gotowy plik zapisz jako
+                    <code>01_Moj_budzet.xlsx</code>
+                    i prześlij na odpowiednie Zadanie w Teams.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ĆWICZENIE 2 -->
+
+        <section id="cw2">
+
+            <div class="lesson-number">ĆWICZENIE 02 • 45 MINUT</div>
+            <h2>Instrukcje warunkowe</h2>
+
+            <p>
+                Arkusz kalkulacyjny może nie tylko wykonywać obliczenia,
+                ale również podejmować decyzje na podstawie określonych warunków.
+                W tym ćwiczeniu wykorzystasz wyniki punktowe uczniów.
+            </p>
+
+
+            <h3>Obliczanie wyniku procentowego</h3>
+
+            <p>
+                Jeżeli uczeń zdobył 18 punktów na 20 możliwych,
+                wynik procentowy można obliczyć:
+            </p>
+
+            <pre><code>=B5/C5</code></pre>
+
+            <p>
+                Następnie komórkę należy ustawić w formacie
+                <strong>Procentowe</strong>.
+            </p>
+
+
+            <h3>Operatory porównania</h3>
+
+            <p>Warunki mogą wykorzystywać operatory:</p>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>=</code></td>
+                    <td>równe</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>większe</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>mniejsze</td>
+                </tr>
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>większe lub równe</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>mniejsze lub równe</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;&gt;</code></td>
+                    <td>różne</td>
+                </tr>
+            </table>
+
+
+            <h3>Funkcja JEŻELI</h3>
+
+            <p>Funkcja ma postać:</p>
+
+            <pre><code>=JEŻELI(warunek;wartość_gdy_prawda;wartość_gdy_fałsz)</code></pre>
+
+            <p>Przykład:</p>
+
+            <pre><code>=JEŻELI(D5&gt;=50%;"Zaliczone";"Niezaliczone")</code></pre>
+
+            <p>
+                Excel sprawdza, czy wynik wynosi co najmniej 50%.
+                Jeżeli tak, wyświetla <strong>Zaliczone</strong>.
+                W przeciwnym razie wyświetla <strong>Niezaliczone</strong>.
+            </p>
+
+
+            <h3>Zagnieżdżona funkcja JEŻELI</h3>
+
+            <p>
+                Jeżeli mamy kilka możliwych wyników, jedną funkcję
+                <code>JEŻELI</code> można umieścić wewnątrz kolejnej.
+            </p>
+
+            <pre><code>=JEŻELI(D5&gt;=90%;5;JEŻELI(D5&gt;=75%;4;JEŻELI(D5&gt;=50%;3;1)))</code></pre>
+
+            <p>
+                Excel sprawdza warunki kolejno od lewej strony.
+                Po znalezieniu pierwszego spełnionego warunku zwraca odpowiedni wynik.
+            </p>
+
+
+            <h3>Funkcja LICZ.JEŻELI</h3>
+
+            <p>
+                Funkcja pozwala policzyć komórki spełniające określony warunek.
+            </p>
+
+            <pre><code>=LICZ.JEŻELI(E5:E10;"Zaliczone")</code></pre>
+
+            <p>
+                Excel policzy, ile razy w zakresie E5:E10 znajduje się tekst
+                <strong>Zaliczone</strong>.
+            </p>
+
+
+            <h3>Formatowanie warunkowe</h3>
+
+            <p>
+                Formatowanie warunkowe automatycznie zmienia wygląd komórki,
+                jeżeli spełniony zostanie określony warunek.
+            </p>
+
+            <p>Przykładowa reguła:</p>
+
+            <pre><code>=E5="Zaliczone"</code></pre>
+
+            <p>
+                może ustawić zielone wypełnienie, natomiast:
+            </p>
+
+            <pre><code>=E5="Niezaliczone"</code></pre>
+
+            <p>– czerwone.</p>
+
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <ul>
+                    <li><code>JEŻELI</code> pozwala uzależnić wynik od warunku.</li>
+                    <li>Argumenty funkcji w polskiej wersji Excel 2016 rozdzielamy średnikami.</li>
+                    <li>Funkcje <code>JEŻELI</code> można zagnieżdżać.</li>
+                    <li><code>LICZ.JEŻELI</code> zlicza komórki spełniające warunek.</li>
+                    <li>Formatowanie warunkowe może automatycznie wyróżniać wyniki.</li>
+                </ul>
+            </div>
+
+
+            <div class="tasks">
+                <h3>📝 Ćwiczenie 02</h3>
+                <p><strong>Instrukcje warunkowe – wyniki sprawdzianu</strong></p>
+
+                <!-- TU WKLEJ LINK DO ĆWICZENIA 02 -->
+                <p>
+                    <a href="#" target="_blank">
+                        📥 Pobierz ćwiczenie 02
+                    </a>
+                </p>
+
+                <p>
+                    Wykonaj polecenia z arkusza <strong>Instrukcja</strong>,
+                    zapisz plik jako <code>02_Wyniki_spr.xlsx</code>
+                    i prześlij go na Teams.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ĆWICZENIE 3 -->
+
+        <section id="cw3">
+
+            <div class="lesson-number">ĆWICZENIE 03 • 45 MINUT</div>
+            <h2>Porównywanie ofert</h2>
+
+            <p>
+                W tym ćwiczeniu porównasz ceny słuchawek w kilku sklepach.
+                Uwzględnisz cenę produktu, rabat oraz koszt dostawy.
+            </p>
+
+
+            <h3>Obliczanie rabatu</h3>
+
+            <p>Kwotę rabatu można obliczyć:</p>
+
+            <pre><code>=B5*C5</code></pre>
+
+            <p>
+                Jeżeli B5 zawiera cenę, a C5 procent rabatu,
+                wynikiem będzie kwota, o którą należy obniżyć cenę.
+            </p>
+
+            <p>Cenę końcową można następnie obliczyć:</p>
+
+            <pre><code>=B5-E5+D5</code></pre>
+
+
+            <h3>Funkcje MIN i MAX</h3>
+
+            <p>
+                <code>MIN</code> znajduje najmniejszą wartość:
+            </p>
+
+            <pre><code>=MIN(F5:F9)</code></pre>
+
+            <p>
+                <code>MAX</code> znajduje największą wartość:
+            </p>
+
+            <pre><code>=MAX(F5:F9)</code></pre>
+
+
+            <h3>Adres względny i bezwzględny</h3>
+
+            <p>
+                To jedna z najważniejszych zasad podczas kopiowania formuł.
+            </p>
+
+            <p><strong>Adres względny:</strong></p>
+
+            <pre><code>F5</code></pre>
+
+            <p>
+                podczas kopiowania formuły może zmienić się na F6, F7 itd.
+            </p>
+
+            <p><strong>Adres bezwzględny:</strong></p>
+
+            <pre><code>$B$12</code></pre>
+
+            <p>
+                pozostaje zawsze taki sam. Znaki <strong>$</strong>
+                blokują zarówno kolumnę B, jak i wiersz 12.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code>=JEŻELI(F5=$B$12;"Najtańsza oferta";"Droższa oferta")</code></pre>
+
+            <p>
+                Podczas kopiowania zmienia się F5, natomiast
+                <code>$B$12</code> pozostaje niezmienione.
+            </p>
+
+
+            <h3>Formatowanie warunkowe z adresem bezwzględnym</h3>
+
+            <p>Reguła:</p>
+
+            <pre><code>=F5=$B$12</code></pre>
+
+            <p>
+                pozwala automatycznie wyróżnić komórkę zawierającą
+                najniższą cenę.
+            </p>
+
+
+            <h3>Wykres porównawczy</h3>
+
+            <p>
+                Wykres kolumnowy pozwoli szybko porównać końcowe ceny
+                we wszystkich sklepach.
+            </p>
+
+            <p>
+                <strong>
+                    Wstawianie → Wykresy → Kolumnowy →
+                    Kolumnowy grupowany
+                </strong>
+            </p>
+
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <ul>
+                    <li><code>MIN</code> znajduje najmniejszą wartość.</li>
+                    <li><code>MAX</code> znajduje największą wartość.</li>
+                    <li><code>F5</code> jest adresem względnym.</li>
+                    <li><code>$B$12</code> jest adresem bezwzględnym.</li>
+                    <li>Znak <strong>$</strong> blokuje zmianę części adresu podczas kopiowania formuły.</li>
+                </ul>
+            </div>
+
+
+            <div class="tasks">
+                <h3>📝 Ćwiczenie 03</h3>
+                <p><strong>Porównywanie ofert – zakup słuchawek</strong></p>
+
+                <!-- TU WKLEJ LINK DO ĆWICZENIA 03 -->
+                <p>
+                    <a href="#" target="_blank">
+                        📥 Pobierz ćwiczenie 03
+                    </a>
+                </p>
+
+                <p>
+                    Gotowy plik zapisz jako
+                    <code>03_Porownanie_ofert.xlsx</code>
+                    i prześlij na Zadanie w Teams.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ĆWICZENIE 4 -->
+
+        <section id="cw4">
+
+            <div class="lesson-number">ĆWICZENIE 04 • 45 MINUT</div>
+            <h2>Zakupy grupowe</h2>
+
+            <p>
+                W ostatnim ćwiczeniu wykorzystasz poznane wcześniej formuły
+                i funkcje do zaplanowania budżetu klasowego pikniku.
+            </p>
+
+
+            <h3>Obliczanie kosztu produktu</h3>
+
+            <p>
+                Koszt produktu to liczba sztuk pomnożona przez cenę jednostkową:
+            </p>
+
+            <pre><code>=B5*C5</code></pre>
+
+
+            <h3>Łączny koszt zakupów</h3>
+
+            <pre><code>=SUMA(D5:D12)</code></pre>
+
+            <p>
+                Funkcja dodaje koszty wszystkich produktów.
+            </p>
+
+
+            <h3>Obliczanie budżetu</h3>
+
+            <p>Zebraną kwotę można obliczyć:</p>
+
+            <pre><code>=G5*G6</code></pre>
+
+            <p>
+                gdzie G5 zawiera liczbę uczestników, a G6 wysokość składki.
+            </p>
+
+            <p>Pozostałą po zakupach kwotę obliczamy:</p>
+
+            <pre><code>=G7-G8</code></pre>
+
+            <p>
+                Wynik dodatni oznacza, że część pieniędzy pozostała.
+                Wynik ujemny oznacza, że zabrakło środków.
+            </p>
+
+
+            <h3>Sprawdzanie budżetu funkcją JEŻELI</h3>
+
+            <pre><code>=JEŻELI(G9&gt;=0;"Budżet wystarczający";"Przekroczony budżet")</code></pre>
+
+            <p>
+                Excel sprawdza, czy po zakupach pozostało co najmniej 0 zł.
+            </p>
+
+
+            <h3>Koszt i zwrot na jedną osobę</h3>
+
+            <p>Koszt przypadający na jedną osobę:</p>
+
+            <pre><code>=G8/G5</code></pre>
+
+            <p>Zwrot przypadający na jedną osobę:</p>
+
+            <pre><code>=G9/G5</code></pre>
+
+
+            <h3>Automatyczne przeliczanie arkusza</h3>
+
+            <p>
+                Jedną z najważniejszych zalet arkusza kalkulacyjnego jest
+                automatyczne przeliczanie wyników.
+            </p>
+
+            <p>
+                Jeśli zmienisz np. liczbę uczestników lub ilość kupowanych
+                produktów, <strong>nie musisz ponownie wpisywać formuł</strong>.
+                Excel automatycznie obliczy nowe wyniki.
+            </p>
+
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <ul>
+                    <li>Formuły powinny odwoływać się do komórek, a nie do ręcznie przepisanych wartości.</li>
+                    <li>Zmiana danych powoduje automatyczne przeliczenie formuł.</li>
+                    <li>Funkcja <code>JEŻELI</code> może służyć do kontroli budżetu.</li>
+                    <li>Formatowanie warunkowe może automatycznie wyróżnić poprawny lub przekroczony budżet.</li>
+                </ul>
+            </div>
+
+
+            <div class="tasks">
+                <h3>📝 Ćwiczenie 04</h3>
+                <p><strong>Zakupy grupowe – klasowy piknik</strong></p>
+
+                <!-- TU WKLEJ LINK DO ĆWICZENIA 04 -->
+                <p>
+                    <a href="#" target="_blank">
+                        📥 Pobierz ćwiczenie 04
+                    </a>
+                </p>
+
+                <p>
+                    Wykonaj wszystkie polecenia znajdujące się
+                    w arkuszu <strong>Instrukcja</strong>.
+                </p>
+
+                <p>
+                    Gotowy plik zapisz jako
+                    <code>04_Zakupy_grupowe_Nazwisko.xlsx</code>
+                    i prześlij na Zadanie w Teams.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • INFORMATYKA • KL 1 • ARKUSZ KALKULACYJNY
+</footer>
+
+</body>
+</html>
