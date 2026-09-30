@@ -745,3 +745,10 @@ pre[class*="language-"] {
     padding: 14px 18px !important;
     line-height: 1.55;
 }
+
+.projekt-pogladowy {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
