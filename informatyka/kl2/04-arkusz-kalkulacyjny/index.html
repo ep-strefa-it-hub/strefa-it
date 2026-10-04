@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dział 04 – Arkusz kalkulacyjny | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z informatyki dla klasy 2</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../../index.html">← Powrót do Informatyki</a>
+        <a href="../../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+
+<div class="layout">
+
+    <!-- ====================================================== -->
+    <!-- SPIS TREŚCI -->
+    <!-- ====================================================== -->
+
+    <aside>
+
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">
+            Arkusz kalkulacyjny
+        </a>
+
+        <a href="#lekcja1">
+            1. Wykresy funkcji
+        </a>
+
+        <a href="#lekcja2">
+            2. Komputerowe wspomaganie pomiarów
+        </a>
+
+        <a href="#lekcja3">
+            3. Symulacje komputerowe
+        </a>
+
+        <a href="#lekcja4">
+            4. Tabele przestawne
+        </a>
+
+        <a href="#lekcja5">
+            5. Gromadzenie i przetwarzanie danych
+        </a>
+
+    </aside>
+
+
+    <main>
+
+        <!-- ====================================================== -->
+        <!-- WPROWADZENIE -->
+        <!-- ====================================================== -->
+
+        <section id="wprowadzenie">
+
+            <div class="lesson-number">
+                INFORMATYKA • KL 2 • DZIAŁ 04
+            </div>
+
+            <h2>Arkusz kalkulacyjny – MS Excel 2016</h2>
+
+            <p>
+                W tym dziale wykorzystasz program
+                <strong>Microsoft Excel 2016</strong> do wykonywania
+                obliczeń, przedstawiania danych na wykresach,
+                analizowania wyników pomiarów, wykonywania symulacji
+                oraz przetwarzania większych zbiorów danych.
+            </p>
+
+            <p>
+                Poznasz również nowe narzędzia Excela, takie jak
+                <strong>tabele przestawne, sortowanie, filtrowanie</strong>
+                oraz funkcje pozwalające analizować dane.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 W tym dziale nauczysz się</h3>
+
+                <ul>
+                    <li>tworzyć wykresy funkcji matematycznych,</li>
+                    <li>analizować dane pochodzące z pomiarów,</li>
+                    <li>wykonywać proste symulacje komputerowe,</li>
+                    <li>korzystać z funkcji losujących i zliczających,</li>
+                    <li>tworzyć tabele przestawne,</li>
+                    <li>sortować i filtrować dane,</li>
+                    <li>wyciągać wnioski na podstawie danych.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- LEKCJA 1 -->
+        <!-- ====================================================== -->
+
+        <section id="lekcja1">
+
+            <div class="lesson-number">
+                LEKCJA 01
+            </div>
+
+            <h2>Wykresy funkcji w arkuszu</h2>
+
+            <h3>🎯 Cel lekcji</h3>
+
+            <p>
+                Nauczysz się obliczać wartości funkcji matematycznej
+                dla kolejnych wartości argumentu oraz przedstawiać
+                otrzymane wyniki na wykresie.
+            </p>
+
+
+            <h3>Funkcja matematyczna w Excelu</h3>
+
+            <p>
+                Arkusz kalkulacyjny może automatycznie obliczać wartości
+                funkcji dla wielu wartości <strong>x</strong>.
+            </p>
+
+            <p>
+                Jeżeli wartość x znajduje się w komórce
+                <code>B15</code>, funkcję:
+            </p>
+
+            <p>
+                <strong>y = x² - 4</strong>
+            </p>
+
+            <p>możemy zapisać w Excelu:</p>
+
+            <pre><code>=B15^2-4</code></pre>
+
+            <p>
+                Znak <code>^</code> oznacza
+                <strong>potęgowanie</strong>.
+            </p>
+
+            <p>
+                Po wpisaniu formuły nie trzeba wykonywać obliczeń
+                dla każdego x osobno. Formułę można przeciągnąć
+                w dół za pomocą <strong>uchwytu wypełniania</strong>.
+            </p>
+
+
+            <h3>Tworzenie ciągu wartości</h3>
+
+            <p>
+                Jeżeli potrzebujesz wartości:
+            </p>
+
+            <pre><code>-5
+-4,5
+-4
+-3,5
+...</code></pre>
+
+            <p>
+                wpisz pierwsze dwie wartości, zaznacz je i przeciągnij
+                uchwyt wypełniania. Excel rozpozna różnicę
+                między liczbami i będzie kontynuował serię.
+            </p>
+
+
+            <h3>Wykres punktowy (XY)</h3>
+
+            <p>
+                Do przedstawiania funkcji matematycznych najlepiej
+                wykorzystać <strong>wykres punktowy XY</strong>.
+            </p>
+
+            <p>
+                Wykres ten traktuje wartości x jako wartości liczbowe
+                na osi poziomej, dzięki czemu prawidłowo pokazuje
+                zależność pomiędzy x i y.
+            </p>
+
+            <p>W Excelu 2016:</p>
+
+            <p>
+                <strong>
+                    zaznacz dane → Wstawianie → Punktowy (XY) →
+                    Punktowy z wygładzonymi liniami
+                </strong>
+            </p>
+
+
+            <h3>Zmiana wzoru a zmiana wykresu</h3>
+
+            <p>
+                Jedną z najważniejszych cech arkusza kalkulacyjnego
+                jest <strong>automatyczne przeliczanie</strong>.
+            </p>
+
+            <p>
+                Jeżeli zmienisz wzór funkcji, Excel automatycznie
+                obliczy nowe wartości, a wykres zostanie zaktualizowany.
+            </p>
+
+            <p>Na przykład zmiana:</p>
+
+            <pre><code>=B15^2-4</code></pre>
+
+            <p>na:</p>
+
+            <pre><code>=B15^2-1</code></pre>
+
+            <p>
+                spowoduje zmianę wartości funkcji oraz położenia
+                wykresu.
+            </p>
+
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <ul>
+                    <li><code>^</code> oznacza potęgowanie.</li>
+                    <li>Formułę można kopiować za pomocą uchwytu wypełniania.</li>
+                    <li>Do wykresów funkcji stosujemy wykres Punktowy (XY).</li>
+                    <li>Zmiana formuły powoduje automatyczną zmianę wyników i wykresu.</li>
+                    <li>Wykres powinien mieć tytuł oraz opisane osie.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <h3>📝 Ćwiczenie 01 – Wykresy funkcji</h3>
+
+                <p>
+                    W pliku znajdują się <strong>dwa ćwiczenia</strong>.
+                    Wykonaj polecenia znajdujące się w obu arkuszach.
+                </p>
+
+                <p>
+                    W pierwszym utworzysz wykres funkcji
+                    <strong>y = x² - 4</strong>, a w drugim
+                    <strong>y = -x² + 9</strong>.
+                </p>
+
+                <a class="material-link"
+                   href="https://docs.google.com/spreadsheets/d/1yQSpiyCH9c4qsUGf0dGNNmmS6Cwda_p3/export?format=xlsx">
+                    📥 Pobierz ćwiczenie 01
+                </a>
+
+                <p>
+                    Gotowy plik zapisz i prześlij na odpowiednie
+                    Zadanie w Teams.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- LEKCJA 2 -->
+        <!-- ====================================================== -->
+
+        <section id="lekcja2">
+
+            <div class="lesson-number">
+                LEKCJA 02
+            </div>
+
+            <h2>Komputerowe wspomaganie pomiarów</h2>
+
+            <h3>🎯 Cel lekcji</h3>
+
+            <p>
+                Nauczysz się wykorzystywać arkusz kalkulacyjny
+                do analizy danych pochodzących z pomiarów.
+                Obliczysz wartości charakterystyczne oraz przedstawisz
+                zmiany wielkości na wykresie.
+            </p>
+
+
+            <h3>Dane pomiarowe</h3>
+
+            <p>
+                Komputery mogą współpracować z różnymi czujnikami,
+                które automatycznie zbierają dane, np.:
+            </p>
+
+            <ul>
+                <li>temperaturę,</li>
+                <li>wilgotność,</li>
+                <li>ciśnienie,</li>
+                <li>natężenie światła,</li>
+                <li>poziom hałasu.</li>
+            </ul>
+
+            <p>
+                Zebrane dane można następnie analizować
+                w arkuszu kalkulacyjnym.
+            </p>
+
+
+            <h3>Funkcja MIN</h3>
+
+            <p>
+                Funkcja <code>MIN</code> zwraca
+                <strong>najmniejszą wartość</strong> z podanego zakresu.
+            </p>
+
+            <pre><code>=MIN(C15:C30)</code></pre>
+
+
+            <h3>Funkcja MAX</h3>
+
+            <p>
+                Funkcja <code>MAX</code> zwraca
+                <strong>największą wartość</strong> z zakresu.
+            </p>
+
+            <pre><code>=MAX(C15:C30)</code></pre>
+
+
+            <h3>Funkcja ŚREDNIA</h3>
+
+            <p>
+                Funkcja <code>ŚREDNIA</code> oblicza
+                średnią arytmetyczną podanych wartości.
+            </p>
+
+            <pre><code>=ŚREDNIA(C15:C30)</code></pre>
+
+
+            <h3>Amplituda pomiarów</h3>
+
+            <p>
+                <strong>Amplituda</strong> to różnica pomiędzy
+                największą a najmniejszą wartością.
+            </p>
+
+            <p>Możemy ją obliczyć np.:</p>
+
+            <pre><code>=MAX(C15:C30)-MIN(C15:C30)</code></pre>
+
+
+            <h3>Zmiana względem poprzedniego pomiaru</h3>
+
+            <p>
+                Arkusz może również pokazać, o ile zmienił się wynik
+                w stosunku do poprzedniego pomiaru.
+            </p>
+
+            <p>Przykład:</p>
+
+            <pre><code>=C16-C15</code></pre>
+
+            <p>
+                Wynik dodatni oznacza wzrost, wynik ujemny spadek,
+                a 0 oznacza brak zmiany.
+            </p>
+
+            <p>
+                Formułę można następnie przeciągnąć w dół.
+                Excel automatycznie zmieni adresy komórek:
+            </p>
+
+            <pre><code>=C16-C15
+=C17-C16
+=C18-C17</code></pre>
+
+
+            <h3>Wykres liniowy</h3>
+
+            <p>
+                Jeżeli chcemy obserwować zmianę wartości
+                <strong>w czasie</strong>, dobrym wyborem jest
+                wykres liniowy.
+            </p>
+
+            <p>W Excelu 2016:</p>
+
+            <p>
+                <strong>
+                    zaznacz czas i wyniki pomiarów →
+                    Wstawianie → Wykres liniowy → Liniowy ze znacznikami
+                </strong>
+            </p>
+
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <ul>
+                    <li><code>MIN</code> znajduje najmniejszą wartość.</li>
+                    <li><code>MAX</code> znajduje największą wartość.</li>
+                    <li><code>ŚREDNIA</code> oblicza średnią arytmetyczną.</li>
+                    <li>Amplituda = wartość maksymalna − wartość minimalna.</li>
+                    <li>Wykres liniowy dobrze pokazuje zmiany zachodzące w czasie.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <h3>📝 Ćwiczenie 02 – Analiza pomiarów</h3>
+
+                <p>
+                    Plik zawiera dwa zestawy danych pochodzących
+                    z czujników:
+                </p>
+
+                <ul>
+                    <li>pomiar temperatury,</li>
+                    <li>pomiar wilgotności.</li>
+                </ul>
+
+                <p>
+                    Wykonaj wszystkie polecenia znajdujące się
+                    w obu arkuszach.
+                </p>
+
+                <a class="material-link"
+                   href="https://docs.google.com/spreadsheets/d/1O7nxrpx0XJFbySoSwQ7lv0e3Y24Y8aBA/export?format=xlsx">
+                    📥 Pobierz ćwiczenie 02
+                </a>
+
+                <p>
+                    Gotowy plik zapisz i prześlij na odpowiednie
+                    Zadanie w Teams.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- LEKCJA 3 -->
+        <!-- ====================================================== -->
+
+        <section id="lekcja3">
+
+            <div class="lesson-number">
+                LEKCJA 03
+            </div>
+
+            <h2>Symulacje komputerowe w arkuszu</h2>
+
+            <h3>🎯 Cel lekcji</h3>
+
+            <p>
+                Nauczysz się wykorzystywać arkusz kalkulacyjny
+                do wykonywania prostych symulacji losowych
+                oraz analizowania ich wyników.
+            </p>
+
+
+            <h3>Co to jest symulacja komputerowa?</h3>
+
+            <p>
+                <strong>Symulacja komputerowa</strong> polega
+                na odtworzeniu działania rzeczywistego zjawiska
+                lub doświadczenia za pomocą programu komputerowego.
+            </p>
+
+            <p>
+                W Excelu możemy np. zasymulować wiele rzutów kostką
+                bez wykonywania ich rzeczywiście.
+            </p>
+
+
+            <h3>Funkcja LOS.ZAKR</h3>
+
+            <p>
+                Funkcja <code>LOS.ZAKR</code> zwraca losową
+                liczbę całkowitą z podanego zakresu.
+            </p>
+
+            <pre><code>=LOS.ZAKR(1;6)</code></pre>
+
+            <p>
+                Formuła losuje jedną z liczb:
+                <strong>1, 2, 3, 4, 5 lub 6</strong>,
+                czyli może symulować rzut zwykłą kostką.
+            </p>
+
+
+            <h3>Ponowne przeliczanie arkusza</h3>
+
+            <p>
+                Funkcje losowe zmieniają wynik podczas ponownego
+                przeliczania arkusza.
+            </p>
+
+            <p>
+                W Excelu można użyć klawisza
+                <strong>F9</strong>
+                (na niektórych komputerach <strong>Fn + F9</strong>).
+            </p>
+
+            <p>
+                Po ponownym przeliczeniu otrzymamy nową serię
+                losowych wyników.
+            </p>
+
+
+            <h3>Funkcja LICZ.JEŻELI</h3>
+
+            <p>
+                Funkcja <code>LICZ.JEŻELI</code> sprawdza zakres
+                i liczy komórki spełniające określony warunek.
+            </p>
+
+            <pre><code>=LICZ.JEŻELI($B$15:$B$114;G15)</code></pre>
+
+            <p>
+                Excel sprawdza zakres <code>B15:B114</code>
+                i liczy, ile razy pojawiła się wartość znajdująca się
+                w komórce <code>G15</code>.
+            </p>
+
+
+            <h3>Adres bezwzględny</h3>
+
+            <p>
+                Znaki <code>$</code> blokują adres komórki
+                podczas kopiowania formuły.
+            </p>
+
+            <pre><code>$B$15:$B$114</code></pre>
+
+            <p>
+                Taki zakres nie zmieni się po przeciągnięciu formuły
+                w dół.
+            </p>
+
+            <p>
+                Natomiast <code>G15</code> jest adresem względnym,
+                dlatego podczas kopiowania zmieni się kolejno na
+                <code>G16</code>, <code>G17</code> itd.
+            </p>
+
+
+            <h3>Obliczanie udziału procentowego</h3>
+
+            <p>
+                Aby sprawdzić, jaki udział wszystkich wyników
+                stanowi dana wartość, możemy użyć:
+            </p>
+
+            <pre><code>=H15/SUMA($H$15:$H$20)</code></pre>
+
+            <p>
+                Następnie wynik należy ustawić w formacie
+                <strong>Procentowym</strong>.
+            </p>
+
+
+            <h3>Symulacja dwóch kostek</h3>
+
+            <p>
+                W przypadku dwóch kostek losujemy dwie liczby:
+            </p>
+
+            <pre><code>=LOS.ZAKR(1;6)</code></pre>
+
+            <p>
+                a następnie obliczamy ich sumę:
+            </p>
+
+            <pre><code>=B16+C16</code></pre>
+
+            <p>
+                Możliwe sumy mieszczą się w zakresie
+                od <strong>2 do 12</strong>.
+            </p>
+
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <ul>
+                    <li><code>LOS.ZAKR(1;6)</code> losuje liczbę od 1 do 6.</li>
+                    <li><code>LICZ.JEŻELI</code> zlicza komórki spełniające warunek.</li>
+                    <li>Znaki <code>$</code> tworzą adres bezwzględny.</li>
+                    <li>F9 powoduje ponowne przeliczenie arkusza.</li>
+                    <li>Każde wykonanie symulacji może dać inne wyniki.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <h3>📝 Ćwiczenie 03 – Symulacje</h3>
+
+                <p>W pliku wykonasz dwie symulacje:</p>
+
+                <ul>
+                    <li>100 rzutów jedną kostką,</li>
+                    <li>100 rzutów dwiema kostkami.</li>
+                </ul>
+
+                <p>
+                    Porównaj otrzymane wyniki i obserwuj,
+                    jak zmieniają się po ponownym przeliczeniu arkusza.
+                </p>
+
+                <a class="material-link"
+                   href="https://docs.google.com/spreadsheets/d/1dWm9Y3rqne0bJZhdKT0y0368lZgDTghM/export?format=xlsx">
+                    📥 Pobierz ćwiczenie 03
+                </a>
+
+                <p>
+                    Gotowy plik zapisz i prześlij na odpowiednie
+                    Zadanie w Teams.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- LEKCJA 4 -->
+        <!-- ====================================================== -->
+
+        <section id="lekcja4">
+
+            <div class="lesson-number">
+                LEKCJA 04
+            </div>
+
+            <h2>Tabele przestawne</h2>
+
+            <h3>🎯 Cel lekcji</h3>
+
+            <p>
+                Nauczysz się tworzyć tabelę przestawną,
+                która pozwala szybko podsumować i porównać
+                większy zbiór danych.
+            </p>
+
+
+            <h3>Co to jest tabela przestawna?</h3>
+
+            <p>
+                <strong>Tabela przestawna</strong> jest narzędziem
+                służącym do szybkiego analizowania dużej liczby danych.
+            </p>
+
+            <p>
+                Pozwala m.in.:
+            </p>
+
+            <ul>
+                <li>grupować dane,</li>
+                <li>obliczać sumy,</li>
+                <li>porównywać kategorie,</li>
+                <li>porównywać wyniki różnych osób,</li>
+                <li>tworzyć podsumowania bez wpisywania wielu formuł.</li>
+            </ul>
+
+
+            <h3>Tworzenie tabeli przestawnej</h3>
+
+            <p>
+                Kliknij dowolną komórkę w tabeli z danymi, a następnie:
+            </p>
+
+            <p>
+                <strong>
+                    Wstawianie → Tabela przestawna
+                </strong>
+            </p>
+
+            <p>
+                Excel automatycznie rozpozna zakres danych.
+                Tabelę przestawną można umieścić w
+                <strong>nowym arkuszu</strong>.
+            </p>
+
+
+            <h3>Pola tabeli przestawnej</h3>
+
+            <p>
+                Po utworzeniu tabeli pojawi się lista pól.
+                Pola można przeciągać do czterech obszarów:
+            </p>
+
+            <ul>
+                <li><strong>Filtry</strong> – pozwalają ograniczać wyświetlane dane,</li>
+                <li><strong>Kolumny</strong> – tworzą podział danych na kolumny,</li>
+                <li><strong>Wiersze</strong> – grupują dane w kolejnych wierszach,</li>
+                <li><strong>Wartości</strong> – wykonują obliczenia, np. sumę.</li>
+            </ul>
+
+
+            <h3>Przykład – analiza sprzedaży</h3>
+
+            <p>
+                Jeżeli ustawimy:
+            </p>
+
+            <p>
+                <strong>Wiersze → Kategoria</strong><br>
+                <strong>Wartości → Suma z Wartość sprzedaży</strong>
+            </p>
+
+            <p>
+                otrzymamy łączną wartość sprzedaży
+                dla każdej kategorii produktów.
+            </p>
+
+            <p>
+                Jeżeli dodatkowo ustawimy:
+            </p>
+
+            <p>
+                <strong>Kolumny → Sprzedawca</strong>
+            </p>
+
+            <p>
+                będziemy mogli porównać sprzedaż poszczególnych
+                sprzedawców w każdej kategorii.
+            </p>
+
+
+            <h3>Wykres na podstawie tabeli przestawnej</h3>
+
+            <p>
+                Dane podsumowane w tabeli przestawnej można również
+                przedstawić na wykresie.
+            </p>
+
+            <p>
+                W ćwiczeniu wykorzystasz
+                <strong>wykres kolumnowy</strong>,
+                który pozwoli łatwo porównać wyniki.
+            </p>
+
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <ul>
+                    <li>Tabela przestawna służy do szybkiego podsumowania danych.</li>
+                    <li>Pole Wiersze grupuje dane w wierszach.</li>
+                    <li>Pole Kolumny umożliwia dodatkowe porównanie danych.</li>
+                    <li>Pole Wartości wykonuje obliczenia, np. sumowanie.</li>
+                    <li>Zmiana układu pól zmienia sposób prezentowania danych.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <h3>📝 Ćwiczenie 04 – Tabela przestawna</h3>
+
+                <p>
+                    W pliku znajduje się tabela sprzedaży sklepu
+                    komputerowego.
+                </p>
+
+                <p>
+                    Na jej podstawie utworzysz tabelę przestawną,
+                    porównasz sprzedaż według kategorii i sprzedawców
+                    oraz wykonasz wykres.
+                </p>
+
+                <a class="material-link"
+                   href="https://docs.google.com/spreadsheets/d/15HQ0a3tnmwxa70sq3STo_Sl-yFsYyJYz/export?format=xlsx">
+                    📥 Pobierz ćwiczenie 04
+                </a>
+
+                <p>
+                    Wykonaj wszystkie polecenia znajdujące się
+                    w arkuszu <strong>Instrukcja</strong>.
+                </p>
+
+                <p>
+                    Gotowy plik zapisz i prześlij na odpowiednie
+                    Zadanie w Teams.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- LEKCJA 5 -->
+        <!-- ====================================================== -->
+
+        <section id="lekcja5">
+
+            <div class="lesson-number">
+                LEKCJA 05
+            </div>
+
+            <h2>Gromadzenie i przetwarzanie danych</h2>
+
+            <h3>🎯 Cel lekcji</h3>
+
+            <p>
+                Nauczysz się gromadzić dane, porządkować je,
+                sortować, filtrować oraz wykonywać podstawową
+                analizę wyników.
+            </p>
+
+
+            <h3>Gromadzenie danych</h3>
+
+            <p>
+                Dane mogą pochodzić z wielu źródeł, np.:
+            </p>
+
+            <ul>
+                <li>ankiet,</li>
+                <li>pomiarów,</li>
+                <li>formularzy,</li>
+                <li>obserwacji,</li>
+                <li>baz danych.</li>
+            </ul>
+
+            <p>
+                Przed rozpoczęciem analizy należy zadbać o to,
+                aby dane były zapisane w sposób
+                <strong>uporządkowany i spójny</strong>.
+            </p>
+
+            <p>
+                Jeżeli w jednej kolumnie zapisujemy rodzaj urządzenia,
+                powinniśmy stosować zawsze te same określenia,
+                np.:
+            </p>
+
+            <pre><code>telefon
+laptop
+komputer
+tablet</code></pre>
+
+
+            <h3>Ochrona danych</h3>
+
+            <p>
+                Nie zawsze do analizy potrzebujemy danych pozwalających
+                zidentyfikować konkretną osobę.
+            </p>
+
+            <p>
+                W ćwiczeniu zamiast imion i nazwisk zastosujesz
+                oznaczenia:
+            </p>
+
+            <pre><code>Osoba 16
+Osoba 17
+Osoba 18</code></pre>
+
+            <p>
+                Dzięki temu analizujemy wyniki bez zapisywania
+                niepotrzebnych danych osobowych.
+            </p>
+
+
+            <h3>Sortowanie danych</h3>
+
+            <p>
+                <strong>Sortowanie</strong> zmienia kolejność rekordów
+                według wybranego kryterium.
+            </p>
+
+            <p>
+                Dane liczbowe możemy sortować:
+            </p>
+
+            <ul>
+                <li>od najmniejszych do największych,</li>
+                <li>od największych do najmniejszych.</li>
+            </ul>
+
+            <p>W Excelu 2016:</p>
+
+            <p>
+                <strong>Dane → Sortuj</strong>
+            </p>
+
+            <p>
+                Podczas sortowania tabeli należy sortować
+                <strong>całe wiersze</strong>, aby informacje dotyczące
+                jednej osoby pozostały razem.
+            </p>
+
+
+            <h3>Filtrowanie danych</h3>
+
+            <p>
+                <strong>Filtr</strong> pozwala tymczasowo wyświetlić
+                tylko te rekordy, które spełniają wybrane kryterium.
+            </p>
+
+            <p>W Excelu 2016:</p>
+
+            <p>
+                <strong>Dane → Filtruj</strong>
+            </p>
+
+            <p>
+                Na przykład możemy wyświetlić tylko osoby,
+                które jako główne urządzenie wskazały
+                <strong>telefon</strong>.
+            </p>
+
+            <p>
+                Filtrowanie nie usuwa pozostałych danych –
+                jedynie chwilowo je ukrywa.
+            </p>
+
+
+            <h3>ŚREDNIA, MIN i MAX</h3>
+
+            <p>
+                Do podstawowej analizy danych wykorzystamy:
+            </p>
+
+            <pre><code>=ŚREDNIA(B15:B34)</code></pre>
+
+            <p>oblicza średnią wartość,</p>
+
+            <pre><code>=MIN(B15:B34)</code></pre>
+
+            <p>znajduje najmniejszą wartość,</p>
+
+            <pre><code>=MAX(B15:B34)</code></pre>
+
+            <p>znajduje największą wartość.</p>
+
+
+            <h3>Zliczanie danych – LICZ.JEŻELI</h3>
+
+            <p>
+                Funkcja <code>LICZ.JEŻELI</code> może również
+                zliczać wystąpienia tekstu.
+            </p>
+
+            <p>Przykład z ćwiczenia:</p>
+
+            <pre><code>=LICZ.JEŻELI($F$15:$F$34;H21)</code></pre>
+
+            <p>
+                Funkcja sprawdza zakres <code>F15:F34</code>
+                i liczy, ile razy występuje w nim wartość
+                zapisana w komórce <code>H21</code>.
+            </p>
+
+            <p>
+                Jeśli w H21 znajduje się słowo
+                <strong>telefon</strong>, otrzymamy liczbę osób,
+                które wskazały telefon.
+            </p>
+
+
+            <h3>Dlaczego zastosowano znaki $?</h3>
+
+            <pre><code>$F$15:$F$34</code></pre>
+
+            <p>
+                Jest to <strong>adres bezwzględny</strong>.
+                Po przeciągnięciu formuły w dół zakres danych
+                pozostanie taki sam.
+            </p>
+
+            <p>Natomiast:</p>
+
+            <pre><code>H21</code></pre>
+
+            <p>
+                jest adresem względnym i zmieni się kolejno
+                na H22, H23 i H24.
+            </p>
+
+
+            <h3>Wykres jako podsumowanie danych</h3>
+
+            <p>
+                Po zliczeniu odpowiedzi możemy przedstawić wyniki
+                na <strong>wykresie kolumnowym</strong>.
+            </p>
+
+            <p>
+                Dzięki temu łatwo zauważyć, która odpowiedź
+                pojawiała się najczęściej.
+            </p>
+
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <ul>
+                    <li>Sortowanie zmienia kolejność danych.</li>
+                    <li>Filtrowanie pokazuje tylko dane spełniające wybrane kryterium.</li>
+                    <li>Filtr nie usuwa danych z arkusza.</li>
+                    <li><code>ŚREDNIA</code>, <code>MIN</code> i <code>MAX</code> pomagają podsumować dane liczbowe.</li>
+                    <li><code>LICZ.JEŻELI</code> może zliczać również wartości tekstowe.</li>
+                    <li>Znaki <code>$</code> blokują adres podczas kopiowania formuły.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="tasks">
+
+                <h3>📝 Ćwiczenie 05 – Ankieta</h3>
+
+                <p>
+                    W ćwiczeniu przeanalizujesz dane dotyczące
+                    sposobu korzystania z Internetu.
+                </p>
+
+                <p>
+                    Najpierw uzupełnisz tabelę o kilka własnych
+                    anonimowych wyników, a następnie:
+                </p>
+
+                <ul>
+                    <li>posortujesz dane,</li>
+                    <li>zastosujesz filtr,</li>
+                    <li>obliczysz średnią, minimum i maksimum,</li>
+                    <li>policzysz liczbę wskazań poszczególnych urządzeń,</li>
+                    <li>utworzysz wykres,</li>
+                    <li>sformułujesz wniosek.</li>
+                </ul>
+
+                <a class="material-link"
+                   href="https://docs.google.com/spreadsheets/d/1WvLsNAauLAb8uxl5IXRj1rA2P4iy6x1K/export?format=xlsx">
+                    📥 Pobierz ćwiczenie 05
+                </a>
+
+                <p>
+                    Wykonaj wszystkie polecenia znajdujące się
+                    w arkuszu.
+                </p>
+
+                <p>
+                    Gotowy plik zapisz i prześlij na odpowiednie
+                    Zadanie w Teams.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<footer>
+    STREFA IT • INFORMATYKA • KL 2 • DZIAŁ 04
+</footer>
+
+</body>
+</html>
