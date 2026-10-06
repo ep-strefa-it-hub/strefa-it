@@ -52,7 +52,7 @@ header p {
 
 nav {
     background: #f9fbfc;
-    border-bottom: 1px solid #d7e0e3;
+    border-bottom: 2px solid #9aadb5;
     position: sticky;
     top: 0;
     z-index: 1000;
