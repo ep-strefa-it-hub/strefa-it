@@ -767,7 +767,15 @@ console.log(odpowiedz);</code></pre>
 
             <p>
                 Zaokrągla liczbę do najbliższej liczby całkowitej.
+                Jeśli część dziesiętna jest mniejsza niż 0,5, liczba jest zaokrąglana w dół.
+                Jeśli część dziesiętna wynosi 0,5 lub więcej, liczba jest zaokrąglana w górę.
             </p>
+            
+            <p><strong>Przykłady:</strong></p>
+            
+            <pre><code>Math.round(4.2) // 4
+            Math.round(4.5) // 5
+            Math.round(4.8) // 5</code></pre>
 
             <pre><code class="language-javascript">let liczba = 4.6;
 
