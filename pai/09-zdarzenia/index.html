@@ -1,0 +1,473 @@
+<section id="selektory">
+
+    <h2>Wybieranie elementów strony</h2>
+
+    <p>
+        Aby JavaScript mógł reagować na zdarzenie, najpierw musimy
+        wskazać element lub elementy HTML, których zdarzenie będzie dotyczyć.
+    </p>
+
+    <h3>getElementById()</h3>
+
+    <p>
+        Metoda <code>getElementById()</code> wyszukuje element
+        na podstawie jego identyfikatora <code>id</code>.
+    </p>
+
+    <pre><code class="language-html">&lt;div id="kontener"&gt;Jan Kowalski&lt;/div&gt;</code></pre>
+
+    <pre><code class="language-javascript">let element = document.getElementById("kontener");</code></pre>
+
+    <p>
+        W metodzie <code>getElementById()</code> podajemy samą nazwę
+        identyfikatora – bez znaku <code>#</code>.
+    </p>
+
+
+    <h3>querySelector()</h3>
+
+    <p>
+        Metoda <code>querySelector()</code> pozwala wyszukiwać elementy
+        za pomocą selektorów CSS.
+    </p>
+
+    <p>Element o id:</p>
+
+    <pre><code class="language-javascript">let element = document.querySelector("#kontener");</code></pre>
+
+    <p>Element należący do klasy:</p>
+
+    <pre><code class="language-javascript">let paragraf = document.querySelector(".wyroznione");</code></pre>
+
+    <p>Element określonego typu:</p>
+
+    <pre><code class="language-javascript">let naglowek = document.querySelector("h1");</code></pre>
+
+    <div class="remember">
+        <h3>📌 Zapamiętaj</h3>
+
+        <p>
+            <code>querySelector()</code> zwraca
+            <strong>pierwszy element</strong> pasujący do podanego selektora.
+        </p>
+    </div>
+
+
+    <h3>querySelectorAll()</h3>
+
+    <p>
+        Jeśli chcemy pobrać <strong>wszystkie elementy</strong>
+        pasujące do selektora, używamy:
+    </p>
+
+    <pre><code class="language-javascript">document.querySelectorAll()</code></pre>
+
+    <p>Przykład:</p>
+
+    <pre><code class="language-html">&lt;p class="tekst"&gt;Pierwszy paragraf&lt;/p&gt;
+&lt;p class="tekst"&gt;Drugi paragraf&lt;/p&gt;
+&lt;p class="tekst"&gt;Trzeci paragraf&lt;/p&gt;</code></pre>
+
+    <pre><code class="language-javascript">let paragrafy = document.querySelectorAll(".tekst");</code></pre>
+
+    <p>
+        Zmienna <code>paragrafy</code> przechowuje kolekcję wszystkich
+        elementów posiadających klasę <code>tekst</code>.
+    </p>
+
+    <p>
+        Do poszczególnych elementów możemy odwołać się za pomocą indeksu:
+    </p>
+
+    <pre><code class="language-javascript">paragrafy[0].style.color = "red";
+paragrafy[1].style.color = "blue";</code></pre>
+
+    <p>
+        Pamiętaj, że numerowanie elementów rozpoczyna się od
+        <strong>0</strong>.
+    </p>
+
+</section>
+
+
+<section id="zdarzenia">
+
+    <h2>Zdarzenia</h2>
+
+    <p>
+        <strong>Zdarzenie</strong> to czynność występująca na stronie,
+        na którą może zareagować JavaScript.
+    </p>
+
+    <table>
+        <tr>
+            <th>Zdarzenie</th>
+            <th>Znaczenie</th>
+        </tr>
+        <tr>
+            <td><code>click</code></td>
+            <td>kliknięcie elementu</td>
+        </tr>
+        <tr>
+            <td><code>dblclick</code></td>
+            <td>podwójne kliknięcie</td>
+        </tr>
+        <tr>
+            <td><code>mouseover</code></td>
+            <td>najechanie kursorem</td>
+        </tr>
+        <tr>
+            <td><code>mouseout</code></td>
+            <td>opuszczenie elementu przez kursor</td>
+        </tr>
+        <tr>
+            <td><code>keydown</code></td>
+            <td>naciśnięcie klawisza</td>
+        </tr>
+        <tr>
+            <td><code>keyup</code></td>
+            <td>puszczenie klawisza</td>
+        </tr>
+        <tr>
+            <td><code>focus</code></td>
+            <td>uzyskanie aktywności przez element</td>
+        </tr>
+        <tr>
+            <td><code>blur</code></td>
+            <td>utrata aktywności przez element</td>
+        </tr>
+        <tr>
+            <td><code>change</code></td>
+            <td>zmiana wartości elementu formularza</td>
+        </tr>
+        <tr>
+            <td><code>submit</code></td>
+            <td>wysłanie formularza</td>
+        </tr>
+    </table>
+
+</section>
+
+
+<section id="obsluga">
+
+    <h2>Przypisywanie zdarzeń</h2>
+
+    <p>
+        Zdarzenie możemy przypisać do elementu na kilka sposobów.
+    </p>
+
+
+    <h3>Sposób 1 – właściwość zdarzenia</h3>
+
+    <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
+
+przycisk.onclick = function() {
+    alert("Kliknięto przycisk");
+};</code></pre>
+
+    <p>
+        W podobny sposób możemy korzystać z właściwości
+        <code>ondblclick</code>, <code>onmouseover</code>,
+        <code>onmouseout</code> czy <code>onkeyup</code>.
+    </p>
+
+
+    <h3>Sposób 2 – addEventListener()</h3>
+
+    <p>
+        Bardziej uniwersalnym sposobem obsługi zdarzeń jest metoda:
+    </p>
+
+    <pre><code class="language-javascript">addEventListener()</code></pre>
+
+    <p>Przykład:</p>
+
+    <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
+
+przycisk.addEventListener("click", function() {
+    alert("Kliknięto przycisk");
+});</code></pre>
+
+    <p>
+        Metoda przyjmuje między innymi dwa argumenty:
+    </p>
+
+    <pre><code class="language-javascript">element.addEventListener("zdarzenie", function() {
+    // instrukcje
+});</code></pre>
+
+    <p>
+        Pierwszy argument określa <strong>rodzaj zdarzenia</strong>,
+        a drugi – <strong>co ma zostać wykonane</strong>.
+    </p>
+
+
+    <h3>Wiele zdarzeń dla jednego elementu</h3>
+
+    <p>
+        Do jednego elementu możemy przypisać kilka różnych zdarzeń.
+    </p>
+
+    <pre><code class="language-javascript">let pole = document.getElementById("pole");
+
+pole.addEventListener("mouseover", function() {
+    pole.style.backgroundColor = "yellow";
+});
+
+pole.addEventListener("mouseout", function() {
+    pole.style.backgroundColor = "white";
+});
+
+pole.addEventListener("click", function() {
+    pole.innerHTML = "Kliknięto!";
+});</code></pre>
+
+</section>
+
+
+<section id="event">
+
+    <h2>Obiekt zdarzenia</h2>
+
+    <p>
+        Funkcja obsługująca zdarzenie może otrzymać informacje
+        o zdarzeniu, które właśnie wystąpiło.
+    </p>
+
+    <pre><code class="language-javascript">let pole = document.getElementById("artykul");
+
+pole.addEventListener("keyup", function(e) {
+    console.log(e.key);
+});</code></pre>
+
+    <p>
+        Parametr <code>e</code> oznacza obiekt zdarzenia.
+        Zawiera on dodatkowe informacje dotyczące zdarzenia.
+    </p>
+
+    <p>
+        W przypadku klawiatury bardzo przydatna jest właściwość:
+    </p>
+
+    <pre><code class="language-javascript">e.key</code></pre>
+
+    <p>
+        Informuje ona, jaki klawisz został naciśnięty.
+    </p>
+
+    <p>Przykład:</p>
+
+    <pre><code class="language-javascript">pole.addEventListener("keyup", function(e) {
+
+    if (e.key == "Enter") {
+        console.log("Naciśnięto Enter");
+    }
+
+});</code></pre>
+
+</section>
+
+
+<section id="classlist">
+
+    <h2>Zmiana klas elementu – classList</h2>
+
+    <p>
+        Nie zawsze musimy zmieniać wygląd elementu bezpośrednio
+        w JavaScript za pomocą <code>style</code>.
+    </p>
+
+    <p>
+        Możemy przygotować odpowiednią klasę w CSS, a następnie
+        dodawać ją lub usuwać za pomocą JavaScript.
+    </p>
+
+    <p>Przykładowa klasa CSS:</p>
+
+    <pre><code class="language-css">.aktywny {
+    background-color: yellow;
+    font-size: 24px;
+    font-weight: bold;
+}</code></pre>
+
+    <p>
+        Do pracy z klasami elementu służy właściwość
+        <code>classList</code>.
+    </p>
+
+
+    <h3>Dodawanie klasy – add()</h3>
+
+    <pre><code class="language-javascript">let element = document.getElementById("kontener");
+
+element.classList.add("aktywny");</code></pre>
+
+
+    <h3>Usuwanie klasy – remove()</h3>
+
+    <pre><code class="language-javascript">element.classList.remove("aktywny");</code></pre>
+
+
+    <h3>Dodawanie lub usuwanie klasy – toggle()</h3>
+
+    <pre><code class="language-javascript">element.classList.toggle("aktywny");</code></pre>
+
+    <p>
+        <code>toggle()</code> działa jak przełącznik:
+        jeżeli element nie ma danej klasy – dodaje ją,
+        a jeżeli już ją ma – usuwa ją.
+    </p>
+
+
+    <h3>Sprawdzenie klasy – contains()</h3>
+
+    <pre><code class="language-javascript">if (element.classList.contains("aktywny")) {
+    console.log("Element ma klasę aktywny");
+}</code></pre>
+
+    <div class="remember">
+
+        <h3>📌 classList – zapamiętaj</h3>
+
+        <ul>
+            <li><code>classList.add()</code> – dodaje klasę,</li>
+            <li><code>classList.remove()</code> – usuwa klasę,</li>
+            <li><code>classList.toggle()</code> – przełącza klasę,</li>
+            <li><code>classList.contains()</code> – sprawdza, czy element ma klasę.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+
+<section id="wiele">
+
+    <h2>Zdarzenia dla wielu elementów</h2>
+
+    <p>
+        <code>querySelectorAll()</code> jest szczególnie przydatne,
+        gdy chcemy przypisać zdarzenie do wielu podobnych elementów.
+    </p>
+
+    <p>Przykładowy kod HTML:</p>
+
+    <pre><code class="language-html">&lt;button class="przycisk"&gt;Przycisk 1&lt;/button&gt;
+&lt;button class="przycisk"&gt;Przycisk 2&lt;/button&gt;
+&lt;button class="przycisk"&gt;Przycisk 3&lt;/button&gt;</code></pre>
+
+    <p>Pobieramy wszystkie przyciski:</p>
+
+    <pre><code class="language-javascript">let przyciski = document.querySelectorAll(".przycisk");</code></pre>
+
+    <p>
+        Następnie możemy przejść przez pobrane elementy
+        i każdemu z nich przypisać zdarzenie:
+    </p>
+
+    <pre><code class="language-javascript">let przyciski = document.querySelectorAll(".przycisk");
+
+przyciski.forEach(function(przycisk) {
+
+    przycisk.addEventListener("click", function() {
+        przycisk.classList.toggle("aktywny");
+    });
+
+});</code></pre>
+
+    <p>
+        Dzięki temu nie musimy osobno przypisywać zdarzenia
+        do każdego przycisku.
+    </p>
+
+    <div class="remember">
+
+        <h3>📌 Jak działa ten przykład?</h3>
+
+        <ol>
+            <li>
+                <code>querySelectorAll()</code> pobiera wszystkie przyciski
+                klasy <code>przycisk</code>.
+            </li>
+
+            <li>
+                <code>forEach()</code> przechodzi kolejno przez każdy
+                pobrany przycisk.
+            </li>
+
+            <li>
+                <code>addEventListener()</code> przypisuje do niego
+                zdarzenie kliknięcia.
+            </li>
+
+            <li>
+                <code>classList.toggle()</code> dodaje lub usuwa
+                klasę <code>aktywny</code>.
+            </li>
+        </ol>
+
+    </div>
+
+</section>
+
+
+<section id="porownanie">
+
+    <h2>Podsumowanie – co wybrać?</h2>
+
+    <table>
+
+        <tr>
+            <th>Zapis</th>
+            <th>Zastosowanie</th>
+        </tr>
+
+        <tr>
+            <td><code>getElementById()</code></td>
+            <td>pobranie elementu o konkretnym id</td>
+        </tr>
+
+        <tr>
+            <td><code>querySelector()</code></td>
+            <td>pobranie pierwszego elementu pasującego do selektora CSS</td>
+        </tr>
+
+        <tr>
+            <td><code>querySelectorAll()</code></td>
+            <td>pobranie wszystkich elementów pasujących do selektora CSS</td>
+        </tr>
+
+        <tr>
+            <td><code>onclick</code></td>
+            <td>proste przypisanie zdarzenia kliknięcia</td>
+        </tr>
+
+        <tr>
+            <td><code>addEventListener()</code></td>
+            <td>uniwersalne przypisywanie zdarzeń</td>
+        </tr>
+
+        <tr>
+            <td><code>classList.add()</code></td>
+            <td>dodanie klasy CSS</td>
+        </tr>
+
+        <tr>
+            <td><code>classList.remove()</code></td>
+            <td>usunięcie klasy CSS</td>
+        </tr>
+
+        <tr>
+            <td><code>classList.toggle()</code></td>
+            <td>przełączanie klasy CSS</td>
+        </tr>
+
+        <tr>
+            <td><code>classList.contains()</code></td>
+            <td>sprawdzenie, czy element posiada klasę</td>
+        </tr>
+
+    </table>
+
+</section>
