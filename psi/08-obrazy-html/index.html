@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 08 – Obrazy w HTML | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#img">2.Znacznik img</a>
+        <a href="#atrybuty">3.Atrybuty znacznika img</a>
+        <a href="#formaty">4.Formaty plików graficznych</a>
+        <a href="#sciezki">5.Ścieżki do obrazów</a>
+        <a href="#rozmiary">6.Rozmiary i proporcje obrazów</a>
+        <a href="#podpisy">7.Obrazy z podpisami</a>
+        <a href="#odnosniki">8.Obraz jako hiperłącze</a>
+        <a href="#bledy">9.Najczęstsze błędy</a>
+        <a href="#przyklad">10.Przykład kompletnej strony</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 08 • HTML5</div>
+
+            <h2>HTML5: Obrazy w HTML. Znacznik img, jego atrybuty oraz ścieżki do plików</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad umieszczania obrazów na stronach WWW,
+                stosowanie znacznika <code>&lt;img&gt;</code>
+                i jego atrybutów, poprawne wskazywanie ścieżek
+                do plików graficznych oraz tworzenie stron
+                zawierających zdjęcia i ilustracje.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Obrazy są ważnym elementem stron internetowych.
+                Mogą przedstawiać zdjęcia, ilustracje, logotypy,
+                ikony, schematy i inne elementy graficzne.
+            </p>
+
+            <p>
+                W języku HTML obrazy umieszczamy za pomocą
+                znacznika <code>&lt;img&gt;</code>.
+            </p>
+
+            <p>
+                Pliki graficzne mogą znajdować się:
+            </p>
+
+            <ul>
+                <li>w tym samym folderze co dokument HTML,</li>
+                <li>w osobnym folderze, np. <code>img</code>,</li>
+                <li>w innym miejscu w strukturze witryny,</li>
+                <li>na zewnętrznym serwerze internetowym.</li>
+            </ul>
+
+            <p>
+                W praktyce podczas tworzenia własnych witryn
+                często przechowujemy obrazy w osobnym folderze
+                <code>img</code> lub <code>images</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Dokument HTML zwykle nie zawiera samego
+                    obrazu. Zawiera odwołanie do pliku
+                    graficznego, który przeglądarka wczytuje
+                    i wyświetla na stronie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="img">
+
+            <h2>2. Znacznik img</h2>
+
+            <p>
+                Znacznik <code>&lt;img&gt;</code> służy
+                do umieszczania obrazów w dokumencie HTML.
+            </p>
+
+            <p>
+                Jest to <strong>element pusty</strong>,
+                co oznacza, że nie posiada osobnego
+                znacznika zamykającego <code>&lt;/img&gt;</code>.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg" alt="Opis zdjęcia"&gt;</code></pre>
+
+            <p>
+                W tym przykładzie:
+            </p>
+
+            <ul>
+                <li><code>img</code> – znacznik obrazu.</li>
+                <li><code>src</code> – wskazuje lokalizację pliku graficznego.</li>
+                <li><code>alt</code> – określa tekst alternatywny obrazu.</li>
+            </ul>
+
+            <h3>Przykład – obraz w dokumencie HTML</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja galeria&lt;/h1&gt;
+
+&lt;p&gt;Poniżej znajduje się zdjęcie gór.&lt;/p&gt;
+
+&lt;img src="gory.jpg" alt="Góry na tle błękitnego nieba"&gt;</code></pre>
+
+            <p>
+                Aby obraz został wyświetlony, plik
+                <code>gory.jpg</code> musi znajdować się
+                we wskazanej lokalizacji.
+            </p>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>3. Atrybuty znacznika img</h2>
+
+            <p>
+                Znacznik <code>&lt;img&gt;</code>
+                może zawierać różne atrybuty
+                określające źródło obrazu,
+                jego opis i sposób wyświetlania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>Adres lub ścieżka do pliku graficznego.</td>
+                </tr>
+                <tr>
+                    <td><code>alt</code></td>
+                    <td>Tekst alternatywny opisujący obraz.</td>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>Szerokość obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>height</code></td>
+                    <td>Wysokość obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>Dodatkowa informacja, którą przeglądarka może wyświetlić po najechaniu kursorem.</td>
+                </tr>
+                <tr>
+                    <td><code>loading</code></td>
+                    <td>Określa sposób wczytywania obrazu, np. <code>lazy</code>.</td>
+                </tr>
+            </table>
+
+            <h3>Atrybut src</h3>
+
+            <p>
+                Atrybut <code>src</code> określa,
+                skąd przeglądarka ma pobrać obraz.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="kot.jpg" alt="Kot siedzący na kanapie"&gt;</code></pre>
+
+            <h3>Atrybut alt</h3>
+
+            <p>
+                Atrybut <code>alt</code> zawiera tekst
+                alternatywny opisujący obraz.
+                Jest szczególnie ważny dla osób
+                korzystających z czytników ekranu.
+            </p>
+
+            <p>
+                Tekst alternatywny może być również
+                widoczny, gdy obraz nie zostanie wczytany.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="pies.jpg"
+     alt="Brązowy pies biegnący po trawie"&gt;</code></pre>
+
+            <h3>Jak poprawnie pisać tekst alt?</h3>
+
+            <table>
+                <tr>
+                    <th>Przykład</th>
+                    <th>Ocena</th>
+                </tr>
+                <tr>
+                    <td><code>alt="obraz"</code></td>
+                    <td>Zbyt ogólny opis.</td>
+                </tr>
+                <tr>
+                    <td><code>alt="zdjęcie1"</code></td>
+                    <td>Opis nie informuje o zawartości.</td>
+                </tr>
+                <tr>
+                    <td><code>alt="Czerwony rower stojący przy drzewie"</code></td>
+                    <td>Konkretny, zrozumiały opis.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Tekst <code>alt</code> powinien przekazywać
+                    znaczenie obrazu w kontekście strony.
+                    Jeśli obraz pełni wyłącznie funkcję dekoracyjną,
+                    można zastosować pusty opis
+                    <code>alt=""</code>.
+                </p>
+            </div>
+
+            <h3>Atrybuty width i height</h3>
+
+            <p>
+                Atrybuty <code>width</code> i
+                <code>height</code> określają
+                wymiary obrazu w pikselach.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="krajobraz.jpg"
+     alt="Krajobraz górski"
+     width="400"
+     height="250"&gt;</code></pre>
+
+            <p>
+                W przykładzie obraz ma szerokość
+                400 pikseli i wysokość 250 pikseli.
+            </p>
+
+            <h3>Atrybut title</h3>
+
+            <pre><code class="language-html">&lt;img src="zamek.jpg"
+     alt="Zabytkowy zamek"
+     title="Zamek w Malborku"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>title</code> może wyświetlić
+                dodatkową podpowiedź po najechaniu kursorem.
+                Nie zastępuje jednak atrybutu <code>alt</code>.
+            </p>
+
+            <h3>Atrybut loading</h3>
+
+            <pre><code class="language-html">&lt;img src="galeria.jpg"
+     alt="Widok na jezioro"
+     loading="lazy"&gt;</code></pre>
+
+            <p>
+                Wartość <code>lazy</code> pozwala przeglądarce
+                odłożyć wczytanie obrazu do momentu,
+                gdy użytkownik zbliży się do niego
+                podczas przewijania strony.
+            </p>
+
+        </section>
+
+        <section id="formaty">
+
+            <h2>4. Formaty plików graficznych</h2>
+
+            <p>
+                Na stronach internetowych wykorzystujemy
+                różne formaty obrazów.
+                Wybór formatu zależy od rodzaju grafiki,
+                wymaganej jakości i wielkości pliku.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Charakterystyka</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Kompresja stratna, niewielki rozmiar pliku.</td>
+                    <td>Fotografie i zdjęcia.</td>
+                </tr>
+                <tr>
+                    <td>PNG</td>
+                    <td>Kompresja bezstratna, obsługa przezroczystości.</td>
+                    <td>Grafiki, ilustracje, zrzuty ekranu.</td>
+                </tr>
+                <tr>
+                    <td>GIF</td>
+                    <td>Obsługuje proste animacje.</td>
+                    <td>Krótkie animacje i proste grafiki.</td>
+                </tr>
+                <tr>
+                    <td>WebP</td>
+                    <td>Nowoczesny format, zwykle zapewniający dobrą kompresję.</td>
+                    <td>Zdjęcia i grafiki na stronach WWW.</td>
+                </tr>
+                <tr>
+                    <td>SVG</td>
+                    <td>Grafika wektorowa, skalowana bez utraty ostrości.</td>
+                    <td>Logotypy, ikony i proste ilustracje.</td>
+                </tr>
+            </table>
+
+            <h3>Przykłady użycia</h3>
+
+            <pre><code class="language-html">&lt;img src="fotografia.jpg" alt="Fotografia"&gt;
+
+&lt;img src="logo.png" alt="Logo firmy"&gt;
+
+&lt;img src="animacja.gif" alt="Animowany obraz"&gt;
+
+&lt;img src="krajobraz.webp" alt="Krajobraz"&gt;
+
+&lt;img src="ikona.svg" alt="Ikona"&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Zmiana nazwy pliku z <code>zdjecie.png</code>
+                    na <code>zdjecie.jpg</code> nie zmienia
+                    rzeczywistego formatu grafiki.
+                    Aby zmienić format, należy wyeksportować
+                    lub przekonwertować obraz.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="sciezki">
+
+            <h2>5. Ścieżki do obrazów</h2>
+
+            <p>
+                Ścieżka w atrybucie <code>src</code>
+                określa lokalizację pliku graficznego.
+                Działa na podobnej zasadzie jak
+                atrybut <code>href</code> w odnośnikach.
+            </p>
+
+            <h3>Obraz w tym samym folderze</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    kot.jpg</code></pre>
+
+            <pre><code class="language-html">&lt;img src="kot.jpg" alt="Kot"&gt;</code></pre>
+
+            <h3>Obraz w folderze img</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    img/
+        kot.jpg
+        pies.jpg</code></pre>
+
+            <pre><code class="language-html">&lt;img src="img/kot.jpg" alt="Kot"&gt;
+
+&lt;img src="img/pies.jpg" alt="Pies"&gt;</code></pre>
+
+            <h3>Obraz w folderze nadrzędnym</h3>
+
+            <pre><code class="language-text">moja-strona/
+    logo.png
+    podstrony/
+        galeria.html</code></pre>
+
+            <p>
+                W pliku <code>galeria.html</code>
+                zapisujemy:
+            </p>
+
+            <pre><code class="language-html">&lt;img src="../logo.png" alt="Logo witryny"&gt;</code></pre>
+
+            <p>
+                Zapis <code>../</code> oznacza przejście
+                do folderu nadrzędnego.
+            </p>
+
+            <h3>Obraz z zewnętrznego serwera</h3>
+
+            <pre><code class="language-html">&lt;img src="https://example.com/obrazy/kot.jpg"
+     alt="Kot"&gt;</code></pre>
+
+            <p>
+                W tym przypadku obraz jest pobierany
+                z zewnętrznego serwera.
+                Jego wyświetlanie zależy od dostępności
+                wskazanego zasobu i ustawień serwera.
+            </p>
+
+            <h3>Porównanie ścieżek</h3>
+
+            <table>
+                <tr>
+                    <th>Ścieżka</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>zdjecie.jpg</code></td>
+                    <td>Obraz w bieżącym folderze.</td>
+                </tr>
+                <tr>
+                    <td><code>img/zdjecie.jpg</code></td>
+                    <td>Obraz w folderze img.</td>
+                </tr>
+                <tr>
+                    <td><code>../zdjecie.jpg</code></td>
+                    <td>Obraz w folderze nadrzędnym.</td>
+                </tr>
+                <tr>
+                    <td><code>../img/zdjecie.jpg</code></td>
+                    <td>Obraz w folderze img znajdującym się poziom wyżej.</td>
+                </tr>
+                <tr>
+                    <td><code>https://example.com/zdjecie.jpg</code></td>
+                    <td>Obraz pod wskazanym adresem internetowym.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="rozmiary">
+
+            <h2>6. Rozmiary i proporcje obrazów</h2>
+
+            <p>
+                Rozmiar obrazu możemy określić za pomocą
+                atrybutów <code>width</code>
+                i <code>height</code>.
+            </p>
+
+            <h3>Ustawienie szerokości</h3>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg"
+     alt="Zdjęcie krajobrazu"
+     width="300"&gt;</code></pre>
+
+            <p>
+                Jeżeli podamy tylko szerokość,
+                przeglądarka zachowa naturalne
+                proporcje obrazu.
+            </p>
+
+            <h3>Ustawienie wysokości</h3>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg"
+     alt="Zdjęcie krajobrazu"
+     height="200"&gt;</code></pre>
+
+            <p>
+                Jeżeli podamy tylko wysokość,
+                szerokość zostanie obliczona
+                proporcjonalnie.
+            </p>
+
+            <h3>Ustawienie obu wymiarów</h3>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg"
+     alt="Zdjęcie krajobrazu"
+     width="400"
+     height="200"&gt;</code></pre>
+
+            <p>
+                Jeśli podane wymiary nie odpowiadają
+                proporcjom oryginalnego obrazu,
+                grafika może zostać rozciągnięta
+                lub spłaszczona.
+            </p>
+
+            <h3>Przykład obliczania proporcji</h3>
+
+            <p>
+                Obraz ma oryginalne wymiary
+                <strong>1200 × 800 px</strong>.
+                Chcemy zmniejszyć jego szerokość
+                do <strong>600 px</strong>.
+            </p>
+
+            <p>
+                Nowa wysokość wyniesie:
+            </p>
+
+            <pre><code class="language-text">800 × 600 / 1200 = 400 px</code></pre>
+
+            <p>
+                Prawidłowe wymiary:
+                <strong>600 × 400 px</strong>.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg"
+     alt="Zdjęcie krajobrazu"
+     width="600"
+     height="400"&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Zmniejszenie obrazu za pomocą atrybutu
+                    <code>width</code> nie zmniejsza
+                    rozmiaru pliku graficznego.
+                    Duże zdjęcia warto wcześniej
+                    odpowiednio przeskalować
+                    i zoptymalizować.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="podpisy">
+
+            <h2>7. Obrazy z podpisami – figure i figcaption</h2>
+
+            <p>
+                W HTML możemy umieścić obraz
+                wraz z podpisem za pomocą znaczników
+                <code>&lt;figure&gt;</code>
+                i <code>&lt;figcaption&gt;</code>.
+            </p>
+
+            <ul>
+                <li><code>figure</code> – grupuje ilustrację lub inną samodzielną treść.</li>
+                <li><code>figcaption</code> – określa podpis tej treści.</li>
+            </ul>
+
+            <h3>Przykład – zdjęcie z podpisem</h3>
+
+            <pre><code class="language-html">&lt;figure&gt;
+    &lt;img src="img/zamek.jpg"
+         alt="Zamek w Malborku"
+         width="400"&gt;
+
+    &lt;figcaption&gt;
+        Rys. 1. Zamek w Malborku.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+            <p>
+                Podpis jest związany z obrazem
+                i pomaga użytkownikowi zrozumieć
+                jego znaczenie.
+            </p>
+
+            <h3>Przykład – kilka obrazów z podpisami</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Moje podróże&lt;/h2&gt;
+
+&lt;figure&gt;
+    &lt;img src="img/morze.jpg"
+         alt="Plaża nad morzem"
+         width="300"&gt;
+
+    &lt;figcaption&gt;Wakacje nad morzem&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img src="img/gory.jpg"
+         alt="Górski szlak"
+         width="300"&gt;
+
+    &lt;figcaption&gt;Wycieczka w góry&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+        </section>
+
+        <section id="odnosniki">
+
+            <h2>8. Obraz jako hiperłącze</h2>
+
+            <p>
+                Obraz może być również odnośnikiem.
+                Wystarczy umieścić znacznik
+                <code>&lt;img&gt;</code> wewnątrz
+                znacznika <code>&lt;a&gt;</code>.
+            </p>
+
+            <h3>Przykład – klikane logo</h3>
+
+            <pre><code class="language-html">&lt;a href="index.html"&gt;
+    &lt;img src="img/logo.png"
+         alt="Przejdź na stronę główną"
+         width="150"&gt;
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Kliknięcie logo spowoduje
+                przejście do pliku <code>index.html</code>.
+            </p>
+
+            <h3>Przykład – miniatura prowadząca do większego zdjęcia</h3>
+
+            <pre><code class="language-html">&lt;a href="img/krajobraz.jpg"&gt;
+    &lt;img src="img/krajobraz.jpg"
+         alt="Powiększ zdjęcie krajobrazu"
+         width="200"&gt;
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Kliknięcie miniatury otworzy
+                plik graficzny w przeglądarce.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Gdy obraz jest odnośnikiem,
+                    jego tekst alternatywny powinien
+                    informować o funkcji odnośnika,
+                    np. „Przejdź na stronę główną”.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>9. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak atrybutu src</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img alt="Zdjęcie kota"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="kot.jpg" alt="Zdjęcie kota"&gt;</code></pre>
+
+            <h3>Błąd 2 – niepoprawna nazwa pliku</h3>
+
+            <p>
+                Załóżmy, że plik nazywa się
+                <code>krajobraz.jpg</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img src="krajobrazy.jpg" alt="Krajobraz"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="krajobraz.jpg" alt="Krajobraz"&gt;</code></pre>
+
+            <h3>Błąd 3 – nieprawidłowa ścieżka</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    img/
+        zdjecie.jpg</code></pre>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img src="zdjecie.jpg" alt="Zdjęcie"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="img/zdjecie.jpg" alt="Zdjęcie"&gt;</code></pre>
+
+            <h3>Błąd 4 – brak tekstu alternatywnego</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla obrazu informacyjnego --&gt;
+&lt;img src="rower.jpg"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="rower.jpg"
+     alt="Czerwony rower stojący przy budynku"&gt;</code></pre>
+
+            <h3>Błąd 5 – zniekształcone proporcje</h3>
+
+            <p>
+                Oryginalny obraz ma wymiary
+                800 × 600 px.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie – zmienione proporcje --&gt;
+&lt;img src="zdjecie.jpg"
+     alt="Krajobraz"
+     width="400"
+     height="100"&gt;
+
+&lt;!-- Poprawnie – zachowane proporcje --&gt;
+&lt;img src="zdjecie.jpg"
+     alt="Krajobraz"
+     width="400"
+     height="300"&gt;</code></pre>
+
+            <h3>Błąd 6 – użycie znacznika zamykającego img</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img src="kot.jpg" alt="Kot"&gt;&lt;/img&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="kot.jpg" alt="Kot"&gt;</code></pre>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>10. Przykład kompletnej strony HTML</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                prostą stronę z galerią zdjęć.
+            </p>
+
+            <h3>Struktura folderów</h3>
+
+            <pre><code class="language-text">moja-galeria/
+    index.html
+    img/
+        morze.jpg
+        gory.jpg
+        las.jpg</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja galeria&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="gora"&gt;
+        &lt;h1&gt;Moja galeria fotografii&lt;/h1&gt;
+        &lt;p&gt;Moje ulubione miejsca.&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#morze"&gt;Morze&lt;/a&gt;
+        &lt;a href="#gory"&gt;Góry&lt;/a&gt;
+        &lt;a href="#las"&gt;Las&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="morze"&gt;
+            &lt;h2&gt;Morze&lt;/h2&gt;
+
+            &lt;figure&gt;
+                &lt;img src="img/morze.jpg"
+                     alt="Plaża nad morzem"
+                     width="350"&gt;
+
+                &lt;figcaption&gt;
+                    Wakacyjny krajobraz nad morzem
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/section&gt;
+
+        &lt;section id="gory"&gt;
+            &lt;h2&gt;Góry&lt;/h2&gt;
+
+            &lt;figure&gt;
+                &lt;img src="img/gory.jpg"
+                     alt="Górski krajobraz"
+                     width="350"&gt;
+
+                &lt;figcaption&gt;
+                    Widok na góry
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/section&gt;
+
+        &lt;section id="las"&gt;
+            &lt;h2&gt;Las&lt;/h2&gt;
+
+            &lt;figure&gt;
+                &lt;img src="img/las.jpg"
+                     alt="Ścieżka prowadząca przez las"
+                     width="350"&gt;
+
+                &lt;figcaption&gt;
+                    Spacer po lesie
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/section&gt;
+
+        &lt;p&gt;
+            &lt;a href="#gora"&gt;↑ Powrót na górę&lt;/a&gt;
+        &lt;/p&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Moja galeria&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Aby strona działała poprawnie,
+                wszystkie pliki graficzne muszą
+                znajdować się we wskazanym folderze
+                i mieć zgodne nazwy.
+            </p>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>&lt;img&gt;</code> – umieszcza obraz na stronie.</li>
+                    <li><code>src</code> – wskazuje lokalizację pliku graficznego.</li>
+                    <li><code>alt</code> – określa tekst alternatywny obrazu.</li>
+                    <li><code>width</code> – szerokość obrazu w pikselach.</li>
+                    <li><code>height</code> – wysokość obrazu w pikselach.</li>
+                    <li><code>title</code> – dodatkowa informacja o obrazie.</li>
+                    <li><code>loading="lazy"</code> – umożliwia opóźnione wczytywanie obrazu.</li>
+                    <li><code>figure</code> – grupuje obraz i powiązane elementy.</li>
+                    <li><code>figcaption</code> – dodaje podpis do ilustracji.</li>
+                    <li><code>../</code> – oznacza przejście do folderu nadrzędnego.</li>
+                    <li>Ścieżka do obrazu musi odpowiadać jego rzeczywistej lokalizacji.</li>
+                    <li>Zmiana wymiarów obrazu w HTML nie zmniejsza rozmiaru jego pliku.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne umieszczanie obrazów na stronie WWW,
+                stosowanie atrybutów znacznika
+                <code>&lt;img&gt;</code>,
+                tworzenie podpisów oraz poprawne
+                wskazywanie ścieżek do plików graficznych.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_08</code>,
+                a w nim plik <code>index.html</code>
+                oraz folder <code>img</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku <code>index.html</code>.
+                Nie korzystaj z CSS.
+            </p>
+
+            <p><strong>Struktura projektu:</strong></p>
+
+            <pre><code class="language-text">PSI_08/
+    index.html
+    img/
+        ... pliki graficzne ...</code></pre>
+
+            <h3>Zadanie 1 – Moja galeria zdjęć</h3>
+
+            <p>
+                Przygotuj stronę internetową
+                przedstawiającą galerię zdjęć
+                na wybrany temat, np. przyroda,
+                podróże, zwierzęta, sport
+                lub motoryzacja.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj główny nagłówek strony.</li>
+                <li>Wybierz minimum 4 zdjęcia i zapisz je w folderze <code>img</code>.</li>
+                <li>Umieść wszystkie zdjęcia na stronie za pomocą znacznika <code>&lt;img&gt;</code>.</li>
+                <li>Każdy obraz musi mieć poprawny atrybut <code>src</code>.</li>
+                <li>Każdy obraz musi posiadać odpowiedni opis <code>alt</code>.</li>
+                <li>Ustaw szerokość wszystkich zdjęć na <strong>300 px</strong>.</li>
+                <li>Pod każdym zdjęciem dodaj krótki opis w akapicie.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Galeria z podpisami</h3>
+
+            <p>
+                Rozbuduj galerię z zadania 1.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Umieść każde zdjęcie wewnątrz znacznika <code>&lt;figure&gt;</code>.</li>
+                <li>Zamiast zwykłego akapitu zastosuj podpis <code>&lt;figcaption&gt;</code>.</li>
+                <li>Podpis powinien zawierać nazwę lub opis przedstawionego miejsca, obiektu albo wydarzenia.</li>
+                <li>Przy minimum 2 zdjęciach dodaj atrybut <code>title</code>.</li>
+                <li>Przy minimum 2 zdjęciach zastosuj <code>loading="lazy"</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Interaktywna galeria</h3>
+
+            <p>
+                Rozbuduj dotychczasową stronę
+                o nawigację i klikane obrazy.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Podziel galerię na minimum 2 sekcje, np. „Przyroda” i „Zwierzęta”.</li>
+                <li>Każdej sekcji nadaj unikalny identyfikator <code>id</code>.</li>
+                <li>Na początku strony utwórz menu w znaczniku <code>&lt;nav&gt;</code>.</li>
+                <li>Dodaj odnośniki prowadzące do obu sekcji.</li>
+                <li>Minimum 2 zdjęcia zamień w hiperłącza otwierające ich pełnowymiarowe wersje.</li>
+                <li>Na końcu strony dodaj odnośnik „↑ Powrót na górę”.</li>
+                <li>Sprawdź działanie wszystkich odnośników i obrazów.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawianie błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod.
+                Znajdź błędy i popraw go,
+                aby obrazy wyświetlały się prawidłowo.
+            </p>
+
+            <p>
+                Załóż, że pliki <code>kot.jpg</code>
+                i <code>pies.png</code> znajdują się
+                w folderze <code>img</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Moje zwierzęta&lt;/h2&gt;
+
+&lt;img src="kot.jpg" width="300"&gt;&lt;/img&gt;
+
+&lt;img src="img/pies.jpg"
+     alt="Pies"
+     width="300"
+     height="50"&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Popraw ścieżki do obu obrazów.</li>
+                <li>Usuń nieprawidłowy znacznik zamykający.</li>
+                <li>Dodaj brakujący tekst alternatywny.</li>
+                <li>Popraw wymiary drugiego obrazu, aby nie zniekształcać proporcji.</li>
+                <li>Umieść poprawiony kod w dodatkowej sekcji swojej strony.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj w jednym
+                    pliku <code>index.html</code>.
+                    Pliki graficzne umieść w folderze
+                    <code>img</code>.
+                </p>
+
+                <p>
+                    Spakuj cały folder <code>PSI_08</code>
+                    do archiwum ZIP i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie strony oraz poprawność
+                    wyświetlania wszystkich obrazów.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 08
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
