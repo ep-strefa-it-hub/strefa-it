@@ -1,0 +1,1592 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 15 – Semantyczna struktura HTML5 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#semantyka">2.Czym jest semantyka?</a>
+        <a href="#header">3.Element header</a>
+        <a href="#nav">4.Element nav</a>
+        <a href="#main">5.Element main</a>
+        <a href="#section">6.Element section</a>
+        <a href="#article">7.Element article</a>
+        <a href="#aside">8.Element aside</a>
+        <a href="#footer">9.Element footer</a>
+        <a href="#porownanie">10.Section a article</a>
+        <a href="#struktura">11.Układ strony HTML5</a>
+        <a href="#zagniezdzanie">12.Zagnieżdżanie elementów</a>
+        <a href="#div">13.Semantyka a div</a>
+        <a href="#bledy">14.Najczęstsze błędy</a>
+        <a href="#przyklad">15.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 15 • HTML5</div>
+
+            <h2>HTML5: Semantyczna struktura strony – header, nav, main, section, article, aside, footer</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie znaczenia semantycznych elementów HTML5,
+                poprawne organizowanie zawartości strony,
+                rozróżnianie elementów <code>section</code>
+                i <code>article</code> oraz samodzielne tworzenie
+                czytelnej struktury dokumentu internetowego.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Każda strona internetowa składa się z różnych części.
+                Możemy na niej znaleźć nagłówek, menu nawigacyjne,
+                główną treść, artykuły, informacje dodatkowe
+                oraz stopkę.
+            </p>
+
+            <p>
+                Dawniej do organizowania tych elementów
+                bardzo często wykorzystywano znacznik
+                <code>&lt;div&gt;</code>.
+            </p>
+
+            <p>
+                HTML5 wprowadził elementy semantyczne,
+                które pozwalają dokładniej określić,
+                jakie znaczenie ma dana część strony.
+            </p>
+
+            <h3>Przykład struktury opartej na div</h3>
+
+            <pre><code class="language-html">&lt;div id="naglowek"&gt;
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div id="menu"&gt;
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div id="tresc"&gt;
+    &lt;h2&gt;Witaj na stronie&lt;/h2&gt;
+    &lt;p&gt;Przykładowa treść.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="stopka"&gt;
+    &lt;p&gt;Autor strony&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Kod jest poprawny, ale same znaczniki
+                <code>div</code> nie informują o funkcji
+                poszczególnych części dokumentu.
+            </p>
+
+            <h3>Ta sama struktura z elementami HTML5</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;h2&gt;Witaj na stronie&lt;/h2&gt;
+    &lt;p&gt;Przykładowa treść.&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Autor strony&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <p>
+                Drugi przykład wyraźnie pokazuje,
+                która część strony jest nagłówkiem,
+                która zawiera nawigację,
+                a która stanowi główną treść.
+            </p>
+
+        </section>
+
+        <section id="semantyka">
+
+            <h2>2. Czym jest semantyka w HTML?</h2>
+
+            <p>
+                <strong>Semantyka HTML</strong>
+                oznacza stosowanie znaczników
+                zgodnie z ich znaczeniem i przeznaczeniem.
+            </p>
+
+            <p>
+                Element semantyczny informuje,
+                jaką rolę pełni jego zawartość
+                w strukturze dokumentu.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;header&gt;</code></td>
+                    <td>Nagłówek strony lub określonej sekcji.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;nav&gt;</code></td>
+                    <td>Główna lub istotna grupa odnośników nawigacyjnych.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;main&gt;</code></td>
+                    <td>Główna zawartość dokumentu.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;section&gt;</code></td>
+                    <td>Tematyczna część dokumentu.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;article&gt;</code></td>
+                    <td>Samodzielna, niezależna treść.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;aside&gt;</code></td>
+                    <td>Treść dodatkowa lub poboczna.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;footer&gt;</code></td>
+                    <td>Stopka strony lub określonej sekcji.</td>
+                </tr>
+            </table>
+
+            <h3>Dlaczego warto stosować semantyczny HTML?</h3>
+
+            <ul>
+                <li>Kod strony jest bardziej czytelny.</li>
+                <li>Łatwiej rozpoznać strukturę dokumentu.</li>
+                <li>Ułatwia współpracę nad projektem.</li>
+                <li>Pomaga technologiom wspomagającym interpretować stronę.</li>
+                <li>Ułatwia wyszukiwarkom analizę organizacji treści.</li>
+                <li>Stanowi dobrą podstawę do dalszego stylowania za pomocą CSS.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Semantyczne znaczniki określają
+                    <strong>znaczenie elementów</strong>,
+                    a nie ich wygląd.
+                    Samo zastosowanie
+                    <code>header</code>, <code>nav</code>
+                    czy <code>aside</code>
+                    nie tworzy automatycznie
+                    gotowego układu graficznego strony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="header">
+
+            <h2>3. Element header – nagłówek</h2>
+
+            <p>
+                Element <code>&lt;header&gt;</code>
+                służy do oznaczania nagłówka strony
+                lub określonej części dokumentu.
+            </p>
+
+            <p>
+                Może zawierać tytuł,
+                logo, krótki opis strony,
+                a także inne elementy wprowadzające.
+            </p>
+
+            <h3>Przykład – nagłówek strony</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+
+    &lt;h1&gt;Portal informatyczny&lt;/h1&gt;
+
+    &lt;p&gt;Wiadomości ze świata technologii&lt;/p&gt;
+
+&lt;/header&gt;</code></pre>
+
+            <h3>Przykład – nagłówek artykułu</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;header&gt;
+        &lt;h2&gt;Nowe technologie w edukacji&lt;/h2&gt;
+        &lt;p&gt;Autor: Jan Kowalski&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;p&gt;
+        Technologie informatyczne
+        wspierają współczesną edukację.
+    &lt;/p&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <p>
+                W tym przypadku <code>header</code>
+                nie jest nagłówkiem całej strony,
+                lecz nagłówkiem konkretnego artykułu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Na jednej stronie może występować
+                    więcej niż jeden element
+                    <code>header</code>,
+                    ponieważ własne nagłówki
+                    mogą mieć również artykuły i sekcje.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="nav">
+
+            <h2>4. Element nav – nawigacja</h2>
+
+            <p>
+                Element <code>&lt;nav&gt;</code>
+                służy do oznaczania ważnych
+                obszarów nawigacyjnych strony.
+            </p>
+
+            <p>
+                Najczęściej zawiera odnośniki
+                do podstron lub do sekcji
+                tego samego dokumentu.
+            </p>
+
+            <h3>Przykład – menu główne</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+
+    &lt;a href="oferta.html"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>Nawigacja jako lista</h3>
+
+            <pre><code class="language-html">&lt;nav aria-label="Menu główne"&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="index.html"&gt;Start&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="aktualnosci.html"&gt;Aktualności&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <p>
+                Atrybut <code>aria-label</code>
+                nadaje nazwę obszarowi nawigacji,
+                co jest szczególnie przydatne,
+                gdy na stronie występuje
+                kilka elementów <code>nav</code>.
+            </p>
+
+            <h3>Nawigacja wewnątrz strony</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+
+    &lt;a href="#o-nas"&gt;O nas&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;
+
+&lt;main&gt;
+
+    &lt;section id="o-nas"&gt;
+        &lt;h2&gt;O nas&lt;/h2&gt;
+        &lt;p&gt;Informacje o firmie.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="oferta"&gt;
+        &lt;h2&gt;Oferta&lt;/h2&gt;
+        &lt;p&gt;Nasze usługi.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="kontakt"&gt;
+        &lt;h2&gt;Kontakt&lt;/h2&gt;
+        &lt;p&gt;Dane kontaktowe.&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nie każda grupa odnośników
+                    musi znajdować się w
+                    <code>nav</code>.
+                    Element ten stosujemy
+                    przede wszystkim do ważnych
+                    obszarów nawigacji.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="main">
+
+            <h2>5. Element main – główna zawartość strony</h2>
+
+            <p>
+                Element <code>&lt;main&gt;</code>
+                zawiera główną treść dokumentu,
+                czyli informacje bezpośrednio
+                związane z tematem danej strony.
+            </p>
+
+            <p>
+                Nie powinien obejmować
+                powtarzających się na wielu podstronach
+                elementów, takich jak główne menu
+                czy stopka całej witryny.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Moja witryna&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+
+    &lt;h2&gt;Witaj na stronie&lt;/h2&gt;
+
+    &lt;p&gt;
+        Tutaj znajduje się główna
+        zawartość dokumentu.
+    &lt;/p&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Moja witryna&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <h3>Najważniejsze zasady</h3>
+
+            <ul>
+                <li>Dokument powinien mieć jeden główny, widoczny element <code>main</code>.</li>
+                <li>Element <code>main</code> nie powinien być umieszczany wewnątrz <code>header</code>, <code>nav</code>, <code>aside</code>, <code>article</code> ani <code>footer</code>.</li>
+                <li>Wewnątrz <code>main</code> można umieszczać sekcje, artykuły i inne elementy treści.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>main</code> wskazuje
+                    główną zawartość konkretnej strony.
+                    Nie należy mylić go z
+                    <code>section</code>,
+                    która oznacza część tematyczną dokumentu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="section">
+
+            <h2>6. Element section – sekcja tematyczna</h2>
+
+            <p>
+                Element <code>&lt;section&gt;</code>
+                oznacza tematycznie wyodrębnioną
+                część dokumentu.
+            </p>
+
+            <p>
+                Sekcja zwykle ma własny nagłówek,
+                który informuje, czego dotyczy jej treść.
+            </p>
+
+            <h3>Przykład – strona szkoły</h3>
+
+            <pre><code class="language-html">&lt;main&gt;
+
+    &lt;section&gt;
+
+        &lt;h2&gt;O naszej szkole&lt;/h2&gt;
+
+        &lt;p&gt;
+            Nasza szkoła prowadzi
+            kształcenie ogólne i zawodowe.
+        &lt;/p&gt;
+
+    &lt;/section&gt;
+
+    &lt;section&gt;
+
+        &lt;h2&gt;Kierunki kształcenia&lt;/h2&gt;
+
+        &lt;p&gt;
+            Oferujemy naukę na różnych
+            kierunkach technicznych.
+        &lt;/p&gt;
+
+    &lt;/section&gt;
+
+    &lt;section&gt;
+
+        &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+        &lt;p&gt;
+            Skontaktuj się z sekretariatem.
+        &lt;/p&gt;
+
+    &lt;/section&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <h3>Kiedy użyć section?</h3>
+
+            <ul>
+                <li>Gdy dzielimy stronę na części tematyczne.</li>
+                <li>Gdy każda część ma własny temat i nagłówek.</li>
+                <li>Gdy tworzymy np. sekcje „O nas”, „Oferta”, „Kontakt”.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>section</code> nie służy
+                    wyłącznie do tworzenia układu strony.
+                    Jeżeli potrzebujemy jedynie
+                    dodatkowego kontenera do stylowania,
+                    często lepszym wyborem będzie
+                    <code>div</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="article">
+
+            <h2>7. Element article – samodzielna treść</h2>
+
+            <p>
+                Element <code>&lt;article&gt;</code>
+                oznacza samodzielną część dokumentu,
+                która mogłaby funkcjonować
+                niezależnie od pozostałej zawartości strony.
+            </p>
+
+            <p>
+                Może to być np. artykuł,
+                wpis na blogu, wiadomość,
+                recenzja lub post na forum.
+            </p>
+
+            <h3>Przykład – artykuł informacyjny</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;h2&gt;Nowe technologie w szkole&lt;/h2&gt;
+
+    &lt;p&gt;
+        Nowoczesne technologie
+        wspierają proces nauczania.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        Uczniowie korzystają
+        z różnych narzędzi cyfrowych.
+    &lt;/p&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <h3>Przykład – kilka artykułów</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Konkurs informatyczny&lt;/h3&gt;
+        &lt;p&gt;Zapraszamy do udziału w konkursie.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Warsztaty programowania&lt;/h3&gt;
+        &lt;p&gt;Rozpoczynają się nowe warsztaty.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Nowa pracownia&lt;/h3&gt;
+        &lt;p&gt;Otwarto nową pracownię komputerową.&lt;/p&gt;
+    &lt;/article&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Sekcja „Aktualności”
+                grupuje trzy niezależne artykuły.
+                Każdy z nich ma własny tytuł
+                i własną treść.
+            </p>
+
+            <h3>Artykuł z nagłówkiem i stopką</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;header&gt;
+        &lt;h2&gt;Bezpieczeństwo w sieci&lt;/h2&gt;
+        &lt;p&gt;Autor: Anna Nowak&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;p&gt;
+        Podczas korzystania z Internetu
+        należy chronić swoje dane.
+    &lt;/p&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Kategoria: Informatyka&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/article&gt;</code></pre>
+
+        </section>
+
+        <section id="aside">
+
+            <h2>8. Element aside – treść dodatkowa</h2>
+
+            <p>
+                Element <code>&lt;aside&gt;</code>
+                zawiera treść poboczną,
+                powiązaną z główną zawartością
+                strony lub określonego fragmentu dokumentu.
+            </p>
+
+            <p>
+                Może zawierać dodatkowe informacje,
+                powiązane artykuły,
+                krótkie wyjaśnienia lub reklamy.
+            </p>
+
+            <h3>Przykład – dodatkowe informacje</h3>
+
+            <pre><code class="language-html">&lt;main&gt;
+
+    &lt;article&gt;
+
+        &lt;h2&gt;Historia Internetu&lt;/h2&gt;
+
+        &lt;p&gt;
+            Internet rozwijał się
+            przez wiele dziesięcioleci.
+        &lt;/p&gt;
+
+        &lt;aside&gt;
+
+            &lt;h3&gt;Czy wiesz, że...?&lt;/h3&gt;
+
+            &lt;p&gt;
+                Pierwsze sieci komputerowe
+                powstały przed współczesnym WWW.
+            &lt;/p&gt;
+
+        &lt;/aside&gt;
+
+    &lt;/article&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <h3>Aside jako panel z dodatkowymi treściami</h3>
+
+            <pre><code class="language-html">&lt;aside&gt;
+
+    &lt;h2&gt;Powiązane artykuły&lt;/h2&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="html.html"&gt;Podstawy HTML&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="css.html"&gt;Podstawy CSS&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/aside&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nazwa <code>aside</code>
+                    nie oznacza, że element
+                    musi znajdować się
+                    po prawej lub lewej stronie.
+                    O jego położeniu decyduje CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="footer">
+
+            <h2>9. Element footer – stopka</h2>
+
+            <p>
+                Element <code>&lt;footer&gt;</code>
+                oznacza stopkę strony
+                lub określonej części dokumentu.
+            </p>
+
+            <p>
+                Może zawierać informacje o autorze,
+                prawa autorskie,
+                dane kontaktowe
+                lub odnośniki do dodatkowych informacji.
+            </p>
+
+            <h3>Przykład – stopka strony</h3>
+
+            <pre><code class="language-html">&lt;footer&gt;
+
+    &lt;p&gt;© 2026 Moja witryna&lt;/p&gt;
+
+    &lt;p&gt;Autor: Jan Kowalski&lt;/p&gt;
+
+&lt;/footer&gt;</code></pre>
+
+            <h3>Stopka artykułu</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;h2&gt;Podstawy HTML5&lt;/h2&gt;
+
+    &lt;p&gt;
+        HTML5 umożliwia tworzenie
+        semantycznej struktury strony.
+    &lt;/p&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Autor: Anna Nowak&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <p>
+                W jednym dokumencie
+                może występować kilka
+                elementów <code>footer</code>.
+            </p>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>10. Section a article – najważniejsze różnice</h2>
+
+            <p>
+                Elementy <code>section</code>
+                i <code>article</code>
+                bywają mylone,
+                ponieważ oba mogą zawierać
+                nagłówki i akapity.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>section</th>
+                    <th>article</th>
+                </tr>
+                <tr>
+                    <td>Przeznaczenie</td>
+                    <td>Grupowanie treści według tematu.</td>
+                    <td>Samodzielna jednostka treści.</td>
+                </tr>
+                <tr>
+                    <td>Samodzielność</td>
+                    <td>Zwykle część większego dokumentu.</td>
+                    <td>Może funkcjonować niezależnie.</td>
+                </tr>
+                <tr>
+                    <td>Przykłady</td>
+                    <td>Oferta, Kontakt, O nas.</td>
+                    <td>Wpis na blogu, aktualność, recenzja.</td>
+                </tr>
+                <tr>
+                    <td>Możliwość zagnieżdżania</td>
+                    <td>Może zawierać article.</td>
+                    <td>Może zawierać section.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – section zawiera article</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Wiadomość 1&lt;/h3&gt;
+        &lt;p&gt;Treść pierwszej wiadomości.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Wiadomość 2&lt;/h3&gt;
+        &lt;p&gt;Treść drugiej wiadomości.&lt;/p&gt;
+    &lt;/article&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <h3>Przykład – article zawiera section</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;h2&gt;Poradnik HTML5&lt;/h2&gt;
+
+    &lt;section&gt;
+        &lt;h3&gt;Wprowadzenie&lt;/h3&gt;
+        &lt;p&gt;Podstawowe informacje.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;h3&gt;Przykłady&lt;/h3&gt;
+        &lt;p&gt;Przykładowe zastosowania.&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Jak zdecydować?</h3>
+
+                <p>
+                    Jeżeli treść mogłaby zostać
+                    opublikowana jako niezależny wpis
+                    lub artykuł, rozważ
+                    <code>article</code>.
+                </p>
+
+                <p>
+                    Jeżeli jest to część tematyczna
+                    większego dokumentu,
+                    rozważ <code>section</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="struktura">
+
+            <h2>11. Typowy układ strony HTML5</h2>
+
+            <p>
+                Poniższy schemat przedstawia
+                przykładową organizację
+                dokumentu internetowego.
+            </p>
+
+            <pre><code class="language-text">BODY
+|
+|-- HEADER
+|   |-- Tytuł strony
+|   |-- Opis lub logo
+|
+|-- NAV
+|   |-- Menu nawigacyjne
+|
+|-- MAIN
+|   |
+|   |-- SECTION
+|   |   |-- Nagłówek sekcji
+|   |   |-- Treść
+|   |
+|   |-- SECTION
+|   |   |-- Nagłówek sekcji
+|   |   |
+|   |   |-- ARTICLE
+|   |   |   |-- Nagłówek artykułu
+|   |   |   |-- Treść artykułu
+|   |   |
+|   |   |-- ARTICLE
+|   |       |-- Nagłówek artykułu
+|   |       |-- Treść artykułu
+|   |
+|   |-- ASIDE
+|       |-- Informacje dodatkowe
+|
+|-- FOOTER
+    |-- Autor
+    |-- Informacje końcowe</code></pre>
+
+            <h3>Odpowiednik w HTML</h3>
+
+            <pre><code class="language-html">&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Tytuł strony&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Start&lt;/a&gt;
+        &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;O nas&lt;/h2&gt;
+            &lt;p&gt;Informacje o stronie.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;Pierwsza wiadomość&lt;/h3&gt;
+                &lt;p&gt;Treść wiadomości.&lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;Druga wiadomość&lt;/h3&gt;
+                &lt;p&gt;Treść wiadomości.&lt;/p&gt;
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;aside&gt;
+            &lt;h2&gt;Informacje dodatkowe&lt;/h2&gt;
+            &lt;p&gt;Przydatne wskazówki.&lt;/p&gt;
+        &lt;/aside&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Autor strony&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    To przykładowy schemat,
+                    a nie obowiązkowy układ
+                    każdej strony internetowej.
+                    Dobór elementów zależy
+                    od rodzaju i zawartości dokumentu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zagniezdzanie">
+
+            <h2>12. Zagnieżdżanie elementów semantycznych</h2>
+
+            <p>
+                Elementy semantyczne można
+                umieszczać wewnątrz innych
+                elementów, jeżeli odpowiada to
+                znaczeniu i strukturze treści.
+            </p>
+
+            <h3>Przykład – artykuł z sekcjami</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;header&gt;
+        &lt;h2&gt;Historia komputerów&lt;/h2&gt;
+        &lt;p&gt;Autor: Jan Kowalski&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;section&gt;
+        &lt;h3&gt;Pierwsze komputery&lt;/h3&gt;
+        &lt;p&gt;Opis pierwszych urządzeń.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;h3&gt;Komputery współczesne&lt;/h3&gt;
+        &lt;p&gt;Opis współczesnych komputerów.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Kategoria: Historia informatyki&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <h3>Przykład – artykuł z aside</h3>
+
+            <pre><code class="language-html">&lt;article&gt;
+
+    &lt;h2&gt;Bezpieczeństwo komputerowe&lt;/h2&gt;
+
+    &lt;p&gt;
+        Silne hasła zwiększają
+        bezpieczeństwo kont.
+    &lt;/p&gt;
+
+    &lt;aside&gt;
+        &lt;h3&gt;Wskazówka&lt;/h3&gt;
+        &lt;p&gt;Korzystaj z menedżera haseł.&lt;/p&gt;
+    &lt;/aside&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <h3>Zasada poprawnego zamykania znaczników</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;section&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Tytuł&lt;/h2&gt;
+&lt;/section&gt;
+    &lt;/article&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;section&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Tytuł&lt;/h2&gt;
+    &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Znaczniki należy zamykać
+                w odwrotnej kolejności
+                do ich otwierania.
+            </p>
+
+        </section>
+
+        <section id="div">
+
+            <h2>13. Elementy semantyczne a div</h2>
+
+            <p>
+                Element <code>&lt;div&gt;</code>
+                jest ogólnym kontenerem,
+                który nie określa
+                szczególnego znaczenia zawartości.
+            </p>
+
+            <p>
+                Nie oznacza to jednak,
+                że należy całkowicie
+                zrezygnować z jego stosowania.
+            </p>
+
+            <h3>Przykład poprawnego użycia div</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+
+    &lt;div class="kontener"&gt;
+
+        &lt;h1&gt;Moja witryna&lt;/h1&gt;
+
+        &lt;p&gt;Witaj na stronie.&lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/header&gt;</code></pre>
+
+            <p>
+                Element <code>header</code>
+                określa znaczenie tej części strony,
+                a <code>div</code>
+                służy jako dodatkowy kontener,
+                który można wykorzystać w CSS.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Przeznaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>div</code></td>
+                    <td>Ogólny kontener bez szczególnego znaczenia semantycznego.</td>
+                </tr>
+                <tr>
+                    <td><code>section</code></td>
+                    <td>Tematyczna część dokumentu.</td>
+                </tr>
+                <tr>
+                    <td><code>article</code></td>
+                    <td>Samodzielna jednostka treści.</td>
+                </tr>
+                <tr>
+                    <td><code>nav</code></td>
+                    <td>Ważny obszar nawigacji.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Stosuj elementy semantyczne,
+                    gdy ich znaczenie odpowiada
+                    zawartości strony.
+                    Używaj <code>div</code>,
+                    gdy potrzebujesz neutralnego kontenera.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>14. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – używanie section zamiast div</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane, jeśli to tylko kontener do stylowania --&gt;
+
+&lt;section class="kontener"&gt;
+    &lt;p&gt;Tekst.&lt;/p&gt;
+&lt;/section&gt;
+
+
+&lt;!-- Lepsze rozwiązanie --&gt;
+
+&lt;div class="kontener"&gt;
+    &lt;p&gt;Tekst.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Błąd 2 – umieszczanie głównego menu w main</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane dla menu całej witryny --&gt;
+
+&lt;main&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Start&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;h1&gt;Witaj&lt;/h1&gt;
+
+&lt;/main&gt;
+
+
+&lt;!-- Typowy poprawny układ --&gt;
+
+&lt;nav&gt;
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;h1&gt;Witaj&lt;/h1&gt;
+&lt;/main&gt;</code></pre>
+
+            <p>
+                Nawigacja związana z treścią
+                konkretnego artykułu
+                może natomiast znajdować się
+                wewnątrz <code>main</code>.
+            </p>
+
+            <h3>Błąd 3 – kilka głównych elementów main</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla zwykłej strony --&gt;
+
+&lt;main&gt;
+    &lt;h2&gt;Pierwsza część&lt;/h2&gt;
+&lt;/main&gt;
+
+&lt;main&gt;
+    &lt;h2&gt;Druga część&lt;/h2&gt;
+&lt;/main&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;main&gt;
+
+    &lt;section&gt;
+        &lt;h2&gt;Pierwsza część&lt;/h2&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;h2&gt;Druga część&lt;/h2&gt;
+    &lt;/section&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <h3>Błąd 4 – brak logicznej hierarchii nagłówków</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane --&gt;
+
+&lt;h1&gt;Portal szkolny&lt;/h1&gt;
+
+&lt;section&gt;
+    &lt;h4&gt;Aktualności&lt;/h4&gt;
+&lt;/section&gt;
+
+
+&lt;!-- Lepsze rozwiązanie --&gt;
+
+&lt;h1&gt;Portal szkolny&lt;/h1&gt;
+
+&lt;section&gt;
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            <h3>Błąd 5 – zakładanie, że aside ustawi się z boku</h3>
+
+            <p>
+                Element <code>aside</code>
+                określa znaczenie treści,
+                ale nie jej położenie.
+                Ustawienie panelu bocznego
+                wymaga odpowiedniego CSS.
+            </p>
+
+            <h3>Błąd 6 – używanie article do każdej części strony</h3>
+
+            <p>
+                Nie każda część dokumentu
+                jest samodzielnym artykułem.
+                Jeśli treść stanowi tylko
+                część większej całości,
+                często odpowiedniejszy
+                będzie element <code>section</code>.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>15. Kompletny przykład strony semantycznej HTML5</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                prosty portal szkolny
+                wykorzystujący wszystkie
+                najważniejsze elementy semantyczne.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Portal szkolny&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Portal szkolny&lt;/h1&gt;
+
+        &lt;p&gt;
+            Aktualności i informacje dla uczniów
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav aria-label="Menu główne"&gt;
+
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href="#aktualnosci"&gt;Aktualności&lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#wydarzenia"&gt;Wydarzenia&lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="aktualnosci"&gt;
+
+            &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+            &lt;article&gt;
+
+                &lt;header&gt;
+                    &lt;h3&gt;Konkurs informatyczny&lt;/h3&gt;
+                    &lt;p&gt;Autor: Samorząd uczniowski&lt;/p&gt;
+                &lt;/header&gt;
+
+                &lt;p&gt;
+                    Zapraszamy uczniów
+                    do udziału w konkursie.
+                &lt;/p&gt;
+
+                &lt;footer&gt;
+                    &lt;p&gt;Kategoria: Konkursy&lt;/p&gt;
+                &lt;/footer&gt;
+
+            &lt;/article&gt;
+
+            &lt;article&gt;
+
+                &lt;h3&gt;Warsztaty programowania&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Rozpoczynają się nowe
+                    warsztaty z HTML i CSS.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="wydarzenia"&gt;
+
+            &lt;h2&gt;Nadchodzące wydarzenia&lt;/h2&gt;
+
+            &lt;p&gt;
+                W najbliższym czasie
+                odbędą się wydarzenia szkolne.
+            &lt;/p&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Dzień otwarty&lt;/li&gt;
+                &lt;li&gt;Konkurs programistyczny&lt;/li&gt;
+                &lt;li&gt;Spotkanie z absolwentami&lt;/li&gt;
+            &lt;/ul&gt;
+
+        &lt;/section&gt;
+
+        &lt;aside&gt;
+
+            &lt;h2&gt;Przydatne informacje&lt;/h2&gt;
+
+            &lt;p&gt;
+                Sprawdź materiały
+                do nauki HTML5.
+            &lt;/p&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a href="https://developer.mozilla.org/"&gt;
+                        Dokumentacja MDN
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+        &lt;/aside&gt;
+
+        &lt;section id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Napisz do nas:
+                &lt;a href="mailto:kontakt@example.com"&gt;
+                    kontakt@example.com
+                &lt;/a&gt;
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Portal szkolny&lt;/p&gt;
+
+        &lt;p&gt;Strona przygotowana w HTML5&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Analiza przykładu</h3>
+
+            <ol>
+                <li><code>header</code> zawiera tytuł i opis portalu.</li>
+                <li><code>nav</code> zawiera menu z odnośnikami do sekcji.</li>
+                <li><code>main</code> obejmuje główną treść strony.</li>
+                <li><code>section</code> grupuje treści według tematów.</li>
+                <li><code>article</code> zawiera niezależne aktualności.</li>
+                <li><code>aside</code> przedstawia informacje dodatkowe.</li>
+                <li><code>footer</code> zawiera informacje końcowe.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    Przykład nie zawiera CSS.
+                    Jego celem jest pokazanie
+                    poprawnej struktury dokumentu.
+                    Wygląd strony można opracować
+                    w kolejnych lekcjach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Semantyczny HTML określa znaczenie elementów strony.</li>
+                    <li><code>header</code> – nagłówek strony lub części dokumentu.</li>
+                    <li><code>nav</code> – ważny obszar nawigacji.</li>
+                    <li><code>main</code> – główna zawartość strony.</li>
+                    <li><code>section</code> – tematyczna część dokumentu.</li>
+                    <li><code>article</code> – samodzielna jednostka treści.</li>
+                    <li><code>aside</code> – treść dodatkowa lub poboczna.</li>
+                    <li><code>footer</code> – stopka strony lub części dokumentu.</li>
+                    <li>Na stronie może być kilka elementów <code>header</code> i <code>footer</code>.</li>
+                    <li>Dokument powinien mieć jeden główny, widoczny element <code>main</code>.</li>
+                    <li><code>section</code> i <code>article</code> mogą być zagnieżdżane.</li>
+                    <li><code>div</code> nadal jest przydatny jako neutralny kontener.</li>
+                    <li>Semantyczne znaczniki nie zastępują CSS.</li>
+                    <li>Nagłówki powinny tworzyć logiczną hierarchię treści.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne projektowanie semantycznej
+                struktury dokumentu HTML5
+                i dobieranie znaczników
+                zgodnie z ich przeznaczeniem.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_15</code>
+                oraz plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku HTML.
+                Nie korzystaj z CSS ani JavaScript.
+            </p>
+
+            <h3>Zadanie 1 – Struktura strony internetowej</h3>
+
+            <p>
+                Utwórz stronę „Moja szkoła”
+                wykorzystującą elementy semantyczne HTML5.
+            </p>
+
+            <ol>
+                <li>Dodaj poprawną strukturę dokumentu HTML5.</li>
+                <li>W elemencie <code>header</code> umieść tytuł „Moja szkoła” i krótki opis.</li>
+                <li>Dodaj <code>nav</code> z odnośnikami do sekcji: O szkole, Kierunki, Kontakt.</li>
+                <li>Utwórz element <code>main</code>.</li>
+                <li>Wewnątrz <code>main</code> dodaj trzy sekcje <code>section</code>.</li>
+                <li>Każda sekcja powinna mieć odpowiedni identyfikator <code>id</code>, nagłówek i własny tekst.</li>
+                <li>Dodaj <code>aside</code> z informacją o szkolnym wydarzeniu.</li>
+                <li>Dodaj <code>footer</code> z informacją o autorze strony.</li>
+                <li>Sprawdź działanie odnośników nawigacyjnych.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Portal z aktualnościami</h3>
+
+            <p>
+                Pod pierwszą częścią strony
+                utwórz sekcję „Aktualności”.
+            </p>
+
+            <ol>
+                <li>Dodaj sekcję <code>section</code> z nagłówkiem „Aktualności”.</li>
+                <li>W sekcji umieść minimum trzy elementy <code>article</code>.</li>
+                <li>Każdy artykuł powinien mieć własny nagłówek i minimum dwa akapity.</li>
+                <li>W pierwszym artykule dodaj wewnętrzny <code>header</code> z informacją o autorze.</li>
+                <li>W drugim artykule dodaj wewnętrzny <code>footer</code> z kategorią wiadomości.</li>
+                <li>W trzecim artykule dodaj <code>aside</code> z ciekawostką dotyczącą jego tematu.</li>
+                <li>Zadbaj o poprawną hierarchię nagłówków.</li>
+                <li>Wszystkie artykuły powinny zawierać własne, różne treści.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Strona z poradnikiem</h3>
+
+            <p>
+                Utwórz w głównej zawartości strony
+                rozbudowany artykuł
+                „Bezpieczeństwo w Internecie”.
+            </p>
+
+            <ol>
+                <li>Dodaj element <code>article</code> z odpowiednim nagłówkiem.</li>
+                <li>Wewnątrz artykułu umieść <code>header</code> z tytułem i autorem.</li>
+                <li>Podziel poradnik na minimum trzy sekcje <code>section</code>.</li>
+                <li>Każda sekcja powinna mieć własny nagłówek i minimum jeden akapit.</li>
+                <li>W jednej sekcji dodaj listę uporządkowaną z zasadami bezpieczeństwa.</li>
+                <li>Dodaj <code>aside</code> z dodatkową wskazówką.</li>
+                <li>Na końcu artykułu dodaj <code>footer</code> z informacją o autorze i kategorii.</li>
+                <li>Sprawdź poprawność zagnieżdżenia i zamykania znaczników.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawianie struktury (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod
+                i zastąp ogólne znaczniki
+                odpowiednimi elementami semantycznymi.
+            </p>
+
+            <pre><code class="language-html">&lt;div id="naglowek"&gt;
+    &lt;h1&gt;Portal technologiczny&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div id="menu"&gt;
+    &lt;a href="#news"&gt;Aktualności&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div id="tresc"&gt;
+
+    &lt;div id="news"&gt;
+        &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+        &lt;div class="wpis"&gt;
+            &lt;h3&gt;Nowe technologie&lt;/h3&gt;
+            &lt;p&gt;Treść wiadomości.&lt;/p&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div id="dodatkowe"&gt;
+        &lt;h2&gt;Ciekawostki&lt;/h2&gt;
+        &lt;p&gt;Dodatkowe informacje.&lt;/p&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id="stopka"&gt;
+    &lt;p&gt;Autor strony&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Zastąp kontener nagłówka znacznikiem <code>header</code>.</li>
+                <li>Zastąp kontener menu znacznikiem <code>nav</code>.</li>
+                <li>Zastąp kontener głównej treści znacznikiem <code>main</code>.</li>
+                <li>Zastąp kontener aktualności znacznikiem <code>section</code>.</li>
+                <li>Zastąp kontener wiadomości znacznikiem <code>article</code>.</li>
+                <li>Zastąp kontener dodatkowych informacji znacznikiem <code>aside</code>.</li>
+                <li>Zastąp kontener stopki znacznikiem <code>footer</code>.</li>
+                <li>Sprawdź poprawność struktury i zagnieżdżenia elementów.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    poprawność struktury HTML5,
+                    zagnieżdżenia znaczników,
+                    hierarchię nagłówków
+                    oraz działanie odnośników.
+                </p>
+
+                <p>
+                    Treści na stronie powinny być własne
+                    i różnić się od przykładów
+                    przedstawionych w lekcji.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 15</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
