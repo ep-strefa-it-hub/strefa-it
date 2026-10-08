@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 05 – Elementy blokowe i liniowe | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">Wprowadzenie</a>
+        <a href="#blokowe">Elementy blokowe</a>
+        <a href="#liniowe">Elementy liniowe</a>
+        <a href="#div">Znacznik div</a>
+        <a href="#span">Znacznik span</a>
+        <a href="#porownanie">div a span</a>
+        <a href="#atrybuty">id i class</a>
+        <a href="#semantyczne">Organizacja strony</a>
+        <a href="#zagniezdzanie">Zagnieżdżanie elementów</a>
+        <a href="#display">Właściwość display</a>
+        <a href="#przyklad">Przykład strony</a>
+        <a href="#zapamietaj">Zapamiętaj</a>
+        <a href="#zadania">Zadania praktyczne</a>
+        <a href="#ocena">Kryteria oceny</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 05 • 2 × 45 MIN</div>
+
+            <h2>Elementy blokowe i liniowe. div, span i organizacja zawartości strony</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie różnic między elementami blokowymi i liniowymi,
+                wykorzystanie znaczników <code>&lt;div&gt;</code>
+                i <code>&lt;span&gt;</code> oraz prawidłowe
+                organizowanie zawartości strony internetowej.
+            </p>
+        </div>
+
+        <!-- LEKCJA 1 – TEORIA -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Strona internetowa składa się z wielu elementów HTML,
+                takich jak nagłówki, akapity, obrazy czy odnośniki.
+            </p>
+
+            <p>
+                Każdy element ma określone znaczenie i domyślny
+                sposób wyświetlania w przeglądarce.
+            </p>
+
+            <p>
+                W uproszczeniu możemy wyróżnić dwa podstawowe
+                sposoby wyświetlania elementów:
+            </p>
+
+            <ul>
+                <li><strong>blokowy</strong> – element zwykle rozpoczyna nowy wiersz,</li>
+                <li><strong>liniowy</strong> – element pozostaje w bieżącym wierszu tekstu.</li>
+            </ul>
+
+            <p>
+                Sposób wyświetlania elementu można zmienić za pomocą CSS.
+            </p>
+
+        </section>
+
+        <section id="blokowe">
+
+            <h2>2. Elementy blokowe</h2>
+
+            <p>
+                Elementy wyświetlane blokowo zwykle:
+            </p>
+
+            <ul>
+                <li>rozpoczynają się od nowego wiersza,</li>
+                <li>zajmują dostępną szerokość kontenera,</li>
+                <li>mogą mieć określoną szerokość i wysokość,</li>
+                <li>mogą zawierać inne elementy HTML, zgodnie z zasadami ich zagnieżdżania.</li>
+            </ul>
+
+            <p>Przykłady:</p>
+
+            <ul>
+                <li><code>&lt;div&gt;</code> – uniwersalny kontener,</li>
+                <li><code>&lt;p&gt;</code> – akapit,</li>
+                <li><code>&lt;h1&gt; – &lt;h6&gt;</code> – nagłówki,</li>
+                <li><code>&lt;section&gt;</code> – sekcja tematyczna,</li>
+                <li><code>&lt;article&gt;</code> – samodzielna treść.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div&gt;Pierwszy blok&lt;/div&gt;
+&lt;div&gt;Drugi blok&lt;/div&gt;
+&lt;div&gt;Trzeci blok&lt;/div&gt;</code></pre>
+
+            <p>
+                Każdy z tych elementów pojawi się domyślnie
+                w osobnym wierszu.
+            </p>
+
+        </section>
+
+        <section id="liniowe">
+
+            <h2>3. Elementy liniowe</h2>
+
+            <p>
+                Elementy wyświetlane liniowo:
+            </p>
+
+            <ul>
+                <li>nie rozpoczynają automatycznie nowego wiersza,</li>
+                <li>zajmują miejsce potrzebne do wyświetlenia zawartości,</li>
+                <li>mogą występować wewnątrz akapitów i innych fragmentów tekstu,</li>
+                <li>zwykle nie reagują na ustawienie <code>width</code> i <code>height</code>.</li>
+            </ul>
+
+            <p>Przykłady:</p>
+
+            <ul>
+                <li><code>&lt;span&gt;</code> – fragment tekstu,</li>
+                <li><code>&lt;strong&gt;</code> – ważny tekst,</li>
+                <li><code>&lt;em&gt;</code> – zaakcentowanie tekstu,</li>
+                <li><code>&lt;a&gt;</code> – odnośnik,</li>
+                <li><code>&lt;mark&gt;</code> – zaznaczenie tekstu.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;span&gt;Pierwszy&lt;/span&gt;
+&lt;span&gt;Drugi&lt;/span&gt;
+&lt;span&gt;Trzeci&lt;/span&gt;</code></pre>
+
+            <p>
+                Elementy zostaną wyświetlone w jednym wierszu,
+                jeśli będzie w nim wystarczająco dużo miejsca.
+            </p>
+
+        </section>
+
+        <section id="div">
+
+            <h2>4. Znacznik &lt;div&gt;</h2>
+
+            <p>
+                Znacznik <code>&lt;div&gt;</code> to uniwersalny
+                kontener służący do grupowania elementów HTML.
+            </p>
+
+            <p>
+                Sam znacznik nie określa znaczenia zawartości.
+                Przydaje się, gdy chcemy połączyć kilka elementów
+                w jedną grupę, np. na potrzeby CSS.
+            </p>
+
+            <h3>Przykład – karta produktu</h3>
+
+            <pre><code class="language-html">&lt;div&gt;
+    &lt;h2&gt;Laptop&lt;/h2&gt;
+    &lt;p&gt;Laptop do nauki programowania.&lt;/p&gt;
+    &lt;p&gt;Cena: 2999 zł&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Wszystkie informacje o produkcie znajdują się
+                wewnątrz jednego kontenera.
+            </p>
+
+            <h3>Kilka kontenerów</h3>
+
+            <pre><code class="language-html">&lt;div&gt;
+    &lt;h2&gt;Produkt 1&lt;/h2&gt;
+    &lt;p&gt;Opis pierwszego produktu.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;h2&gt;Produkt 2&lt;/h2&gt;
+    &lt;p&gt;Opis drugiego produktu.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Takie grupowanie ułatwia późniejsze stylowanie
+                i rozmieszczanie elementów.
+            </p>
+
+        </section>
+
+        <section id="span">
+
+            <h2>5. Znacznik &lt;span&gt;</h2>
+
+            <p>
+                Znacznik <code>&lt;span&gt;</code> jest uniwersalnym
+                elementem liniowym. Służy do wydzielania fragmentów
+                tekstu bez rozpoczynania nowego wiersza.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Cena produktu:
+    &lt;span&gt;2999 zł&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Znacznik <code>&lt;span&gt;</code> samodzielnie
+                nie zmienia wyglądu tekstu.
+            </p>
+
+            <h3>Przykład z prostym stylem</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Promocja:
+    &lt;span style="color: red;"&gt;Tylko dzisiaj!&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Dzięki <code>span</code> zmieniamy kolor
+                tylko wybranego fragmentu tekstu.
+            </p>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>6. Różnice między div a span</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>div</th>
+                    <th>span</th>
+                </tr>
+                <tr>
+                    <td>Domyślny sposób wyświetlania</td>
+                    <td>Blokowy</td>
+                    <td>Liniowy</td>
+                </tr>
+                <tr>
+                    <td>Nowy wiersz</td>
+                    <td>Tak</td>
+                    <td>Nie</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Grupowanie większych fragmentów</td>
+                    <td>Wydzielanie fragmentów tekstu</td>
+                </tr>
+                <tr>
+                    <td>Znaczenie semantyczne</td>
+                    <td>Brak</td>
+                    <td>Brak</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>&lt;div&gt;</code> grupuje elementy,
+                    a <code>&lt;span&gt;</code> wydziela
+                    fragmenty tekstu.
+                    Oba znaczniki są neutralne semantycznie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>7. Atrybuty id i class</h2>
+
+            <p>
+                Elementom HTML możemy nadawać identyfikatory
+                i klasy, które pomagają je rozpoznawać
+                i stylować.
+            </p>
+
+            <h3>Atrybut id</h3>
+
+            <p>
+                <code>id</code> identyfikuje konkretny element.
+                Jego wartość powinna być unikalna w dokumencie.
+            </p>
+
+            <pre><code class="language-html">&lt;div id="kontakt"&gt;
+    &lt;h2&gt;Kontakt&lt;/h2&gt;
+    &lt;p&gt;Napisz do nas.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Atrybut class</h3>
+
+            <p>
+                <code>class</code> pozwala przypisać
+                tę samą klasę wielu elementom.
+            </p>
+
+            <pre><code class="language-html">&lt;div class="produkt"&gt;
+    &lt;h2&gt;Laptop&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class="produkt"&gt;
+    &lt;h2&gt;Monitor&lt;/h2&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Jeden element może mieć także kilka klas,
+                oddzielonych spacjami.
+            </p>
+
+            <pre><code class="language-html">&lt;span class="cena promocja"&gt;199 zł&lt;/span&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Różnica</h3>
+                <p>
+                    <code>id</code> – jeden konkretny element.
+                    <code>class</code> – jedna lub wiele grup elementów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="semantyczne">
+
+            <h2>8. Organizacja zawartości strony</h2>
+
+            <p>
+                Do organizowania strony można wykorzystywać
+                <code>div</code>, jednak HTML udostępnia również
+                <strong>elementy semantyczne</strong>,
+                które określają rolę danej części dokumentu.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;header&gt;</code></td>
+                    <td>Nagłówek strony lub sekcji</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;nav&gt;</code></td>
+                    <td>Główna nawigacja</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;main&gt;</code></td>
+                    <td>Główna zawartość strony</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;section&gt;</code></td>
+                    <td>Tematyczna sekcja dokumentu</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;article&gt;</code></td>
+                    <td>Samodzielna treść, np. artykuł lub wpis</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;aside&gt;</code></td>
+                    <td>Treść poboczna lub uzupełniająca</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;footer&gt;</code></td>
+                    <td>Stopka strony lub sekcji</td>
+                </tr>
+            </table>
+
+            <h3>Przykład struktury strony</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Portal szkolny&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+
+    &lt;section&gt;
+        &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+        &lt;article&gt;
+            &lt;h3&gt;Konkurs informatyczny&lt;/h3&gt;
+            &lt;p&gt;Zapraszamy do udziału w konkursie.&lt;/p&gt;
+        &lt;/article&gt;
+
+    &lt;/section&gt;
+
+    &lt;aside&gt;
+        &lt;h2&gt;Ważne informacje&lt;/h2&gt;
+        &lt;p&gt;Sprawdź terminy wydarzeń.&lt;/p&gt;
+    &lt;/aside&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2026 Portal szkolny&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <p>
+                Znaczniki semantyczne ułatwiają zrozumienie
+                struktury dokumentu, również technologiom
+                wspomagającym i wyszukiwarkom.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Jeśli istnieje odpowiedni znacznik semantyczny,
+                    warto go użyć zamiast ogólnego
+                    <code>&lt;div&gt;</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zagniezdzanie">
+
+            <h2>9. Poprawne zagnieżdżanie elementów</h2>
+
+            <p>
+                Zagnieżdżanie polega na umieszczaniu jednych
+                elementów HTML wewnątrz innych.
+            </p>
+
+            <h3>Poprawny przykład</h3>
+
+            <pre><code class="language-html">&lt;div&gt;
+    &lt;h2&gt;Informacje&lt;/h2&gt;
+    &lt;p&gt;To jest &lt;strong&gt;ważny&lt;/strong&gt; tekst.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Znaczniki zamykamy w odwrotnej kolejności
+                do ich otwierania.
+            </p>
+
+            <h3>Niepoprawny przykład</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    To jest &lt;strong&gt;ważny tekst.
+&lt;/p&gt;
+&lt;/strong&gt;</code></pre>
+
+            <p>
+                W tym przykładzie znacznik <code>strong</code>
+                został zamknięty w niewłaściwym miejscu.
+            </p>
+
+            <h3>Poprawiona wersja</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    To jest &lt;strong&gt;ważny tekst&lt;/strong&gt;.
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Należy również pamiętać, że nie każdy element
+                może zawierać dowolne inne elementy.
+                Na przykład nie umieszczamy <code>div</code>
+                wewnątrz akapitu <code>p</code>.
+            </p>
+
+        </section>
+
+        <section id="display">
+
+            <h2>10. Właściwość display w CSS</h2>
+
+            <p>
+                CSS pozwala zmieniać sposób wyświetlania
+                elementów HTML.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>block</code></td>
+                    <td>Element wyświetlany jako blok</td>
+                </tr>
+                <tr>
+                    <td><code>inline</code></td>
+                    <td>Element wyświetlany w linii tekstu</td>
+                </tr>
+                <tr>
+                    <td><code>inline-block</code></td>
+                    <td>Element w linii, z możliwością ustawienia szerokości i wysokości</td>
+                </tr>
+            </table>
+
+            <h3>display: block</h3>
+
+            <pre><code class="language-html">&lt;span style="display: block;"&gt;Pierwszy element&lt;/span&gt;
+&lt;span style="display: block;"&gt;Drugi element&lt;/span&gt;</code></pre>
+
+            <p>
+                Mimo że <code>span</code> jest domyślnie liniowy,
+                oba elementy pojawią się w osobnych wierszach.
+            </p>
+
+            <h3>display: inline</h3>
+
+            <pre><code class="language-html">&lt;div style="display: inline;"&gt;Pierwszy&lt;/div&gt;
+&lt;div style="display: inline;"&gt;Drugi&lt;/div&gt;</code></pre>
+
+            <p>
+                Elementy <code>div</code> zostaną wyświetlone
+                obok siebie, jeśli pozwala na to dostępne miejsce.
+            </p>
+
+            <h3>display: inline-block</h3>
+
+            <pre><code class="language-html">&lt;span style="display: inline-block; width: 120px; height: 50px; background: lightblue;"&gt;
+    Element 1
+&lt;/span&gt;
+
+&lt;span style="display: inline-block; width: 120px; height: 50px; background: lightgreen;"&gt;
+    Element 2
+&lt;/span&gt;</code></pre>
+
+            <p>
+                Oba elementy mogą znajdować się w jednym wierszu,
+                a jednocześnie mają ustawione wymiary.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Podział na elementy blokowe i liniowe
+                    opisuje ich domyślny sposób wyświetlania.
+                    CSS pozwala zmienić to zachowanie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>11. Przykład kompletnej strony</h2>
+
+            <p>
+                Poniższy przykład przedstawia prostą wizytówkę,
+                w której wykorzystano <code>div</code>,
+                <code>span</code>, <code>id</code>
+                oraz <code>class</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja wizytówka&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Moja wizytówka&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;div id="profil"&gt;
+
+            &lt;h2&gt;Jan Kowalski&lt;/h2&gt;
+
+            &lt;p&gt;
+                Klasa:
+                &lt;span class="informacja"&gt;3 TI&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;div class="sekcja"&gt;
+                &lt;h3&gt;Zainteresowania&lt;/h3&gt;
+                &lt;p&gt;Programowanie i grafika komputerowa.&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class="sekcja"&gt;
+                &lt;h3&gt;Umiejętności&lt;/h3&gt;
+                &lt;p&gt;
+                    HTML, CSS oraz
+                    &lt;span class="informacja"&gt;JavaScript&lt;/span&gt;.
+                &lt;/p&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Jan Kowalski&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Elementy blokowe domyślnie rozpoczynają nowy wiersz.</li>
+                    <li>Elementy liniowe pozostają w bieżącym wierszu, jeśli jest miejsce.</li>
+                    <li><code>div</code> służy do grupowania elementów HTML.</li>
+                    <li><code>span</code> służy do wydzielania fragmentów tekstu.</li>
+                    <li><code>id</code> powinno być unikalne w dokumencie.</li>
+                    <li><code>class</code> może być wspólna dla wielu elementów.</li>
+                    <li>Elementy semantyczne opisują rolę części strony.</li>
+                    <li>Znaczniki należy poprawnie zagnieżdżać i zamykać.</li>
+                    <li>Właściwość CSS <code>display</code> zmienia sposób wyświetlania elementów.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- LEKCJA 2 – ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Lekcja 2 – Zadania praktyczne</h2>
+
+            <p>
+                Utwórz folder <code>PSI_05</code>.
+                Każde zadanie wykonaj w osobnym pliku HTML.
+            </p>
+
+            <p>
+                W zadaniach skup się przede wszystkim na
+                <strong>poprawnej strukturze HTML</strong>,
+                grupowaniu elementów i ich zagnieżdżaniu.
+            </p>
+
+            <h3>Zadanie 1 – Blokowe czy liniowe?</h3>
+
+            <p>
+                Utwórz plik <code>elementy.html</code>
+                i sprawdź, jak przeglądarka wyświetla
+                elementy blokowe oraz liniowe.
+            </p>
+
+            <ol>
+                <li>Dodaj 3 elementy <code>div</code> z różnymi tekstami.</li>
+                <li>Dodaj 3 elementy <code>span</code> z różnymi tekstami.</li>
+                <li>Dodaj 2 akapity oraz nagłówek <code>h2</code>.</li>
+                <li>Sprawdź, które elementy rozpoczynają nowy wiersz.</li>
+                <li>Ustaw dla jednego <code>span</code> właściwość <code>display: block;</code>.</li>
+                <li>Ustaw dla jednego <code>div</code> właściwość <code>display: inline;</code>.</li>
+                <li>Dodaj kolejny <code>span</code> z właściwością <code>display: inline-block;</code> i wymiarami 150 × 50 px.</li>
+                <li>Porównaj sposób wyświetlania elementów.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Wizytówka ucznia</h3>
+
+            <p>
+                Utwórz plik <code>wizytowka.html</code>
+                przedstawiający Twoją wizytówkę.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek z imieniem i nazwiskiem.</li>
+                <li>Utwórz główny kontener <code>div</code> o identyfikatorze <code>profil</code>.</li>
+                <li>Wewnątrz kontenera dodaj informacje o klasie i kierunku kształcenia.</li>
+                <li>Utwórz 3 osobne kontenery <code>div</code> o wspólnej klasie <code>sekcja</code>.</li>
+                <li>Umieść w nich informacje o zainteresowaniach, umiejętnościach i planach na przyszłość.</li>
+                <li>Wykorzystaj minimum 3 elementy <code>span</code> do wydzielenia wybranych informacji.</li>
+                <li>Wyróżnij jeden fragment tekstu za pomocą <code>strong</code>.</li>
+                <li>Zadbaj o prawidłowe zagnieżdżenie wszystkich elementów.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Portal szkolny</h3>
+
+            <p>
+                Utwórz plik <code>portal.html</code>
+                przedstawiający strukturę szkolnego portalu
+                informacyjnego.
+            </p>
+
+            <ol>
+                <li>Utwórz nagłówek strony za pomocą <code>header</code>.</li>
+                <li>Dodaj nawigację <code>nav</code> z trzema odnośnikami do sekcji na tej samej stronie.</li>
+                <li>Utwórz główną zawartość strony za pomocą <code>main</code>.</li>
+                <li>Dodaj sekcję <code>section</code> o tytule „Aktualności”.</li>
+                <li>W sekcji umieść 2 artykuły <code>article</code> z własnymi nagłówkami i opisami.</li>
+                <li>Dodaj sekcję „Wydarzenia” zawierającą minimum 2 informacje.</li>
+                <li>Utwórz element <code>aside</code> z dodatkowymi informacjami dla uczniów.</li>
+                <li>Dodaj stopkę <code>footer</code> z nazwą szkoły i znakiem ©.</li>
+                <li>Zastosuj przynajmniej jeden <code>div</code> i dwa elementy <code>span</code> w uzasadnionych miejscach.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Napraw strukturę strony (dodatkowe)</h3>
+
+            <p>
+                Utwórz plik <code>poprawa.html</code>.
+                Przepisz poniższy kod, a następnie
+                popraw wszystkie błędy związane ze
+                strukturą i zagnieżdżaniem elementów.
+            </p>
+
+            <pre><code class="language-html">&lt;div id="profil"&gt;
+
+    &lt;h2&gt;Jan Kowalski&lt;/h3&gt;
+
+    &lt;p&gt;
+        Jestem uczniem
+        &lt;div&gt;technikum informatycznego&lt;/div&gt;
+    &lt;/p&gt;
+
+    &lt;span&gt;
+        Moje zainteresowania:
+        &lt;p&gt;Programowanie i gry komputerowe&lt;/p&gt;
+    &lt;/span&gt;
+
+    &lt;div class="sekcja"&gt;
+        &lt;h3&gt;Umiejętności&lt;/h3&gt;
+        &lt;p&gt;HTML, CSS i JavaScript&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>W poprawionej wersji:</p>
+
+            <ol>
+                <li>Popraw niezgodne znaczniki otwierające i zamykające.</li>
+                <li>Usuń nieprawidłowe zagnieżdżenie <code>div</code> w <code>p</code>.</li>
+                <li>Popraw zastosowanie <code>span</code> i <code>p</code>.</li>
+                <li>Zadbaj o prawidłowe zamknięcie wszystkich kontenerów.</li>
+                <li>Zachowaj sens i treść wizytówki.</li>
+            </ol>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie pliki umieść w folderze
+                    <code>PSI_05</code>.
+                    Spakuj folder do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Zadania 1–3 są obowiązkowe.
+                    Zadanie 4 jest dodatkowe
+                    dla osób, które zakończą pracę wcześniej.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="ocena">
+
+            <h2>Kryteria oceny</h2>
+
+            <table>
+                <tr>
+                    <th>Kryterium</th>
+                    <th>Punkty</th>
+                </tr>
+                <tr>
+                    <td>Zadanie 1 – Elementy blokowe i liniowe</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 2 – Wizytówka ucznia</td>
+                    <td>4 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 3 – Portal szkolny</td>
+                    <td>5 pkt</td>
+                </tr>
+                <tr>
+                    <td>Poprawna struktura dokumentów i komplet plików</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <th>Razem – zadania obowiązkowe</th>
+                    <th>15 pkt</th>
+                </tr>
+                <tr>
+                    <td>Zadanie 4 – dodatkowe</td>
+                    <td>+3 pkt</td>
+                </tr>
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 05
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
