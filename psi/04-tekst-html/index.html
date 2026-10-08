@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 04 – Nagłówki, akapity i znaczniki tekstowe HTML | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">Wprowadzenie</a>
+        <a href="#naglowki">Nagłówki HTML</a>
+        <a href="#akapity">Akapity i podział tekstu</a>
+        <a href="#formatowanie">Znaczniki tekstowe</a>
+        <a href="#indeksy">Indeksy górne i dolne</a>
+        <a href="#znaki">Znaki specjalne</a>
+        <a href="#komentarze">Komentarze HTML</a>
+        <a href="#przyklad">Przykład kompletnej strony</a>
+        <a href="#zapamietaj">Zapamiętaj</a>
+        <a href="#zadania">Zadania praktyczne</a>
+        <a href="#ocena">Kryteria oceny</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 04 • 2 × 45 MIN</div>
+
+            <h2>Nagłówki, akapity, znaczniki tekstowe i znaki specjalne w HTML</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie znaczników HTML służących do organizowania
+                i formatowania treści tekstowych na stronach WWW
+                oraz wykorzystanie ich w praktyce.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Język <strong>HTML (HyperText Markup Language)</strong>
+                służy do tworzenia struktury stron internetowych.
+            </p>
+
+            <p>
+                Za pomocą znaczników HTML określamy, które fragmenty
+                tekstu są nagłówkami, akapitami, wyróżnieniami
+                lub innymi elementami strony.
+            </p>
+
+            <p>
+                HTML opisuje przede wszystkim <strong>znaczenie
+                i strukturę treści</strong>, natomiast CSS odpowiada
+                za jej wygląd.
+            </p>
+
+            <h3>Przypomnienie – podstawowa struktura dokumentu HTML</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Witaj na mojej stronie&lt;/h1&gt;
+    &lt;p&gt;To jest pierwszy akapit.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Wszystkie widoczne elementy strony umieszczamy
+                wewnątrz znacznika <code>&lt;body&gt;</code>.
+            </p>
+
+        </section>
+
+        <section id="naglowki">
+
+            <h2>2. Nagłówki HTML</h2>
+
+            <p>
+                Nagłówki służą do tworzenia tytułów i śródtytułów.
+                HTML udostępnia <strong>6 poziomów nagłówków</strong>:
+                od <code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;h1&gt;Nagłówek poziomu 1&lt;/h1&gt;
+&lt;h2&gt;Nagłówek poziomu 2&lt;/h2&gt;
+&lt;h3&gt;Nagłówek poziomu 3&lt;/h3&gt;
+&lt;h4&gt;Nagłówek poziomu 4&lt;/h4&gt;
+&lt;h5&gt;Nagłówek poziomu 5&lt;/h5&gt;
+&lt;h6&gt;Nagłówek poziomu 6&lt;/h6&gt;</code></pre>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;h1&gt;</code></td>
+                    <td>Główny tytuł strony lub artykułu</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;h2&gt;</code></td>
+                    <td>Główne sekcje treści</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;h3&gt;</code></td>
+                    <td>Podsekcje nagłówka h2</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;h4&gt; – &lt;h6&gt;</code></td>
+                    <td>Kolejne poziomy podziału treści</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nagłówki tworzą hierarchię treści.
+                    Nie wybieramy ich tylko dlatego, że mają
+                    większą lub mniejszą czcionkę.
+                </p>
+                <p>
+                    Na typowej prostej stronie stosujemy jeden
+                    główny nagłówek <code>&lt;h1&gt;</code>,
+                    a kolejne poziomy wykorzystujemy do
+                    logicznego podziału treści.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="akapity">
+
+            <h2>3. Akapity i podział tekstu</h2>
+
+            <h3>Akapit – &lt;p&gt;</h3>
+
+            <p>
+                Znacznik <code>&lt;p&gt;</code> służy do tworzenia
+                akapitów tekstu.
+            </p>
+
+            <pre><code class="language-html">&lt;p&gt;To jest pierwszy akapit tekstu.&lt;/p&gt;
+&lt;p&gt;To jest drugi akapit tekstu.&lt;/p&gt;</code></pre>
+
+            <p>
+                Przeglądarka domyślnie oddziela akapity
+                odstępami.
+            </p>
+
+            <h3>Przejście do nowego wiersza – &lt;br&gt;</h3>
+
+            <p>
+                Znacznik <code>&lt;br&gt;</code> powoduje przejście
+                do nowej linii bez tworzenia nowego akapitu.
+            </p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Jan Kowalski&lt;br&gt;
+    ul. Szkolna 5&lt;br&gt;
+    21-100 Lubartów
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Stosujemy go np. w adresach lub wierszach poezji,
+                a nie do tworzenia dużych odstępów na stronie.
+            </p>
+
+            <h3>Linia pozioma – &lt;hr&gt;</h3>
+
+            <p>
+                Znacznik <code>&lt;hr&gt;</code> oznacza tematyczne
+                oddzielenie fragmentów treści. Przeglądarka
+                zazwyczaj przedstawia go jako linię poziomą.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Aktualności&lt;/h2&gt;
+&lt;p&gt;Informacje z naszej szkoły.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Wydarzenia&lt;/h2&gt;
+&lt;p&gt;Nadchodzące wydarzenia szkolne.&lt;/p&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>&lt;p&gt;</code> – nowy akapit,
+                    <code>&lt;br&gt;</code> – nowa linia,
+                    <code>&lt;hr&gt;</code> – tematyczny podział treści.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="formatowanie">
+
+            <h2>4. Znaczniki tekstowe</h2>
+
+            <p>
+                Znaczniki tekstowe pozwalają wyróżniać fragmenty
+                treści oraz nadawać im dodatkowe znaczenie.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;strong&gt;</code></td>
+                    <td>Ważny fragment tekstu</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;em&gt;</code></td>
+                    <td>Fragment wymagający zaakcentowania</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;b&gt;</code></td>
+                    <td>Wizualne wyróżnienie, zwykle pogrubienie</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;i&gt;</code></td>
+                    <td>Tekst odróżniony od otoczenia, zwykle kursywą</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;mark&gt;</code></td>
+                    <td>Zaznaczenie fragmentu tekstu</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;small&gt;</code></td>
+                    <td>Informacja poboczna, np. drobny druk</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;del&gt;</code></td>
+                    <td>Treść usunięta</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;ins&gt;</code></td>
+                    <td>Treść dodana</td>
+                </tr>
+            </table>
+
+            <h3>Przykłady zastosowania</h3>
+
+            <pre><code class="language-html">&lt;p&gt;To jest &lt;strong&gt;ważna informacja&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;To jest &lt;em&gt;zaakcentowany fragment&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;To jest &lt;b&gt;pogrubiony tekst&lt;/b&gt;.&lt;/p&gt;
+
+&lt;p&gt;To jest &lt;i&gt;tekst zapisany kursywą&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Zapamiętaj &lt;mark&gt;ten fragment&lt;/mark&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Informacja dodatkowa.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Cena: &lt;del&gt;120 zł&lt;/del&gt; &lt;ins&gt;99 zł&lt;/ins&gt;&lt;/p&gt;</code></pre>
+
+            <h3>strong a b – jaka jest różnica?</h3>
+
+            <p>
+                <code>&lt;strong&gt;</code> wskazuje,
+                że dany fragment jest szczególnie ważny.
+            </p>
+
+            <p>
+                <code>&lt;b&gt;</code> służy do zwrócenia
+                uwagi na fragment tekstu bez nadawania mu
+                dodatkowego znaczenia ważności.
+            </p>
+
+            <h3>em a i – jaka jest różnica?</h3>
+
+            <p>
+                <code>&lt;em&gt;</code> oznacza nacisk
+                na określone słowa.
+            </p>
+
+            <p>
+                <code>&lt;i&gt;</code> służy np. do oznaczania
+                terminów, myśli lub tytułów, które chcemy
+                odróżnić od pozostałego tekstu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Znaczniki <code>strong</code> i <code>em</code>
+                    przekazują znaczenie treści.
+                    Sam wygląd tekstu można później zmieniać za pomocą CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="indeksy">
+
+            <h2>5. Indeksy górne i dolne</h2>
+
+            <p>
+                Indeksy wykorzystujemy m.in. we wzorach
+                matematycznych i chemicznych.
+            </p>
+
+            <h3>Indeks górny – &lt;sup&gt;</h3>
+
+            <pre><code class="language-html">&lt;p&gt;x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre>
+
+            <p>Efekt: x² + y² = z²</p>
+
+            <h3>Indeks dolny – &lt;sub&gt;</h3>
+
+            <pre><code class="language-html">&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;CO&lt;sub&gt;2&lt;/sub&gt;&lt;/p&gt;</code></pre>
+
+            <p>Efekt: H₂O oraz CO₂</p>
+
+        </section>
+
+        <section id="znaki">
+
+            <h2>6. Znaki specjalne w HTML</h2>
+
+            <p>
+                Niektóre znaki mają w HTML specjalne znaczenie.
+                Aby wyświetlić je jako zwykły tekst,
+                stosujemy <strong>encje HTML</strong>.
+            </p>
+
+            <p>
+                Encja rozpoczyna się znakiem
+                <code>&amp;</code>, a kończy średnikiem
+                <code>;</code>.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Encja HTML</th>
+                    <th>Wyświetlany znak</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>&amp;lt;</code></td>
+                    <td>&lt;</td>
+                    <td>Znak mniejszości</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;gt;</code></td>
+                    <td>&gt;</td>
+                    <td>Znak większości</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;amp;</code></td>
+                    <td>&amp;</td>
+                    <td>Ampersand</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;nbsp;</code></td>
+                    <td>Spacja nierozdzielająca</td>
+                    <td>Zapobiega złamaniu tekstu w danym miejscu</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;copy;</code></td>
+                    <td>©</td>
+                    <td>Prawa autorskie</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;reg;</code></td>
+                    <td>®</td>
+                    <td>Zarejestrowany znak towarowy</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;euro;</code></td>
+                    <td>€</td>
+                    <td>Euro</td>
+                </tr>
+                <tr>
+                    <td><code>&amp;trade;</code></td>
+                    <td>™</td>
+                    <td>Oznaczenie znaku towarowego</td>
+                </tr>
+            </table>
+
+            <h3>Przykład 1 – wyświetlanie znaczników HTML</h3>
+
+            <pre><code class="language-html">&lt;p&gt;Znacznik &amp;lt;p&amp;gt; tworzy akapit.&lt;/p&gt;</code></pre>
+
+            <p>
+                W przeglądarce pojawi się informacja:
+                Znacznik <code>&lt;p&gt;</code> tworzy akapit.
+            </p>
+
+            <h3>Przykład 2 – znaki matematyczne</h3>
+
+            <pre><code class="language-html">&lt;p&gt;5 &amp;lt; 10&lt;/p&gt;
+&lt;p&gt;20 &amp;gt; 15&lt;/p&gt;</code></pre>
+
+            <h3>Przykład 3 – stopka strony</h3>
+
+            <pre><code class="language-html">&lt;p&gt;&amp;copy; 2026 STREFA IT. Wszelkie prawa zastrzeżone.&lt;/p&gt;</code></pre>
+
+            <h3>Przykład 4 – spacja nierozdzielająca</h3>
+
+            <pre><code class="language-html">&lt;p&gt;Cena produktu wynosi 100&amp;nbsp;zł.&lt;/p&gt;</code></pre>
+
+            <p>
+                Dzięki <code>&amp;nbsp;</code> liczba i oznaczenie
+                waluty nie zostaną rozdzielone na dwa wiersze.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Polskie litery, takie jak ą, ć, ę, ł, ń, ó, ś, ź, ż,
+                    można wpisywać bezpośrednio w kodzie HTML,
+                    jeśli dokument jest zapisany w UTF-8.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="komentarze">
+
+            <h2>7. Komentarze HTML</h2>
+
+            <p>
+                Komentarze służą do umieszczania informacji
+                w kodzie źródłowym strony.
+                Nie są wyświetlane jako treść strony
+                w przeglądarce.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- To jest komentarz HTML --&gt;
+
+&lt;h1&gt;Moja strona&lt;/h1&gt;
+
+&lt;!-- Początek sekcji z aktualnościami --&gt;
+&lt;h2&gt;Aktualności&lt;/h2&gt;
+&lt;p&gt;Treść aktualności.&lt;/p&gt;</code></pre>
+
+            <p>
+                Komentarze ułatwiają organizację kodu
+                i opisywanie jego fragmentów.
+                Są jednak widoczne w kodzie źródłowym strony.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>8. Przykład kompletnej strony HTML</h2>
+
+            <p>
+                Poniższy przykład łączy poznane znaczniki
+                w jednym dokumencie.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja pierwsza publikacja&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Świat nowych technologii&lt;/h1&gt;
+
+    &lt;p&gt;
+        Technologie zmieniają nasze codzienne życie.
+        &lt;strong&gt;Internet&lt;/strong&gt; jest jednym
+        z najważniejszych narzędzi komunikacji.
+    &lt;/p&gt;
+
+    &lt;h2&gt;Sztuczna inteligencja&lt;/h2&gt;
+
+    &lt;p&gt;
+        &lt;mark&gt;Sztuczna inteligencja&lt;/mark&gt;
+        znajduje zastosowanie w wielu dziedzinach.
+    &lt;/p&gt;
+
+    &lt;h2&gt;Ciekawostki naukowe&lt;/h2&gt;
+
+    &lt;p&gt;
+        Wzór wody: H&lt;sub&gt;2&lt;/sub&gt;O&lt;br&gt;
+        Pole kwadratu: a&lt;sup&gt;2&lt;/sup&gt;
+    &lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;p&gt;
+        &lt;small&gt;&amp;copy; 2026 Moja publikacja&lt;/small&gt;
+    &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>&lt;h1&gt; – &lt;h6&gt;</code> – nagłówki o różnym poziomie ważności.</li>
+                    <li><code>&lt;p&gt;</code> – akapit tekstu.</li>
+                    <li><code>&lt;br&gt;</code> – przejście do nowego wiersza.</li>
+                    <li><code>&lt;hr&gt;</code> – tematyczne oddzielenie treści.</li>
+                    <li><code>&lt;strong&gt;</code> – ważna informacja.</li>
+                    <li><code>&lt;em&gt;</code> – zaakcentowanie tekstu.</li>
+                    <li><code>&lt;mark&gt;</code> – zaznaczenie tekstu.</li>
+                    <li><code>&lt;del&gt;</code> i <code>&lt;ins&gt;</code> – treść usunięta i dodana.</li>
+                    <li><code>&lt;sup&gt;</code> i <code>&lt;sub&gt;</code> – indeksy górne i dolne.</li>
+                    <li>Encje HTML umożliwiają zapis znaków specjalnych.</li>
+                    <li>Komentarze nie są wyświetlane jako treść strony.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- LEKCJA 2 – ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Lekcja 2 – Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie dokumentów HTML
+                z wykorzystaniem poznanych znaczników tekstowych.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_04</code>.
+                Każde zadanie wykonaj w osobnym pliku HTML.
+                Nie korzystaj z CSS – skup się na poprawnej
+                strukturze i znacznikach HTML.
+            </p>
+
+            <h3>Zadanie 1 – Artykuł internetowy</h3>
+
+            <p>
+                Utwórz plik <code>artykul.html</code>
+                zawierający artykuł pt.
+                <strong>„Technologie, które zmieniają świat”</strong>.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj główny tytuł za pomocą <code>&lt;h1&gt;</code>.</li>
+                <li>Utwórz minimum 3 śródtytuły <code>&lt;h2&gt;</code>.</li>
+                <li>Napisz minimum 4 akapity własnego tekstu.</li>
+                <li>Wyróżnij co najmniej 3 ważne informacje za pomocą <code>&lt;strong&gt;</code>.</li>
+                <li>Użyj przynajmniej raz <code>&lt;em&gt;</code> oraz <code>&lt;mark&gt;</code>.</li>
+                <li>Na końcu artykułu dodaj informację o autorze za pomocą <code>&lt;small&gt;</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Menu kawiarni</h3>
+
+            <p>
+                Utwórz plik <code>menu.html</code>
+                przedstawiający menu wymyślonej kawiarni.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Wymyśl nazwę kawiarni i umieść ją w nagłówku <code>&lt;h1&gt;</code>.</li>
+                <li>Utwórz minimum 3 kategorie, np. kawy, herbaty i desery.</li>
+                <li>W każdej kategorii umieść minimum 3 produkty wraz z cenami.</li>
+                <li>Nazwy produktów wyróżnij za pomocą <code>&lt;strong&gt;</code>.</li>
+                <li>Opisy produktów umieść w akapitach.</li>
+                <li>Wszystkie ceny podaj w euro, wykorzystując encję <code>&amp;euro;</code>.</li>
+                <li>Oddziel wybrane kategorie znacznikiem <code>&lt;hr&gt;</code>.</li>
+                <li>Dodaj informację o promocji, wykorzystując <code>&lt;del&gt;</code> i <code>&lt;ins&gt;</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Nauka zapisana w HTML</h3>
+
+            <p>
+                Utwórz plik <code>nauka.html</code>
+                przedstawiający krótką ściągę edukacyjną
+                z matematyki i chemii.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj główny tytuł strony.</li>
+                <li>Utwórz dwie sekcje: „Matematyka” i „Chemia”.</li>
+                <li>Zapisz minimum 4 przykłady z indeksami górnymi, np. x², a³.</li>
+                <li>Zapisz minimum 4 wzory chemiczne z indeksami dolnymi, np. H₂O, CO₂.</li>
+                <li>Dodaj 3 przykłady porównywania liczb z wykorzystaniem <code>&amp;lt;</code> i <code>&amp;gt;</code>.</li>
+                <li>Wyróżnij najważniejszy wzór znacznikiem <code>&lt;mark&gt;</code>.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Ogłoszenie o wydarzeniu</h3>
+
+            <p>
+                Utwórz plik <code>wydarzenie.html</code>
+                zawierający ogłoszenie o wymyślonym
+                wydarzeniu szkolnym, np. turnieju gier,
+                konkursie informatycznym lub dniu technologii.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj tytuł wydarzenia za pomocą <code>&lt;h1&gt;</code>.</li>
+                <li>Podaj datę, miejsce i godzinę wydarzenia.</li>
+                <li>Utwórz minimum 3 sekcje z nagłówkami.</li>
+                <li>Opisz program wydarzenia własnymi słowami.</li>
+                <li>Wykorzystaj minimum 10 różnych znaczników HTML poznanych na lekcji.</li>
+                <li>Zastosuj minimum 3 różne encje HTML.</li>
+                <li>Dodaj przynajmniej jeden komentarz w kodzie HTML.</li>
+                <li>Na końcu umieść stopkę tekstową ze znakiem ©.</li>
+            </ol>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie pliki umieść w folderze
+                    <code>PSI_04</code>, a następnie
+                    spakuj folder do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Pamiętaj, że teksty powinny być
+                    <strong>Twojego autorstwa</strong>,
+                    a wszystkie pliki muszą poprawnie
+                    otwierać się w przeglądarce.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="ocena">
+
+            <h2>Kryteria oceny</h2>
+
+            <table>
+                <tr>
+                    <th>Kryterium</th>
+                    <th>Punkty</th>
+                </tr>
+                <tr>
+                    <td>Zadanie 1 – Artykuł internetowy</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 2 – Menu kawiarni</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 3 – Nauka zapisana w HTML</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 4 – Ogłoszenie o wydarzeniu</td>
+                    <td>4 pkt</td>
+                </tr>
+                <tr>
+                    <td>Poprawna struktura dokumentów HTML i komplet plików</td>
+                    <td>2 pkt</td>
+                </tr>
+                <tr>
+                    <th>Razem</th>
+                    <th>15 pkt</th>
+                </tr>
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 04
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
