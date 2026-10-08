@@ -1,0 +1,836 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 07 – Odnośniki i nawigacja | STREFA IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1. Wprowadzenie</a>
+        <a href="#znacznik-a">2. Znacznik a i atrybut href</a>
+        <a href="#zewnetrzne">3. Hiperłącza zewnętrzne</a>
+        <a href="#wewnetrzne">4. Hiperłącza wewnętrzne</a>
+        <a href="#sciezki">5. Ścieżki do plików</a>
+        <a href="#kotwice">6. Kotwice</a>
+        <a href="#nawigacja">7. Nawigacja między podstronami</a>
+        <a href="#inne">8. Inne rodzaje odnośników</a>
+        <a href="#bledy">9. Najczęstsze błędy</a>
+        <a href="#przyklad">10. Przykład kompletnej witryny</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 07 • Odnośniki – hiperłącza wewnętrzne,
+                zewnętrzne, kotwice i nawigacja między podstronami
+            </div>
+
+            <h2>Odnośniki – hiperłącza wewnętrzne, zewnętrzne, kotwice i nawigacja między podstronami</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad tworzenia hiperłączy w HTML,
+                stosowanie odnośników wewnętrznych i zewnętrznych,
+                wykorzystywanie kotwic oraz tworzenie nawigacji
+                pomiędzy podstronami witryny internetowej.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Odnośniki, nazywane również hiperłączami lub linkami,
+                umożliwiają przechodzenie pomiędzy stronami internetowymi,
+                podstronami jednej witryny oraz wybranymi fragmentami
+                tego samego dokumentu.
+            </p>
+
+            <p>
+                Dzięki odnośnikom użytkownik może przeglądać
+                zawartość witryny, otwierać dokumenty,
+                korzystać z menu nawigacyjnego
+                i przechodzić do innych serwisów internetowych.
+            </p>
+
+            <p>Wyróżniamy między innymi:</p>
+
+            <ul>
+                <li><strong>Hiperłącza zewnętrzne</strong> – prowadzą do innych witryn internetowych.</li>
+                <li><strong>Hiperłącza wewnętrzne</strong> – prowadzą do podstron i plików naszej witryny.</li>
+                <li><strong>Kotwice</strong> – prowadzą do określonych miejsc na stronie.</li>
+                <li><strong>Odnośniki specjalne</strong> – mogą np. uruchamiać program pocztowy lub wybieranie numeru telefonu.</li>
+            </ul>
+
+        </section>
+
+        <section id="znacznik-a">
+
+            <h2>2. Znacznik a i atrybut href</h2>
+
+            <p>
+                Hiperłącza tworzymy za pomocą znacznika
+                <code>&lt;a&gt;</code>.
+                Najważniejszym atrybutem jest <code>href</code>,
+                który wskazuje adres docelowy.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;a href="adres"&gt;Tekst odnośnika&lt;/a&gt;</code></pre>
+
+            <p>Znaczenie poszczególnych elementów:</p>
+
+            <ul>
+                <li><code>a</code> – znacznik hiperłącza.</li>
+                <li><code>href</code> – adres strony, pliku lub wskazanej sekcji.</li>
+                <li>Tekst odnośnika – widoczny element, który użytkownik może kliknąć.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;a href="https://www.wikipedia.org/"&gt;Odwiedź Wikipedię&lt;/a&gt;</code></pre>
+
+            <p><strong>Efekt w przeglądarce:</strong></p>
+
+            <p>
+                <a href="https://www.wikipedia.org/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Odwiedź Wikipedię
+                </a>
+            </p>
+
+            <p>
+                Domyślnie przeglądarki zwykle wyświetlają
+                odnośniki jako podkreślony tekst.
+                Ich wygląd można zmienić za pomocą CSS.
+            </p>
+
+        </section>
+
+        <section id="zewnetrzne">
+
+            <h2>3. Hiperłącza zewnętrzne</h2>
+
+            <p>
+                Hiperłącze zewnętrzne prowadzi do strony
+                znajdującej się w innej witrynie internetowej.
+                W atrybucie <code>href</code> podajemy pełny adres URL.
+            </p>
+
+            <h3>Przykład – przydatne strony</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Przydatne strony&lt;/h2&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href="https://www.google.com/"&gt;Google&lt;/a&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;
+        &lt;a href="https://developer.mozilla.org/"&gt;MDN&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Otwieranie w nowej karcie</h3>
+
+            <p>
+                Atrybut <code>target="_blank"</code> powoduje
+                otwarcie odnośnika w nowej karcie lub oknie.
+            </p>
+
+            <pre><code class="language-html">&lt;a href="https://www.wikipedia.org/"
+   target="_blank"
+   rel="noopener noreferrer"&gt;
+    Wikipedia – otwórz w nowej karcie
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Atrybut <code>rel="noopener noreferrer"</code>
+                zwiększa bezpieczeństwo i prywatność
+                podczas otwierania zewnętrznych stron.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Adres odnośnika zewnętrznego powinien
+                    zawierać protokół, np.
+                    <code>https://www.example.com/</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wewnetrzne">
+
+            <h2>4. Hiperłącza wewnętrzne</h2>
+
+            <p>
+                Hiperłącza wewnętrzne prowadzą do innych plików
+                lub podstron należących do tej samej witryny.
+            </p>
+
+            <p>
+                Jeżeli pliki znajdują się w tym samym folderze,
+                wystarczy podać nazwę pliku.
+            </p>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    oferta.html
+    kontakt.html</code></pre>
+
+            <p>W pliku <code>index.html</code>:</p>
+
+            <pre><code class="language-html">&lt;a href="oferta.html"&gt;Oferta&lt;/a&gt;
+
+&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <p>W pliku <code>kontakt.html</code>:</p>
+
+            <pre><code class="language-html">&lt;a href="index.html"&gt;Powrót na stronę główną&lt;/a&gt;</code></pre>
+
+            <p>
+                Dzięki temu użytkownik może przechodzić
+                między podstronami bez konieczności
+                wpisywania ich adresów.
+            </p>
+
+        </section>
+
+        <section id="sciezki">
+
+            <h2>5. Ścieżki do plików – względne i bezwzględne</h2>
+
+            <p>
+                Ścieżka określa lokalizację pliku,
+                do którego ma prowadzić odnośnik.
+            </p>
+
+            <h3>Ścieżka bezwzględna</h3>
+
+            <p>
+                Zawiera pełny adres internetowy,
+                np.:
+            </p>
+
+            <pre><code class="language-html">&lt;a href="https://www.example.com/oferta.html"&gt;
+    Oferta
+&lt;/a&gt;</code></pre>
+
+            <h3>Ścieżka względna</h3>
+
+            <p>
+                Określa położenie pliku względem
+                bieżącego dokumentu HTML.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zapis</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>kontakt.html</code></td>
+                    <td>Plik w tym samym folderze.</td>
+                </tr>
+                <tr>
+                    <td><code>podstrony/oferta.html</code></td>
+                    <td>Plik w folderze podstrony.</td>
+                </tr>
+                <tr>
+                    <td><code>../index.html</code></td>
+                    <td>Plik w folderze nadrzędnym.</td>
+                </tr>
+                <tr>
+                    <td><code>../../index.html</code></td>
+                    <td>Plik dwa poziomy wyżej.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – podstrona w innym folderze</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    podstrony/
+        oferta.html
+        kontakt.html</code></pre>
+
+            <p>W pliku <code>index.html</code>:</p>
+
+            <pre><code class="language-html">&lt;a href="podstrony/oferta.html"&gt;Oferta&lt;/a&gt;</code></pre>
+
+            <p>W pliku <code>oferta.html</code>:</p>
+
+            <pre><code class="language-html">&lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;
+
+&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Zapis <code>../</code> oznacza
+                    przejście do folderu nadrzędnego.
+                    Każde kolejne <code>../</code>
+                    oznacza przejście o jeden poziom wyżej.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="kotwice">
+
+            <h2>6. Kotwice – przechodzenie do wybranego miejsca</h2>
+
+            <p>
+                Kotwice umożliwiają przejście do konkretnej
+                sekcji dokumentu HTML.
+                Wykorzystuje się je np. w spisach treści
+                i na długich stronach internetowych.
+            </p>
+
+            <p>Do utworzenia kotwicy potrzebujemy:</p>
+
+            <ol>
+                <li>Elementu z unikalnym atrybutem <code>id</code>.</li>
+                <li>Odnośnika z <code>href="#identyfikator"</code>.</li>
+            </ol>
+
+            <h3>Przykład – spis treści</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Moje zainteresowania&lt;/h1&gt;
+
+&lt;nav&gt;
+    &lt;a href="#sport"&gt;Sport&lt;/a&gt;
+    &lt;a href="#muzyka"&gt;Muzyka&lt;/a&gt;
+    &lt;a href="#gry"&gt;Gry komputerowe&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section id="sport"&gt;
+    &lt;h2&gt;Sport&lt;/h2&gt;
+    &lt;p&gt;Lubię jazdę na rowerze.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id="muzyka"&gt;
+    &lt;h2&gt;Muzyka&lt;/h2&gt;
+    &lt;p&gt;Słucham różnych gatunków muzyki.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id="gry"&gt;
+    &lt;h2&gt;Gry komputerowe&lt;/h2&gt;
+    &lt;p&gt;Interesuję się grami strategicznymi.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Kliknięcie odnośnika „Muzyka”
+                spowoduje przejście do sekcji
+                oznaczonej <code>id="muzyka"</code>.
+            </p>
+
+            <h3>Powrót na górę strony</h3>
+
+            <pre><code class="language-html">&lt;h1 id="gora"&gt;Moja strona&lt;/h1&gt;
+
+&lt;p&gt;Zawartość strony...&lt;/p&gt;
+
+&lt;a href="#gora"&gt;↑ Powrót na górę&lt;/a&gt;</code></pre>
+
+            <h3>Kotwica na innej podstronie</h3>
+
+            <pre><code class="language-html">&lt;a href="oferta.html#cennik"&gt;
+    Przejdź do cennika
+&lt;/a&gt;</code></pre>
+
+            <p>
+                W pliku <code>oferta.html</code>
+                musi znajdować się element
+                z identyfikatorem <code>id="cennik"</code>.
+            </p>
+
+        </section>
+
+        <section id="nawigacja">
+
+            <h2>7. Nawigacja między podstronami</h2>
+
+            <p>
+                Nawigacja to zestaw odnośników
+                umożliwiających poruszanie się po witrynie.
+            </p>
+
+            <p>
+                Do oznaczania głównego obszaru nawigacji
+                służy znacznik <code>&lt;nav&gt;</code>.
+            </p>
+
+            <h3>Przykład – menu strony</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="oferta.html"&gt;Oferta&lt;/a&gt;
+    &lt;a href="galeria.html"&gt;Galeria&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <p>
+                Jeśli wszystkie pliki znajdują się
+                w jednym folderze, takie menu
+                może działać na każdej podstronie.
+            </p>
+
+            <p>
+                Znacznik <code>nav</code> określa
+                przeznaczenie obszaru strony.
+                Za wygląd menu odpowiada CSS.
+            </p>
+
+        </section>
+
+        <section id="inne">
+
+            <h2>8. Inne rodzaje odnośników</h2>
+
+            <h3>Odnośnik e-mail</h3>
+
+            <pre><code class="language-html">&lt;a href="mailto:kontakt@example.com"&gt;
+    Napisz do nas
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Po kliknięciu może zostać uruchomiony
+                program pocztowy użytkownika.
+            </p>
+
+            <h3>Odnośnik do numeru telefonu</h3>
+
+            <pre><code class="language-html">&lt;a href="tel:+48123456789"&gt;
+    Zadzwoń
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Jest szczególnie przydatny
+                na urządzeniach mobilnych.
+            </p>
+
+            <h3>Odnośnik do dokumentu</h3>
+
+            <pre><code class="language-html">&lt;a href="pliki/regulamin.pdf"&gt;
+    Otwórz regulamin
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Dokument musi znajdować się
+                we wskazanym folderze.
+            </p>
+
+            <h3>Obraz jako odnośnik</h3>
+
+            <pre><code class="language-html">&lt;a href="index.html"&gt;
+    &lt;img src="logo.png" alt="Strona główna"&gt;
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Kliknięcie obrazu spowoduje
+                przejście na stronę główną.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>9. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak href</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie jako działający odnośnik --&gt;
+&lt;a&gt;Kontakt&lt;/a&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <h3>Błąd 2 – błędna nazwa pliku</h3>
+
+            <pre><code class="language-html">&lt;!-- Plik nazywa się kontakt.html --&gt;
+
+&lt;!-- Niepoprawnie --&gt;
+&lt;a href="kontakty.html"&gt;Kontakt&lt;/a&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <h3>Błąd 3 – brak znaku # w kotwicy</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;a href="galeria"&gt;Galeria&lt;/a&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;a href="#galeria"&gt;Galeria&lt;/a&gt;
+
+&lt;section id="galeria"&gt;
+    &lt;h2&gt;Galeria&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            <h3>Błąd 4 – błędna ścieżka</h3>
+
+            <pre><code class="language-text">moja-strona/
+    index.html
+    podstrony/
+        kontakt.html</code></pre>
+
+            <p>W pliku <code>kontakt.html</code>:</p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;</code></pre>
+
+            <h3>Błąd 5 – powtarzające się identyfikatory</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;section id="kontakt"&gt;...&lt;/section&gt;
+&lt;section id="kontakt"&gt;...&lt;/section&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;section id="kontakt"&gt;...&lt;/section&gt;
+&lt;section id="oferta"&gt;...&lt;/section&gt;</code></pre>
+
+            <p>
+                Każde <code>id</code> powinno
+                być unikalne w obrębie strony.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>10. Przykład kompletnej witryny</h2>
+
+            <p>
+                Poniższy przykład przedstawia witrynę
+                składającą się z dwóch podstron.
+            </p>
+
+            <h3>Struktura folderów</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    kontakt.html</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja witryna&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="gora"&gt;
+        &lt;h1&gt;Moja witryna internetowa&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+        &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+        &lt;a href="#omnie"&gt;O mnie&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="omnie"&gt;
+            &lt;h2&gt;O mnie&lt;/h2&gt;
+            &lt;p&gt;Uczę się tworzenia stron WWW.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Przydatne materiały&lt;/h2&gt;
+
+            &lt;a href="https://developer.mozilla.org/"
+               target="_blank"
+               rel="noopener noreferrer"&gt;
+                Dokumentacja MDN
+            &lt;/a&gt;
+        &lt;/section&gt;
+
+        &lt;p&gt;
+            &lt;a href="#gora"&gt;↑ Powrót na górę&lt;/a&gt;
+        &lt;/p&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Moja witryna&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik kontakt.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Kontakt&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Kontakt&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+        &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;h2&gt;Dane kontaktowe&lt;/h2&gt;
+
+        &lt;p&gt;
+            &lt;a href="mailto:kontakt@example.com"&gt;
+                Napisz wiadomość
+            &lt;/a&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;a href="index.html#omnie"&gt;
+                Przejdź do sekcji O mnie
+            &lt;/a&gt;
+        &lt;/p&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Moja witryna&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Zapisz oba pliki w jednym folderze.
+                Następnie otwórz <code>index.html</code>
+                i sprawdź działanie wszystkich odnośników.
+            </p>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>&lt;a&gt;</code> – tworzy hiperłącze.</li>
+                    <li><code>href</code> – wskazuje adres docelowy.</li>
+                    <li><code>target="_blank"</code> – otwiera odnośnik w nowej karcie lub oknie.</li>
+                    <li>Odnośniki zewnętrzne prowadzą do innych witryn.</li>
+                    <li>Odnośniki wewnętrzne łączą podstrony tej samej witryny.</li>
+                    <li><code>../</code> – przejście do folderu nadrzędnego.</li>
+                    <li><code>#id</code> – przejście do określonej sekcji.</li>
+                    <li><code>id</code> – unikalny identyfikator elementu.</li>
+                    <li><code>&lt;nav&gt;</code> – oznacza obszar nawigacji.</li>
+                    <li><code>mailto:</code> – odnośnik do adresu e-mail.</li>
+                    <li><code>tel:</code> – odnośnik do numeru telefonu.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                Utwórz folder <code>PSI_07</code>.
+                Wykonaj zadania zgodnie z instrukcjami.
+                Nie korzystaj z CSS.
+            </p>
+
+            <h3>Zadanie 1 – Moje ulubione strony</h3>
+
+            <p>
+                Utwórz plik <code>linki.html</code>
+                przedstawiający zestawienie przydatnych
+                lub interesujących stron internetowych.
+            </p>
+
+            <ol>
+                <li>Dodaj główny nagłówek „Moje ulubione strony”.</li>
+                <li>Utwórz listę <code>ul</code> zawierającą minimum 5 odnośników zewnętrznych.</li>
+                <li>Każdy odnośnik powinien prowadzić do innej witryny.</li>
+                <li>Minimum 3 odnośniki powinny otwierać się w nowej karcie.</li>
+                <li>Przy każdym odnośniku umieść krótki opis strony.</li>
+                <li>Dodaj odnośnik e-mail za pomocą <code>mailto:</code>.</li>
+                <li>Sprawdź działanie wszystkich odnośników.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Spis treści z kotwicami</h3>
+
+            <p>
+                Utwórz plik <code>poradnik.html</code>
+                zawierający poradnik na wybrany temat,
+                np. „Jak dbać o komputer?”,
+                „Bezpieczeństwo w Internecie”
+                lub „Jak przygotować się do egzaminu?”.
+            </p>
+
+            <ol>
+                <li>Dodaj główny nagłówek poradnika.</li>
+                <li>Na początku strony utwórz spis treści w znaczniku <code>nav</code>.</li>
+                <li>Przygotuj minimum 5 sekcji oznaczonych znacznikiem <code>section</code>.</li>
+                <li>Każda sekcja powinna mieć unikalny identyfikator <code>id</code>.</li>
+                <li>W spisie treści umieść odnośniki prowadzące do wszystkich sekcji.</li>
+                <li>W każdej sekcji dodaj nagłówek i minimum jeden akapit własnego tekstu.</li>
+                <li>Na końcu każdej sekcji dodaj odnośnik „↑ Powrót na górę”.</li>
+                <li>Sprawdź działanie wszystkich kotwic.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Moja witryna internetowa</h3>
+
+            <p>
+                Utwórz niewielką witrynę na wybrany temat,
+                np. hobby, sport, podróże, gry komputerowe,
+                muzyka lub szkoła.
+            </p>
+
+            <p>
+                W folderze <code>PSI_07</code>
+                utwórz dodatkowy folder <code>moja-witryna</code>.
+            </p>
+
+            <p><strong>Wymagana struktura:</strong></p>
+
+            <pre><code class="language-text">PSI_07/
+    linki.html
+    poradnik.html
+    moja-witryna/
+        index.html
+        oferta.html
+        kontakt.html</code></pre>
+
+            <ol>
+                <li>W pliku <code>index.html</code> przygotuj stronę główną z opisem tematyki witryny.</li>
+                <li>W pliku <code>oferta.html</code> umieść minimum 3 sekcje opisujące wybrane zagadnienia.</li>
+                <li>W pliku <code>kontakt.html</code> dodaj przykładowe dane kontaktowe i odnośnik e-mail.</li>
+                <li>Na każdej podstronie utwórz takie samo menu w znaczniku <code>nav</code>.</li>
+                <li>Menu powinno zawierać odnośniki: Strona główna, Oferta, Kontakt.</li>
+                <li>Na stronie <code>oferta.html</code> dodaj spis treści prowadzący do jej trzech sekcji.</li>
+                <li>Na stronie głównej dodaj odnośnik prowadzący bezpośrednio do jednej z sekcji w pliku <code>oferta.html</code>.</li>
+                <li>Dodaj minimum jeden odnośnik zewnętrzny.</li>
+                <li>Sprawdź działanie nawigacji pomiędzy wszystkimi podstronami.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Rozbudowa witryny (dodatkowe)</h3>
+
+            <p>
+                Rozbuduj witrynę z zadania 3
+                o dodatkowy katalog <code>podstrony</code>
+                i plik <code>galeria.html</code>.
+            </p>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    oferta.html
+    kontakt.html
+    podstrony/
+        galeria.html</code></pre>
+
+            <ol>
+                <li>Utwórz plik <code>galeria.html</code> w folderze <code>podstrony</code>.</li>
+                <li>Dodaj nagłówek i opis galerii.</li>
+                <li>Dodaj odnośnik do strony głównej za pomocą <code>../index.html</code>.</li>
+                <li>Na stronie głównej dodaj odnośnik do <code>podstrony/galeria.html</code>.</li>
+                <li>Na stronie galerii dodaj odnośnik do wybranej sekcji w pliku <code>oferta.html</code>.</li>
+                <li>Sprawdź poprawność wszystkich ścieżek.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie pliki umieść w folderze
+                    <code>PSI_07</code>.
+                    Spakuj folder do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Zadania 1–3 są obowiązkowe.
+                    Zadanie 4 jest dodatkowe dla osób,
+                    które zakończą pracę wcześniej.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie wszystkich odnośników
+                    i poprawność ścieżek do plików.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 07
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
