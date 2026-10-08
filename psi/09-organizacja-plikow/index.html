@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 09 – Organizacja plików witryny | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#struktura">2.Struktura katalogów witryny</a>
+        <a href="#nazewnictwo">3.Nazewnictwo plików i folderów</a>
+        <a href="#wzgledne">4.Ścieżki względne</a>
+        <a href="#bezwzgledne">5.Ścieżki bezwzględne</a>
+        <a href="#porownanie">6.Porównanie ścieżek</a>
+        <a href="#zasoby">7.Ścieżki do różnych zasobów</a>
+        <a href="#podstrony">8.Ścieżki między podstronami</a>
+        <a href="#bledy">9.Najczęstsze błędy</a>
+        <a href="#przyklad">10.Przykład kompletnej witryny</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 09 • HTML5</div>
+
+            <h2>HTML5: Organizacja plików witryny. Ścieżki względne i bezwzględne do zasobów</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad organizowania plików
+                i folderów witryny internetowej,
+                stosowanie ścieżek względnych
+                i bezwzględnych oraz poprawne
+                odwoływanie się do podstron,
+                obrazów i arkuszy stylów CSS.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Witryna internetowa składa się zazwyczaj
+                z wielu plików: dokumentów HTML,
+                arkuszy stylów CSS, obrazów,
+                skryptów JavaScript oraz innych zasobów.
+            </p>
+
+            <p>
+                Aby wszystkie elementy działały prawidłowo,
+                należy odpowiednio zorganizować pliki
+                i poprawnie wskazywać ich lokalizację.
+            </p>
+
+            <p>
+                Dobrze uporządkowana witryna:
+            </p>
+
+            <ul>
+                <li>jest łatwiejsza w tworzeniu i rozwijaniu,</li>
+                <li>pozwala szybko odnaleźć potrzebne pliki,</li>
+                <li>ułatwia poprawianie błędów,</li>
+                <li>umożliwia przenoszenie projektu między komputerami,</li>
+                <li>ogranicza problemy z niedziałającymi obrazami i odnośnikami.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Wszystkie pliki należące do jednej witryny
+                    najlepiej przechowywać w jednym
+                    folderze głównym projektu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="struktura">
+
+            <h2>2. Struktura katalogów witryny</h2>
+
+            <p>
+                Struktura katalogów określa sposób
+                rozmieszczenia plików i folderów
+                w projekcie internetowym.
+            </p>
+
+            <h3>Przykład prostej witryny</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    oferta.html
+    kontakt.html
+    style.css
+    logo.png</code></pre>
+
+            <p>
+                Wszystkie pliki znajdują się
+                w jednym folderze.
+                Jest to rozwiązanie wystarczające
+                dla bardzo małych projektów.
+            </p>
+
+            <h3>Przykład uporządkowanej witryny</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        oferta.html
+        kontakt.html
+    css/
+        style.css
+    img/
+        logo.png
+        produkt.jpg
+    js/
+        skrypt.js</code></pre>
+
+            <p>
+                W tym przykładzie poszczególne rodzaje
+                plików zostały umieszczone
+                w osobnych folderach.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Folder lub plik</th>
+                    <th>Przeznaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>index.html</code></td>
+                    <td>Strona główna witryny.</td>
+                </tr>
+                <tr>
+                    <td><code>podstrony/</code></td>
+                    <td>Dodatkowe dokumenty HTML.</td>
+                </tr>
+                <tr>
+                    <td><code>css/</code></td>
+                    <td>Arkusze stylów CSS.</td>
+                </tr>
+                <tr>
+                    <td><code>img/</code></td>
+                    <td>Obrazy, zdjęcia i grafiki.</td>
+                </tr>
+                <tr>
+                    <td><code>js/</code></td>
+                    <td>Skrypty JavaScript.</td>
+                </tr>
+            </table>
+
+            <p>
+                W większych projektach można tworzyć
+                kolejne foldery, np.
+                <code>pliki</code>,
+                <code>audio</code> lub
+                <code>video</code>.
+            </p>
+
+        </section>
+
+        <section id="nazewnictwo">
+
+            <h2>3. Zasady nazewnictwa plików i folderów</h2>
+
+            <p>
+                Poprawne nazwy plików ułatwiają
+                pracę z witryną i zmniejszają
+                ryzyko błędów.
+            </p>
+
+            <h3>Zalecane zasady</h3>
+
+            <ol>
+                <li>Stosuj krótkie i zrozumiałe nazwy.</li>
+                <li>Unikaj spacji w nazwach plików i folderów.</li>
+                <li>Unikaj polskich znaków, np. ą, ć, ę, ł, ń.</li>
+                <li>Stosuj małe litery.</li>
+                <li>Wyrazy oddzielaj myślnikiem, np. <code>moja-strona.html</code>.</li>
+                <li>Zachowuj poprawne rozszerzenia plików.</li>
+            </ol>
+
+            <h3>Przykłady nazw</h3>
+
+            <table>
+                <tr>
+                    <th>Nazwa niezalecana</th>
+                    <th>Nazwa zalecana</th>
+                </tr>
+                <tr>
+                    <td><code>Moja Strona.html</code></td>
+                    <td><code>moja-strona.html</code></td>
+                </tr>
+                <tr>
+                    <td><code>Zdjęcie 1.JPG</code></td>
+                    <td><code>zdjecie-1.jpg</code></td>
+                </tr>
+                <tr>
+                    <td><code>Nowy Folder</code></td>
+                    <td><code>nowy-folder</code></td>
+                </tr>
+                <tr>
+                    <td><code>OfertaFirmy.HTML</code></td>
+                    <td><code>oferta-firmy.html</code></td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Na niektórych serwerach wielkość liter
+                    ma znaczenie. Pliki
+                    <code>Logo.png</code> i
+                    <code>logo.png</code>
+                    mogą być traktowane jako dwa
+                    różne pliki.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wzgledne">
+
+            <h2>4. Ścieżki względne</h2>
+
+            <p>
+                Ścieżka względna określa położenie
+                pliku względem bieżącego dokumentu
+                lub innej ustalonej lokalizacji.
+            </p>
+
+            <p>
+                W typowych odnośnikach HTML
+                i atrybutach <code>src</code>
+                ścieżka względna jest rozpatrywana
+                względem adresu bieżącego dokumentu.
+            </p>
+
+            <h3>Plik w tym samym folderze</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    kontakt.html</code></pre>
+
+            <pre><code class="language-html">&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <h3>Plik w podfolderze</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        oferta.html</code></pre>
+
+            <pre><code class="language-html">&lt;a href="podstrony/oferta.html"&gt;Oferta&lt;/a&gt;</code></pre>
+
+            <h3>Przejście do folderu nadrzędnego</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        oferta.html</code></pre>
+
+            <p>
+                W pliku <code>oferta.html</code>
+                umieszczamy:
+            </p>
+
+            <pre><code class="language-html">&lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;</code></pre>
+
+            <p>
+                Zapis <code>../</code> oznacza
+                przejście o jeden folder wyżej.
+            </p>
+
+            <h3>Przejście o dwa poziomy wyżej</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        produkty/
+            komputer.html</code></pre>
+
+            <p>
+                W pliku <code>komputer.html</code>:
+            </p>
+
+            <pre><code class="language-html">&lt;a href="../../index.html"&gt;Strona główna&lt;/a&gt;</code></pre>
+
+            <p>
+                Każdy zapis <code>../</code>
+                oznacza przejście do kolejnego
+                folderu nadrzędnego.
+            </p>
+
+            <h3>Najważniejsze zapisy</h3>
+
+            <table>
+                <tr>
+                    <th>Zapis</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>plik.html</code></td>
+                    <td>Plik w bieżącym folderze.</td>
+                </tr>
+                <tr>
+                    <td><code>./plik.html</code></td>
+                    <td>Plik w bieżącym folderze, wskazany jawnie.</td>
+                </tr>
+                <tr>
+                    <td><code>folder/plik.html</code></td>
+                    <td>Plik w podfolderze.</td>
+                </tr>
+                <tr>
+                    <td><code>../plik.html</code></td>
+                    <td>Plik poziom wyżej.</td>
+                </tr>
+                <tr>
+                    <td><code>../../plik.html</code></td>
+                    <td>Plik dwa poziomy wyżej.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="bezwzgledne">
+
+            <h2>5. Ścieżki bezwzględne</h2>
+
+            <p>
+                Ścieżka bezwzględna wskazuje
+                pełny adres zasobu, niezależnie
+                od położenia bieżącego pliku HTML.
+            </p>
+
+            <h3>Przykład – pełny adres internetowy</h3>
+
+            <pre><code class="language-html">&lt;a href="https://www.wikipedia.org/"&gt;
+    Wikipedia
+&lt;/a&gt;</code></pre>
+
+            <h3>Przykład – obraz z innej witryny</h3>
+
+            <pre><code class="language-html">&lt;img src="https://example.com/img/zdjecie.jpg"
+     alt="Przykładowe zdjęcie"&gt;</code></pre>
+
+            <p>
+                W drugim przykładzie adres jest
+                jedynie ilustracją składni.
+                Obraz nie musi istnieć
+                pod wskazanym adresem.
+            </p>
+
+            <h3>Adres rozpoczynający się od /</h3>
+
+            <p>
+                W witrynach internetowych można
+                również spotkać ścieżki
+                rozpoczynające się od ukośnika
+                <code>/</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;img src="/img/logo.png" alt="Logo witryny"&gt;</code></pre>
+
+            <p>
+                Taki zapis wskazuje plik względem
+                katalogu głównego danej domeny,
+                a nie względem bieżącego folderu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga – GitHub Pages</h3>
+
+                <p>
+                    Jeśli witryna jest opublikowana
+                    pod adresem zawierającym nazwę
+                    repozytorium, np.
+                    <code>https://uzytkownik.github.io/moja-witryna/</code>,
+                    zapis <code>/img/logo.png</code>
+                    będzie szukał obrazu od początku
+                    domeny, a nie od folderu
+                    <code>moja-witryna</code>.
+                </p>
+
+                <p>
+                    Dlatego w naszych projektach
+                    najczęściej będziemy stosować
+                    <strong>ścieżki względne</strong>,
+                    np. <code>img/logo.png</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>6. Porównanie ścieżek względnych i bezwzględnych</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>Ścieżka względna</th>
+                    <th>Pełny adres URL</th>
+                </tr>
+                <tr>
+                    <td>Przykład</td>
+                    <td><code>img/logo.png</code></td>
+                    <td><code>https://example.com/img/logo.png</code></td>
+                </tr>
+                <tr>
+                    <td>Punkt odniesienia</td>
+                    <td>Bieżący dokument HTML.</td>
+                    <td>Adres podany w URL.</td>
+                </tr>
+                <tr>
+                    <td>Przenoszenie projektu</td>
+                    <td>Zwykle łatwiejsze.</td>
+                    <td>Może wymagać zmiany adresów.</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Własne podstrony i zasoby.</td>
+                    <td>Zasoby dostępne pod konkretnym adresem.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład porównawczy</h3>
+
+            <pre><code class="language-html">&lt;!-- Ścieżka względna --&gt;
+&lt;img src="img/logo.png" alt="Logo"&gt;
+
+&lt;!-- Pełny adres URL --&gt;
+&lt;img src="https://example.com/img/logo.png"
+     alt="Logo"&gt;</code></pre>
+
+            <p>
+                Ścieżki względne są wygodne,
+                ponieważ po przeniesieniu całego
+                folderu projektu do innej lokalizacji
+                zwykle nadal działają, o ile
+                zachowamy jego strukturę.
+            </p>
+
+        </section>
+
+        <section id="zasoby">
+
+            <h2>7. Ścieżki do różnych zasobów</h2>
+
+            <p>
+                Ścieżki wykorzystujemy nie tylko
+                w hiperłączach, ale również
+                podczas dołączania obrazów,
+                arkuszy CSS i skryptów JavaScript.
+            </p>
+
+            <h3>Przykładowa struktura projektu</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    css/
+        style.css
+    img/
+        logo.png
+    js/
+        skrypt.js</code></pre>
+
+            <h3>Odnośnik do podstrony</h3>
+
+            <pre><code class="language-html">&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre>
+
+            <p>
+                Ten odnośnik zadziała,
+                jeśli plik <code>kontakt.html</code>
+                znajduje się w tym samym folderze
+                co dokument zawierający odnośnik.
+            </p>
+
+            <h3>Dołączanie obrazu</h3>
+
+            <pre><code class="language-html">&lt;img src="img/logo.png" alt="Logo witryny"&gt;</code></pre>
+
+            <h3>Dołączanie arkusza CSS</h3>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+
+            <p>
+                Znacznik <code>&lt;link&gt;</code>
+                umieszczamy zwykle w sekcji
+                <code>&lt;head&gt;</code>.
+            </p>
+
+            <h3>Dołączanie skryptu JavaScript</h3>
+
+            <pre><code class="language-html">&lt;script src="js/skrypt.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>
+                Znacznik <code>&lt;script&gt;</code>
+                może znajdować się np.
+                przed zamknięciem
+                <code>&lt;/body&gt;</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    W każdym przypadku należy
+                    wskazać właściwą lokalizację
+                    pliku względem dokumentu,
+                    w którym zapisujemy ścieżkę.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="podstrony">
+
+            <h2>8. Ścieżki między podstronami</h2>
+
+            <p>
+                Im bardziej rozbudowana witryna,
+                tym ważniejsze jest poprawne
+                wskazywanie ścieżek między
+                jej podstronami.
+            </p>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    css/
+        style.css
+    img/
+        logo.png
+    podstrony/
+        oferta.html
+        kontakt.html</code></pre>
+
+            <h3>Odnośniki w pliku index.html</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="podstrony/oferta.html"&gt;Oferta&lt;/a&gt;
+    &lt;a href="podstrony/kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h3>Odnośniki w pliku oferta.html</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="oferta.html"&gt;Oferta&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h3>Obraz w pliku oferta.html</h3>
+
+            <pre><code class="language-html">&lt;img src="../img/logo.png"
+     alt="Logo witryny"&gt;</code></pre>
+
+            <h3>CSS w pliku oferta.html</h3>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="../css/style.css"&gt;</code></pre>
+
+            <p>
+                Zwróć uwagę, że plik
+                <code>oferta.html</code> znajduje się
+                w folderze <code>podstrony</code>.
+                Aby uzyskać dostęp do folderów
+                <code>img</code> i <code>css</code>,
+                należy najpierw przejść
+                o jeden poziom wyżej.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>9. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – niepoprawna nazwa pliku</h3>
+
+            <p>
+                Plik ma nazwę <code>logo.png</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img src="Logo.PNG" alt="Logo"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="logo.png" alt="Logo"&gt;</code></pre>
+
+            <h3>Błąd 2 – pominięty folder</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    img/
+        kot.jpg</code></pre>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;img src="kot.jpg" alt="Kot"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="img/kot.jpg" alt="Kot"&gt;</code></pre>
+
+            <h3>Błąd 3 – nieprawidłowa liczba ../</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        oferta.html</code></pre>
+
+            <p>
+                W pliku <code>oferta.html</code>:
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;a href="../../index.html"&gt;Strona główna&lt;/a&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;</code></pre>
+
+            <h3>Błąd 4 – ścieżka do pliku na komputerze</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie w projekcie publikowanym w sieci --&gt;
+&lt;img src="C:\Users\Uczen\Desktop\kot.jpg"
+     alt="Kot"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;img src="img/kot.jpg" alt="Kot"&gt;</code></pre>
+
+            <p>
+                Ścieżki prowadzące do plików
+                na dysku konkretnego komputera
+                nie będą działać po opublikowaniu
+                witryny na serwerze.
+            </p>
+
+            <h3>Błąd 5 – przeniesienie pliku bez poprawienia ścieżek</h3>
+
+            <p>
+                Jeśli przeniesiemy plik HTML
+                do innego folderu, zapisane
+                w nim ścieżki względne
+                mogą wymagać zmiany.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- W pliku index.html --&gt;
+&lt;img src="img/logo.png" alt="Logo"&gt;
+
+&lt;!-- Po przeniesieniu dokumentu do podstrony/ --&gt;
+&lt;img src="../img/logo.png" alt="Logo"&gt;</code></pre>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>10. Przykład kompletnej witryny</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                prostą witrynę z uporządkowaną
+                strukturą folderów.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">moja-witryna/
+    index.html
+    podstrony/
+        kontakt.html
+    css/
+        style.css
+    img/
+        logo.png</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja witryna&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;img src="img/logo.png"
+             alt="Logo witryny"
+             width="150"&gt;
+
+        &lt;h1&gt;Moja witryna&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+        &lt;a href="podstrony/kontakt.html"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;h2&gt;Witaj!&lt;/h2&gt;
+        &lt;p&gt;To jest strona główna mojej witryny.&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Moja witryna&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik podstrony/kontakt.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Kontakt&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../css/style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;img src="../img/logo.png"
+             alt="Logo witryny"
+             width="150"&gt;
+
+        &lt;h1&gt;Kontakt&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="../index.html"&gt;Strona główna&lt;/a&gt;
+        &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;h2&gt;Dane kontaktowe&lt;/h2&gt;
+        &lt;p&gt;E-mail: kontakt@example.com&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Moja witryna&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik css/style.css</h3>
+
+            <pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+}
+
+nav a {
+    margin-right: 15px;
+}</code></pre>
+
+            <p>
+                Zwróć uwagę, że obie podstrony
+                korzystają z tego samego arkusza CSS
+                i tego samego obrazu,
+                ale używają innych ścieżek względnych.
+            </p>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Pliki jednej witryny przechowujemy w folderze głównym projektu.</li>
+                    <li><code>index.html</code> to typowa nazwa strony głównej.</li>
+                    <li>Folder <code>img</code> przeznaczamy na obrazy.</li>
+                    <li>Folder <code>css</code> przeznaczamy na arkusze stylów.</li>
+                    <li>Folder <code>js</code> przeznaczamy na skrypty JavaScript.</li>
+                    <li>Ścieżka względna wskazuje położenie pliku względem określonego punktu odniesienia.</li>
+                    <li><code>../</code> oznacza przejście o jeden poziom wyżej.</li>
+                    <li><code>../../</code> oznacza przejście o dwa poziomy wyżej.</li>
+                    <li>Pełny adres URL zawiera np. <code>https://</code>.</li>
+                    <li>Ścieżki względne ułatwiają przenoszenie projektów.</li>
+                    <li>Wielkość liter w nazwach plików może mieć znaczenie.</li>
+                    <li>Po zmianie struktury katalogów należy sprawdzić działanie ścieżek.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne organizowanie folderów witryny,
+                tworzenie podstron i stosowanie
+                poprawnych ścieżek do plików HTML,
+                obrazów oraz arkuszy CSS.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_09</code>.
+                Wszystkie zadania wykonuj w ramach
+                jednego projektu.
+            </p>
+
+            <h3>Zadanie 1 – Organizacja plików witryny</h3>
+
+            <p>
+                Przygotuj strukturę folderów
+                dla witryny internetowej
+                poświęconej wybranemu tematowi,
+                np. podróżom, sportowi,
+                zwierzętom lub grom komputerowym.
+            </p>
+
+            <p><strong>Wymagana struktura:</strong></p>
+
+            <pre><code class="language-text">PSI_09/
+    index.html
+    podstrony/
+        oferta.html
+        kontakt.html
+    css/
+        style.css
+    img/
+        logo.png
+        zdjecie.jpg</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Utwórz folder główny <code>PSI_09</code>.</li>
+                <li>Utwórz foldery <code>podstrony</code>, <code>css</code> i <code>img</code>.</li>
+                <li>Utwórz wszystkie wymagane pliki HTML i CSS.</li>
+                <li>Wybierz dwa obrazy, zapisz je w folderze <code>img</code> pod nazwami <code>logo.png</code> i <code>zdjecie.jpg</code>.</li>
+                <li>Zadbaj o poprawne nazwy i rozszerzenia plików.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Nawigacja między podstronami</h3>
+
+            <p>
+                Uzupełnij pliki HTML
+                przygotowane w zadaniu 1.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>W pliku <code>index.html</code> dodaj tytuł i krótki opis witryny.</li>
+                <li>W pliku <code>oferta.html</code> dodaj nagłówek i minimum 3 akapity opisujące temat strony.</li>
+                <li>W pliku <code>kontakt.html</code> dodaj nagłówek oraz przykładowe dane kontaktowe.</li>
+                <li>Na każdej podstronie utwórz menu w znaczniku <code>&lt;nav&gt;</code>.</li>
+                <li>Menu powinno zawierać odnośniki: Strona główna, Oferta, Kontakt.</li>
+                <li>Zastosuj poprawne ścieżki względne.</li>
+                <li>Sprawdź, czy można przechodzić między wszystkimi podstronami.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Obrazy i arkusz CSS</h3>
+
+            <p>
+                Rozbuduj przygotowaną witrynę
+                o zasoby przechowywane
+                w osobnych folderach.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Na każdej podstronie umieść obraz <code>logo.png</code>.</li>
+                <li>Na stronie głównej umieść dodatkowy obraz <code>zdjecie.jpg</code>.</li>
+                <li>Każdy obraz powinien mieć odpowiedni atrybut <code>alt</code>.</li>
+                <li>Ustaw szerokość logo na 150 px, a dodatkowego zdjęcia na 350 px.</li>
+                <li>Do każdej podstrony dołącz arkusz <code>css/style.css</code> za pomocą znacznika <code>&lt;link&gt;</code>.</li>
+                <li>W arkuszu CSS ustaw dowolny kolor nagłówków <code>h1</code>.</li>
+                <li>Ustaw dowolny kolor tła strony.</li>
+                <li>Sprawdź, czy obrazy i style działają na wszystkich podstronach.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Naprawianie błędnych ścieżek (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod.
+                Zakładamy, że znajduje się
+                w pliku <code>podstrony/oferta.html</code>
+                z zadania 1.
+            </p>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="podstrony/kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;img src="img/logo.png" alt="Logo"&gt;
+
+&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Popraw ścieżkę prowadzącą do strony głównej.</li>
+                <li>Popraw ścieżkę prowadzącą do pliku <code>kontakt.html</code>.</li>
+                <li>Popraw ścieżkę do obrazu <code>logo.png</code>.</li>
+                <li>Popraw ścieżkę do arkusza <code>style.css</code>.</li>
+                <li>Umieść poprawiony kod w odpowiednich miejscach pliku <code>oferta.html</code> i sprawdź jego działanie.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w ramach jednego projektu
+                    w folderze <code>PSI_09</code>.
+                </p>
+
+                <p>
+                    Ponieważ projekt zawiera kilka
+                    plików HTML, arkusz CSS
+                    i obrazy, spakuj cały folder
+                    <code>PSI_09</code> do archiwum ZIP
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie wszystkich podstron,
+                    odnośników, obrazów i stylów.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 09
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
