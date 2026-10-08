@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 06 – Listy HTML | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">Wprowadzenie</a>
+        <a href="#ul">Lista nieuporządkowana</a>
+        <a href="#ol">Lista uporządkowana</a>
+        <a href="#atrybuty">Atrybuty list numerowanych</a>
+        <a href="#zagniezdzone">Listy zagnieżdżone</a>
+        <a href="#mieszane">Łączenie różnych list</a>
+        <a href="#dl">Lista opisowa</a>
+        <a href="#bledy">Najczęstsze błędy</a>
+        <a href="#przyklad">Przykład kompletnej strony</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+        <a href="#ocena">✅ Kryteria oceny</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 06 • 2 × 45 MIN</div>
+
+            <h2>Listy uporządkowane, nieuporządkowane i zagnieżdżone</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie sposobów tworzenia list w HTML,
+                dobieranie odpowiedniego rodzaju listy do treści
+                oraz poprawne tworzenie list wielopoziomowych.
+            </p>
+        </div>
+
+        <!-- LEKCJA 1 – TEORIA -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Listy HTML służą do przedstawiania informacji
+                w postaci uporządkowanych punktów.
+                Wykorzystuje się je między innymi do tworzenia
+                instrukcji, planów, spisów, menu i zestawień.
+            </p>
+
+            <p>W HTML wyróżniamy trzy podstawowe rodzaje list:</p>
+
+            <ul>
+                <li><strong>Nieuporządkowane</strong> – kolejność elementów nie ma znaczenia.</li>
+                <li><strong>Uporządkowane</strong> – kolejność elementów jest istotna.</li>
+                <li><strong>Opisowe</strong> – przedstawiają terminy i ich opisy.</li>
+            </ul>
+
+            <p>
+                Listy uporządkowane i nieuporządkowane
+                mogą również zawierać kolejne listy,
+                tworząc strukturę wielopoziomową.
+            </p>
+
+        </section>
+
+        <section id="ul">
+
+            <h2>2. Lista nieuporządkowana – ul</h2>
+
+            <p>
+                Lista nieuporządkowana służy do prezentowania
+                elementów, których kolejność nie jest istotna.
+                Przeglądarka domyślnie oznacza je punktami.
+            </p>
+
+            <p>Wykorzystujemy dwa znaczniki:</p>
+
+            <ul>
+                <li><code>&lt;ul&gt;</code> – początek i koniec listy.</li>
+                <li><code>&lt;li&gt;</code> – pojedynczy element listy.</li>
+            </ul>
+
+            <h3>Przykład – lista zakupów</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Lista zakupów&lt;/h2&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Chleb&lt;/li&gt;
+    &lt;li&gt;Mleko&lt;/li&gt;
+    &lt;li&gt;Jajka&lt;/li&gt;
+    &lt;li&gt;Owoce&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Efekt w przeglądarce:</strong></p>
+
+            <ul>
+                <li>Chleb</li>
+                <li>Mleko</li>
+                <li>Jajka</li>
+                <li>Owoce</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Listy <code>ul</code> używamy wtedy,
+                    gdy nie ma znaczenia, który element
+                    znajduje się na pierwszym miejscu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="ol">
+
+            <h2>3. Lista uporządkowana – ol</h2>
+
+            <p>
+                Lista uporządkowana służy do przedstawiania
+                elementów w określonej kolejności.
+                Przeglądarka domyślnie numeruje jej elementy.
+            </p>
+
+            <p>Wykorzystujemy:</p>
+
+            <ul>
+                <li><code>&lt;ol&gt;</code> – lista uporządkowana.</li>
+                <li><code>&lt;li&gt;</code> – pojedynczy element listy.</li>
+            </ul>
+
+            <h3>Przykład – instrukcja uruchamiania programu</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Uruchamianie programu&lt;/h2&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Włącz komputer.&lt;/li&gt;
+    &lt;li&gt;Uruchom system operacyjny.&lt;/li&gt;
+    &lt;li&gt;Otwórz wybrany program.&lt;/li&gt;
+    &lt;li&gt;Rozpocznij pracę.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p><strong>Efekt w przeglądarce:</strong></p>
+
+            <ol>
+                <li>Włącz komputer.</li>
+                <li>Uruchom system operacyjny.</li>
+                <li>Otwórz wybrany program.</li>
+                <li>Rozpocznij pracę.</li>
+            </ol>
+
+            <p>
+                W tym przykładzie kolejność ma znaczenie,
+                ponieważ kolejne czynności wykonujemy
+                krok po kroku.
+            </p>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>4. Atrybuty list uporządkowanych</h2>
+
+            <p>
+                Znacznik <code>&lt;ol&gt;</code> może posiadać
+                atrybuty zmieniające sposób numerowania listy.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>type="1"</code></td>
+                    <td>Numerowanie 1, 2, 3...</td>
+                </tr>
+                <tr>
+                    <td><code>type="A"</code></td>
+                    <td>Wielkie litery A, B, C...</td>
+                </tr>
+                <tr>
+                    <td><code>type="a"</code></td>
+                    <td>Małe litery a, b, c...</td>
+                </tr>
+                <tr>
+                    <td><code>type="I"</code></td>
+                    <td>Wielkie liczby rzymskie I, II, III...</td>
+                </tr>
+                <tr>
+                    <td><code>type="i"</code></td>
+                    <td>Małe liczby rzymskie i, ii, iii...</td>
+                </tr>
+                <tr>
+                    <td><code>start</code></td>
+                    <td>Ustawienie początkowego numeru</td>
+                </tr>
+                <tr>
+                    <td><code>reversed</code></td>
+                    <td>Numerowanie w odwrotnej kolejności</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – numerowanie literami</h3>
+
+            <pre><code class="language-html">&lt;ol type="A"&gt;
+    &lt;li&gt;Odpowiedź pierwsza&lt;/li&gt;
+    &lt;li&gt;Odpowiedź druga&lt;/li&gt;
+    &lt;li&gt;Odpowiedź trzecia&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p><strong>Efekt:</strong></p>
+
+            <ol type="A">
+                <li>Odpowiedź pierwsza</li>
+                <li>Odpowiedź druga</li>
+                <li>Odpowiedź trzecia</li>
+            </ol>
+
+            <h3>Przykład – numerowanie od 5</h3>
+
+            <pre><code class="language-html">&lt;ol start="5"&gt;
+    &lt;li&gt;Piąty krok&lt;/li&gt;
+    &lt;li&gt;Szósty krok&lt;/li&gt;
+    &lt;li&gt;Siódmy krok&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <h3>Przykład – numerowanie malejące</h3>
+
+            <pre><code class="language-html">&lt;ol reversed&gt;
+    &lt;li&gt;Trzecie miejsce&lt;/li&gt;
+    &lt;li&gt;Drugie miejsce&lt;/li&gt;
+    &lt;li&gt;Pierwsze miejsce&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p>
+                Atrybut <code>reversed</code> powoduje,
+                że numeracja zmniejsza się wraz z kolejnymi
+                elementami listy.
+            </p>
+
+        </section>
+
+        <section id="zagniezdzone">
+
+            <h2>5. Listy zagnieżdżone</h2>
+
+            <p>
+                Lista zagnieżdżona to lista umieszczona
+                wewnątrz elementu <code>&lt;li&gt;</code>
+                innej listy.
+            </p>
+
+            <p>
+                Dzięki temu możemy tworzyć hierarchię
+                informacji, np. działy i poddziały.
+            </p>
+
+            <h3>Przykład – przedmioty szkolne</h3>
+
+            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Przedmioty ogólne
+        &lt;ul&gt;
+            &lt;li&gt;Matematyka&lt;/li&gt;
+            &lt;li&gt;Język polski&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;Przedmioty zawodowe
+        &lt;ul&gt;
+            &lt;li&gt;Programowanie&lt;/li&gt;
+            &lt;li&gt;Bazy danych&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Efekt w przeglądarce:</strong></p>
+
+            <ul>
+                <li>Przedmioty ogólne
+                    <ul>
+                        <li>Matematyka</li>
+                        <li>Język polski</li>
+                    </ul>
+                </li>
+                <li>Przedmioty zawodowe
+                    <ul>
+                        <li>Programowanie</li>
+                        <li>Bazy danych</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Listę wewnętrzną umieszczamy
+                    <strong>wewnątrz elementu li</strong>,
+                    a nie bezpośrednio obok niego.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="mieszane">
+
+            <h2>6. Łączenie list uporządkowanych i nieuporządkowanych</h2>
+
+            <p>
+                Listy można ze sobą łączyć.
+                W jednym elemencie listy uporządkowanej
+                może znajdować się lista nieuporządkowana
+                i odwrotnie.
+            </p>
+
+            <h3>Przykład – plan przygotowania projektu</h3>
+
+            <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Przygotuj materiały
+        &lt;ul&gt;
+            &lt;li&gt;Teksty&lt;/li&gt;
+            &lt;li&gt;Zdjęcia&lt;/li&gt;
+            &lt;li&gt;Grafiki&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;Utwórz stronę HTML&lt;/li&gt;
+
+    &lt;li&gt;Sprawdź działanie strony
+        &lt;ul&gt;
+            &lt;li&gt;Nagłówki&lt;/li&gt;
+            &lt;li&gt;Odnośniki&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p><strong>Efekt:</strong></p>
+
+            <ol>
+                <li>Przygotuj materiały
+                    <ul>
+                        <li>Teksty</li>
+                        <li>Zdjęcia</li>
+                        <li>Grafiki</li>
+                    </ul>
+                </li>
+                <li>Utwórz stronę HTML</li>
+                <li>Sprawdź działanie strony
+                    <ul>
+                        <li>Nagłówki</li>
+                        <li>Odnośniki</li>
+                    </ul>
+                </li>
+            </ol>
+
+        </section>
+
+        <section id="dl">
+
+            <h2>7. Lista opisowa – dl</h2>
+
+            <p>
+                Lista opisowa służy do przedstawiania
+                terminów i odpowiadających im opisów.
+                Można ją wykorzystać np. do stworzenia słownika pojęć.
+            </p>
+
+            <ul>
+                <li><code>&lt;dl&gt;</code> – lista opisowa.</li>
+                <li><code>&lt;dt&gt;</code> – termin.</li>
+                <li><code>&lt;dd&gt;</code> – opis terminu.</li>
+            </ul>
+
+            <h3>Przykład – słownik informatyczny</h3>
+
+            <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Język znaczników do tworzenia struktury stron WWW.&lt;/dd&gt;
+
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Język służący do stylowania stron internetowych.&lt;/dd&gt;
+
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Język programowania używany m.in. na stronach WWW.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+            <p>
+                Lista opisowa różni się od <code>ul</code>
+                i <code>ol</code>, ponieważ nie korzysta
+                ze znaczników <code>li</code>.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>8. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak elementów li</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;ul&gt;
+    Jabłka
+    Gruszki
+&lt;/ul&gt;</code></pre>
+
+            <pre><code class="language-html">&lt;!-- Poprawnie --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Jabłka&lt;/li&gt;
+    &lt;li&gt;Gruszki&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Błąd 2 – lista zagnieżdżona poza li</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Owoce&lt;/li&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Jabłka&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/ul&gt;</code></pre>
+
+            <pre><code class="language-html">&lt;!-- Poprawnie --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Owoce
+        &lt;ul&gt;
+            &lt;li&gt;Jabłka&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Błąd 3 – nieprawidłowe zamknięcie listy</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Pierwszy&lt;/li&gt;
+    &lt;li&gt;Drugi&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p>
+                Lista rozpoczęta znacznikiem
+                <code>&lt;ol&gt;</code> musi zostać zamknięta
+                znacznikiem <code>&lt;/ol&gt;</code>.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>9. Przykład kompletnej strony</h2>
+
+            <p>
+                Poniższa strona przedstawia plan wycieczki
+                z wykorzystaniem różnych rodzajów list.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Plan wycieczki&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Wycieczka do Krakowa&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Co zabrać?&lt;/h2&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Plecak&lt;/li&gt;
+                &lt;li&gt;Wodę&lt;/li&gt;
+                &lt;li&gt;Telefon&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Plan dnia&lt;/h2&gt;
+
+            &lt;ol&gt;
+                &lt;li&gt;Wyjazd ze szkoły&lt;/li&gt;
+
+                &lt;li&gt;Zwiedzanie
+                    &lt;ul&gt;
+                        &lt;li&gt;Rynek Główny&lt;/li&gt;
+                        &lt;li&gt;Wawel&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;Powrót do domu&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Plan wycieczki&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>ul</code> – lista nieuporządkowana.</li>
+                    <li><code>ol</code> – lista uporządkowana.</li>
+                    <li><code>li</code> – element listy.</li>
+                    <li><code>type</code> – sposób numerowania listy uporządkowanej.</li>
+                    <li><code>start</code> – numer początkowy.</li>
+                    <li><code>reversed</code> – numerowanie malejące.</li>
+                    <li>Listę zagnieżdżoną umieszczamy wewnątrz elementu <code>li</code>.</li>
+                    <li>Można łączyć listy <code>ul</code> i <code>ol</code>.</li>
+                    <li><code>dl</code>, <code>dt</code> i <code>dd</code> służą do tworzenia list opisowych.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- LEKCJA 2 – ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Lekcja 2 – Zadania praktyczne</h2>
+
+            <p>
+                Utwórz folder <code>PSI_06</code>.
+                Każde zadanie wykonaj w osobnym pliku HTML.
+                Nie korzystaj z CSS.
+            </p>
+
+            <h3>Zadanie 1 – Mój zestaw TOP 5</h3>
+
+            <p>
+                Utwórz plik <code>ranking.html</code>
+                przedstawiający ranking pięciu wybranych
+                przez Ciebie rzeczy, np. gier, filmów,
+                seriali, aplikacji lub miejsc.
+            </p>
+
+            <ol>
+                <li>Dodaj główny tytuł strony.</li>
+                <li>Utwórz ranking za pomocą listy <code>ol</code>.</li>
+                <li>Dodaj 5 pozycji wraz z krótkimi opisami.</li>
+                <li>Utwórz drugi ranking z numerowaniem rzymskim.</li>
+                <li>Dodaj listę numerowaną od 10.</li>
+                <li>Wykorzystaj atrybut <code>reversed</code> w osobnej liście.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Plan wymarzonego wyjazdu</h3>
+
+            <p>
+                Utwórz plik <code>wyjazd.html</code>
+                zawierający plan wycieczki do wybranego
+                miasta lub kraju.
+            </p>
+
+            <ol>
+                <li>Dodaj nazwę miejsca jako główny nagłówek.</li>
+                <li>Utwórz listę rzeczy do zabrania za pomocą <code>ul</code> – minimum 6 elementów.</li>
+                <li>Przygotuj plan wyjazdu na 3 dni za pomocą <code>ol</code>.</li>
+                <li>Każdy dzień powinien zawierać listę <code>ul</code> z minimum 3 atrakcjami.</li>
+                <li>Dodaj krótkie opisy wybranych atrakcji.</li>
+                <li>Zadbaj o poprawne zagnieżdżenie list.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Katalog sklepu komputerowego</h3>
+
+            <p>
+                Utwórz plik <code>sklep.html</code>
+                przedstawiający ofertę sklepu komputerowego.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek z nazwą sklepu.</li>
+                <li>Utwórz listę głównych kategorii produktów za pomocą <code>ul</code>.</li>
+                <li>Dodaj minimum 3 kategorie, np. komputery, akcesoria i podzespoły.</li>
+                <li>W każdej kategorii umieść listę z minimum 3 produktami.</li>
+                <li>W jednej z kategorii zastosuj dodatkowy, trzeci poziom zagnieżdżenia.</li>
+                <li>Dodaj listę <code>ol</code> przedstawiającą 5 najlepiej sprzedających się produktów.</li>
+                <li>Utwórz słownik <code>dl</code> z minimum 3 pojęciami komputerowymi i ich opisami.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Napraw listę HTML (dodatkowe)</h3>
+
+            <p>
+                Utwórz plik <code>poprawa.html</code>.
+                Przepisz poniższy kod i popraw wszystkie błędy.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Plan nauki&lt;/h2&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Nagłówki&lt;/li&gt;
+        &lt;li&gt;Listy&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Słownik&lt;/h2&gt;
+
+&lt;dl&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;dd&gt;Język znaczników&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+            <p>W poprawionej wersji:</p>
+
+            <ol>
+                <li>Umieść listę zagnieżdżoną w odpowiednim elemencie <code>li</code>.</li>
+                <li>Popraw niezgodne znaczniki otwierające i zamykające.</li>
+                <li>Zastosuj prawidłowe znaczniki listy opisowej.</li>
+                <li>Dodaj jeszcze jedną kategorię z listą zagnieżdżoną.</li>
+                <li>Sprawdź działanie strony w przeglądarce.</li>
+            </ol>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie pliki umieść w folderze
+                    <code>PSI_06</code>.
+                    Spakuj folder do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Zadania 1–3 są obowiązkowe.
+                    Zadanie 4 jest dodatkowe dla osób,
+                    które zakończą pracę wcześniej.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="ocena">
+
+            <h2>✅ Kryteria oceny</h2>
+
+            <table>
+                <tr>
+                    <th>Kryterium</th>
+                    <th>Punkty</th>
+                </tr>
+                <tr>
+                    <td>Zadanie 1 – Mój zestaw TOP 5</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 2 – Plan wymarzonego wyjazdu</td>
+                    <td>4 pkt</td>
+                </tr>
+                <tr>
+                    <td>Zadanie 3 – Katalog sklepu komputerowego</td>
+                    <td>5 pkt</td>
+                </tr>
+                <tr>
+                    <td>Poprawna struktura HTML i komplet plików</td>
+                    <td>3 pkt</td>
+                </tr>
+                <tr>
+                    <th>Razem – zadania obowiązkowe</th>
+                    <th>15 pkt</th>
+                </tr>
+                <tr>
+                    <td>Zadanie 4 – dodatkowe</td>
+                    <td>+3 pkt</td>
+                </tr>
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 06
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
