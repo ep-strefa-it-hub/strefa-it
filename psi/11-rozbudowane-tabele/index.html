@@ -1,0 +1,1273 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 11 – Rozbudowane tabele HTML | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#colspan">2.Scalanie kolumn – colspan</a>
+        <a href="#rowspan">3.Scalanie wierszy – rowspan</a>
+        <a href="#laczenie">4.Łączenie rowspan i colspan</a>
+        <a href="#planowanie">5.Planowanie struktury tabeli</a>
+        <a href="#sekcje">6.Sekcje thead, tbody, tfoot</a>
+        <a href="#naglowki">7.Nagłówki w rozbudowanych tabelach</a>
+        <a href="#podsumowania">8.Podsumowania i zestawienia</a>
+        <a href="#bledy">9.Najczęstsze błędy</a>
+        <a href="#przyklad">10.Przykład kompletnej strony</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 11 • HTML5</div>
+
+            <h2>HTML5: Rozbudowane tabele – scalanie komórek, rowspan, colspan i sekcje tabeli</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                tworzenie rozbudowanych tabel HTML,
+                poprawne stosowanie atrybutów
+                <code>colspan</code> i <code>rowspan</code>,
+                planowanie układu komórek oraz
+                wykorzystywanie sekcji
+                <code>thead</code>,
+                <code>tbody</code> i
+                <code>tfoot</code>.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                W poprzedniej lekcji poznaliśmy
+                podstawową strukturę tabel HTML:
+                <code>&lt;table&gt;</code>,
+                <code>&lt;tr&gt;</code>,
+                <code>&lt;td&gt;</code> i
+                <code>&lt;th&gt;</code>.
+            </p>
+
+            <p>
+                Proste tabele mają zazwyczaj
+                taką samą liczbę komórek
+                w każdym wierszu.
+            </p>
+
+            <p>
+                W bardziej rozbudowanych tabelach
+                niektóre komórki mogą zajmować
+                kilka kolumn lub kilka wierszy.
+            </p>
+
+            <p>Takie rozwiązania stosujemy między innymi w:</p>
+
+            <ul>
+                <li>planach lekcji z zajęciami trwającymi kilka godzin,</li>
+                <li>harmonogramach pracy,</li>
+                <li>zestawieniach sprzedaży,</li>
+                <li>raportach i statystykach,</li>
+                <li>tabelach porównawczych,</li>
+                <li>formularzach i zestawieniach wyników.</li>
+            </ul>
+
+            <h3>Przypomnienie podstawowych znaczników</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;table&gt;</code></td>
+                    <td>Tworzy tabelę.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tr&gt;</code></td>
+                    <td>Tworzy wiersz.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;td&gt;</code></td>
+                    <td>Tworzy komórkę z danymi.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;th&gt;</code></td>
+                    <td>Tworzy komórkę nagłówkową.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Łączenie komórek nie polega
+                    na usuwaniu granic w HTML.
+                    Polega na określeniu,
+                    ile kolumn lub wierszy
+                    ma zajmować konkretna komórka.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="colspan">
+
+            <h2>2. Scalanie kolumn – colspan</h2>
+
+            <p>
+                Atrybut <code>colspan</code>
+                określa, ile kolumn ma zajmować
+                jedna komórka tabeli.
+            </p>
+
+            <p>
+                Stosujemy go w znacznikach
+                <code>&lt;td&gt;</code> lub
+                <code>&lt;th&gt;</code>.
+            </p>
+
+            <h3>Przykład – połączenie dwóch kolumn</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Dane ucznia&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Imię&lt;/td&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Klasa&lt;/td&gt;
+        &lt;td&gt;3 TI&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th colspan="2">Dane ucznia</th>
+                </tr>
+                <tr>
+                    <td>Imię</td>
+                    <td>Anna</td>
+                </tr>
+                <tr>
+                    <td>Klasa</td>
+                    <td>3 TI</td>
+                </tr>
+            </table>
+
+            <p>
+                Nagłówek „Dane ucznia”
+                zajmuje szerokość dwóch kolumn.
+            </p>
+
+            <h3>Przykład – połączenie trzech kolumn</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="3"&gt;Wyniki konkursu&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Miejsce&lt;/th&gt;
+        &lt;th&gt;Uczeń&lt;/th&gt;
+        &lt;th&gt;Punkty&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;95&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th colspan="3">Wyniki konkursu</th>
+                </tr>
+                <tr>
+                    <th>Miejsce</th>
+                    <th>Uczeń</th>
+                    <th>Punkty</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Anna</td>
+                    <td>95</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Jeżeli komórka ma
+                    <code>colspan="3"</code>,
+                    zajmuje miejsce trzech
+                    zwykłych komórek.
+                    Nie dodajemy obok niej
+                    kolejnych komórek w tych
+                    samych trzech kolumnach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="rowspan">
+
+            <h2>3. Scalanie wierszy – rowspan</h2>
+
+            <p>
+                Atrybut <code>rowspan</code>
+                określa, ile wierszy
+                ma zajmować jedna komórka.
+            </p>
+
+            <p>
+                Pozwala przedstawić informację
+                wspólną dla kilku kolejnych wierszy.
+            </p>
+
+            <h3>Przykład – dwa przedmioty jednego dnia</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Dzień&lt;/th&gt;
+        &lt;th&gt;Przedmiot&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Poniedziałek&lt;/td&gt;
+        &lt;td&gt;Matematyka&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Informatyka&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th>Dzień</th>
+                    <th>Przedmiot</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Poniedziałek</td>
+                    <td>Matematyka</td>
+                </tr>
+                <tr>
+                    <td>Informatyka</td>
+                </tr>
+            </table>
+
+            <p>
+                Komórka „Poniedziałek”
+                zajmuje wysokość dwóch wierszy.
+            </p>
+
+            <h3>Przykład – połączenie trzech wierszy</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Kategoria&lt;/th&gt;
+        &lt;th&gt;Produkt&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td rowspan="3"&gt;Elektronika&lt;/td&gt;
+        &lt;td&gt;Laptop&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Monitor&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Klawiatura&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th>Kategoria</th>
+                    <th>Produkt</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">Elektronika</td>
+                    <td>Laptop</td>
+                </tr>
+                <tr>
+                    <td>Monitor</td>
+                </tr>
+                <tr>
+                    <td>Klawiatura</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Komórka z <code>rowspan="3"</code>
+                    zajmuje miejsce w trzech kolejnych
+                    wierszach. W następnych dwóch
+                    wierszach nie tworzymy ponownie
+                    komórki w zajętej kolumnie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="laczenie">
+
+            <h2>4. Łączenie rowspan i colspan w jednej tabeli</h2>
+
+            <p>
+                W jednej tabeli możemy
+                jednocześnie stosować
+                <code>rowspan</code> i
+                <code>colspan</code>.
+            </p>
+
+            <p>
+                Dzięki temu można tworzyć
+                bardziej złożone układy danych.
+            </p>
+
+            <h3>Przykład – zestawienie wyników</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Uczeń&lt;/th&gt;
+        &lt;th colspan="2"&gt;Wyniki&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Test 1&lt;/th&gt;
+        &lt;th&gt;Test 2&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Piotr&lt;/td&gt;
+        &lt;td&gt;16&lt;/td&gt;
+        &lt;td&gt;19&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th rowspan="2">Uczeń</th>
+                    <th colspan="2">Wyniki</th>
+                </tr>
+                <tr>
+                    <th>Test 1</th>
+                    <th>Test 2</th>
+                </tr>
+                <tr>
+                    <td>Anna</td>
+                    <td>18</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Piotr</td>
+                    <td>16</td>
+                    <td>19</td>
+                </tr>
+            </table>
+
+            <p>
+                Nagłówek „Uczeń” zajmuje dwa wiersze,
+                a nagłówek „Wyniki” zajmuje
+                dwie kolumny.
+            </p>
+
+            <h3>Przykład – jedna komórka zajmująca 2 × 2</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2" colspan="2"&gt;A&lt;/td&gt;
+        &lt;td&gt;B&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;C&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;D&lt;/td&gt;
+        &lt;td&gt;E&lt;/td&gt;
+        &lt;td&gt;F&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <td rowspan="2" colspan="2">A</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                </tr>
+            </table>
+
+            <p>
+                Komórka A zajmuje jednocześnie
+                dwie kolumny i dwa wiersze.
+            </p>
+
+        </section>
+
+        <section id="planowanie">
+
+            <h2>5. Planowanie struktury rozbudowanej tabeli</h2>
+
+            <p>
+                Przed napisaniem kodu warto
+                rozrysować tabelę na kartce
+                lub zaplanować jej układ.
+            </p>
+
+            <h3>Przykład – tabela wyników</h3>
+
+            <table>
+                <tr>
+                    <th rowspan="2">Imię</th>
+                    <th colspan="2">Punkty</th>
+                </tr>
+                <tr>
+                    <th>Teoria</th>
+                    <th>Praktyka</th>
+                </tr>
+                <tr>
+                    <td>Anna</td>
+                    <td>20</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Piotr</td>
+                    <td>18</td>
+                    <td>22</td>
+                </tr>
+            </table>
+
+            <h3>Jak zaplanować taką tabelę?</h3>
+
+            <ol>
+                <li>Ustal liczbę kolumn – tutaj są 3.</li>
+                <li>Ustal liczbę wierszy – tutaj są 4.</li>
+                <li>Sprawdź, które komórki mają być połączone.</li>
+                <li>Dodaj <code>rowspan="2"</code> do komórki „Imię”.</li>
+                <li>Dodaj <code>colspan="2"</code> do komórki „Punkty”.</li>
+                <li>Nie twórz komórek w miejscach już zajętych przez scalanie.</li>
+                <li>Uzupełnij pozostałe komórki danymi.</li>
+            </ol>
+
+            <h3>Przykład kodu</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Imię&lt;/th&gt;
+        &lt;th colspan="2"&gt;Punkty&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Teoria&lt;/th&gt;
+        &lt;th&gt;Praktyka&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Piotr&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    W rozbudowanych tabelach
+                    liczymy nie tylko liczbę
+                    znaczników <code>&lt;td&gt;</code>
+                    i <code>&lt;th&gt;</code>,
+                    ale także liczbę kolumn
+                    i wierszy zajmowanych
+                    przez scalone komórki.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="sekcje">
+
+            <h2>6. Sekcje tabeli – thead, tbody i tfoot</h2>
+
+            <p>
+                Rozbudowane tabele warto
+                podzielić na logiczne sekcje.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Przeznaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;thead&gt;</code></td>
+                    <td>Grupuje wiersze nagłówkowe.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tbody&gt;</code></td>
+                    <td>Grupuje główne dane tabeli.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tfoot&gt;</code></td>
+                    <td>Grupuje wiersze podsumowania.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – zestawienie sprzedaży</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;caption&gt;Sprzedaż produktów&lt;/caption&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Produkt&lt;/th&gt;
+            &lt;th scope="col"&gt;Liczba sztuk&lt;/th&gt;
+            &lt;th scope="col"&gt;Cena&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Klawiatura&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;100 zł&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Mysz&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;50 zł&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Razem&lt;/th&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;350 zł&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>
+                W tym przykładzie kolumna „Cena”
+                zawiera cenę jednej sztuki produktu.
+                Kwota w podsumowaniu jest łączną
+                wartością sprzedaży:
+                2 × 100 zł + 3 × 50 zł = 350 zł.
+            </p>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <caption>Sprzedaż produktów</caption>
+
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Liczba sztuk</th>
+                        <th>Cena za sztukę</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Klawiatura</td>
+                        <td>2</td>
+                        <td>100 zł</td>
+                    </tr>
+                    <tr>
+                        <td>Mysz</td>
+                        <td>3</td>
+                        <td>50 zł</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>Razem</th>
+                        <td>5</td>
+                        <td>350 zł</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    W sekcji <code>tfoot</code>
+                    możemy umieścić podsumowanie,
+                    np. sumę punktów,
+                    liczbę produktów lub
+                    łączną wartość zamówienia.
+                </p>
+
+                <p>
+                    Sekcje tabeli porządkują kod,
+                    ale nie wykonują automatycznie
+                    żadnych obliczeń.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="naglowki">
+
+            <h2>7. Nagłówki w rozbudowanych tabelach</h2>
+
+            <p>
+                W tabelach z wielopoziomowymi
+                nagłówkami szczególnie ważne
+                jest poprawne używanie
+                znacznika <code>&lt;th&gt;</code>.
+            </p>
+
+            <h3>Atrybut scope</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>scope="col"</code></td>
+                    <td>Nagłówek kolumny.</td>
+                </tr>
+                <tr>
+                    <td><code>scope="row"</code></td>
+                    <td>Nagłówek wiersza.</td>
+                </tr>
+                <tr>
+                    <td><code>scope="colgroup"</code></td>
+                    <td>Nagłówek grupy kolumn.</td>
+                </tr>
+                <tr>
+                    <td><code>scope="rowgroup"</code></td>
+                    <td>Nagłówek grupy wierszy.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – grupowanie kolumn</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2" scope="col"&gt;Uczeń&lt;/th&gt;
+        &lt;th colspan="2" scope="colgroup"&gt;Egzamin&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th scope="col"&gt;Teoria&lt;/th&gt;
+        &lt;th scope="col"&gt;Praktyka&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;Anna&lt;/th&gt;
+        &lt;td&gt;85%&lt;/td&gt;
+        &lt;td&gt;92%&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th rowspan="2" scope="col">Uczeń</th>
+                    <th colspan="2" scope="colgroup">Egzamin</th>
+                </tr>
+                <tr>
+                    <th scope="col">Teoria</th>
+                    <th scope="col">Praktyka</th>
+                </tr>
+                <tr>
+                    <th scope="row">Anna</th>
+                    <td>85%</td>
+                    <td>92%</td>
+                </tr>
+            </table>
+
+            <p>
+                Atrybut <code>scope</code>
+                pomaga określić powiązania
+                między nagłówkami a danymi,
+                co jest ważne dla dostępności
+                tabel.
+            </p>
+
+        </section>
+
+        <section id="podsumowania">
+
+            <h2>8. Podsumowania i zestawienia w tabelach</h2>
+
+            <p>
+                Wiersz podsumowania może zawierać
+                jedną komórkę obejmującą kilka kolumn.
+            </p>
+
+            <h3>Przykład – podsumowanie zamówienia</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Produkt&lt;/th&gt;
+            &lt;th&gt;Liczba&lt;/th&gt;
+            &lt;th&gt;Wartość&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Klawiatura&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;200 zł&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Mysz&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;150 zł&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th colspan="2" scope="row"&gt;Razem do zapłaty&lt;/th&gt;
+            &lt;td&gt;350 zł&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Liczba</th>
+                        <th>Wartość</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Klawiatura</td>
+                        <td>2</td>
+                        <td>200 zł</td>
+                    </tr>
+                    <tr>
+                        <td>Mysz</td>
+                        <td>3</td>
+                        <td>150 zł</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="2" scope="row">Razem do zapłaty</th>
+                        <td>350 zł</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <p>
+                Komórka „Razem do zapłaty”
+                zajmuje dwie kolumny,
+                a ostatnia komórka zawiera
+                łączną wartość zamówienia.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>9. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – zbyt duża liczba komórek po colspan</h3>
+
+            <p>
+                Załóżmy, że tabela ma trzy kolumny.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie: łącznie 4 kolumny --&gt;
+&lt;tr&gt;
+    &lt;td colspan="2"&gt;A&lt;/td&gt;
+    &lt;td&gt;B&lt;/td&gt;
+    &lt;td&gt;C&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;!-- Poprawnie: łącznie 3 kolumny --&gt;
+&lt;tr&gt;
+    &lt;td colspan="2"&gt;A&lt;/td&gt;
+    &lt;td&gt;B&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+            <h3>Błąd 2 – dodatkowa komórka po rowspan</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla tabeli dwukolumnowej --&gt;
+&lt;tr&gt;
+    &lt;td rowspan="2"&gt;Poniedziałek&lt;/td&gt;
+    &lt;td&gt;Matematyka&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+    &lt;td&gt;Wtorek&lt;/td&gt;
+    &lt;td&gt;Informatyka&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+            <p>
+                W drugim wierszu pierwsza kolumna
+                jest już zajęta przez komórkę
+                „Poniedziałek”.
+            </p>
+
+            <h3>Poprawny zapis</h3>
+
+            <pre><code class="language-html">&lt;tr&gt;
+    &lt;td rowspan="2"&gt;Poniedziałek&lt;/td&gt;
+    &lt;td&gt;Matematyka&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+    &lt;td&gt;Informatyka&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+            <h3>Błąd 3 – niewłaściwa kolejność elementów</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;table&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Anna&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;caption&gt;Lista uczniów&lt;/caption&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Poprawny zapis</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;caption&gt;Lista uczniów&lt;/caption&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Anna&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Błąd 4 – nieprawidłowe wartości atrybutów</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;td colspan="dwa"&gt;Dane&lt;/td&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;td colspan="2"&gt;Dane&lt;/td&gt;</code></pre>
+
+            <p>
+                Wartości atrybutów
+                <code>colspan</code> i
+                <code>rowspan</code>
+                zapisujemy jako liczby.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>10. Przykład kompletnej strony HTML</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                stronę z tabelą wyników
+                egzaminu składającego się
+                z części teoretycznej
+                i praktycznej.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Wyniki egzaminu&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Wyniki egzaminu&lt;/h1&gt;
+        &lt;p&gt;Zestawienie wyników uczniów.&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;table&gt;
+            &lt;caption&gt;Wyniki egzaminu próbnego&lt;/caption&gt;
+
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th rowspan="2" scope="col"&gt;Uczeń&lt;/th&gt;
+                    &lt;th colspan="2" scope="colgroup"&gt;Wyniki&lt;/th&gt;
+                    &lt;th rowspan="2" scope="col"&gt;Razem&lt;/th&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;Teoria&lt;/th&gt;
+                    &lt;th scope="col"&gt;Praktyka&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;Anna&lt;/th&gt;
+                    &lt;td&gt;20&lt;/td&gt;
+                    &lt;td&gt;25&lt;/td&gt;
+                    &lt;td&gt;45&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;Piotr&lt;/th&gt;
+                    &lt;td&gt;18&lt;/td&gt;
+                    &lt;td&gt;22&lt;/td&gt;
+                    &lt;td&gt;40&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;Ola&lt;/th&gt;
+                    &lt;td&gt;19&lt;/td&gt;
+                    &lt;td&gt;24&lt;/td&gt;
+                    &lt;td&gt;43&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+
+            &lt;tfoot&gt;
+                &lt;tr&gt;
+                    &lt;th colspan="3" scope="row"&gt;
+                        Łączna liczba punktów
+                    &lt;/th&gt;
+                    &lt;td&gt;128&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tfoot&gt;
+
+        &lt;/table&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Wyniki egzaminu&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <caption>Wyniki egzaminu próbnego</caption>
+
+                <thead>
+                    <tr>
+                        <th rowspan="2">Uczeń</th>
+                        <th colspan="2">Wyniki</th>
+                        <th rowspan="2">Razem</th>
+                    </tr>
+                    <tr>
+                        <th>Teoria</th>
+                        <th>Praktyka</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Anna</th>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <th>Piotr</th>
+                        <td>18</td>
+                        <td>22</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <th>Ola</th>
+                        <td>19</td>
+                        <td>24</td>
+                        <td>43</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Łączna liczba punktów</th>
+                        <td>128</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>colspan</code> – określa liczbę kolumn zajmowanych przez komórkę.</li>
+                    <li><code>rowspan</code> – określa liczbę wierszy zajmowanych przez komórkę.</li>
+                    <li>Oba atrybuty można stosować w <code>td</code> i <code>th</code>.</li>
+                    <li>Jedna komórka może mieć jednocześnie <code>rowspan</code> i <code>colspan</code>.</li>
+                    <li>Nie dodajemy komórek w miejscach zajętych przez scalanie.</li>
+                    <li><code>thead</code> – grupuje nagłówki tabeli.</li>
+                    <li><code>tbody</code> – grupuje dane tabeli.</li>
+                    <li><code>tfoot</code> – grupuje podsumowanie tabeli.</li>
+                    <li><code>caption</code> – określa tytuł tabeli.</li>
+                    <li><code>scope</code> – pomaga powiązać nagłówki z danymi.</li>
+                    <li>Przed napisaniem kodu warto zaplanować układ wierszy i kolumn.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie rozbudowanych
+                tabel HTML, stosowanie scalania
+                komórek oraz podziału tabel
+                na sekcje.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_11</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku HTML.
+                Nie korzystaj z CSS.
+            </p>
+
+            <h3>Zadanie 1 – Wyniki konkursu</h3>
+
+            <p>
+                Utwórz tabelę przedstawiającą
+                wyniki konkursu informatycznego.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek strony <code>&lt;h1&gt;</code> „Rozbudowane tabele HTML”.</li>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Wyniki konkursu”.</li>
+                <li>Utwórz tabelę zawierającą 4 kolumny: Uczeń, Test 1, Test 2, Suma punktów.</li>
+                <li>Pierwszy nagłówek „Uczeń” połącz pionowo na dwa wiersze za pomocą <code>rowspan="2"</code>.</li>
+                <li>Nagłówki „Test 1” i „Test 2” połącz wspólnym nagłówkiem „Wyniki” za pomocą <code>colspan="2"</code>.</li>
+                <li>Nagłówek „Suma punktów” również połącz pionowo na dwa wiersze.</li>
+                <li>Dodaj minimum 5 uczniów z przykładowymi wynikami.</li>
+                <li>Oblicz sumę punktów każdego ucznia i wpisz ją do tabeli.</li>
+                <li>Zastosuj sekcje <code>thead</code> i <code>tbody</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Harmonogram wydarzenia</h3>
+
+            <p>
+                Pod pierwszą tabelą utwórz
+                harmonogram dwudniowego
+                wydarzenia szkolnego.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Harmonogram wydarzenia”.</li>
+                <li>Utwórz tabelę z kolumnami: Dzień, Godzina, Wydarzenie, Sala.</li>
+                <li>Wprowadź minimum 3 wydarzenia pierwszego dnia i 3 wydarzenia drugiego dnia.</li>
+                <li>Nazwę pierwszego dnia połącz pionowo na 3 wiersze za pomocą <code>rowspan="3"</code>.</li>
+                <li>Nazwę drugiego dnia również połącz pionowo na 3 wiersze.</li>
+                <li>Dodaj tytuł tabeli za pomocą <code>caption</code>.</li>
+                <li>Zastosuj <code>scope="col"</code> w nagłówkach kolumn.</li>
+                <li>Sprawdź, czy tabela ma poprawny układ.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Zestawienie zamówienia</h3>
+
+            <p>
+                Utwórz tabelę przedstawiającą
+                przykładowe zamówienie
+                w sklepie komputerowym.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Zestawienie zamówienia”.</li>
+                <li>Utwórz tabelę z kolumnami: Produkt, Liczba sztuk, Cena za sztukę, Wartość.</li>
+                <li>Dodaj minimum 5 produktów.</li>
+                <li>Dla każdego produktu oblicz wartość pozycji zamówienia.</li>
+                <li>Zastosuj sekcje <code>thead</code>, <code>tbody</code> i <code>tfoot</code>.</li>
+                <li>W sekcji <code>tfoot</code> utwórz wiersz podsumowania.</li>
+                <li>Połącz trzy pierwsze komórki podsumowania za pomocą <code>colspan="3"</code>.</li>
+                <li>W ostatniej komórce wpisz łączną wartość zamówienia.</li>
+                <li>Dodaj tytuł tabeli za pomocą <code>caption</code>.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Naprawianie błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod
+                i popraw błędy w strukturze tabeli.
+            </p>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Uczeń&lt;/th&gt;
+        &lt;th colspan="2"&gt;Wyniki&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Test 1&lt;/th&gt;
+        &lt;th&gt;Test 2&lt;/th&gt;
+        &lt;th&gt;Suma&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;10&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Sprawdź liczbę kolumn tabeli.</li>
+                <li>Popraw układ nagłówków, aby odpowiadał czterem kolumnom.</li>
+                <li>Dodaj brakujący nagłówek „Suma” w odpowiednim miejscu.</li>
+                <li>Zastosuj poprawnie <code>rowspan</code> i <code>colspan</code>.</li>
+                <li>Dodaj <code>thead</code> i <code>tbody</code>.</li>
+                <li>Umieść poprawioną tabelę w dodatkowej sekcji pliku <code>index.html</code>.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie strony, poprawność
+                    wyświetlania tabel oraz
+                    zastosowanie atrybutów
+                    <code>rowspan</code>
+                    i <code>colspan</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 11
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
