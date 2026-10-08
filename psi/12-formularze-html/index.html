@@ -1,0 +1,1607 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 12 – Formularze HTML | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#form">2.Znacznik form</a>
+        <a href="#action">3.Atrybut action</a>
+        <a href="#method">4.Metody GET i POST</a>
+        <a href="#input">5.Znacznik input</a>
+        <a href="#label">6.Etykiety pól – label</a>
+        <a href="#atrybuty">7.Atrybuty pól formularza</a>
+        <a href="#pola">8.Podstawowe typy pól</a>
+        <a href="#przyciski">9.Przyciski formularza</a>
+        <a href="#walidacja">10.Podstawowa walidacja</a>
+        <a href="#przesylanie">11.Wysyłanie danych</a>
+        <a href="#bledy">12.Najczęstsze błędy</a>
+        <a href="#przyklad">13.Przykład kompletnej strony</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 12 • HTML5</div>
+
+            <h2>HTML5: Formularze HTML – budowa formularza, form, action, method oraz podstawowe pola</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie budowy formularzy HTML,
+                stosowanie znacznika
+                <code>&lt;form&gt;</code>
+                oraz atrybutów
+                <code>action</code> i
+                <code>method</code>,
+                tworzenie podstawowych pól
+                i przycisków formularza,
+                a także zrozumienie zasad
+                przesyłania danych metodami
+                GET i POST.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Formularz HTML jest elementem strony internetowej,
+                który umożliwia użytkownikowi
+                wprowadzanie i przesyłanie danych.
+            </p>
+
+            <p>
+                Formularze są wykorzystywane
+                w wielu witrynach i aplikacjach internetowych.
+            </p>
+
+            <h3>Przykładowe zastosowania formularzy</h3>
+
+            <ul>
+                <li>logowanie i rejestracja użytkowników,</li>
+                <li>wyszukiwanie informacji,</li>
+                <li>formularze kontaktowe,</li>
+                <li>zapisy na wydarzenia i szkolenia,</li>
+                <li>składanie zamówień,</li>
+                <li>ankiety i zbieranie opinii.</li>
+            </ul>
+
+            <h3>Z czego składa się formularz?</h3>
+
+            <p>
+                Typowy formularz zawiera:
+            </p>
+
+            <ul>
+                <li>znacznik <code>&lt;form&gt;</code>, który obejmuje pola formularza,</li>
+                <li>pola umożliwiające wprowadzanie danych,</li>
+                <li>etykiety opisujące przeznaczenie pól,</li>
+                <li>przycisk umożliwiający wysłanie danych.</li>
+            </ul>
+
+            <h3>Przykład prostego formularza</h3>
+
+            <pre><code class="language-html">&lt;form action="/kontakt" method="post"&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+    &lt;input type="text" id="imie" name="imie"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    HTML umożliwia utworzenie formularza
+                    i przygotowanie danych do wysłania.
+                    Sam HTML nie zapisuje jednak danych
+                    w bazie ani nie wysyła wiadomości e-mail.
+                </p>
+
+                <p>
+                    Do przetwarzania danych potrzebny jest
+                    odpowiedni mechanizm po stronie serwera,
+                    np. skrypt PHP.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="form">
+
+            <h2>2. Znacznik form – budowa formularza</h2>
+
+            <p>
+                Znacznik <code>&lt;form&gt;</code>
+                określa obszar formularza
+                i sposób przesyłania jego danych.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;form action="adres" method="get"&gt;
+
+    &lt;!-- Pola formularza --&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Wewnątrz znacznika
+                <code>&lt;form&gt;</code>
+                umieszczamy elementy umożliwiające
+                użytkownikowi wprowadzanie danych.
+            </p>
+
+            <h3>Najważniejsze atrybuty form</h3>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>action</code></td>
+                    <td>Określa adres, pod który zostaną wysłane dane.</td>
+                </tr>
+                <tr>
+                    <td><code>method</code></td>
+                    <td>Określa metodę przesyłania danych, najczęściej GET lub POST.</td>
+                </tr>
+                <tr>
+                    <td><code>autocomplete</code></td>
+                    <td>Określa, czy przeglądarka może proponować wcześniej wpisane dane.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;form action="odbierz.php" method="post"&gt;
+
+    &lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+
+    &lt;input type="text"
+           id="nazwisko"
+           name="nazwisko"&gt;
+
+    &lt;button type="submit"&gt;Zapisz&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                W tym przykładzie dane mają zostać
+                wysłane do pliku
+                <code>odbierz.php</code>
+                metodą <code>POST</code>.
+            </p>
+
+            <p>
+                Plik ten musi istnieć i zawierać
+                kod obsługujący formularz,
+                aby przesłane informacje mogły
+                zostać przetworzone.
+            </p>
+
+        </section>
+
+        <section id="action">
+
+            <h2>3. Atrybut action – dokąd trafiają dane?</h2>
+
+            <p>
+                Atrybut <code>action</code>
+                określa adres zasobu,
+                do którego przeglądarka
+                wyśle dane formularza.
+            </p>
+
+            <h3>Przykład – formularz obsługiwany przez PHP</h3>
+
+            <pre><code class="language-html">&lt;form action="odbierz.php" method="post"&gt;
+
+    &lt;input type="text" name="imie"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Po kliknięciu przycisku
+                przeglądarka wyśle dane
+                pod adres <code>odbierz.php</code>.
+            </p>
+
+            <h3>Przykład – formularz wysyłający dane do bieżącej strony</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;input type="text" name="szukaj"&gt;
+
+    &lt;button type="submit"&gt;Szukaj&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Pusty atrybut <code>action=""</code>
+                oznacza wysłanie danych
+                pod adres bieżącego dokumentu.
+            </p>
+
+            <h3>Przykład – wysyłanie do zewnętrznego adresu</h3>
+
+            <pre><code class="language-html">&lt;form action="https://example.com/odbierz"
+      method="post"&gt;
+
+    &lt;input type="text" name="wiadomosc"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                W tym przypadku dane zostaną
+                wysłane pod wskazany adres URL.
+                Jest to przykład składni,
+                a nie działająca usługa.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Atrybut <code>action</code>
+                    wskazuje miejsce docelowe.
+                    Nie tworzy automatycznie programu,
+                    który odbierze i zapisze dane.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="method">
+
+            <h2>4. Atrybut method – metody GET i POST</h2>
+
+            <p>
+                Atrybut <code>method</code>
+                określa sposób przesłania
+                danych formularza.
+            </p>
+
+            <p>
+                Najczęściej stosujemy
+                dwie metody:
+                <code>GET</code> i
+                <code>POST</code>.
+            </p>
+
+            <h3>Metoda GET</h3>
+
+            <p>
+                Metoda <code>GET</code>
+                przesyła dane formularza
+                w parametrach adresu URL.
+            </p>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label for="miasto"&gt;Miasto:&lt;/label&gt;
+
+    &lt;input type="text"
+           id="miasto"
+           name="miasto"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Jeśli użytkownik wpisze
+                <strong>Lublin</strong>,
+                adres może wyglądać następująco:
+            </p>
+
+            <pre><code class="language-text">index.html?miasto=Lublin</code></pre>
+
+            <p>
+                Znak <code>?</code>
+                oddziela adres strony
+                od parametrów.
+            </p>
+
+            <p>
+                Zapis <code>miasto=Lublin</code>
+                oznacza, że pole o nazwie
+                <code>miasto</code>
+                otrzymało wartość
+                <code>Lublin</code>.
+            </p>
+
+            <h3>Przykład – kilka pól metodą GET</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label for="imie-get"&gt;Imię:&lt;/label&gt;
+    &lt;input type="text"
+           id="imie-get"
+           name="imie"&gt;
+
+    &lt;label for="wiek-get"&gt;Wiek:&lt;/label&gt;
+    &lt;input type="number"
+           id="wiek-get"
+           name="wiek"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Dla wartości „Anna” i „18”
+                adres może wyglądać tak:
+            </p>
+
+            <pre><code class="language-text">index.html?imie=Anna&amp;wiek=18</code></pre>
+
+            <p>
+                Znak <code>&amp;</code>
+                oddziela kolejne parametry.
+            </p>
+
+            <h3>Metoda POST</h3>
+
+            <p>
+                Metoda <code>POST</code>
+                przesyła dane w treści
+                żądania HTTP, a nie
+                jako parametry adresu URL.
+            </p>
+
+            <pre><code class="language-html">&lt;form action="odbierz.php" method="post"&gt;
+
+    &lt;label for="email-post"&gt;E-mail:&lt;/label&gt;
+
+    &lt;input type="email"
+           id="email-post"
+           name="email"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Metoda POST jest często
+                stosowana podczas rejestracji,
+                logowania, wysyłania wiadomości
+                i zapisywania danych.
+            </p>
+
+            <h3>Porównanie GET i POST</h3>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>GET</th>
+                    <th>POST</th>
+                </tr>
+                <tr>
+                    <td>Gdzie trafiają dane?</td>
+                    <td>Do parametrów adresu URL.</td>
+                    <td>Do treści żądania HTTP.</td>
+                </tr>
+                <tr>
+                    <td>Widoczność w adresie</td>
+                    <td>Dane są widoczne w URL.</td>
+                    <td>Dane nie są dopisywane do URL.</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Wyszukiwanie i filtrowanie.</td>
+                    <td>Logowanie, rejestracja, zapisywanie danych.</td>
+                </tr>
+                <tr>
+                    <td>Możliwość zapisania parametrów w zakładce</td>
+                    <td>Tak.</td>
+                    <td>Nie w postaci danych formularza w URL.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Bardzo ważne</h3>
+
+                <p>
+                    <strong>POST nie oznacza automatycznie
+                    bezpiecznego przesyłania danych.</strong>
+                    Do ochrony transmisji potrzebne jest
+                    połączenie HTTPS.
+                </p>
+
+                <p>
+                    Haseł i innych poufnych informacji
+                    nie należy przesyłać metodą GET,
+                    ponieważ mogą znaleźć się w adresie URL.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="input">
+
+            <h2>5. Znacznik input – podstawowe pole formularza</h2>
+
+            <p>
+                Znacznik <code>&lt;input&gt;</code>
+                tworzy pole umożliwiające
+                wprowadzanie danych.
+            </p>
+
+            <p>
+                Jest elementem pustym,
+                czyli nie wymaga znacznika
+                zamykającego.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;input type="text" name="imie"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>type</code>
+                określa rodzaj pola.
+            </p>
+
+            <p>
+                Atrybut <code>name</code>
+                określa nazwę, pod którą
+                wartość pola zostanie
+                przesłana z formularzem.
+            </p>
+
+            <h3>Najczęściej stosowane typy input</h3>
+
+            <table>
+                <tr>
+                    <th>Typ</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>text</code></td>
+                    <td>Jednowierszowe pole tekstowe.</td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td>Pole do wpisywania hasła.</td>
+                </tr>
+                <tr>
+                    <td><code>email</code></td>
+                    <td>Pole adresu e-mail.</td>
+                </tr>
+                <tr>
+                    <td><code>number</code></td>
+                    <td>Pole do wprowadzania liczby.</td>
+                </tr>
+                <tr>
+                    <td><code>date</code></td>
+                    <td>Pole wyboru daty.</td>
+                </tr>
+                <tr>
+                    <td><code>tel</code></td>
+                    <td>Pole numeru telefonu.</td>
+                </tr>
+                <tr>
+                    <td><code>checkbox</code></td>
+                    <td>Pole wielokrotnego wyboru.</td>
+                </tr>
+                <tr>
+                    <td><code>radio</code></td>
+                    <td>Pole pojedynczego wyboru w grupie.</td>
+                </tr>
+                <tr>
+                    <td><code>submit</code></td>
+                    <td>Przycisk wysyłający formularz.</td>
+                </tr>
+                <tr>
+                    <td><code>reset</code></td>
+                    <td>Przycisk przywracający wartości początkowe pól.</td>
+                </tr>
+            </table>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-html">&lt;input type="text" name="imie"&gt;
+
+&lt;input type="password" name="haslo"&gt;
+
+&lt;input type="email" name="email"&gt;
+
+&lt;input type="number" name="wiek"&gt;
+
+&lt;input type="date" name="data"&gt;
+
+&lt;input type="tel" name="telefon"&gt;</code></pre>
+
+            <p>
+                Wygląd pól może różnić się
+                w zależności od przeglądarki
+                i systemu operacyjnego.
+            </p>
+
+        </section>
+
+        <section id="label">
+
+            <h2>6. Etykiety pól – znacznik label</h2>
+
+            <p>
+                Znacznik <code>&lt;label&gt;</code>
+                służy do opisania pola formularza.
+            </p>
+
+            <p>
+                Dzięki etykietom użytkownik
+                wie, jakie dane powinien wpisać.
+            </p>
+
+            <h3>Przykład – pole z etykietą</h3>
+
+            <pre><code class="language-html">&lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+&lt;input type="text"
+       id="imie"
+       name="imie"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>for</code>
+                wskazuje identyfikator
+                pola formularza.
+            </p>
+
+            <p>
+                Wartość <code>for</code>
+                musi być zgodna z wartością
+                atrybutu <code>id</code>.
+            </p>
+
+            <h3>Jak działa powiązanie?</h3>
+
+            <pre><code class="language-html">&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+
+&lt;input type="text"
+       id="nazwisko"
+       name="nazwisko"&gt;</code></pre>
+
+            <p>
+                Po kliknięciu etykiety
+                „Nazwisko” przeglądarka
+                ustawi kursor w powiązanym
+                polu tekstowym.
+            </p>
+
+            <h3>Alternatywny sposób</h3>
+
+            <p>
+                Pole można również umieścić
+                bezpośrednio wewnątrz etykiety.
+            </p>
+
+            <pre><code class="language-html">&lt;label&gt;
+    Imię:
+    &lt;input type="text" name="imie"&gt;
+&lt;/label&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Etykiety poprawiają wygodę
+                    korzystania z formularzy
+                    i ich dostępność.
+                    Warto stosować je
+                    przy każdym polu formularza.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>7. Najważniejsze atrybuty pól formularza</h2>
+
+            <p>
+                Atrybuty pozwalają określić
+                nazwę, identyfikator, wartość
+                oraz sposób działania pola.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>type</code></td>
+                    <td>Rodzaj pola.</td>
+                </tr>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>Nazwa pola używana podczas przesyłania danych.</td>
+                </tr>
+                <tr>
+                    <td><code>id</code></td>
+                    <td>Unikalny identyfikator elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td>Wartość pola, np. wartość początkowa lub wartość wysyłana przez pole wyboru.</td>
+                </tr>
+                <tr>
+                    <td><code>placeholder</code></td>
+                    <td>Podpowiedź wyświetlana w pustym polu.</td>
+                </tr>
+                <tr>
+                    <td><code>required</code></td>
+                    <td>Oznacza pole wymagane.</td>
+                </tr>
+                <tr>
+                    <td><code>min</code></td>
+                    <td>Minimalna dopuszczalna wartość dla odpowiednich typów pól.</td>
+                </tr>
+                <tr>
+                    <td><code>max</code></td>
+                    <td>Maksymalna dopuszczalna wartość dla odpowiednich typów pól.</td>
+                </tr>
+                <tr>
+                    <td><code>minlength</code></td>
+                    <td>Minimalna liczba znaków w polu tekstowym.</td>
+                </tr>
+                <tr>
+                    <td><code>maxlength</code></td>
+                    <td>Maksymalna liczba znaków w polu tekstowym.</td>
+                </tr>
+            </table>
+
+            <h3>Atrybut name</h3>
+
+            <pre><code class="language-html">&lt;input type="text" name="imie"&gt;</code></pre>
+
+            <p>
+                Jeśli użytkownik wpisze „Anna”,
+                przesłane dane mogą mieć postać:
+            </p>
+
+            <pre><code class="language-text">imie=Anna</code></pre>
+
+            <h3>Różnica między id i name</h3>
+
+            <pre><code class="language-html">&lt;label for="pole-imie"&gt;Imię:&lt;/label&gt;
+
+&lt;input type="text"
+       id="pole-imie"
+       name="imie"&gt;</code></pre>
+
+            <ul>
+                <li><code>id="pole-imie"</code> – identyfikuje element w dokumencie.</li>
+                <li><code>name="imie"</code> – określa nazwę przesyłanej danej.</li>
+            </ul>
+
+            <p>
+                Wartości <code>id</code>
+                i <code>name</code> mogą być takie same,
+                ale nie muszą.
+            </p>
+
+            <h3>Atrybut value</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="miasto"
+       value="Lubartów"&gt;</code></pre>
+
+            <p>
+                Pole będzie początkowo
+                zawierało tekst „Lubartów”.
+                Użytkownik może go zmienić.
+            </p>
+
+            <h3>Atrybut placeholder</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="imie"
+       placeholder="Wpisz swoje imię"&gt;</code></pre>
+
+            <p>
+                Podpowiedź znika po wpisaniu
+                wartości do pola.
+            </p>
+
+            <p>
+                <code>placeholder</code>
+                nie zastępuje etykiety
+                <code>&lt;label&gt;</code>.
+            </p>
+
+            <h3>Atrybut required</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="nazwisko"
+       required&gt;</code></pre>
+
+            <p>
+                Przeglądarka nie pozwoli
+                standardowo wysłać formularza,
+                jeśli wymagane pole pozostanie puste.
+            </p>
+
+        </section>
+
+        <section id="pola">
+
+            <h2>8. Podstawowe typy pól formularza</h2>
+
+            <h3>Pole tekstowe – text</h3>
+
+            <p>
+                Służy do wprowadzania
+                krótkiego tekstu, np. imienia,
+                nazwiska lub nazwy miejscowości.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+&lt;input type="text"
+       id="imie"
+       name="imie"
+       placeholder="Wpisz imię"&gt;</code></pre>
+
+            <h3>Pole hasła – password</h3>
+
+            <p>
+                Ukrywa wpisywane znaki
+                na ekranie.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="haslo"&gt;Hasło:&lt;/label&gt;
+
+&lt;input type="password"
+       id="haslo"
+       name="haslo"
+       required&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Typ <code>password</code>
+                    ukrywa znaki przed osobami
+                    patrzącymi na ekran,
+                    ale nie szyfruje samodzielnie
+                    przesyłanych danych.
+                </p>
+            </div>
+
+            <h3>Pole e-mail – email</h3>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;Adres e-mail:&lt;/label&gt;
+
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <p>
+                Przeglądarka może sprawdzić,
+                czy wpisany tekst ma
+                podstawową strukturę adresu e-mail.
+                Nie oznacza to jednak,
+                że podany adres rzeczywiście istnieje.
+            </p>
+
+            <h3>Pole liczbowe – number</h3>
+
+            <pre><code class="language-html">&lt;label for="wiek"&gt;Wiek:&lt;/label&gt;
+
+&lt;input type="number"
+       id="wiek"
+       name="wiek"
+       min="1"
+       max="120"&gt;</code></pre>
+
+            <p>
+                Atrybuty <code>min</code>
+                i <code>max</code> określają
+                dopuszczalny zakres wartości.
+            </p>
+
+            <h3>Pole daty – date</h3>
+
+            <pre><code class="language-html">&lt;label for="data"&gt;Data urodzenia:&lt;/label&gt;
+
+&lt;input type="date"
+       id="data"
+       name="data"&gt;</code></pre>
+
+            <h3>Pole telefonu – tel</h3>
+
+            <pre><code class="language-html">&lt;label for="telefon"&gt;Telefon:&lt;/label&gt;
+
+&lt;input type="tel"
+       id="telefon"
+       name="telefon"
+       placeholder="123456789"&gt;</code></pre>
+
+            <p>
+                Typ <code>tel</code>
+                może ułatwiać wpisywanie numeru
+                na urządzeniach mobilnych.
+                Sam w sobie nie sprawdza
+                poprawności numeru telefonu.
+            </p>
+
+            <h3>Pole wyboru – checkbox</h3>
+
+            <p>
+                Checkbox pozwala zaznaczyć
+                lub odznaczyć daną opcję.
+            </p>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="zgoda"
+           value="tak"&gt;
+    Akceptuję regulamin
+&lt;/label&gt;</code></pre>
+
+            <p>
+                W standardowym formularzu
+                niezaznaczony checkbox
+                nie przesyła swojej wartości.
+            </p>
+
+            <h3>Pola radio – wybór jednej opcji</h3>
+
+            <p>
+                Pola typu <code>radio</code>
+                pozwalają wybrać jedną
+                opcję z grupy.
+            </p>
+
+            <pre><code class="language-html">&lt;p&gt;Wybierz klasę:&lt;/p&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="1"&gt;
+    Klasa 1
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="2"&gt;
+    Klasa 2
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="3"&gt;
+    Klasa 3
+&lt;/label&gt;</code></pre>
+
+            <p>
+                Wszystkie pola mają
+                <code>name="klasa"</code>.
+                Dzięki temu tworzą
+                jedną grupę wyboru.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <code>checkbox</code> –
+                    użytkownik może zaznaczyć
+                    wiele niezależnych opcji.
+                </p>
+
+                <p>
+                    <code>radio</code> –
+                    użytkownik wybiera
+                    jedną opcję z grupy
+                    o tej samej nazwie
+                    <code>name</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="przyciski">
+
+            <h2>9. Przyciski formularza</h2>
+
+            <p>
+                Formularz może zawierać
+                różne rodzaje przycisków.
+            </p>
+
+            <h3>Przycisk submit</h3>
+
+            <pre><code class="language-html">&lt;button type="submit"&gt;Wyślij formularz&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk <code>submit</code>
+                uruchamia standardowe
+                wysłanie formularza.
+            </p>
+
+            <h3>Przycisk reset</h3>
+
+            <pre><code class="language-html">&lt;button type="reset"&gt;Wyczyść formularz&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk <code>reset</code>
+                przywraca wartości początkowe
+                pól formularza.
+            </p>
+
+            <h3>Przycisk button</h3>
+
+            <pre><code class="language-html">&lt;button type="button"&gt;Kliknij&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk <code>button</code>
+                nie wysyła formularza.
+                Można później przypisać mu
+                działanie za pomocą JavaScript.
+            </p>
+
+            <h3>Przyciski za pomocą input</h3>
+
+            <pre><code class="language-html">&lt;input type="submit" value="Wyślij"&gt;
+
+&lt;input type="reset" value="Wyczyść"&gt;</code></pre>
+
+            <p>
+                Oba sposoby są poprawne,
+                ale znacznik <code>&lt;button&gt;</code>
+                jest bardziej elastyczny,
+                ponieważ może zawierać
+                dodatkową treść.
+            </p>
+
+        </section>
+
+        <section id="walidacja">
+
+            <h2>10. Podstawowa walidacja formularza</h2>
+
+            <p>
+                Walidacja oznacza sprawdzanie,
+                czy dane wpisane przez użytkownika
+                spełniają określone wymagania.
+            </p>
+
+            <p>
+                HTML5 umożliwia wykonanie
+                podstawowej walidacji
+                bez pisania JavaScript.
+            </p>
+
+            <h3>Pole wymagane</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="imie"
+       required&gt;</code></pre>
+
+            <h3>Minimalna i maksymalna długość tekstu</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="login"
+       minlength="3"
+       maxlength="15"
+       required&gt;</code></pre>
+
+            <h3>Zakres liczbowy</h3>
+
+            <pre><code class="language-html">&lt;input type="number"
+       name="wiek"
+       min="10"
+       max="100"
+       required&gt;</code></pre>
+
+            <h3>Kontrola adresu e-mail</h3>
+
+            <pre><code class="language-html">&lt;input type="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <h3>Przykład formularza z walidacją</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label for="login"&gt;Login:&lt;/label&gt;
+    &lt;input type="text"
+           id="login"
+           name="login"
+           minlength="3"
+           maxlength="15"
+           required&gt;
+
+    &lt;label for="wiek"&gt;Wiek:&lt;/label&gt;
+    &lt;input type="number"
+           id="wiek"
+           name="wiek"
+           min="10"
+           max="100"
+           required&gt;
+
+    &lt;button type="submit"&gt;Sprawdź&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Walidacja w przeglądarce
+                    pomaga użytkownikowi,
+                    ale nie zastępuje
+                    sprawdzania danych
+                    po stronie serwera.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="przesylanie">
+
+            <h2>11. Co dzieje się po wysłaniu formularza?</h2>
+
+            <p>
+                Po kliknięciu przycisku
+                <code>submit</code>
+                przeglądarka przygotowuje
+                dane z pól formularza.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+    &lt;input type="text"
+           id="imie"
+           name="imie"&gt;
+
+    &lt;label for="miasto"&gt;Miasto:&lt;/label&gt;
+
+    &lt;input type="text"
+           id="miasto"
+           name="miasto"&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Jeśli użytkownik wpisze:
+            </p>
+
+            <ul>
+                <li>Imię: Anna</li>
+                <li>Miasto: Lublin</li>
+            </ul>
+
+            <p>
+                Adres może przyjąć postać:
+            </p>
+
+            <pre><code class="language-text">index.html?imie=Anna&amp;miasto=Lublin</code></pre>
+
+            <h3>Dlaczego name jest tak ważne?</h3>
+
+            <p>
+                Podczas wysyłania formularza
+                przeglądarka wykorzystuje
+                nazwy pól określone
+                przez <code>name</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- To pole ma nazwę i może przesłać wartość --&gt;
+&lt;input type="text" name="imie"&gt;
+
+&lt;!-- To pole nie ma nazwy i nie zostanie
+     przesłane jako standardowa dana formularza --&gt;
+&lt;input type="text" id="nazwisko"&gt;</code></pre>
+
+            <h3>Co z metodą POST?</h3>
+
+            <p>
+                W przypadku POST dane
+                są przesyłane w treści
+                żądania HTTP.
+            </p>
+
+            <p>
+                Aby je odczytać i zapisać,
+                potrzebny jest program
+                obsługujący formularz.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Formularz HTML a PHP</h3>
+
+                <p>
+                    W tej lekcji tworzymy
+                    strukturę formularza.
+                    Obsługę danych, np.
+                    zapisywanie ich w bazie
+                    lub wyświetlanie odpowiedzi,
+                    można zrealizować później
+                    za pomocą PHP.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>12. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak atrybutu name</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie, jeśli chcemy przesłać wartość --&gt;
+&lt;input type="text" id="imie"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="text" id="imie" name="imie"&gt;</code></pre>
+
+            <h3>Błąd 2 – niezgodne for i id</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+&lt;input type="text" id="imie" name="nazwisko"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+&lt;input type="text" id="nazwisko" name="nazwisko"&gt;</code></pre>
+
+            <h3>Błąd 3 – różne nazwy pól radio</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla jednej grupy wyboru --&gt;
+&lt;input type="radio" name="opcja1" value="tak"&gt;
+&lt;input type="radio" name="opcja2" value="nie"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="radio" name="odpowiedz" value="tak"&gt;
+&lt;input type="radio" name="odpowiedz" value="nie"&gt;</code></pre>
+
+            <h3>Błąd 4 – brak wartości value w radio</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane --&gt;
+&lt;input type="radio" name="plec"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="radio" name="wybor" value="opcja-a"&gt;</code></pre>
+
+            <p>
+                Bez atrybutu <code>value</code>
+                zaznaczone pole radio
+                przesyła domyślną wartość
+                <code>on</code>,
+                która zwykle nie opisuje
+                wybranej odpowiedzi.
+            </p>
+
+            <h3>Błąd 5 – wysyłanie hasła metodą GET</h3>
+
+            <pre><code class="language-html">&lt;!-- Niewłaściwe rozwiązanie --&gt;
+&lt;form action="logowanie.php" method="get"&gt;
+    &lt;input type="password" name="haslo"&gt;
+    &lt;button type="submit"&gt;Zaloguj&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Hasło mogłoby znaleźć się
+                w adresie URL.
+                Formularze logowania
+                powinny korzystać z POST
+                oraz połączenia HTTPS.
+            </p>
+
+            <h3>Błąd 6 – przekonanie, że formularz sam zapisuje dane</h3>
+
+            <p>
+                Utworzenie formularza HTML
+                nie oznacza automatycznego
+                zapisania informacji.
+                Do obsługi danych potrzebny
+                jest odpowiedni program.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>13. Przykład kompletnej strony HTML</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                formularz zgłoszenia
+                na szkolne warsztaty.
+            </p>
+
+            <p>
+                Formularz korzysta z metody GET,
+                aby umożliwić sprawdzenie
+                przesyłanych parametrów
+                bez tworzenia skryptu PHP.
+                Jest to przykład edukacyjny
+                i nie należy wpisywać do niego
+                danych poufnych.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Zgłoszenie na warsztaty&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Warsztaty informatyczne&lt;/h1&gt;
+        &lt;p&gt;Wypełnij formularz zgłoszeniowy.&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;form action="" method="get"&gt;
+
+            &lt;p&gt;
+                &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+                &lt;input type="text"
+                       id="nazwisko"
+                       name="nazwisko"
+                       required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+                &lt;input type="email"
+                       id="email"
+                       name="email"
+                       required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label for="wiek"&gt;Wiek:&lt;/label&gt;
+                &lt;input type="number"
+                       id="wiek"
+                       name="wiek"
+                       min="10"
+                       max="100"&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;Wybierz warsztaty:&lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="warsztaty"
+                           value="html"
+                           required&gt;
+                    HTML
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="warsztaty"
+                           value="css"&gt;
+                    CSS
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="warsztaty"
+                           value="javascript"&gt;
+                    JavaScript
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox"
+                           name="regulamin"
+                           value="tak"
+                           required&gt;
+                    Akceptuję regulamin
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;button type="submit"&gt;
+                Wyślij zgłoszenie
+            &lt;/button&gt;
+
+            &lt;button type="reset"&gt;
+                Wyczyść
+            &lt;/button&gt;
+
+        &lt;/form&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Warsztaty informatyczne&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Co warto sprawdzić?</h3>
+
+            <ol>
+                <li>Czy można wpisać dane do wszystkich pól?</li>
+                <li>Czy przeglądarka wymaga uzupełnienia pól obowiązkowych?</li>
+                <li>Czy można wybrać tylko jedne warsztaty?</li>
+                <li>Czy przycisk „Wyczyść” przywraca wartości początkowe?</li>
+                <li>Czy po wysłaniu formularza parametry pojawiają się w adresie URL?</li>
+            </ol>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>&lt;form&gt;</code> – tworzy formularz.</li>
+                    <li><code>action</code> – określa adres docelowy przesyłanych danych.</li>
+                    <li><code>method</code> – określa sposób wysyłania danych.</li>
+                    <li><code>GET</code> – przesyła dane w parametrach URL.</li>
+                    <li><code>POST</code> – przesyła dane w treści żądania HTTP.</li>
+                    <li><code>&lt;input&gt;</code> – tworzy pole formularza.</li>
+                    <li><code>type</code> – określa rodzaj pola.</li>
+                    <li><code>name</code> – określa nazwę przesyłanej danej.</li>
+                    <li><code>id</code> – identyfikuje element w dokumencie.</li>
+                    <li><code>&lt;label&gt;</code> – opisuje pole formularza.</li>
+                    <li><code>for</code> powinno wskazywać odpowiednie <code>id</code>.</li>
+                    <li><code>value</code> – określa wartość pola.</li>
+                    <li><code>placeholder</code> – wyświetla podpowiedź.</li>
+                    <li><code>required</code> – oznacza pole wymagane.</li>
+                    <li><code>radio</code> – pozwala wybrać jedną opcję z grupy.</li>
+                    <li><code>checkbox</code> – pozwala zaznaczać niezależne opcje.</li>
+                    <li><code>submit</code> – wysyła formularz.</li>
+                    <li><code>reset</code> – przywraca wartości początkowe.</li>
+                    <li>Sam HTML nie zapisuje ani nie przetwarza danych na serwerze.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie formularzy HTML,
+                poprawne stosowanie atrybutów
+                <code>action</code>,
+                <code>method</code>,
+                <code>name</code>,
+                <code>id</code>
+                i <code>required</code>
+                oraz poznanie sposobu
+                przesyłania danych metodą GET.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_12</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku HTML.
+                Nie korzystaj z CSS ani JavaScript.
+            </p>
+
+            <h3>Zadanie 1 – Formularz danych osobowych</h3>
+
+            <p>
+                Utwórz formularz służący
+                do wprowadzania podstawowych
+                danych użytkownika.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek strony <code>&lt;h1&gt;</code> „Formularze HTML”.</li>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Dane osobowe”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="get"</code>.</li>
+                <li>Dodaj pola: Imię, Nazwisko, E-mail, Wiek, Data urodzenia.</li>
+                <li>Zastosuj odpowiednie typy pól: <code>text</code>, <code>email</code>, <code>number</code> i <code>date</code>.</li>
+                <li>Każde pole powinno posiadać etykietę <code>label</code> oraz atrybuty <code>id</code> i <code>name</code>.</li>
+                <li>Pola Imię, Nazwisko i E-mail oznacz jako wymagane.</li>
+                <li>Dla wieku ustaw zakres od 10 do 100.</li>
+                <li>Dodaj przyciski „Wyślij” i „Wyczyść”.</li>
+                <li>Wyślij formularz i sprawdź, jakie dane pojawiły się w adresie URL.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Formularz ankiety</h3>
+
+            <p>
+                Pod pierwszym formularzem
+                utwórz krótką ankietę
+                dotyczącą zainteresowań
+                informatycznych.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Ankieta informatyczna”.</li>
+                <li>Utwórz osobny formularz z metodą <code>GET</code>.</li>
+                <li>Dodaj pole tekstowe „Twoje imię”.</li>
+                <li>Utwórz grupę pól <code>radio</code> z pytaniem „Który język programowania najbardziej Cię interesuje?”.</li>
+                <li>Dodaj trzy odpowiedzi: JavaScript, PHP, Python.</li>
+                <li>Wszystkie pola radio muszą mieć tę samą nazwę <code>name</code> i różne wartości <code>value</code>.</li>
+                <li>Dodaj trzy niezależne pola <code>checkbox</code>: Tworzenie stron WWW, Grafika komputerowa, Bazy danych.</li>
+                <li>Każda opcja powinna mieć czytelną etykietę.</li>
+                <li>Dodaj przycisk „Wyślij ankietę”.</li>
+                <li>Sprawdź, czy można zaznaczyć tylko jedną odpowiedź radio i kilka pól checkbox.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Formularz rejestracji na wydarzenie</h3>
+
+            <p>
+                Utwórz formularz zapisu
+                na wybrane wydarzenie szkolne,
+                np. konkurs informatyczny,
+                warsztaty lub turniej.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Rejestracja na wydarzenie”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="get"</code>.</li>
+                <li>Dodaj pola: Imię i nazwisko, E-mail, Klasa.</li>
+                <li>Dodaj pole wyboru daty wydarzenia.</li>
+                <li>Dodaj grupę radio z minimum 3 terminami lub rodzajami warsztatów.</li>
+                <li>Dodaj checkbox „Potwierdzam chęć udziału w wydarzeniu”.</li>
+                <li>Oznacz jako wymagane: Imię i nazwisko, E-mail, wybór warsztatów oraz potwierdzenie udziału.</li>
+                <li>Dodaj podpowiedzi <code>placeholder</code> do minimum 2 pól tekstowych.</li>
+                <li>Dodaj przyciski „Zapisz się” i „Wyczyść”.</li>
+                <li>Przetestuj walidację, próbując wysłać pusty formularz.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawianie błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod
+                i popraw błędy.
+            </p>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+    &lt;input type="text" id="nazwisko"&gt;
+
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+    &lt;input type="text"
+           id="email"
+           name="email"&gt;
+
+    &lt;p&gt;Wybierz opcję:&lt;/p&gt;
+
+    &lt;input type="radio" name="opcja1"&gt; A
+    &lt;input type="radio" name="opcja2"&gt; B
+
+    &lt;button type="button"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Popraw powiązanie etykiety „Imię” z polem.</li>
+                <li>Dodaj brakujący atrybut <code>name</code>.</li>
+                <li>Zmień typ pola e-mail na właściwy.</li>
+                <li>Popraw grupę pól radio, aby można było wybrać tylko jedną odpowiedź.</li>
+                <li>Dodaj odpowiednie wartości <code>value</code> dla pól radio.</li>
+                <li>Dodaj etykiety do obu pól radio.</li>
+                <li>Popraw przycisk, aby wysyłał formularz.</li>
+                <li>Umieść poprawiony formularz w kolejnej sekcji pliku <code>index.html</code>.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie wszystkich formularzy,
+                    poprawność etykiet,
+                    wymaganych pól i przycisków.
+                </p>
+
+                <p>
+                    Formularze służą do nauki HTML.
+                    Nie wpisuj do nich prawdziwych haseł
+                    ani innych poufnych informacji.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 12
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
