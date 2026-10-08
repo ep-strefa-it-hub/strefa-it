@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 13 – Kontrolki formularzy | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#input">2.Znacznik input</a>
+        <a href="#tekstowe">3.Pola tekstowe</a>
+        <a href="#liczby">4.Pola liczbowe i daty</a>
+        <a href="#wybor">5.Radio i checkbox</a>
+        <a href="#inne">6.Inne typy input</a>
+        <a href="#label">7.Znacznik label</a>
+        <a href="#atrybuty">8.Atrybuty kontrolek</a>
+        <a href="#required">9.Required i walidacja</a>
+        <a href="#select">10.Lista select</a>
+        <a href="#textarea">11.Pole textarea</a>
+        <a href="#grupowanie">12.Grupowanie kontrolek</a>
+        <a href="#przyciski">13.Przyciski formularza</a>
+        <a href="#bledy">14.Najczęstsze błędy</a>
+        <a href="#przyklad">15.Przykład kompletnego formularza</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 13 • HTML5</div>
+            <h2>Kontrolki formularzy – typy input, label, required i inne atrybuty</h2>
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie i stosowanie kontrolek formularzy HTML,
+                dobieranie odpowiednich typów pól,
+                tworzenie etykiet, określanie wartości i ograniczeń
+                oraz wykorzystanie wbudowanej walidacji HTML5.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                <strong>Kontrolki formularza</strong> to elementy,
+                za pomocą których użytkownik wprowadza dane,
+                zaznacza odpowiedzi, wybiera wartości
+                i przesyła informacje.
+            </p>
+
+            <p>
+                W formularzach internetowych spotykamy różne kontrolki,
+                np. pola tekstowe, pola liczbowe, pola daty,
+                listy rozwijane, przyciski wyboru i pola wielowierszowe.
+            </p>
+
+            <p>
+                Każda kontrolka ma określone przeznaczenie.
+                Dobór właściwego typu pola ułatwia użytkownikowi
+                wypełnienie formularza i może umożliwić
+                przeglądarce sprawdzenie poprawności danych.
+            </p>
+
+            <h3>Przykłady zastosowania</h3>
+
+            <ul>
+                <li>Imię i nazwisko – pole tekstowe.</li>
+                <li>Adres e-mail – pole typu email.</li>
+                <li>Liczba zamawianych produktów – pole number.</li>
+                <li>Data rezerwacji – pole date.</li>
+                <li>Wybór jednej odpowiedzi – radio.</li>
+                <li>Wybór kilku zainteresowań – checkbox.</li>
+                <li>Dłuższa wiadomość – textarea.</li>
+                <li>Wybór miasta z listy – select.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kontrolki umieszczamy najczęściej wewnątrz
+                    znacznika <code>&lt;form&gt;</code>.
+                    Aby ich wartości zostały przesłane,
+                    należy poprawnie określić między innymi
+                    atrybut <code>name</code>.
+                </p>
+            </div>
+        </section>
+
+        <section id="input">
+            <h2>2. Znacznik input</h2>
+
+            <p>
+                Znacznik <code>&lt;input&gt;</code> jest jednym
+                z najczęściej używanych elementów formularzy.
+                Może tworzyć wiele rodzajów kontrolek.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;input type="text" name="imie"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>type</code> określa rodzaj kontrolki.
+                Atrybut <code>name</code> określa nazwę przesyłanej wartości.
+            </p>
+
+            <h3>Przykłady różnych typów</h3>
+
+            <pre><code class="language-html">&lt;input type="text" name="imie"&gt;
+
+&lt;input type="email" name="email"&gt;
+
+&lt;input type="number" name="wiek"&gt;
+
+&lt;input type="date" name="data"&gt;
+
+&lt;input type="checkbox" name="zgoda" value="tak"&gt;</code></pre>
+
+            <p>
+                Znacznik <code>&lt;input&gt;</code> jest elementem pustym,
+                dlatego nie zapisujemy znacznika
+                <code>&lt;/input&gt;</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Jeżeli nie podamy atrybutu <code>type</code>,
+                    domyślnym typem kontrolki jest <code>text</code>.
+                </p>
+            </div>
+        </section>
+
+        <section id="tekstowe">
+            <h2>3. Pola tekstowe</h2>
+
+            <h3>type="text"</h3>
+
+            <p>
+                Służy do wprowadzania krótkich informacji tekstowych,
+                np. imienia, nazwiska lub nazwy miasta.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="imie"&gt;Imię:&lt;/label&gt;
+&lt;input type="text"
+       id="imie"
+       name="imie"&gt;</code></pre>
+
+            <h3>type="password"</h3>
+
+            <p>
+                Służy do wpisywania hasła.
+                Wprowadzane znaki są maskowane.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="haslo"&gt;Hasło:&lt;/label&gt;
+&lt;input type="password"
+       id="haslo"
+       name="haslo"&gt;</code></pre>
+
+            <p>
+                Maskowanie znaków nie oznacza szyfrowania danych.
+                Formularze zawierające hasła powinny korzystać
+                z połączenia HTTPS i odpowiedniej obsługi serwerowej.
+            </p>
+
+            <h3>type="email"</h3>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;E-mail:&lt;/label&gt;
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <p>
+                Przeglądarka sprawdza podstawową składnię adresu e-mail,
+                ale nie potwierdza, że podany adres rzeczywiście istnieje.
+            </p>
+
+            <h3>type="tel"</h3>
+
+            <pre><code class="language-html">&lt;label for="telefon"&gt;Telefon:&lt;/label&gt;
+&lt;input type="tel"
+       id="telefon"
+       name="telefon"
+       placeholder="123456789"&gt;</code></pre>
+
+            <p>
+                Typ <code>tel</code> nie sprawdza automatycznie
+                poprawności numeru telefonu, ale może wyświetlić
+                odpowiednią klawiaturę na urządzeniach mobilnych.
+            </p>
+
+            <h3>type="url"</h3>
+
+            <pre><code class="language-html">&lt;label for="strona"&gt;Adres strony WWW:&lt;/label&gt;
+&lt;input type="url"
+       id="strona"
+       name="strona"
+       placeholder="https://example.com"&gt;</code></pre>
+
+            <p>
+                Pole typu <code>url</code> służy do wprowadzania
+                adresów internetowych.
+            </p>
+        </section>
+
+        <section id="liczby">
+            <h2>4. Pola liczbowe i daty</h2>
+
+            <h3>type="number"</h3>
+
+            <p>
+                Pole liczbowe umożliwia wprowadzanie wartości liczbowych.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="ilosc"&gt;Liczba produktów:&lt;/label&gt;
+&lt;input type="number"
+       id="ilosc"
+       name="ilosc"
+       min="1"
+       max="20"
+       step="1"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>min</code> określa minimalną wartość,
+                <code>max</code> maksymalną,
+                a <code>step</code> dopuszczalny krok wartości.
+            </p>
+
+            <h3>Przykład – liczby dziesiętne</h3>
+
+            <pre><code class="language-html">&lt;label for="cena"&gt;Cena:&lt;/label&gt;
+&lt;input type="number"
+       id="cena"
+       name="cena"
+       min="0"
+       step="0.01"&gt;</code></pre>
+
+            <p>
+                Dzięki <code>step="0.01"</code>
+                można podawać wartości z dokładnością do setnych,
+                np. 12,50.
+            </p>
+
+            <h3>type="date"</h3>
+
+            <pre><code class="language-html">&lt;label for="data"&gt;Data wydarzenia:&lt;/label&gt;
+&lt;input type="date"
+       id="data"
+       name="data"&gt;</code></pre>
+
+            <h3>type="time"</h3>
+
+            <pre><code class="language-html">&lt;label for="godzina"&gt;Godzina:&lt;/label&gt;
+&lt;input type="time"
+       id="godzina"
+       name="godzina"&gt;</code></pre>
+
+            <h3>type="range"</h3>
+
+            <p>
+                Tworzy suwak umożliwiający wybór wartości
+                z określonego zakresu.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="ocena"&gt;Ocena od 1 do 10:&lt;/label&gt;
+&lt;input type="range"
+       id="ocena"
+       name="ocena"
+       min="1"
+       max="10"
+       value="5"&gt;</code></pre>
+
+            <p>
+                Sam HTML nie wyświetla automatycznie
+                obok suwaka aktualnej wartości liczbowej.
+                Można to zrealizować później za pomocą JavaScript.
+            </p>
+        </section>
+
+        <section id="wybor">
+            <h2>5. Pola radio i checkbox</h2>
+
+            <h3>Radio – wybór jednej odpowiedzi</h3>
+
+            <p>
+                Pola <code>radio</code> pozwalają wybrać
+                jedną odpowiedź spośród kilku możliwości.
+            </p>
+
+            <pre><code class="language-html">&lt;p&gt;Wybierz klasę:&lt;/p&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="1"&gt;
+    Klasa 1
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="2"&gt;
+    Klasa 2
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="klasa"
+           value="3"&gt;
+    Klasa 3
+&lt;/label&gt;</code></pre>
+
+            <p>
+                Wszystkie pola mają tę samą nazwę
+                <code>name="klasa"</code>.
+                Dzięki temu tworzą jedną grupę.
+            </p>
+
+            <h3>Checkbox – wybór wielu odpowiedzi</h3>
+
+            <pre><code class="language-html">&lt;p&gt;Wybierz zainteresowania:&lt;/p&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox"
+           name="html"
+           value="tak"&gt;
+    HTML
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox"
+           name="css"
+           value="tak"&gt;
+    CSS
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox"
+           name="javascript"
+           value="tak"&gt;
+    JavaScript
+&lt;/label&gt;</code></pre>
+
+            <h3>Atrybut checked</h3>
+
+            <p>
+                Atrybut <code>checked</code>
+                oznacza, że kontrolka jest początkowo zaznaczona.
+            </p>
+
+            <pre><code class="language-html">&lt;input type="checkbox"
+       name="newsletter"
+       value="tak"
+       checked&gt;</code></pre>
+
+            <p>
+                Atrybut ten można stosować
+                zarówno do pól checkbox, jak i radio.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Różnica</h3>
+                <p>
+                    <code>radio</code> – jedna odpowiedź z grupy.
+                    <code>checkbox</code> – wiele niezależnych odpowiedzi.
+                </p>
+            </div>
+        </section>
+
+        <section id="inne">
+            <h2>6. Inne typy input</h2>
+
+            <h3>type="color"</h3>
+
+            <pre><code class="language-html">&lt;label for="kolor"&gt;Wybierz kolor:&lt;/label&gt;
+&lt;input type="color"
+       id="kolor"
+       name="kolor"
+       value="#3366cc"&gt;</code></pre>
+
+            <h3>type="file"</h3>
+
+            <p>
+                Umożliwia użytkownikowi wybranie pliku
+                z urządzenia.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="plik"&gt;Wybierz plik:&lt;/label&gt;
+&lt;input type="file"
+       id="plik"
+       name="plik"&gt;</code></pre>
+
+            <p>
+                Aby rzeczywiście przesłać plik na serwer,
+                formularz powinien korzystać z metody POST
+                oraz atrybutu
+                <code>enctype="multipart/form-data"</code>.
+                Serwer musi obsługiwać przesyłanie plików.
+            </p>
+
+            <pre><code class="language-html">&lt;form action="upload.php"
+      method="post"
+      enctype="multipart/form-data"&gt;
+
+    &lt;input type="file" name="plik"&gt;
+
+    &lt;button type="submit"&gt;Prześlij plik&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>type="hidden"</h3>
+
+            <p>
+                Pole ukryte nie jest widoczne na stronie,
+                ale jego wartość może zostać przesłana.
+            </p>
+
+            <pre><code class="language-html">&lt;input type="hidden"
+       name="formularz"
+       value="rejestracja"&gt;</code></pre>
+
+            <p>
+                Dane z pola ukrytego nie są tajne.
+                Użytkownik może je odczytać lub zmienić
+                za pomocą narzędzi przeglądarki.
+            </p>
+        </section>
+
+        <section id="label">
+            <h2>7. Znacznik label – etykiety kontrolek</h2>
+
+            <p>
+                Znacznik <code>&lt;label&gt;</code>
+                opisuje przeznaczenie kontrolki formularza.
+            </p>
+
+            <h3>Powiązanie przez for i id</h3>
+
+            <pre><code class="language-html">&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+
+&lt;input type="text"
+       id="nazwisko"
+       name="nazwisko"&gt;</code></pre>
+
+            <p>
+                Wartość atrybutu <code>for</code>
+                musi odpowiadać identyfikatorowi <code>id</code>.
+            </p>
+
+            <h3>Umieszczenie pola wewnątrz label</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="zgoda"
+           value="tak"&gt;
+    Akceptuję regulamin
+&lt;/label&gt;</code></pre>
+
+            <h3>Dlaczego warto stosować label?</h3>
+
+            <ul>
+                <li>Użytkownik wie, do czego służy pole.</li>
+                <li>Kliknięcie etykiety może aktywować powiązaną kontrolkę.</li>
+                <li>Formularz jest wygodniejszy w obsłudze.</li>
+                <li>Poprawia się dostępność strony.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Każda kontrolka wymagająca opisu
+                    powinna mieć czytelną etykietę.
+                    Sam <code>placeholder</code>
+                    nie zastępuje znacznika <code>label</code>.
+                </p>
+            </div>
+        </section>
+
+        <section id="atrybuty">
+            <h2>8. Najważniejsze atrybuty kontrolek</h2>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>type</code></td>
+                    <td>Określa typ kontrolki.</td>
+                </tr>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>Nazwa przesyłanej danej.</td>
+                </tr>
+                <tr>
+                    <td><code>id</code></td>
+                    <td>Unikalny identyfikator elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td>Wartość początkowa lub wartość przesyłana przez kontrolkę.</td>
+                </tr>
+                <tr>
+                    <td><code>placeholder</code></td>
+                    <td>Podpowiedź w pustym polu.</td>
+                </tr>
+                <tr>
+                    <td><code>required</code></td>
+                    <td>Oznacza pole wymagane.</td>
+                </tr>
+                <tr>
+                    <td><code>min</code></td>
+                    <td>Minimalna wartość.</td>
+                </tr>
+                <tr>
+                    <td><code>max</code></td>
+                    <td>Maksymalna wartość.</td>
+                </tr>
+                <tr>
+                    <td><code>step</code></td>
+                    <td>Krok wartości liczbowej.</td>
+                </tr>
+                <tr>
+                    <td><code>minlength</code></td>
+                    <td>Minimalna liczba znaków.</td>
+                </tr>
+                <tr>
+                    <td><code>maxlength</code></td>
+                    <td>Maksymalna liczba znaków.</td>
+                </tr>
+                <tr>
+                    <td><code>checked</code></td>
+                    <td>Wstępne zaznaczenie radio lub checkbox.</td>
+                </tr>
+                <tr>
+                    <td><code>readonly</code></td>
+                    <td>Uniemożliwia edycję wartości w obsługiwanych polach.</td>
+                </tr>
+                <tr>
+                    <td><code>disabled</code></td>
+                    <td>Wyłącza kontrolkę.</td>
+                </tr>
+                <tr>
+                    <td><code>autocomplete</code></td>
+                    <td>Określa sposób podpowiadania wcześniej wpisanych danych.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – placeholder i maxlength</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="login"
+       placeholder="Wpisz login"
+       maxlength="20"&gt;</code></pre>
+
+            <h3>Przykład – value</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="miasto"
+       value="Lubartów"&gt;</code></pre>
+
+            <h3>Readonly a disabled</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="kraj"
+       value="Polska"
+       readonly&gt;
+
+&lt;input type="text"
+       name="kod"
+       value="123"
+       disabled&gt;</code></pre>
+
+            <p>
+                Pole <code>readonly</code> jest nieedytowalne,
+                ale jego wartość może zostać przesłana.
+                Pole <code>disabled</code> jest wyłączone
+                i nie jest przesyłane ze standardowym formularzem.
+            </p>
+        </section>
+
+        <section id="required">
+            <h2>9. Required i walidacja HTML5</h2>
+
+            <p>
+                Atrybut <code>required</code>
+                oznacza, że użytkownik musi uzupełnić pole
+                przed wysłaniem formularza.
+            </p>
+
+            <h3>Pole wymagane</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="imie"
+       required&gt;</code></pre>
+
+            <h3>Wymagany adres e-mail</h3>
+
+            <pre><code class="language-html">&lt;input type="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <h3>Ograniczenie liczby znaków</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       name="login"
+       minlength="4"
+       maxlength="12"
+       required&gt;</code></pre>
+
+            <h3>Ograniczenie zakresu liczbowego</h3>
+
+            <pre><code class="language-html">&lt;input type="number"
+       name="wiek"
+       min="16"
+       max="99"
+       required&gt;</code></pre>
+
+            <h3>Wymagany wybór radio</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="radio"
+           name="termin"
+           value="rano"
+           required&gt;
+    Rano
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="termin"
+           value="popoludnie"&gt;
+    Po południu
+&lt;/label&gt;</code></pre>
+
+            <h3>Wymagany checkbox</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="regulamin"
+           value="tak"
+           required&gt;
+    Akceptuję regulamin
+&lt;/label&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Walidacja HTML5 działa w przeglądarce,
+                    ale nie zastępuje walidacji po stronie serwera.
+                    Nie należy traktować jej jako jedynego
+                    zabezpieczenia danych.
+                </p>
+            </div>
+        </section>
+
+        <section id="select">
+            <h2>10. Lista rozwijana – select i option</h2>
+
+            <p>
+                Znacznik <code>&lt;select&gt;</code>
+                tworzy listę wyboru,
+                a <code>&lt;option&gt;</code>
+                określa dostępne opcje.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;label for="miasto"&gt;Wybierz miasto:&lt;/label&gt;
+
+&lt;select id="miasto" name="miasto"&gt;
+    &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+    &lt;option value="warszawa"&gt;Warszawa&lt;/option&gt;
+    &lt;option value="krakow"&gt;Kraków&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+            <h3>Opcja domyślna</h3>
+
+            <pre><code class="language-html">&lt;select name="wojewodztwo"&gt;
+    &lt;option value="" selected&gt;-- Wybierz --&lt;/option&gt;
+    &lt;option value="lubelskie"&gt;Lubelskie&lt;/option&gt;
+    &lt;option value="mazowieckie"&gt;Mazowieckie&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+            <h3>Lista wymagana</h3>
+
+            <pre><code class="language-html">&lt;label for="profil"&gt;Profil klasy:&lt;/label&gt;
+
+&lt;select id="profil" name="profil" required&gt;
+    &lt;option value=""&gt;-- Wybierz profil --&lt;/option&gt;
+    &lt;option value="technik_informatyk"&gt;Technik informatyk&lt;/option&gt;
+    &lt;option value="technik_programista"&gt;Technik programista&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Pusta wartość pierwszej opcji
+                sprawia, że użytkownik musi wybrać
+                jedną z właściwych odpowiedzi.
+            </p>
+        </section>
+
+        <section id="textarea">
+            <h2>11. Pole wielowierszowe – textarea</h2>
+
+            <p>
+                Znacznik <code>&lt;textarea&gt;</code>
+                służy do wprowadzania dłuższego tekstu,
+                np. komentarza lub wiadomości.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="wiadomosc"&gt;Wiadomość:&lt;/label&gt;
+
+&lt;textarea id="wiadomosc"
+          name="wiadomosc"
+          rows="5"
+          cols="40"&gt;&lt;/textarea&gt;</code></pre>
+
+            <p>
+                Atrybut <code>rows</code>
+                określa liczbę widocznych wierszy,
+                a <code>cols</code> przybliżoną szerokość pola.
+            </p>
+
+            <h3>Textarea z ograniczeniem długości</h3>
+
+            <pre><code class="language-html">&lt;textarea name="opinia"
+          rows="4"
+          cols="35"
+          maxlength="300"
+          placeholder="Wpisz swoją opinię"
+          required&gt;&lt;/textarea&gt;</code></pre>
+
+            <h3>Wartość początkowa textarea</h3>
+
+            <pre><code class="language-html">&lt;textarea name="komentarz"&gt;Przykładowy tekst&lt;/textarea&gt;</code></pre>
+
+            <p>
+                W przeciwieństwie do zwykłego pola
+                <code>&lt;input&gt;</code>,
+                początkowy tekst umieszczamy
+                pomiędzy znacznikami
+                <code>&lt;textarea&gt;</code>
+                i <code>&lt;/textarea&gt;</code>.
+            </p>
+        </section>
+
+        <section id="grupowanie">
+            <h2>12. Grupowanie kontrolek – fieldset i legend</h2>
+
+            <p>
+                Rozbudowane formularze warto podzielić
+                na logiczne grupy.
+            </p>
+
+            <p>
+                Znacznik <code>&lt;fieldset&gt;</code>
+                grupuje powiązane kontrolki,
+                a <code>&lt;legend&gt;</code>
+                nadaje grupie nazwę.
+            </p>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Dane osobowe&lt;/legend&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+    &lt;input type="text" id="imie" name="imie"&gt;
+
+    &lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+    &lt;input type="text" id="nazwisko" name="nazwisko"&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <h3>Grupa pól radio</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Wybierz poziom&lt;/legend&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="poziom"
+               value="podstawowy"&gt;
+        Podstawowy
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="poziom"
+               value="zaawansowany"&gt;
+        Zaawansowany
+    &lt;/label&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <p>
+                Grupowanie ułatwia zrozumienie
+                formularza i poprawia jego dostępność.
+            </p>
+        </section>
+
+        <section id="przyciski">
+            <h2>13. Przyciski formularza</h2>
+
+            <h3>Przycisk wysyłający</h3>
+
+            <pre><code class="language-html">&lt;button type="submit"&gt;Wyślij&lt;/button&gt;</code></pre>
+
+            <h3>Przycisk resetujący</h3>
+
+            <pre><code class="language-html">&lt;button type="reset"&gt;Wyczyść&lt;/button&gt;</code></pre>
+
+            <h3>Zwykły przycisk</h3>
+
+            <pre><code class="language-html">&lt;button type="button"&gt;Sprawdź&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk typu <code>button</code>
+                nie wysyła formularza.
+                Można przypisać mu działanie
+                za pomocą JavaScript.
+            </p>
+
+            <h3>Przyciski jako input</h3>
+
+            <pre><code class="language-html">&lt;input type="submit" value="Zapisz"&gt;
+
+&lt;input type="reset" value="Wyczyść"&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W znaczniku <code>&lt;button&gt;</code>
+                    warto jawnie określać atrybut <code>type</code>.
+                    Bez niego przycisk znajdujący się w formularzu
+                    domyślnie może działać jako <code>submit</code>.
+                </p>
+            </div>
+        </section>
+
+        <section id="bledy">
+            <h2>14. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak name</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie, jeśli chcemy przesłać wartość --&gt;
+&lt;input type="text" id="imie"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="text" id="imie" name="imie"&gt;</code></pre>
+
+            <h3>Błąd 2 – niezgodne for i id</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+&lt;input type="text" id="imie" name="nazwisko"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+&lt;input type="text" id="nazwisko" name="nazwisko"&gt;</code></pre>
+
+            <h3>Błąd 3 – różne nazwy pól radio</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla jednej grupy --&gt;
+&lt;input type="radio" name="a" value="tak"&gt;
+&lt;input type="radio" name="b" value="nie"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="radio" name="odpowiedz" value="tak"&gt;
+&lt;input type="radio" name="odpowiedz" value="nie"&gt;</code></pre>
+
+            <h3>Błąd 4 – błędne użycie value w textarea</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;textarea name="opis" value="Tekst"&gt;&lt;/textarea&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;textarea name="opis"&gt;Tekst&lt;/textarea&gt;</code></pre>
+
+            <h3>Błąd 5 – mylenie readonly i disabled</h3>
+
+            <p>
+                Pole <code>disabled</code> nie jest przesyłane
+                razem z formularzem.
+                Jeśli wartość ma być nieedytowalna,
+                ale przesyłana, w odpowiednich polach
+                należy użyć <code>readonly</code>.
+            </p>
+
+            <h3>Błąd 6 – brak type przy zwykłym przycisku</h3>
+
+            <pre><code class="language-html">&lt;!-- Może niezamierzenie wysłać formularz --&gt;
+&lt;button&gt;Sprawdź&lt;/button&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;button type="button"&gt;Sprawdź&lt;/button&gt;</code></pre>
+        </section>
+
+        <section id="przyklad">
+            <h2>15. Przykład kompletnego formularza</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                formularz zgłoszenia na warsztaty informatyczne.
+                Zawiera różne kontrolki, etykiety,
+                pola wymagane i grupowanie danych.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Zgłoszenie na warsztaty&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Zgłoszenie na warsztaty&lt;/h1&gt;
+
+    &lt;form action="" method="get"&gt;
+
+        &lt;fieldset&gt;
+            &lt;legend&gt;Dane uczestnika&lt;/legend&gt;
+
+            &lt;p&gt;
+                &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+                &lt;input type="email"
+                       id="email"
+                       name="email"
+                       required&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label for="wiek"&gt;Wiek:&lt;/label&gt;
+                &lt;input type="number"
+                       id="wiek"
+                       name="wiek"
+                       min="10"
+                       max="100"&gt;
+            &lt;/p&gt;
+        &lt;/fieldset&gt;
+
+        &lt;fieldset&gt;
+            &lt;legend&gt;Wybór warsztatów&lt;/legend&gt;
+
+            &lt;label&gt;
+                &lt;input type="radio"
+                       name="warsztaty"
+                       value="html"
+                       required&gt;
+                HTML
+            &lt;/label&gt;
+
+            &lt;label&gt;
+                &lt;input type="radio"
+                       name="warsztaty"
+                       value="css"&gt;
+                CSS
+            &lt;/label&gt;
+
+            &lt;label&gt;
+                &lt;input type="radio"
+                       name="warsztaty"
+                       value="javascript"&gt;
+                JavaScript
+            &lt;/label&gt;
+        &lt;/fieldset&gt;
+
+        &lt;p&gt;
+            &lt;label for="termin"&gt;Termin:&lt;/label&gt;
+
+            &lt;select id="termin" name="termin" required&gt;
+                &lt;option value=""&gt;-- Wybierz --&lt;/option&gt;
+                &lt;option value="poniedzialek"&gt;Poniedziałek&lt;/option&gt;
+                &lt;option value="sroda"&gt;Środa&lt;/option&gt;
+                &lt;option value="piatek"&gt;Piątek&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;label for="uwagi"&gt;Uwagi:&lt;/label&gt;
+            &lt;textarea id="uwagi"
+                      name="uwagi"
+                      rows="4"
+                      cols="35"&gt;&lt;/textarea&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;label&gt;
+                &lt;input type="checkbox"
+                       name="zgoda"
+                       value="tak"
+                       required&gt;
+                Potwierdzam chęć udziału
+            &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;button type="submit"&gt;Wyślij zgłoszenie&lt;/button&gt;
+        &lt;button type="reset"&gt;Wyczyść&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Sprawdź działanie</h3>
+                <p>
+                    Po zapisaniu strony otwórz ją w przeglądarce.
+                    Sprawdź pola wymagane, wybór radio,
+                    listę rozwijaną oraz przyciski.
+                    W przykładzie użyto metody GET wyłącznie
+                    do demonstracji formularza bez danych poufnych.
+                    Nie wpisuj danych poufnych.
+                </p>
+            </div>
+        </section>
+
+        <section id="zapamietaj">
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>input</code> – tworzy różne rodzaje kontrolek.</li>
+                    <li><code>type</code> – określa typ pola.</li>
+                    <li><code>name</code> – określa nazwę przesyłanej danej.</li>
+                    <li><code>id</code> – identyfikuje element.</li>
+                    <li><code>label</code> – opisuje kontrolkę.</li>
+                    <li><code>for</code> – wskazuje identyfikator pola.</li>
+                    <li><code>value</code> – określa wartość kontrolki.</li>
+                    <li><code>placeholder</code> – wyświetla podpowiedź.</li>
+                    <li><code>required</code> – oznacza pole wymagane.</li>
+                    <li><code>min</code>, <code>max</code>, <code>step</code> – ograniczają wartości liczbowe.</li>
+                    <li><code>minlength</code>, <code>maxlength</code> – określają długość tekstu.</li>
+                    <li><code>checked</code> – zaznacza początkowo radio lub checkbox.</li>
+                    <li><code>radio</code> – wybór jednej odpowiedzi z grupy.</li>
+                    <li><code>checkbox</code> – niezależne pola wyboru.</li>
+                    <li><code>select</code> i <code>option</code> – tworzą listę rozwijaną.</li>
+                    <li><code>textarea</code> – tworzy pole wielowierszowe.</li>
+                    <li><code>fieldset</code> i <code>legend</code> – grupują kontrolki.</li>
+                    <li><code>submit</code> – wysyła formularz.</li>
+                    <li><code>reset</code> – przywraca wartości początkowe pól.</li>
+                    <li>Walidacja HTML nie zastępuje sprawdzania danych na serwerze.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie formularzy z różnymi kontrolkami,
+                poprawne stosowanie etykiet i atrybutów
+                oraz testowanie walidacji HTML5.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_13</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj w jednym pliku HTML.
+                Nie korzystaj z CSS ani JavaScript.
+            </p>
+
+            <h3>Zadanie 1 – Formularz rejestracyjny</h3>
+
+            <p>
+                Utwórz formularz rejestracji użytkownika.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h1&gt;</code> „Kontrolki formularzy HTML”.</li>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Formularz rejestracyjny”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="post"</code>.</li>
+                <li>Dodaj pola: Imię, Nazwisko, Login, E-mail, Hasło, Wiek.</li>
+                <li>Zastosuj odpowiednie typy pól.</li>
+                <li>Wszystkie pola powinny mieć poprawne etykiety, <code>id</code> i <code>name</code>.</li>
+                <li>Oznacz jako wymagane: Imię, Login, E-mail i Hasło.</li>
+                <li>Login powinien mieć od 4 do 15 znaków.</li>
+                <li>Wiek powinien mieścić się w zakresie od 13 do 100.</li>
+                <li>Dodaj przyciski „Zarejestruj” i „Wyczyść”.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Uwaga do zadania 1</h3>
+                <p>
+                    Formularz jest ćwiczeniem.
+                    Nie wpisuj prawdziwego hasła.
+                    Metoda POST nie umieszcza hasła w adresie URL,
+                    ale sam HTML nie zapewnia bezpiecznej obsługi logowania.
+                    Podczas testowania wpisuj wyłącznie
+                    fikcyjne dane.
+                </p>
+            </div>
+
+            <h3>Zadanie 2 – Ankieta zainteresowań</h3>
+
+            <p>
+                Pod pierwszym formularzem utwórz ankietę
+                dotyczącą zainteresowań uczniów.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Ankieta zainteresowań”.</li>
+                <li>Utwórz osobny formularz z metodą GET.</li>
+                <li>Dodaj pole tekstowe „Imię”.</li>
+                <li>Dodaj grupę radio „Ulubiony przedmiot” z minimum 4 odpowiedziami.</li>
+                <li>Dodaj minimum 4 pola checkbox dotyczące zainteresowań.</li>
+                <li>Dodaj listę rozwijaną „Klasa” z minimum 4 opcjami.</li>
+                <li>Dodaj pole <code>textarea</code> na dodatkowy komentarz.</li>
+                <li>Zastosuj <code>fieldset</code> i <code>legend</code> do pogrupowania odpowiedzi.</li>
+                <li>Wybór przedmiotu i klasy powinien być wymagany.</li>
+                <li>Dodaj przycisk „Wyślij ankietę”.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Formularz zamówienia</h3>
+
+            <p>
+                Utwórz formularz zamówienia
+                w przykładowym sklepie internetowym.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Formularz zamówienia”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="get"</code>.</li>
+                <li>Dodaj pole „Nazwa produktu”.</li>
+                <li>Dodaj pole liczbowe „Liczba sztuk” z zakresem od 1 do 20.</li>
+                <li>Dodaj pole daty „Data odbioru”.</li>
+                <li>Dodaj listę rozwijaną „Sposób dostawy” z minimum 3 opcjami.</li>
+                <li>Dodaj grupę radio „Sposób płatności” z minimum 3 opcjami.</li>
+                <li>Dodaj pole <code>textarea</code> na uwagi do zamówienia.</li>
+                <li>Dodaj checkbox „Potwierdzam zamówienie”, który będzie wymagany.</li>
+                <li>Zastosuj <code>required</code> w najważniejszych polach.</li>
+                <li>Dodaj przyciski „Zamów” i „Wyczyść”.</li>
+                <li>Sprawdź, czy formularz poprawnie reaguje na puste pola wymagane.</li>
+            </ol>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź działanie
+                    wszystkich kontrolek, etykiet, list rozwijanych,
+                    pól wyboru i przycisków.
+                </p>
+
+                <p>
+                    Do testowania formularzy używaj
+                    wyłącznie przykładowych danych.
+                </p>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 13</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
