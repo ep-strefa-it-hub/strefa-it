@@ -1,0 +1,2082 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 16 – Elementy multimedialne w HTML5 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#formaty">2.Formaty multimediów</a>
+        <a href="#obrazy">3.Obrazy – przypomnienie</a>
+        <a href="#figure">4.Figure i figcaption</a>
+        <a href="#responsywne">5.Responsywne obrazy</a>
+        <a href="#audio">6.Element audio</a>
+        <a href="#source">7.Element source</a>
+        <a href="#video">8.Element video</a>
+        <a href="#track">9.Napisy do wideo</a>
+        <a href="#iframe">10.Element iframe</a>
+        <a href="#atrybuty">11.Atrybuty multimediów</a>
+        <a href="#dostepnosc">12.Dostępność</a>
+        <a href="#optymalizacja">13.Optymalizacja plików</a>
+        <a href="#organizacja">14.Organizacja projektu</a>
+        <a href="#metadane">15.Metadane dokumentu</a>
+        <a href="#walidacja">16.Walidacja HTML</a>
+        <a href="#bledy">17.Najczęstsze błędy</a>
+        <a href="#przyklad">18.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 16 • HTML5</div>
+
+            <h2>HTML5: Elementy multimedialne – osadzanie obrazu, dźwięku i wideo na stronie WWW</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                osadzanie obrazów, plików audio i wideo
+                w dokumentach HTML5, stosowanie
+                znaczników <code>audio</code>,
+                <code>video</code>, <code>source</code>,
+                <code>track</code>, <code>picture</code>,
+                <code>figure</code>, <code>figcaption</code>
+                i <code>iframe</code>.
+                Poznanie podstaw dostępności,
+                optymalizacji oraz sprawdzania
+                poprawności stron internetowych.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Współczesne strony internetowe
+                zawierają nie tylko tekst i odnośniki,
+                ale również zdjęcia, ilustracje,
+                nagrania dźwiękowe, filmy
+                oraz materiały pochodzące
+                z innych serwisów.
+            </p>
+
+            <p>
+                HTML5 umożliwia odtwarzanie
+                plików audio i wideo
+                bez konieczności instalowania
+                dodatkowych wtyczek.
+            </p>
+
+            <p>
+                Do umieszczania multimediów
+                wykorzystujemy odpowiednie
+                znaczniki HTML.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>img</code></td>
+                    <td>Wyświetlanie obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>picture</code></td>
+                    <td>Wybór odpowiedniego wariantu obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>figure</code></td>
+                    <td>Wydzielenie ilustracji lub innego materiału.</td>
+                </tr>
+                <tr>
+                    <td><code>figcaption</code></td>
+                    <td>Podpis materiału.</td>
+                </tr>
+                <tr>
+                    <td><code>audio</code></td>
+                    <td>Odtwarzanie dźwięku.</td>
+                </tr>
+                <tr>
+                    <td><code>video</code></td>
+                    <td>Odtwarzanie filmu.</td>
+                </tr>
+                <tr>
+                    <td><code>source</code></td>
+                    <td>Wskazywanie źródeł plików multimedialnych.</td>
+                </tr>
+                <tr>
+                    <td><code>track</code></td>
+                    <td>Dodawanie napisów lub innych ścieżek tekstowych.</td>
+                </tr>
+                <tr>
+                    <td><code>iframe</code></td>
+                    <td>Osadzanie zewnętrznej zawartości.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    HTML określa, jakie multimedia
+                    znajdują się na stronie
+                    i skąd mają zostać pobrane.
+                    Za ich wygląd, rozmieszczenie
+                    i responsywność odpowiada
+                    w dużej mierze CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="formaty">
+
+            <h2>2. Najpopularniejsze formaty multimediów</h2>
+
+            <p>
+                Pliki multimedialne mogą być
+                zapisywane w różnych formatach.
+                Wybór formatu wpływa na jakość,
+                rozmiar pliku oraz możliwość
+                jego odtworzenia w przeglądarce.
+            </p>
+
+            <h3>Formaty obrazów</h3>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Charakterystyka</th>
+                </tr>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Popularny format zdjęć, kompresja stratna.</td>
+                </tr>
+                <tr>
+                    <td>PNG</td>
+                    <td>Obsługuje przezroczystość i kompresję bezstratną.</td>
+                </tr>
+                <tr>
+                    <td>GIF</td>
+                    <td>Może zawierać prostą animację.</td>
+                </tr>
+                <tr>
+                    <td>WebP</td>
+                    <td>Nowoczesny format obrazów, często pozwala uzyskać mniejsze pliki.</td>
+                </tr>
+                <tr>
+                    <td>AVIF</td>
+                    <td>Nowoczesny format oferujący bardzo dobrą kompresję.</td>
+                </tr>
+                <tr>
+                    <td>SVG</td>
+                    <td>Grafika wektorowa, odpowiednia np. do ikon i prostych ilustracji.</td>
+                </tr>
+            </table>
+
+            <h3>Formaty dźwięku</h3>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Charakterystyka</th>
+                </tr>
+                <tr>
+                    <td>MP3</td>
+                    <td>Bardzo popularny, szeroko obsługiwany format dźwięku.</td>
+                </tr>
+                <tr>
+                    <td>WAV</td>
+                    <td>Często zawiera dźwięk nieskompresowany, dlatego pliki bywają duże.</td>
+                </tr>
+                <tr>
+                    <td>OGG / Opus</td>
+                    <td>Formaty wykorzystywane do efektywnego kodowania dźwięku.</td>
+                </tr>
+            </table>
+
+            <h3>Formaty wideo</h3>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Charakterystyka</th>
+                </tr>
+                <tr>
+                    <td>MP4</td>
+                    <td>Popularny kontener; w przeglądarkach często używany z kodekiem H.264.</td>
+                </tr>
+                <tr>
+                    <td>WebM</td>
+                    <td>Format internetowy, często z kodekami VP9 lub AV1.</td>
+                </tr>
+                <tr>
+                    <td>Ogg</td>
+                    <td>Kontener multimedialny, obecnie rzadziej wykorzystywany do wideo.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Rozszerzenie pliku wideo
+                    nie określa jednoznacznie
+                    sposobu kodowania obrazu i dźwięku.
+                    Na możliwość odtworzenia
+                    wpływają również zastosowane kodeki.
+                </p>
+                <p>
+                    W ćwiczeniach najlepiej
+                    wykorzystać plik
+                    <code>.mp4</code> z wideo H.264
+                    i dźwiękiem AAC
+                    oraz plik dźwiękowy
+                    <code>.mp3</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="obrazy">
+
+            <h2>3. Obrazy w HTML – przypomnienie i rozszerzenie</h2>
+
+            <p>
+                Obrazy umieszczamy na stronie
+                za pomocą znacznika
+                <code>&lt;img&gt;</code>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;img src="img/las.jpg"
+     alt="Zielony las w słoneczny dzień"
+     width="600"
+     height="400"&gt;</code></pre>
+
+            <h3>Najważniejsze atrybuty</h3>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>Ścieżka do pliku obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>alt</code></td>
+                    <td>Tekst alternatywny opisujący znaczenie obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>Szerokość obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>height</code></td>
+                    <td>Wysokość obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>loading</code></td>
+                    <td>Może określać sposób ładowania obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>decoding</code></td>
+                    <td>Wskazówka dotycząca dekodowania obrazu.</td>
+                </tr>
+            </table>
+
+            <h3>Opóźnione ładowanie obrazów</h3>
+
+            <pre><code class="language-html">&lt;img src="img/krajobraz.jpg"
+     alt="Górski krajobraz"
+     width="800"
+     height="500"
+     loading="lazy"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>loading="lazy"</code>
+                pozwala przeglądarce opóźnić
+                pobranie obrazu, który znajduje się
+                poza aktualnie widocznym obszarem strony.
+            </p>
+
+            <p>
+                Może to przyspieszyć
+                początkowe wczytywanie
+                stron zawierających wiele zdjęć.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Nie warto automatycznie stosować
+                    <code>loading="lazy"</code>
+                    do najważniejszego obrazu
+                    widocznego od razu po otwarciu strony.
+                    Taki obraz powinien zwykle
+                    ładować się bez opóźnienia.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="figure">
+
+            <h2>4. Figure i figcaption – ilustracje z podpisami</h2>
+
+            <p>
+                Znacznik <code>&lt;figure&gt;</code>
+                pozwala wydzielić samodzielny materiał,
+                np. ilustrację, zdjęcie,
+                wykres, fragment kodu lub film.
+            </p>
+
+            <p>
+                Znacznik <code>&lt;figcaption&gt;</code>
+                służy do dodania podpisu
+                powiązanego z tym materiałem.
+            </p>
+
+            <h3>Przykład – zdjęcie z podpisem</h3>
+
+            <pre><code class="language-html">&lt;figure&gt;
+
+    &lt;img src="img/gory.jpg"
+         alt="Górski krajobraz"
+         width="500"&gt;
+
+    &lt;figcaption&gt;
+        Rys. 1. Krajobraz górski.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;</code></pre>
+
+            <h3>Przykład – kilka obrazów</h3>
+
+            <pre><code class="language-html">&lt;figure&gt;
+
+    &lt;img src="img/las.jpg"
+         alt="Las"
+         width="250"&gt;
+
+    &lt;img src="img/jezioro.jpg"
+         alt="Jezioro"
+         width="250"&gt;
+
+    &lt;figcaption&gt;
+        Przykłady krajobrazów naturalnych.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;</code></pre>
+
+            <h3>Figure z materiałem wideo</h3>
+
+            <pre><code class="language-html">&lt;figure&gt;
+
+    &lt;video controls width="500"&gt;
+        &lt;source src="video/przyroda.mp4"
+                type="video/mp4"&gt;
+    &lt;/video&gt;
+
+    &lt;figcaption&gt;
+        Film przedstawiający przyrodę.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>figure</code> grupuje materiał,
+                    a <code>figcaption</code>
+                    nadaje mu podpis.
+                    Nie każde zdjęcie musi
+                    znajdować się w <code>figure</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="responsywne">
+
+            <h2>5. Responsywne obrazy – picture i srcset</h2>
+
+            <p>
+                Użytkownicy otwierają strony
+                na urządzeniach o różnych
+                rozmiarach i rozdzielczościach ekranu.
+            </p>
+
+            <p>
+                HTML umożliwia wskazanie
+                kilku wariantów tego samego obrazu.
+                Przeglądarka może wybrać
+                plik najlepiej dopasowany
+                do określonych warunków.
+            </p>
+
+            <h3>Atrybut srcset</h3>
+
+            <pre><code class="language-html">&lt;img src="img/zdjecie-800.jpg"
+     srcset="img/zdjecie-400.jpg 400w,
+             img/zdjecie-800.jpg 800w,
+             img/zdjecie-1200.jpg 1200w"
+     sizes="(max-width: 600px) 100vw, 800px"
+     alt="Krajobraz nad jeziorem"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>srcset</code>
+                wskazuje dostępne warianty
+                pliku graficznego.
+            </p>
+
+            <ul>
+                <li><code>400w</code> – obraz o szerokości 400 pikseli.</li>
+                <li><code>800w</code> – obraz o szerokości 800 pikseli.</li>
+                <li><code>1200w</code> – obraz o szerokości 1200 pikseli.</li>
+            </ul>
+
+            <p>
+                Atrybut <code>sizes</code>
+                informuje przeglądarkę
+                o przewidywanej szerokości
+                wyświetlanego obrazu.
+            </p>
+
+            <h3>Element picture</h3>
+
+            <p>
+                Znacznik <code>&lt;picture&gt;</code>
+                pozwala określić różne źródła
+                obrazu w zależności
+                od obsługi formatu
+                lub warunków wyświetlania.
+            </p>
+
+            <pre><code class="language-html">&lt;picture&gt;
+
+    &lt;source srcset="img/krajobraz.avif"
+            type="image/avif"&gt;
+
+    &lt;source srcset="img/krajobraz.webp"
+            type="image/webp"&gt;
+
+    &lt;img src="img/krajobraz.jpg"
+         alt="Krajobraz nad jeziorem"
+         width="600"&gt;
+
+&lt;/picture&gt;</code></pre>
+
+            <p>
+                Przeglądarka wybierze
+                pierwszy obsługiwany wariant.
+                Element <code>img</code>
+                stanowi rozwiązanie zapasowe.
+            </p>
+
+            <h3>Różne obrazy dla różnych ekranów</h3>
+
+            <pre><code class="language-html">&lt;picture&gt;
+
+    &lt;source media="(max-width: 600px)"
+            srcset="img/baner-mobile.jpg"&gt;
+
+    &lt;img src="img/baner-desktop.jpg"
+         alt="Baner strony internetowej"&gt;
+
+&lt;/picture&gt;</code></pre>
+
+            <p>
+                Na ekranach o szerokości
+                do 600 pikseli przeglądarka
+                może wyświetlić wersję mobilną,
+                a na większych ekranach
+                wersję podstawową.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Samo użycie <code>picture</code>
+                    lub <code>srcset</code>
+                    nie gwarantuje poprawnego
+                    dopasowania wyglądu całej strony.
+                    Responsywny układ opracowuje się
+                    również za pomocą CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="audio">
+
+            <h2>6. Element audio – osadzanie dźwięku</h2>
+
+            <p>
+                Znacznik <code>&lt;audio&gt;</code>
+                służy do odtwarzania
+                plików dźwiękowych
+                bezpośrednio na stronie internetowej.
+            </p>
+
+            <h3>Podstawowy przykład</h3>
+
+            <pre><code class="language-html">&lt;audio src="audio/odglosy-lasu.mp3"
+       controls&gt;
+&lt;/audio&gt;</code></pre>
+
+            <p>
+                Atrybut <code>src</code>
+                określa lokalizację pliku,
+                a <code>controls</code>
+                wyświetla odtwarzacz
+                z przyciskami sterowania.
+            </p>
+
+            <h3>Audio z komunikatem zapasowym</h3>
+
+            <pre><code class="language-html">&lt;audio controls&gt;
+
+    &lt;source src="audio/nagranie.mp3"
+            type="audio/mpeg"&gt;
+
+    Twoja przeglądarka nie obsługuje
+    odtwarzania dźwięku HTML5.
+
+&lt;/audio&gt;</code></pre>
+
+            <p>
+                Tekst umieszczony wewnątrz
+                elementu <code>audio</code>
+                stanowi komunikat zapasowy
+                dla przeglądarek,
+                które nie obsługują tego elementu.
+            </p>
+
+            <h3>Audio z zapętlaniem</h3>
+
+            <pre><code class="language-html">&lt;audio controls loop&gt;
+
+    &lt;source src="audio/deszcz.mp3"
+            type="audio/mpeg"&gt;
+
+&lt;/audio&gt;</code></pre>
+
+            <p>
+                Atrybut <code>loop</code>
+                powoduje ponowne odtwarzanie
+                nagrania po jego zakończeniu.
+            </p>
+
+            <h3>Audio z preload</h3>
+
+            <pre><code class="language-html">&lt;audio controls preload="metadata"&gt;
+
+    &lt;source src="audio/wywiad.mp3"
+            type="audio/mpeg"&gt;
+
+&lt;/audio&gt;</code></pre>
+
+            <p>
+                Wartość <code>metadata</code>
+                sugeruje przeglądarce
+                pobranie podstawowych informacji
+                o nagraniu, np. jego długości,
+                bez konieczności pobierania
+                całego pliku od razu.
+            </p>
+
+        </section>
+
+        <section id="source">
+
+            <h2>7. Element source – różne źródła multimediów</h2>
+
+            <p>
+                Element <code>&lt;source&gt;</code>
+                pozwala wskazać
+                kilka alternatywnych źródeł
+                tego samego materiału.
+            </p>
+
+            <p>
+                Jest wykorzystywany m.in.
+                wewnątrz elementów
+                <code>audio</code>,
+                <code>video</code>
+                i <code>picture</code>.
+            </p>
+
+            <h3>Przykład – dwa formaty audio</h3>
+
+            <pre><code class="language-html">&lt;audio controls&gt;
+
+    &lt;source src="audio/muzyka.opus"
+            type="audio/ogg; codecs=opus"&gt;
+
+    &lt;source src="audio/muzyka.mp3"
+            type="audio/mpeg"&gt;
+
+    Nie można odtworzyć nagrania.
+
+&lt;/audio&gt;</code></pre>
+
+            <p>
+                Przeglądarka sprawdza źródła
+                i próbuje użyć formatu,
+                który potrafi odtworzyć.
+            </p>
+
+            <h3>Przykład – dwa formaty wideo</h3>
+
+            <pre><code class="language-html">&lt;video controls width="600"&gt;
+
+    &lt;source src="video/film.webm"
+            type="video/webm"&gt;
+
+    &lt;source src="video/film.mp4"
+            type="video/mp4"&gt;
+
+    Nie można odtworzyć filmu.
+
+&lt;/video&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>source</code>
+                    nie jest samodzielnym
+                    odtwarzaczem multimediów.
+                    Wskazuje pliki,
+                    które mogą zostać wykorzystane
+                    przez odpowiedni element HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="video">
+
+            <h2>8. Element video – osadzanie filmów</h2>
+
+            <p>
+                Znacznik <code>&lt;video&gt;</code>
+                umożliwia odtwarzanie filmów
+                bezpośrednio na stronie WWW.
+            </p>
+
+            <h3>Podstawowy przykład</h3>
+
+            <pre><code class="language-html">&lt;video src="video/film.mp4"
+       controls
+       width="640"&gt;
+&lt;/video&gt;</code></pre>
+
+            <h3>Wideo z wieloma źródłami</h3>
+
+            <pre><code class="language-html">&lt;video controls width="640"&gt;
+
+    &lt;source src="video/film.webm"
+            type="video/webm"&gt;
+
+    &lt;source src="video/film.mp4"
+            type="video/mp4"&gt;
+
+    Twoja przeglądarka nie obsługuje
+    odtwarzania wideo HTML5.
+
+&lt;/video&gt;</code></pre>
+
+            <h3>Atrybut poster</h3>
+
+            <p>
+                Atrybut <code>poster</code>
+                określa obraz wyświetlany
+                przed rozpoczęciem odtwarzania filmu.
+            </p>
+
+            <pre><code class="language-html">&lt;video controls
+       width="640"
+       poster="img/miniatura.jpg"&gt;
+
+    &lt;source src="video/film.mp4"
+            type="video/mp4"&gt;
+
+&lt;/video&gt;</code></pre>
+
+            <h3>Wideo z zapętlaniem</h3>
+
+            <pre><code class="language-html">&lt;video controls
+       loop
+       width="640"&gt;
+
+    &lt;source src="video/animacja.mp4"
+            type="video/mp4"&gt;
+
+&lt;/video&gt;</code></pre>
+
+            <h3>Wideo bez dźwięku</h3>
+
+            <pre><code class="language-html">&lt;video controls
+       muted
+       width="640"&gt;
+
+    &lt;source src="video/film.mp4"
+            type="video/mp4"&gt;
+
+&lt;/video&gt;</code></pre>
+
+            <p>
+                Atrybut <code>muted</code>
+                powoduje początkowe wyciszenie
+                odtwarzacza.
+            </p>
+
+            <h3>Autoplay – automatyczne odtwarzanie</h3>
+
+            <pre><code class="language-html">&lt;video autoplay
+       muted
+       loop
+       playsinline
+       width="640"&gt;
+
+    &lt;source src="video/tlo.mp4"
+            type="video/mp4"&gt;
+
+&lt;/video&gt;</code></pre>
+
+            <p>
+                Wiele przeglądarek ogranicza
+                automatyczne odtwarzanie
+                multimediów z dźwiękiem.
+                Dlatego w przykładach z
+                <code>autoplay</code>
+                często stosuje się również
+                <code>muted</code>.
+            </p>
+
+            <p>
+                Atrybut <code>playsinline</code>
+                umożliwia odtwarzanie wideo
+                wewnątrz strony
+                na obsługiwanych urządzeniach mobilnych.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Automatyczne odtwarzanie
+                    może przeszkadzać użytkownikom.
+                    Na zwykłych stronach informacyjnych
+                    lepiej zapewnić widoczne
+                    przyciski sterowania
+                    i pozwolić użytkownikowi
+                    samodzielnie uruchomić film.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="track">
+
+            <h2>9. Napisy do wideo – element track</h2>
+
+            <p>
+                Element <code>&lt;track&gt;</code>
+                umożliwia dołączenie
+                do filmu ścieżki tekstowej,
+                np. napisów dialogowych.
+            </p>
+
+            <p>
+                Napisy są szczególnie ważne
+                dla osób niesłyszących
+                i niedosłyszących,
+                ale przydają się również
+                podczas oglądania filmu
+                bez dźwięku.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;video controls width="640"&gt;
+
+    &lt;source src="video/wywiad.mp4"
+            type="video/mp4"&gt;
+
+    &lt;track src="napisy/wywiad-pl.vtt"
+           kind="captions"
+           srclang="pl"
+           label="Polski"
+           default&gt;
+
+&lt;/video&gt;</code></pre>
+
+            <h3>Najważniejsze atrybuty track</h3>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>Ścieżka do pliku napisów.</td>
+                </tr>
+                <tr>
+                    <td><code>kind</code></td>
+                    <td>Rodzaj ścieżki tekstowej.</td>
+                </tr>
+                <tr>
+                    <td><code>srclang</code></td>
+                    <td>Język ścieżki.</td>
+                </tr>
+                <tr>
+                    <td><code>label</code></td>
+                    <td>Nazwa wyświetlana użytkownikowi.</td>
+                </tr>
+                <tr>
+                    <td><code>default</code></td>
+                    <td>Wskazuje preferowaną ścieżkę.</td>
+                </tr>
+            </table>
+
+            <h3>Format WebVTT</h3>
+
+            <p>
+                Napisy do filmu można zapisać
+                w pliku tekstowym
+                z rozszerzeniem <code>.vtt</code>.
+            </p>
+
+            <p>
+                Przykładowa zawartość pliku
+                <code>wywiad-pl.vtt</code>:
+            </p>
+
+            <pre><code class="language-text">WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+Witajcie na naszej stronie!
+
+00:00:04.500 --> 00:00:08.000
+Dzisiaj opowiemy o technologii HTML5.
+
+00:00:08.500 --> 00:00:12.000
+Zapraszamy do obejrzenia materiału.</code></pre>
+
+            <p>
+                Każdy fragment napisów
+                ma określony czas rozpoczęcia
+                i zakończenia wyświetlania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Czasy napisów muszą odpowiadać
+                    rzeczywistemu przebiegowi filmu.
+                    Plik <code>.vtt</code>
+                    powinien być zapisany w UTF-8.
+                    Podczas testowania napisów
+                    najlepiej korzystać
+                    z lokalnego serwera WWW
+                    lub opublikowanej strony,
+                    ponieważ otwieranie plików
+                    bezpośrednio z dysku
+                    może powodować ograniczenia.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="iframe">
+
+            <h2>10. Element iframe – osadzanie zewnętrznych treści</h2>
+
+            <p>
+                Element <code>&lt;iframe&gt;</code>
+                umożliwia wyświetlenie
+                innej strony lub dokumentu
+                wewnątrz aktualnej strony WWW.
+            </p>
+
+            <p>
+                Można go wykorzystać
+                do osadzania filmów,
+                map lub innych materiałów,
+                jeżeli dostawca udostępnia
+                odpowiedni kod osadzania.
+            </p>
+
+            <h3>Przykład – osadzanie filmu</h3>
+
+            <pre><code class="language-html">&lt;iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/IDENTYFIKATOR_FILMU"
+    title="Film edukacyjny o HTML5"
+    loading="lazy"
+    allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+
+            <p>
+                W miejsce
+                <code>IDENTYFIKATOR_FILMU</code>
+                należy wstawić identyfikator
+                konkretnego filmu.
+                Najwygodniej skopiować
+                gotowy kod osadzania
+                udostępniony przez serwis.
+            </p>
+
+            <h3>Najważniejsze atrybuty iframe</h3>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>Adres osadzanej zawartości.</td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>Opisuje zawartość ramki.</td>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>Szerokość ramki.</td>
+                </tr>
+                <tr>
+                    <td><code>height</code></td>
+                    <td>Wysokość ramki.</td>
+                </tr>
+                <tr>
+                    <td><code>loading</code></td>
+                    <td>Może opóźnić ładowanie ramki.</td>
+                </tr>
+                <tr>
+                    <td><code>allowfullscreen</code></td>
+                    <td>Umożliwia wyświetlanie pełnoekranowe, jeśli jest obsługiwane.</td>
+                </tr>
+                <tr>
+                    <td><code>allow</code></td>
+                    <td>Określa dozwolone funkcje osadzonej zawartości.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nie każda strona pozwala
+                    na osadzanie swojej zawartości
+                    za pomocą <code>iframe</code>.
+                    Niektóre serwisy blokują
+                    takie działanie ze względów bezpieczeństwa.
+                </p>
+                <p>
+                    Zewnętrzne materiały mogą również
+                    korzystać z plików cookie
+                    i innych mechanizmów śledzenia.
+                    Warto uwzględnić kwestie prywatności.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>11. Najważniejsze atrybuty multimediów</h2>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Element</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>img, audio, video, source, iframe</td>
+                    <td>Określa źródło pliku lub zawartości.</td>
+                </tr>
+                <tr>
+                    <td><code>alt</code></td>
+                    <td>img</td>
+                    <td>Tekst alternatywny.</td>
+                </tr>
+                <tr>
+                    <td><code>controls</code></td>
+                    <td>audio, video</td>
+                    <td>Wyświetla elementy sterowania.</td>
+                </tr>
+                <tr>
+                    <td><code>autoplay</code></td>
+                    <td>audio, video</td>
+                    <td>Żąda automatycznego odtwarzania.</td>
+                </tr>
+                <tr>
+                    <td><code>loop</code></td>
+                    <td>audio, video</td>
+                    <td>Powtarza odtwarzanie.</td>
+                </tr>
+                <tr>
+                    <td><code>muted</code></td>
+                    <td>audio, video</td>
+                    <td>Ustawia początkowe wyciszenie.</td>
+                </tr>
+                <tr>
+                    <td><code>preload</code></td>
+                    <td>audio, video</td>
+                    <td>Wskazówka dotycząca wstępnego pobierania danych.</td>
+                </tr>
+                <tr>
+                    <td><code>poster</code></td>
+                    <td>video</td>
+                    <td>Obraz wyświetlany przed odtworzeniem filmu.</td>
+                </tr>
+                <tr>
+                    <td><code>playsinline</code></td>
+                    <td>video</td>
+                    <td>Umożliwia odtwarzanie wewnątrz strony na obsługiwanych urządzeniach.</td>
+                </tr>
+                <tr>
+                    <td><code>loading</code></td>
+                    <td>img, iframe</td>
+                    <td>Może opóźnić pobieranie zawartości.</td>
+                </tr>
+                <tr>
+                    <td><code>srcset</code></td>
+                    <td>img, source w picture</td>
+                    <td>Wskazuje alternatywne warianty obrazu.</td>
+                </tr>
+                <tr>
+                    <td><code>sizes</code></td>
+                    <td>img, source w picture</td>
+                    <td>Opisuje przewidywany rozmiar wyświetlania obrazu.</td>
+                </tr>
+            </table>
+
+            <h3>Preload – możliwe wartości</h3>
+
+            <pre><code class="language-html">&lt;audio controls preload="none"&gt;
+    &lt;source src="audio/nagranie.mp3"
+            type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;audio controls preload="metadata"&gt;
+    &lt;source src="audio/nagranie.mp3"
+            type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;audio controls preload="auto"&gt;
+    &lt;source src="audio/nagranie.mp3"
+            type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+
+            <ul>
+                <li><code>none</code> – sugeruje brak wstępnego pobierania.</li>
+                <li><code>metadata</code> – sugeruje pobranie podstawowych informacji.</li>
+                <li><code>auto</code> – pozwala przeglądarce zdecydować o pobieraniu danych.</li>
+            </ul>
+
+            <p>
+                Są to wskazówki dla przeglądarki,
+                a nie bezwzględne polecenia.
+            </p>
+
+        </section>
+
+        <section id="dostepnosc">
+
+            <h2>12. Dostępność multimediów</h2>
+
+            <p>
+                Dostępność oznacza projektowanie stron
+                w taki sposób, aby mogły z nich
+                korzystać również osoby
+                z różnymi ograniczeniami.
+            </p>
+
+            <h3>Tekst alternatywny obrazów</h3>
+
+            <pre><code class="language-html">&lt;img src="img/komputer.jpg"
+     alt="Uczeń pracujący przy komputerze"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>alt</code>
+                powinien opisywać znaczenie obrazu
+                w danym kontekście,
+                a nie tylko powtarzać nazwę pliku.
+            </p>
+
+            <h3>Obraz dekoracyjny</h3>
+
+            <pre><code class="language-html">&lt;img src="img/ozdobnik.png"
+     alt=""&gt;</code></pre>
+
+            <p>
+                Jeżeli obraz jest wyłącznie dekoracją
+                i nie przekazuje informacji,
+                można zastosować pusty
+                atrybut <code>alt=""</code>.
+            </p>
+
+            <h3>Napisy do filmów</h3>
+
+            <p>
+                Filmy zawierające mowę
+                powinny mieć napisy,
+                aby można było zrozumieć
+                ich treść bez słyszenia dźwięku.
+            </p>
+
+            <h3>Transkrypcja nagrania</h3>
+
+            <p>
+                Do materiałów audio warto
+                dołączać transkrypcję,
+                czyli tekstową wersję nagrania.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Wywiad z uczniem&lt;/h2&gt;
+
+&lt;audio controls&gt;
+    &lt;source src="audio/wywiad.mp3"
+            type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;h3&gt;Transkrypcja nagrania&lt;/h3&gt;
+
+&lt;p&gt;
+    Pytanie: Dlaczego lubisz informatykę?
+&lt;/p&gt;
+
+&lt;p&gt;
+    Odpowiedź: Ponieważ lubię tworzyć strony WWW.
+&lt;/p&gt;</code></pre>
+
+            <h3>Sterowanie odtwarzaczem</h3>
+
+            <p>
+                Warto stosować
+                <code>controls</code>,
+                aby użytkownik mógł
+                samodzielnie uruchomić,
+                zatrzymać i przewinąć materiał.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Dobra strona internetowa
+                    powinna być nie tylko estetyczna,
+                    ale również zrozumiała,
+                    wygodna i dostępna
+                    dla możliwie szerokiej grupy użytkowników.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="optymalizacja">
+
+            <h2>13. Optymalizacja plików multimedialnych</h2>
+
+            <p>
+                Multimedia mogą znacząco
+                zwiększyć rozmiar strony
+                i wydłużyć czas jej ładowania.
+            </p>
+
+            <p>
+                Dlatego przed umieszczeniem
+                plików w witrynie
+                należy odpowiednio je przygotować.
+            </p>
+
+            <h3>Optymalizacja obrazów</h3>
+
+            <ul>
+                <li>Zmniejsz rozdzielczość zdjęcia do rzeczywistych potrzeb strony.</li>
+                <li>Wybierz odpowiedni format, np. JPG, WebP lub AVIF.</li>
+                <li>Stosuj kompresję bez nadmiernej utraty jakości.</li>
+                <li>Używaj <code>loading="lazy"</code> dla obrazów poza początkowym widokiem, gdy jest to uzasadnione.</li>
+                <li>Podawaj wymiary obrazów, aby ograniczyć przesuwanie treści podczas ładowania.</li>
+            </ul>
+
+            <h3>Optymalizacja audio</h3>
+
+            <ul>
+                <li>Usuń niepotrzebne fragmenty nagrania.</li>
+                <li>Wybierz odpowiedni format kompresji.</li>
+                <li>Unikaj umieszczania bardzo dużych plików WAV, jeśli nie są potrzebne.</li>
+                <li>Rozważ <code>preload="metadata"</code> lub <code>preload="none"</code>.</li>
+            </ul>
+
+            <h3>Optymalizacja wideo</h3>
+
+            <ul>
+                <li>Zmniejsz rozdzielczość, jeśli bardzo wysoka jakość nie jest potrzebna.</li>
+                <li>Dobierz odpowiedni kodek i stopień kompresji.</li>
+                <li>Przygotuj miniaturę za pomocą atrybutu <code>poster</code>.</li>
+                <li>Unikaj automatycznego odtwarzania dużych filmów.</li>
+                <li>W przypadku bardzo dużych materiałów rozważ osadzanie z serwisu wideo.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Zmniejszenie obrazu
+                    wyłącznie przez ustawienie
+                    <code>width="300"</code>
+                    nie zmniejsza rozmiaru
+                    pliku pobieranego przez przeglądarkę.
+                    Plik należy również
+                    odpowiednio przeskalować
+                    lub skompresować.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="organizacja">
+
+            <h2>14. Organizacja plików projektu</h2>
+
+            <p>
+                W rozbudowanych stronach
+                warto przechowywać multimedia
+                w oddzielnych folderach.
+            </p>
+
+            <h3>Przykładowa struktura projektu</h3>
+
+            <pre><code class="language-text">moja-strona/
+|
+|-- index.html
+|
+|-- img/
+|   |-- las.jpg
+|   |-- jezioro.jpg
+|   |-- miniatura.jpg
+|
+|-- audio/
+|   |-- odglosy-lasu.mp3
+|
+|-- video/
+|   |-- przyroda.mp4
+|
+|-- napisy/
+    |-- przyroda-pl.vtt</code></pre>
+
+            <h3>Odwołania do plików</h3>
+
+            <pre><code class="language-html">&lt;img src="img/las.jpg"
+     alt="Las"&gt;
+
+&lt;audio controls&gt;
+    &lt;source src="audio/odglosy-lasu.mp3"
+            type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;video controls width="600"&gt;
+    &lt;source src="video/przyroda.mp4"
+            type="video/mp4"&gt;
+
+    &lt;track src="napisy/przyroda-pl.vtt"
+           kind="captions"
+           srclang="pl"
+           label="Polski"&gt;
+&lt;/video&gt;</code></pre>
+
+            <h3>Zasady nazewnictwa</h3>
+
+            <ul>
+                <li>Stosuj krótkie i zrozumiałe nazwy plików.</li>
+                <li>Unikaj spacji w nazwach.</li>
+                <li>Najlepiej używaj małych liter.</li>
+                <li>Unikaj polskich znaków w nazwach plików.</li>
+                <li>Sprawdzaj poprawność rozszerzeń.</li>
+                <li>Zachowuj zgodność wielkości liter w nazwach i ścieżkach.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Uwaga – GitHub Pages</h3>
+                <p>
+                    W systemach serwerowych
+                    wielkość liter w nazwach plików
+                    może mieć znaczenie.
+                    Plik <code>Film.mp4</code>
+                    nie musi być traktowany
+                    tak samo jak <code>film.mp4</code>.
+                </p>
+                <p>
+                    Przed publikacją sprawdź,
+                    czy wszystkie pliki
+                    znajdują się w odpowiednich folderach
+                    i czy ścieżki są poprawne.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="metadane">
+
+            <h2>15. Metadane dokumentu HTML – uzupełnienie działu</h2>
+
+            <p>
+                Oprócz widocznej treści
+                dokument HTML zawiera również
+                informacje przeznaczone
+                dla przeglądarki i innych programów.
+            </p>
+
+            <p>
+                Umieszczamy je głównie
+                w sekcji <code>&lt;head&gt;</code>.
+            </p>
+
+            <h3>Podstawowe metadane</h3>
+
+            <pre><code class="language-html">&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Moja strona multimedialna&lt;/title&gt;
+
+    &lt;meta name="description"
+          content="Strona prezentująca zdjęcia,
+                   nagrania audio i filmy."&gt;
+
+&lt;/head&gt;</code></pre>
+
+            <h3>Znaczenie elementów</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>charset</code></td>
+                    <td>Określa kodowanie znaków.</td>
+                </tr>
+                <tr>
+                    <td><code>viewport</code></td>
+                    <td>Pomaga poprawnie wyświetlać stronę na urządzeniach mobilnych.</td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>Określa tytuł dokumentu.</td>
+                </tr>
+                <tr>
+                    <td><code>description</code></td>
+                    <td>Podaje krótki opis zawartości strony.</td>
+                </tr>
+            </table>
+
+            <h3>Favicon – ikona strony</h3>
+
+            <p>
+                Favicon to mała ikona
+                wyświetlana np. na karcie przeglądarki.
+            </p>
+
+            <pre><code class="language-html">&lt;link rel="icon"
+      href="img/favicon.png"
+      type="image/png"&gt;</code></pre>
+
+            <h3>Język dokumentu</h3>
+
+            <pre><code class="language-html">&lt;html lang="pl"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>lang="pl"</code>
+                informuje, że podstawowym
+                językiem dokumentu jest polski.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Sekcja <code>head</code>
+                    zawiera informacje o dokumencie,
+                    a sekcja <code>body</code>
+                    jego właściwą zawartość.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="walidacja">
+
+            <h2>16. Walidacja i sprawdzanie poprawności HTML</h2>
+
+            <p>
+                <strong>Walidacja HTML</strong>
+                polega na sprawdzaniu,
+                czy kod dokumentu
+                jest zgodny z zasadami HTML.
+            </p>
+
+            <p>
+                Nawet jeśli strona wyświetla się
+                w przeglądarce, nie oznacza to,
+                że jej kod jest całkowicie poprawny.
+            </p>
+
+            <h3>Walidator HTML</h3>
+
+            <p>
+                Do sprawdzania dokumentów
+                można wykorzystać narzędzie:
+            </p>
+
+            <p>
+                <a href="https://validator.w3.org/nu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Nu HTML Checker – validator.w3.org/nu/
+                </a>
+            </p>
+
+            <h3>Co sprawdza walidator?</h3>
+
+            <ul>
+                <li>Poprawność znaczników HTML.</li>
+                <li>Poprawność zagnieżdżania elementów.</li>
+                <li>Nieprawidłowe lub brakujące atrybuty.</li>
+                <li>Niektóre błędy struktury dokumentu.</li>
+                <li>Powtarzające się identyfikatory <code>id</code>.</li>
+            </ul>
+
+            <h3>Przykład błędnego kodu</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Galeria&lt;/h2&gt;
+
+    &lt;img src="img/las.jpg"&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>
+                W przykładzie brakuje
+                atrybutu <code>alt</code>,
+                który jest wymagany
+                w typowych zastosowaniach
+                elementu <code>img</code>.
+            </p>
+
+            <h3>Poprawiony przykład</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Galeria&lt;/h2&gt;
+
+    &lt;img src="img/las.jpg"
+         alt="Zielony las"&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Walidator nie zastępuje
+                    testowania strony w przeglądarce.
+                    Nie sprawdzi np. tego,
+                    czy nagranie ma odpowiednią treść,
+                    czy wszystkie napisy są zsynchronizowane
+                    ani czy multimedia są wygodne w obsłudze.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>17. Najczęstsze błędy podczas osadzania multimediów</h2>
+
+            <h3>Błąd 1 – niepoprawna ścieżka do pliku</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie, jeśli plik jest w folderze audio --&gt;
+
+&lt;audio src="nagranie.mp3" controls&gt;&lt;/audio&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;audio src="audio/nagranie.mp3" controls&gt;&lt;/audio&gt;</code></pre>
+
+            <h3>Błąd 2 – brak controls</h3>
+
+            <pre><code class="language-html">&lt;!-- Brak standardowych przycisków sterowania --&gt;
+
+&lt;audio src="audio/muzyka.mp3"&gt;&lt;/audio&gt;
+
+
+&lt;!-- Poprawnie dla zwykłego odtwarzacza --&gt;
+
+&lt;audio src="audio/muzyka.mp3"
+       controls&gt;&lt;/audio&gt;</code></pre>
+
+            <h3>Błąd 3 – błędny typ pliku</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;source src="audio/muzyka.mp3"
+        type="video/mp4"&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;source src="audio/muzyka.mp3"
+        type="audio/mpeg"&gt;</code></pre>
+
+            <h3>Błąd 4 – brak tekstu alternatywnego</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane --&gt;
+
+&lt;img src="img/jezioro.jpg"&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;img src="img/jezioro.jpg"
+     alt="Jezioro otoczone lasem"&gt;</code></pre>
+
+            <h3>Błąd 5 – brak opisu iframe</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane --&gt;
+
+&lt;iframe src="film.html"&gt;&lt;/iframe&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;iframe src="film.html"
+        title="Film edukacyjny"&gt;
+&lt;/iframe&gt;</code></pre>
+
+            <h3>Błąd 6 – zbyt duże pliki</h3>
+
+            <p>
+                Umieszczenie bardzo dużych
+                zdjęć lub filmów
+                może znacząco spowolnić stronę.
+                Przed publikacją należy
+                odpowiednio przygotować pliki.
+            </p>
+
+            <h3>Błąd 7 – używanie materiałów bez zgody</h3>
+
+            <p>
+                Nie należy kopiować dowolnych
+                zdjęć, nagrań i filmów z Internetu
+                bez sprawdzenia zasad ich wykorzystania.
+            </p>
+
+            <p>
+                Do projektów szkolnych
+                najlepiej wykorzystywać
+                własne materiały
+                lub pliki udostępnione
+                na odpowiednich licencjach.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>18. Kompletny przykład strony multimedialnej</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                stronę „Przyroda wokół nas”,
+                która łączy semantyczną strukturę HTML5,
+                zdjęcia, dźwięk, film,
+                podpisy i napisy.
+            </p>
+
+            <h3>Struktura folderów</h3>
+
+            <pre><code class="language-text">przyroda/
+|
+|-- index.html
+|
+|-- img/
+|   |-- las.jpg
+|   |-- jezioro.jpg
+|   |-- miniatura.jpg
+|
+|-- audio/
+|   |-- odglosy-lasu.mp3
+|
+|-- video/
+|   |-- przyroda.mp4
+|
+|-- napisy/
+    |-- przyroda-pl.vtt</code></pre>
+
+            <h3>Kod pliku index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;meta name="description"
+          content="Galeria zdjęć, dźwięków
+                   i filmów przyrodniczych."&gt;
+
+    &lt;title&gt;Przyroda wokół nas&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Przyroda wokół nas&lt;/h1&gt;
+
+        &lt;p&gt;
+            Galeria zdjęć, dźwięków i filmów
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav aria-label="Menu główne"&gt;
+
+        &lt;a href="#galeria"&gt;Galeria&lt;/a&gt;
+
+        &lt;a href="#dzwiek"&gt;Dźwięk&lt;/a&gt;
+
+        &lt;a href="#film"&gt;Film&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="galeria"&gt;
+
+            &lt;h2&gt;Galeria zdjęć&lt;/h2&gt;
+
+            &lt;figure&gt;
+
+                &lt;img src="img/las.jpg"
+                     alt="Zielony las"
+                     width="500"&gt;
+
+                &lt;figcaption&gt;
+                    Fot. 1. Las wiosną.
+                &lt;/figcaption&gt;
+
+            &lt;/figure&gt;
+
+            &lt;figure&gt;
+
+                &lt;img src="img/jezioro.jpg"
+                     alt="Jezioro otoczone drzewami"
+                     width="500"
+                     loading="lazy"&gt;
+
+                &lt;figcaption&gt;
+                    Fot. 2. Jezioro w lesie.
+                &lt;/figcaption&gt;
+
+            &lt;/figure&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="dzwiek"&gt;
+
+            &lt;h2&gt;Odgłosy lasu&lt;/h2&gt;
+
+            &lt;p&gt;
+                Posłuchaj nagrania
+                przedstawiającego odgłosy przyrody.
+            &lt;/p&gt;
+
+            &lt;audio controls preload="metadata"&gt;
+
+                &lt;source src="audio/odglosy-lasu.mp3"
+                        type="audio/mpeg"&gt;
+
+                Nie można odtworzyć nagrania.
+
+            &lt;/audio&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="film"&gt;
+
+            &lt;h2&gt;Film przyrodniczy&lt;/h2&gt;
+
+            &lt;figure&gt;
+
+                &lt;video controls
+                       width="640"
+                       poster="img/miniatura.jpg"
+                       preload="metadata"&gt;
+
+                    &lt;source src="video/przyroda.mp4"
+                            type="video/mp4"&gt;
+
+                    &lt;track src="napisy/przyroda-pl.vtt"
+                           kind="captions"
+                           srclang="pl"
+                           label="Polski"
+                           default&gt;
+
+                    Nie można odtworzyć filmu.
+
+                &lt;/video&gt;
+
+                &lt;figcaption&gt;
+                    Film przedstawiający przyrodę.
+                &lt;/figcaption&gt;
+
+            &lt;/figure&gt;
+
+        &lt;/section&gt;
+
+        &lt;aside&gt;
+
+            &lt;h2&gt;Ciekawostka&lt;/h2&gt;
+
+            &lt;p&gt;
+                Dźwięki przyrody
+                mogą być wykorzystywane
+                w nagraniach relaksacyjnych.
+            &lt;/p&gt;
+
+        &lt;/aside&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Przyroda wokół nas
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            Projekt wykonany w HTML5
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Co wykorzystano w przykładzie?</h3>
+
+            <ol>
+                <li>Semantyczną strukturę strony.</li>
+                <li>Nawigację za pomocą kotwic.</li>
+                <li>Obrazy z opisami alternatywnymi.</li>
+                <li>Podpisy zdjęć za pomocą <code>figure</code> i <code>figcaption</code>.</li>
+                <li>Odtwarzacz audio.</li>
+                <li>Odtwarzacz wideo z miniaturą.</li>
+                <li>Plik napisów WebVTT.</li>
+                <li>Informacje dodatkowe w <code>aside</code>.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Aby przykład działał,
+                    należy umieścić w folderach
+                    rzeczywiste pliki
+                    o podanych nazwach.
+                    Sam kod HTML
+                    nie tworzy plików multimedialnych.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>img</code> – wyświetla obraz.</li>
+                    <li><code>alt</code> – opisuje znaczenie obrazu.</li>
+                    <li><code>figure</code> – wydziela materiał ilustracyjny lub inny samodzielny materiał.</li>
+                    <li><code>figcaption</code> – dodaje podpis.</li>
+                    <li><code>picture</code> – umożliwia wybór wariantu obrazu.</li>
+                    <li><code>srcset</code> – wskazuje alternatywne pliki graficzne.</li>
+                    <li><code>audio</code> – osadza nagranie dźwiękowe.</li>
+                    <li><code>video</code> – osadza film.</li>
+                    <li><code>source</code> – określa alternatywne źródła multimediów.</li>
+                    <li><code>controls</code> – wyświetla elementy sterowania.</li>
+                    <li><code>loop</code> – zapętla odtwarzanie.</li>
+                    <li><code>muted</code> – ustawia początkowe wyciszenie.</li>
+                    <li><code>poster</code> – określa miniaturę filmu.</li>
+                    <li><code>preload</code> – podaje wskazówkę dotyczącą pobierania danych.</li>
+                    <li><code>track</code> – dodaje napisy lub inne ścieżki tekstowe.</li>
+                    <li><code>.vtt</code> – format plików napisów WebVTT.</li>
+                    <li><code>iframe</code> – osadza zewnętrzną zawartość.</li>
+                    <li><code>loading="lazy"</code> – umożliwia opóźnione ładowanie wybranych zasobów.</li>
+                    <li>Multimedia powinny być zoptymalizowane i dostępne dla użytkowników.</li>
+                    <li>Pliki projektu należy przechowywać w uporządkowanych folderach.</li>
+                    <li>Poprawność kodu warto sprawdzać walidatorem HTML.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                przygotowanie kompletnej
+                strony multimedialnej HTML5,
+                zawierającej obrazy,
+                nagranie audio, film
+                oraz poprawną strukturę semantyczną.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_16</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w ramach jednej strony.
+                Nie korzystaj z CSS ani JavaScript.
+            </p>
+
+            <p>
+                Wybierz temat swojej strony,
+                np. podróże, sport, muzyka,
+                przyroda, hobby lub technologia.
+            </p>
+
+            <h3>Zadanie 1 – Galeria zdjęć z podpisami</h3>
+
+            <p>
+                Utwórz pierwszą część strony
+                zawierającą galerię obrazów.
+            </p>
+
+            <ol>
+                <li>Dodaj pełną strukturę dokumentu HTML5.</li>
+                <li>Ustaw odpowiedni tytuł dokumentu w <code>title</code>.</li>
+                <li>Dodaj metadane <code>charset</code>, <code>viewport</code> i <code>description</code>.</li>
+                <li>Utwórz <code>header</code> z tytułem i opisem strony.</li>
+                <li>Dodaj <code>nav</code> z odnośnikami do sekcji: Galeria, Dźwięk, Film.</li>
+                <li>Utwórz jeden element <code>main</code>.</li>
+                <li>Dodaj sekcję <code>section</code> o identyfikatorze <code>galeria</code>.</li>
+                <li>Umieść w niej minimum trzy obrazy.</li>
+                <li>Każdy obraz powinien mieć odpowiedni atrybut <code>alt</code>.</li>
+                <li>Każdy obraz umieść w elemencie <code>figure</code>.</li>
+                <li>Dodaj podpisy za pomocą <code>figcaption</code>.</li>
+                <li>Przynajmniej dla jednego obrazu zastosuj <code>loading="lazy"</code>.</li>
+                <li>Pliki graficzne zapisz w folderze <code>img</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Odtwarzacz audio</h3>
+
+            <p>
+                Rozbuduj stronę o sekcję
+                zawierającą nagranie dźwiękowe.
+            </p>
+
+            <ol>
+                <li>Dodaj sekcję <code>section</code> o identyfikatorze <code>dzwiek</code>.</li>
+                <li>Dodaj nagłówek i krótki opis nagrania.</li>
+                <li>Utwórz odtwarzacz za pomocą <code>audio</code>.</li>
+                <li>Zastosuj atrybut <code>controls</code>.</li>
+                <li>Wskaż plik za pomocą elementu <code>source</code>.</li>
+                <li>Dodaj poprawny atrybut <code>type</code>.</li>
+                <li>Zastosuj <code>preload="metadata"</code>.</li>
+                <li>Dodaj tekst wyświetlany, gdy przeglądarka nie obsługuje elementu audio.</li>
+                <li>Umieść nagranie w folderze <code>audio</code>.</li>
+                <li>Pod odtwarzaczem dodaj krótki opis lub transkrypcję nagrania.</li>
+                <li>Sprawdź działanie odtwarzania i zatrzymywania nagrania.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Odtwarzacz wideo</h3>
+
+            <p>
+                Dodaj do strony sekcję
+                zawierającą materiał filmowy.
+            </p>
+
+            <ol>
+                <li>Dodaj sekcję <code>section</code> o identyfikatorze <code>film</code>.</li>
+                <li>Dodaj nagłówek i opis filmu.</li>
+                <li>Utwórz odtwarzacz za pomocą <code>video</code>.</li>
+                <li>Dodaj atrybut <code>controls</code>.</li>
+                <li>Ustaw szerokość odtwarzacza na 640 pikseli.</li>
+                <li>Wskaż plik wideo za pomocą <code>source</code>.</li>
+                <li>Dodaj poprawny typ pliku.</li>
+                <li>Przygotuj miniaturę i zastosuj atrybut <code>poster</code>.</li>
+                <li>Umieść film w folderze <code>video</code>.</li>
+                <li>Miniaturę zapisz w folderze <code>img</code>.</li>
+                <li>Umieść film w elemencie <code>figure</code> i dodaj podpis <code>figcaption</code>.</li>
+                <li>Jeżeli film zawiera mowę, dodaj napisy w pliku <code>.vtt</code> i podłącz je przez <code>track</code>.</li>
+                <li>Sprawdź działanie filmu i napisów.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Uzupełnienie i sprawdzenie projektu</h3>
+
+            <p>
+                Uzupełnij stronę
+                i sprawdź poprawność
+                wykonanego projektu.
+            </p>
+
+            <ol>
+                <li>Dodaj element <code>aside</code> z ciekawostką dotyczącą tematu strony.</li>
+                <li>Dodaj <code>footer</code> z informacją o autorze.</li>
+                <li>Sprawdź, czy wszystkie odnośniki w <code>nav</code> prowadzą do właściwych sekcji.</li>
+                <li>Sprawdź poprawność ścieżek do wszystkich plików.</li>
+                <li>Sprawdź, czy obrazy, dźwięk i film prawidłowo się wyświetlają i odtwarzają.</li>
+                <li>Sprawdź poprawność zagnieżdżenia elementów semantycznych.</li>
+                <li>Zweryfikuj kod HTML za pomocą walidatora.</li>
+                <li>Popraw wykryte błędy.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_16/
+|
+|-- index.html
+|
+|-- img/
+|   |-- zdjecie1.jpg
+|   |-- zdjecie2.jpg
+|   |-- zdjecie3.jpg
+|   |-- miniatura.jpg
+|
+|-- audio/
+|   |-- nagranie.mp3
+|
+|-- video/
+|   |-- film.mp4
+|
+|-- napisy/
+    |-- film-pl.vtt</code></pre>
+
+                <p>
+                    Nazwy plików mogą być inne,
+                    ale muszą odpowiadać
+                    ścieżkom zastosowanym
+                    w kodzie HTML.
+                </p>
+
+                <p>
+                    Folder <code>napisy</code>
+                    jest wymagany, jeśli film
+                    zawiera mowę i przygotowano
+                    do niego napisy.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym projekcie
+                    <code>PSI_16</code>.
+                </p>
+
+                <p>
+                    <strong>Spakuj cały folder PSI_16
+                    do archiwum ZIP</strong>
+                    i prześlij je na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Nie przesyłaj samego pliku
+                    <code>index.html</code>,
+                    ponieważ strona wykorzystuje
+                    również pliki multimedialne.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź,
+                    czy strona działa poprawnie,
+                    a wszystkie obrazy,
+                    nagrania i filmy
+                    znajdują się w archiwum.
+                </p>
+
+                <p>
+                    Wykorzystuj własne materiały
+                    lub multimedia,
+                    których licencja pozwala
+                    na użycie w projekcie.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 16
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
