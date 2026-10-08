@@ -1,0 +1,1565 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 14 – Formularze: radio, checkbox, select, option, textarea i przyciski | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#radio">2.Pola radio</a>
+        <a href="#checkbox">3.Pola checkbox</a>
+        <a href="#porownanie">4.Radio a checkbox</a>
+        <a href="#select">5.Lista select i option</a>
+        <a href="#selected">6.Selected i disabled</a>
+        <a href="#multiple">7.Lista wielokrotnego wyboru</a>
+        <a href="#textarea">8.Pole textarea</a>
+        <a href="#fieldset">9.Fieldset i legend</a>
+        <a href="#przyciski">10.Przyciski formularza</a>
+        <a href="#atrybuty">11.Najważniejsze atrybuty</a>
+        <a href="#wysylanie">12.Przesyłanie danych</a>
+        <a href="#bledy">13.Najczęstsze błędy</a>
+        <a href="#przyklad">14.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 14 • HTML5</div>
+
+            <h2>HTML5: Formularze – radio, checkbox, select, option, textarea i przyciski</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                tworzenie formularzy zawierających pola
+                pojedynczego i wielokrotnego wyboru,
+                listy rozwijane, pola wielowierszowe
+                oraz przyciski. Poprawne stosowanie
+                atrybutów <code>name</code>,
+                <code>value</code>, <code>checked</code>,
+                <code>selected</code>, <code>required</code>
+                i <code>disabled</code>.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Formularze HTML umożliwiają użytkownikowi
+                nie tylko wpisywanie tekstu, ale również
+                wybieranie odpowiedzi, zaznaczanie opcji,
+                wybieranie wartości z listy
+                oraz wpisywanie dłuższych wiadomości.
+            </p>
+
+            <p>
+                W poprzednich lekcjach poznaliśmy
+                budowę formularza, znacznik
+                <code>&lt;form&gt;</code>,
+                atrybuty <code>action</code>
+                i <code>method</code>
+                oraz podstawowe kontrolki.
+            </p>
+
+            <p>
+                Teraz przyjrzymy się dokładniej
+                kontrolkom wykorzystywanym
+                w ankietach, formularzach rejestracyjnych,
+                zamówieniach i formularzach kontaktowych.
+            </p>
+
+            <h3>Najważniejsze kontrolki</h3>
+
+            <table>
+                <tr>
+                    <th>Kontrolka</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>radio</code></td>
+                    <td>Wybór jednej odpowiedzi z grupy.</td>
+                </tr>
+                <tr>
+                    <td><code>checkbox</code></td>
+                    <td>Zaznaczanie niezależnych opcji.</td>
+                </tr>
+                <tr>
+                    <td><code>select</code></td>
+                    <td>Tworzenie listy wyboru.</td>
+                </tr>
+                <tr>
+                    <td><code>option</code></td>
+                    <td>Określenie opcji dostępnej na liście.</td>
+                </tr>
+                <tr>
+                    <td><code>textarea</code></td>
+                    <td>Wprowadzanie dłuższego tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>button</code></td>
+                    <td>Tworzenie przycisków formularza.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Wygląd kontrolek formularza
+                    może różnić się w zależności
+                    od przeglądarki i systemu operacyjnego.
+                    Ich podstawowe działanie pozostaje jednak takie samo.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="radio">
+
+            <h2>2. Pola radio – wybór jednej odpowiedzi</h2>
+
+            <p>
+                Pole typu <code>radio</code>
+                służy do wyboru jednej odpowiedzi
+                spośród kilku dostępnych możliwości.
+            </p>
+
+            <p>
+                Pola należące do jednej grupy
+                muszą mieć tę samą wartość
+                atrybutu <code>name</code>.
+            </p>
+
+            <h3>Przykład – wybór języka programowania</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;p&gt;Wybierz język programowania:&lt;/p&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="jezyk"
+               value="javascript"&gt;
+        JavaScript
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="jezyk"
+               value="php"&gt;
+        PHP
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="jezyk"
+               value="python"&gt;
+        Python
+    &lt;/label&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>Jak działa name?</h3>
+
+            <p>
+                Wszystkie trzy pola mają
+                <code>name="jezyk"</code>.
+                Dzięki temu użytkownik może
+                zaznaczyć tylko jedną odpowiedź.
+            </p>
+
+            <p>
+                Każde pole ma inną wartość
+                <code>value</code>, która określa,
+                co zostanie przesłane po jego wybraniu.
+            </p>
+
+            <h3>Atrybut checked</h3>
+
+            <p>
+                Atrybut <code>checked</code>
+                oznacza, że pole jest zaznaczone
+                już podczas otwierania strony.
+            </p>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="radio"
+           name="poziom"
+           value="podstawowy"
+           checked&gt;
+    Podstawowy
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="poziom"
+           value="zaawansowany"&gt;
+    Zaawansowany
+&lt;/label&gt;</code></pre>
+
+            <p>
+                W tym przykładzie domyślnie
+                zaznaczona jest odpowiedź „Podstawowy”.
+            </p>
+
+            <h3>Wymagany wybór</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="radio"
+           name="termin"
+           value="rano"
+           required&gt;
+    Rano
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio"
+           name="termin"
+           value="wieczor"&gt;
+    Wieczór
+&lt;/label&gt;</code></pre>
+
+            <p>
+                Atrybut <code>required</code>
+                wymaga zaznaczenia odpowiedzi
+                z tej grupy przed wysłaniem formularza.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>name</code> łączy pola radio
+                    w jedną grupę,
+                    a <code>value</code>
+                    określa wartość wybranej odpowiedzi.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="checkbox">
+
+            <h2>3. Pola checkbox – wybór wielu odpowiedzi</h2>
+
+            <p>
+                Pole typu <code>checkbox</code>
+                pozwala zaznaczać lub odznaczać
+                poszczególne opcje.
+            </p>
+
+            <p>
+                W przeciwieństwie do pól radio
+                użytkownik może zaznaczyć
+                kilka checkboxów jednocześnie.
+            </p>
+
+            <h3>Przykład – zainteresowania</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;p&gt;Wybierz zainteresowania:&lt;/p&gt;
+
+    &lt;label&gt;
+        &lt;input type="checkbox"
+               name="html"
+               value="tak"&gt;
+        HTML
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="checkbox"
+               name="css"
+               value="tak"&gt;
+        CSS
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="checkbox"
+               name="javascript"
+               value="tak"&gt;
+        JavaScript
+    &lt;/label&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>Co zostanie przesłane?</h3>
+
+            <p>
+                Jeśli użytkownik zaznaczy
+                HTML i JavaScript,
+                adres URL może zawierać:
+            </p>
+
+            <pre><code class="language-text">?html=tak&amp;javascript=tak</code></pre>
+
+            <p>
+                Niezaznaczony checkbox
+                nie jest przesyłany
+                jako standardowa dana formularza.
+            </p>
+
+            <h3>Checkbox z atrybutem checked</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="newsletter"
+           value="tak"
+           checked&gt;
+    Chcę otrzymywać wiadomości
+&lt;/label&gt;</code></pre>
+
+            <p>
+                Pole będzie początkowo zaznaczone,
+                ale użytkownik może je odznaczyć.
+            </p>
+
+            <h3>Checkbox z atrybutem required</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="potwierdzenie"
+           value="tak"
+           required&gt;
+    Potwierdzam zapoznanie się z zasadami
+&lt;/label&gt;</code></pre>
+
+            <p>
+                W tym przypadku checkbox
+                musi zostać zaznaczony,
+                aby formularz przeszedł
+                standardową walidację przeglądarki.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Jeśli kilka checkboxów ma oznaczać
+                    niezależne odpowiedzi,
+                    można nadać im różne nazwy
+                    <code>name</code>.
+                </p>
+                <p>
+                    Można też użyć tej samej nazwy
+                    i różnych wartości
+                    <code>value</code>,
+                    aby przesłać kilka wartości
+                    jednego pola. Sposób ich odczytu
+                    zależy wtedy od programu obsługującego formularz.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>4. Radio a checkbox – porównanie</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>Radio</th>
+                    <th>Checkbox</th>
+                </tr>
+                <tr>
+                    <td>Liczba odpowiedzi</td>
+                    <td>Jedna z grupy.</td>
+                    <td>Jedna, kilka lub żadna.</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Wybór sposobu płatności.</td>
+                    <td>Wybór zainteresowań.</td>
+                </tr>
+                <tr>
+                    <td>Atrybut name</td>
+                    <td>Taki sam dla pól jednej grupy.</td>
+                    <td>Może być różny lub wspólny.</td>
+                </tr>
+                <tr>
+                    <td>Atrybut checked</td>
+                    <td>Może wskazać domyślną odpowiedź.</td>
+                    <td>Może wstępnie zaznaczyć opcję.</td>
+                </tr>
+                <tr>
+                    <td>Atrybut required</td>
+                    <td>Wymaga wyboru odpowiedzi z grupy.</td>
+                    <td>Wymaga zaznaczenia konkretnego pola.</td>
+                </tr>
+            </table>
+
+            <h3>Kiedy użyć radio?</h3>
+
+            <p>
+                Gdy użytkownik ma wybrać
+                dokładnie jedną możliwość,
+                np. jeden termin spotkania.
+            </p>
+
+            <h3>Kiedy użyć checkbox?</h3>
+
+            <p>
+                Gdy użytkownik może zaznaczyć
+                kilka niezależnych opcji,
+                np. kilka zainteresowań.
+            </p>
+
+        </section>
+
+        <section id="select">
+
+            <h2>5. Lista rozwijana – select i option</h2>
+
+            <p>
+                Znacznik <code>&lt;select&gt;</code>
+                tworzy listę wyboru.
+            </p>
+
+            <p>
+                Poszczególne pozycje listy
+                określamy za pomocą
+                znacznika <code>&lt;option&gt;</code>.
+            </p>
+
+            <h3>Przykład – wybór miasta</h3>
+
+            <pre><code class="language-html">&lt;label for="miasto"&gt;Wybierz miasto:&lt;/label&gt;
+
+&lt;select id="miasto" name="miasto"&gt;
+
+    &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+
+    &lt;option value="warszawa"&gt;Warszawa&lt;/option&gt;
+
+    &lt;option value="krakow"&gt;Kraków&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <h3>Jak działa option?</h3>
+
+            <pre><code class="language-html">&lt;option value="lublin"&gt;Lublin&lt;/option&gt;</code></pre>
+
+            <p>
+                Tekst <strong>Lublin</strong>
+                jest widoczny na liście,
+                natomiast wartość
+                <code>lublin</code>
+                zostanie przesłana z formularzem.
+            </p>
+
+            <h3>Lista z opcją „Wybierz”</h3>
+
+            <pre><code class="language-html">&lt;label for="klasa"&gt;Wybierz klasę:&lt;/label&gt;
+
+&lt;select id="klasa" name="klasa" required&gt;
+
+    &lt;option value=""&gt;-- Wybierz klasę --&lt;/option&gt;
+
+    &lt;option value="1"&gt;Klasa 1&lt;/option&gt;
+
+    &lt;option value="2"&gt;Klasa 2&lt;/option&gt;
+
+    &lt;option value="3"&gt;Klasa 3&lt;/option&gt;
+
+    &lt;option value="4"&gt;Klasa 4&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Pierwsza opcja ma pustą wartość
+                <code>value=""</code>.
+                Dzięki temu wymagane pole
+                nie zostanie uznane za uzupełnione,
+                dopóki użytkownik nie wybierze
+                właściwej opcji.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>select</code> tworzy listę,
+                    a <code>option</code> określa
+                    pojedynczą pozycję tej listy.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="selected">
+
+            <h2>6. Atrybuty selected i disabled</h2>
+
+            <h3>Atrybut selected</h3>
+
+            <p>
+                Atrybut <code>selected</code>
+                określa opcję wybraną
+                domyślnie na liście.
+            </p>
+
+            <pre><code class="language-html">&lt;select name="miasto"&gt;
+
+    &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+
+    &lt;option value="lubartow" selected&gt;Lubartów&lt;/option&gt;
+
+    &lt;option value="warszawa"&gt;Warszawa&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Po otwarciu strony
+                wybrana będzie opcja „Lubartów”.
+            </p>
+
+            <h3>Atrybut disabled</h3>
+
+            <p>
+                Atrybut <code>disabled</code>
+                pozwala wyłączyć kontrolkę
+                lub określoną opcję listy.
+            </p>
+
+            <pre><code class="language-html">&lt;select name="kurs"&gt;
+
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+
+    &lt;option value="php" disabled&gt;
+        PHP – brak miejsc
+    &lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Użytkownik nie będzie mógł
+                wybrać wyłączonej opcji PHP.
+            </p>
+
+            <h3>Opcja informacyjna</h3>
+
+            <pre><code class="language-html">&lt;select name="termin" required&gt;
+
+    &lt;option value="" selected disabled&gt;
+        -- Wybierz termin --
+    &lt;/option&gt;
+
+    &lt;option value="poniedzialek"&gt;Poniedziałek&lt;/option&gt;
+
+    &lt;option value="sroda"&gt;Środa&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Pierwsza opcja informuje użytkownika,
+                że należy wybrać termin.
+                Nie można jej ponownie wybrać
+                po wskazaniu właściwej odpowiedzi.
+            </p>
+
+        </section>
+
+        <section id="multiple">
+
+            <h2>7. Lista wielokrotnego wyboru – multiple</h2>
+
+            <p>
+                Domyślnie lista <code>select</code>
+                pozwala wybrać jedną opcję.
+            </p>
+
+            <p>
+                Atrybut <code>multiple</code>
+                umożliwia zaznaczenie
+                kilku pozycji.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;label for="technologie"&gt;
+    Wybierz technologie:
+&lt;/label&gt;
+
+&lt;select id="technologie"
+        name="technologie"
+        multiple
+        size="4"&gt;
+
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+
+    &lt;option value="javascript"&gt;JavaScript&lt;/option&gt;
+
+    &lt;option value="php"&gt;PHP&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <h3>Atrybut size</h3>
+
+            <p>
+                Atrybut <code>size="4"</code>
+                określa liczbę widocznych
+                pozycji listy.
+            </p>
+
+            <h3>Jak zaznaczyć kilka pozycji?</h3>
+
+            <p>
+                Na komputerze można użyć
+                klawisza Ctrl lub Command,
+                a w niektórych przypadkach Shift.
+                Sposób wyboru zależy
+                od systemu i przeglądarki.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Lista wielokrotnego wyboru
+                    może przesłać kilka wartości
+                    o tej samej nazwie.
+                    Program obsługujący formularz
+                    musi być przygotowany
+                    na ich odczyt.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="textarea">
+
+            <h2>8. Pole wielowierszowe – textarea</h2>
+
+            <p>
+                Znacznik <code>&lt;textarea&gt;</code>
+                służy do wprowadzania
+                dłuższych wypowiedzi,
+                komentarzy i wiadomości.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-html">&lt;label for="wiadomosc"&gt;Wiadomość:&lt;/label&gt;
+
+&lt;textarea id="wiadomosc"
+          name="wiadomosc"&gt;&lt;/textarea&gt;</code></pre>
+
+            <h3>Atrybuty rows i cols</h3>
+
+            <pre><code class="language-html">&lt;textarea name="opinia"
+          rows="5"
+          cols="40"&gt;&lt;/textarea&gt;</code></pre>
+
+            <ul>
+                <li><code>rows</code> – określa liczbę widocznych wierszy.</li>
+                <li><code>cols</code> – określa przybliżoną szerokość pola w znakach.</li>
+            </ul>
+
+            <h3>Placeholder i required</h3>
+
+            <pre><code class="language-html">&lt;label for="komentarz"&gt;Komentarz:&lt;/label&gt;
+
+&lt;textarea id="komentarz"
+          name="komentarz"
+          rows="5"
+          cols="40"
+          placeholder="Wpisz swój komentarz"
+          required&gt;&lt;/textarea&gt;</code></pre>
+
+            <h3>Ograniczenie liczby znaków</h3>
+
+            <pre><code class="language-html">&lt;textarea name="opis"
+          rows="4"
+          cols="35"
+          minlength="10"
+          maxlength="300"&gt;&lt;/textarea&gt;</code></pre>
+
+            <p>
+                Użytkownik może wpisać
+                maksymalnie 300 znaków.
+                Jeśli pole zawiera tekst,
+                przeglądarka może również
+                sprawdzić minimalną długość
+                określoną przez <code>minlength</code>.
+            </p>
+
+            <h3>Tekst początkowy</h3>
+
+            <pre><code class="language-html">&lt;textarea name="wiadomosc"&gt;Przykładowa wiadomość&lt;/textarea&gt;</code></pre>
+
+            <p>
+                Wartość początkową
+                umieszczamy pomiędzy
+                znacznikami otwierającym
+                i zamykającym.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Znacznik <code>textarea</code>
+                    nie korzysta z atrybutu
+                    <code>value</code>
+                    do ustawiania tekstu początkowego.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="fieldset">
+
+            <h2>9. Grupowanie pól – fieldset i legend</h2>
+
+            <p>
+                Rozbudowane formularze
+                warto podzielić na logiczne grupy.
+            </p>
+
+            <p>
+                Służą do tego znaczniki:
+            </p>
+
+            <ul>
+                <li><code>&lt;fieldset&gt;</code> – grupuje powiązane pola,</li>
+                <li><code>&lt;legend&gt;</code> – nadaje grupie nazwę.</li>
+            </ul>
+
+            <h3>Przykład – dane uczestnika</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Dane uczestnika&lt;/legend&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+    &lt;input type="text"
+           id="imie"
+           name="imie"&gt;
+
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+
+    &lt;input type="email"
+           id="email"
+           name="email"&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <h3>Przykład – grupa radio</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Wybierz sposób dostawy&lt;/legend&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="dostawa"
+               value="kurier"&gt;
+        Kurier
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="dostawa"
+               value="odbior"&gt;
+        Odbiór osobisty
+    &lt;/label&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <p>
+                Dzięki temu użytkownik
+                widzi, że obie odpowiedzi
+                dotyczą jednego pytania.
+            </p>
+
+        </section>
+
+        <section id="przyciski">
+
+            <h2>10. Przyciski formularza</h2>
+
+            <p>
+                Przyciski pozwalają
+                wysłać formularz,
+                przywrócić wartości początkowe
+                lub wykonać inne działanie.
+            </p>
+
+            <h3>Przycisk submit</h3>
+
+            <pre><code class="language-html">&lt;button type="submit"&gt;Wyślij formularz&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk <code>submit</code>
+                uruchamia standardową
+                procedurę wysyłania formularza.
+            </p>
+
+            <h3>Przycisk reset</h3>
+
+            <pre><code class="language-html">&lt;button type="reset"&gt;Wyczyść formularz&lt;/button&gt;</code></pre>
+
+            <p>
+                Przycisk <code>reset</code>
+                przywraca początkowe wartości pól.
+            </p>
+
+            <p>
+                Nie zawsze oznacza to
+                całkowite wyczyszczenie formularza.
+                Pola z ustawionymi wartościami
+                <code>value</code>,
+                <code>checked</code>
+                lub <code>selected</code>
+                wrócą do tych wartości.
+            </p>
+
+            <h3>Przycisk button</h3>
+
+            <pre><code class="language-html">&lt;button type="button"&gt;Sprawdź&lt;/button&gt;</code></pre>
+
+            <p>
+                Sam przycisk typu
+                <code>button</code>
+                nie wysyła formularza.
+                Można przypisać mu działanie
+                za pomocą JavaScript.
+            </p>
+
+            <h3>Przyciski tworzone za pomocą input</h3>
+
+            <pre><code class="language-html">&lt;input type="submit" value="Wyślij"&gt;
+
+&lt;input type="reset" value="Wyczyść"&gt;
+
+&lt;input type="button" value="Sprawdź"&gt;</code></pre>
+
+            <h3>Różnica między button a input</h3>
+
+            <pre><code class="language-html">&lt;button type="submit"&gt;
+    Wyślij zgłoszenie
+&lt;/button&gt;
+
+&lt;input type="submit" value="Wyślij zgłoszenie"&gt;</code></pre>
+
+            <p>
+                Oba przyciski mogą wysłać formularz.
+                Znacznik <code>&lt;button&gt;</code>
+                pozwala jednak umieszczać
+                wewnątrz dodatkową treść HTML.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W znaczniku <code>&lt;button&gt;</code>
+                    warto zawsze podawać atrybut
+                    <code>type</code>.
+                    Przycisk bez tego atrybutu
+                    znajdujący się w formularzu
+                    domyślnie działa jak
+                    <code>submit</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>11. Najważniejsze atrybuty kontrolek</h2>
+
+            <table>
+                <tr>
+                    <th>Atrybut</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>type</code></td>
+                    <td>Określa typ kontrolki lub przycisku.</td>
+                </tr>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>Określa nazwę przesyłanej danej.</td>
+                </tr>
+                <tr>
+                    <td><code>value</code></td>
+                    <td>Określa wartość pola lub opcji.</td>
+                </tr>
+                <tr>
+                    <td><code>id</code></td>
+                    <td>Identyfikuje element i pozwala powiązać go z etykietą.</td>
+                </tr>
+                <tr>
+                    <td><code>checked</code></td>
+                    <td>Wstępnie zaznacza radio lub checkbox.</td>
+                </tr>
+                <tr>
+                    <td><code>selected</code></td>
+                    <td>Wskazuje domyślnie wybraną opcję listy.</td>
+                </tr>
+                <tr>
+                    <td><code>required</code></td>
+                    <td>Oznacza wymagane pole lub wybór.</td>
+                </tr>
+                <tr>
+                    <td><code>disabled</code></td>
+                    <td>Wyłącza kontrolkę lub opcję.</td>
+                </tr>
+                <tr>
+                    <td><code>multiple</code></td>
+                    <td>Pozwala wybrać kilka opcji z listy select.</td>
+                </tr>
+                <tr>
+                    <td><code>size</code></td>
+                    <td>Określa liczbę widocznych pozycji listy.</td>
+                </tr>
+                <tr>
+                    <td><code>rows</code></td>
+                    <td>Określa liczbę widocznych wierszy textarea.</td>
+                </tr>
+                <tr>
+                    <td><code>cols</code></td>
+                    <td>Określa przybliżoną szerokość textarea.</td>
+                </tr>
+                <tr>
+                    <td><code>minlength</code></td>
+                    <td>Określa minimalną długość tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>maxlength</code></td>
+                    <td>Określa maksymalną długość tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>placeholder</code></td>
+                    <td>Wyświetla podpowiedź w pustym polu tekstowym.</td>
+                </tr>
+            </table>
+
+            <h3>Atrybuty logiczne</h3>
+
+            <p>
+                Niektóre atrybuty są logiczne.
+                Ich obecność oznacza
+                włączenie określonej właściwości.
+            </p>
+
+            <pre><code class="language-html">&lt;input type="checkbox" checked&gt;
+
+&lt;input type="text" required&gt;
+
+&lt;option value="a" selected&gt;Opcja A&lt;/option&gt;
+
+&lt;option value="b" disabled&gt;Opcja B&lt;/option&gt;</code></pre>
+
+            <p>
+                W takich przypadkach
+                nie trzeba dopisywać
+                <code>="true"</code>.
+            </p>
+
+        </section>
+
+        <section id="wysylanie">
+
+            <h2>12. Jak przesyłane są wybrane wartości?</h2>
+
+            <p>
+                Podczas wysyłania formularza
+                przeglądarka przygotowuje
+                dane na podstawie nazw
+                i wartości kontrolek.
+            </p>
+
+            <h3>Przykład – radio</h3>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="platnosc"
+               value="karta"&gt;
+        Karta
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="platnosc"
+               value="gotowka"&gt;
+        Gotówka
+    &lt;/label&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>
+                Jeśli użytkownik wybierze „Karta”,
+                w adresie URL może pojawić się:
+            </p>
+
+            <pre><code class="language-text">?platnosc=karta</code></pre>
+
+            <h3>Przykład – checkbox</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox"
+           name="faktura"
+           value="tak"&gt;
+    Chcę otrzymać fakturę
+&lt;/label&gt;</code></pre>
+
+            <p>
+                Jeśli checkbox zostanie zaznaczony,
+                przesłana zostanie wartość:
+            </p>
+
+            <pre><code class="language-text">faktura=tak</code></pre>
+
+            <p>
+                Jeśli checkbox pozostanie niezaznaczony,
+                parametr <code>faktura</code>
+                nie zostanie przesłany.
+            </p>
+
+            <h3>Przykład – select</h3>
+
+            <pre><code class="language-html">&lt;select name="rozmiar"&gt;
+
+    &lt;option value="s"&gt;Mały&lt;/option&gt;
+
+    &lt;option value="m"&gt;Średni&lt;/option&gt;
+
+    &lt;option value="l"&gt;Duży&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <p>
+                Po wybraniu opcji „Średni”
+                zostanie przesłane:
+            </p>
+
+            <pre><code class="language-text">rozmiar=m</code></pre>
+
+            <h3>Przykład – textarea</h3>
+
+            <pre><code class="language-html">&lt;textarea name="uwagi"&gt;&lt;/textarea&gt;</code></pre>
+
+            <p>
+                Wartością pola będzie tekst
+                wpisany przez użytkownika.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W ćwiczeniach stosujemy metodę GET,
+                    aby łatwo obserwować przesyłane parametry.
+                    Nie należy wpisywać do takich formularzy
+                    haseł ani danych poufnych.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>13. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – różne nazwy w jednej grupie radio</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie dla jednej grupy --&gt;
+&lt;input type="radio" name="opcja1" value="a"&gt;
+&lt;input type="radio" name="opcja2" value="b"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="radio" name="opcja" value="a"&gt;
+&lt;input type="radio" name="opcja" value="b"&gt;</code></pre>
+
+            <h3>Błąd 2 – brak value w radio</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecane --&gt;
+&lt;input type="radio" name="wybor"&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;input type="radio"
+       name="wybor"
+       value="pierwsza"&gt;</code></pre>
+
+            <p>
+                Bez <code>value</code>
+                zaznaczone pole radio
+                przesyła domyślnie wartość
+                <code>on</code>.
+            </p>
+
+            <h3>Błąd 3 – brak name w select</h3>
+
+            <pre><code class="language-html">&lt;!-- Wartość nie zostanie przesłana --&gt;
+&lt;select id="miasto"&gt;
+    &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;select id="miasto" name="miasto"&gt;
+    &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+            <h3>Błąd 4 – używanie value w textarea</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;textarea name="opis" value="Tekst"&gt;&lt;/textarea&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;textarea name="opis"&gt;Tekst&lt;/textarea&gt;</code></pre>
+
+            <h3>Błąd 5 – brak type w zwykłym przycisku</h3>
+
+            <pre><code class="language-html">&lt;!-- Może niezamierzenie wysłać formularz --&gt;
+&lt;button&gt;Sprawdź&lt;/button&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;button type="button"&gt;Sprawdź&lt;/button&gt;</code></pre>
+
+            <h3>Błąd 6 – mylenie selected i checked</h3>
+
+            <pre><code class="language-html">&lt;!-- Radio i checkbox: checked --&gt;
+&lt;input type="checkbox" checked&gt;
+
+&lt;!-- Opcja listy: selected --&gt;
+&lt;option value="html" selected&gt;HTML&lt;/option&gt;</code></pre>
+
+            <h3>Błąd 7 – brak etykiet</h3>
+
+            <p>
+                Kontrolki powinny mieć czytelne opisy.
+                Dla pól radio i checkbox
+                wygodnym rozwiązaniem jest
+                umieszczenie kontrolki
+                wewnątrz znacznika
+                <code>&lt;label&gt;</code>.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>14. Przykład kompletnego formularza</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                formularz zamówienia w szkolnej kawiarni.
+                Wykorzystuje pola radio,
+                checkbox, listę select,
+                textarea i przyciski.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Zamówienie w kawiarni&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Kawiarnia szkolna&lt;/h1&gt;
+    &lt;h2&gt;Formularz zamówienia&lt;/h2&gt;
+
+    &lt;form action="" method="get"&gt;
+
+        &lt;fieldset&gt;
+
+            &lt;legend&gt;Dane klienta&lt;/legend&gt;
+
+            &lt;p&gt;
+                &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       required&gt;
+            &lt;/p&gt;
+
+        &lt;/fieldset&gt;
+
+        &lt;fieldset&gt;
+
+            &lt;legend&gt;Wybierz napój&lt;/legend&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="napoj"
+                           value="kawa"
+                           required&gt;
+                    Kawa
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="napoj"
+                           value="herbata"&gt;
+                    Herbata
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="radio"
+                           name="napoj"
+                           value="sok"&gt;
+                    Sok
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+        &lt;/fieldset&gt;
+
+        &lt;fieldset&gt;
+
+            &lt;legend&gt;Dodatki&lt;/legend&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox"
+                           name="cukier"
+                           value="tak"&gt;
+                    Cukier
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox"
+                           name="mleko"
+                           value="tak"&gt;
+                    Mleko
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox"
+                           name="syrop"
+                           value="tak"&gt;
+                    Syrop
+                &lt;/label&gt;
+            &lt;/p&gt;
+
+        &lt;/fieldset&gt;
+
+        &lt;p&gt;
+            &lt;label for="rozmiar"&gt;Rozmiar napoju:&lt;/label&gt;
+
+            &lt;select id="rozmiar"
+                    name="rozmiar"
+                    required&gt;
+
+                &lt;option value=""&gt;
+                    -- Wybierz rozmiar --
+                &lt;/option&gt;
+
+                &lt;option value="s"&gt;Mały&lt;/option&gt;
+
+                &lt;option value="m"&gt;Średni&lt;/option&gt;
+
+                &lt;option value="l"&gt;Duży&lt;/option&gt;
+
+            &lt;/select&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;label for="uwagi"&gt;Uwagi do zamówienia:&lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;textarea id="uwagi"
+                      name="uwagi"
+                      rows="4"
+                      cols="40"
+                      maxlength="200"
+                      placeholder="Wpisz dodatkowe informacje"&gt;&lt;/textarea&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+            &lt;label&gt;
+                &lt;input type="checkbox"
+                       name="potwierdzenie"
+                       value="tak"
+                       required&gt;
+                Potwierdzam zamówienie
+            &lt;/label&gt;
+        &lt;/p&gt;
+
+        &lt;button type="submit"&gt;
+            Złóż zamówienie
+        &lt;/button&gt;
+
+        &lt;button type="reset"&gt;
+            Wyczyść
+        &lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Co należy sprawdzić?</h3>
+
+            <ol>
+                <li>Czy można wybrać tylko jeden napój?</li>
+                <li>Czy można zaznaczyć kilka dodatków?</li>
+                <li>Czy lista pozwala wybrać rozmiar napoju?</li>
+                <li>Czy można wpisać uwagi do zamówienia?</li>
+                <li>Czy formularz wymaga zaznaczenia potwierdzenia?</li>
+                <li>Czy przycisk reset przywraca wartości początkowe?</li>
+                <li>Czy po wysłaniu dane pojawiają się w adresie URL?</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Formularz jest przykładem edukacyjnym.
+                    Nie zapisuje zamówień ani nie przekazuje ich
+                    do rzeczywistej kawiarni.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>radio</code> – wybór jednej odpowiedzi z grupy.</li>
+                    <li><code>checkbox</code> – zaznaczanie niezależnych opcji.</li>
+                    <li><code>name</code> – nazwa przesyłanej danej.</li>
+                    <li><code>value</code> – wartość przesyłana po wyborze opcji.</li>
+                    <li><code>checked</code> – wstępne zaznaczenie radio lub checkbox.</li>
+                    <li><code>select</code> – tworzy listę wyboru.</li>
+                    <li><code>option</code> – określa pozycję listy.</li>
+                    <li><code>selected</code> – domyślnie wybiera opcję listy.</li>
+                    <li><code>multiple</code> – pozwala zaznaczyć kilka opcji listy.</li>
+                    <li><code>size</code> – określa liczbę widocznych pozycji listy.</li>
+                    <li><code>disabled</code> – wyłącza kontrolkę lub opcję.</li>
+                    <li><code>textarea</code> – tworzy pole wielowierszowe.</li>
+                    <li><code>rows</code> i <code>cols</code> – określają rozmiar pola textarea.</li>
+                    <li><code>fieldset</code> – grupuje powiązane kontrolki.</li>
+                    <li><code>legend</code> – nadaje nazwę grupie kontrolek.</li>
+                    <li><code>button type="submit"</code> – wysyła formularz.</li>
+                    <li><code>button type="reset"</code> – przywraca wartości początkowe.</li>
+                    <li><code>button type="button"</code> – tworzy przycisk bez domyślnego wysyłania.</li>
+                    <li><code>required</code> – wymaga uzupełnienia pola lub dokonania wyboru.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie formularzy
+                wykorzystujących pola radio,
+                checkbox, listy select,
+                pola textarea oraz przyciski.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_14</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku HTML.
+                Nie korzystaj z CSS ani JavaScript.
+            </p>
+
+            <h3>Zadanie 1 – Ankieta o zainteresowaniach</h3>
+
+            <p>
+                Utwórz formularz ankiety
+                dotyczącej zainteresowań uczniów.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek strony <code>&lt;h1&gt;</code> „Formularze HTML”.</li>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Ankieta o zainteresowaniach”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="get"</code>.</li>
+                <li>Dodaj pole tekstowe „Imię” i oznacz je jako wymagane.</li>
+                <li>Dodaj grupę radio „Ulubiony przedmiot” z minimum 4 odpowiedziami.</li>
+                <li>Wszystkie pola radio powinny mieć wspólny <code>name</code> i różne wartości <code>value</code>.</li>
+                <li>Dodaj minimum 4 checkboxy „Moje zainteresowania”.</li>
+                <li>Dodaj listę rozwijaną „Klasa” z minimum 4 opcjami.</li>
+                <li>Dodaj pole <code>textarea</code> „Dodatkowy komentarz” z 4 wierszami.</li>
+                <li>Zastosuj <code>fieldset</code> i <code>legend</code> do pogrupowania odpowiedzi.</li>
+                <li>Dodaj przyciski „Wyślij ankietę” i „Wyczyść”.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Formularz zamówienia pizzy</h3>
+
+            <p>
+                Pod pierwszym formularzem
+                utwórz formularz zamówienia pizzy.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Zamówienie pizzy”.</li>
+                <li>Utwórz osobny formularz z metodą GET.</li>
+                <li>Dodaj pole tekstowe „Imię klienta”.</li>
+                <li>Dodaj grupę radio „Rozmiar pizzy”: Mała, Średnia, Duża.</li>
+                <li>Ustaw domyślnie zaznaczoną opcję „Średnia” za pomocą <code>checked</code>.</li>
+                <li>Dodaj minimum 5 checkboxów z dodatkami do pizzy.</li>
+                <li>Dodaj listę rozwijaną „Rodzaj ciasta”: Cienkie, Tradycyjne, Grube.</li>
+                <li>Dodaj listę rozwijaną „Sposób odbioru”: Odbiór osobisty, Dostawa.</li>
+                <li>Dodaj pole <code>textarea</code> „Uwagi do zamówienia” z ograniczeniem do 200 znaków.</li>
+                <li>Dodaj wymagany checkbox „Potwierdzam zamówienie”.</li>
+                <li>Dodaj przyciski „Zamów” i „Wyczyść”.</li>
+                <li>Sprawdź, czy reset przywraca domyślny rozmiar „Średnia”.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Formularz zapisu na warsztaty</h3>
+
+            <p>
+                Utwórz formularz rejestracji
+                na szkolne warsztaty informatyczne.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Zapisy na warsztaty”.</li>
+                <li>Utwórz formularz z <code>action=""</code> i <code>method="get"</code>.</li>
+                <li>Dodaj wymagane pola „Imię i nazwisko” oraz „E-mail”.</li>
+                <li>Dodaj listę rozwijaną „Wybierz warsztaty”: HTML, CSS, JavaScript, PHP.</li>
+                <li>Ustaw pierwszą opcję listy jako „-- Wybierz warsztaty --” z pustą wartością.</li>
+                <li>Oznacz listę jako wymaganą.</li>
+                <li>Dodaj grupę radio „Preferowany termin”: Poniedziałek, Środa, Piątek.</li>
+                <li>Dodaj checkboxy „Dodatkowe zainteresowania”: Grafika, Bazy danych, Programowanie.</li>
+                <li>Dodaj pole <code>textarea</code> „Dlaczego chcesz wziąć udział?” z minimum 5 wierszami.</li>
+                <li>Ustaw minimalną długość wypowiedzi na 20 znaków.</li>
+                <li>Dodaj wymagany checkbox potwierdzający zgłoszenie.</li>
+                <li>Dodaj przyciski „Wyślij zgłoszenie” i „Wyczyść”.</li>
+                <li>Przetestuj działanie walidacji HTML5.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawianie błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy formularz
+                i popraw błędy w kodzie.
+            </p>
+
+            <pre><code class="language-html">&lt;form action="" method="get"&gt;
+
+    &lt;p&gt;Wybierz język:&lt;/p&gt;
+
+    &lt;input type="radio" name="html"&gt; HTML
+
+    &lt;input type="radio" name="css"&gt; CSS
+
+    &lt;p&gt;Wybierz miasto:&lt;/p&gt;
+
+    &lt;select id="miasto"&gt;
+        &lt;option value="lublin"&gt;Lublin&lt;/option&gt;
+        &lt;option value="krakow"&gt;Kraków&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;textarea name="opinia" value="Moja opinia"&gt;&lt;/textarea&gt;
+
+    &lt;button type="button"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Popraw grupę radio, aby można było wybrać tylko jedną odpowiedź.</li>
+                <li>Dodaj wartości <code>value</code> do pól radio.</li>
+                <li>Dodaj etykiety <code>label</code> do obu odpowiedzi.</li>
+                <li>Dodaj brakujący atrybut <code>name</code> do listy select.</li>
+                <li>Dodaj etykietę do listy miast.</li>
+                <li>Popraw początkowy tekst w textarea.</li>
+                <li>Popraw typ przycisku, aby wysyłał formularz.</li>
+                <li>Umieść poprawiony formularz na końcu pliku <code>index.html</code>.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    działanie pól radio i checkbox,
+                    list rozwijanych, pól textarea,
+                    przycisków oraz walidacji HTML5.
+                </p>
+
+                <p>
+                    Formularze służą do nauki HTML.
+                    Używaj przykładowych danych.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 14
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
