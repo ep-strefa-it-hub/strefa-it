@@ -1,0 +1,2095 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 17 – Wprowadzenie do CSS3 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#html-css">2.HTML a CSS</a>
+        <a href="#skladnia">3.Składnia CSS</a>
+        <a href="#wlasciwosci">4.Pierwsze właściwości</a>
+        <a href="#lokalne">5.Style lokalne</a>
+        <a href="#wewnetrzne">6.Style wewnętrzne</a>
+        <a href="#zewnetrzne">7.Style zewnętrzne</a>
+        <a href="#porownanie">8.Porównanie metod</a>
+        <a href="#selektory">9.Podstawowe selektory</a>
+        <a href="#kaskada">10.Kaskadowość stylów</a>
+        <a href="#specyficznosc">11.Specyficzność</a>
+        <a href="#kolejnosc">12.Kolejność reguł</a>
+        <a href="#dziedziczenie">13.Dziedziczenie</a>
+        <a href="#important">14.!important</a>
+        <a href="#narzedzia">15.Narzędzia przeglądarki</a>
+        <a href="#bledy">16.Najczęstsze błędy</a>
+        <a href="#przyklad">17.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 17 • CSS3</div>
+
+            <h2>CSS3: Wprowadzenie do CSS. Style lokalne, wewnętrzne i zewnętrzne. Kaskadowość stylów</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie przeznaczenia i składni CSS,
+                stosowanie trzech sposobów definiowania stylów,
+                podłączanie zewnętrznego arkusza stylów,
+                rozumienie kaskadowości, specyficzności
+                i dziedziczenia oraz samodzielne
+                stylowanie prostej strony HTML5.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie do CSS</h2>
+
+            <p>
+                Podczas wcześniejszych lekcji poznaliśmy język HTML5,
+                który pozwala tworzyć strukturę strony internetowej.
+                Za pomocą HTML umieszczaliśmy nagłówki, akapity,
+                listy, obrazy, formularze i inne elementy.
+            </p>
+
+            <p>
+                Sama struktura HTML nie wystarcza jednak,
+                aby przygotować atrakcyjną wizualnie witrynę.
+                Do określania wyglądu strony wykorzystujemy
+                <strong>CSS</strong>.
+            </p>
+
+            <p>
+                <strong>CSS (Cascading Style Sheets)</strong>
+                oznacza kaskadowe arkusze stylów.
+                Jest to język służący do opisywania sposobu
+                prezentacji dokumentów, między innymi stron HTML.
+            </p>
+
+            <h3>Co można zmieniać za pomocą CSS?</h3>
+
+            <ul>
+                <li>Kolory tekstu i tła.</li>
+                <li>Rodzaj, wielkość i wygląd czcionki.</li>
+                <li>Odstępy pomiędzy elementami.</li>
+                <li>Obramowania i zaokrąglenia.</li>
+                <li>Szerokość i wysokość elementów.</li>
+                <li>Położenie elementów na stronie.</li>
+                <li>Układ kolumn i menu.</li>
+                <li>Wygląd strony na telefonach i komputerach.</li>
+                <li>Proste animacje i efekty wizualne.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    HTML odpowiada przede wszystkim za
+                    <strong>strukturę i znaczenie treści</strong>,
+                    a CSS za jej <strong>prezentację</strong>.
+                    Współczesny CSS jest rozwijany modułowo,
+                    dlatego nazwa „CSS3” jest często używana
+                    w edukacji jako określenie nowoczesnych
+                    możliwości języka CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="html-css">
+
+            <h2>2. HTML a CSS – podział zadań</h2>
+
+            <p>
+                Aby zrozumieć współpracę HTML i CSS,
+                porównajmy stronę bez stylowania
+                i stronę z dodanymi stylami.
+            </p>
+
+            <h3>Przykład – sam HTML</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja strona&lt;/h1&gt;
+
+&lt;p&gt;
+    Witaj na mojej stronie internetowej.
+&lt;/p&gt;
+
+&lt;button&gt;Kliknij mnie&lt;/button&gt;</code></pre>
+
+            <p>
+                Przeglądarka wyświetli nagłówek,
+                akapit i przycisk, wykorzystując
+                swoje domyślne style.
+            </p>
+
+            <h3>Przykład – HTML z CSS</h3>
+
+            <pre><code class="language-html">&lt;h1 style="color: blue;"&gt;
+    Moja strona
+&lt;/h1&gt;
+
+&lt;p style="font-size: 20px;"&gt;
+    Witaj na mojej stronie internetowej.
+&lt;/p&gt;
+
+&lt;button style="background-color: orange;"&gt;
+    Kliknij mnie
+&lt;/button&gt;</code></pre>
+
+            <p>
+                Dzięki CSS możemy określić,
+                że nagłówek będzie niebieski,
+                akapit otrzyma większą czcionkę,
+                a przycisk pomarańczowe tło.
+            </p>
+
+            <h3>Dlaczego warto oddzielać HTML od CSS?</h3>
+
+            <ul>
+                <li>Kod HTML jest bardziej przejrzysty.</li>
+                <li>Łatwiej wprowadzać zmiany w wyglądzie strony.</li>
+                <li>Jeden arkusz CSS może obsługiwać wiele podstron.</li>
+                <li>Zmiana jednego stylu może wpłynąć na wiele elementów.</li>
+                <li>Łatwiej rozwijać i utrzymywać większy projekt.</li>
+            </ul>
+
+        </section>
+
+        <section id="skladnia">
+
+            <h2>3. Podstawowa składnia CSS</h2>
+
+            <p>
+                CSS składa się z reguł,
+                które określają wygląd wybranych elementów.
+            </p>
+
+            <h3>Budowa reguły CSS</h3>
+
+            <pre><code class="language-css">p {
+    color: blue;
+    font-size: 18px;
+}</code></pre>
+
+            <p>Reguła zawiera:</p>
+
+            <ol>
+                <li><strong>Selektor</strong> – wskazuje elementy, które mają zostać ostylowane.</li>
+                <li><strong>Właściwość</strong> – określa, co chcemy zmienić.</li>
+                <li><strong>Wartość</strong> – określa sposób zmiany.</li>
+                <li><strong>Deklarację</strong> – parę właściwość–wartość zakończoną średnikiem.</li>
+            </ol>
+
+            <h3>Analiza przykładu</h3>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>Selektor wskazujący wszystkie elementy p.</td>
+                </tr>
+                <tr>
+                    <td><code>{ }</code></td>
+                    <td>Nawiasy klamrowe zawierające deklaracje.</td>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Właściwość określająca kolor tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>blue</code></td>
+                    <td>Wartość właściwości color.</td>
+                </tr>
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td>Właściwość określająca rozmiar czcionki.</td>
+                </tr>
+                <tr>
+                    <td><code>18px</code></td>
+                    <td>Wartość określająca rozmiar 18 pikseli CSS.</td>
+                </tr>
+                <tr>
+                    <td><code>;</code></td>
+                    <td>Znak kończący deklarację.</td>
+                </tr>
+            </table>
+
+            <h3>Kilka deklaracji w jednej regule</h3>
+
+            <pre><code class="language-css">h1 {
+    color: darkgreen;
+    font-size: 32px;
+    text-align: center;
+    background-color: lightyellow;
+}</code></pre>
+
+            <p>
+                Wszystkie deklaracje dotyczą
+                elementów <code>h1</code>
+                pasujących do selektora.
+            </p>
+
+            <h3>Komentarze w CSS</h3>
+
+            <pre><code class="language-css">/* Styl nagłówka */
+
+h1 {
+    color: navy;
+}
+
+/*
+   Styl akapitów
+   na stronie
+*/
+
+p {
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Komentarze służą do opisywania kodu.
+                Przeglądarka nie interpretuje ich
+                jako reguł stylowania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W CSS komentarze zapisujemy
+                    pomiędzy <code>/*</code> i <code>*/</code>.
+                    Nie stosujemy komentarzy HTML
+                    <code>&lt;!-- --&gt;</code>
+                    wewnątrz arkusza CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wlasciwosci">
+
+            <h2>4. Pierwsze właściwości CSS</h2>
+
+            <p>
+                Na początku nauki warto poznać
+                kilka podstawowych właściwości,
+                które pozwalają szybko zobaczyć
+                efekty stylowania strony.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Przeznaczenie</th>
+                    <th>Przykład</th>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Kolor tekstu.</td>
+                    <td><code>color: red;</code></td>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td>Kolor tła.</td>
+                    <td><code>background-color: yellow;</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td>Rozmiar czcionki.</td>
+                    <td><code>font-size: 20px;</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-family</code></td>
+                    <td>Rodzina czcionek.</td>
+                    <td><code>font-family: Arial, sans-serif;</code></td>
+                </tr>
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td>Wyrównanie tekstu.</td>
+                    <td><code>text-align: center;</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-weight</code></td>
+                    <td>Grubość pisma.</td>
+                    <td><code>font-weight: bold;</code></td>
+                </tr>
+                <tr>
+                    <td><code>border</code></td>
+                    <td>Obramowanie.</td>
+                    <td><code>border: 2px solid black;</code></td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Odstęp wewnętrzny.</td>
+                    <td><code>padding: 15px;</code></td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>Margines zewnętrzny.</td>
+                    <td><code>margin: 20px;</code></td>
+                </tr>
+            </table>
+
+            <h3>Przykład – stylowanie nagłówka i akapitu</h3>
+
+            <pre><code class="language-css">h1 {
+    color: white;
+    background-color: navy;
+    text-align: center;
+    padding: 20px;
+}
+
+p {
+    color: darkslategray;
+    font-size: 18px;
+}</code></pre>
+
+            <h3>Podstawowe sposoby zapisu kolorów</h3>
+
+            <pre><code class="language-css">h1 {
+    color: red;
+}
+
+h2 {
+    color: #008000;
+}
+
+p {
+    color: rgb(0, 0, 255);
+}</code></pre>
+
+            <p>
+                Kolory można zapisywać
+                między innymi za pomocą nazw,
+                kodów szesnastkowych
+                i funkcji <code>rgb()</code>.
+            </p>
+
+            <p>
+                Szczegółowe formatowanie tekstu,
+                kolory, jednostki i model pudełkowy
+                będą rozwijane w kolejnych lekcjach CSS3.
+            </p>
+
+        </section>
+
+        <section id="lokalne">
+
+            <h2>5. Style lokalne – atrybut style</h2>
+
+            <p>
+                <strong>Styl lokalny</strong>,
+                nazywany również stylem liniowym
+                lub <em>inline CSS</em>,
+                zapisujemy bezpośrednio
+                w znaczniku HTML
+                za pomocą atrybutu
+                <code>style</code>.
+            </p>
+
+            <h3>Przykład – jeden element</h3>
+
+            <pre><code class="language-html">&lt;p style="color: red;"&gt;
+    Ten tekst jest czerwony.
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Styl dotyczy tylko tego elementu,
+                w którym zapisano atrybut
+                <code>style</code>.
+            </p>
+
+            <h3>Przykład – kilka właściwości</h3>
+
+            <pre><code class="language-html">&lt;h1 style="color: white;
+           background-color: navy;
+           text-align: center;"&gt;
+    Moja strona
+&lt;/h1&gt;</code></pre>
+
+            <h3>Przykład – dwa akapity</h3>
+
+            <pre><code class="language-html">&lt;p style="color: green;"&gt;
+    Pierwszy akapit.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Drugi akapit.
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Pierwszy akapit otrzyma zielony tekst.
+                Drugi zachowa kolor wynikający
+                z pozostałych reguł CSS
+                lub domyślnych stylów przeglądarki.
+            </p>
+
+            <h3>Zalety stylów lokalnych</h3>
+
+            <ul>
+                <li>Szybkie zastosowanie stylu do pojedynczego elementu.</li>
+                <li>Łatwe sprawdzanie prostych przykładów.</li>
+                <li>Brak konieczności tworzenia osobnego pliku CSS.</li>
+            </ul>
+
+            <h3>Wady stylów lokalnych</h3>
+
+            <ul>
+                <li>Mieszają strukturę HTML z wyglądem strony.</li>
+                <li>Powodują powtarzanie tych samych deklaracji.</li>
+                <li>Utrudniają wprowadzanie zmian w większym projekcie.</li>
+                <li>Trudniej zarządzać nimi przy wielu podstronach.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Style lokalne są poprawnym
+                    sposobem stosowania CSS,
+                    ale przy tworzeniu większych
+                    stron internetowych
+                    zazwyczaj korzystamy
+                    z zewnętrznych arkuszy stylów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wewnetrzne">
+
+            <h2>6. Style wewnętrzne – element style</h2>
+
+            <p>
+                <strong>Style wewnętrzne</strong>
+                zapisujemy wewnątrz elementu
+                <code>&lt;style&gt;</code>,
+                najczęściej umieszczonego
+                w sekcji <code>&lt;head&gt;</code>
+                dokumentu HTML.
+            </p>
+
+            <p>
+                Dzięki temu możemy określić
+                wygląd wielu elementów
+                za pomocą jednej reguły.
+            </p>
+
+            <h3>Kompletny przykład</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Style wewnętrzne&lt;/title&gt;
+
+    &lt;style&gt;
+
+        body {
+            background-color: lightyellow;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: navy;
+            text-align: center;
+        }
+
+        p {
+            color: darkgreen;
+            font-size: 18px;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+
+    &lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+    &lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Co się wydarzy?</h3>
+
+            <ol>
+                <li>Tło całej strony będzie jasnożółte.</li>
+                <li>Nagłówek będzie granatowy i wyśrodkowany.</li>
+                <li>Oba akapity otrzymają ciemnozielony tekst.</li>
+                <li>Rozmiar czcionki akapitów wyniesie 18 pikseli.</li>
+            </ol>
+
+            <h3>Zalety stylów wewnętrznych</h3>
+
+            <ul>
+                <li>Reguły CSS są zebrane w jednym miejscu.</li>
+                <li>Jedna reguła może dotyczyć wielu elementów.</li>
+                <li>Nie trzeba tworzyć dodatkowego pliku.</li>
+                <li>Rozwiązanie sprawdza się w prostych, pojedynczych dokumentach.</li>
+            </ul>
+
+            <h3>Wady stylów wewnętrznych</h3>
+
+            <ul>
+                <li>Arkusz jest związany z konkretnym dokumentem.</li>
+                <li>Przy wielu podstronach trzeba powtarzać style.</li>
+                <li>Rozbudowany kod CSS zwiększa długość pliku HTML.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W elemencie <code>style</code>
+                    zapisujemy zwykłe reguły CSS,
+                    zawierające selektory
+                    i deklaracje w nawiasach klamrowych.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zewnetrzne">
+
+            <h2>7. Style zewnętrzne – osobny plik CSS</h2>
+
+            <p>
+                <strong>Zewnętrzny arkusz stylów</strong>
+                to osobny plik z rozszerzeniem
+                <code>.css</code>,
+                który zawiera reguły
+                odpowiedzialne za wygląd strony.
+            </p>
+
+            <p>
+                Jest to najczęściej stosowany
+                sposób organizacji stylów
+                w projektach internetowych.
+            </p>
+
+            <h3>Przykładowa struktura folderu</h3>
+
+            <pre><code class="language-text">moja-strona/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Style zewnętrzne&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+
+    &lt;p&gt;Witaj na mojej stronie.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: navy;
+    text-align: center;
+}
+
+p {
+    color: #333333;
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Przeglądarka odczytuje plik HTML,
+                znajduje element <code>link</code>,
+                pobiera arkusz <code>style.css</code>
+                i stosuje zapisane w nim reguły.
+            </p>
+
+            <h3>Znaczenie atrybutów link</h3>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>link</code></td>
+                    <td>Element wskazujący zasób powiązany z dokumentem.</td>
+                </tr>
+                <tr>
+                    <td><code>rel="stylesheet"</code></td>
+                    <td>Informuje, że wskazany plik jest arkuszem stylów.</td>
+                </tr>
+                <tr>
+                    <td><code>href="style.css"</code></td>
+                    <td>Określa ścieżkę do pliku CSS.</td>
+                </tr>
+            </table>
+
+            <h3>Arkusz CSS w podfolderze</h3>
+
+            <pre><code class="language-text">moja-strona/
+|
+|-- index.html
+|
+|-- css/
+    |-- style.css</code></pre>
+
+            <p>
+                W takim przypadku w pliku HTML
+                należy zastosować:
+            </p>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet"
+      href="css/style.css"&gt;</code></pre>
+
+            <h3>Jeden arkusz dla kilku podstron</h3>
+
+            <pre><code class="language-text">moja-strona/
+|
+|-- index.html
+|-- oferta.html
+|-- kontakt.html
+|
+|-- style.css</code></pre>
+
+            <p>
+                W każdym z trzech dokumentów HTML
+                można umieścić:
+            </p>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+            <p>
+                Dzięki temu zmiana koloru nagłówków
+                w jednym pliku <code>style.css</code>
+                może zmienić ich wygląd
+                na wszystkich podstronach.
+            </p>
+
+            <h3>Zalety stylów zewnętrznych</h3>
+
+            <ul>
+                <li>Oddzielają strukturę HTML od wyglądu strony.</li>
+                <li>Umożliwiają ponowne wykorzystanie stylów.</li>
+                <li>Ułatwiają utrzymanie spójnego wyglądu witryny.</li>
+                <li>Pozwalają zmieniać wygląd wielu stron w jednym miejscu.</li>
+                <li>Przeglądarka może przechowywać pobrany arkusz w pamięci podręcznej.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W pliku <code>style.css</code>
+                    zapisujemy wyłącznie kod CSS.
+                    Nie dodajemy do niego znaczników
+                    <code>&lt;html&gt;</code>,
+                    <code>&lt;head&gt;</code>
+                    ani <code>&lt;style&gt;</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>8. Porównanie trzech sposobów stosowania CSS</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>Lokalny</th>
+                    <th>Wewnętrzny</th>
+                    <th>Zewnętrzny</th>
+                </tr>
+                <tr>
+                    <td>Miejsce zapisu</td>
+                    <td>Atrybut style</td>
+                    <td>Element style</td>
+                    <td>Plik .css</td>
+                </tr>
+                <tr>
+                    <td>Zasięg</td>
+                    <td>Konkretny element</td>
+                    <td>Dokument HTML</td>
+                    <td>Wszystkie dokumenty, które go dołączą</td>
+                </tr>
+                <tr>
+                    <td>Osobny plik</td>
+                    <td>Nie</td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Wygoda przy dużej witrynie</td>
+                    <td>Mała</td>
+                    <td>Ograniczona</td>
+                    <td>Duża</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Pojedynczy element</td>
+                    <td>Prosta strona</td>
+                    <td>Rozbudowana witryna</td>
+                </tr>
+            </table>
+
+            <h3>Wszystkie trzy sposoby w jednym dokumencie</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Trzy sposoby CSS&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+    &lt;style&gt;
+        h2 {
+            color: green;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Style zewnętrzne&lt;/h1&gt;
+
+    &lt;h2&gt;Style wewnętrzne&lt;/h2&gt;
+
+    &lt;p style="color: red;"&gt;
+        Styl lokalny.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Wszystkie trzy sposoby mogą
+                występować jednocześnie.
+                Jeżeli ich reguły dotyczą
+                tej samej właściwości tego samego elementu,
+                o wyniku decyduje kaskada CSS.
+            </p>
+
+        </section>
+
+        <section id="selektory">
+
+            <h2>9. Podstawowe selektory CSS</h2>
+
+            <p>
+                <strong>Selektor</strong>
+                określa, do których elementów HTML
+                ma zostać zastosowana reguła CSS.
+            </p>
+
+            <p>
+                Aby zrozumieć kaskadowość,
+                musimy poznać trzy podstawowe
+                rodzaje selektorów.
+            </p>
+
+            <h3>Selektor elementu</h3>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Reguła dotyczy wszystkich
+                elementów <code>p</code>.
+            </p>
+
+            <h3>Selektor klasy</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;
+    Ważna informacja.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Zwykła informacja.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Kropka przed nazwą
+                oznacza selektor klasy.
+                Tę samą klasę można
+                przypisać wielu elementom.
+            </p>
+
+            <h3>Selektor identyfikatora</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h1 id="tytul"&gt;
+    Moja witryna
+&lt;/h1&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#tytul {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                Znak <code>#</code>
+                oznacza selektor identyfikatora.
+                W dokumencie HTML wartość
+                atrybutu <code>id</code>
+                powinna być unikatowa.
+            </p>
+
+            <h3>Porównanie selektorów</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Przykład</th>
+                    <th>Co wskazuje?</th>
+                </tr>
+                <tr>
+                    <td>Elementu</td>
+                    <td><code>p</code></td>
+                    <td>Wszystkie akapity.</td>
+                </tr>
+                <tr>
+                    <td>Klasy</td>
+                    <td><code>.wazne</code></td>
+                    <td>Elementy z klasą wazne.</td>
+                </tr>
+                <tr>
+                    <td>Identyfikatora</td>
+                    <td><code>#tytul</code></td>
+                    <td>Element o identyfikatorze tytul.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="kaskada">
+
+            <h2>10. Kaskadowość stylów – na czym polega?</h2>
+
+            <p>
+                Słowo <strong>cascading</strong>
+                w nazwie CSS oznacza
+                <strong>kaskadowość</strong>.
+            </p>
+
+            <p>
+                Kaskada to mechanizm,
+                dzięki któremu przeglądarka
+                ustala, które deklaracje CSS
+                zostaną zastosowane,
+                gdy kilka reguł określa
+                tę samą właściwość elementu.
+            </p>
+
+            <h3>Przykład – dwie reguły dla akapitu</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Przykładowy tekst.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}
+
+p {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie czerwony.
+            </p>
+
+            <p>
+                Obie reguły mają taką samą
+                specyficzność i pochodzenie,
+                dlatego decyduje kolejność.
+                Późniejsza deklaracja
+                <code>color: red;</code>
+                zastępuje wcześniejszą
+                deklarację koloru.
+            </p>
+
+            <h3>Czy późniejsza reguła zastępuje wszystko?</h3>
+
+            <pre><code class="language-css">p {
+    color: blue;
+    font-size: 20px;
+}
+
+p {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie czerwony,
+                ale zachowa rozmiar
+                <code>20px</code>.
+            </p>
+
+            <p>
+                Druga reguła nadpisuje
+                tylko właściwość <code>color</code>.
+                Nie usuwa deklaracji
+                <code>font-size</code>
+                z pierwszej reguły.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Bardzo ważne</h3>
+                <p>
+                    Kaskada rozstrzyga konflikty
+                    <strong>osobno dla każdej właściwości</strong>.
+                    Nie wybiera jednej całej reguły
+                    kosztem wszystkich pozostałych.
+                </p>
+            </div>
+
+            <h3>Co wpływa na wynik kaskady?</h3>
+
+            <p>
+                W uproszczeniu, przy rozstrzyganiu
+                konfliktów istotne są:
+            </p>
+
+            <ol>
+                <li>Pochodzenie i ważność deklaracji, np. reguły autora strony, przeglądarki lub użytkownika oraz <code>!important</code>.</li>
+                <li>Warstwa kaskady, jeżeli została zastosowana.</li>
+                <li>Specyficzność selektora.</li>
+                <li>Odległość w drzewie elementów przy rozstrzyganiu niektórych reguł związanych z <code>@scope</code>.</li>
+                <li>Kolejność deklaracji w arkuszach stylów.</li>
+            </ol>
+
+            <p>
+                Na tym etapie skupimy się
+                na najczęściej spotykanych
+                sytuacjach: stylach lokalnych,
+                selektorach, specyficzności
+                i kolejności reguł.
+            </p>
+
+        </section>
+
+        <section id="specyficznosc">
+
+            <h2>11. Specyficzność selektorów</h2>
+
+            <p>
+                <strong>Specyficzność</strong>
+                określa, jak szczegółowo
+                selektor wskazuje element.
+            </p>
+
+            <p>
+                Gdy kilka zwykłych reguł autora
+                dotyczy tej samej właściwości,
+                a wcześniejsze etapy kaskady
+                nie rozstrzygają konfliktu,
+                większa specyficzność
+                może zdecydować o wyniku.
+            </p>
+
+            <h3>Podstawowe porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Rodzaj</th>
+                    <th>Przykład</th>
+                    <th>Specyficzność</th>
+                </tr>
+                <tr>
+                    <td>Element</td>
+                    <td><code>p</code></td>
+                    <td>0-0-1</td>
+                </tr>
+                <tr>
+                    <td>Klasa</td>
+                    <td><code>.wazne</code></td>
+                    <td>0-1-0</td>
+                </tr>
+                <tr>
+                    <td>Identyfikator</td>
+                    <td><code>#komunikat</code></td>
+                    <td>1-0-0</td>
+                </tr>
+            </table>
+
+            <p>
+                Dla tych trzech prostych
+                selektorów można zapamiętać:
+            </p>
+
+            <p>
+                <strong>Identyfikator ma większą specyficzność niż klasa, a klasa większą niż selektor elementu.</strong>
+            </p>
+
+            <h3>Przykład – element i klasa</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;
+    Komunikat dla użytkownika.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}
+
+.wazne {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie czerwony,
+                ponieważ selektor klasy
+                ma większą specyficzność
+                niż selektor elementu.
+            </p>
+
+            <h3>Przykład – klasa i identyfikator</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p id="komunikat" class="wazne"&gt;
+    Ważny komunikat.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#komunikat {
+    color: green;
+}
+
+.wazne {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie zielony.
+                Reguła identyfikatora
+                ma większą specyficzność,
+                mimo że reguła klasy
+                występuje później.
+            </p>
+
+            <h3>Przykład – styl lokalny i klasa</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"
+   style="color: purple;"&gt;
+    Ważny komunikat.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie fioletowy.
+            </p>
+
+            <p>
+                W tym typowym przypadku
+                zwykła deklaracja lokalna
+                ma pierwszeństwo przed
+                zwykłą regułą autora
+                zapisaną w arkuszu stylów.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Specyficzność nie jest
+                    jedynym kryterium kaskady.
+                    Na przykład deklaracje
+                    oznaczone <code>!important</code>
+                    mogą zmienić wynik porównania.
+                    Dlatego nie należy przyjmować,
+                    że styl lokalny zawsze wygrywa.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="kolejnosc">
+
+            <h2>12. Kolejność reguł i arkuszy stylów</h2>
+
+            <p>
+                Jeżeli dwie deklaracje
+                mają takie samo pierwszeństwo
+                na wcześniejszych etapach kaskady
+                i jednakową specyficzność,
+                decyduje kolejność.
+            </p>
+
+            <h3>Przykład – kolejność w jednym arkuszu</h3>
+
+            <pre><code class="language-css">h1 {
+    color: red;
+}
+
+h1 {
+    color: blue;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                nagłówek będzie niebieski.
+            </p>
+
+            <h3>Przykład – arkusz zewnętrzny i styl wewnętrzny</h3>
+
+            <p>Plik <code>style.css</code>:</p>
+
+            <pre><code class="language-css">h1 {
+    color: green;
+}</code></pre>
+
+            <p>Plik <code>index.html</code>:</p>
+
+            <pre><code class="language-html">&lt;head&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+    &lt;style&gt;
+        h1 {
+            color: red;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                nagłówek będzie czerwony,
+                ponieważ obie reguły mają
+                taką samą specyficzność,
+                a styl wewnętrzny
+                został zapisany później.
+            </p>
+
+            <h3>A co, jeśli zmienimy kolejność?</h3>
+
+            <pre><code class="language-html">&lt;head&gt;
+
+    &lt;style&gt;
+        h1 {
+            color: red;
+        }
+    &lt;/style&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;</code></pre>
+
+            <p>
+                Jeżeli plik <code>style.css</code>
+                nadal zawiera
+                <code>h1 { color: green; }</code>,
+                nagłówek będzie zielony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Nie istnieje ogólna zasada,
+                    że style wewnętrzne
+                    zawsze mają pierwszeństwo
+                    przed zewnętrznymi.
+                    Przy jednakowym pierwszeństwie
+                    i specyficzności
+                    liczy się ich kolejność.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="dziedziczenie">
+
+            <h2>13. Dziedziczenie właściwości CSS</h2>
+
+            <p>
+                <strong>Dziedziczenie</strong>
+                to mechanizm, dzięki któremu
+                niektóre właściwości CSS
+                mogą być przekazywane
+                z elementu nadrzędnego
+                do jego elementów potomnych.
+            </p>
+
+            <h3>Przykład – kolor tekstu</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;div&gt;
+
+    &lt;h2&gt;Informacje&lt;/h2&gt;
+
+    &lt;p&gt;
+        Pierwszy akapit.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        Drugi akapit.
+    &lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">div {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Element <code>div</code>
+                otrzyma niebieski kolor tekstu.
+                Ponieważ <code>color</code>
+                jest właściwością dziedziczoną,
+                jego potomkowie również
+                mogą wyświetlać niebieski tekst,
+                o ile nie mają własnych
+                odpowiednich deklaracji.
+            </p>
+
+            <h3>Przykład – zmiana stylu potomka</h3>
+
+            <pre><code class="language-css">div {
+    color: blue;
+}
+
+h2 {
+    color: red;
+}</code></pre>
+
+            <p>
+                Nagłówek będzie czerwony,
+                a akapity niebieskie.
+            </p>
+
+            <h3>Czy wszystkie właściwości są dziedziczone?</h3>
+
+            <p>
+                Nie. Wiele właściwości
+                związanych z wyglądem tekstu
+                jest dziedziczonych,
+                ale na przykład
+                <code>border</code>,
+                <code>margin</code>
+                i <code>padding</code>
+                nie są domyślnie dziedziczone.
+            </p>
+
+            <h3>Przykład – obramowanie</h3>
+
+            <pre><code class="language-css">div {
+    border: 2px solid black;
+}</code></pre>
+
+            <p>
+                Obramowanie otrzyma element
+                <code>div</code>,
+                ale jego akapity
+                nie odziedziczą automatycznie
+                własnych obramowań.
+            </p>
+
+            <h3>Wartość inherit</h3>
+
+            <pre><code class="language-css">div {
+    color: green;
+}
+
+p {
+    color: inherit;
+}</code></pre>
+
+            <p>
+                Wartość <code>inherit</code>
+                poleca pobranie wartości
+                właściwości z elementu nadrzędnego.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Dziedziczenie i kaskada
+                    to powiązane, ale różne mechanizmy.
+                    Kaskada wybiera deklaracje
+                    dotyczące danego elementu,
+                    a dziedziczenie może dostarczyć
+                    wartość, gdy właściwość
+                    nie została określona
+                    bezpośrednio dla tego elementu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="important">
+
+            <h2>14. Deklaracja !important</h2>
+
+            <p>
+                W CSS można oznaczyć deklarację
+                słowem kluczowym
+                <code>!important</code>.
+            </p>
+
+            <p>
+                Zmienia ono ważność deklaracji
+                w mechanizmie kaskady.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="komunikat"
+   style="color: blue;"&gt;
+    Ważna wiadomość.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.komunikat {
+    color: red !important;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie czerwony.
+            </p>
+
+            <p>
+                W tym przykładzie deklaracja
+                z <code>!important</code>
+                wygrywa ze zwykłą deklaracją
+                lokalną.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">p {
+    color: red !important;
+}</code></pre>
+
+            <h3>Dlaczego nie należy go nadużywać?</h3>
+
+            <ul>
+                <li>Utrudnia przewidywanie wyników kaskady.</li>
+                <li>Może powodować konieczność stosowania kolejnych deklaracji <code>!important</code>.</li>
+                <li>Komplikuje późniejsze zmiany stylów.</li>
+                <li>Często ukrywa problemy ze specyficznością i organizacją CSS.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>!important</code>
+                    nie jest sposobem na
+                    „naprawianie każdego problemu z CSS”.
+                    W zwykłych projektach
+                    lepiej najpierw sprawdzić
+                    selektory, specyficzność
+                    i kolejność reguł.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="narzedzia">
+
+            <h2>15. Narzędzia deweloperskie przeglądarki</h2>
+
+            <p>
+                Podczas nauki CSS bardzo przydatne
+                są narzędzia deweloperskie,
+                które umożliwiają sprawdzanie
+                stylów zastosowanych do elementów.
+            </p>
+
+            <h3>Jak otworzyć narzędzia?</h3>
+
+            <ol>
+                <li>Otwórz stronę HTML w przeglądarce.</li>
+                <li>Kliknij prawym przyciskiem myszy wybrany element.</li>
+                <li>Wybierz opcję <strong>Zbadaj</strong> lub <strong>Inspect</strong>.</li>
+                <li>Odszukaj panel <strong>Styles</strong>.</li>
+                <li>Sprawdź, które deklaracje CSS są aktywne.</li>
+            </ol>
+
+            <h3>Co można sprawdzić?</h3>
+
+            <ul>
+                <li>Z jakiego pliku pochodzi reguła CSS.</li>
+                <li>Jaki selektor wskazuje element.</li>
+                <li>Które deklaracje zostały nadpisane.</li>
+                <li>Jakie wartości mają właściwości elementu.</li>
+                <li>Jak zmiana deklaracji wpływa na wygląd strony.</li>
+            </ul>
+
+            <p>
+                W panelu stylów nadpisane deklaracje
+                są zwykle oznaczane
+                przekreśleniem.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Zmiany wykonane bezpośrednio
+                    w narzędziach przeglądarki
+                    są zazwyczaj tymczasowe.
+                    Aby zachować je w projekcie,
+                    należy poprawić odpowiedni
+                    plik HTML lub CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>16. Najczęstsze błędy początkujących</h2>
+
+            <h3>Błąd 1 – brak średnika pomiędzy deklaracjami</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+p {
+    color: red
+    font-size: 18px;
+}
+
+
+/* Poprawnie */
+
+p {
+    color: red;
+    font-size: 18px;
+}</code></pre>
+
+            <h3>Błąd 2 – brak nawiasów klamrowych</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+h1
+    color: blue;
+
+
+/* Poprawnie */
+
+h1 {
+    color: blue;
+}</code></pre>
+
+            <h3>Błąd 3 – błędna nazwa właściwości</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+p {
+    text-color: red;
+}
+
+
+/* Poprawnie */
+
+p {
+    color: red;
+}</code></pre>
+
+            <h3>Błąd 4 – niepoprawna ścieżka do arkusza</h3>
+
+            <p>Struktura:</p>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- css/
+    |-- style.css</code></pre>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+
+            <h3>Błąd 5 – dodawanie znaczników HTML do pliku CSS</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie w pliku style.css */
+
+/* Nie wpisujemy tutaj znaczników
+   &lt;style&gt; i &lt;/style&gt; */
+
+
+/* Poprawnie */
+
+h1 {
+    color: navy;
+}</code></pre>
+
+            <h3>Błąd 6 – mylenie class i id</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="opis"&gt;
+    Przykładowy tekst.
+&lt;/p&gt;</code></pre>
+
+            <p>Niepoprawny selektor:</p>
+
+            <pre><code class="language-css">#opis {
+    color: blue;
+}</code></pre>
+
+            <p>Poprawny selektor:</p>
+
+            <pre><code class="language-css">.opis {
+    color: blue;
+}</code></pre>
+
+            <h3>Błąd 7 – zakładanie, że ostatnia reguła zawsze wygrywa</h3>
+
+            <pre><code class="language-css">#tytul {
+    color: green;
+}
+
+h1 {
+    color: red;
+}</code></pre>
+
+            <p>
+                Jeśli element <code>h1</code>
+                ma identyfikator <code>tytul</code>,
+                jego tekst będzie zielony.
+                Selektor identyfikatora
+                ma większą specyficzność.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>17. Kompletny przykład – HTML i CSS</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                prostą stronę wizytówkową
+                wykorzystującą zewnętrzny
+                arkusz stylów.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">wizytowka/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Moja wizytówka&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1 id="tytul"&gt;
+            Moja wizytówka
+        &lt;/h1&gt;
+
+        &lt;p&gt;
+            Witaj na mojej stronie!
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+
+        &lt;a href="#o-mnie"&gt;O mnie&lt;/a&gt;
+
+        &lt;a href="#zainteresowania"&gt;
+            Zainteresowania
+        &lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="o-mnie"&gt;
+
+            &lt;h2&gt;O mnie&lt;/h2&gt;
+
+            &lt;p&gt;
+                Interesuję się informatyką
+                i tworzeniem stron WWW.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="zainteresowania"&gt;
+
+            &lt;h2&gt;Zainteresowania&lt;/h2&gt;
+
+            &lt;p class="wazne"&gt;
+                Moim ulubionym zajęciem
+                jest programowanie.
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                Lubię również muzykę i sport.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                E-mail:
+                &lt;a href="mailto:kontakt@example.com"&gt;
+                    kontakt@example.com
+                &lt;/a&gt;
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Moja wizytówka
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Styl całej strony */
+
+body {
+    background-color: #f0f4f8;
+    color: #333333;
+    font-family: Arial, sans-serif;
+}
+
+/* Nagłówek strony */
+
+header {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Menu nawigacyjne */
+
+nav {
+    background-color: lightblue;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Odnośniki */
+
+a {
+    color: darkblue;
+}
+
+/* Główna treść */
+
+main {
+    padding: 20px;
+}
+
+/* Nagłówki sekcji */
+
+h2 {
+    color: darkgreen;
+}
+
+/* Wszystkie akapity */
+
+p {
+    font-size: 18px;
+}
+
+/* Wyróżniony akapit */
+
+.wazne {
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Stopka */
+
+footer {
+    background-color: #dddddd;
+    text-align: center;
+    padding: 10px;
+}</code></pre>
+
+            <h3>Co pokazuje ten przykład?</h3>
+
+            <ol>
+                <li>Oddzielenie HTML od CSS.</li>
+                <li>Podłączenie zewnętrznego arkusza stylów.</li>
+                <li>Stosowanie selektorów elementów.</li>
+                <li>Stosowanie selektora klasy.</li>
+                <li>Dziedziczenie koloru tekstu i rodzaju czcionki.</li>
+                <li>Stylowanie elementów semantycznych HTML5.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W tym przykładzie style zapisano
+                    w osobnym pliku,
+                    dlatego HTML pozostaje czytelny,
+                    a wygląd strony można zmieniać
+                    bez modyfikowania jej struktury.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>CSS służy do określania wyglądu strony internetowej.</li>
+                    <li>HTML odpowiada za strukturę, a CSS za prezentację.</li>
+                    <li>Reguła CSS składa się z selektora i deklaracji.</li>
+                    <li>Deklaracja zawiera właściwość i jej wartość.</li>
+                    <li>Styl lokalny zapisujemy w atrybucie <code>style</code>.</li>
+                    <li>Styl wewnętrzny zapisujemy w elemencie <code>style</code>.</li>
+                    <li>Styl zewnętrzny zapisujemy w pliku <code>.css</code>.</li>
+                    <li>Zewnętrzny arkusz podłączamy za pomocą <code>link</code>.</li>
+                    <li>Selektor elementu wskazuje elementy określonego typu.</li>
+                    <li>Selektor klasy zapisujemy z kropką, np. <code>.wazne</code>.</li>
+                    <li>Selektor identyfikatora zapisujemy ze znakiem #, np. <code>#tytul</code>.</li>
+                    <li>Kaskada rozstrzyga konflikty pomiędzy deklaracjami CSS.</li>
+                    <li>Specyficzność pomaga ustalić pierwszeństwo selektorów.</li>
+                    <li>Przy jednakowej specyficzności i pozostałych warunkach decyduje kolejność.</li>
+                    <li>Niektóre właściwości, np. <code>color</code>, są dziedziczone.</li>
+                    <li>Właściwości takie jak <code>margin</code> i <code>padding</code> nie są domyślnie dziedziczone.</li>
+                    <li><code>!important</code> zmienia ważność deklaracji i nie powinno być nadużywane.</li>
+                    <li>Narzędzia deweloperskie pomagają analizować działanie CSS.</li>
+                    <li>W większych projektach najlepiej stosować zewnętrzne arkusze stylów.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                poznanie trzech sposobów
+                stosowania CSS oraz praktyczne
+                sprawdzenie działania kaskady,
+                specyficzności i dziedziczenia.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_17</code>.
+                Przygotuj w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+                Wszystkie zadania wykonaj
+                w ramach tego samego projektu.
+            </p>
+
+            <h3>Zadanie 1 – Trzy sposoby stosowania CSS</h3>
+
+            <p>
+                Przygotuj prostą stronę
+                „Moje zainteresowania”,
+                na której zastosujesz
+                wszystkie trzy sposoby stylowania.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawną strukturę dokumentu HTML5.</li>
+                <li>Dodaj nagłówek <code>h1</code> z tytułem strony.</li>
+                <li>Dodaj minimum trzy akapity opisujące zainteresowania.</li>
+                <li>W pierwszym akapicie zastosuj styl lokalny ustawiający czerwony kolor tekstu.</li>
+                <li>W sekcji <code>head</code> dodaj element <code>style</code>.</li>
+                <li>Za pomocą stylu wewnętrznego ustaw niebieski kolor wszystkich nagłówków <code>h2</code>.</li>
+                <li>Utwórz plik <code>style.css</code>.</li>
+                <li>Podłącz arkusz do dokumentu HTML.</li>
+                <li>W arkuszu zewnętrznym ustaw kolor tła strony.</li>
+                <li>W arkuszu zewnętrznym ustaw rodzaj czcionki całej strony.</li>
+                <li>W arkuszu zewnętrznym ustaw rozmiar czcionki akapitów na <code>18px</code>.</li>
+                <li>Sprawdź działanie wszystkich trzech sposobów stylowania.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Kaskadowość i specyficzność</h3>
+
+            <p>
+                Rozbuduj istniejącą stronę
+                o sekcję „Testowanie CSS”.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>h2</code> „Testowanie CSS”.</li>
+                <li>Dodaj akapit o identyfikatorze <code>test</code> i klasie <code>wazne</code>.</li>
+                <li>W pliku <code>style.css</code> ustaw wszystkim akapitom kolor niebieski.</li>
+                <li>Dodaj regułę <code>.wazne</code> ustawiającą kolor czerwony.</li>
+                <li>Dodaj regułę <code>#test</code> ustawiającą kolor zielony.</li>
+                <li>Sprawdź, jaki kolor otrzyma akapit.</li>
+                <li>Zamień miejscami reguły <code>.wazne</code> i <code>#test</code>.</li>
+                <li>Sprawdź, czy kolor akapitu się zmienił.</li>
+                <li>Dodaj do akapitu styl lokalny <code>color: purple;</code>.</li>
+                <li>Sprawdź wynik.</li>
+                <li>Dodaj do reguły <code>.wazne</code> deklarację <code>color: red !important;</code>.</li>
+                <li>Sprawdź, który kolor jest teraz widoczny.</li>
+            </ol>
+
+            <p>
+                Pod sekcją dodaj listę numerowaną
+                zawierającą odpowiedzi na pytania:
+            </p>
+
+            <ol>
+                <li>Dlaczego selektor <code>#test</code> wygrał z selektorem <code>.wazne</code>?</li>
+                <li>Dlaczego zmiana kolejności tych reguł nie zmieniła początkowego wyniku?</li>
+                <li>Dlaczego styl lokalny zmienił kolor tekstu?</li>
+                <li>Jak zadziałało <code>!important</code>?</li>
+            </ol>
+
+            <h3>Zadanie 3 – Dziedziczenie stylów</h3>
+
+            <p>
+                Dodaj do strony sekcję
+                „Dziedziczenie CSS”.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>div</code> z klasą <code>kontener</code>.</li>
+                <li>Wewnątrz niego umieść nagłówek <code>h3</code> i dwa akapity.</li>
+                <li>W pliku <code>style.css</code> ustaw dla klasy <code>.kontener</code> właściwość <code>color: darkgreen;</code>.</li>
+                <li>Sprawdź kolor nagłówka i akapitów.</li>
+                <li>Dodaj do klasy <code>.kontener</code> właściwość <code>border: 2px solid black;</code>.</li>
+                <li>Sprawdź, czy elementy wewnętrzne również otrzymały własne obramowanie.</li>
+                <li>Dodaj klasę <code>inny-kolor</code> do drugiego akapitu.</li>
+                <li>Ustaw dla klasy <code>.inny-kolor</code> właściwość <code>color: orange;</code>.</li>
+                <li>Sprawdź, które elementy mają teraz zielony, a które pomarańczowy tekst.</li>
+                <li>Dodaj do drugiego akapitu styl lokalny <code>color: purple;</code> i sprawdź wynik.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Analiza błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod CSS
+                i popraw błędy.
+            </p>
+
+            <pre><code class="language-css">body {
+    background-color: lightgray
+    font-family: Arial;
+}
+
+h1
+    text-color: blue;
+}
+
+.wazne {
+    color red;
+}
+
+#tytul {
+    font-size: 30;
+}</code></pre>
+
+            <p>
+                Poprawiony kod umieść
+                w pliku <code>style.css</code>
+                i sprawdź jego działanie.
+            </p>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_17/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    W jednym pliku HTML
+                    mają znaleźć się wszystkie
+                    sekcje utworzone
+                    podczas wykonywania ćwiczeń.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w folderze <code>PSI_17</code>.
+                </p>
+
+                <p>
+                    <strong>Spakuj cały folder do archiwum ZIP</strong>
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    plik <code>index.html</code>
+                    oraz <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy
+                    sprawdź działanie strony,
+                    poprawność ścieżki do arkusza CSS,
+                    wyniki testów kaskadowości
+                    oraz poprawność składni kodu.
+                </p>
+
+                <p>
+                    Teksty na stronie powinny być własne
+                    i różnić się od przykładów
+                    przedstawionych w lekcji.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 17</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
