@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 10 – Tabele HTML | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#struktura">2.Struktura tabeli HTML</a>
+        <a href="#wiersze">3.Wiersze i komórki</a>
+        <a href="#naglowki">4.Komórki nagłówkowe</a>
+        <a href="#podpis">5.Tytuł tabeli</a>
+        <a href="#sekcje">6.Sekcje tabeli</a>
+        <a href="#laczenie">7.Łączenie komórek</a>
+        <a href="#wyglad">8.Wygląd tabeli</a>
+        <a href="#bledy">9.Najczęstsze błędy</a>
+        <a href="#przyklad">10.Przykład kompletnej strony</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 10 • HTML5</div>
+
+            <h2>HTML5: Tabele HTML – struktura tabeli, wiersze, komórki i nagłówki</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad tworzenia tabel w HTML,
+                stosowanie znaczników
+                <code>&lt;table&gt;</code>,
+                <code>&lt;tr&gt;</code>,
+                <code>&lt;td&gt;</code> i
+                <code>&lt;th&gt;</code>,
+                tworzenie nagłówków, podpisów
+                oraz prostych tabel zawierających dane.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Tabele służą do przedstawiania danych
+                uporządkowanych w wierszach i kolumnach.
+                Pozwalają czytelnie zaprezentować informacje,
+                które można ze sobą porównywać.
+            </p>
+
+            <p>Przykładowe zastosowania tabel:</p>
+
+            <ul>
+                <li>plan lekcji,</li>
+                <li>cennik produktów i usług,</li>
+                <li>wyniki zawodów sportowych,</li>
+                <li>zestawienie ocen,</li>
+                <li>harmonogram wydarzeń,</li>
+                <li>porównanie parametrów urządzeń.</li>
+            </ul>
+
+            <h3>Przykładowa tabela</h3>
+
+            <table>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Cena</th>
+                    <th>Dostępność</th>
+                </tr>
+                <tr>
+                    <td>Klawiatura</td>
+                    <td>80 zł</td>
+                    <td>Dostępna</td>
+                </tr>
+                <tr>
+                    <td>Mysz</td>
+                    <td>45 zł</td>
+                    <td>Dostępna</td>
+                </tr>
+                <tr>
+                    <td>Monitor</td>
+                    <td>650 zł</td>
+                    <td>Brak</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Tabel HTML używamy przede wszystkim
+                    do przedstawiania danych tabelarycznych.
+                    Nie powinny służyć do budowania
+                    całego układu strony internetowej.
+                    Do rozmieszczania elementów strony
+                    wykorzystujemy CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="struktura">
+
+            <h2>2. Podstawowa struktura tabeli HTML</h2>
+
+            <p>
+                Każdą tabelę rozpoczynamy znacznikiem
+                <code>&lt;table&gt;</code>
+                i kończymy znacznikiem
+                <code>&lt;/table&gt;</code>.
+            </p>
+
+            <p>
+                Wewnątrz tabeli umieszczamy wiersze,
+                a w wierszach komórki zawierające dane.
+            </p>
+
+            <h3>Podstawowe znaczniki</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;table&gt;</code></td>
+                    <td>Tworzy tabelę.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tr&gt;</code></td>
+                    <td>Tworzy wiersz tabeli.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;td&gt;</code></td>
+                    <td>Tworzy zwykłą komórkę z danymi.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;th&gt;</code></td>
+                    <td>Tworzy komórkę nagłówkową.</td>
+                </tr>
+            </table>
+
+            <h3>Najprostsza tabela</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Piotr&lt;/td&gt;
+        &lt;td&gt;19&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>
+                Powyższa tabela zawiera
+                <strong>2 wiersze i 2 kolumny</strong>.
+            </p>
+
+            <h3>Efekt w przeglądarce</h3>
+
+            <table>
+                <tr>
+                    <td>Anna</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Piotr</td>
+                    <td>19</td>
+                </tr>
+            </table>
+
+            <p>
+                Zwróć uwagę, że tabela nie musi
+                mieć widocznych obramowań.
+                Ich wygląd zależy od stylów CSS.
+            </p>
+
+        </section>
+
+        <section id="wiersze">
+
+            <h2>3. Wiersze i komórki tabeli</h2>
+
+            <h3>Znacznik tr – wiersz tabeli</h3>
+
+            <p>
+                Znacznik <code>&lt;tr&gt;</code>
+                oznacza jeden wiersz tabeli.
+            </p>
+
+            <p>
+                Wewnątrz wiersza umieszczamy
+                komórki <code>&lt;td&gt;</code>
+                lub <code>&lt;th&gt;</code>.
+            </p>
+
+            <h3>Znacznik td – zwykła komórka</h3>
+
+            <p>
+                Znacznik <code>&lt;td&gt;</code>
+                służy do umieszczania danych
+                w komórkach tabeli.
+            </p>
+
+            <h3>Przykład – lista uczniów</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;Kowalska&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Jan&lt;/td&gt;
+        &lt;td&gt;Nowak&lt;/td&gt;
+        &lt;td&gt;19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ola&lt;/td&gt;
+        &lt;td&gt;Wiśniewska&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <td>Anna</td>
+                    <td>Kowalska</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Jan</td>
+                    <td>Nowak</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>Ola</td>
+                    <td>Wiśniewska</td>
+                    <td>18</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Liczba komórek w kolejnych wierszach
+                    powinna odpowiadać zaplanowanej
+                    strukturze kolumn.
+                    Wyjątkiem są tabele, w których
+                    celowo łączymy komórki.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="naglowki">
+
+            <h2>4. Komórki nagłówkowe – th</h2>
+
+            <p>
+                Znacznik <code>&lt;th&gt;</code>
+                tworzy komórkę nagłówkową.
+                Określa ona, czego dotyczą
+                dane znajdujące się w tabeli.
+            </p>
+
+            <p>
+                Przeglądarki domyślnie często
+                wyświetlają tekst nagłówków
+                pogrubioną czcionką i wyśrodkowany.
+            </p>
+
+            <h3>Przykład – tabela z nagłówkami kolumn</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Imię&lt;/th&gt;
+        &lt;th&gt;Nazwisko&lt;/th&gt;
+        &lt;th&gt;Wiek&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;Kowalska&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Jan&lt;/td&gt;
+        &lt;td&gt;Nowak&lt;/td&gt;
+        &lt;td&gt;19&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Wiek</th>
+                </tr>
+                <tr>
+                    <td>Anna</td>
+                    <td>Kowalska</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Jan</td>
+                    <td>Nowak</td>
+                    <td>19</td>
+                </tr>
+            </table>
+
+            <h3>Atrybut scope</h3>
+
+            <p>
+                Atrybut <code>scope</code>
+                określa, czy nagłówek odnosi się
+                do kolumny, czy do wiersza.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>col</code></td>
+                    <td>Nagłówek kolumny.</td>
+                </tr>
+                <tr>
+                    <td><code>row</code></td>
+                    <td>Nagłówek wiersza.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – nagłówki kolumn</h3>
+
+            <pre><code class="language-html">&lt;tr&gt;
+    &lt;th scope="col"&gt;Produkt&lt;/th&gt;
+    &lt;th scope="col"&gt;Cena&lt;/th&gt;
+&lt;/tr&gt;</code></pre>
+
+            <h3>Przykład – nagłówki wierszy</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;Poniedziałek&lt;/th&gt;
+        &lt;td&gt;Matematyka&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;Wtorek&lt;/th&gt;
+        &lt;td&gt;Informatyka&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Stosowanie <code>&lt;th&gt;</code>
+                    i odpowiedniego atrybutu
+                    <code>scope</code> pomaga
+                    czytnikom ekranu powiązać
+                    dane z właściwymi nagłówkami.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="podpis">
+
+            <h2>5. Tytuł tabeli – caption</h2>
+
+            <p>
+                Znacznik <code>&lt;caption&gt;</code>
+                pozwala dodać tytuł opisujący
+                zawartość tabeli.
+            </p>
+
+            <p>
+                Umieszczamy go bezpośrednio
+                wewnątrz <code>&lt;table&gt;</code>,
+                przed wierszami tabeli.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;caption&gt;Wyniki sprawdzianu&lt;/caption&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Uczeń&lt;/th&gt;
+        &lt;th&gt;Punkty&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Piotr&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <caption>Wyniki sprawdzianu</caption>
+                <tr>
+                    <th>Uczeń</th>
+                    <th>Punkty</th>
+                </tr>
+                <tr>
+                    <td>Anna</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Piotr</td>
+                    <td>15</td>
+                </tr>
+            </table>
+
+            <p>
+                Tytuł pomaga zrozumieć,
+                jakie dane przedstawia tabela.
+            </p>
+
+        </section>
+
+        <section id="sekcje">
+
+            <h2>6. Sekcje tabeli – thead, tbody i tfoot</h2>
+
+            <p>
+                W bardziej rozbudowanych tabelach
+                możemy podzielić zawartość
+                na trzy logiczne części.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;thead&gt;</code></td>
+                    <td>Grupuje wiersze nagłówkowe.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tbody&gt;</code></td>
+                    <td>Grupuje główne dane tabeli.</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tfoot&gt;</code></td>
+                    <td>Grupuje wiersze podsumowania.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – zestawienie sprzedaży</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;caption&gt;Sprzedaż produktów&lt;/caption&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Produkt&lt;/th&gt;
+            &lt;th scope="col"&gt;Liczba sztuk&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Klawiatura&lt;/td&gt;
+            &lt;td&gt;10&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Mysz&lt;/td&gt;
+            &lt;td&gt;15&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Razem&lt;/th&gt;
+            &lt;td&gt;25&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <caption>Sprzedaż produktów</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Produkt</th>
+                        <th scope="col">Liczba sztuk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Klawiatura</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Mysz</td>
+                        <td>15</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Razem</th>
+                        <td>25</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Znaczniki <code>thead</code>,
+                    <code>tbody</code> i <code>tfoot</code>
+                    nie są obowiązkowe w każdej tabeli,
+                    ale pomagają uporządkować
+                    bardziej rozbudowane zestawienia.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="laczenie">
+
+            <h2>7. Łączenie komórek – colspan i rowspan</h2>
+
+            <p>
+                W tabelach HTML możemy łączyć
+                sąsiadujące komórki.
+                Służą do tego dwa atrybuty:
+                <code>colspan</code> i
+                <code>rowspan</code>.
+            </p>
+
+            <h3>Atrybut colspan – łączenie kolumn</h3>
+
+            <p>
+                Atrybut <code>colspan</code>
+                określa, ile kolumn
+                ma zajmować jedna komórka.
+            </p>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Dane ucznia&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Imię&lt;/td&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Klasa&lt;/td&gt;
+        &lt;td&gt;3 TI&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th colspan="2">Dane ucznia</th>
+                </tr>
+                <tr>
+                    <td>Imię</td>
+                    <td>Anna</td>
+                </tr>
+                <tr>
+                    <td>Klasa</td>
+                    <td>3 TI</td>
+                </tr>
+            </table>
+
+            <h3>Atrybut rowspan – łączenie wierszy</h3>
+
+            <p>
+                Atrybut <code>rowspan</code>
+                określa, ile wierszy
+                ma zajmować jedna komórka.
+            </p>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Dzień&lt;/th&gt;
+        &lt;th&gt;Przedmiot&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Poniedziałek&lt;/td&gt;
+        &lt;td&gt;Matematyka&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Informatyka&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Efekt</h3>
+
+            <table>
+                <tr>
+                    <th>Dzień</th>
+                    <th>Przedmiot</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Poniedziałek</td>
+                    <td>Matematyka</td>
+                </tr>
+                <tr>
+                    <td>Informatyka</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Jeśli jedna komórka zajmuje
+                    kilka kolumn lub wierszy,
+                    nie dodajemy w zajmowanych
+                    przez nią miejscach
+                    kolejnych komórek.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wyglad">
+
+            <h2>8. Wygląd tabeli</h2>
+
+            <p>
+                HTML odpowiada za strukturę tabeli,
+                natomiast CSS służy do określania
+                jej wyglądu.
+            </p>
+
+            <p>
+                Za pomocą CSS możemy ustawić
+                obramowania, kolory, odstępy
+                oraz szerokość tabeli.
+            </p>
+
+            <h3>Przykład tabeli z obramowaniem</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Produkt&lt;/th&gt;
+        &lt;th&gt;Cena&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Mysz&lt;/td&gt;
+        &lt;td&gt;45 zł&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Przykładowy CSS</h3>
+
+            <pre><code class="language-css">table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: lightgray;
+}</code></pre>
+
+            <p>
+                Właściwość <code>border-collapse: collapse</code>
+                sprawia, że sąsiadujące obramowania
+                komórek łączą się w pojedyncze linie.
+            </p>
+
+            <p>
+                W tej lekcji najważniejsza jest
+                jednak <strong>poprawna struktura HTML</strong>.
+                Szczegółowe formatowanie tabel
+                będzie można rozwijać podczas nauki CSS.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>9. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – komórka poza wierszem</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+&lt;table&gt;
+    &lt;td&gt;Anna&lt;/td&gt;
+&lt;/table&gt;
+
+&lt;!-- Poprawnie --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Błąd 2 – brak znacznika zamykającego</h3>
+
+            <pre><code class="language-html">&lt;!-- Niezalecany zapis dla początkujących --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna
+        &lt;td&gt;18
+&lt;/table&gt;
+
+&lt;!-- Czytelny zapis --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>
+                HTML dopuszcza pomijanie niektórych
+                znaczników zamykających,
+                ale na tym etapie nauki
+                zapisujemy je jawnie.
+            </p>
+
+            <h3>Błąd 3 – niewłaściwa liczba komórek</h3>
+
+            <pre><code class="language-html">&lt;!-- Niespójna struktura --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Imię&lt;/th&gt;
+        &lt;th&gt;Wiek&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>
+                W drugim wierszu brakuje komórki
+                odpowiadającej kolumnie „Wiek”.
+            </p>
+
+            <h3>Błąd 4 – niewłaściwe użycie colspan</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawna liczba komórek --&gt;
+&lt;tr&gt;
+    &lt;td colspan="2"&gt;Podsumowanie&lt;/td&gt;
+    &lt;td&gt;100 zł&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+
+            <p>
+                Jeśli tabela ma tylko dwie kolumny,
+                taki wiersz zajmie łącznie
+                trzy kolumny, a nie dwie.
+            </p>
+
+            <h3>Błąd 5 – stosowanie tabel do układu strony</h3>
+
+            <p>
+                Nie wykorzystujemy tabel wyłącznie
+                po to, aby ustawić menu obok
+                treści strony.
+                Do takich układów stosujemy CSS.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>10. Przykład kompletnej strony HTML</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                stronę zawierającą tabelę
+                z planem zajęć.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Plan zajęć&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Mój plan zajęć&lt;/h1&gt;
+        &lt;p&gt;Przykładowy harmonogram tygodnia.&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;h2&gt;Plan lekcji&lt;/h2&gt;
+
+        &lt;table&gt;
+            &lt;caption&gt;Plan zajęć – klasa 3 TI&lt;/caption&gt;
+
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;Godzina&lt;/th&gt;
+                    &lt;th scope="col"&gt;Poniedziałek&lt;/th&gt;
+                    &lt;th scope="col"&gt;Wtorek&lt;/th&gt;
+                    &lt;th scope="col"&gt;Środa&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;8:00&lt;/th&gt;
+                    &lt;td&gt;Matematyka&lt;/td&gt;
+                    &lt;td&gt;Informatyka&lt;/td&gt;
+                    &lt;td&gt;Język polski&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;8:55&lt;/th&gt;
+                    &lt;td&gt;Język angielski&lt;/td&gt;
+                    &lt;td&gt;Matematyka&lt;/td&gt;
+                    &lt;td&gt;Informatyka&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;9:50&lt;/th&gt;
+                    &lt;td&gt;Historia&lt;/td&gt;
+                    &lt;td&gt;Fizyka&lt;/td&gt;
+                    &lt;td&gt;Matematyka&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+
+        &lt;/table&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Mój plan zajęć&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                W przykładzie zastosowano
+                nagłówki kolumn i wierszy,
+                tytuł tabeli oraz podział
+                na sekcje <code>thead</code>
+                i <code>tbody</code>.
+            </p>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>&lt;table&gt;</code> – tworzy tabelę.</li>
+                    <li><code>&lt;tr&gt;</code> – tworzy wiersz tabeli.</li>
+                    <li><code>&lt;td&gt;</code> – tworzy zwykłą komórkę.</li>
+                    <li><code>&lt;th&gt;</code> – tworzy komórkę nagłówkową.</li>
+                    <li><code>&lt;caption&gt;</code> – określa tytuł tabeli.</li>
+                    <li><code>&lt;thead&gt;</code> – grupuje wiersze nagłówkowe.</li>
+                    <li><code>&lt;tbody&gt;</code> – grupuje główne dane.</li>
+                    <li><code>&lt;tfoot&gt;</code> – grupuje podsumowanie.</li>
+                    <li><code>scope="col"</code> – wskazuje nagłówek kolumny.</li>
+                    <li><code>scope="row"</code> – wskazuje nagłówek wiersza.</li>
+                    <li><code>colspan</code> – łączy komórki w poziomie.</li>
+                    <li><code>rowspan</code> – łączy komórki w pionie.</li>
+                    <li>Tabele służą do prezentowania danych, a nie do budowania układu całej strony.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne tworzenie tabel HTML,
+                stosowanie wierszy, komórek,
+                nagłówków i podpisów tabel
+                oraz łączenie komórek.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_10</code>
+                i plik <code>index.html</code>.
+                Wszystkie zadania wykonaj
+                w jednym pliku HTML.
+                Nie korzystaj z CSS.
+            </p>
+
+            <h3>Zadanie 1 – Lista uczniów</h3>
+
+            <p>
+                Utwórz tabelę przedstawiającą
+                przykładową listę uczniów.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek strony <code>&lt;h1&gt;</code> o treści „Tabele HTML”.</li>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Lista uczniów”.</li>
+                <li>Utwórz tabelę zawierającą 4 kolumny: Lp., Imię, Nazwisko, Klasa.</li>
+                <li>Dodaj minimum 5 uczniów z przykładowymi danymi.</li>
+                <li>Nagłówki kolumn utwórz za pomocą <code>&lt;th&gt;</code>.</li>
+                <li>Zastosuj <code>scope="col"</code> w nagłówkach.</li>
+                <li>Dodaj tytuł tabeli za pomocą <code>&lt;caption&gt;</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Cennik produktów</h3>
+
+            <p>
+                Pod tabelą z zadania 1
+                utwórz kolejną tabelę
+                przedstawiającą cennik
+                wybranego sklepu.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Cennik produktów”.</li>
+                <li>Utwórz tabelę z kolumnami: Produkt, Cena, Liczba sztuk.</li>
+                <li>Dodaj minimum 5 produktów.</li>
+                <li>Zastosuj sekcje <code>&lt;thead&gt;</code> i <code>&lt;tbody&gt;</code>.</li>
+                <li>Dodaj sekcję <code>&lt;tfoot&gt;</code> zawierającą wiersz „Razem”.</li>
+                <li>W wierszu podsumowania zastosuj <code>colspan="2"</code>, aby połączyć dwie pierwsze komórki.</li>
+                <li>W ostatniej komórce podaj łączną liczbę sztuk.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Plan zajęć</h3>
+
+            <p>
+                Utwórz tabelę przedstawiającą
+                przykładowy plan zajęć
+                na trzy dni tygodnia.
+            </p>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>&lt;h2&gt;</code> „Plan zajęć”.</li>
+                <li>Utwórz tabelę zawierającą kolumny: Godzina, Poniedziałek, Wtorek, Środa.</li>
+                <li>Dodaj minimum 5 wierszy z godzinami i przedmiotami.</li>
+                <li>W pierwszym wierszu zastosuj nagłówki <code>&lt;th&gt;</code>.</li>
+                <li>Godziny zajęć również zapisz jako nagłówki wierszy z <code>scope="row"</code>.</li>
+                <li>Dodaj tytuł tabeli za pomocą <code>&lt;caption&gt;</code>.</li>
+                <li>W jednej z kolumn połącz dwie sąsiadujące komórki za pomocą <code>rowspan="2"</code>, przedstawiając dwie kolejne godziny tego samego przedmiotu.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawianie błędów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod
+                i popraw jego strukturę.
+            </p>
+
+            <pre><code class="language-html">&lt;table&gt;
+    &lt;th&gt;Produkt&lt;/th&gt;
+    &lt;th&gt;Cena&lt;/th&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Klawiatura&lt;/td&gt;
+        &lt;td&gt;100 zł&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Mysz&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>Umieść komórki nagłówkowe w odpowiednim wierszu.</li>
+                <li>Uzupełnij brakującą komórkę z ceną myszy.</li>
+                <li>Dodaj tytuł tabeli za pomocą <code>&lt;caption&gt;</code>.</li>
+                <li>Dodaj atrybuty <code>scope="col"</code> do nagłówków.</li>
+                <li>Umieść poprawioną tabelę w kolejnej sekcji pliku <code>index.html</code>.</li>
+            </ol>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>.
+                    Prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    działanie strony oraz poprawność
+                    wyświetlania wszystkich tabel.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 10
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
