@@ -1,0 +1,2325 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 22 – Formatowanie tekstu w CSS | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#font-family">2.Krój pisma</a>
+        <a href="#fonty">3.Rodziny czcionek</a>
+        <a href="#font-size">4.Rozmiar tekstu</a>
+        <a href="#jednostki">5.Jednostki rozmiaru</a>
+        <a href="#font-weight">6.Grubość tekstu</a>
+        <a href="#font-style">7.Styl czcionki</a>
+        <a href="#text-align">8.Wyrównanie tekstu</a>
+        <a href="#text-decoration">9.Dekoracja tekstu</a>
+        <a href="#text-transform">10.Wielkość liter</a>
+        <a href="#line-height">11.Wysokość wiersza</a>
+        <a href="#spacing">12.Odstępy w tekście</a>
+        <a href="#text-indent">13.Wcięcia akapitów</a>
+        <a href="#text-shadow">14.Cień tekstu</a>
+        <a href="#font-shorthand">15.Skrócony zapis font</a>
+        <a href="#dziedziczenie">16.Dziedziczenie stylów</a>
+        <a href="#czytelnosc">17.Czytelność tekstu</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 22 • CSS3</div>
+
+            <h2>Formatowanie tekstu w CSS – krój, rozmiar, grubość, wyrównanie i dekoracja</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie właściwości CSS służących do
+                formatowania tekstu, dobieranie kroju,
+                rozmiaru i grubości pisma, wyrównywanie
+                akapitów, stosowanie dekoracji oraz
+                projektowanie czytelnej typografii strony WWW.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – czym jest typografia?</h2>
+
+            <p>
+                <strong>Typografia</strong> to sposób
+                projektowania i prezentowania tekstu.
+                Obejmuje między innymi dobór kroju pisma,
+                rozmiaru liter, grubości, odstępów,
+                wyrównania i dekoracji.
+            </p>
+
+            <p>
+                W HTML określamy znaczenie i strukturę
+                tekstu, natomiast w CSS decydujemy
+                o jego wyglądzie.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja strona internetowa&lt;/h1&gt;
+
+&lt;p&gt;
+    Witaj na stronie poświęconej
+    projektowaniu witryn WWW.
+&lt;/p&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">h1 {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+}</code></pre>
+
+            <p>
+                Znaczniki HTML pozostają bez zmian,
+                ale tekst otrzymuje określony wygląd.
+            </p>
+
+            <h3>Najważniejsze właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>font-family</code></td>
+                    <td>Określa krój pisma.</td>
+                </tr>
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td>Określa rozmiar pisma.</td>
+                </tr>
+                <tr>
+                    <td><code>font-weight</code></td>
+                    <td>Określa grubość pisma.</td>
+                </tr>
+                <tr>
+                    <td><code>font-style</code></td>
+                    <td>Określa styl pisma, np. kursywę.</td>
+                </tr>
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td>Wyrównuje tekst.</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration</code></td>
+                    <td>Dodaje lub usuwa dekoracje tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>line-height</code></td>
+                    <td>Określa wysokość wiersza.</td>
+                </tr>
+                <tr>
+                    <td><code>letter-spacing</code></td>
+                    <td>Określa odstępy między znakami.</td>
+                </tr>
+                <tr>
+                    <td><code>word-spacing</code></td>
+                    <td>Określa odstępy między wyrazami.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Dobra typografia nie polega na użyciu
+                    jak największej liczby efektów.
+                    Jej głównym zadaniem jest zapewnienie
+                    czytelności, przejrzystości i spójności strony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="font-family">
+
+            <h2>2. Krój pisma – font-family</h2>
+
+            <p>
+                Właściwość <code>font-family</code>
+                określa rodzinę kroju pisma,
+                którą przeglądarka ma zastosować
+                do tekstu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    font-family: nazwa-czcionki;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-family: Arial;
+}
+
+p {
+    font-family: Georgia;
+}</code></pre>
+
+            <p>
+                Nagłówki będą wyświetlane krojem Arial,
+                a akapity krojem Georgia,
+                jeśli te kroje są dostępne.
+            </p>
+
+            <h3>Lista zapasowych krojów pisma</h3>
+
+            <p>
+                Nie wszystkie urządzenia mają
+                zainstalowane te same czcionki.
+                Dlatego warto podać kilka nazw.
+            </p>
+
+            <pre><code class="language-css">body {
+    font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+
+            <p>
+                Przeglądarka próbuje wykorzystać
+                pierwszą dostępną rodzinę kroju,
+                która może wyświetlić dany znak.
+                Jeśli Arial nie jest dostępny,
+                może użyć Helvetica,
+                a następnie innego kroju
+                bezszeryfowego.
+            </p>
+
+            <h3>Nazwy zawierające spacje</h3>
+
+            <p>
+                Nazwy rodzin krojów zawierające spacje
+                najlepiej zapisywać w cudzysłowie.
+            </p>
+
+            <pre><code class="language-css">h2 {
+    font-family: "Times New Roman", Times, serif;
+}</code></pre>
+
+            <h3>Ustawienie kroju dla całej strony</h3>
+
+            <pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                Większość tekstu na stronie odziedziczy
+                ten krój, o ile nie zostanie
+                określony inny.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Na końcu listy krojów umieszczaj
+                    ogólną rodzinę, np.
+                    <code>sans-serif</code> lub
+                    <code>serif</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="fonty">
+
+            <h2>3. Podstawowe rodziny krojów pisma</h2>
+
+            <p>
+                Kroje pisma można podzielić
+                na kilka podstawowych grup.
+            </p>
+
+            <h3>Serif – kroje szeryfowe</h3>
+
+            <p>
+                Kroje szeryfowe mają niewielkie
+                ozdobne zakończenia liter,
+                nazywane szeryfami.
+            </p>
+
+            <pre><code class="language-css">.tekst-szeryfowy {
+    font-family: Georgia, "Times New Roman", serif;
+}</code></pre>
+
+            <p>
+                Przykłady: Georgia, Times New Roman.
+                Często wykorzystuje się je w artykułach,
+                publikacjach i projektach o klasycznym charakterze.
+            </p>
+
+            <h3>Sans-serif – kroje bezszeryfowe</h3>
+
+            <p>
+                Nie mają ozdobnych zakończeń liter.
+                Są bardzo popularne w interfejsach stron WWW.
+            </p>
+
+            <pre><code class="language-css">.tekst-bezszeryfowy {
+    font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+
+            <p>
+                Przykłady: Arial, Helvetica, Verdana.
+            </p>
+
+            <h3>Monospace – kroje o stałej szerokości znaków</h3>
+
+            <p>
+                Każdy znak zajmuje taką samą szerokość.
+                Kroje te wykorzystuje się często
+                do prezentowania kodu programów.
+            </p>
+
+            <pre><code class="language-css">code {
+    font-family: Consolas, "Courier New", monospace;
+}</code></pre>
+
+            <h3>Inne rodziny ogólne</h3>
+
+            <table>
+                <tr>
+                    <th>Rodzina</th>
+                    <th>Charakterystyka</th>
+                </tr>
+                <tr>
+                    <td><code>serif</code></td>
+                    <td>Kroje szeryfowe.</td>
+                </tr>
+                <tr>
+                    <td><code>sans-serif</code></td>
+                    <td>Kroje bezszeryfowe.</td>
+                </tr>
+                <tr>
+                    <td><code>monospace</code></td>
+                    <td>Znaki o jednakowej szerokości.</td>
+                </tr>
+                <tr>
+                    <td><code>cursive</code></td>
+                    <td>Kroje przypominające pismo odręczne.</td>
+                </tr>
+                <tr>
+                    <td><code>fantasy</code></td>
+                    <td>Kroje dekoracyjne.</td>
+                </tr>
+                <tr>
+                    <td><code>system-ui</code></td>
+                    <td>Krój interfejsu systemowego.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-family: Georgia, serif;
+}
+
+p {
+    font-family: Arial, sans-serif;
+}
+
+pre {
+    font-family: Consolas, monospace;
+}</code></pre>
+
+            <p>
+                Wybierając krój, zwracaj uwagę
+                na polskie znaki, np.
+                ą, ć, ę, ł, ń, ó, ś, ź, ż.
+            </p>
+
+        </section>
+
+        <section id="font-size">
+
+            <h2>4. Rozmiar pisma – font-size</h2>
+
+            <p>
+                Właściwość <code>font-size</code>
+                określa rozmiar tekstu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Akapity otrzymają rozmiar pisma
+                równy 18 pikselom CSS.
+            </p>
+
+            <h3>Różne rozmiary nagłówków</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 16px;
+}</code></pre>
+
+            <p>
+                W ten sposób tworzymy
+                wizualną hierarchię informacji.
+            </p>
+
+            <h3>Rozmiar bez jednostki – błąd</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+p {
+    font-size: 18;
+}
+
+/* Poprawnie */
+
+p {
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Dla niezerowych długości
+                wymagane jest podanie jednostki.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nie należy dobierać rozmiaru
+                    tekstu wyłącznie na podstawie
+                    wyglądu na jednym monitorze.
+                    Strona powinna być czytelna
+                    także na mniejszych ekranach
+                    i przy powiększeniu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="jednostki">
+
+            <h2>5. Jednostki rozmiaru tekstu – px, em, rem i %</h2>
+
+            <p>
+                Rozmiar tekstu można zapisać
+                przy użyciu różnych jednostek.
+            </p>
+
+            <h3>px – piksele CSS</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Jednostka <code>px</code>
+                pozwala określić konkretny rozmiar
+                w pikselach CSS.
+            </p>
+
+            <h3>em – rozmiar względny</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 1.5em;
+}</code></pre>
+
+            <p>
+                Przy właściwości
+                <code>font-size</code>
+                jednostka <code>em</code>
+                odnosi się do obliczonego
+                rozmiaru pisma rodzica.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">section {
+    font-size: 20px;
+}
+
+section p {
+    font-size: 1.5em;
+}</code></pre>
+
+            <p>
+                Jeśli akapit znajduje się
+                bezpośrednio w sekcji i dziedziczy
+                rozmiar 20 px, to
+                <code>1.5em</code> daje 30 px.
+            </p>
+
+            <h3>rem – rozmiar względem elementu głównego</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 1.25rem;
+}</code></pre>
+
+            <p>
+                Jednostka <code>rem</code>
+                odnosi się do rozmiaru pisma
+                elementu głównego
+                <code>html</code>.
+            </p>
+
+            <p>
+                Jeżeli rozmiar pisma elementu
+                <code>html</code> wynosi 16 px,
+                to <code>1.25rem</code>
+                odpowiada 20 px.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+}</code></pre>
+
+            <p>
+                Nagłówek otrzyma 32 px,
+                a akapit 16 px.
+            </p>
+
+            <h3>% – procent rozmiaru rodzica</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 120%;
+}</code></pre>
+
+            <p>
+                Jeśli rozmiar pisma rodzica
+                wynosi 20 px, to 120%
+                oznacza 24 px.
+            </p>
+
+            <h3>Porównanie jednostek</h3>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Znaczenie</th>
+                    <th>Przykład</th>
+                </tr>
+                <tr>
+                    <td><code>px</code></td>
+                    <td>Piksele CSS</td>
+                    <td><code>18px</code></td>
+                </tr>
+                <tr>
+                    <td><code>em</code></td>
+                    <td>Względem rozmiaru pisma rodzica przy font-size</td>
+                    <td><code>1.5em</code></td>
+                </tr>
+                <tr>
+                    <td><code>rem</code></td>
+                    <td>Względem rozmiaru pisma html</td>
+                    <td><code>1.25rem</code></td>
+                </tr>
+                <tr>
+                    <td><code>%</code></td>
+                    <td>Procent rozmiaru pisma rodzica</td>
+                    <td><code>120%</code></td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    W projektach stron internetowych
+                    warto poznać jednostkę
+                    <code>rem</code>, ponieważ
+                    ułatwia tworzenie spójnej
+                    skali typograficznej.
+                    Nie należy jednak blokować
+                    użytkownikowi możliwości
+                    powiększania tekstu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="font-weight">
+
+            <h2>6. Grubość pisma – font-weight</h2>
+
+            <p>
+                Właściwość <code>font-weight</code>
+                określa grubość znaków.
+            </p>
+
+            <h3>Podstawowe wartości</h3>
+
+            <pre><code class="language-css">p {
+    font-weight: normal;
+}
+
+h1 {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                <code>normal</code> odpowiada
+                standardowej grubości,
+                a <code>bold</code>
+                pogrubieniu.
+            </p>
+
+            <h3>Wartości liczbowe</h3>
+
+            <pre><code class="language-css">.tekst1 {
+    font-weight: 300;
+}
+
+.tekst2 {
+    font-weight: 400;
+}
+
+.tekst3 {
+    font-weight: 600;
+}
+
+.tekst4 {
+    font-weight: 700;
+}</code></pre>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Typowe określenie</th>
+                </tr>
+                <tr>
+                    <td><code>100</code></td>
+                    <td>Bardzo cienka</td>
+                </tr>
+                <tr>
+                    <td><code>300</code></td>
+                    <td>Lekka</td>
+                </tr>
+                <tr>
+                    <td><code>400</code></td>
+                    <td>Normalna</td>
+                </tr>
+                <tr>
+                    <td><code>500</code></td>
+                    <td>Średnia</td>
+                </tr>
+                <tr>
+                    <td><code>600</code></td>
+                    <td>Półgruba</td>
+                </tr>
+                <tr>
+                    <td><code>700</code></td>
+                    <td>Gruba</td>
+                </tr>
+                <tr>
+                    <td><code>900</code></td>
+                    <td>Bardzo gruba</td>
+                </tr>
+            </table>
+
+            <p>
+                Wartości <code>400</code>
+                i <code>700</code>
+                odpowiadają odpowiednio
+                <code>normal</code> i
+                <code>bold</code>.
+            </p>
+
+            <p>
+                Współczesny CSS dopuszcza
+                również wartości liczbowe
+                pomiędzy 1 a 1000.
+                Ich rzeczywisty wygląd zależy
+                od dostępnych odmian kroju.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+p {
+    font-weight: 400;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Nie każda czcionka ma
+                    wszystkie odmiany grubości.
+                    Przeglądarka może wybrać
+                    najbliższą dostępną
+                    lub syntetycznie pogrubić tekst.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="font-style">
+
+            <h2>7. Styl pisma – font-style</h2>
+
+            <p>
+                Właściwość <code>font-style</code>
+                określa, czy tekst ma być
+                wyświetlany zwyczajnie,
+                kursywą lub w odmianie pochyłej.
+            </p>
+
+            <h3>Podstawowe wartości</h3>
+
+            <pre><code class="language-css">.zwykly {
+    font-style: normal;
+}
+
+.kursywa {
+    font-style: italic;
+}
+
+.pochylony {
+    font-style: oblique;
+}</code></pre>
+
+            <h3>Różnica między italic a oblique</h3>
+
+            <p>
+                <code>italic</code>
+                oznacza kursywę, która może być
+                specjalnie zaprojektowaną odmianą kroju.
+            </p>
+
+            <p>
+                <code>oblique</code>
+                oznacza odmianę pochyłą.
+                Wygląd zależy od możliwości
+                konkretnej czcionki i przeglądarki.
+            </p>
+
+            <h3>Przykład HTML i CSS</h3>
+
+            <pre><code class="language-html">&lt;p class="cytat"&gt;
+    Wiedza to początek możliwości.
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">.cytat {
+    font-style: italic;
+}</code></pre>
+
+            <h3>CSS a znaczniki HTML</h3>
+
+            <p>
+                Znacznik <code>&lt;em&gt;</code>
+                służy do semantycznego
+                zaakcentowania fragmentu tekstu,
+                a <code>font-style: italic</code>
+                zmienia jego wygląd.
+            </p>
+
+            <p>
+                Nie należy zastępować znaczenia
+                semantycznego wyłącznie
+                właściwością CSS.
+            </p>
+
+        </section>
+
+        <section id="text-align">
+
+            <h2>8. Wyrównanie tekstu – text-align</h2>
+
+            <p>
+                Właściwość <code>text-align</code>
+                określa poziome wyrównanie
+                tekstu i innej zawartości
+                liniowej wewnątrz elementu.
+            </p>
+
+            <h3>Wyrównanie do lewej</h3>
+
+            <pre><code class="language-css">p {
+    text-align: left;
+}</code></pre>
+
+            <h3>Wyrównanie do prawej</h3>
+
+            <pre><code class="language-css">p {
+    text-align: right;
+}</code></pre>
+
+            <h3>Wyśrodkowanie</h3>
+
+            <pre><code class="language-css">h1 {
+    text-align: center;
+}</code></pre>
+
+            <h3>Justowanie</h3>
+
+            <pre><code class="language-css">p {
+    text-align: justify;
+}</code></pre>
+
+            <p>
+                Justowanie polega na wyrównaniu
+                tekstu do obu krawędzi
+                przez odpowiednie rozłożenie
+                odstępów między wyrazami.
+            </p>
+
+            <p>
+                Zwykle ostatni wiersz akapitu
+                nie jest rozciągany na całą szerokość.
+            </p>
+
+            <h3>Porównanie wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Efekt</th>
+                </tr>
+                <tr>
+                    <td><code>left</code></td>
+                    <td>Wyrównanie do lewej.</td>
+                </tr>
+                <tr>
+                    <td><code>right</code></td>
+                    <td>Wyrównanie do prawej.</td>
+                </tr>
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Wyśrodkowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>justify</code></td>
+                    <td>Wyrównanie do obu krawędzi.</td>
+                </tr>
+                <tr>
+                    <td><code>start</code></td>
+                    <td>Wyrównanie do początku kierunku pisma.</td>
+                </tr>
+                <tr>
+                    <td><code>end</code></td>
+                    <td>Wyrównanie do końca kierunku pisma.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Witamy na stronie&lt;/h1&gt;
+
+&lt;p class="opis"&gt;
+    Nasza strona przedstawia
+    ciekawe miejsca w Polsce.
+&lt;/p&gt;
+
+&lt;p class="podpis"&gt;
+    Autor: Jan Kowalski
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">h1 {
+    text-align: center;
+}
+
+.opis {
+    text-align: justify;
+}
+
+.podpis {
+    text-align: right;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>text-align: center</code>
+                    nie służy do wyśrodkowania
+                    całego elementu blokowego
+                    o określonej szerokości.
+                    Wyrównuje zawartość
+                    wewnątrz elementu.
+                </p>
+                <p>
+                    Do rozmieszczania bloków
+                    poznamy inne techniki,
+                    między innymi marginesy,
+                    Flexbox i Grid.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="text-decoration">
+
+            <h2>9. Dekoracja tekstu – text-decoration</h2>
+
+            <p>
+                Właściwość <code>text-decoration</code>
+                pozwala dodawać do tekstu
+                podkreślenie, przekreślenie
+                lub linię nad tekstem.
+            </p>
+
+            <h3>Podkreślenie</h3>
+
+            <pre><code class="language-css">.podkreslony {
+    text-decoration: underline;
+}</code></pre>
+
+            <h3>Przekreślenie</h3>
+
+            <pre><code class="language-css">.przekreslony {
+    text-decoration: line-through;
+}</code></pre>
+
+            <h3>Linia nad tekstem</h3>
+
+            <pre><code class="language-css">.nad-tekstem {
+    text-decoration: overline;
+}</code></pre>
+
+            <h3>Usunięcie dekoracji</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: none;
+}</code></pre>
+
+            <p>
+                Ten zapis usuwa
+                standardowe podkreślenie
+                odnośników.
+            </p>
+
+            <h3>Kolor dekoracji</h3>
+
+            <pre><code class="language-css">.tekst {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+}</code></pre>
+
+            <h3>Styl linii</h3>
+
+            <pre><code class="language-css">.tekst1 {
+    text-decoration: underline solid;
+}
+
+.tekst2 {
+    text-decoration: underline dotted;
+}
+
+.tekst3 {
+    text-decoration: underline dashed;
+}
+
+.tekst4 {
+    text-decoration: underline wavy;
+}</code></pre>
+
+            <h3>Grubość dekoracji</h3>
+
+            <pre><code class="language-css">.tekst {
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+}</code></pre>
+
+            <h3>Odstęp podkreślenia od tekstu</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}</code></pre>
+
+            <h3>Skrócony zapis</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: underline wavy red 2px;
+}</code></pre>
+
+            <p>
+                Jedna deklaracja określa
+                rodzaj dekoracji, styl linii,
+                kolor i grubość.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Odnośniki powinny być
+                    łatwe do rozpoznania.
+                    Nie usuwaj podkreślenia
+                    ze wszystkich linków,
+                    jeśli nie zapewniasz
+                    innego czytelnego sposobu
+                    ich wyróżnienia.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="text-transform">
+
+            <h2>10. Zmiana wielkości liter – text-transform</h2>
+
+            <p>
+                Właściwość <code>text-transform</code>
+                zmienia sposób wyświetlania
+                wielkich i małych liter.
+            </p>
+
+            <h3>uppercase – wielkie litery</h3>
+
+            <pre><code class="language-css">h1 {
+    text-transform: uppercase;
+}</code></pre>
+
+            <h3>lowercase – małe litery</h3>
+
+            <pre><code class="language-css">.opis {
+    text-transform: lowercase;
+}</code></pre>
+
+            <h3>capitalize – początkowe litery wyrazów</h3>
+
+            <pre><code class="language-css">.tytul {
+    text-transform: capitalize;
+}</code></pre>
+
+            <h3>none – bez przekształcenia</h3>
+
+            <pre><code class="language-css">p {
+    text-transform: none;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;p class="nazwa"&gt;
+    moja pierwsza strona
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">.nazwa {
+    text-transform: uppercase;
+}</code></pre>
+
+            <p>
+                Tekst zostanie wyświetlony
+                wielkimi literami.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    <code>text-transform</code>
+                    zmienia sposób wyświetlania tekstu,
+                    a nie oryginalną zawartość
+                    zapisaną w pliku HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="line-height">
+
+            <h2>11. Wysokość wiersza – line-height</h2>
+
+            <p>
+                Właściwość <code>line-height</code>
+                określa wysokość wiersza tekstu.
+                W praktyce wpływa na odstęp
+                między kolejnymi liniami akapitu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 18px;
+    line-height: 1.6;
+}</code></pre>
+
+            <p>
+                Wartość <code>1.6</code>
+                jest bezjednostkowym mnożnikiem
+                rozmiaru pisma.
+            </p>
+
+            <p>
+                Przy rozmiarze 18 px
+                wysokość wiersza wyniesie
+                28,8 px.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <pre><code class="language-css">.tekst1 {
+    line-height: 1;
+}
+
+.tekst2 {
+    line-height: 1.5;
+}
+
+.tekst3 {
+    line-height: 2;
+}</code></pre>
+
+            <p>
+                Im większa wartość,
+                tym większa wysokość wierszy.
+            </p>
+
+            <h3>Wartości z jednostką</h3>
+
+            <pre><code class="language-css">p {
+    line-height: 28px;
+}</code></pre>
+
+            <p>
+                Jest to poprawne,
+                jednak dla zwykłego tekstu
+                często wygodniejsza jest
+                wartość bez jednostki.
+            </p>
+
+            <h3>Dlaczego bez jednostki?</h3>
+
+            <pre><code class="language-css">body {
+    line-height: 1.5;
+}</code></pre>
+
+            <p>
+                Elementy potomne dziedziczą
+                mnożnik <code>1.5</code>,
+                który jest stosowany
+                do ich własnego rozmiaru pisma.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Dla dłuższych akapitów
+                    często sprawdza się
+                    <code>line-height</code>
+                    w okolicach
+                    <code>1.4</code>–<code>1.7</code>.
+                    Ostateczny wybór zależy
+                    od kroju, rozmiaru
+                    i szerokości tekstu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="spacing">
+
+            <h2>12. Odstępy między literami i wyrazami</h2>
+
+            <h3>letter-spacing – odstęp między znakami</h3>
+
+            <pre><code class="language-css">h1 {
+    letter-spacing: 3px;
+}</code></pre>
+
+            <p>
+                Litery nagłówka zostaną
+                bardziej rozsunięte.
+            </p>
+
+            <h3>Ujemny odstęp</h3>
+
+            <pre><code class="language-css">h1 {
+    letter-spacing: -1px;
+}</code></pre>
+
+            <p>
+                Ujemna wartość może
+                zmniejszyć odstępy
+                między znakami.
+            </p>
+
+            <p>
+                Zbyt duże wartości ujemne
+                utrudniają czytanie
+                i mogą prowadzić
+                do nachodzenia znaków.
+            </p>
+
+            <h3>word-spacing – odstęp między wyrazami</h3>
+
+            <pre><code class="language-css">p {
+    word-spacing: 6px;
+}</code></pre>
+
+            <p>
+                Właściwość zwiększa
+                odstępy między wyrazami.
+            </p>
+
+            <h3>Przykład łączony</h3>
+
+            <pre><code class="language-css">.haslo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}</code></pre>
+
+            <h3>Kiedy stosować?</h3>
+
+            <ul>
+                <li>W nagłówkach i krótkich hasłach.</li>
+                <li>W napisach na banerach.</li>
+                <li>W elementach identyfikacji wizualnej.</li>
+                <li>Ostrożnie w dłuższych akapitach.</li>
+            </ul>
+
+        </section>
+
+        <section id="text-indent">
+
+            <h2>13. Wcięcie pierwszego wiersza – text-indent</h2>
+
+            <p>
+                Właściwość <code>text-indent</code>
+                pozwala ustawić wcięcie
+                pierwszego wiersza tekstu
+                w bloku.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">p {
+    text-indent: 30px;
+}</code></pre>
+
+            <p>
+                Pierwszy wiersz każdego akapitu
+                zostanie przesunięty
+                o 30 pikseli CSS.
+            </p>
+
+            <h3>Wcięcie procentowe</h3>
+
+            <pre><code class="language-css">p {
+    text-indent: 5%;
+}</code></pre>
+
+            <p>
+                Wartość procentowa odnosi się
+                do szerokości odpowiedniego
+                bloku zawierającego.
+            </p>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">.artykul p {
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 1.6;
+}</code></pre>
+
+            <p>
+                Akapity w artykule
+                będą wyjustowane
+                i otrzymają wcięcie
+                pierwszego wiersza.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    <code>text-indent</code>
+                    nie służy do ustawiania
+                    marginesu całego akapitu.
+                    Do tego wykorzystujemy
+                    inne właściwości,
+                    np. <code>margin</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="text-shadow">
+
+            <h2>14. Cień tekstu – text-shadow</h2>
+
+            <p>
+                Właściwość <code>text-shadow</code>
+                pozwala dodać cień
+                do wyświetlanego tekstu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">h1 {
+    text-shadow: 2px 2px 4px gray;
+}</code></pre>
+
+            <h3>Znaczenie wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>2px</code></td>
+                    <td>Przesunięcie poziome cienia.</td>
+                </tr>
+                <tr>
+                    <td><code>2px</code></td>
+                    <td>Przesunięcie pionowe cienia.</td>
+                </tr>
+                <tr>
+                    <td><code>4px</code></td>
+                    <td>Promień rozmycia.</td>
+                </tr>
+                <tr>
+                    <td><code>gray</code></td>
+                    <td>Kolor cienia.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – delikatny cień</h3>
+
+            <pre><code class="language-css">h1 {
+    color: #1E3A8A;
+    text-shadow: 1px 1px 2px lightgray;
+}</code></pre>
+
+            <h3>Przykład – mocniejszy efekt</h3>
+
+            <pre><code class="language-css">.baner {
+    color: white;
+    text-shadow: 3px 3px 6px black;
+}</code></pre>
+
+            <p>
+                Cień może poprawić
+                widoczność tekstu na tle,
+                ale nie zastąpi
+                odpowiedniego kontrastu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Cienie stosuj oszczędnie.
+                    Zbyt mocne lub wielokolorowe
+                    efekty mogą utrudniać czytanie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="font-shorthand">
+
+            <h2>15. Skrócony zapis właściwości – font</h2>
+
+            <p>
+                CSS umożliwia zapisanie
+                kilku właściwości tekstu
+                w jednej deklaracji
+                <code>font</code>.
+            </p>
+
+            <h3>Oddzielne deklaracje</h3>
+
+            <pre><code class="language-css">p {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}</code></pre>
+
+            <h3>Zapis skrócony</h3>
+
+            <pre><code class="language-css">p {
+    font: italic bold 18px/1.5 Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                Obie reguły określają
+                te same wartości
+                wymienionych właściwości.
+            </p>
+
+            <h3>Podstawowa postać</h3>
+
+            <pre><code class="language-css">p {
+    font: 18px Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                W skróconej deklaracji
+                wymagane są
+                <code>font-size</code>
+                oraz <code>font-family</code>.
+            </p>
+
+            <p>
+                Pozostałe składniki,
+                np. <code>font-style</code>
+                i <code>font-weight</code>,
+                są opcjonalne.
+            </p>
+
+            <h3>Kolejność ma znaczenie</h3>
+
+            <pre><code class="language-css">h2 {
+    font: bold 24px/1.4 Georgia, serif;
+}</code></pre>
+
+            <p>
+                W tym przykładzie:
+            </p>
+
+            <ul>
+                <li><code>bold</code> – grubość pisma.</li>
+                <li><code>24px</code> – rozmiar pisma.</li>
+                <li><code>1.4</code> – wysokość wiersza.</li>
+                <li><code>Georgia, serif</code> – rodzina kroju.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Deklaracja skrócona
+                    <code>font</code>
+                    może zresetować pominięte
+                    właściwości związane z fontem
+                    do wartości początkowych.
+                    Dlatego podczas nauki
+                    warto najpierw stosować
+                    oddzielne deklaracje.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="dziedziczenie">
+
+            <h2>16. Dziedziczenie formatowania tekstu</h2>
+
+            <p>
+                Wiele właściwości
+                związanych z tekstem
+                jest dziedziczonych
+                przez elementy potomne.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;section class="artykul"&gt;
+
+    &lt;h2&gt;Ciekawostki technologiczne&lt;/h2&gt;
+
+    &lt;p&gt;
+        Pierwszy akapit artykułu.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        Drugi akapit artykułu.
+    &lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.artykul {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+}</code></pre>
+
+            <p>
+                Elementy znajdujące się
+                wewnątrz sekcji
+                mogą odziedziczyć
+                krój, rozmiar, wysokość
+                wiersza i kolor tekstu.
+            </p>
+
+            <p>
+                Nie oznacza to jednak,
+                że każdy potomek
+                będzie wyglądał identycznie.
+                Przeglądarka może stosować
+                własne style do nagłówków,
+                a inne reguły CSS
+                mogą nadpisać wartości.
+            </p>
+
+            <h3>Nadpisanie właściwości</h3>
+
+            <pre><code class="language-css">.artykul {
+    font-family: Georgia, serif;
+    color: #333333;
+}
+
+.artykul h2 {
+    font-family: Arial, sans-serif;
+    color: #1E3A8A;
+}</code></pre>
+
+            <p>
+                Nagłówek otrzyma
+                osobny krój i kolor,
+                a pozostały tekst
+                może korzystać
+                z wartości odziedziczonych.
+            </p>
+
+            <h3>Wartość inherit</h3>
+
+            <pre><code class="language-css">.przycisk {
+    font-family: inherit;
+    font-size: inherit;
+}</code></pre>
+
+            <p>
+                Wartość <code>inherit</code>
+                wymusza odziedziczenie
+                właściwości od rodzica.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Ustawienie podstawowej typografii
+                    na elemencie <code>body</code>
+                    pomaga zachować spójność strony.
+                    Wybrane nagłówki, przyciski
+                    i inne elementy można
+                    następnie formatować osobno.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="czytelnosc">
+
+            <h2>17. Czytelność i dobre praktyki typograficzne</h2>
+
+            <p>
+                Dobrze sformatowany tekst
+                powinien być wygodny
+                do czytania na komputerze,
+                tablecie i telefonie.
+            </p>
+
+            <h3>1. Odpowiedni rozmiar tekstu</h3>
+
+            <p>
+                Dla tekstu podstawowego
+                często stosuje się
+                około 16–18 px
+                lub odpowiadające im
+                wartości względne.
+            </p>
+
+            <h3>2. Odpowiednia wysokość wiersza</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 1rem;
+    line-height: 1.6;
+}</code></pre>
+
+            <h3>3. Ograniczona liczba krojów</h3>
+
+            <p>
+                Na jednej stronie zwykle
+                wystarczą jeden lub dwa
+                dobrze dobrane kroje pisma.
+            </p>
+
+            <h3>4. Wyraźna hierarchia nagłówków</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+}</code></pre>
+
+            <h3>5. Kontrast tekstu i tła</h3>
+
+            <pre><code class="language-css">body {
+    color: #1F2937;
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <p>
+                Dla zwykłego tekstu
+                na poziomie WCAG AA
+                wymagany współczynnik
+                kontrastu wynosi
+                co najmniej 4,5:1,
+                z określonymi wyjątkami.
+            </p>
+
+            <h3>6. Unikanie długich wyśrodkowanych akapitów</h3>
+
+            <p>
+                Wyśrodkowanie dobrze
+                sprawdza się w krótkich
+                nagłówkach i hasłach.
+                Dłuższe akapity
+                zazwyczaj wygodniej
+                czyta się wyrównane
+                do początku kierunku pisma.
+            </p>
+
+            <h3>7. Rozsądna szerokość wiersza</h3>
+
+            <pre><code class="language-css">.artykul {
+    max-width: 65ch;
+}</code></pre>
+
+            <p>
+                Jednostka <code>ch</code>
+                jest związana z szerokością
+                znaku „0” w używanym kroju.
+                Pomaga ograniczyć
+                długość wierszy tekstu.
+            </p>
+
+            <h3>8. Zachowanie semantyki HTML</h3>
+
+            <p>
+                Rozmiar i pogrubienie
+                nie zastępują znaczników
+                <code>h1</code>–<code>h6</code>.
+                Nagłówki powinny
+                określać strukturę dokumentu,
+                a CSS jedynie ich wygląd.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Sprawdzaj stronę przy
+                    powiększeniu tekstu
+                    i zmianie szerokości okna.
+                    Czytelność jest ważniejsza
+                    od dekoracyjnych efektów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak jednostki rozmiaru</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+p {
+    font-size: 20;
+}
+
+/* Poprawnie */
+
+p {
+    font-size: 20px;
+}</code></pre>
+
+            <h3>Błąd 2 – brak cudzysłowu przy nazwie kroju</h3>
+
+            <pre><code class="language-css">/* Zalecany zapis */
+
+p {
+    font-family: "Times New Roman", serif;
+}</code></pre>
+
+            <p>
+                Cudzysłów jest zalecany
+                dla nazw zawierających spacje.
+            </p>
+
+            <h3>Błąd 3 – mylenie font-weight z font-style</h3>
+
+            <pre><code class="language-css">/* Pogrubienie */
+
+h2 {
+    font-weight: bold;
+}
+
+/* Kursywa */
+
+h2 {
+    font-style: italic;
+}</code></pre>
+
+            <h3>Błąd 4 – próba wyśrodkowania bloku przez text-align</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Powyższy kod wyśrodkowuje
+                tekst wewnątrz karty,
+                ale nie ustawia samej
+                karty na środku strony.
+            </p>
+
+            <h3>Błąd 5 – nadmierne justowanie</h3>
+
+            <pre><code class="language-css">p {
+    text-align: justify;
+}</code></pre>
+
+            <p>
+                Na bardzo wąskich ekranach
+                justowanie może powodować
+                duże odstępy między wyrazami.
+            </p>
+
+            <h3>Błąd 6 – usuwanie podkreślenia wszystkich linków</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: none;
+}</code></pre>
+
+            <p>
+                Jeśli link nie ma innego
+                wyraźnego wyróżnienia,
+                użytkownik może go
+                nie rozpoznać.
+            </p>
+
+            <h3>Błąd 7 – zbyt duże odstępy między literami</h3>
+
+            <pre><code class="language-css">p {
+    letter-spacing: 8px;
+}</code></pre>
+
+            <p>
+                Tak duży odstęp
+                może znacząco
+                pogorszyć czytelność
+                zwykłego akapitu.
+            </p>
+
+            <h3>Błąd 8 – zbyt mała wysokość wiersza</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 20px;
+    line-height: 1;
+}</code></pre>
+
+            <p>
+                W dłuższym tekście
+                wiersze mogą znajdować się
+                zbyt blisko siebie.
+            </p>
+
+            <h3>Błąd 9 – niepoprawna kolejność w font</h3>
+
+            <pre><code class="language-css">/* Poprawnie */
+
+p {
+    font: bold 18px/1.5 Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                W zapisie skróconym
+                rozmiar musi wystąpić
+                przed nazwą rodziny kroju.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – artykuł internetowy</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                z artykułem, w którym
+                wykorzystamy różne
+                właściwości formatowania tekstu.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">typografia/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Świat technologii&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Świat technologii&lt;/h1&gt;
+
+        &lt;p class="podtytul"&gt;
+            Ciekawostki ze świata informatyki
+        &lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;article&gt;
+
+            &lt;h2&gt;Dlaczego warto uczyć się programowania?&lt;/h2&gt;
+
+            &lt;p class="autor"&gt;
+                Autor: Jan Kowalski
+            &lt;/p&gt;
+
+            &lt;p class="wstep"&gt;
+                Programowanie rozwija logiczne
+                myślenie i umiejętność
+                rozwiązywania problemów.
+            &lt;/p&gt;
+
+            &lt;h3&gt;Nowe możliwości&lt;/h3&gt;
+
+            &lt;p&gt;
+                Znajomość programowania
+                umożliwia tworzenie
+                stron internetowych,
+                aplikacji i gier.
+            &lt;/p&gt;
+
+            &lt;h3&gt;Systematyczna nauka&lt;/h3&gt;
+
+            &lt;p&gt;
+                Najlepsze efekty przynosi
+                regularne wykonywanie
+                praktycznych ćwiczeń.
+            &lt;/p&gt;
+
+            &lt;blockquote&gt;
+                Najważniejsza jest praktyka.
+            &lt;/blockquote&gt;
+
+            &lt;p&gt;
+                Więcej informacji znajdziesz
+                na stronie
+                &lt;a href="https://developer.mozilla.org/pl/"&gt;
+                    MDN Web Docs
+                &lt;/a&gt;.
+            &lt;/p&gt;
+
+        &lt;/article&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Świat technologii&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Podstawowe ustawienia */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek strony */
+
+header {
+    background-color: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.podtytul {
+    font-size: 18px;
+    font-style: italic;
+}
+
+/* Artykuł */
+
+article {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+}
+
+/* Nagłówki artykułu */
+
+article h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    color: #1E3A8A;
+}
+
+article h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2563EB;
+}
+
+/* Akapity */
+
+article p {
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Autor */
+
+.autor {
+    font-size: 14px;
+    font-style: italic;
+    color: #64748B;
+    text-align: right;
+}
+
+/* Wstęp */
+
+.wstep {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* Cytat */
+
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+    color: #1E3A8A;
+    border-left: 4px solid #2563EB;
+    padding: 15px;
+    margin: 25px 0;
+}
+
+/* Odnośniki */
+
+a {
+    color: #1D4ED8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: #1E3A8A;
+}
+
+/* Stopka */
+
+footer {
+    background-color: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}</code></pre>
+
+            <h3>Analiza zastosowanych właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowane formatowanie</th>
+                </tr>
+                <tr>
+                    <td>Nagłówek strony</td>
+                    <td>Duży rozmiar, pogrubienie, wielkie litery, odstępy między znakami.</td>
+                </tr>
+                <tr>
+                    <td>Podtytuł</td>
+                    <td>Kursywa i mniejszy rozmiar.</td>
+                </tr>
+                <tr>
+                    <td>Tytuł artykułu</td>
+                    <td>Krój szeryfowy i wyróżniony kolor.</td>
+                </tr>
+                <tr>
+                    <td>Akapity</td>
+                    <td>Odpowiednia wielkość i wysokość wiersza.</td>
+                </tr>
+                <tr>
+                    <td>Autor</td>
+                    <td>Mniejszy rozmiar, kursywa, wyrównanie do prawej.</td>
+                </tr>
+                <tr>
+                    <td>Cytat</td>
+                    <td>Krój szeryfowy, kursywa, wyśrodkowanie.</td>
+                </tr>
+                <tr>
+                    <td>Link</td>
+                    <td>Podkreślenie i zmiana koloru po najechaniu.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    Większość tekstu korzysta
+                    z ustawień elementu
+                    <code>body</code>.
+                    Wyjątki wprowadzamy
+                    tylko tam, gdzie
+                    są potrzebne.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>font-family</code> określa rodzinę kroju pisma.</li>
+                    <li>Warto podawać zapasowe kroje pisma.</li>
+                    <li><code>serif</code> oznacza kroje szeryfowe.</li>
+                    <li><code>sans-serif</code> oznacza kroje bezszeryfowe.</li>
+                    <li><code>monospace</code> oznacza kroje o stałej szerokości znaków.</li>
+                    <li><code>font-size</code> określa rozmiar pisma.</li>
+                    <li><code>px</code>, <code>em</code>, <code>rem</code> i <code>%</code> są jednostkami stosowanymi przy rozmiarze tekstu.</li>
+                    <li><code>font-weight</code> określa grubość pisma.</li>
+                    <li><code>font-weight: 400</code> odpowiada wartości <code>normal</code>.</li>
+                    <li><code>font-weight: 700</code> odpowiada wartości <code>bold</code>.</li>
+                    <li><code>font-style: italic</code> ustawia kursywę.</li>
+                    <li><code>text-align</code> wyrównuje zawartość tekstową.</li>
+                    <li><code>text-align: center</code> nie centruje automatycznie całego bloku.</li>
+                    <li><code>text-decoration</code> służy do dekoracji tekstu.</li>
+                    <li><code>text-transform</code> zmienia sposób wyświetlania wielkich i małych liter.</li>
+                    <li><code>line-height</code> określa wysokość wiersza.</li>
+                    <li><code>letter-spacing</code> ustawia odstępy między znakami.</li>
+                    <li><code>word-spacing</code> ustawia odstępy między wyrazami.</li>
+                    <li><code>text-indent</code> pozwala wykonać wcięcie pierwszego wiersza.</li>
+                    <li><code>text-shadow</code> dodaje cień tekstu.</li>
+                    <li><code>font</code> jest skróconym zapisem kilku właściwości.</li>
+                    <li>Wiele właściwości typograficznych jest dziedziczonych.</li>
+                    <li>Najważniejszym celem formatowania tekstu jest jego czytelność.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne formatowanie tekstu
+                za pomocą CSS oraz zastosowanie
+                zasad czytelnej typografii
+                w projekcie strony WWW.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_22</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                w ramach jednej strony.</strong>
+                Kolejne zadania rozbudowują
+                wcześniej przygotowany projekt.
+            </p>
+
+            <h3>Zadanie 1 – Struktura strony i kroje pisma</h3>
+
+            <p>
+                Przygotuj stronę zatytułowaną
+                <strong>„Magazyn internetowy”</strong>.
+                Tematykę artykułów wybierz samodzielnie.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawną strukturę dokumentu HTML5.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj elementy <code>header</code>, <code>main</code> i <code>footer</code>.</li>
+                <li>W nagłówku umieść tytuł strony i krótki opis.</li>
+                <li>W części głównej dodaj trzy artykuły z nagłówkami i akapitami.</li>
+                <li>Ustaw dla całej strony krój <code>Arial, sans-serif</code>.</li>
+                <li>Dla nagłówków <code>h2</code> zastosuj <code>Georgia, serif</code>.</li>
+                <li>W jednym z artykułów umieść fragment kodu i nadaj mu krój <code>Consolas, monospace</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Rozmiar i grubość tekstu</h3>
+
+            <p>
+                Rozbuduj formatowanie
+                przygotowanej strony.
+            </p>
+
+            <ol>
+                <li>Ustaw rozmiar głównego tytułu na <code>36px</code>.</li>
+                <li>Ustaw rozmiar nagłówków artykułów na <code>28px</code>.</li>
+                <li>Ustaw rozmiar akapitów na <code>18px</code>.</li>
+                <li>Ustaw grubość tytułu strony na <code>700</code>.</li>
+                <li>Ustaw grubość nagłówków artykułów na <code>600</code>.</li>
+                <li>Ustaw standardową grubość akapitów na <code>400</code>.</li>
+                <li>Dodaj pod każdym tytułem artykułu informację o autorze, sformatowaną kursywą.</li>
+                <li>Wybierz jeden fragment tekstu i wyróżnij go pogrubieniem.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Wyrównanie i wysokość wiersza</h3>
+
+            <p>
+                Dopracuj układ tekstu
+                w magazynie internetowym.
+            </p>
+
+            <ol>
+                <li>Wyśrodkuj główny tytuł strony.</li>
+                <li>Wyrównaj informacje o autorach do prawej strony.</li>
+                <li>W pierwszym artykule zastosuj <code>text-align: left</code>.</li>
+                <li>W drugim artykule zastosuj <code>text-align: justify</code>.</li>
+                <li>Ustaw dla akapitów <code>line-height: 1.6</code>.</li>
+                <li>W trzecim artykule dodaj cytat i wyśrodkuj jego tekst.</li>
+                <li>Dodaj do pierwszego akapitu trzeciego artykułu wcięcie pierwszego wiersza <code>30px</code>.</li>
+                <li>Porównaj wygląd akapitów wyrównanych do lewej i wyjustowanych.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Dekoracja i przekształcanie tekstu</h3>
+
+            <p>
+                Dodaj elementy wykorzystujące
+                dekoracje tekstowe.
+            </p>
+
+            <ol>
+                <li>Ustaw główny tytuł strony wielkimi literami za pomocą <code>text-transform</code>.</li>
+                <li>Zastosuj odstęp między literami tytułu równy <code>2px</code>.</li>
+                <li>Dodaj do strony trzy odnośniki do zewnętrznych witryn.</li>
+                <li>Ustaw podkreślenie odnośników.</li>
+                <li>Zmień kolor podkreślenia jednego odnośnika.</li>
+                <li>Dodaj przykład tekstu przekreślonego.</li>
+                <li>Dodaj przykład tekstu podkreślonego linią falistą.</li>
+                <li>Zastosuj delikatny cień dla tytułu strony.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Porównanie jednostek px, em i rem</h3>
+
+            <p>
+                Dodaj sekcję
+                <strong>„Porównanie rozmiarów tekstu”</strong>.
+            </p>
+
+            <ol>
+                <li>Utwórz trzy akapity zawierające ten sam tekst.</li>
+                <li>Pierwszemu ustaw rozmiar <code>20px</code>.</li>
+                <li>Drugiemu ustaw rozmiar <code>1.25rem</code>.</li>
+                <li>Trzeciemu ustaw rozmiar <code>1.25em</code>.</li>
+                <li>Ustaw rozmiar pisma elementu <code>html</code> na <code>16px</code>.</li>
+                <li>Ustaw rozmiar pisma rodzica trzeciego akapitu na <code>16px</code>.</li>
+                <li>Porównaj rozmiary wszystkich trzech akapitów.</li>
+                <li>Zmień rozmiar pisma rodzica trzeciego akapitu na <code>24px</code> i sprawdź, który akapit zmieni wygląd.</li>
+                <li>Pod przykładami wyjaśnij różnicę między <code>em</code> i <code>rem</code>.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Udoskonalenie typografii (dodatkowe)</h3>
+
+            <p>
+                Dopracuj wygląd całego
+                magazynu internetowego.
+            </p>
+
+            <ol>
+                <li>Ustal spójny zestaw rozmiarów nagłówków.</li>
+                <li>Dobierz czytelne kolory tekstu i tła.</li>
+                <li>Ogranicz liczbę krojów pisma do dwóch.</li>
+                <li>Zadbaj o odpowiednią wysokość wierszy.</li>
+                <li>Sprawdź wygląd strony przy zmniejszonej szerokości okna.</li>
+                <li>Sprawdź czytelność przy powiększeniu strony do 200%.</li>
+                <li>Usuń dekoracje, które utrudniają czytanie.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_22/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie artykuły,
+                    przykłady i ćwiczenia
+                    powinny znajdować się
+                    w jednym pliku
+                    <code>index.html</code>.
+                </p>
+
+                <p>
+                    Wszystkie reguły
+                    formatowania tekstu
+                    umieść w pliku
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_22</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum musi zawierać
+                    pliki <code>index.html</code>
+                    i <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    poprawność podłączenia CSS,
+                    wygląd nagłówków i akapitów,
+                    działanie dekoracji,
+                    wyrównanie tekstu
+                    oraz czytelność całej strony.
+                </p>
+
+                <p>
+                    <strong>Treść artykułów powinna być własna.</strong>
+                    Nie kopiuj tekstów
+                    z przedstawionego przykładu.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 22</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
