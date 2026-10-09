@@ -1,0 +1,2161 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 21 – Kolory w CSS | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#wlasciwosci">2.Właściwości kolorów</a>
+        <a href="#nazwy">3.Nazwy kolorów</a>
+        <a href="#hex">4.Kolory HEX</a>
+        <a href="#skrocony-hex">5.Skrócony zapis HEX</a>
+        <a href="#rgb">6.Model RGB</a>
+        <a href="#rgba">7.Model RGBA</a>
+        <a href="#alpha">8.Kanał alfa</a>
+        <a href="#opacity">9.Właściwość opacity</a>
+        <a href="#porownanie">10.RGBA a opacity</a>
+        <a href="#transparent">11.Transparent i currentColor</a>
+        <a href="#dziedziczenie">12.Dziedziczenie kolorów</a>
+        <a href="#kontrast">13.Kontrast i czytelność</a>
+        <a href="#paleta">14.Tworzenie palety kolorów</a>
+        <a href="#zmienne">15.Zmienne kolorów CSS</a>
+        <a href="#bledy">16.Najczęstsze błędy</a>
+        <a href="#przyklad">17.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 21 • CSS3</div>
+
+            <h2>Kolory w CSS – nazwy kolorów, HEX, RGB, RGBA i przezroczystość</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie sposobów definiowania kolorów
+                w CSS, stosowanie nazw kolorów,
+                kodów HEX, modeli RGB i RGBA,
+                zrozumienie działania kanału alfa
+                oraz właściwości opacity,
+                a także świadome dobieranie
+                kolorów do projektowanej strony WWW.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Kolory są jednym z podstawowych
+                elementów wyglądu strony internetowej.
+            </p>
+
+            <p>
+                Dzięki nim możemy wyróżniać
+                nagłówki, przyciski, komunikaty,
+                odnośniki i poszczególne
+                sekcje witryny.
+            </p>
+
+            <p>
+                CSS umożliwia definiowanie
+                kolorów na kilka sposobów:
+            </p>
+
+            <ul>
+                <li>Za pomocą nazw kolorów, np. <code>red</code>.</li>
+                <li>Za pomocą zapisu szesnastkowego HEX, np. <code>#FF0000</code>.</li>
+                <li>Za pomocą modelu RGB, np. <code>rgb(255, 0, 0)</code>.</li>
+                <li>Za pomocą modelu RGBA, np. <code>rgba(255, 0, 0, 0.5)</code>.</li>
+            </ul>
+
+            <p>
+                Możemy także określać
+                przezroczystość elementów
+                i wykorzystywać kolory
+                zdefiniowane w innych częściach
+                arkusza stylów.
+            </p>
+
+            <h3>Jeden kolor – różne zapisy</h3>
+
+            <pre><code class="language-css">/* Nazwa koloru */
+
+color: red;
+
+/* HEX */
+
+color: #FF0000;
+
+/* RGB */
+
+color: rgb(255, 0, 0);
+
+/* RGBA */
+
+color: rgba(255, 0, 0, 1);</code></pre>
+
+            <p>
+                Wszystkie powyższe zapisy
+                oznaczają nieprzezroczysty
+                kolor czerwony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kolor można zapisać
+                    na kilka sposobów,
+                    ale najważniejsze jest
+                    prawidłowe dobranie go
+                    do konkretnego zastosowania
+                    oraz zachowanie
+                    czytelności strony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wlasciwosci">
+
+            <h2>2. Właściwości CSS wykorzystujące kolory</h2>
+
+            <p>
+                Kolory w CSS nie dotyczą
+                wyłącznie tekstu.
+            </p>
+
+            <p>
+                Możemy ustawiać kolor
+                wielu elementów strony.
+            </p>
+
+            <h3>color – kolor tekstu</h3>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Wszystkie akapity otrzymają
+                niebieski kolor tekstu.
+            </p>
+
+            <h3>background-color – kolor tła</h3>
+
+            <pre><code class="language-css">section {
+    background-color: lightgray;
+}</code></pre>
+
+            <p>
+                Sekcje otrzymają
+                jasnoszare tło.
+            </p>
+
+            <h3>border-color – kolor obramowania</h3>
+
+            <pre><code class="language-css">.karta {
+    border: 2px solid;
+    border-color: green;
+}</code></pre>
+
+            <p>
+                Element z klasą
+                <code>karta</code>
+                otrzyma zielone obramowanie.
+            </p>
+
+            <h3>Przykład łączący kilka właściwości</h3>
+
+            <pre><code class="language-css">.komunikat {
+    color: darkgreen;
+    background-color: lightgreen;
+    border: 2px solid green;
+    padding: 15px;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                ustawiamy kolor tekstu,
+                tła i obramowania.
+            </p>
+
+            <h3>Inne właściwości związane z kolorami</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Kolor tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td>Kolor tła elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>border-color</code></td>
+                    <td>Kolor obramowania.</td>
+                </tr>
+                <tr>
+                    <td><code>outline-color</code></td>
+                    <td>Kolor obrysu elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration-color</code></td>
+                    <td>Kolor podkreślenia lub innej dekoracji tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>caret-color</code></td>
+                    <td>Kolor kursora tekstowego w polu edycji.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="nazwy">
+
+            <h2>3. Nazwy kolorów w CSS</h2>
+
+            <p>
+                Najprostszym sposobem
+                ustawienia koloru jest
+                użycie jego angielskiej nazwy.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
+
+p {
+    color: green;
+}
+
+body {
+    background-color: white;
+}</code></pre>
+
+            <p>
+                CSS obsługuje wiele
+                standardowych nazw kolorów.
+            </p>
+
+            <h3>Popularne nazwy</h3>
+
+            <table>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Znaczenie</th>
+                    <th>Odpowiednik HEX</th>
+                </tr>
+                <tr>
+                    <td><code>red</code></td>
+                    <td>Czerwony</td>
+                    <td><code>#FF0000</code></td>
+                </tr>
+                <tr>
+                    <td><code>green</code></td>
+                    <td>Zielony</td>
+                    <td><code>#008000</code></td>
+                </tr>
+                <tr>
+                    <td><code>lime</code></td>
+                    <td>Jasny zielony</td>
+                    <td><code>#00FF00</code></td>
+                </tr>
+                <tr>
+                    <td><code>blue</code></td>
+                    <td>Niebieski</td>
+                    <td><code>#0000FF</code></td>
+                </tr>
+                <tr>
+                    <td><code>yellow</code></td>
+                    <td>Żółty</td>
+                    <td><code>#FFFF00</code></td>
+                </tr>
+                <tr>
+                    <td><code>black</code></td>
+                    <td>Czarny</td>
+                    <td><code>#000000</code></td>
+                </tr>
+                <tr>
+                    <td><code>white</code></td>
+                    <td>Biały</td>
+                    <td><code>#FFFFFF</code></td>
+                </tr>
+                <tr>
+                    <td><code>gray</code></td>
+                    <td>Szary</td>
+                    <td><code>#808080</code></td>
+                </tr>
+                <tr>
+                    <td><code>orange</code></td>
+                    <td>Pomarańczowy</td>
+                    <td><code>#FFA500</code></td>
+                </tr>
+                <tr>
+                    <td><code>purple</code></td>
+                    <td>Purpurowy</td>
+                    <td><code>#800080</code></td>
+                </tr>
+                <tr>
+                    <td><code>navy</code></td>
+                    <td>Granatowy</td>
+                    <td><code>#000080</code></td>
+                </tr>
+                <tr>
+                    <td><code>lightblue</code></td>
+                    <td>Jasnoniebieski</td>
+                    <td><code>#ADD8E6</code></td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Nazwa <code>green</code>
+                    nie oznacza maksymalnie
+                    intensywnej zieleni.
+                    Kolor <code>#00FF00</code>
+                    odpowiada nazwie
+                    <code>lime</code>.
+                </p>
+            </div>
+
+            <h3>Zalety i ograniczenia nazw kolorów</h3>
+
+            <ul>
+                <li>Są łatwe do zapamiętania.</li>
+                <li>Nie wymagają znajomości kodów liczbowych.</li>
+                <li>Dobrze sprawdzają się w prostych przykładach.</li>
+                <li>Nie pozwalają wybrać dowolnego odcienia.</li>
+                <li>W rozbudowanych projektach częściej stosuje się HEX lub RGB.</li>
+            </ul>
+
+        </section>
+
+        <section id="hex">
+
+            <h2>4. Kolory HEX – zapis szesnastkowy</h2>
+
+            <p>
+                <strong>HEX</strong>
+                to sposób zapisywania kolorów
+                za pomocą liczb
+                w systemie szesnastkowym.
+            </p>
+
+            <p>
+                Typowy zapis koloru
+                składa się ze znaku
+                <code>#</code>
+                oraz sześciu znaków.
+            </p>
+
+            <h3>Budowa zapisu HEX</h3>
+
+            <pre><code class="language-text">#RRGGBB
+
+RR – ilość czerwieni
+GG – ilość zieleni
+BB – ilość niebieskiego</code></pre>
+
+            <p>
+                Każda para znaków
+                może przyjmować wartości
+                od <code>00</code>
+                do <code>FF</code>.
+            </p>
+
+            <p>
+                W systemie szesnastkowym
+                wykorzystujemy znaki:
+            </p>
+
+            <pre><code class="language-text">0 1 2 3 4 5 6 7 8 9 A B C D E F</code></pre>
+
+            <p>
+                <code>00</code>
+                oznacza brak danego składnika,
+                a <code>FF</code>
+                jego maksymalną intensywność.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-css">.czerwony {
+    background-color: #FF0000;
+}
+
+.zielony {
+    background-color: #00FF00;
+}
+
+.niebieski {
+    background-color: #0000FF;
+}
+
+.bialy {
+    background-color: #FFFFFF;
+}
+
+.czarny {
+    background-color: #000000;
+}</code></pre>
+
+            <h3>Jak odczytać #FF8000?</h3>
+
+            <pre><code class="language-text">#FF8000
+
+FF – maksymalna czerwień
+80 – średnia intensywność zieleni
+00 – brak niebieskiego</code></pre>
+
+            <p>
+                Wynikiem jest odcień
+                pomarańczowego.
+            </p>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">header {
+    background-color: #1E3A8A;
+    color: #FFFFFF;
+}
+
+section {
+    background-color: #F1F5F9;
+}
+
+h2 {
+    color: #2563EB;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    HEX to zapis szesnastkowy,
+                    a nie dziesiętny.
+                    Wartość <code>FF</code>
+                    odpowiada liczbie
+                    <code>255</code>
+                    w systemie dziesiętnym.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="skrocony-hex">
+
+            <h2>5. Skrócony zapis HEX</h2>
+
+            <p>
+                Niektóre kolory HEX
+                można zapisać w krótszej,
+                trzyznakowej postaci.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-css">/* Pełny zapis */
+
+color: #FFFFFF;
+
+/* Skrócony zapis */
+
+color: #FFF;</code></pre>
+
+            <pre><code class="language-css">/* Pełny zapis */
+
+color: #FF0000;
+
+/* Skrócony zapis */
+
+color: #F00;</code></pre>
+
+            <h3>Zasada skracania</h3>
+
+            <p>
+                Zapis można skrócić,
+                gdy każda para znaków
+                składa się z dwóch
+                identycznych znaków.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Pełny zapis</th>
+                    <th>Skrócony zapis</th>
+                </tr>
+                <tr>
+                    <td><code>#FFFFFF</code></td>
+                    <td><code>#FFF</code></td>
+                </tr>
+                <tr>
+                    <td><code>#000000</code></td>
+                    <td><code>#000</code></td>
+                </tr>
+                <tr>
+                    <td><code>#FF0000</code></td>
+                    <td><code>#F00</code></td>
+                </tr>
+                <tr>
+                    <td><code>#00FF00</code></td>
+                    <td><code>#0F0</code></td>
+                </tr>
+                <tr>
+                    <td><code>#112233</code></td>
+                    <td><code>#123</code></td>
+                </tr>
+            </table>
+
+            <h3>Przykład, którego nie można skrócić</h3>
+
+            <pre><code class="language-css">color: #1E3A8A;</code></pre>
+
+            <p>
+                Nie można zapisać tego koloru
+                jako <code>#138</code>,
+                ponieważ pary
+                <code>1E</code>,
+                <code>3A</code>
+                i <code>8A</code>
+                nie składają się
+                z jednakowych znaków.
+            </p>
+
+        </section>
+
+        <section id="rgb">
+
+            <h2>6. Model RGB – czerwony, zielony i niebieski</h2>
+
+            <p>
+                <strong>RGB</strong>
+                to model kolorów oparty
+                na trzech składnikach:
+            </p>
+
+            <ul>
+                <li><strong>R</strong> – Red – czerwony.</li>
+                <li><strong>G</strong> – Green – zielony.</li>
+                <li><strong>B</strong> – Blue – niebieski.</li>
+            </ul>
+
+            <p>
+                Każdy składnik
+                w klasycznym zapisie liczbowym
+                przyjmuje wartość
+                od <code>0</code>
+                do <code>255</code>.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">color: rgb(255, 0, 0);</code></pre>
+
+            <h3>Podstawowe kolory</h3>
+
+            <pre><code class="language-css">/* Czerwony */
+
+color: rgb(255, 0, 0);
+
+/* Zielony */
+
+color: rgb(0, 255, 0);
+
+/* Niebieski */
+
+color: rgb(0, 0, 255);
+
+/* Czarny */
+
+color: rgb(0, 0, 0);
+
+/* Biały */
+
+color: rgb(255, 255, 255);</code></pre>
+
+            <h3>Mieszanie składników RGB</h3>
+
+            <table>
+                <tr>
+                    <th>RGB</th>
+                    <th>Kolor</th>
+                </tr>
+                <tr>
+                    <td><code>rgb(255, 0, 0)</code></td>
+                    <td>Czerwony</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(0, 255, 0)</code></td>
+                    <td>Zielony</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(0, 0, 255)</code></td>
+                    <td>Niebieski</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(255, 255, 0)</code></td>
+                    <td>Żółty</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(255, 0, 255)</code></td>
+                    <td>Magenta</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(0, 255, 255)</code></td>
+                    <td>Cyjan</td>
+                </tr>
+                <tr>
+                    <td><code>rgb(128, 128, 128)</code></td>
+                    <td>Szary</td>
+                </tr>
+            </table>
+
+            <h3>Dlaczego RGB nazywamy modelem addytywnym?</h3>
+
+            <p>
+                W modelu RGB
+                kolory powstają
+                przez dodawanie światła
+                czerwonego, zielonego
+                i niebieskiego.
+            </p>
+
+            <p>
+                Brak wszystkich trzech
+                składników daje czerń,
+                a maksymalna intensywność
+                wszystkich składników
+                daje biel.
+            </p>
+
+            <h3>Nowoczesny zapis RGB</h3>
+
+            <p>
+                CSS obsługuje również
+                zapis ze spacjami,
+                bez przecinków:
+            </p>
+
+            <pre><code class="language-css">color: rgb(255 0 0);</code></pre>
+
+            <p>
+                Obie formy są poprawne.
+                W przykładach szkolnych
+                będziemy stosować przede wszystkim
+                tradycyjny zapis z przecinkami.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W RGB liczby określają
+                    intensywność trzech
+                    składników koloru.
+                    Im większa wartość,
+                    tym więcej danego
+                    składnika światła.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="rgba">
+
+            <h2>7. Model RGBA – kolor z przezroczystością</h2>
+
+            <p>
+                Model <strong>RGBA</strong>
+                rozszerza RGB
+                o dodatkowy składnik:
+                <strong>A – Alpha</strong>.
+            </p>
+
+            <p>
+                Kanał alfa określa
+                stopień nieprzezroczystości koloru.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">background-color: rgba(255, 0, 0, 0.5);</code></pre>
+
+            <p>
+                Pierwsze trzy wartości
+                odpowiadają kolorowi RGB,
+                a czwarta określa
+                kanał alfa.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-css">/* Czerwony całkowicie nieprzezroczysty */
+
+background-color: rgba(255, 0, 0, 1);
+
+/* Czerwony półprzezroczysty */
+
+background-color: rgba(255, 0, 0, 0.5);
+
+/* Czerwony mocno przezroczysty */
+
+background-color: rgba(255, 0, 0, 0.2);
+
+/* Czerwony całkowicie przezroczysty */
+
+background-color: rgba(255, 0, 0, 0);</code></pre>
+
+            <h3>Nowoczesny zapis</h3>
+
+            <pre><code class="language-css">background-color: rgb(255 0 0 / 50%);</code></pre>
+
+            <p>
+                Ten zapis również oznacza
+                czerwony z kanałem alfa
+                równym 50%.
+            </p>
+
+            <p>
+                W nowoczesnym CSS
+                funkcje <code>rgb()</code>
+                i <code>rgba()</code>
+                mogą obsługiwać
+                kanał alfa.
+            </p>
+
+            <h3>Przykład – półprzezroczyste tło</h3>
+
+            <pre><code class="language-css">.komunikat {
+    background-color: rgba(0, 100, 255, 0.2);
+    color: #003366;
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Element otrzyma
+                delikatnie niebieskie tło.
+                Kolor tekstu pozostanie
+                nieprzezroczysty.
+            </p>
+
+        </section>
+
+        <section id="alpha">
+
+            <h2>8. Kanał alfa – jak działa przezroczystość?</h2>
+
+            <p>
+                Kanał alfa określa,
+                jak bardzo kolor
+                jest widoczny na tle
+                znajdującym się pod nim.
+            </p>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość alfa</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>1</code></td>
+                    <td>100% nieprzezroczystości.</td>
+                </tr>
+                <tr>
+                    <td><code>0.75</code></td>
+                    <td>75% nieprzezroczystości.</td>
+                </tr>
+                <tr>
+                    <td><code>0.5</code></td>
+                    <td>50% nieprzezroczystości.</td>
+                </tr>
+                <tr>
+                    <td><code>0.25</code></td>
+                    <td>25% nieprzezroczystości.</td>
+                </tr>
+                <tr>
+                    <td><code>0</code></td>
+                    <td>Całkowita przezroczystość.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – trzy poziomy przezroczystości</h3>
+
+            <pre><code class="language-css">.pole1 {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.pole2 {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.pole3 {
+    background-color: rgba(255, 0, 0, 0.2);
+}</code></pre>
+
+            <p>
+                Wszystkie elementy
+                wykorzystują ten sam
+                kolor czerwony,
+                ale różnią się
+                stopniem nieprzezroczystości.
+            </p>
+
+            <h3>Dlaczego kolor może wyglądać inaczej?</h3>
+
+            <p>
+                Kolor półprzezroczysty
+                miesza się wizualnie
+                z kolorem tła.
+            </p>
+
+            <p>
+                Dlatego ten sam
+                <code>rgba(255, 0, 0, 0.5)</code>
+                będzie wyglądał inaczej
+                na białym tle
+                niż na czarnym.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.jasne-tlo {
+    background-color: white;
+}
+
+.ciemne-tlo {
+    background-color: black;
+}
+
+.nakladka {
+    background-color: rgba(255, 0, 0, 0.5);
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Jeśli element
+                <code>.nakladka</code>
+                umieścimy raz na jasnym,
+                a raz na ciemnym tle,
+                zobaczymy różne
+                efekty wizualne.
+            </p>
+
+        </section>
+
+        <section id="opacity">
+
+            <h2>9. Właściwość opacity – przezroczystość całego elementu</h2>
+
+            <p>
+                Właściwość
+                <code>opacity</code>
+                pozwala ustawić
+                nieprzezroczystość
+                całego elementu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">.element {
+    opacity: 0.5;
+}</code></pre>
+
+            <p>
+                Wartość <code>0.5</code>
+                oznacza 50%
+                nieprzezroczystości.
+            </p>
+
+            <h3>Przykład – trzy obrazy</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;img src="zdjecie.jpg"
+     alt="Krajobraz"
+     class="obraz1"&gt;
+
+&lt;img src="zdjecie.jpg"
+     alt="Krajobraz"
+     class="obraz2"&gt;
+
+&lt;img src="zdjecie.jpg"
+     alt="Krajobraz"
+     class="obraz3"&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.obraz1 {
+    opacity: 1;
+}
+
+.obraz2 {
+    opacity: 0.6;
+}
+
+.obraz3 {
+    opacity: 0.2;
+}</code></pre>
+
+            <p>
+                Pierwszy obraz będzie
+                całkowicie nieprzezroczysty,
+                drugi częściowo przezroczysty,
+                a trzeci bardzo słabo widoczny.
+            </p>
+
+            <h3>Opacity działa także na tekst i potomków</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+
+    &lt;h2&gt;Tytuł&lt;/h2&gt;
+
+    &lt;p&gt;Opis karty.&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta {
+    background-color: blue;
+    color: white;
+    opacity: 0.5;
+}</code></pre>
+
+            <p>
+                Przezroczystość obejmie
+                cały wynik renderowania
+                karty, łącznie z tekstem
+                i elementami potomnymi.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>opacity</code>
+                    nie służy wyłącznie
+                    do zmiany przezroczystości tła.
+                    Działa na cały element
+                    wraz z jego zawartością.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>10. Różnica między RGBA a opacity</h2>
+
+            <p>
+                To jedno z najważniejszych
+                rozróżnień w tej lekcji.
+            </p>
+
+            <h3>Przykład 1 – RGBA</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: rgba(0, 0, 255, 0.5);
+    color: black;
+}</code></pre>
+
+            <p>
+                Półprzezroczyste będzie
+                tylko tło elementu.
+                Czarny tekst pozostanie
+                nieprzezroczysty.
+            </p>
+
+            <h3>Przykład 2 – opacity</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: blue;
+    color: black;
+    opacity: 0.5;
+}</code></pre>
+
+            <p>
+                Półprzezroczyste będą
+                zarówno tło,
+                jak i tekst oraz
+                pozostała zawartość elementu.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>RGBA w background-color</th>
+                    <th>opacity</th>
+                </tr>
+                <tr>
+                    <td>Przezroczystość tła</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Przezroczystość tekstu</td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Przezroczystość obrazów wewnątrz</td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Przezroczystość całego elementu</td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Kiedy stosować?</h3>
+                <p>
+                    Jeśli chcesz uzyskać
+                    półprzezroczyste tło,
+                    ale zachować czytelny tekst,
+                    użyj koloru z kanałem alfa
+                    w <code>background-color</code>.
+                </p>
+
+                <p>
+                    Jeśli chcesz zmniejszyć
+                    widoczność całego elementu,
+                    możesz użyć
+                    <code>opacity</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="transparent">
+
+            <h2>11. Wartości transparent i currentColor</h2>
+
+            <p>
+                CSS udostępnia również
+                specjalne wartości,
+                które możemy wykorzystywać
+                zamiast konkretnego koloru.
+            </p>
+
+            <h3>transparent – przezroczysty kolor</h3>
+
+            <pre><code class="language-css">.przycisk {
+    background-color: transparent;
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                Tło przycisku
+                będzie przezroczyste.
+            </p>
+
+            <p>
+                Wartość <code>transparent</code>
+                odpowiada przezroczystemu
+                kolorowi czarnemu,
+                czyli <code>rgb(0 0 0 / 0)</code>.
+            </p>
+
+            <h3>currentColor – aktualny kolor tekstu</h3>
+
+            <pre><code class="language-css">.komunikat {
+    color: darkblue;
+    border: 2px solid currentColor;
+}</code></pre>
+
+            <p>
+                Obramowanie otrzyma
+                taki sam kolor
+                jak aktualna wartość
+                właściwości <code>color</code>.
+            </p>
+
+            <h3>Przykład praktyczny</h3>
+
+            <pre><code class="language-css">.przycisk {
+    color: darkgreen;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Zmiana właściwości
+                <code>color</code>
+                wpłynie również
+                na kolor obramowania.
+            </p>
+
+        </section>
+
+        <section id="dziedziczenie">
+
+            <h2>12. Dziedziczenie kolorów w CSS</h2>
+
+            <p>
+                Niektóre właściwości CSS
+                są dziedziczone
+                przez elementy potomne.
+            </p>
+
+            <p>
+                Właściwość
+                <code>color</code>
+                jest dziedziczona.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section class="informacje"&gt;
+
+    &lt;h2&gt;Informacje&lt;/h2&gt;
+
+    &lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+    &lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.informacje {
+    color: darkblue;
+}</code></pre>
+
+            <p>
+                Tekst nagłówka
+                i obu akapitów
+                będzie domyślnie
+                ciemnoniebieski,
+                o ile inne reguły
+                nie nadpiszą koloru.
+            </p>
+
+            <h3>background-color nie jest dziedziczone</h3>
+
+            <pre><code class="language-css">.informacje {
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Potomkowie nie dziedziczą
+                bezpośrednio właściwości
+                <code>background-color</code>.
+            </p>
+
+            <p>
+                Ich domyślnie przezroczyste
+                tła pozwalają jednak
+                zobaczyć tło rodzica.
+            </p>
+
+            <h3>Wartość inherit</h3>
+
+            <pre><code class="language-css">p {
+    color: inherit;
+}</code></pre>
+
+            <p>
+                Wartość <code>inherit</code>
+                wymusza odziedziczenie
+                wartości właściwości
+                od rodzica.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Kolor tekstu
+                    zwykle jest dziedziczony,
+                    natomiast kolor tła
+                    nie jest automatycznie
+                    dziedziczony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="kontrast">
+
+            <h2>13. Kontrast kolorów i czytelność strony</h2>
+
+            <p>
+                Dobrze zaprojektowana strona
+                powinna być nie tylko
+                estetyczna, ale również
+                czytelna.
+            </p>
+
+            <p>
+                Jednym z najważniejszych
+                czynników jest kontrast
+                między tekstem a tłem.
+            </p>
+
+            <h3>Przykład nieczytelnego zestawienia</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: yellow;
+    background-color: white;
+}</code></pre>
+
+            <p>
+                Żółty tekst na białym tle
+                ma bardzo niski kontrast.
+            </p>
+
+            <h3>Przykład czytelniejszego zestawienia</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: #1F2937;
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <p>
+                Ciemny tekst na jasnym tle
+                zapewnia znacznie
+                lepszą czytelność.
+            </p>
+
+            <h3>Przykład – jasny tekst na ciemnym tle</h3>
+
+            <pre><code class="language-css">header {
+    color: #FFFFFF;
+    background-color: #1E3A8A;
+}</code></pre>
+
+            <h3>Wytyczne kontrastu WCAG</h3>
+
+            <p>
+                W przypadku zwykłego tekstu
+                zalecany minimalny współczynnik
+                kontrastu na poziomie WCAG AA
+                wynosi <strong>4,5:1</strong>.
+            </p>
+
+            <p>
+                Dla dużego tekstu
+                próg wynosi <strong>3:1</strong>.
+            </p>
+
+            <p>
+                Duży tekst to w przybliżeniu
+                tekst o rozmiarze co najmniej
+                24 px lub pogrubiony tekst
+                o rozmiarze co najmniej
+                18,7 px.
+            </p>
+
+            <p>
+                Istnieją określone wyjątki,
+                np. dla tekstu dekoracyjnego
+                i nieaktywnych elementów interfejsu.
+            </p>
+
+            <h3>Jak sprawdzić kontrast?</h3>
+
+            <ol>
+                <li>Otwórz narzędzia deweloperskie przeglądarki.</li>
+                <li>Wybierz element zawierający tekst.</li>
+                <li>Sprawdź jego kolor oraz kolor tła.</li>
+                <li>Skorzystaj z funkcji sprawdzania kontrastu, jeśli jest dostępna.</li>
+                <li>W razie potrzeby zmień kolory na bardziej czytelne.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie przekazuj ważnych informacji
+                    wyłącznie za pomocą koloru.
+                    Komunikat błędu powinien
+                    zawierać również tekst,
+                    a nie tylko czerwone obramowanie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="paleta">
+
+            <h2>14. Tworzenie spójnej palety kolorów</h2>
+
+            <p>
+                W profesjonalnym projekcie
+                nie należy dobierać
+                każdego koloru przypadkowo.
+            </p>
+
+            <p>
+                Lepiej przygotować
+                niewielką, spójną
+                paletę kolorystyczną.
+            </p>
+
+            <h3>Przykładowa paleta</h3>
+
+            <table>
+                <tr>
+                    <th>Rola koloru</th>
+                    <th>HEX</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>Kolor główny</td>
+                    <td><code>#1E3A8A</code></td>
+                    <td>Nagłówek i nawigacja.</td>
+                </tr>
+                <tr>
+                    <td>Kolor dodatkowy</td>
+                    <td><code>#2563EB</code></td>
+                    <td>Przyciski i wyróżnienia.</td>
+                </tr>
+                <tr>
+                    <td>Kolor tekstu</td>
+                    <td><code>#1F2937</code></td>
+                    <td>Tekst podstawowy.</td>
+                </tr>
+                <tr>
+                    <td>Kolor tła</td>
+                    <td><code>#F8FAFC</code></td>
+                    <td>Tło strony.</td>
+                </tr>
+                <tr>
+                    <td>Kolor sukcesu</td>
+                    <td><code>#166534</code></td>
+                    <td>Komunikaty potwierdzające.</td>
+                </tr>
+                <tr>
+                    <td>Kolor błędu</td>
+                    <td><code>#B91C1C</code></td>
+                    <td>Komunikaty błędów.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">body {
+    color: #1F2937;
+    background-color: #F8FAFC;
+}
+
+header {
+    color: white;
+    background-color: #1E3A8A;
+}
+
+button {
+    color: white;
+    background-color: #2563EB;
+}
+
+.sukces {
+    color: #166534;
+}
+
+.blad {
+    color: #B91C1C;
+}</code></pre>
+
+            <p>
+                Dzięki ograniczonej liczbie
+                kolorów strona wygląda
+                bardziej spójnie.
+            </p>
+
+        </section>
+
+        <section id="zmienne">
+
+            <h2>15. Zmienne kolorów CSS – wprowadzenie</h2>
+
+            <p>
+                W większych projektach
+                ten sam kolor może występować
+                w wielu regułach CSS.
+            </p>
+
+            <p>
+                Zamiast wielokrotnie wpisywać
+                jego kod, możemy użyć
+                <strong>właściwości niestandardowych CSS</strong>,
+                potocznie nazywanych
+                zmiennymi CSS.
+            </p>
+
+            <h3>Definiowanie zmiennych</h3>
+
+            <pre><code class="language-css">:root {
+    --kolor-glowny: #1E3A8A;
+    --kolor-tekstu: #1F2937;
+    --kolor-tla: #F8FAFC;
+}</code></pre>
+
+            <p>
+                Pseudoklasa <code>:root</code>
+                wskazuje element główny
+                dokumentu, czyli
+                <code>html</code>.
+            </p>
+
+            <h3>Wykorzystanie zmiennych</h3>
+
+            <pre><code class="language-css">body {
+    color: var(--kolor-tekstu);
+    background-color: var(--kolor-tla);
+}
+
+header {
+    background-color: var(--kolor-glowny);
+}</code></pre>
+
+            <h3>Dlaczego warto stosować zmienne?</h3>
+
+            <ul>
+                <li>Ułatwiają zmianę kolorystyki całej strony.</li>
+                <li>Ograniczają powtarzanie kodów HEX.</li>
+                <li>Poprawiają czytelność arkusza CSS.</li>
+                <li>Pomagają utrzymać spójny wygląd projektu.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Dodatkowa wiedza</h3>
+                <p>
+                    Zmienne CSS poznamy
+                    szerzej podczas
+                    tworzenia bardziej
+                    rozbudowanych arkuszy stylów.
+                    Na tym etapie wystarczy
+                    znać zapis <code>--nazwa</code>
+                    oraz funkcję <code>var()</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>16. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak znaku # w zapisie HEX</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+color: FF0000;
+
+/* Poprawnie */
+
+color: #FF0000;</code></pre>
+
+            <h3>Błąd 2 – wartości RGB poza zakresem</h3>
+
+            <pre><code class="language-css">/* Nie stosuj takich wartości */
+
+color: rgb(300, 0, 0);
+
+/* Poprawnie */
+
+color: rgb(255, 0, 0);</code></pre>
+
+            <p>
+                Współczesny CSS może
+                ograniczyć wartości liczbowe
+                RGB wykraczające poza zakres,
+                ale w naszych ćwiczeniach
+                stosujemy liczby
+                od 0 do 255.
+            </p>
+
+            <h3>Błąd 3 – używanie przecinka zamiast kropki</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+background-color: rgba(255, 0, 0, 0,5);
+
+/* Poprawnie */
+
+background-color: rgba(255, 0, 0, 0.5);</code></pre>
+
+            <p>
+                W zapisie dziesiętnym CSS
+                używamy kropki.
+            </p>
+
+            <h3>Błąd 4 – mylenie RGBA i opacity</h3>
+
+            <pre><code class="language-css">/* Przezroczystość całego elementu */
+
+.karta {
+    opacity: 0.5;
+}
+
+/* Przezroczystość samego tła */
+
+.karta {
+    background-color: rgba(0, 0, 255, 0.5);
+}</code></pre>
+
+            <h3>Błąd 5 – zbyt niski kontrast</h3>
+
+            <pre><code class="language-css">/* Mało czytelne */
+
+p {
+    color: lightgray;
+    background-color: white;
+}</code></pre>
+
+            <p>
+                Zbyt podobne kolory
+                tekstu i tła
+                utrudniają czytanie.
+            </p>
+
+            <h3>Błąd 6 – próba skrócenia dowolnego HEX</h3>
+
+            <pre><code class="language-css">/* Nie są równoważne */
+
+color: #123456;
+color: #135;</code></pre>
+
+            <p>
+                Skrócenie jest możliwe
+                tylko wtedy, gdy
+                każda para znaków
+                składa się z dwóch
+                identycznych znaków.
+            </p>
+
+            <h3>Błąd 7 – opacity: 0 ukrywa zawartość wizualnie</h3>
+
+            <pre><code class="language-css">.element {
+    opacity: 0;
+}</code></pre>
+
+            <p>
+                Element staje się niewidoczny,
+                ale nadal może zajmować
+                miejsce na stronie
+                i uczestniczyć
+                w interakcjach.
+            </p>
+
+            <p>
+                Nie jest to to samo
+                co <code>display: none</code>.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>17. Kompletny przykład – strona z kartami informacyjnymi</h2>
+
+            <p>
+                Przygotujemy stronę,
+                na której wykorzystamy
+                różne sposoby definiowania
+                kolorów i przezroczystości.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">kolory/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kolory w CSS&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Kolory w CSS&lt;/h1&gt;
+
+        &lt;p&gt;
+            Poznaj sposoby definiowania kolorów.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Nazwy kolorów&lt;/h2&gt;
+
+            &lt;div class="karta nazwa"&gt;
+
+                &lt;h3&gt;Kolor nazwany&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Tło określone nazwą koloru.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Kolory HEX&lt;/h2&gt;
+
+            &lt;div class="karta hex"&gt;
+
+                &lt;h3&gt;Kolor HEX&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Tło określone kodem
+                    szesnastkowym.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Kolory RGB&lt;/h2&gt;
+
+            &lt;div class="karta rgb"&gt;
+
+                &lt;h3&gt;Kolor RGB&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Tło określone
+                    trzema składnikami RGB.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Kolory RGBA&lt;/h2&gt;
+
+            &lt;div class="tlo-testowe"&gt;
+
+                &lt;div class="karta rgba"&gt;
+
+                    &lt;h3&gt;Kolor RGBA&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Półprzezroczyste tło,
+                        ale czytelny tekst.
+                    &lt;/p&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Opacity&lt;/h2&gt;
+
+            &lt;div class="tlo-testowe"&gt;
+
+                &lt;div class="karta opacity"&gt;
+
+                    &lt;h3&gt;Przezroczystość elementu&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Półprzezroczyste
+                        tło i tekst.
+                    &lt;/p&gt;
+
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Komunikaty&lt;/h2&gt;
+
+            &lt;p class="sukces"&gt;
+                Operacja zakończona powodzeniem.
+            &lt;/p&gt;
+
+            &lt;p class="blad"&gt;
+                Wystąpił błąd.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Kolory w CSS
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Podstawowe ustawienia */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #1F2937;
+    background-color: #F8FAFC;
+    margin: 0;
+}
+
+/* Nagłówek */
+
+header {
+    color: white;
+    background-color: #1E3A8A;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Sekcje */
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Wspólny wygląd kart */
+
+.karta {
+    padding: 20px;
+    margin: 10px 0;
+    border: 2px solid #333333;
+}
+
+/* Nazwa koloru */
+
+.nazwa {
+    background-color: lightblue;
+    color: navy;
+}
+
+/* HEX */
+
+.hex {
+    background-color: #2563EB;
+    color: #FFFFFF;
+}
+
+/* RGB */
+
+.rgb {
+    background-color: rgb(255, 200, 100);
+    color: rgb(80, 40, 0);
+}
+
+/* RGBA */
+
+.rgba {
+    background-color: rgba(0, 100, 255, 0.5);
+    color: black;
+}
+
+/* Opacity */
+
+.opacity {
+    background-color: rgb(0, 100, 255);
+    color: black;
+    opacity: 0.5;
+}
+
+/* Tło do obserwowania przezroczystości */
+
+.tlo-testowe {
+    background-color: #FFD966;
+    padding: 15px;
+}
+
+/* Komunikat sukcesu */
+
+.sukces {
+    color: #166534;
+    background-color: #DCFCE7;
+    border: 2px solid #166534;
+    padding: 15px;
+}
+
+/* Komunikat błędu */
+
+.blad {
+    color: #B91C1C;
+    background-color: #FEE2E2;
+    border: 2px solid #B91C1C;
+    padding: 15px;
+}
+
+/* Stopka */
+
+footer {
+    color: white;
+    background-color: #1E3A8A;
+    padding: 20px;
+    text-align: center;
+}</code></pre>
+
+            <h3>Analiza zastosowanych kolorów</h3>
+
+            <table>
+                <tr>
+                    <th>Klasa</th>
+                    <th>Rodzaj zapisu</th>
+                    <th>Efekt</th>
+                </tr>
+                <tr>
+                    <td><code>.nazwa</code></td>
+                    <td>Nazwa koloru</td>
+                    <td>Jasnoniebieskie tło.</td>
+                </tr>
+                <tr>
+                    <td><code>.hex</code></td>
+                    <td>HEX</td>
+                    <td>Niebieskie tło.</td>
+                </tr>
+                <tr>
+                    <td><code>.rgb</code></td>
+                    <td>RGB</td>
+                    <td>Pomarańczowy odcień tła.</td>
+                </tr>
+                <tr>
+                    <td><code>.rgba</code></td>
+                    <td>RGBA</td>
+                    <td>Półprzezroczyste tło.</td>
+                </tr>
+                <tr>
+                    <td><code>.opacity</code></td>
+                    <td>Opacity</td>
+                    <td>Półprzezroczysty cały element.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    Karty RGBA i opacity
+                    znajdują się na takim
+                    samym żółtym tle.
+                    Dzięki temu łatwo
+                    porównać różnicę
+                    między przezroczystością
+                    samego tła
+                    a przezroczystością
+                    całego elementu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Kolory w CSS można zapisywać za pomocą nazw, HEX, RGB i RGBA.</li>
+                    <li>Właściwość <code>color</code> ustawia kolor tekstu.</li>
+                    <li>Właściwość <code>background-color</code> ustawia kolor tła.</li>
+                    <li>Właściwość <code>border-color</code> ustawia kolor obramowania.</li>
+                    <li>Nazwy kolorów zapisujemy po angielsku.</li>
+                    <li>HEX wykorzystuje system szesnastkowy.</li>
+                    <li>Typowy zapis HEX ma postać <code>#RRGGBB</code>.</li>
+                    <li>HEX można skrócić do trzech znaków tylko w określonych przypadkach.</li>
+                    <li>RGB składa się z czerwieni, zieleni i niebieskiego.</li>
+                    <li>W tradycyjnym zapisie RGB wartości składników mieszczą się od 0 do 255.</li>
+                    <li>RGBA dodaje kanał alfa określający nieprzezroczystość.</li>
+                    <li>Alfa równa 1 oznacza pełną nieprzezroczystość.</li>
+                    <li>Alfa równa 0 oznacza pełną przezroczystość.</li>
+                    <li><code>rgba(255, 0, 0, 0.5)</code> oznacza półprzezroczystą czerwień.</li>
+                    <li>Właściwość <code>opacity</code> wpływa na cały element i jego zawartość.</li>
+                    <li>RGBA w <code>background-color</code> pozwala zmienić przezroczystość tła bez zmiany przezroczystości tekstu.</li>
+                    <li><code>transparent</code> oznacza przezroczysty kolor.</li>
+                    <li><code>currentColor</code> odwołuje się do aktualnego koloru tekstu.</li>
+                    <li>Właściwość <code>color</code> jest dziedziczona.</li>
+                    <li>Właściwość <code>background-color</code> nie jest dziedziczona.</li>
+                    <li>Dobór kolorów powinien uwzględniać kontrast i czytelność.</li>
+                    <li>Spójna paleta kolorów poprawia wygląd strony.</li>
+                    <li>Zmienne CSS pozwalają wielokrotnie wykorzystywać te same kolory.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne stosowanie
+                różnych sposobów
+                definiowania kolorów
+                oraz rozpoznawanie różnicy
+                między kanałem alfa
+                a właściwością opacity.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_21</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                na jednej stronie internetowej.</strong>
+                Każde zadanie umieść
+                w osobnej sekcji.
+            </p>
+
+            <h3>Zadanie 1 – Nazwy kolorów</h3>
+
+            <p>
+                Przygotuj sekcję
+                „Kolory podstawowe”.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>h2</code>.</li>
+                <li>Utwórz pięć elementów <code>div</code>.</li>
+                <li>Każdemu elementowi nadaj inną klasę.</li>
+                <li>Ustaw kolory tła wyłącznie za pomocą angielskich nazw kolorów.</li>
+                <li>Wykorzystaj co najmniej pięć różnych kolorów.</li>
+                <li>Dodaj do każdego elementu nazwę zastosowanego koloru.</li>
+                <li>Dobierz kolor tekstu tak, aby był czytelny.</li>
+                <li>Dodaj odstępy wewnętrzne <code>padding</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Kolory HEX</h3>
+
+            <p>
+                Dodaj sekcję
+                „Paleta kolorów HEX”.
+            </p>
+
+            <ol>
+                <li>Utwórz sześć prostokątnych pól z użyciem <code>div</code>.</li>
+                <li>Każdemu polu przypisz inny kolor tła zapisany w HEX.</li>
+                <li>Wykorzystaj kolory: <code>#FF0000</code>, <code>#00FF00</code>, <code>#0000FF</code>, <code>#FFFF00</code>, <code>#000000</code> i <code>#FFFFFF</code>.</li>
+                <li>W każdym polu umieść odpowiedni kod HEX.</li>
+                <li>Ustaw czytelny kolor tekstu.</li>
+                <li>Dodaj obramowanie do białego pola, aby było widoczne na jasnym tle.</li>
+                <li>Przynajmniej dwa kody zapisz w skróconej postaci.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Model RGB</h3>
+
+            <p>
+                Dodaj sekcję
+                „Mieszanie kolorów RGB”.
+            </p>
+
+            <ol>
+                <li>Utwórz sześć pól kolorystycznych.</li>
+                <li>Ustaw ich tła wyłącznie za pomocą funkcji <code>rgb()</code>.</li>
+                <li>Przygotuj kolor czerwony, zielony, niebieski, żółty, cyjan i magenta.</li>
+                <li>W każdym polu wyświetl zastosowany zapis RGB.</li>
+                <li>Dodaj siódme pole z własnym kolorem RGB.</li>
+                <li>Zmień wartości jednego składnika i sprawdź, jak zmienia się odcień.</li>
+                <li>Pod polami dodaj krótki opis wyjaśniający znaczenie liter R, G i B.</li>
+            </ol>
+
+            <h3>Zadanie 4 – RGBA i przezroczystość</h3>
+
+            <p>
+                Dodaj sekcję
+                „Przezroczystość kolorów”.
+            </p>
+
+            <ol>
+                <li>Utwórz kontener z żółtym tłem.</li>
+                <li>Wewnątrz umieść cztery elementy <code>div</code>.</li>
+                <li>Wszystkim ustaw czerwone tło za pomocą <code>rgba()</code>.</li>
+                <li>Zastosuj wartości alfa: <code>1</code>, <code>0.75</code>, <code>0.5</code> i <code>0.25</code>.</li>
+                <li>W każdym elemencie wyświetl zastosowaną wartość alfa.</li>
+                <li>Sprawdź, jak zmienia się widoczność żółtego tła.</li>
+                <li>Dodaj drugi kontener z niebieskim tłem i powtórz eksperyment.</li>
+                <li>Porównaj wygląd półprzezroczystej czerwieni na obu tłach.</li>
+            </ol>
+
+            <h3>Zadanie 5 – RGBA a opacity</h3>
+
+            <p>
+                Dodaj sekcję
+                „Porównanie przezroczystości”.
+            </p>
+
+            <ol>
+                <li>Utwórz dwa elementy <code>div</code> zawierające nagłówek i akapit.</li>
+                <li>Oba elementy umieść na takim samym kolorowym tle.</li>
+                <li>Pierwszemu ustaw <code>background-color: rgba(0, 0, 255, 0.5);</code>.</li>
+                <li>Drugiemu ustaw <code>background-color: rgb(0, 0, 255);</code> oraz <code>opacity: 0.5;</code>.</li>
+                <li>W obu elementach ustaw czarny kolor tekstu.</li>
+                <li>Porównaj czytelność nagłówków i akapitów.</li>
+                <li>Pod przykładami napisz własnymi słowami, czym różni się RGBA od opacity.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Projekt własnej palety (dodatkowe)</h3>
+
+            <p>
+                Przygotuj sekcję
+                „Moja paleta strony WWW”.
+            </p>
+
+            <ol>
+                <li>Wybierz temat strony, np. podróże, sport, technologia lub muzyka.</li>
+                <li>Dobierz kolor główny, dodatkowy, tła, tekstu, sukcesu i błędu.</li>
+                <li>Zapisz wszystkie kolory w HEX.</li>
+                <li>Utwórz tabelę zawierającą nazwę roli koloru i jego kod.</li>
+                <li>Przygotuj przykładowy nagłówek, przycisk i dwa komunikaty.</li>
+                <li>Zastosuj wybraną paletę do tych elementów.</li>
+                <li>Sprawdź czytelność tekstu na zastosowanych tłach.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_21/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania powinny
+                    znajdować się w jednym
+                    dokumencie
+                    <code>index.html</code>,
+                    a wszystkie reguły CSS
+                    w zewnętrznym pliku
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_21</code>
+                    do archiwum ZIP
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>
+                    i <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy
+                    sprawdź poprawność
+                    wszystkich zapisów kolorów,
+                    działanie przezroczystości,
+                    czytelność tekstu
+                    oraz poprawne podłączenie
+                    zewnętrznego arkusza CSS.
+                </p>
+
+                <p>
+                    W zadaniach wymagających
+                    własnych treści
+                    nie kopiuj opisów
+                    z przedstawionych przykładów.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 21</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
