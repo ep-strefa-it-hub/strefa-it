@@ -1,0 +1,1840 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 19 – Selektory złożone CSS3 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#struktura">2.Struktura dokumentu</a>
+        <a href="#selektory-zlozone">3.Selektory złożone</a>
+        <a href="#potomkow">4.Selektor potomków</a>
+        <a href="#dzieci">5.Selektor dzieci</a>
+        <a href="#porownanie">6.Potomek a dziecko</a>
+        <a href="#sasiedni">7.Bezpośredni sąsiad</a>
+        <a href="#rodzenstwo">8.Kolejne rodzeństwo</a>
+        <a href="#porownanie-sasiadow">9.Porównanie + i ~</a>
+        <a href="#laczenie">10.Łączenie selektorów</a>
+        <a href="#specyficznosc">11.Specyficzność</a>
+        <a href="#praktyka">12.Zastosowania</a>
+        <a href="#bledy">13.Najczęstsze błędy</a>
+        <a href="#przyklad">14.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 19 • CSS3</div>
+
+            <h2>Selektory złożone, potomków, dzieci i elementów sąsiadujących</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie selektorów złożonych CSS,
+                rozróżnianie relacji pomiędzy elementami HTML,
+                stosowanie selektorów potomków, dzieci
+                oraz elementów sąsiadujących,
+                a także tworzenie precyzyjnych reguł CSS
+                bez konieczności przypisywania
+                osobnej klasy każdemu elementowi.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                W poprzedniej lekcji poznaliśmy
+                selektory elementów, klas
+                i identyfikatorów.
+            </p>
+
+            <p>
+                Wiemy już, że selektor
+                <code>p</code> wskazuje wszystkie akapity,
+                <code>.wazne</code> wskazuje elementy
+                z określoną klasą,
+                a <code>#tytul</code> element
+                z konkretnym identyfikatorem.
+            </p>
+
+            <p>
+                W rozbudowanej stronie internetowej
+                nie zawsze chcemy jednak stylować
+                wszystkie elementy tego samego typu.
+            </p>
+
+            <p>
+                Możemy na przykład chcieć:
+            </p>
+
+            <ul>
+                <li>Zmienić kolor akapitów tylko w sekcji „Aktualności”.</li>
+                <li>Ostylować wyłącznie bezpośrednie elementy listy.</li>
+                <li>Wyróżnić pierwszy akapit znajdujący się po nagłówku.</li>
+                <li>Zmienić wygląd wszystkich akapitów następujących po określonym nagłówku.</li>
+                <li>Nadać inny wygląd odnośnikom w menu niż odnośnikom w treści strony.</li>
+            </ul>
+
+            <p>
+                W takich sytuacjach wykorzystujemy
+                <strong>selektory złożone i kombinatory CSS</strong>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kombinator określa relację
+                    między elementami HTML.
+                    Dzięki niemu możemy wskazywać elementy
+                    na podstawie ich położenia
+                    w strukturze dokumentu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="struktura">
+
+            <h2>2. Struktura dokumentu HTML – rodzice, dzieci i rodzeństwo</h2>
+
+            <p>
+                Aby zrozumieć selektory złożone,
+                należy najpierw poznać relacje
+                między elementami HTML.
+            </p>
+
+            <p>
+                Elementy dokumentu tworzą
+                strukturę przypominającą drzewo,
+                nazywaną <strong>drzewem DOM</strong>.
+            </p>
+
+            <h3>Przykładowa struktura HTML</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+    &lt;p&gt;Pierwsza wiadomość.&lt;/p&gt;
+
+    &lt;div&gt;
+
+        &lt;p&gt;Druga wiadomość.&lt;/p&gt;
+
+    &lt;/div&gt;
+
+    &lt;p&gt;Trzecia wiadomość.&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <h3>Element nadrzędny – rodzic</h3>
+
+            <p>
+                Element <code>section</code>
+                jest rodzicem elementów:
+            </p>
+
+            <ul>
+                <li><code>h2</code>,</li>
+                <li>pierwszego <code>p</code>,</li>
+                <li><code>div</code>,</li>
+                <li>ostatniego <code>p</code>.</li>
+            </ul>
+
+            <h3>Element potomny – dziecko</h3>
+
+            <p>
+                Dziecko to element znajdujący się
+                <strong>bezpośrednio wewnątrz</strong>
+                elementu nadrzędnego.
+            </p>
+
+            <p>
+                Akapit wewnątrz <code>div</code>
+                jest dzieckiem tego elementu
+                <code>div</code>,
+                ale nie jest bezpośrednim dzieckiem
+                elementu <code>section</code>.
+            </p>
+
+            <h3>Potomek</h3>
+
+            <p>
+                Potomkiem jest element znajdujący się
+                wewnątrz innego elementu
+                na dowolnym poziomie zagnieżdżenia.
+            </p>
+
+            <p>
+                Wszystkie trzy akapity
+                są potomkami elementu
+                <code>section</code>.
+            </p>
+
+            <h3>Rodzeństwo</h3>
+
+            <p>
+                Elementy mające tego samego
+                bezpośredniego rodzica
+                nazywamy <strong>rodzeństwem</strong>.
+            </p>
+
+            <p>
+                W naszym przykładzie
+                nagłówek <code>h2</code>,
+                pierwszy akapit,
+                element <code>div</code>
+                i ostatni akapit
+                są elementami rodzeństwa.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Każde dziecko jest potomkiem,
+                    ale nie każdy potomek
+                    jest bezpośrednim dzieckiem.
+                    To rozróżnienie jest kluczowe
+                    dla selektorów <code>A B</code>
+                    i <code>A &gt; B</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="selektory-zlozone">
+
+            <h2>3. Czym są selektory złożone?</h2>
+
+            <p>
+                Selektory złożone pozwalają
+                wybierać elementy na podstawie
+                kilku warunków lub relacji
+                występujących w strukturze HTML.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-css">/* Akapity wewnątrz sekcji */
+
+section p {
+    color: blue;
+}
+
+/* Bezpośrednie dzieci listy */
+
+ul > li {
+    color: green;
+}
+
+/* Akapit bezpośrednio po nagłówku */
+
+h2 + p {
+    font-weight: bold;
+}
+
+/* Akapity następujące po nagłówku */
+
+h2 ~ p {
+    color: darkred;
+}</code></pre>
+
+            <h3>Podstawowe kombinatory</h3>
+
+            <table>
+                <tr>
+                    <th>Kombinator</th>
+                    <th>Nazwa</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>A B</code></td>
+                    <td>Potomka</td>
+                    <td>B znajdujące się wewnątrz A na dowolnym poziomie.</td>
+                </tr>
+                <tr>
+                    <td><code>A &gt; B</code></td>
+                    <td>Dziecka</td>
+                    <td>B będące bezpośrednim dzieckiem A.</td>
+                </tr>
+                <tr>
+                    <td><code>A + B</code></td>
+                    <td>Bezpośredniego rodzeństwa</td>
+                    <td>B występujące bezpośrednio po A i mające tego samego rodzica.</td>
+                </tr>
+                <tr>
+                    <td><code>A ~ B</code></td>
+                    <td>Następującego rodzeństwa</td>
+                    <td>B występujące później niż A i mające tego samego rodzica.</td>
+                </tr>
+            </table>
+
+            <p>
+                Litery <code>A</code> i <code>B</code>
+                oznaczają przykładowe selektory.
+                Mogą to być nazwy elementów,
+                klasy lub identyfikatory.
+            </p>
+
+        </section>
+
+        <section id="potomkow">
+
+            <h2>4. Selektor potomków – spacja</h2>
+
+            <p>
+                <strong>Selektor potomków</strong>
+                pozwala wskazać elementy znajdujące się
+                wewnątrz innego elementu,
+                niezależnie od poziomu zagnieżdżenia.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">A B {
+    właściwość: wartość;
+}</code></pre>
+
+            <p>
+                Między selektorami występuje
+                <strong>spacja</strong>.
+            </p>
+
+            <h3>Przykład – akapity w sekcji</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section class="aktualnosci"&gt;
+
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+    &lt;p&gt;Pierwsza wiadomość.&lt;/p&gt;
+
+    &lt;div&gt;
+        &lt;p&gt;Druga wiadomość.&lt;/p&gt;
+    &lt;/div&gt;
+
+&lt;/section&gt;
+
+&lt;p&gt;Akapit poza sekcją.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.aktualnosci p {
+    color: blue;
+}</code></pre>
+
+            <h3>Wynik</h3>
+
+            <ul>
+                <li>Pierwsza wiadomość – niebieska.</li>
+                <li>Druga wiadomość – niebieska.</li>
+                <li>Akapit poza sekcją – bez tego stylu.</li>
+            </ul>
+
+            <p>
+                Drugi akapit również zostanie wskazany,
+                ponieważ jest potomkiem sekcji,
+                mimo że znajduje się wewnątrz
+                dodatkowego elementu <code>div</code>.
+            </p>
+
+            <h3>Przykład – odnośniki w menu</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+
+    &lt;a href="oferta.html"&gt;Oferta&lt;/a&gt;
+
+&lt;/nav&gt;
+
+&lt;p&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">nav a {
+    color: white;
+    background-color: navy;
+}</code></pre>
+
+            <p>
+                Styl otrzymają tylko odnośniki
+                znajdujące się wewnątrz
+                elementu <code>nav</code>.
+            </p>
+
+            <h3>Przykład – lista wewnątrz artykułu</h3>
+
+            <pre><code class="language-css">article li {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje wszystkie
+                elementy <code>li</code>
+                znajdujące się wewnątrz
+                elementu <code>article</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Spacja w selektorze
+                    oznacza relację potomka.
+                    Nie oznacza koniecznie
+                    bezpośredniego zagnieżdżenia.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="dzieci">
+
+            <h2>5. Selektor dzieci – znak &gt;</h2>
+
+            <p>
+                <strong>Selektor dzieci</strong>
+                wskazuje wyłącznie elementy,
+                które są bezpośrednimi dziećmi
+                wskazanego elementu nadrzędnego.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">A > B {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section class="oferta"&gt;
+
+    &lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+    &lt;div&gt;
+
+        &lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+    &lt;/div&gt;
+
+    &lt;p&gt;Trzeci akapit.&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.oferta > p {
+    color: red;
+}</code></pre>
+
+            <h3>Wynik</h3>
+
+            <ul>
+                <li>Pierwszy akapit – czerwony.</li>
+                <li>Drugi akapit – nie otrzyma bezpośrednio tej reguły.</li>
+                <li>Trzeci akapit – czerwony.</li>
+            </ul>
+
+            <p>
+                Drugi akapit znajduje się
+                wewnątrz <code>div</code>,
+                więc nie jest bezpośrednim
+                dzieckiem sekcji.
+            </p>
+
+            <p>
+                Uwaga: jeśli kolor jest właściwością
+                dziedziczoną z innego elementu,
+                akapit może wyglądać podobnie
+                mimo niedopasowania tej reguły.
+                W tym przykładzie nie ma jednak
+                takiego dodatkowego stylu.
+            </p>
+
+            <h3>Przykład – zagnieżdżona lista</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;ul class="menu"&gt;
+
+    &lt;li&gt;Start&lt;/li&gt;
+
+    &lt;li&gt;Oferta
+
+        &lt;ul&gt;
+            &lt;li&gt;Komputery&lt;/li&gt;
+            &lt;li&gt;Monitory&lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+
+    &lt;li&gt;Kontakt&lt;/li&gt;
+
+&lt;/ul&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.menu > li {
+    border: 1px solid navy;
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Obramowanie i odstęp wewnętrzny
+                otrzymają trzy główne elementy listy.
+                Elementy <code>li</code>
+                z listy zagnieżdżonej
+                nie zostaną bezpośrednio
+                wskazane przez tę regułę.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Znak <code>&gt;</code>
+                    ogranicza wybór do
+                    <strong>bezpośrednich dzieci</strong>.
+                    Jest szczególnie przydatny
+                    przy listach zagnieżdżonych,
+                    menu i rozbudowanych sekcjach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>6. Selektor potomków a selektor dzieci</h2>
+
+            <p>
+                Porównajmy dwa bardzo podobne
+                zapisy CSS.
+            </p>
+
+            <pre><code class="language-css">.kontener p {
+    color: blue;
+}
+
+.kontener > p {
+    font-weight: bold;
+}</code></pre>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;p&gt;Akapit A&lt;/p&gt;
+
+    &lt;section&gt;
+
+        &lt;p&gt;Akapit B&lt;/p&gt;
+
+    &lt;/section&gt;
+
+    &lt;p&gt;Akapit C&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>Analiza</h3>
+
+            <table>
+                <tr>
+                    <th>Akapit</th>
+                    <th>.kontener p</th>
+                    <th>.kontener &gt; p</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>Tak</td>
+                    <td>Nie</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+            </table>
+
+            <p>
+                <strong>Wynik:</strong>
+                wszystkie akapity będą niebieskie,
+                ale tylko A i C będą pogrubione.
+            </p>
+
+            <h3>Kiedy wybrać który selektor?</h3>
+
+            <ul>
+                <li><code>A B</code> – gdy chcemy wskazać wszystkie pasujące elementy wewnątrz A, także głęboko zagnieżdżone.</li>
+                <li><code>A &gt; B</code> – gdy chcemy wskazać tylko elementy B znajdujące się bezpośrednio w A.</li>
+            </ul>
+
+        </section>
+
+        <section id="sasiedni">
+
+            <h2>7. Selektor bezpośredniego rodzeństwa – znak +</h2>
+
+            <p>
+                Selektor z kombinatoriem
+                <code>+</code> wskazuje element,
+                który występuje
+                <strong>bezpośrednio po innym elemencie</strong>
+                i ma z nim tego samego rodzica.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">A + B {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład – pierwszy akapit po nagłówku</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h2&gt;Aktualności&lt;/h2&gt;
+
+&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;p&gt;Trzeci akapit.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">h2 + p {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tylko pierwszy akapit
+                będzie czerwony i pogrubiony.
+            </p>
+
+            <h3>Dlaczego tylko pierwszy?</h3>
+
+            <p>
+                Ponieważ bezpośrednio po
+                nagłówku <code>h2</code>
+                znajduje się pierwszy akapit.
+            </p>
+
+            <p>
+                Drugi akapit występuje
+                bezpośrednio po pierwszym akapicie,
+                a nie po nagłówku.
+            </p>
+
+            <h3>Przykład – element pomiędzy nagłówkiem a akapitem</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Aktualności&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Pierwszy akapit.&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">h2 + p {
+    color: red;
+}</code></pre>
+
+            <p>
+                Tym razem akapit nie zostanie
+                wskazany, ponieważ bezpośrednio
+                po nagłówku występuje
+                element <code>hr</code>.
+            </p>
+
+            <h3>Przykład – odstępy między akapitami</h3>
+
+            <pre><code class="language-css">p + p {
+    margin-top: 20px;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje akapit,
+                który występuje bezpośrednio
+                po innym akapicie.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kombinator <code>+</code>
+                    wskazuje <strong>drugi element</strong>,
+                    czyli ten znajdujący się
+                    po lewej stronie warunku
+                    w strukturze dokumentu.
+                    W zapisie <code>h2 + p</code>
+                    stylowany jest akapit,
+                    a nie nagłówek.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="rodzenstwo">
+
+            <h2>8. Selektor następującego rodzeństwa – znak ~</h2>
+
+            <p>
+                Selektor z kombinatoriem
+                <code>~</code> wskazuje
+                wszystkie pasujące elementy,
+                które występują później
+                niż wskazany element
+                i mają z nim tego samego rodzica.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">A ~ B {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład – akapity po nagłówku</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h2&gt;Aktualności&lt;/h2&gt;
+
+&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;div&gt;
+    Dodatkowa informacja.
+&lt;/div&gt;
+
+&lt;p&gt;Trzeci akapit.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">h2 ~ p {
+    color: green;
+}</code></pre>
+
+            <h3>Wynik</h3>
+
+            <ul>
+                <li>Pierwszy akapit – zielony.</li>
+                <li>Drugi akapit – zielony.</li>
+                <li>Trzeci akapit – zielony.</li>
+                <li>Element div – bez tego stylu.</li>
+            </ul>
+
+            <p>
+                Element <code>div</code>
+                znajdujący się pomiędzy akapitami
+                nie przeszkadza w dopasowaniu
+                trzeciego akapitu.
+            </p>
+
+            <h3>Ważne ograniczenie – wspólny rodzic</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Informacje&lt;/h2&gt;
+
+    &lt;p&gt;Akapit A&lt;/p&gt;
+
+    &lt;div&gt;
+        &lt;p&gt;Akapit B&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;Akapit C&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">h2 ~ p {
+    color: purple;
+}</code></pre>
+
+            <p>
+                Reguła wskaże akapity A i C.
+            </p>
+
+            <p>
+                Nie wskaże akapitu B,
+                ponieważ znajduje się
+                wewnątrz <code>div</code>
+                i nie jest rodzeństwem
+                nagłówka <code>h2</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Kombinator <code>~</code>
+                    wskazuje pasujące elementy
+                    znajdujące się
+                    <strong>później wśród rodzeństwa</strong>.
+                    Nie wybiera elementów
+                    wcześniejszych ani potomków
+                    innych elementów rodzeństwa.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie-sasiadow">
+
+            <h2>9. Porównanie selektorów + i ~</h2>
+
+            <p>
+                Oba selektory dotyczą
+                elementów rodzeństwa,
+                ale różnią się zakresem działania.
+            </p>
+
+            <h3>Przykładowy HTML</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Wiadomości&lt;/h2&gt;
+
+&lt;p&gt;Akapit 1&lt;/p&gt;
+
+&lt;p&gt;Akapit 2&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Akapit 3&lt;/p&gt;</code></pre>
+
+            <h3>Selektor +</h3>
+
+            <pre><code class="language-css">h2 + p {
+    color: red;
+}</code></pre>
+
+            <p>
+                Czerwony będzie tylko akapit 1.
+            </p>
+
+            <h3>Selektor ~</h3>
+
+            <pre><code class="language-css">h2 ~ p {
+    color: green;
+}</code></pre>
+
+            <p>
+                Zielone będą akapity 1, 2 i 3.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>+</th>
+                    <th>~</th>
+                </tr>
+                <tr>
+                    <td>Wymaga wspólnego rodzica</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Element musi występować później</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Element musi występować bezpośrednio po A</td>
+                    <td>Tak</td>
+                    <td>Nie</td>
+                </tr>
+                <tr>
+                    <td>Może wskazać kilka elementów po jednym A</td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kombinatory <code>+</code>
+                    i <code>~</code>
+                    działają zgodnie z kolejnością
+                    elementów w HTML.
+                    Nie oznaczają położenia
+                    elementów na ekranie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="laczenie">
+
+            <h2>10. Łączenie kilku selektorów złożonych</h2>
+
+            <p>
+                W jednej regule CSS
+                można połączyć kilka selektorów
+                i kombinatorów.
+            </p>
+
+            <p>
+                Dzięki temu możemy wskazywać
+                bardzo konkretne elementy
+                bez przypisywania im
+                dodatkowych klas.
+            </p>
+
+            <h3>Przykład – akapity w kartach produktów</h3>
+
+            <pre><code class="language-css">.sklep .produkt p {
+    color: darkblue;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje akapity
+                znajdujące się wewnątrz
+                elementów z klasą <code>produkt</code>,
+                które są potomkami elementu
+                z klasą <code>sklep</code>.
+            </p>
+
+            <h3>Przykład – bezpośrednie elementy menu</h3>
+
+            <pre><code class="language-css">nav > ul > li {
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje elementy
+                <code>li</code>,
+                które są bezpośrednimi dziećmi
+                listy <code>ul</code>,
+                będącej bezpośrednim
+                dzieckiem elementu <code>nav</code>.
+            </p>
+
+            <h3>Przykład – pierwszy akapit po nagłówku w artykule</h3>
+
+            <pre><code class="language-css">article h2 + p {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje akapit
+                znajdujący się bezpośrednio
+                po nagłówku <code>h2</code>,
+                jeżeli ten nagłówek
+                znajduje się wewnątrz
+                elementu <code>article</code>.
+            </p>
+
+            <h3>Przykład – klasa i selektor dziecka</h3>
+
+            <pre><code class="language-css">.karta > .cena {
+    color: darkgreen;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje element
+                z klasą <code>cena</code>,
+                który jest bezpośrednim
+                dzieckiem elementu
+                z klasą <code>karta</code>.
+            </p>
+
+            <h3>Przykład – grupowanie selektorów złożonych</h3>
+
+            <pre><code class="language-css">header h1, footer p {
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje:
+            </p>
+
+            <ul>
+                <li>Nagłówki h1 wewnątrz header.</li>
+                <li>Akapity wewnątrz footer.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie twórz niepotrzebnie
+                    bardzo długich selektorów.
+                    Im mocniej styl zależy
+                    od konkretnej struktury HTML,
+                    tym łatwiej go przypadkowo
+                    zepsuć podczas przebudowy strony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="specyficznosc">
+
+            <h2>11. Specyficzność selektorów złożonych</h2>
+
+            <p>
+                Selektory złożone również
+                uczestniczą w mechanizmie
+                kaskadowości CSS.
+            </p>
+
+            <p>
+                Specyficzność zależy od
+                użytych selektorów prostych.
+                Same kombinatory
+                <code>&gt;</code>,
+                <code>+</code>,
+                <code>~</code>
+                i spacja
+                nie zwiększają specyficzności.
+            </p>
+
+            <h3>Przykłady</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Specyficzność</th>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>0-0-1</td>
+                </tr>
+                <tr>
+                    <td><code>section p</code></td>
+                    <td>0-0-2</td>
+                </tr>
+                <tr>
+                    <td><code>section &gt; p</code></td>
+                    <td>0-0-2</td>
+                </tr>
+                <tr>
+                    <td><code>h2 + p</code></td>
+                    <td>0-0-2</td>
+                </tr>
+                <tr>
+                    <td><code>.oferta p</code></td>
+                    <td>0-1-1</td>
+                </tr>
+                <tr>
+                    <td><code>.oferta &gt; p.wazne</code></td>
+                    <td>0-2-1</td>
+                </tr>
+                <tr>
+                    <td><code>#kontakt p</code></td>
+                    <td>1-0-1</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – konflikt reguł</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section class="oferta"&gt;
+
+    &lt;p&gt;Opis oferty.&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}
+
+.oferta p {
+    color: red;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                akapit będzie czerwony,
+                ponieważ selektor
+                <code>.oferta p</code>
+                ma większą specyficzność.
+            </p>
+
+            <h3>Przykład – dwa selektory o takiej samej specyficzności</h3>
+
+            <pre><code class="language-css">section p {
+    color: blue;
+}
+
+section > p {
+    color: green;
+}</code></pre>
+
+            <p>
+                Dla akapitu będącego
+                bezpośrednim dzieckiem sekcji
+                obie reguły pasują
+                i mają taką samą specyficzność.
+            </p>
+
+            <p>
+                Jeżeli pozostałe warunki kaskady
+                są jednakowe,
+                wygra reguła zapisana później,
+                czyli kolor zielony.
+            </p>
+
+        </section>
+
+        <section id="praktyka">
+
+            <h2>12. Praktyczne zastosowania selektorów złożonych</h2>
+
+            <h3>Przykład 1 – odnośniki w menu</h3>
+
+            <pre><code class="language-css">nav a {
+    color: white;
+    background-color: navy;
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Stylujemy tylko odnośniki
+                znajdujące się wewnątrz menu.
+            </p>
+
+            <h3>Przykład 2 – główne elementy listy</h3>
+
+            <pre><code class="language-css">.menu > li {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Wskazujemy główne elementy listy,
+                pomijając głębiej zagnieżdżone
+                elementy <code>li</code>.
+            </p>
+
+            <h3>Przykład 3 – wprowadzenie do artykułu</h3>
+
+            <pre><code class="language-css">article h2 + p {
+    font-size: 20px;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Wyróżniamy pierwszy akapit
+                następujący bezpośrednio
+                po nagłówku drugiego poziomu
+                wewnątrz artykułu.
+            </p>
+
+            <h3>Przykład 4 – wszystkie późniejsze akapity</h3>
+
+            <pre><code class="language-css">.opis h3 ~ p {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                Wskazujemy akapity będące
+                późniejszym rodzeństwem
+                nagłówka <code>h3</code>
+                wewnątrz elementu z klasą
+                <code>opis</code>.
+            </p>
+
+            <h3>Przykład 5 – ceny w kartach produktów</h3>
+
+            <pre><code class="language-css">.karta-produktu > .cena {
+    color: darkred;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Wskazujemy ceny będące
+                bezpośrednimi dziećmi
+                kart produktów.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>13. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – mylenie spacji ze znakiem &gt;</h3>
+
+            <pre><code class="language-css">/* Wszyscy potomkowie p */
+
+.oferta p {
+    color: blue;
+}
+
+
+/* Tylko bezpośrednie dzieci p */
+
+.oferta > p {
+    color: red;
+}</code></pre>
+
+            <p>
+                To nie są równoważne selektory.
+            </p>
+
+            <h3>Błąd 2 – oczekiwanie, że + wskaże wszystkie akapity</h3>
+
+            <pre><code class="language-css">h2 + p {
+    color: red;
+}</code></pre>
+
+            <p>
+                Ten selektor wskazuje wyłącznie
+                akapit będący bezpośrednim
+                następnym rodzeństwem
+                nagłówka <code>h2</code>.
+            </p>
+
+            <h3>Błąd 3 – zakładanie, że ~ działa na elementy wcześniejsze</h3>
+
+            <pre><code class="language-html">&lt;p&gt;Akapit przed nagłówkiem.&lt;/p&gt;
+
+&lt;h2&gt;Nagłówek&lt;/h2&gt;
+
+&lt;p&gt;Akapit po nagłówku.&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">h2 ~ p {
+    color: green;
+}</code></pre>
+
+            <p>
+                Zielony będzie tylko akapit
+                znajdujący się po nagłówku.
+            </p>
+
+            <h3>Błąd 4 – pomijanie wspólnego rodzica</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Tytuł&lt;/h2&gt;
+
+    &lt;div&gt;
+        &lt;p&gt;Opis&lt;/p&gt;
+    &lt;/div&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <pre><code class="language-css">h2 + p {
+    color: red;
+}</code></pre>
+
+            <p>
+                Reguła nie wskaże akapitu,
+                ponieważ bezpośrednio
+                po nagłówku występuje
+                element <code>div</code>.
+            </p>
+
+            <h3>Błąd 5 – niepotrzebnie długie selektory</h3>
+
+            <pre><code class="language-css">/* Zbyt zależny od struktury */
+
+body main section article div p {
+    color: blue;
+}
+
+
+/* Często prostsze rozwiązanie */
+
+.opis-artykulu {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Selektory złożone są przydatne,
+                ale nie zastępują
+                dobrze zaprojektowanych klas.
+            </p>
+
+            <h3>Błąd 6 – mylenie przecinka ze spacją</h3>
+
+            <pre><code class="language-css">/* Nagłówki h2 oraz akapity */
+
+h2, p {
+    color: blue;
+}
+
+
+/* Akapity wewnątrz h2 */
+
+h2 p {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Drugi selektor opisuje
+                inną relację i nie jest
+                prawidłowym sposobem
+                grupowania nagłówków i akapitów.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>14. Kompletny przykład – portal informacyjny</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                z wiadomościami, menu
+                i listą kategorii.
+            </p>
+
+            <p>
+                Wykorzystamy wszystkie
+                cztery poznane kombinatory CSS.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">portal/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Portal informacyjny&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Portal informacyjny&lt;/h1&gt;
+
+        &lt;p&gt;Wiadomości ze świata technologii&lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+
+        &lt;ul class="menu"&gt;
+
+            &lt;li&gt;
+                &lt;a href="#aktualnosci"&gt;
+                    Aktualności
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#poradniki"&gt;
+                    Poradniki
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#kontakt"&gt;
+                    Kontakt
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="aktualnosci"&gt;
+
+            &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+            &lt;article class="wiadomosc"&gt;
+
+                &lt;h3&gt;Nowe technologie&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Pierwszy akapit wiadomości.
+                &lt;/p&gt;
+
+                &lt;p&gt;
+                    Drugi akapit wiadomości.
+                &lt;/p&gt;
+
+                &lt;div&gt;
+                    &lt;p&gt;
+                        Dodatkowa informacja.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;p&gt;
+                    Podsumowanie wiadomości.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="poradniki"&gt;
+
+            &lt;h2&gt;Poradniki&lt;/h2&gt;
+
+            &lt;ul class="kategorie"&gt;
+
+                &lt;li&gt;HTML5&lt;/li&gt;
+
+                &lt;li&gt;CSS3
+
+                    &lt;ul&gt;
+                        &lt;li&gt;Selektory&lt;/li&gt;
+                        &lt;li&gt;Kolory&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                &lt;/li&gt;
+
+                &lt;li&gt;JavaScript&lt;/li&gt;
+
+            &lt;/ul&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Napisz do redakcji.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Portal informacyjny
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Cała strona */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    color: #333333;
+}
+
+/* Nagłówek strony */
+
+header {
+    background-color: navy;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Odnośniki w menu - potomek */
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Główne elementy menu - dziecko */
+
+.menu > li {
+    background-color: darkblue;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Sekcje */
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Akapity wewnątrz wiadomości */
+
+.wiadomosc p {
+    color: darkslategray;
+}
+
+/* Pierwszy akapit po h3 */
+
+.wiadomosc h3 + p {
+    font-weight: bold;
+    color: darkred;
+}
+
+/* Późniejsze akapity rodzeństwa h3 */
+
+.wiadomosc h3 ~ p {
+    font-size: 18px;
+}
+
+/* Główne kategorie listy */
+
+.kategorie > li {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Akapity w stopce */
+
+footer p {
+    text-align: center;
+    font-size: 14px;
+}</code></pre>
+
+            <h3>Analiza zastosowanych selektorów</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Co wskazuje?</th>
+                </tr>
+                <tr>
+                    <td><code>nav a</code></td>
+                    <td>Odnośniki wewnątrz menu.</td>
+                </tr>
+                <tr>
+                    <td><code>.menu &gt; li</code></td>
+                    <td>Bezpośrednie elementy listy menu.</td>
+                </tr>
+                <tr>
+                    <td><code>.wiadomosc p</code></td>
+                    <td>Wszystkie akapity wewnątrz wiadomości.</td>
+                </tr>
+                <tr>
+                    <td><code>.wiadomosc h3 + p</code></td>
+                    <td>Akapit bezpośrednio po nagłówku h3.</td>
+                </tr>
+                <tr>
+                    <td><code>.wiadomosc h3 ~ p</code></td>
+                    <td>Akapity będące późniejszym rodzeństwem nagłówka h3.</td>
+                </tr>
+                <tr>
+                    <td><code>.kategorie &gt; li</code></td>
+                    <td>Główne elementy listy kategorii.</td>
+                </tr>
+                <tr>
+                    <td><code>footer p</code></td>
+                    <td>Akapity wewnątrz stopki.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W przykładzie reguła
+                    <code>.wiadomosc h3 + p</code>
+                    nadaje pierwszemu akapitowi
+                    pogrubienie i ciemnoczerwony kolor.
+                    Reguła <code>.wiadomosc h3 ~ p</code>
+                    ustawia rozmiar czcionki
+                    późniejszych akapitów
+                    będących rodzeństwem nagłówka.
+                    Obie reguły mogą działać
+                    jednocześnie na pierwszy akapit.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Selektory złożone pozwalają wskazywać elementy na podstawie relacji w HTML.</li>
+                    <li>Dokument HTML tworzy strukturę drzewa DOM.</li>
+                    <li>Rodzic to element bezpośrednio nadrzędny.</li>
+                    <li>Dziecko to element bezpośrednio zagnieżdżony w rodzicu.</li>
+                    <li>Potomek może znajdować się na dowolnym poziomie zagnieżdżenia.</li>
+                    <li>Rodzeństwo to elementy mające tego samego rodzica.</li>
+                    <li><code>A B</code> wskazuje potomków B wewnątrz A.</li>
+                    <li><code>A &gt; B</code> wskazuje bezpośrednie dzieci B elementu A.</li>
+                    <li><code>A + B</code> wskazuje B występujące bezpośrednio po A wśród rodzeństwa.</li>
+                    <li><code>A ~ B</code> wskazuje B występujące później niż A wśród rodzeństwa.</li>
+                    <li>Selektory <code>+</code> i <code>~</code> wymagają wspólnego rodzica.</li>
+                    <li>Spacja i znak <code>&gt;</code> nie oznaczają tego samego.</li>
+                    <li>Selektory złożone można łączyć z klasami i identyfikatorami.</li>
+                    <li>Kombinatory same nie zwiększają specyficzności selektora.</li>
+                    <li>Warto stosować możliwie czytelne i niezbyt rozbudowane selektory.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne stosowanie
+                selektorów potomków,
+                dzieci i elementów sąsiadujących
+                oraz rozpoznawanie relacji
+                w strukturze HTML.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_19</code>,
+                a w nim pliki:
+                <code>index.html</code>
+                oraz <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                w jednym projekcie.</strong>
+                Każde zadanie umieść
+                w osobnej sekcji strony.
+            </p>
+
+            <h3>Zadanie 1 – Selektor potomków</h3>
+
+            <p>
+                Przygotuj sekcję
+                „Aktualności technologiczne”.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>section</code> z klasą <code>aktualnosci</code>.</li>
+                <li>Dodaj nagłówek <code>h2</code>.</li>
+                <li>Dodaj dwa akapity bezpośrednio wewnątrz sekcji.</li>
+                <li>Dodaj element <code>div</code>, a wewnątrz niego kolejny akapit.</li>
+                <li>Dodaj jeden akapit poza sekcją.</li>
+                <li>Za pomocą selektora <code>.aktualnosci p</code> ustaw niebieski kolor tekstu.</li>
+                <li>Sprawdź, które akapity otrzymały ten styl.</li>
+                <li>Dodaj do sekcji kolejne zagnieżdżenie i sprawdź, czy selektor nadal działa.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Selektor dzieci</h3>
+
+            <p>
+                Dodaj sekcję
+                „Kategorie produktów”.
+            </p>
+
+            <ol>
+                <li>Utwórz listę <code>ul</code> z klasą <code>kategorie</code>.</li>
+                <li>Dodaj trzy główne elementy listy.</li>
+                <li>W drugim elemencie umieść zagnieżdżoną listę z trzema podkategoriami.</li>
+                <li>Za pomocą selektora <code>.kategorie &gt; li</code> ustaw obramowanie głównych elementów listy.</li>
+                <li>Dodaj odstęp wewnętrzny <code>padding: 10px;</code>.</li>
+                <li>Sprawdź, czy podkategorie otrzymały własne obramowanie z tej reguły.</li>
+                <li>Dodaj regułę <code>.kategorie li</code> ustawiającą kolor tekstu.</li>
+                <li>Porównaj działanie obu selektorów.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Bezpośredni sąsiad +</h3>
+
+            <p>
+                Dodaj sekcję
+                „Artykuł informatyczny”.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>article</code>.</li>
+                <li>Dodaj nagłówek <code>h2</code>.</li>
+                <li>Dodaj trzy akapity tekstu.</li>
+                <li>Za pomocą selektora <code>article h2 + p</code> ustaw czerwony kolor pierwszego akapitu.</li>
+                <li>Dodaj pogrubienie pierwszego akapitu.</li>
+                <li>Sprawdź, czy pozostałe akapity zachowały swój wygląd.</li>
+                <li>Wstaw element <code>hr</code> między nagłówkiem a pierwszym akapitem.</li>
+                <li>Sprawdź, co się zmieniło.</li>
+                <li>Usuń element <code>hr</code>, aby przywrócić poprzedni efekt.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Następujące rodzeństwo ~</h3>
+
+            <p>
+                Rozbuduj artykuł
+                z poprzedniego zadania.
+            </p>
+
+            <ol>
+                <li>Dodaj czwarty akapit.</li>
+                <li>Za pomocą selektora <code>article h2 ~ p</code> ustaw zielony kolor tekstu akapitów.</li>
+                <li>Sprawdź, które akapity zostały wskazane.</li>
+                <li>Dodaj element <code>div</code> między drugim a trzecim akapitem.</li>
+                <li>Wewnątrz <code>div</code> umieść dodatkowy akapit.</li>
+                <li>Sprawdź, czy akapit zagnieżdżony w <code>div</code> został wskazany przez selektor <code>h2 ~ p</code>.</li>
+                <li>Porównaj działanie selektorów <code>h2 + p</code> oraz <code>h2 ~ p</code>.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Analiza selektorów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod HTML:
+            </p>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;h2&gt;Tytuł&lt;/h2&gt;
+
+    &lt;p&gt;Akapit A&lt;/p&gt;
+
+    &lt;section&gt;
+
+        &lt;p&gt;Akapit B&lt;/p&gt;
+
+    &lt;/section&gt;
+
+    &lt;p&gt;Akapit C&lt;/p&gt;
+
+    &lt;p&gt;Akapit D&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Odpowiedz na pytania
+                w postaci listy numerowanej
+                na swojej stronie:
+            </p>
+
+            <ol>
+                <li>Które akapity wskazuje <code>.kontener p</code>?</li>
+                <li>Które akapity wskazuje <code>.kontener &gt; p</code>?</li>
+                <li>Które akapity wskazuje <code>h2 + p</code>?</li>
+                <li>Które akapity wskazuje <code>h2 ~ p</code>?</li>
+                <li>Dlaczego akapit B nie jest bezpośrednim dzieckiem elementu <code>div</code> z klasą <code>kontener</code>?</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_19/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania powinny
+                    znajdować się w jednym
+                    dokumencie <code>index.html</code>,
+                    a wszystkie reguły CSS
+                    w zewnętrznym pliku
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_19</code>
+                    do archiwum ZIP
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>
+                    i <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy
+                    sprawdź poprawność
+                    struktury HTML,
+                    działanie wszystkich
+                    selektorów złożonych
+                    oraz poprawność
+                    podłączenia arkusza CSS.
+                </p>
+
+                <p>
+                    Treści strony powinny być własne
+                    i różnić się od przykładów
+                    przedstawionych w lekcji.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 19</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
