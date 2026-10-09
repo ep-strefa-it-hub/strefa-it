@@ -1,0 +1,2395 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 20 – Selektory atrybutów, pseudoklasy i pseudoelementy | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#atrybuty">2.Selektory atrybutów</a>
+        <a href="#wartosci-atrybutow">3.Wartości atrybutów</a>
+        <a href="#fragmenty-atrybutow">4.Fragmenty wartości</a>
+        <a href="#pseudoklasy">5.Czym są pseudoklasy?</a>
+        <a href="#linki">6.Pseudoklasy odnośników</a>
+        <a href="#interakcja">7.Interakcja użytkownika</a>
+        <a href="#strukturalne">8.Pseudoklasy strukturalne</a>
+        <a href="#nth-child">9.Nth-child i nth-of-type</a>
+        <a href="#formularze">10.Pseudoklasy formularzy</a>
+        <a href="#not">11.Pseudoklasa not()</a>
+        <a href="#pseudoelementy">12.Czym są pseudoelementy?</a>
+        <a href="#before-after">13.Before i after</a>
+        <a href="#tekst">14.Pseudoelementy tekstowe</a>
+        <a href="#laczenie">15.Łączenie selektorów</a>
+        <a href="#bledy">16.Najczęstsze błędy</a>
+        <a href="#przyklad">17.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 20 • CSS3</div>
+
+            <h2>Selektory atrybutów, pseudoklasy i pseudoelementy</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                stosowanie selektorów atrybutów,
+                pseudoklas i pseudoelementów CSS3
+                do stylowania elementów HTML
+                na podstawie ich właściwości,
+                stanu i położenia w dokumencie,
+                a także tworzenie interaktywnych
+                efektów wizualnych bez JavaScriptu.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                W poprzednich lekcjach poznaliśmy
+                selektory elementów, klas
+                i identyfikatorów oraz kombinatory
+                określające relacje między elementami.
+            </p>
+
+            <p>
+                CSS umożliwia jednak znacznie
+                bardziej precyzyjne wybieranie
+                elementów HTML.
+            </p>
+
+            <p>
+                Możemy na przykład:
+            </p>
+
+            <ul>
+                <li>Wyróżnić wszystkie pola formularza z atrybutem <code>required</code>.</li>
+                <li>Ostylować wyłącznie odnośniki prowadzące do plików PDF.</li>
+                <li>Zmienić wygląd przycisku po najechaniu kursorem.</li>
+                <li>Wyróżnić pole formularza, które otrzymało fokus.</li>
+                <li>Zmienić kolor co drugiego wiersza tabeli.</li>
+                <li>Wyróżnić pierwszą literę akapitu.</li>
+                <li>Dodać dekoracyjny symbol przed nagłówkiem bez modyfikowania HTML.</li>
+            </ul>
+
+            <p>
+                W tym celu wykorzystujemy trzy grupy:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Grupa</th>
+                    <th>Przykład</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>Selektory atrybutów</td>
+                    <td><code>input[required]</code></td>
+                    <td>Wybór na podstawie atrybutu HTML.</td>
+                </tr>
+                <tr>
+                    <td>Pseudoklasy</td>
+                    <td><code>a:hover</code></td>
+                    <td>Wybór na podstawie stanu lub położenia elementu.</td>
+                </tr>
+                <tr>
+                    <td>Pseudoelementy</td>
+                    <td><code>p::first-letter</code></td>
+                    <td>Stylowanie fragmentu elementu lub tworzenie treści dekoracyjnej.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Selektory atrybutów używają
+                    nawiasów kwadratowych
+                    <code>[ ]</code>,
+                    pseudoklasy zapisujemy
+                    z pojedynczym dwukropkiem
+                    <code>:</code>,
+                    a pseudoelementy
+                    zazwyczaj z podwójnym
+                    dwukropkiem <code>::</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="atrybuty">
+
+            <h2>2. Selektory atrybutów – podstawy</h2>
+
+            <p>
+                <strong>Selektor atrybutu</strong>
+                pozwala wskazać element HTML
+                posiadający określony atrybut.
+            </p>
+
+            <p>
+                Nie musimy przypisywać mu
+                dodatkowej klasy ani identyfikatora.
+            </p>
+
+            <h3>Przykład – wymagane pola formularza</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;form&gt;
+
+    &lt;input type="text"
+           name="imie"
+           required&gt;
+
+    &lt;input type="text"
+           name="drugie-imie"&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">input[required] {
+    border: 2px solid red;
+}</code></pre>
+
+            <p>
+                Czerwone obramowanie otrzyma
+                tylko pierwsze pole,
+                ponieważ posiada
+                atrybut <code>required</code>.
+            </p>
+
+            <h3>Wybieranie dowolnego elementu z atrybutem</h3>
+
+            <pre><code class="language-css">[title] {
+    border-bottom: 1px dotted gray;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje wszystkie elementy,
+                które mają atrybut <code>title</code>,
+                niezależnie od rodzaju znacznika.
+            </p>
+
+            <h3>Wybieranie konkretnego elementu</h3>
+
+            <pre><code class="language-css">a[title] {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje tylko odnośniki
+                <code>a</code> posiadające
+                atrybut <code>title</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Zapis <code>[required]</code>
+                    sprawdza obecność atrybutu,
+                    a nie to, czy jego wartością
+                    jest tekst <code>true</code>.
+                    W HTML <code>required</code>
+                    jest atrybutem logicznym.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wartosci-atrybutow">
+
+            <h2>3. Selektory dokładnej wartości atrybutu</h2>
+
+            <p>
+                Możemy wskazywać nie tylko
+                elementy posiadające atrybut,
+                ale również takie,
+                których atrybut ma
+                określoną wartość.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">element[atrybut="wartosc"] {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład – różne typy pól formularza</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;input type="text"
+       placeholder="Imię"&gt;
+
+&lt;input type="email"
+       placeholder="Adres e-mail"&gt;
+
+&lt;input type="password"
+       placeholder="Hasło"&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">input[type="text"] {
+    background-color: lightyellow;
+}
+
+input[type="email"] {
+    background-color: lightblue;
+}
+
+input[type="password"] {
+    background-color: lightpink;
+}</code></pre>
+
+            <p>
+                Każdy typ pola otrzyma
+                inny kolor tła.
+            </p>
+
+            <h3>Przykład – przycisk wysyłania</h3>
+
+            <pre><code class="language-css">button[type="submit"] {
+    background-color: green;
+    color: white;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje przyciski
+                <code>button</code>
+                z atrybutem
+                <code>type="submit"</code>.
+            </p>
+
+            <h3>Przykład – język elementu</h3>
+
+            <pre><code class="language-html">&lt;p lang="pl"&gt;
+    Dzień dobry!
+&lt;/p&gt;
+
+&lt;p lang="en"&gt;
+    Good morning!
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">p[lang="en"] {
+    font-style: italic;
+}</code></pre>
+
+            <p>
+                Kursywą zostanie zapisany
+                akapit mający dokładnie
+                <code>lang="en"</code>.
+            </p>
+
+        </section>
+
+        <section id="fragmenty-atrybutow">
+
+            <h2>4. Selektory fragmentów wartości atrybutów</h2>
+
+            <p>
+                CSS umożliwia sprawdzanie,
+                czy wartość atrybutu
+                zaczyna się, kończy
+                lub zawiera określony tekst.
+            </p>
+
+            <h3>Najważniejsze operatory</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>[a="x"]</code></td>
+                    <td>Wartość dokładnie równa x.</td>
+                </tr>
+                <tr>
+                    <td><code>[a^="x"]</code></td>
+                    <td>Wartość zaczyna się od x.</td>
+                </tr>
+                <tr>
+                    <td><code>[a$="x"]</code></td>
+                    <td>Wartość kończy się na x.</td>
+                </tr>
+                <tr>
+                    <td><code>[a*="x"]</code></td>
+                    <td>Wartość zawiera fragment x.</td>
+                </tr>
+                <tr>
+                    <td><code>[a~="x"]</code></td>
+                    <td>Wartość zawiera x jako osobne słowo rozdzielone białymi znakami.</td>
+                </tr>
+                <tr>
+                    <td><code>[a|="x"]</code></td>
+                    <td>Wartość jest równa x albo zaczyna się od x-.</td>
+                </tr>
+            </table>
+
+            <h3>Operator ^= – zaczyna się od</h3>
+
+            <pre><code class="language-html">&lt;a href="https://example.com"&gt;
+    Strona internetowa
+&lt;/a&gt;
+
+&lt;a href="kontakt.html"&gt;
+    Kontakt
+&lt;/a&gt;</code></pre>
+
+            <pre><code class="language-css">a[href^="https://"] {
+    color: green;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje odnośniki,
+                których wartość <code>href</code>
+                zaczyna się od
+                <code>https://</code>.
+            </p>
+
+            <h3>Operator $= – kończy się na</h3>
+
+            <pre><code class="language-html">&lt;a href="instrukcja.pdf"&gt;
+    Instrukcja PDF
+&lt;/a&gt;
+
+&lt;a href="zdjecie.jpg"&gt;
+    Zdjęcie
+&lt;/a&gt;</code></pre>
+
+            <pre><code class="language-css">a[href$=".pdf"] {
+    color: darkred;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wskaże odnośnik
+                prowadzący do pliku,
+                którego adres kończy się
+                na <code>.pdf</code>.
+            </p>
+
+            <p>
+                Uwaga: adres
+                <code>instrukcja.pdf?wersja=2</code>
+                nie kończy się na
+                <code>.pdf</code>,
+                więc nie zostanie dopasowany
+                przez ten selektor.
+            </p>
+
+            <h3>Operator *= – zawiera fragment</h3>
+
+            <pre><code class="language-css">a[href*="github"] {
+    color: purple;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje odnośniki,
+                których wartość <code>href</code>
+                zawiera tekst <code>github</code>.
+            </p>
+
+            <p>
+                Jest to dopasowanie tekstowe,
+                a nie sprawdzenie,
+                czy odnośnik prowadzi
+                do konkretnej, bezpiecznej domeny.
+            </p>
+
+            <h3>Operator ~= – zawiera osobne słowo</h3>
+
+            <pre><code class="language-html">&lt;p data-tagi="html css js"&gt;
+    Kurs frontend
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">[data-tagi~="css"] {
+    background-color: lightyellow;
+}</code></pre>
+
+            <p>
+                Reguła dopasuje element,
+                ponieważ <code>css</code>
+                występuje jako osobne słowo
+                w wartości atrybutu.
+            </p>
+
+            <h3>Operator |= – wartość lub prefiks z łącznikiem</h3>
+
+            <pre><code class="language-css">[lang|="pl"] {
+    font-family: Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                Reguła dopasuje wartości
+                <code>pl</code>
+                i <code>pl-PL</code>,
+                ale nie <code>planet</code>.
+            </p>
+
+            <h3>Wielkość liter</h3>
+
+            <p>
+                W wybranych sytuacjach można
+                zastosować modyfikator <code>i</code>,
+                aby porównywać wartość
+                bez rozróżniania wielkości liter.
+            </p>
+
+            <pre><code class="language-css">a[href$=".pdf" i] {
+    color: darkred;
+}</code></pre>
+
+            <p>
+                Ten selektor dopasuje
+                zarówno <code>.pdf</code>,
+                jak i <code>.PDF</code>.
+            </p>
+
+        </section>
+
+        <section id="pseudoklasy">
+
+            <h2>5. Czym są pseudoklasy?</h2>
+
+            <p>
+                <strong>Pseudoklasa</strong>
+                pozwala wybrać element
+                na podstawie jego określonego stanu,
+                położenia w strukturze dokumentu
+                lub innych warunków.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor:pseudoklasa {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">button:hover {
+    background-color: darkblue;
+}</code></pre>
+
+            <p>
+                Gdy użytkownik najedzie kursorem
+                na przycisk, jego tło
+                zmieni kolor.
+            </p>
+
+            <p>
+                Pseudoklasy nie wymagają
+                dopisywania specjalnych
+                atrybutów do HTML.
+            </p>
+
+            <h3>Podstawowe grupy pseudoklas</h3>
+
+            <ul>
+                <li>Pseudoklasy odnośników – np. <code>:link</code>, <code>:visited</code>.</li>
+                <li>Pseudoklasy interakcji – np. <code>:hover</code>, <code>:focus</code>.</li>
+                <li>Pseudoklasy strukturalne – np. <code>:first-child</code>, <code>:nth-child()</code>.</li>
+                <li>Pseudoklasy formularzy – np. <code>:checked</code>, <code>:required</code>, <code>:disabled</code>.</li>
+                <li>Pseudoklasy logiczne – np. <code>:not()</code>.</li>
+            </ul>
+
+        </section>
+
+        <section id="linki">
+
+            <h2>6. Pseudoklasy odnośników</h2>
+
+            <p>
+                Odnośniki mogą znajdować się
+                w różnych stanach.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Pseudoklasa</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>:link</code></td>
+                    <td>Odnośnik, którego adres nie został odwiedzony.</td>
+                </tr>
+                <tr>
+                    <td><code>:visited</code></td>
+                    <td>Odnośnik do odwiedzonego adresu.</td>
+                </tr>
+                <tr>
+                    <td><code>:hover</code></td>
+                    <td>Element wskazywany kursorem lub innym urządzeniem wskazującym.</td>
+                </tr>
+                <tr>
+                    <td><code>:active</code></td>
+                    <td>Element w stanie aktywacji, np. podczas przytrzymania przycisku myszy.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: orange;
+}</code></pre>
+
+            <h3>Kolejność reguł</h3>
+
+            <p>
+                Dla reguł o jednakowej
+                specyficzności warto zachować
+                kolejność:
+            </p>
+
+            <pre><code class="language-text">:link
+:visited
+:hover
+:active</code></pre>
+
+            <p>
+                Jest ona znana pod skrótem
+                <strong>LVHA</strong>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Ze względów prywatności
+                    przeglądarki ograniczają
+                    możliwości stylowania
+                    odnośników przez
+                    <code>:visited</code>.
+                    Nie wszystkie właściwości
+                    można w ten sposób zmieniać.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="interakcja">
+
+            <h2>7. Pseudoklasy interakcji użytkownika</h2>
+
+            <h3>:hover – najechanie kursorem</h3>
+
+            <pre><code class="language-css">button:hover {
+    background-color: green;
+    color: white;
+}</code></pre>
+
+            <p>
+                Styl działa podczas wskazywania
+                elementu kursorem.
+            </p>
+
+            <h3>:active – aktywowanie elementu</h3>
+
+            <pre><code class="language-css">button:active {
+    background-color: darkgreen;
+}</code></pre>
+
+            <p>
+                Styl może być widoczny
+                podczas naciskania przycisku.
+            </p>
+
+            <h3>:focus – fokus</h3>
+
+            <p>
+                Fokus oznacza, że element
+                jest aktualnym celem
+                wprowadzania danych
+                lub obsługi klawiaturą.
+            </p>
+
+            <pre><code class="language-css">input:focus {
+    border: 2px solid blue;
+    background-color: lightyellow;
+}</code></pre>
+
+            <p>
+                Po kliknięciu pola formularza
+                lub przejściu do niego klawiszem Tab
+                może ono otrzymać ten styl.
+            </p>
+
+            <h3>:focus-visible – widoczny fokus</h3>
+
+            <pre><code class="language-css">button:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}</code></pre>
+
+            <p>
+                Przeglądarka stosuje tę pseudoklasę
+                wtedy, gdy według jej zasad
+                wskaźnik fokusu powinien być widoczny,
+                często podczas obsługi klawiaturą.
+            </p>
+
+            <h3>:focus-within – fokus wewnątrz</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;div class="pole-formularza"&gt;
+
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+    &lt;input type="text" id="imie"&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.pole-formularza:focus-within {
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Cały kontener otrzyma kolor tła,
+                gdy fokus znajduje się
+                na nim lub na jednym
+                z jego elementów potomnych.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dostępność</h3>
+                <p>
+                    Nie usuwaj wskaźnika fokusu
+                    bez zapewnienia czytelnego
+                    zamiennika. Osoby korzystające
+                    z klawiatury muszą widzieć,
+                    który element jest aktywny.
+                    Efekt <code>:hover</code>
+                    nie powinien być jedynym
+                    sposobem przekazywania
+                    ważnych informacji.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="strukturalne">
+
+            <h2>8. Pseudoklasy strukturalne</h2>
+
+            <p>
+                Pseudoklasy strukturalne
+                wybierają elementy
+                na podstawie ich położenia
+                wśród dzieci danego rodzica.
+            </p>
+
+            <h3>:first-child – pierwsze dziecko</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;ul&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ul&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">li:first-child {
+    color: red;
+}</code></pre>
+
+            <p>
+                Czerwony będzie pierwszy
+                element listy.
+            </p>
+
+            <h3>:last-child – ostatnie dziecko</h3>
+
+            <pre><code class="language-css">li:last-child {
+    color: green;
+}</code></pre>
+
+            <p>
+                Zielony będzie ostatni
+                element listy.
+            </p>
+
+            <h3>:only-child – jedyne dziecko</h3>
+
+            <pre><code class="language-css">p:only-child {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje akapit,
+                który jest jedynym
+                dzieckiem swojego rodzica.
+            </p>
+
+            <h3>:first-of-type – pierwszy danego typu</h3>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Aktualności&lt;/h2&gt;
+
+    &lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+    &lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <pre><code class="language-css">p:first-of-type {
+    color: darkblue;
+}</code></pre>
+
+            <p>
+                Reguła wskaże pierwszy
+                akapit <code>p</code>
+                wśród rodzeństwa,
+                mimo że pierwszym dzieckiem
+                sekcji jest nagłówek <code>h2</code>.
+            </p>
+
+            <h3>Porównanie first-child i first-of-type</h3>
+
+            <pre><code class="language-css">p:first-child {
+    color: red;
+}
+
+p:first-of-type {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Jeśli pierwszym dzieckiem
+                sekcji jest <code>h2</code>,
+                pierwszy akapit nie pasuje
+                do <code>p:first-child</code>,
+                ale pasuje do
+                <code>p:first-of-type</code>.
+            </p>
+
+        </section>
+
+        <section id="nth-child">
+
+            <h2>9. Pseudoklasy :nth-child() i :nth-of-type()</h2>
+
+            <p>
+                Pseudoklasa <code>:nth-child()</code>
+                umożliwia wybieranie dzieci
+                według ich pozycji
+                wśród wszystkich elementów
+                rodzeństwa.
+            </p>
+
+            <h3>Przykład – drugi element listy</h3>
+
+            <pre><code class="language-css">li:nth-child(2) {
+    color: red;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje elementy
+                <code>li</code>, które są
+                drugim dzieckiem rodzica.
+            </p>
+
+            <h3>Co drugi element – even</h3>
+
+            <pre><code class="language-css">li:nth-child(even) {
+    background-color: lightgray;
+}</code></pre>
+
+            <p>
+                Wskazuje elementy znajdujące się
+                na parzystych pozycjach:
+                2, 4, 6, 8 itd.
+            </p>
+
+            <h3>Pozycje nieparzyste – odd</h3>
+
+            <pre><code class="language-css">li:nth-child(odd) {
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Wskazuje pozycje:
+                1, 3, 5, 7 itd.
+            </p>
+
+            <h3>Przykład – tabela z naprzemiennymi wierszami</h3>
+
+            <pre><code class="language-css">tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}</code></pre>
+
+            <p>
+                Wiersze tabeli otrzymają
+                naprzemienne kolory tła.
+            </p>
+
+            <h3>Wzór an + b</h3>
+
+            <pre><code class="language-css">li:nth-child(3n) {
+    color: green;
+}</code></pre>
+
+            <p>
+                Wskazuje co trzeci element:
+                3, 6, 9, 12 itd.
+            </p>
+
+            <pre><code class="language-css">li:nth-child(3n + 1) {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Wskazuje pozycje:
+                1, 4, 7, 10 itd.
+            </p>
+
+            <h3>Różnica między nth-child i nth-of-type</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;div&gt;
+
+    &lt;h2&gt;Nagłówek&lt;/h2&gt;
+
+    &lt;p&gt;Akapit A&lt;/p&gt;
+
+    &lt;p&gt;Akapit B&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p:nth-child(2) {
+    color: red;
+}
+
+p:nth-of-type(2) {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Selektor <code>p:nth-child(2)</code>
+                wskazuje akapit A,
+                ponieważ jest drugim
+                dzieckiem elementu <code>div</code>.
+            </p>
+
+            <p>
+                Selektor <code>p:nth-of-type(2)</code>
+                wskazuje akapit B,
+                ponieważ jest drugim
+                elementem typu <code>p</code>
+                wśród rodzeństwa.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>:nth-child()</code>
+                    liczy pozycję wśród
+                    wszystkich dzieci.
+                    <code>:nth-of-type()</code>
+                    liczy pozycję wśród
+                    rodzeństwa tego samego
+                    typu elementu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="formularze">
+
+            <h2>10. Pseudoklasy formularzy</h2>
+
+            <p>
+                Formularze HTML5
+                udostępniają wiele stanów,
+                które możemy stylować
+                bez używania JavaScriptu.
+            </p>
+
+            <h3>:required – wymagane pole</h3>
+
+            <pre><code class="language-css">input:required {
+    border: 2px solid orange;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje pola formularza,
+                dla których obowiązuje
+                wymóg wypełnienia.
+            </p>
+
+            <h3>:optional – pole niewymagane</h3>
+
+            <pre><code class="language-css">input:optional {
+    border: 1px solid gray;
+}</code></pre>
+
+            <h3>:checked – zaznaczony element</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;label&gt;
+
+    &lt;input type="checkbox"
+           name="zgoda"&gt;
+
+    Akceptuję regulamin
+
+&lt;/label&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">input:checked {
+    accent-color: green;
+}</code></pre>
+
+            <p>
+                Zaznaczony checkbox
+                może otrzymać zielony
+                kolor akcentu.
+            </p>
+
+            <h3>:disabled – element wyłączony</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       value="Niedostępne"
+       disabled&gt;</code></pre>
+
+            <pre><code class="language-css">input:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}</code></pre>
+
+            <h3>:enabled – element aktywny</h3>
+
+            <pre><code class="language-css">input:enabled {
+    background-color: white;
+}</code></pre>
+
+            <h3>:valid i :invalid – poprawność danych</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;
+    Adres e-mail:
+&lt;/label&gt;
+
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">input:valid {
+    border: 2px solid green;
+}
+
+input:invalid {
+    border: 2px solid red;
+}</code></pre>
+
+            <p>
+                Pole e-mail może zostać
+                uznane za niepoprawne,
+                jeśli jest puste mimo
+                atrybutu <code>required</code>
+                albo zawiera nieprawidłowy
+                adres e-mail.
+            </p>
+
+            <p>
+                Pseudoklasa <code>:invalid</code>
+                może działać już przed
+                pierwszą próbą wysłania formularza.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie polegaj wyłącznie
+                    na kolorze czerwonym
+                    lub zielonym jako informacji
+                    o poprawności danych.
+                    Użytkownik powinien
+                    otrzymać również czytelny
+                    komunikat tekstowy.
+                    Walidacja CSS nie zastępuje
+                    sprawdzania danych po stronie serwera.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="not">
+
+            <h2>11. Pseudoklasa :not()</h2>
+
+            <p>
+                Pseudoklasa <code>:not()</code>
+                pozwala wybrać elementy,
+                które <strong>nie pasują</strong>
+                do określonego selektora.
+            </p>
+
+            <h3>Przykład – wszystkie akapity oprócz wyróżnionych</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Zwykły akapit.&lt;/p&gt;
+
+&lt;p class="wazne"&gt;
+    Ważna informacja.
+&lt;/p&gt;
+
+&lt;p&gt;Kolejny zwykły akapit.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p:not(.wazne) {
+    color: gray;
+}</code></pre>
+
+            <p>
+                Szare będą akapity,
+                które nie mają
+                klasy <code>wazne</code>.
+            </p>
+
+            <h3>Przykład – aktywne przyciski</h3>
+
+            <pre><code class="language-css">button:not(:disabled) {
+    background-color: green;
+    color: white;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje przyciski,
+                które nie są wyłączone.
+            </p>
+
+            <h3>Przykład – elementy listy oprócz pierwszego</h3>
+
+            <pre><code class="language-css">li:not(:first-child) {
+    border-top: 1px solid gray;
+}</code></pre>
+
+            <p>
+                Obramowanie otrzymają
+                elementy listy inne
+                niż pierwsze dziecko.
+            </p>
+
+        </section>
+
+        <section id="pseudoelementy">
+
+            <h2>12. Czym są pseudoelementy?</h2>
+
+            <p>
+                <strong>Pseudoelement</strong>
+                pozwala stylować określony
+                fragment elementu
+                albo tworzyć dodatkową
+                zawartość prezentacyjną.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor::pseudoelement {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">p::first-letter {
+    font-size: 32px;
+    color: red;
+}</code></pre>
+
+            <p>
+                Reguła zmienia wygląd
+                pierwszej litery akapitu.
+            </p>
+
+            <h3>Pseudoklasa a pseudoelement</h3>
+
+            <table>
+                <tr>
+                    <th>Pseudoklasa</th>
+                    <th>Pseudoelement</th>
+                </tr>
+                <tr>
+                    <td><code>:hover</code></td>
+                    <td><code>::before</code></td>
+                </tr>
+                <tr>
+                    <td><code>:focus</code></td>
+                    <td><code>::after</code></td>
+                </tr>
+                <tr>
+                    <td><code>:first-child</code></td>
+                    <td><code>::first-letter</code></td>
+                </tr>
+                <tr>
+                    <td><code>:checked</code></td>
+                    <td><code>::first-line</code></td>
+                </tr>
+                <tr>
+                    <td><code>:invalid</code></td>
+                    <td><code>::selection</code></td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W nowoczesnym CSS
+                    pseudoelementy zapisujemy
+                    z podwójnym dwukropkiem.
+                    Starszy zapis
+                    <code>:before</code>
+                    i <code>:after</code>
+                    jest nadal obsługiwany
+                    ze względów zgodności,
+                    ale zaleca się
+                    <code>::before</code>
+                    i <code>::after</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="before-after">
+
+            <h2>13. Pseudoelementy ::before i ::after</h2>
+
+            <p>
+                Pseudoelementy
+                <code>::before</code>
+                i <code>::after</code>
+                pozwalają dodać zawartość
+                prezentacyjną przed
+                lub po zawartości elementu.
+            </p>
+
+            <h3>Przykład – symbol przed nagłówkiem</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h2 class="sekcja"&gt;
+    Aktualności
+&lt;/h2&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.sekcja::before {
+    content: "★ ";
+    color: orange;
+}</code></pre>
+
+            <p>
+                Przed tekstem nagłówka
+                pojawi się gwiazdka.
+            </p>
+
+            <h3>Przykład – symbol po komunikacie</h3>
+
+            <pre><code class="language-html">&lt;p class="sukces"&gt;
+    Zapisano dane
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">.sukces::after {
+    content: " ✓";
+    color: green;
+}</code></pre>
+
+            <p>
+                Po tekście pojawi się
+                symbol potwierdzenia.
+            </p>
+
+            <h3>Właściwość content</h3>
+
+            <p>
+                W przypadku standardowego
+                wykorzystania <code>::before</code>
+                i <code>::after</code>
+                definiujemy właściwość
+                <code>content</code>.
+            </p>
+
+            <pre><code class="language-css">.ozdoba::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin-right: 8px;
+}</code></pre>
+
+            <p>
+                Pusty tekst w <code>content</code>
+                pozwala utworzyć dekoracyjny
+                element graficzny.
+            </p>
+
+            <h3>Przykład – etykieta „Nowość”</h3>
+
+            <pre><code class="language-css">.nowosc::after {
+    content: " NOWOŚĆ";
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+}</code></pre>
+
+            <p>
+                Tekst zostanie dodany
+                wizualnie po zawartości
+                elementu z klasą
+                <code>nowosc</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dostępność</h3>
+                <p>
+                    Nie umieszczaj ważnych
+                    informacji wyłącznie
+                    za pomocą <code>content</code>.
+                    Treść generowana przez CSS
+                    może być różnie obsługiwana
+                    przez technologie wspomagające.
+                    Istotne komunikaty powinny
+                    znajdować się w HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="tekst">
+
+            <h2>14. Pseudoelementy tekstowe</h2>
+
+            <h3>::first-letter – pierwsza litera</h3>
+
+            <pre><code class="language-css">article p::first-letter {
+    font-size: 36px;
+    font-weight: bold;
+    color: darkred;
+}</code></pre>
+
+            <p>
+                Pozwala wyróżnić pierwszą
+                literę akapitu,
+                np. na wzór inicjału
+                w artykule prasowym.
+            </p>
+
+            <h3>::first-line – pierwszy wiersz</h3>
+
+            <pre><code class="language-css">article p::first-line {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wyróżnia pierwszy
+                widoczny wiersz tekstu
+                w obsługiwanym elemencie blokowym.
+            </p>
+
+            <p>
+                Długość pierwszego wiersza
+                zależy od szerokości
+                elementu i układu strony.
+            </p>
+
+            <h3>::selection – zaznaczony tekst</h3>
+
+            <pre><code class="language-css">p::selection {
+    background-color: yellow;
+    color: black;
+}</code></pre>
+
+            <p>
+                Po zaznaczeniu tekstu
+                akapitu użytkownik zobaczy
+                żółte tło zaznaczenia.
+            </p>
+
+            <h3>::placeholder – tekst podpowiedzi</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;input type="text"
+       placeholder="Wpisz swoje imię"&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">input::placeholder {
+    color: gray;
+    font-style: italic;
+}</code></pre>
+
+            <p>
+                Reguła zmienia wygląd
+                tekstu podpowiedzi.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>placeholder</code>
+                    nie zastępuje etykiety
+                    <code>label</code>.
+                    Pola formularzy powinny
+                    mieć czytelne,
+                    odpowiednio powiązane etykiety.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="laczenie">
+
+            <h2>15. Łączenie selektorów atrybutów, pseudoklas i pseudoelementów</h2>
+
+            <p>
+                Poznane selektory
+                możemy łączyć z klasami,
+                identyfikatorami
+                i kombinatorami.
+            </p>
+
+            <h3>Przykład – wymagane pole z fokusem</h3>
+
+            <pre><code class="language-css">input[required]:focus {
+    border: 2px solid blue;
+    background-color: lightyellow;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje pole
+                posiadające atrybut
+                <code>required</code>,
+                które jednocześnie
+                ma fokus.
+            </p>
+
+            <h3>Przykład – odnośniki PDF po najechaniu</h3>
+
+            <pre><code class="language-css">a[href$=".pdf" i]:hover {
+    color: red;
+    text-decoration: underline;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje odnośniki
+                kończące się na
+                <code>.pdf</code>
+                niezależnie od wielkości liter,
+                podczas wskazywania kursorem.
+            </p>
+
+            <h3>Przykład – co drugi wiersz tabeli</h3>
+
+            <pre><code class="language-css">table tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+}</code></pre>
+
+            <h3>Przykład – pierwszy akapit artykułu</h3>
+
+            <pre><code class="language-css">article > p:first-of-type {
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje akapit,
+                który jest bezpośrednim
+                dzieckiem artykułu
+                i pierwszym elementem
+                typu <code>p</code>
+                wśród swojego rodzeństwa.
+            </p>
+
+            <h3>Przykład – dekoracja nagłówka</h3>
+
+            <pre><code class="language-css">section > h2::before {
+    content: "➜ ";
+    color: darkblue;
+}</code></pre>
+
+            <p>
+                Reguła dodaje symbol
+                przed nagłówkami <code>h2</code>,
+                które są bezpośrednimi
+                dziećmi elementów
+                <code>section</code>.
+            </p>
+
+            <h3>Specyficzność</h3>
+
+            <p>
+                Selektory atrybutów
+                i pseudoklasy zwiększają
+                specyficzność tak jak klasy.
+                Pseudoelementy zwiększają
+                ją tak jak selektory elementów.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Specyficzność</th>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>0-0-1</td>
+                </tr>
+                <tr>
+                    <td><code>[required]</code></td>
+                    <td>0-1-0</td>
+                </tr>
+                <tr>
+                    <td><code>input:focus</code></td>
+                    <td>0-1-1</td>
+                </tr>
+                <tr>
+                    <td><code>p::first-letter</code></td>
+                    <td>0-0-2</td>
+                </tr>
+                <tr>
+                    <td><code>input[required]:focus</code></td>
+                    <td>0-2-1</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>16. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – mylenie klasy z pseudoklasą</h3>
+
+            <pre><code class="language-css">/* Klasa o nazwie hover */
+
+.hover {
+    color: red;
+}
+
+/* Pseudoklasa hover */
+
+a:hover {
+    color: red;
+}</code></pre>
+
+            <p>
+                To dwa zupełnie
+                różne selektory.
+            </p>
+
+            <h3>Błąd 2 – brak nawiasów kwadratowych</h3>
+
+            <pre><code class="language-css">/* Niepoprawny sposób wskazywania atrybutu */
+
+input required {
+    border: 2px solid red;
+}
+
+/* Poprawnie */
+
+input[required] {
+    border: 2px solid red;
+}</code></pre>
+
+            <h3>Błąd 3 – mylenie first-child i first-of-type</h3>
+
+            <p>
+                <code>p:first-child</code>
+                nie oznacza automatycznie
+                pierwszego akapitu w sekcji.
+            </p>
+
+            <p>
+                Oznacza akapit,
+                który jest pierwszym
+                dzieckiem swojego rodzica.
+            </p>
+
+            <h3>Błąd 4 – brak content w pseudoelementach</h3>
+
+            <pre><code class="language-css">/* Nie utworzy typowej dekoracji tekstowej */
+
+.ozdoba::before {
+    color: red;
+}
+
+/* Poprawnie */
+
+.ozdoba::before {
+    content: "★ ";
+    color: red;
+}</code></pre>
+
+            <h3>Błąd 5 – usuwanie widocznego fokusu</h3>
+
+            <pre><code class="language-css">/* Niewskazane bez alternatywy */
+
+button:focus {
+    outline: none;
+}
+
+/* Lepsze rozwiązanie */
+
+button:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Błąd 6 – nieprawidłowa kolejność selektorów</h3>
+
+            <pre><code class="language-css">/* Poprawny przykład */
+
+a:hover::after {
+    content: " ↗";
+}</code></pre>
+
+            <p>
+                Najpierw wskazujemy
+                element i jego stan,
+                a następnie pseudoelement.
+            </p>
+
+            <h3>Błąd 7 – zakładanie, że CSS sprawdza bezpieczeństwo danych</h3>
+
+            <p>
+                Pseudoklasy
+                <code>:valid</code>
+                i <code>:invalid</code>
+                pokazują wynik
+                wbudowanych ograniczeń
+                formularza w przeglądarce.
+            </p>
+
+            <p>
+                Nie sprawdzają,
+                czy dane są prawdziwe,
+                ani nie zastępują
+                walidacji po stronie serwera.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>17. Kompletny przykład – strona kursów</h2>
+
+            <p>
+                Przygotujemy stronę prezentującą
+                kursy informatyczne,
+                formularz zgłoszeniowy
+                i tabelę z harmonogramem.
+            </p>
+
+            <p>
+                W przykładzie wykorzystamy
+                selektory atrybutów,
+                pseudoklasy i pseudoelementy.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">kursy/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kursy informatyczne&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Kursy informatyczne&lt;/h1&gt;
+
+        &lt;p&gt;
+            Rozwijaj swoje umiejętności.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+
+        &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+        &lt;a href="#harmonogram"&gt;Harmonogram&lt;/a&gt;
+
+        &lt;a href="#zgloszenie"&gt;Zgłoszenie&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="oferta"&gt;
+
+            &lt;h2&gt;Nasza oferta&lt;/h2&gt;
+
+            &lt;article class="kurs"&gt;
+
+                &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Podstawy tworzenia
+                    stron internetowych.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="kurs nowosc"&gt;
+
+                &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Stylowanie stron WWW.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="kurs"&gt;
+
+                &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Interaktywność
+                    stron internetowych.
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+            &lt;p&gt;
+
+                &lt;a href="program.pdf"&gt;
+                    Pobierz program kursów
+                &lt;/a&gt;
+
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="harmonogram"&gt;
+
+            &lt;h2&gt;Harmonogram&lt;/h2&gt;
+
+            &lt;table&gt;
+
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Kurs&lt;/th&gt;
+                        &lt;th&gt;Termin&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+
+                &lt;tbody&gt;
+
+                    &lt;tr&gt;
+                        &lt;td&gt;HTML5&lt;/td&gt;
+                        &lt;td&gt;Poniedziałek&lt;/td&gt;
+                    &lt;/tr&gt;
+
+                    &lt;tr&gt;
+                        &lt;td&gt;CSS3&lt;/td&gt;
+                        &lt;td&gt;Środa&lt;/td&gt;
+                    &lt;/tr&gt;
+
+                    &lt;tr&gt;
+                        &lt;td&gt;JavaScript&lt;/td&gt;
+                        &lt;td&gt;Piątek&lt;/td&gt;
+                    &lt;/tr&gt;
+
+                &lt;/tbody&gt;
+
+            &lt;/table&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="zgloszenie"&gt;
+
+            &lt;h2&gt;Formularz zgłoszeniowy&lt;/h2&gt;
+
+            &lt;form action="#" method="get"&gt;
+
+                &lt;label for="imie"&gt;
+                    Imię:
+                &lt;/label&gt;
+
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       required&gt;
+
+                &lt;label for="email"&gt;
+                    E-mail:
+                &lt;/label&gt;
+
+                &lt;input type="email"
+                       id="email"
+                       name="email"
+                       required&gt;
+
+                &lt;label for="kurs"&gt;
+                    Wybierz kurs:
+                &lt;/label&gt;
+
+                &lt;select id="kurs"
+                        name="kurs"
+                        required&gt;
+
+                    &lt;option value=""&gt;
+                        -- Wybierz --
+                    &lt;/option&gt;
+
+                    &lt;option value="html"&gt;
+                        HTML5
+                    &lt;/option&gt;
+
+                    &lt;option value="css"&gt;
+                        CSS3
+                    &lt;/option&gt;
+
+                    &lt;option value="js"&gt;
+                        JavaScript
+                    &lt;/option&gt;
+
+                &lt;/select&gt;
+
+                &lt;label class="zgoda"&gt;
+
+                    &lt;input type="checkbox"
+                           name="zgoda"
+                           required&gt;
+
+                    Akceptuję regulamin
+
+                &lt;/label&gt;
+
+                &lt;button type="submit"&gt;
+                    Wyślij zgłoszenie
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Kursy informatyczne
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Cała strona */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    margin: 0;
+}
+
+/* Nagłówek */
+
+header {
+    background-color: navy;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+/* Nawigacja */
+
+nav {
+    background-color: #dddddd;
+    padding: 15px;
+}
+
+nav a {
+    color: darkblue;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+nav a:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}
+
+/* Sekcje */
+
+section {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Pseudoelement przed nagłówkiem */
+
+section h2::before {
+    content: "★ ";
+    color: orange;
+}
+
+/* Karty kursów */
+
+.kurs {
+    border: 1px solid gray;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.kurs:hover {
+    background-color: #eef5ff;
+}
+
+/* Oznaczenie nowego kursu */
+
+.nowosc::after {
+    content: " NOWOŚĆ";
+    color: red;
+    font-weight: bold;
+}
+
+/* Odnośnik do pliku PDF */
+
+a[href$=".pdf" i] {
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Tabela */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+/* Formularz */
+
+form {
+    max-width: 450px;
+}
+
+form > label:not(.zgoda) {
+    display: block;
+    margin-top: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    padding: 8px;
+    margin-top: 5px;
+}
+
+input:required {
+    border: 2px solid orange;
+}
+
+input:focus {
+    background-color: lightyellow;
+}
+
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid blue;
+    outline-offset: 2px;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: green;
+}
+
+.zgoda {
+    display: block;
+    margin: 15px 0;
+}
+
+/* Przycisk */
+
+button[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+button[type="submit"]:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}
+
+/* Stopka */
+
+footer {
+    background-color: #dddddd;
+    text-align: center;
+    padding: 15px;
+}</code></pre>
+
+            <h3>Analiza wykorzystanych selektorów</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Funkcja</th>
+                </tr>
+                <tr>
+                    <td><code>nav a:hover</code></td>
+                    <td>Zmiana wyglądu odnośnika po najechaniu kursorem.</td>
+                </tr>
+                <tr>
+                    <td><code>section h2::before</code></td>
+                    <td>Dodanie gwiazdki przed nagłówkiem sekcji.</td>
+                </tr>
+                <tr>
+                    <td><code>.kurs:hover</code></td>
+                    <td>Wyróżnienie karty kursu.</td>
+                </tr>
+                <tr>
+                    <td><code>.nowosc::after</code></td>
+                    <td>Dodanie dekoracyjnego napisu NOWOŚĆ.</td>
+                </tr>
+                <tr>
+                    <td><code>a[href$=".pdf" i]</code></td>
+                    <td>Wyróżnienie odnośników kończących się na .pdf.</td>
+                </tr>
+                <tr>
+                    <td><code>tbody tr:nth-child(even)</code></td>
+                    <td>Naprzemienny kolor wierszy tabeli.</td>
+                </tr>
+                <tr>
+                    <td><code>input:required</code></td>
+                    <td>Wyróżnienie wymaganych pól.</td>
+                </tr>
+                <tr>
+                    <td><code>input:focus</code></td>
+                    <td>Zmiana tła aktywnego pola.</td>
+                </tr>
+                <tr>
+                    <td><code>input[type="checkbox"]:checked</code></td>
+                    <td>Zmiana koloru zaznaczonego checkboxa.</td>
+                </tr>
+                <tr>
+                    <td><code>button[type="submit"]:hover</code></td>
+                    <td>Zmiana koloru przycisku podczas najechania.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Odnośnik do
+                    <code>program.pdf</code>
+                    jest w tym przykładzie
+                    demonstracyjny.
+                    Aby pobieranie działało,
+                    trzeba umieścić taki plik
+                    w folderze projektu.
+                    Formularz z
+                    <code>action="#"</code>
+                    nie zapisuje zgłoszeń
+                    na serwerze.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Selektory atrybutów wybierają elementy na podstawie atrybutów HTML.</li>
+                    <li><code>[required]</code> wskazuje elementy posiadające atrybut required.</li>
+                    <li><code>[type="email"]</code> wskazuje elementy z określoną wartością atrybutu.</li>
+                    <li><code>^=</code> sprawdza początek wartości atrybutu.</li>
+                    <li><code>$=</code> sprawdza koniec wartości atrybutu.</li>
+                    <li><code>*=</code> sprawdza występowanie fragmentu tekstu.</li>
+                    <li>Pseudoklasy zapisujemy z pojedynczym dwukropkiem.</li>
+                    <li><code>:hover</code> oznacza wskazywanie elementu kursorem.</li>
+                    <li><code>:focus</code> oznacza fokus elementu.</li>
+                    <li><code>:focus-visible</code> pomaga zapewnić czytelny wskaźnik fokusu.</li>
+                    <li><code>:first-child</code> wskazuje element będący pierwszym dzieckiem rodzica.</li>
+                    <li><code>:first-of-type</code> wskazuje pierwszy element danego typu wśród rodzeństwa.</li>
+                    <li><code>:nth-child(even)</code> pozwala wskazać elementy na parzystych pozycjach.</li>
+                    <li><code>:checked</code> wskazuje zaznaczone kontrolki.</li>
+                    <li><code>:required</code> wskazuje wymagane kontrolki formularza.</li>
+                    <li><code>:disabled</code> wskazuje wyłączone elementy.</li>
+                    <li><code>:not()</code> pozwala wykluczyć elementy pasujące do określonego selektora.</li>
+                    <li>Pseudoelementy zapisujemy z podwójnym dwukropkiem.</li>
+                    <li><code>::before</code> i <code>::after</code> służą do dodawania zawartości prezentacyjnej.</li>
+                    <li><code>::first-letter</code> styluje pierwszą literę.</li>
+                    <li><code>::first-line</code> styluje pierwszy wiersz tekstu.</li>
+                    <li><code>::selection</code> pozwala zmienić wygląd zaznaczenia tekstu.</li>
+                    <li><code>::placeholder</code> styluje tekst podpowiedzi pola.</li>
+                    <li>Selektory atrybutów, pseudoklasy i pseudoelementy można łączyć z innymi selektorami CSS.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne stosowanie
+                selektorów atrybutów,
+                pseudoklas i pseudoelementów
+                w praktycznym projekcie HTML5 i CSS3.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_20</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                oraz <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                na jednej stronie internetowej.</strong>
+                Każde zadanie powinno
+                znajdować się w osobnej sekcji.
+            </p>
+
+            <h3>Zadanie 1 – Selektory atrybutów</h3>
+
+            <p>
+                Przygotuj sekcję
+                „Przydatne materiały”.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>h2</code>.</li>
+                <li>Utwórz listę zawierającą co najmniej sześć odnośników.</li>
+                <li>Dwa odnośniki powinny prowadzić do plików z rozszerzeniem <code>.pdf</code>.</li>
+                <li>Dwa odnośniki powinny rozpoczynać się od <code>https://</code>.</li>
+                <li>Jeden odnośnik powinien prowadzić do pliku <code>.jpg</code>.</li>
+                <li>Jeden odnośnik powinien prowadzić do innej podstrony projektu.</li>
+                <li>Za pomocą selektora <code>a[href$=".pdf"]</code> ustaw czerwony kolor odnośników PDF.</li>
+                <li>Za pomocą selektora <code>a[href^="https://"]</code> ustaw zielony kolor odnośników zaczynających się od https.</li>
+                <li>Za pomocą selektora <code>a[href$=".jpg"]</code> ustaw pogrubienie odpowiedniego odnośnika.</li>
+                <li>Sprawdź, które odnośniki otrzymały poszczególne style.</li>
+            </ol>
+
+            <p>
+                <strong>Uwaga:</strong>
+                możesz użyć przykładowych
+                nazw plików i adresów,
+                ale jeśli chcesz sprawdzać
+                działanie odnośników,
+                muszą prowadzić
+                do istniejących zasobów.
+            </p>
+
+            <h3>Zadanie 2 – Pseudoklasy interakcji</h3>
+
+            <p>
+                Dodaj sekcję
+                „Interaktywne przyciski”.
+            </p>
+
+            <ol>
+                <li>Dodaj trzy przyciski typu <code>button</code>.</li>
+                <li>Nadaj im własne napisy, np. „Zapisz”, „Anuluj”, „Więcej informacji”.</li>
+                <li>Ustaw wspólny kolor tła, kolor tekstu i odstępy.</li>
+                <li>Za pomocą <code>button:hover</code> zmień kolor tła po najechaniu kursorem.</li>
+                <li>Za pomocą <code>button:active</code> ustaw inny kolor podczas naciskania.</li>
+                <li>Za pomocą <code>button:focus-visible</code> ustaw widoczne obramowanie fokusu.</li>
+                <li>Sprawdź działanie za pomocą myszy.</li>
+                <li>Przejdź do przycisków klawiszem Tab i sprawdź wskaźnik fokusu.</li>
+            </ol>
+
+            <p>
+                Przyciski nie muszą wykonywać
+                dodatkowych operacji.
+                W tym zadaniu ćwiczymy
+                wyłącznie ich wygląd.
+            </p>
+
+            <h3>Zadanie 3 – Pseudoklasy strukturalne</h3>
+
+            <p>
+                Dodaj sekcję
+                „Plan zajęć”.
+            </p>
+
+            <ol>
+                <li>Utwórz tabelę zawierającą trzy kolumny: dzień, przedmiot i godzina.</li>
+                <li>Dodaj nagłówek tabeli w <code>thead</code>.</li>
+                <li>Dodaj co najmniej sześć wierszy danych w <code>tbody</code>.</li>
+                <li>Za pomocą <code>tbody tr:nth-child(even)</code> ustaw jasnoszare tło parzystych wierszy.</li>
+                <li>Za pomocą <code>tbody tr:nth-child(odd)</code> ustaw białe tło nieparzystych wierszy.</li>
+                <li>Za pomocą <code>tbody tr:first-child</code> pogrub tekst pierwszego wiersza danych.</li>
+                <li>Za pomocą <code>tbody tr:last-child</code> ustaw dolne obramowanie ostatniego wiersza.</li>
+                <li>Sprawdź, czy reguły nie zmieniają nagłówka tabeli.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Pseudoklasy formularzy</h3>
+
+            <p>
+                Dodaj sekcję
+                „Formularz rejestracyjny”.
+            </p>
+
+            <ol>
+                <li>Utwórz formularz z polami: imię, e-mail i hasło.</li>
+                <li>Pola imię i e-mail oznacz jako wymagane.</li>
+                <li>Dodaj checkbox „Akceptuję regulamin”.</li>
+                <li>Dodaj przycisk „Wyślij”.</li>
+                <li>Za pomocą <code>input:required</code> ustaw pomarańczowe obramowanie wymaganych pól.</li>
+                <li>Za pomocą <code>input:focus</code> ustaw jasnoniebieskie tło aktywnego pola.</li>
+                <li>Za pomocą <code>input[type="checkbox"]:checked</code> ustaw zielony kolor zaznaczenia.</li>
+                <li>Dodaj pole tekstowe z atrybutem <code>disabled</code>.</li>
+                <li>Za pomocą <code>input:disabled</code> ustaw szare tło tego pola.</li>
+                <li>Sprawdź działanie pseudoklas w przeglądarce.</li>
+            </ol>
+
+            <p>
+                <strong>Ważne:</strong>
+                do testowania używaj
+                wyłącznie fikcyjnych danych.
+                Formularz nie powinien
+                przesyłać prawdziwych haseł.
+            </p>
+
+            <h3>Zadanie 5 – Pseudoelementy</h3>
+
+            <p>
+                Dodaj sekcję
+                „Artykuł o technologii”.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>h2</code>.</li>
+                <li>Utwórz trzy akapity własnego tekstu.</li>
+                <li>Za pomocą <code>h2::before</code> dodaj dekoracyjny symbol przed nagłówkiem.</li>
+                <li>Za pomocą <code>p::first-letter</code> powiększ pierwszą literę każdego akapitu.</li>
+                <li>Za pomocą <code>p::first-line</code> pogrub pierwszy wiersz akapitu.</li>
+                <li>Za pomocą <code>p::selection</code> ustaw żółte tło zaznaczonego tekstu.</li>
+                <li>Dodaj do jednego akapitu klasę <code>nowosc</code>.</li>
+                <li>Za pomocą <code>.nowosc::after</code> dodaj dekoracyjny symbol po tekście.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Analiza selektorów (dodatkowe)</h3>
+
+            <p>
+                Przeanalizuj poniższy kod HTML:
+            </p>
+
+            <pre><code class="language-html">&lt;section&gt;
+
+    &lt;h2&gt;Produkty&lt;/h2&gt;
+
+    &lt;p class="produkt"&gt;Laptop&lt;/p&gt;
+
+    &lt;p class="produkt nowosc"&gt;Monitor&lt;/p&gt;
+
+    &lt;p class="produkt"&gt;Klawiatura&lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Odpowiedz na pytania
+                w postaci listy numerowanej
+                na swojej stronie:
+            </p>
+
+            <ol>
+                <li>Który element wskaże <code>p:first-of-type</code>?</li>
+                <li>Który element wskaże <code>p:nth-of-type(2)</code>?</li>
+                <li>Które elementy wskaże <code>p:not(.nowosc)</code>?</li>
+                <li>Które elementy wskaże <code>.produkt</code>?</li>
+                <li>Co zrobi selektor <code>.nowosc::after</code>, jeśli ustawimy <code>content: " ★";</code>?</li>
+                <li>Czy <code>p:first-child</code> wskaże pierwszy akapit? Uzasadnij odpowiedź.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_20/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania powinny
+                    znajdować się w jednym
+                    dokumencie
+                    <code>index.html</code>,
+                    a wszystkie style
+                    w zewnętrznym pliku
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_20</code>
+                    do archiwum ZIP
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>
+                    i <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź,
+                    czy arkusz CSS jest poprawnie
+                    podłączony, czy działają
+                    selektory atrybutów,
+                    pseudoklasy i pseudoelementy
+                    oraz czy strona nie zawiera
+                    błędów składniowych.
+                </p>
+
+                <p>
+                    Teksty i zawartość strony
+                    powinny być własne,
+                    a nie skopiowane
+                    z przykładów.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 20</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
