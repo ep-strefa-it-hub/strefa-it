@@ -1,0 +1,2268 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 23 – Jednostki CSS i rozmiary elementów | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#podzial">2.Podział jednostek CSS</a>
+        <a href="#px">3.Jednostka px</a>
+        <a href="#procenty">4.Jednostka %</a>
+        <a href="#em">5.Jednostka em</a>
+        <a href="#rem">6.Jednostka rem</a>
+        <a href="#porownanie">7.Porównanie px, %, em i rem</a>
+        <a href="#viewport">8.Jednostki vw i vh</a>
+        <a href="#inne-viewport">9.vmin, vmax i dvh</a>
+        <a href="#pozostale">10.Pozostałe jednostki</a>
+        <a href="#width-height">11.width i height</a>
+        <a href="#min-max">12.min-width i max-width</a>
+        <a href="#wysokosc">13.min-height i max-height</a>
+        <a href="#box-sizing">14.Model pudełkowy i box-sizing</a>
+        <a href="#overflow">15.Przepełnienie zawartości</a>
+        <a href="#calc">16.Funkcja calc()</a>
+        <a href="#funkcje">17.min(), max() i clamp()</a>
+        <a href="#responsywnosc">18.Jednostki a responsywność</a>
+        <a href="#bledy">19.Najczęstsze błędy</a>
+        <a href="#przyklad">20.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 23 • CSS3</div>
+
+            <h2>Jednostki CSS oraz określanie rozmiarów elementów i tekstu</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie jednostek długości stosowanych
+                w CSS, rozróżnianie jednostek bezwzględnych
+                i względnych, określanie rozmiarów tekstu
+                i elementów oraz stosowanie elastycznych
+                wymiarów podczas projektowania stron WWW.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – po co stosujemy jednostki CSS?</h2>
+
+            <p>
+                Podczas projektowania strony internetowej
+                określamy rozmiary wielu elementów:
+                nagłówków, akapitów, obrazów, przycisków,
+                sekcji, marginesów i odstępów.
+            </p>
+
+            <p>
+                W CSS do określania tych wartości
+                wykorzystujemy <strong>jednostki miary</strong>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+}
+
+img {
+    width: 300px;
+}
+
+section {
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                W powyższym przykładzie jednostka
+                <code>px</code> została zastosowana
+                do określenia rozmiaru tekstu,
+                szerokości obrazu oraz odstępu
+                wewnętrznego sekcji.
+            </p>
+
+            <p>
+                Nie zawsze jednak chcemy,
+                aby element miał stały rozmiar.
+                Strona powinna dobrze wyglądać
+                na różnych ekranach.
+            </p>
+
+            <h3>Przykład szerokości względnej</h3>
+
+            <pre><code class="language-css">section {
+    width: 80%;
+}</code></pre>
+
+            <p>
+                Szerokość sekcji zależy
+                teraz od szerokości
+                jej bloku zawierającego.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Dobór jednostki wpływa na to,
+                    czy element ma rozmiar
+                    stały, czy dostosowuje się
+                    do otoczenia, rozmiaru pisma
+                    lub okna przeglądarki.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="podzial">
+
+            <h2>2. Podział jednostek CSS</h2>
+
+            <p>
+                Jednostki długości w CSS
+                dzielimy na dwie główne grupy:
+                <strong>bezwzględne</strong>
+                i <strong>względne</strong>.
+            </p>
+
+            <h3>Jednostki bezwzględne</h3>
+
+            <p>
+                Mają ustalone wzajemne przeliczniki
+                i nie są wyrażane jako procent
+                rozmiaru elementu nadrzędnego.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Nazwa</th>
+                </tr>
+                <tr>
+                    <td><code>px</code></td>
+                    <td>Piksel CSS</td>
+                </tr>
+                <tr>
+                    <td><code>cm</code></td>
+                    <td>Centymetr</td>
+                </tr>
+                <tr>
+                    <td><code>mm</code></td>
+                    <td>Milimetr</td>
+                </tr>
+                <tr>
+                    <td><code>in</code></td>
+                    <td>Cal</td>
+                </tr>
+                <tr>
+                    <td><code>pt</code></td>
+                    <td>Punkt typograficzny</td>
+                </tr>
+                <tr>
+                    <td><code>pc</code></td>
+                    <td>Pica</td>
+                </tr>
+            </table>
+
+            <h3>Jednostki względne</h3>
+
+            <p>
+                Ich wartość zależy
+                od określonego punktu odniesienia,
+                np. rozmiaru pisma,
+                wymiarów okna przeglądarki
+                albo wymiarów bloku zawierającego.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Punkt odniesienia</th>
+                </tr>
+                <tr>
+                    <td><code>%</code></td>
+                    <td>Zależy od właściwości, np. od szerokości bloku zawierającego.</td>
+                </tr>
+                <tr>
+                    <td><code>em</code></td>
+                    <td>Rozmiar pisma elementu lub jego rodzica, zależnie od właściwości.</td>
+                </tr>
+                <tr>
+                    <td><code>rem</code></td>
+                    <td>Rozmiar pisma elementu głównego.</td>
+                </tr>
+                <tr>
+                    <td><code>vw</code></td>
+                    <td>1% szerokości obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>vh</code></td>
+                    <td>1% wysokości obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>vmin</code></td>
+                    <td>1% mniejszego wymiaru obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>vmax</code></td>
+                    <td>1% większego wymiaru obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>ch</code></td>
+                    <td>W przybliżeniu szerokość znaku „0” w używanym kroju.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Jednostki względne nie są
+                    automatycznie lepsze
+                    w każdej sytuacji.
+                    Należy dobierać je
+                    do konkretnego zastosowania.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="px">
+
+            <h2>3. Jednostka px – piksele CSS</h2>
+
+            <p>
+                Jednostka <code>px</code>
+                jest jedną z najczęściej
+                stosowanych jednostek w CSS.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 32px;
+}
+
+.karta {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                rozmiary są określone
+                w pikselach CSS.
+            </p>
+
+            <h3>Czy 1px oznacza jeden fizyczny piksel ekranu?</h3>
+
+            <p>
+                Nie zawsze.
+                Piksel CSS jest jednostką
+                wykorzystywaną przez przeglądarkę
+                do wyznaczania układu strony.
+                Na ekranach o dużej gęstości
+                pikseli jeden piksel CSS
+                może odpowiadać kilku
+                fizycznym pikselom urządzenia.
+            </p>
+
+            <h3>Kiedy stosować px?</h3>
+
+            <ul>
+                <li>Do określania grubości obramowania.</li>
+                <li>Do niewielkich, precyzyjnych odstępów.</li>
+                <li>Do rozmiarów ikon i elementów graficznych.</li>
+                <li>Do wymiarów, które mają być określone w pikselach CSS.</li>
+            </ul>
+
+            <h3>Przykład obramowania</h3>
+
+            <pre><code class="language-css">.ramka {
+    border: 2px solid #2563EB;
+    border-radius: 8px;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Rozmiary zapisane w
+                    <code>px</code> mogą reagować
+                    na powiększenie strony
+                    w przeglądarce.
+                    Nie oznacza to jednak,
+                    że automatycznie dopasowują się
+                    do rozmiaru elementu nadrzędnego.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="procenty">
+
+            <h2>4. Jednostka % – wartości procentowe</h2>
+
+            <p>
+                Zapis procentowy
+                określa wartość
+                względem innej wartości.
+                Punkt odniesienia zależy
+                od konkretnej właściwości CSS.
+            </p>
+
+            <h3>Przykład szerokości</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 800px;
+}
+
+.karta {
+    width: 50%;
+}</code></pre>
+
+            <p>
+                Jeżeli blok zawierający kartę
+                ma szerokość 800 px,
+                to 50% odpowiada 400 px.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+    &lt;div class="karta"&gt;
+        Zawartość karty
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 800px;
+    background-color: lightgray;
+}
+
+.karta {
+    width: 50%;
+    background-color: lightblue;
+}</code></pre>
+
+            <h3>Procenty a rozmiar tekstu</h3>
+
+            <pre><code class="language-css">section {
+    font-size: 20px;
+}
+
+section p {
+    font-size: 150%;
+}</code></pre>
+
+            <p>
+                Rozmiar pisma akapitu
+                wyniesie 30 px,
+                ponieważ 150% z 20 px
+                to 30 px.
+            </p>
+
+            <h3>Procentowa wysokość</h3>
+
+            <pre><code class="language-css">.rodzic {
+    height: 300px;
+}
+
+.dziecko {
+    height: 50%;
+}</code></pre>
+
+            <p>
+                W tym przypadku
+                wysokość dziecka
+                wyniesie 150 px.
+            </p>
+
+            <p>
+                Warto jednak pamiętać,
+                że procentowa wysokość
+                nie zawsze zadziała
+                zgodnie z oczekiwaniem,
+                jeśli wysokość bloku
+                zawierającego zależy
+                wyłącznie od jego zawartości.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Procent nie ma
+                    jednego uniwersalnego
+                    punktu odniesienia.
+                    Dla <code>width</code>
+                    i <code>font-size</code>
+                    procenty oznaczają
+                    różne zależności.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="em">
+
+            <h2>5. Jednostka em</h2>
+
+            <p>
+                Jednostka <code>em</code>
+                jest związana z rozmiarem pisma.
+            </p>
+
+            <p>
+                Przy właściwości
+                <code>font-size</code>
+                odnosi się do obliczonego
+                rozmiaru pisma rodzica.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    font-size: 20px;
+}
+
+.kontener p {
+    font-size: 1.5em;
+}</code></pre>
+
+            <p>
+                Rozmiar tekstu akapitu
+                wyniesie 30 px.
+            </p>
+
+            <h3>Obliczenie</h3>
+
+            <p>
+                20 px × 1,5 = 30 px.
+            </p>
+
+            <h3>em przy innych właściwościach</h3>
+
+            <pre><code class="language-css">.przycisk {
+    font-size: 20px;
+    padding: 0.5em 1em;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                <code>em</code> przy
+                <code>padding</code>
+                odnosi się do rozmiaru
+                pisma samego przycisku.
+            </p>
+
+            <p>
+                Odstęp pionowy wyniesie 10 px,
+                a poziomy 20 px.
+            </p>
+
+            <h3>Zagnieżdżone elementy</h3>
+
+            <pre><code class="language-html">&lt;div class="zewnetrzny"&gt;
+    Tekst zewnętrzny
+
+    &lt;div class="wewnetrzny"&gt;
+        Tekst wewnętrzny
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.zewnetrzny {
+    font-size: 20px;
+}
+
+.wewnetrzny {
+    font-size: 1.5em;
+}</code></pre>
+
+            <p>
+                Tekst wewnętrzny
+                będzie miał rozmiar 30 px.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W przypadku zagnieżdżonych
+                    elementów rozmiary zapisane
+                    w <code>em</code>
+                    mogą się kumulować.
+                    Należy zwracać uwagę
+                    na rozmiar pisma rodzica.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="rem">
+
+            <h2>6. Jednostka rem</h2>
+
+            <p>
+                Jednostka <code>rem</code>
+                oznacza <em>root em</em>.
+                Odnosi się do rozmiaru
+                pisma elementu głównego
+                <code>html</code>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.25rem;
+}</code></pre>
+
+            <p>
+                Nagłówek otrzyma 32 px,
+                a akapit 20 px.
+            </p>
+
+            <h3>Obliczenia</h3>
+
+            <p>
+                2 × 16 px = 32 px.
+            </p>
+
+            <p>
+                1,25 × 16 px = 20 px.
+            </p>
+
+            <h3>Dlaczego rem jest wygodne?</h3>
+
+            <p>
+                Jednostka <code>rem</code>
+                pozwala tworzyć spójną
+                skalę rozmiarów
+                niezależnie od zagnieżdżenia
+                elementów HTML.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}</code></pre>
+
+            <p>
+                Jeżeli rozmiar pisma
+                elementu <code>html</code>
+                wynosi 16 px,
+                otrzymamy odpowiednio
+                40, 32, 24 i 16 px.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    W wielu projektach
+                    pozostawia się domyślny
+                    rozmiar pisma elementu
+                    <code>html</code>,
+                    a wielkości nagłówków
+                    i akapitów określa
+                    za pomocą <code>rem</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>7. Porównanie jednostek px, %, em i rem</h2>
+
+            <p>
+                Załóżmy, że rozmiar pisma
+                elementu <code>html</code>
+                wynosi 16 px,
+                a elementu rodzica 20 px.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zapis font-size</th>
+                    <th>Wynik</th>
+                    <th>Dlaczego?</th>
+                </tr>
+                <tr>
+                    <td><code>24px</code></td>
+                    <td>24 px</td>
+                    <td>Rozmiar określony bezpośrednio.</td>
+                </tr>
+                <tr>
+                    <td><code>150%</code></td>
+                    <td>30 px</td>
+                    <td>150% z 20 px.</td>
+                </tr>
+                <tr>
+                    <td><code>1.5em</code></td>
+                    <td>30 px</td>
+                    <td>1,5 × 20 px.</td>
+                </tr>
+                <tr>
+                    <td><code>1.5rem</code></td>
+                    <td>24 px</td>
+                    <td>1,5 × 16 px.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">html {
+    font-size: 16px;
+}
+
+.kontener {
+    font-size: 20px;
+}
+
+.tekst1 {
+    font-size: 24px;
+}
+
+.tekst2 {
+    font-size: 150%;
+}
+
+.tekst3 {
+    font-size: 1.5em;
+}
+
+.tekst4 {
+    font-size: 1.5rem;
+}</code></pre>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;p class="tekst1"&gt;Tekst 24px&lt;/p&gt;
+
+    &lt;p class="tekst2"&gt;Tekst 150%&lt;/p&gt;
+
+    &lt;p class="tekst3"&gt;Tekst 1.5em&lt;/p&gt;
+
+    &lt;p class="tekst4"&gt;Tekst 1.5rem&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>px</code> określa długość
+                    w pikselach CSS,
+                    <code>%</code> zależy od właściwości,
+                    <code>em</code> jest powiązane
+                    z rozmiarem pisma,
+                    a <code>rem</code> z rozmiarem
+                    pisma elementu głównego.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="viewport">
+
+            <h2>8. Jednostki vw i vh – rozmiar okna przeglądarki</h2>
+
+            <p>
+                Jednostki <code>vw</code>
+                i <code>vh</code>
+                odnoszą się do wymiarów
+                obszaru widoku przeglądarki
+                (<em>viewport</em>).
+            </p>
+
+            <h3>vw – viewport width</h3>
+
+            <p>
+                <code>1vw</code> odpowiada
+                1% szerokości obszaru widoku.
+            </p>
+
+            <pre><code class="language-css">.baner {
+    width: 80vw;
+}</code></pre>
+
+            <p>
+                Jeśli obszar widoku
+                ma szerokość 1000 px,
+                to 80vw odpowiada 800 px.
+            </p>
+
+            <h3>vh – viewport height</h3>
+
+            <p>
+                <code>1vh</code> odpowiada
+                1% wysokości odpowiedniego
+                obszaru widoku.
+            </p>
+
+            <pre><code class="language-css">.baner {
+    height: 50vh;
+}</code></pre>
+
+            <p>
+                Jeśli wysokość odniesienia
+                wynosi 800 px,
+                to 50vh odpowiada 400 px.
+            </p>
+
+            <h3>Przykład sekcji na wysokość ekranu</h3>
+
+            <pre><code class="language-css">.ekran {
+    min-height: 100vh;
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Sekcja otrzymuje minimalną
+                wysokość równą wysokości
+                obszaru widoku określonego
+                dla jednostki <code>vh</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Na urządzeniach mobilnych
+                    paski przeglądarki mogą
+                    zmieniać dostępną
+                    przestrzeń ekranu.
+                    Dlatego w niektórych
+                    sytuacjach warto używać
+                    nowocześniejszych jednostek,
+                    np. <code>dvh</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="inne-viewport">
+
+            <h2>9. Jednostki vmin, vmax i dvh</h2>
+
+            <h3>vmin</h3>
+
+            <p>
+                <code>1vmin</code> odpowiada
+                1% mniejszego wymiaru
+                obszaru widoku.
+            </p>
+
+            <pre><code class="language-css">.kwadrat {
+    width: 30vmin;
+    height: 30vmin;
+}</code></pre>
+
+            <p>
+                Jeśli obszar widoku
+                ma wymiary 1200 × 800 px,
+                to 30vmin odpowiada 240 px.
+            </p>
+
+            <h3>vmax</h3>
+
+            <p>
+                <code>1vmax</code> odpowiada
+                1% większego wymiaru
+                obszaru widoku.
+            </p>
+
+            <pre><code class="language-css">.element {
+    font-size: 3vmax;
+}</code></pre>
+
+            <p>
+                Przy wymiarach 1200 × 800 px
+                wartość 3vmax odpowiada 36 px.
+            </p>
+
+            <h3>dvh – dynamic viewport height</h3>
+
+            <p>
+                Jednostka <code>dvh</code>
+                uwzględnia dynamiczną wysokość
+                obszaru widoku, np. zmiany
+                widoczności pasków przeglądarki
+                na urządzeniu mobilnym.
+            </p>
+
+            <pre><code class="language-css">.ekran {
+    min-height: 100dvh;
+}</code></pre>
+
+            <h3>Inne nowoczesne jednostki</h3>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>svh</code></td>
+                    <td>Wysokość małego obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>lvh</code></td>
+                    <td>Wysokość dużego obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>dvh</code></td>
+                    <td>Wysokość dynamicznego obszaru widoku.</td>
+                </tr>
+                <tr>
+                    <td><code>dvw</code></td>
+                    <td>Szerokość dynamicznego obszaru widoku.</td>
+                </tr>
+            </table>
+
+            <p>
+                W podstawowych projektach
+                najczęściej wystarczy
+                znajomość <code>vw</code>
+                i <code>vh</code>,
+                jednak warto wiedzieć,
+                że istnieją ich nowocześniejsze odmiany.
+            </p>
+
+        </section>
+
+        <section id="pozostale">
+
+            <h2>10. Pozostałe jednostki CSS</h2>
+
+            <h3>ch – szerokość znaku</h3>
+
+            <p>
+                Jednostka <code>ch</code>
+                jest związana z szerokością
+                znaku „0” w używanym kroju.
+            </p>
+
+            <pre><code class="language-css">.artykul {
+    max-width: 65ch;
+}</code></pre>
+
+            <p>
+                Dzięki temu można ograniczać
+                długość wierszy tekstu.
+                Nie oznacza to jednak,
+                że każdy wiersz będzie zawierał
+                dokładnie 65 znaków.
+            </p>
+
+            <h3>cm, mm, in, pt i pc</h3>
+
+            <p>
+                Są to jednostki bezwzględne
+                wywodzące się z miar fizycznych
+                i typograficznych.
+            </p>
+
+            <pre><code class="language-css">.druk {
+    width: 10cm;
+    font-size: 12pt;
+}</code></pre>
+
+            <p>
+                W CSS obowiązują przeliczniki:
+            </p>
+
+            <ul>
+                <li>1in = 96px</li>
+                <li>1in = 2.54cm</li>
+                <li>1in = 72pt</li>
+                <li>1pc = 12pt</li>
+            </ul>
+
+            <p>
+                Na ekranie jednostki fizyczne
+                nie muszą odpowiadać
+                dokładnym wymiarom
+                mierzonym linijką.
+            </p>
+
+            <p>
+                Jednostki takie jak
+                <code>cm</code> i <code>pt</code>
+                są szczególnie przydatne
+                podczas przygotowywania
+                stylów do wydruku.
+            </p>
+
+        </section>
+
+        <section id="width-height">
+
+            <h2>11. Szerokość i wysokość elementów – width i height</h2>
+
+            <p>
+                Właściwości
+                <code>width</code>
+                i <code>height</code>
+                służą do określania
+                szerokości i wysokości
+                elementów.
+            </p>
+
+            <h3>Stała szerokość</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+}</code></pre>
+
+            <h3>Szerokość procentowa</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 80%;
+}</code></pre>
+
+            <h3>Stała wysokość</h3>
+
+            <pre><code class="language-css">.baner {
+    height: 250px;
+}</code></pre>
+
+            <h3>Wartość auto</h3>
+
+            <pre><code class="language-css">.karta {
+    width: auto;
+    height: auto;
+}</code></pre>
+
+            <p>
+                Wartość <code>auto</code>
+                pozwala przeglądarce
+                wyznaczyć rozmiar
+                zgodnie z zasadami układu.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+    &lt;h2&gt;Moja karta&lt;/h2&gt;
+    &lt;p&gt;Przykładowa zawartość.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 350px;
+    min-height: 200px;
+    padding: 20px;
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Karta ma określoną szerokość
+                i minimalną wysokość.
+                Jeśli zawartość będzie dłuższa,
+                element może zwiększyć wysokość.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    W przypadku bloków
+                    zawierających tekst
+                    często lepiej stosować
+                    <code>min-height</code>
+                    zamiast sztywnego
+                    <code>height</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="min-max">
+
+            <h2>12. Minimalna i maksymalna szerokość</h2>
+
+            <p>
+                Właściwości
+                <code>min-width</code>
+                i <code>max-width</code>
+                pozwalają ograniczyć
+                szerokość elementu.
+            </p>
+
+            <h3>min-width</h3>
+
+            <pre><code class="language-css">.element {
+    min-width: 200px;
+}</code></pre>
+
+            <p>
+                Określa minimalną
+                szerokość elementu.
+            </p>
+
+            <h3>max-width</h3>
+
+            <pre><code class="language-css">.element {
+    max-width: 800px;
+}</code></pre>
+
+            <p>
+                Ogranicza maksymalną
+                szerokość elementu.
+            </p>
+
+            <h3>Przykład elastycznego kontenera</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Kontener wykorzystuje
+                90% dostępnej szerokości,
+                ale nie przekracza 1000 px.
+            </p>
+
+            <h3>Przykład dla obrazu</h3>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <p>
+                Obraz może zmniejszyć
+                swoją szerokość,
+                aby nie przekraczać
+                szerokości dostępnego miejsca.
+            </p>
+
+            <p>
+                Wartość <code>height: auto</code>
+                pomaga zachować proporcje
+                obrazu podczas skalowania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Połączenie
+                    <code>width</code>
+                    i <code>max-width</code>
+                    jest bardzo przydatne
+                    przy projektowaniu
+                    elastycznych kontenerów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wysokosc">
+
+            <h2>13. Minimalna i maksymalna wysokość</h2>
+
+            <h3>min-height</h3>
+
+            <pre><code class="language-css">.karta {
+    min-height: 200px;
+}</code></pre>
+
+            <p>
+                Element będzie miał
+                co najmniej 200 px wysokości,
+                ale może się powiększyć,
+                jeśli wymaga tego zawartość.
+            </p>
+
+            <h3>max-height</h3>
+
+            <pre><code class="language-css">.lista {
+    max-height: 300px;
+}</code></pre>
+
+            <p>
+                Właściwość ogranicza
+                maksymalną wysokość elementu.
+                Jeśli zawartość jest większa,
+                może dojść do przepełnienia.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.opis {
+    max-height: 200px;
+    overflow: auto;
+}</code></pre>
+
+            <p>
+                Jeśli tekst nie zmieści się
+                w obszarze o maksymalnej
+                wysokości 200 px,
+                przeglądarka może
+                wyświetlić pasek przewijania.
+            </p>
+
+            <h3>Przykład sekcji</h3>
+
+            <pre><code class="language-css">.sekcja {
+    min-height: 300px;
+    padding: 30px;
+}</code></pre>
+
+            <p>
+                Minimalna wysokość
+                zapewnia określoną
+                przestrzeń, ale pozwala
+                sekcji rosnąć wraz z treścią.
+            </p>
+
+        </section>
+
+        <section id="box-sizing">
+
+            <h2>14. Model pudełkowy a rzeczywisty rozmiar elementu</h2>
+
+            <p>
+                Każdy element HTML
+                można traktować
+                jak prostokątne pudełko.
+            </p>
+
+            <p>
+                Na jego wymiary wpływają:
+            </p>
+
+            <ul>
+                <li>Zawartość (<code>content</code>).</li>
+                <li>Odstęp wewnętrzny (<code>padding</code>).</li>
+                <li>Obramowanie (<code>border</code>).</li>
+                <li>Margines zewnętrzny (<code>margin</code>).</li>
+            </ul>
+
+            <h3>Domyślny model content-box</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+}</code></pre>
+
+            <p>
+                Przy domyślnym
+                <code>box-sizing: content-box</code>
+                szerokość 300 px dotyczy
+                samej zawartości.
+            </p>
+
+            <p>
+                Całkowita szerokość
+                pudełka wraz z paddingiem
+                i obramowaniem wynosi:
+            </p>
+
+            <p>
+                300 + 20 + 20 + 2 + 2
+                = <strong>344 px</strong>.
+            </p>
+
+            <h3>Model border-box</h3>
+
+            <pre><code class="language-css">.karta {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+}</code></pre>
+
+            <p>
+                W tym przypadku
+                szerokość 300 px
+                obejmuje zawartość,
+                padding i obramowanie.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Model</th>
+                    <th>Znaczenie width</th>
+                </tr>
+                <tr>
+                    <td><code>content-box</code></td>
+                    <td>Szerokość samej zawartości.</td>
+                </tr>
+                <tr>
+                    <td><code>border-box</code></td>
+                    <td>Szerokość zawartości wraz z paddingiem i obramowaniem.</td>
+                </tr>
+            </table>
+
+            <h3>Ustawienie dla całej strony</h3>
+
+            <pre><code class="language-css">*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}</code></pre>
+
+            <p>
+                Taki zapis ułatwia
+                przewidywanie wymiarów
+                większości elementów strony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Margines zewnętrzny
+                    <code>margin</code>
+                    nie jest wliczany
+                    do wartości <code>width</code>,
+                    nawet przy
+                    <code>box-sizing: border-box</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="overflow">
+
+            <h2>15. Co się dzieje, gdy zawartość jest za duża?</h2>
+
+            <p>
+                Jeśli określimy elementowi
+                zbyt małe wymiary,
+                jego zawartość
+                może się nie zmieścić.
+            </p>
+
+            <p>
+                Do kontrolowania
+                przepełnienia służy
+                właściwość <code>overflow</code>.
+            </p>
+
+            <h3>overflow: visible</h3>
+
+            <pre><code class="language-css">.ramka {
+    height: 100px;
+    overflow: visible;
+}</code></pre>
+
+            <p>
+                Zawartość może być widoczna
+                poza granicami elementu.
+            </p>
+
+            <h3>overflow: hidden</h3>
+
+            <pre><code class="language-css">.ramka {
+    height: 100px;
+    overflow: hidden;
+}</code></pre>
+
+            <p>
+                Nadmiar zawartości
+                zostaje przycięty.
+            </p>
+
+            <h3>overflow: auto</h3>
+
+            <pre><code class="language-css">.ramka {
+    height: 100px;
+    overflow: auto;
+}</code></pre>
+
+            <p>
+                W razie potrzeby
+                pojawia się możliwość
+                przewijania zawartości.
+            </p>
+
+            <h3>overflow: scroll</h3>
+
+            <pre><code class="language-css">.ramka {
+    height: 100px;
+    overflow: scroll;
+}</code></pre>
+
+            <p>
+                Element tworzy
+                obszar przewijania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie ukrywaj ważnego tekstu
+                    za pomocą
+                    <code>overflow: hidden</code>.
+                    Najpierw sprawdź,
+                    czy element może
+                    zwiększać swoją wysokość.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="calc">
+
+            <h2>16. Obliczanie rozmiarów – funkcja calc()</h2>
+
+            <p>
+                Funkcja <code>calc()</code>
+                pozwala wykonywać
+                obliczenia na wartościach CSS.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: calc(100% - 40px);
+}</code></pre>
+
+            <p>
+                Szerokość elementu
+                jest równa 100%
+                szerokości odniesienia
+                pomniejszonej o 40 px.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-css">.panel {
+    width: calc(50% - 20px);
+}</code></pre>
+
+            <p>
+                Pozwala to połączyć
+                wartość procentową
+                z wartością w pikselach.
+            </p>
+
+            <h3>Wysokość obszaru</h3>
+
+            <pre><code class="language-css">.zawartosc {
+    min-height: calc(100vh - 100px);
+}</code></pre>
+
+            <p>
+                Minimalna wysokość
+                zostanie obliczona
+                jako wysokość obszaru widoku
+                pomniejszona o 100 px.
+            </p>
+
+            <h3>Operatory</h3>
+
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>+</code></td>
+                    <td>Dodawanie.</td>
+                </tr>
+                <tr>
+                    <td><code>-</code></td>
+                    <td>Odejmowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>*</code></td>
+                    <td>Mnożenie.</td>
+                </tr>
+                <tr>
+                    <td><code>/</code></td>
+                    <td>Dzielenie.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Przy operatorach
+                    <code>+</code> i <code>-</code>
+                    w funkcji <code>calc()</code>
+                    stosuj spacje po obu stronach.
+                </p>
+
+                <pre><code class="language-css">/* Poprawnie */
+
+width: calc(100% - 40px);
+
+/* Niepoprawnie */
+
+width: calc(100%-40px);</code></pre>
+            </div>
+
+        </section>
+
+        <section id="funkcje">
+
+            <h2>17. Funkcje min(), max() i clamp()</h2>
+
+            <p>
+                Funkcje te pozwalają
+                tworzyć elastyczne rozmiary
+                bez konieczności
+                stosowania wielu
+                osobnych reguł CSS.
+            </p>
+
+            <h3>min() – wybór mniejszej wartości</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: min(90%, 1000px);
+}</code></pre>
+
+            <p>
+                Przeglądarka wybiera
+                mniejszą z dwóch wartości.
+            </p>
+
+            <p>
+                Kontener nie przekroczy
+                1000 px i może zajmować
+                90% dostępnej szerokości.
+            </p>
+
+            <h3>max() – wybór większej wartości</h3>
+
+            <pre><code class="language-css">.element {
+    width: max(300px, 50%);
+}</code></pre>
+
+            <p>
+                Przeglądarka wybiera
+                większą wartość
+                spośród podanych.
+            </p>
+
+            <h3>clamp() – wartość minimalna, preferowana i maksymalna</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: clamp(24px, 4vw, 48px);
+}</code></pre>
+
+            <p>
+                Funkcja przyjmuje trzy argumenty:
+            </p>
+
+            <ol>
+                <li>Wartość minimalną – <code>24px</code>.</li>
+                <li>Wartość preferowaną – <code>4vw</code>.</li>
+                <li>Wartość maksymalną – <code>48px</code>.</li>
+            </ol>
+
+            <p>
+                Rozmiar nagłówka
+                może się zmieniać
+                wraz z szerokością
+                obszaru widoku,
+                ale pozostaje
+                w podanych granicach.
+            </p>
+
+            <h3>Przykład dla tekstu</h3>
+
+            <pre><code class="language-css">p {
+    font-size: clamp(16px, 1.5vw, 20px);
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Funkcja <code>clamp()</code>
+                    jest przydatna do tworzenia
+                    płynnej typografii,
+                    ale zawsze należy sprawdzić
+                    czytelność tekstu
+                    na małych ekranach
+                    i przy powiększeniu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="responsywnosc">
+
+            <h2>18. Jednostki CSS a responsywność strony</h2>
+
+            <p>
+                <strong>Responsywna strona WWW</strong>
+                dostosowuje układ
+                i rozmiary elementów
+                do różnych ekranów.
+            </p>
+
+            <h3>Przykład mało elastyczny</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 1000px;
+}</code></pre>
+
+            <p>
+                Na ekranie węższym
+                niż 1000 px
+                element może powodować
+                poziome przewijanie.
+            </p>
+
+            <h3>Przykład bardziej elastyczny</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Kontener dostosowuje
+                szerokość do dostępnego miejsca,
+                ale nie staje się
+                nadmiernie szeroki.
+            </p>
+
+            <h3>Responsywny obraz</h3>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <h3>Elastyczny nagłówek</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}</code></pre>
+
+            <h3>Elastyczna sekcja</h3>
+
+            <pre><code class="language-css">section {
+    width: min(90%, 1100px);
+    min-height: 250px;
+    margin: 0 auto;
+}</code></pre>
+
+            <h3>Wskazówki</h3>
+
+            <ul>
+                <li>Nie ustawiaj stałej szerokości wszystkich elementów.</li>
+                <li>Stosuj <code>max-width</code> do ograniczania szerokości.</li>
+                <li>Pozwalaj tekstowi zwiększać wysokość elementu.</li>
+                <li>Sprawdzaj wygląd strony na różnych szerokościach.</li>
+                <li>Używaj jednostek odpowiednich do danego zadania.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Responsywność nie polega
+                    na stosowaniu wyłącznie
+                    procentów lub jednostek
+                    <code>vw</code>.
+                    Najlepsze efekty daje
+                    odpowiednie łączenie
+                    jednostek i ograniczeń rozmiaru.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>19. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak jednostki</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.karta {
+    width: 300;
+}
+
+/* Poprawnie */
+
+.karta {
+    width: 300px;
+}</code></pre>
+
+            <h3>Błąd 2 – zbyt szeroki element</h3>
+
+            <pre><code class="language-css">/* Mało elastyczne */
+
+.karta {
+    width: 1200px;
+}
+
+/* Bardziej elastyczne */
+
+.karta {
+    width: 90%;
+    max-width: 1200px;
+}</code></pre>
+
+            <h3>Błąd 3 – mylenie em z rem</h3>
+
+            <pre><code class="language-css">.rodzic {
+    font-size: 20px;
+}
+
+.dziecko {
+    font-size: 2em;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                tekst dziecka ma 40 px,
+                a nie automatycznie 32 px.
+            </p>
+
+            <h3>Błąd 4 – procentowa wysokość bez odpowiedniego odniesienia</h3>
+
+            <pre><code class="language-css">.rodzic {
+    height: auto;
+}
+
+.dziecko {
+    height: 50%;
+}</code></pre>
+
+            <p>
+                Nie można zakładać,
+                że dziecko otrzyma
+                połowę wysokości
+                widocznej zawartości rodzica.
+            </p>
+
+            <h3>Błąd 5 – pomijanie paddingu i border</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+}</code></pre>
+
+            <p>
+                Przy domyślnym modelu
+                <code>content-box</code>
+                zewnętrzna szerokość
+                pudełka wynosi 344 px.
+            </p>
+
+            <h3>Błąd 6 – niepoprawny calc()</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+width: calc(100%-20px);
+
+/* Poprawnie */
+
+width: calc(100% - 20px);</code></pre>
+
+            <h3>Błąd 7 – sztywna wysokość dla długiego tekstu</h3>
+
+            <pre><code class="language-css">/* Może powodować przepełnienie */
+
+.karta {
+    height: 100px;
+}
+
+/* Często bezpieczniejsze */
+
+.karta {
+    min-height: 100px;
+}</code></pre>
+
+            <h3>Błąd 8 – za mały tekst</h3>
+
+            <pre><code class="language-css">/* Może być trudny do czytania */
+
+p {
+    font-size: 10px;
+}</code></pre>
+
+            <p>
+                Tekst należy projektować
+                z myślą o czytelności
+                i możliwości powiększania.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>20. Kompletny przykład – elastyczna strona WWW</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                zawierającą nagłówek,
+                sekcję wprowadzającą
+                i trzy karty informacyjne.
+            </p>
+
+            <p>
+                W projekcie wykorzystamy
+                jednostki <code>px</code>,
+                <code>%</code>,
+                <code>rem</code>,
+                <code>vw</code>
+                oraz funkcję
+                <code>clamp()</code>.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">jednostki-css/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Moja strona CSS&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Moja strona CSS&lt;/h1&gt;
+
+        &lt;p&gt;
+            Poznajemy jednostki
+            i rozmiary elementów.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Witaj na stronie!&lt;/h2&gt;
+
+            &lt;p&gt;
+                Ta strona wykorzystuje
+                elastyczne jednostki CSS.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="karty"&gt;
+
+            &lt;article class="karta"&gt;
+                &lt;h3&gt;HTML&lt;/h3&gt;
+
+                &lt;p&gt;
+                    HTML odpowiada
+                    za strukturę strony.
+                &lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+                &lt;h3&gt;CSS&lt;/h3&gt;
+
+                &lt;p&gt;
+                    CSS odpowiada
+                    za wygląd strony.
+                &lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+                &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                &lt;p&gt;
+                    JavaScript umożliwia
+                    tworzenie interakcji.
+                &lt;/p&gt;
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Moja strona CSS&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ustawienia podstawowe */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #1E3A8A;
+    color: white;
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+header p {
+    font-size: 1.125rem;
+}
+
+/* Główna zawartość */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 2rem auto;
+}
+
+/* Sekcja wprowadzająca */
+
+.wprowadzenie {
+    min-height: 180px;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.wprowadzenie h2 {
+    font-size: 1.75rem;
+}
+
+/* Karty */
+
+.karty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.karta {
+    flex: 1 1 250px;
+    min-width: 0;
+    min-height: 200px;
+    padding: 1.5rem;
+    background-color: white;
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+}
+
+.karta h3 {
+    font-size: 1.5rem;
+    color: #1D4ED8;
+}
+
+.karta p {
+    font-size: 1rem;
+}
+
+/* Stopka */
+
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #1E3A8A;
+    color: white;
+}</code></pre>
+
+            <h3>Analiza zastosowanych rozwiązań</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Rozwiązanie</th>
+                </tr>
+                <tr>
+                    <td>Nagłówek</td>
+                    <td>Elastyczny rozmiar tekstu z clamp().</td>
+                </tr>
+                <tr>
+                    <td>Główna zawartość</td>
+                    <td>Szerokość 90% ograniczona do 1100 px.</td>
+                </tr>
+                <tr>
+                    <td>Sekcja</td>
+                    <td>Minimalna wysokość i padding w rem.</td>
+                </tr>
+                <tr>
+                    <td>Karty</td>
+                    <td>Elastyczna szerokość, minimalna wysokość i obramowanie.</td>
+                </tr>
+                <tr>
+                    <td>Tekst</td>
+                    <td>Rozmiary w rem.</td>
+                </tr>
+                <tr>
+                    <td>Model pudełkowy</td>
+                    <td>box-sizing: border-box.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W przykładzie wykorzystano
+                    również <code>display: flex</code>,
+                    <code>flex-wrap</code> i
+                    <code>gap</code>.
+                    Są to właściwości
+                    rozmieszczania elementów,
+                    które zostaną dokładniej
+                    omówione w kolejnych lekcjach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Jednostki CSS służą do określania rozmiarów i odstępów.</li>
+                    <li>Jednostki dzielimy na bezwzględne i względne.</li>
+                    <li><code>px</code> oznacza piksel CSS.</li>
+                    <li><code>%</code> jest wartością procentową, której punkt odniesienia zależy od właściwości.</li>
+                    <li><code>em</code> jest powiązane z rozmiarem pisma.</li>
+                    <li><code>rem</code> odnosi się do rozmiaru pisma elementu głównego.</li>
+                    <li><code>vw</code> odnosi się do szerokości obszaru widoku.</li>
+                    <li><code>vh</code> odnosi się do wysokości obszaru widoku.</li>
+                    <li><code>vmin</code> wykorzystuje mniejszy wymiar obszaru widoku.</li>
+                    <li><code>vmax</code> wykorzystuje większy wymiar obszaru widoku.</li>
+                    <li><code>dvh</code> uwzględnia dynamiczną wysokość obszaru widoku.</li>
+                    <li><code>ch</code> jest związane z szerokością znaku „0”.</li>
+                    <li><code>width</code> określa szerokość elementu.</li>
+                    <li><code>height</code> określa wysokość elementu.</li>
+                    <li><code>min-width</code> i <code>max-width</code> ograniczają szerokość.</li>
+                    <li><code>min-height</code> i <code>max-height</code> ograniczają wysokość.</li>
+                    <li><code>box-sizing: border-box</code> uwzględnia padding i border w określonej szerokości.</li>
+                    <li><code>overflow</code> kontroluje przepełnienie zawartości.</li>
+                    <li><code>calc()</code> pozwala obliczać wartości CSS.</li>
+                    <li><code>min()</code> wybiera mniejszą wartość.</li>
+                    <li><code>max()</code> wybiera większą wartość.</li>
+                    <li><code>clamp()</code> ogranicza wartość do wyznaczonego przedziału.</li>
+                    <li>Elastyczne jednostki i ograniczenia wymiarów pomagają tworzyć responsywne strony WWW.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                zastosowanie jednostek CSS
+                do określania rozmiarów tekstu
+                i elementów oraz przygotowanie
+                strony dostosowującej się
+                do różnych szerokości okna.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_23</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                oraz <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                w ramach jednej strony WWW.</strong>
+                Każde kolejne zadanie
+                rozbudowuje ten sam projekt.
+            </p>
+
+            <h3>Zadanie 1 – Struktura strony i podstawowe rozmiary</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moje centrum technologii”</strong>.
+                Treści strony powinny
+                być własne.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj <code>header</code>, <code>main</code> i <code>footer</code>.</li>
+                <li>W nagłówku umieść tytuł strony i krótki opis.</li>
+                <li>W części głównej dodaj trzy sekcje opisujące wybrane technologie.</li>
+                <li>Ustaw rozmiar głównego tytułu na <code>36px</code>.</li>
+                <li>Ustaw rozmiar akapitów na <code>18px</code>.</li>
+                <li>Ustaw odstęp wewnętrzny sekcji na <code>20px</code>.</li>
+                <li>Dodaj obramowanie o grubości <code>2px</code> do każdej sekcji.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Jednostki względne em i rem</h3>
+
+            <p>
+                Zmień sposób
+                określania rozmiarów
+                wybranych tekstów.
+            </p>
+
+            <ol>
+                <li>Ustaw rozmiar pisma elementu <code>html</code> na <code>16px</code>.</li>
+                <li>Zmień rozmiar głównego tytułu na <code>2.25rem</code>.</li>
+                <li>Zmień rozmiar nagłówków sekcji na <code>1.5rem</code>.</li>
+                <li>Ustaw rozmiar tekstu akapitów na <code>1rem</code>.</li>
+                <li>W pierwszej sekcji utwórz element o klasie <code>przyklad-em</code>.</li>
+                <li>Ustaw dla tego elementu <code>font-size: 1.5em</code>.</li>
+                <li>Ustaw rozmiar pisma jego rodzica na <code>20px</code>.</li>
+                <li>Sprawdź, jaki rozmiar otrzyma tekst zapisany w <code>em</code>.</li>
+                <li>Dodaj pod przykładem krótkie wyjaśnienie różnicy między <code>em</code> i <code>rem</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Szerokość i wysokość elementów</h3>
+
+            <p>
+                Dostosuj rozmiary
+                głównej zawartości
+                i poszczególnych sekcji.
+            </p>
+
+            <ol>
+                <li>Ustaw dla elementu <code>main</code> szerokość <code>90%</code>.</li>
+                <li>Ogranicz jego maksymalną szerokość do <code>1000px</code>.</li>
+                <li>Wyśrodkuj <code>main</code> za pomocą <code>margin: 0 auto</code>.</li>
+                <li>Ustaw minimalną wysokość każdej sekcji na <code>200px</code>.</li>
+                <li>Dodaj do jednej sekcji więcej tekstu i sprawdź, czy zwiększa wysokość.</li>
+                <li>Dodaj obraz do jednej z sekcji.</li>
+                <li>Ustaw obrazowi <code>max-width: 100%</code> i <code>height: auto</code>.</li>
+                <li>Zmniejsz szerokość okna przeglądarki i obserwuj zachowanie elementów.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Model pudełkowy i box-sizing</h3>
+
+            <p>
+                Sprawdź wpływ
+                paddingu i obramowania
+                na rzeczywisty rozmiar elementu.
+            </p>
+
+            <ol>
+                <li>Dodaj dwie karty o klasach <code>karta1</code> i <code>karta2</code>.</li>
+                <li>Obu kartom ustaw <code>width: 300px</code>.</li>
+                <li>Ustaw <code>padding: 20px</code>.</li>
+                <li>Ustaw <code>border: 2px solid black</code>.</li>
+                <li>Dla pierwszej karty ustaw <code>box-sizing: content-box</code>.</li>
+                <li>Dla drugiej karty ustaw <code>box-sizing: border-box</code>.</li>
+                <li>Porównaj zewnętrzną szerokość obu kart.</li>
+                <li>Pod kartami zapisz obliczoną szerokość każdej z nich, bez marginesów.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Jednostki vw, vh i funkcja clamp()</h3>
+
+            <p>
+                Dodaj do strony
+                elastyczny baner.
+            </p>
+
+            <ol>
+                <li>Utwórz sekcję o klasie <code>baner</code>.</li>
+                <li>Ustaw jej minimalną wysokość na <code>30vh</code>.</li>
+                <li>Dodaj do banera nagłówek i krótki tekst.</li>
+                <li>Ustaw nagłówkowi <code>font-size: clamp(24px, 4vw, 48px)</code>.</li>
+                <li>Ustaw szerokość banera na <code>100%</code> dostępnej szerokości.</li>
+                <li>Zmień szerokość okna przeglądarki.</li>
+                <li>Zaobserwuj, jak zmienia się rozmiar nagłówka.</li>
+                <li>Wyjaśnij w komentarzu CSS znaczenie trzech wartości funkcji <code>clamp()</code>.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Responsywna strona (dodatkowe)</h3>
+
+            <p>
+                Dopracuj stronę,
+                aby była wygodna
+                w przeglądaniu
+                na różnych ekranach.
+            </p>
+
+            <ol>
+                <li>Ustaw <code>box-sizing: border-box</code> dla wszystkich elementów i pseudoelementów.</li>
+                <li>Sprawdź, czy żaden element nie powoduje niepotrzebnego przewijania poziomego.</li>
+                <li>Zastosuj <code>max-width</code> dla głównej zawartości.</li>
+                <li>Sprawdź, czy obrazy zmniejszają się wraz z szerokością kontenera.</li>
+                <li>Usuń sztywne wysokości, które powodują ucinanie tekstu.</li>
+                <li>Przetestuj stronę przy szerokości okna około 400 px.</li>
+                <li>Przetestuj stronę przy szerokości około 1200 px.</li>
+                <li>Sprawdź wygląd strony przy powiększeniu do 200%.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_23/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- obraz.jpg</code></pre>
+
+                <p>
+                    Jeśli wykorzystujesz obraz,
+                    umieść go w folderze
+                    <code>img</code>.
+                    Nazwa pliku może być inna,
+                    ale ścieżka w HTML
+                    musi być poprawna.
+                </p>
+
+                <p>
+                    Wszystkie zadania
+                    wykonaj w jednym pliku
+                    <code>index.html</code>
+                    i jednym arkuszu
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_23</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>,
+                    <code>style.css</code>
+                    oraz wykorzystane obrazy.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź
+                    poprawność podłączenia CSS,
+                    rozmiary tekstu,
+                    działanie jednostek względnych,
+                    szerokości i wysokości elementów
+                    oraz zachowanie strony
+                    po zmianie szerokości okna.
+                </p>
+
+                <p>
+                    <strong>Treści strony powinny być własne.</strong>
+                    Nie kopiuj opisów
+                    z przedstawionego przykładu.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 23</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
