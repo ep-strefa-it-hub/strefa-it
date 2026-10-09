@@ -1,0 +1,2652 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 24 – Formatowanie tła w CSS | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#background-color">2.Kolor tła</a>
+        <a href="#background-image">3.Obraz jako tło</a>
+        <a href="#sciezki">4.Ścieżki do obrazów</a>
+        <a href="#background-repeat">5.Powtarzanie tła</a>
+        <a href="#background-position">6.Pozycjonowanie tła</a>
+        <a href="#background-size">7.Rozmiar obrazu tła</a>
+        <a href="#cover-contain">8.cover i contain</a>
+        <a href="#background-attachment">9.Przewijanie tła</a>
+        <a href="#background-origin">10.Obszar pozycjonowania</a>
+        <a href="#background-clip">11.Obszar malowania tła</a>
+        <a href="#background">12.Skrócony zapis background</a>
+        <a href="#gradienty">13.Gradienty CSS</a>
+        <a href="#wiele-tel">14.Wiele warstw tła</a>
+        <a href="#czytelnosc">15.Czytelność tekstu na tle</a>
+        <a href="#zastosowania">16.Praktyczne zastosowania</a>
+        <a href="#bledy">17.Najczęstsze błędy</a>
+        <a href="#przyklad">18.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 24 • CSS3
+            </div>
+
+            <h2>
+                Formatowanie tła – kolor, obraz, powtarzanie,
+                pozycjonowanie i rozmiar tła
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie właściwości CSS służących do
+                formatowania tła elementów HTML,
+                stosowanie kolorów i obrazów jako tła,
+                kontrolowanie powtarzania, położenia
+                oraz rozmiaru grafiki, a także
+                tworzenie estetycznych i czytelnych
+                sekcji stron internetowych.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – czym jest tło elementu?</h2>
+
+            <p>
+                W CSS możemy zmieniać nie tylko wygląd
+                tekstu, ale również tło elementów HTML.
+            </p>
+
+            <p>
+                Tło może być jednolitym kolorem,
+                obrazem, gradientem albo połączeniem
+                kilku warstw graficznych.
+            </p>
+
+            <p>
+                Tło można ustawić między innymi dla:
+            </p>
+
+            <ul>
+                <li>całej strony – <code>body</code>,</li>
+                <li>nagłówka – <code>header</code>,</li>
+                <li>sekcji – <code>section</code>,</li>
+                <li>artykułu – <code>article</code>,</li>
+                <li>przycisku – <code>button</code>,</li>
+                <li>dowolnego kontenera – <code>div</code>.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">body {
+    background-color: #F1F5F9;
+}
+
+header {
+    background-color: #1E3A8A;
+}
+
+section {
+    background-color: white;
+}</code></pre>
+
+            <p>
+                Każdy element może posiadać
+                własne tło, niezależnie od tła
+                pozostałych elementów.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Tło elementu jest częścią jego wyglądu.
+                    Nie zmienia struktury dokumentu HTML.
+                </p>
+
+                <p>
+                    Właściwości tła zapisujemy
+                    w arkuszu CSS.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-color">
+
+            <h2>2. Kolor tła – background-color</h2>
+
+            <p>
+                Właściwość <code>background-color</code>
+                określa kolor tła elementu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    background-color: kolor;
+}</code></pre>
+
+            <h3>Kolor zapisany nazwą</h3>
+
+            <pre><code class="language-css">section {
+    background-color: lightblue;
+}</code></pre>
+
+            <h3>Kolor zapisany w HEX</h3>
+
+            <pre><code class="language-css">section {
+    background-color: #DBEAFE;
+}</code></pre>
+
+            <h3>Kolor zapisany w RGB</h3>
+
+            <pre><code class="language-css">section {
+    background-color: rgb(219, 234, 254);
+}</code></pre>
+
+            <h3>Kolor z przezroczystością</h3>
+
+            <pre><code class="language-css">section {
+    background-color: rgba(37, 99, 235, 0.3);
+}</code></pre>
+
+            <p>
+                Ostatnia wartość w zapisie
+                <code>rgba()</code> określa
+                przezroczystość koloru:
+            </p>
+
+            <ul>
+                <li><code>0</code> – całkowita przezroczystość,</li>
+                <li><code>0.5</code> – częściowa przezroczystość,</li>
+                <li><code>1</code> – pełna nieprzezroczystość.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="komunikat"&gt;
+    &lt;p&gt;Witaj na mojej stronie!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.komunikat {
+    background-color: #DCFCE7;
+    color: #166534;
+    padding: 20px;
+}</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Właściwość <code>background-color</code>
+                    zmienia kolor tła, natomiast
+                    <code>color</code> zmienia kolor tekstu.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-image">
+
+            <h2>3. Obraz jako tło – background-image</h2>
+
+            <p>
+                Właściwość <code>background-image</code>
+                pozwala umieścić obraz w tle elementu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    background-image: url("obraz.jpg");
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">header {
+    background-image: url("img/las.jpg");
+}</code></pre>
+
+            <p>
+                Przeglądarka pobierze obraz
+                <code>las.jpg</code> z folderu
+                <code>img</code>, znajdującego się
+                obok pliku CSS.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;section class="baner"&gt;
+
+    &lt;h1&gt;Odkrywaj świat&lt;/h1&gt;
+
+    &lt;p&gt;
+        Poznaj najpiękniejsze miejsca.
+    &lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    min-height: 350px;
+    padding: 40px;
+    color: white;
+}</code></pre>
+
+            <p>
+                Obraz zostanie umieszczony
+                w tle sekcji.
+            </p>
+
+            <p>
+                Domyślnie obraz tła może się powtarzać,
+                dlatego często dodajemy
+                kolejne właściwości.
+            </p>
+
+            <h3>Połączenie obrazu i koloru tła</h3>
+
+            <pre><code class="language-css">.baner {
+    background-color: #1E3A8A;
+    background-image: url("img/gory.jpg");
+}</code></pre>
+
+            <p>
+                Kolor tła znajduje się pod obrazem.
+                Może być widoczny, gdy obraz
+                nie pokrywa całego elementu,
+                zawiera przezroczyste fragmenty
+                albo nie zostanie załadowany.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    <code>background-image</code>
+                    służy przede wszystkim do obrazów
+                    dekoracyjnych.
+                </p>
+
+                <p>
+                    Jeśli obraz przekazuje istotne
+                    informacje, powinien być zwykle
+                    umieszczony w HTML za pomocą
+                    znacznika <code>&lt;img&gt;</code>
+                    z odpowiednim tekstem alternatywnym.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="sciezki">
+
+            <h2>4. Ścieżki do obrazów tła</h2>
+
+            <p>
+                Przy korzystaniu z
+                <code>background-image</code>
+                bardzo ważna jest poprawna
+                ścieżka do pliku graficznego.
+            </p>
+
+            <p>
+                Ścieżka względna w
+                <code>url()</code> zapisana
+                w zewnętrznym arkuszu CSS
+                jest liczona względem położenia
+                tego arkusza CSS.
+            </p>
+
+            <h3>Przykład 1 – CSS i folder img obok siebie</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|-- style.css
+|
+|-- img/
+    |-- las.jpg</code></pre>
+
+            <p>Poprawny zapis:</p>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/las.jpg");
+}</code></pre>
+
+            <h3>Przykład 2 – CSS w osobnym folderze</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- css/
+|   |-- style.css
+|
+|-- img/
+    |-- las.jpg</code></pre>
+
+            <p>
+                Tym razem musimy wyjść
+                z folderu <code>css</code>
+                o jeden poziom wyżej.
+            </p>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("../img/las.jpg");
+}</code></pre>
+
+            <h3>Przykład 3 – adres internetowy</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("https://example.com/obraz.jpg");
+}</code></pre>
+
+            <p>
+                Można korzystać z adresów URL,
+                ale w projektach szkolnych
+                najwygodniej przechowywać
+                własne obrazy w folderze projektu.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Przy zewnętrznym pliku CSS
+                    ścieżkę do obrazu zapisujemy
+                    względem lokalizacji pliku CSS,
+                    a nie względem
+                    <code>index.html</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-repeat">
+
+            <h2>5. Powtarzanie obrazu – background-repeat</h2>
+
+            <p>
+                Właściwość <code>background-repeat</code>
+                określa, czy i w jaki sposób
+                obraz tła ma się powtarzać.
+            </p>
+
+            <p>
+                Domyślną wartością jest
+                <code>repeat</code>.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>repeat</code></td>
+                    <td>Powtarza obraz poziomo i pionowo.</td>
+                </tr>
+
+                <tr>
+                    <td><code>repeat-x</code></td>
+                    <td>Powtarza obraz poziomo.</td>
+                </tr>
+
+                <tr>
+                    <td><code>repeat-y</code></td>
+                    <td>Powtarza obraz pionowo.</td>
+                </tr>
+
+                <tr>
+                    <td><code>no-repeat</code></td>
+                    <td>Nie powtarza obrazu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>space</code></td>
+                    <td>Powtarza całe obrazy z odstępami, jeśli pozwala na to dostępne miejsce.</td>
+                </tr>
+
+                <tr>
+                    <td><code>round</code></td>
+                    <td>Dostosowuje rozmiar powtarzanych obrazów, aby wypełnić obszar całymi kafelkami.</td>
+                </tr>
+
+            </table>
+
+            <h3>Powtarzanie w obu kierunkach</h3>
+
+            <pre><code class="language-css">body {
+    background-image: url("img/wzor.png");
+    background-repeat: repeat;
+}</code></pre>
+
+            <h3>Powtarzanie poziome</h3>
+
+            <pre><code class="language-css">header {
+    background-image: url("img/pasek.png");
+    background-repeat: repeat-x;
+}</code></pre>
+
+            <h3>Powtarzanie pionowe</h3>
+
+            <pre><code class="language-css">aside {
+    background-image: url("img/wzor.png");
+    background-repeat: repeat-y;
+}</code></pre>
+
+            <h3>Bez powtarzania</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <h3>Typowe zastosowania</h3>
+
+            <ul>
+                <li><code>repeat</code> – drobne wzory i tekstury.</li>
+                <li><code>repeat-x</code> – dekoracyjne paski poziome.</li>
+                <li><code>repeat-y</code> – pionowe dekoracje.</li>
+                <li><code>no-repeat</code> – zdjęcia i duże grafiki.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Dla dużych zdjęć
+                    najczęściej stosujemy
+                    <code>background-repeat: no-repeat</code>.
+                </p>
+
+                <p>
+                    Powtarzanie najlepiej sprawdza się
+                    przy małych grafikach
+                    przygotowanych jako wzory.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-position">
+
+            <h2>6. Pozycjonowanie tła – background-position</h2>
+
+            <p>
+                Właściwość <code>background-position</code>
+                określa położenie obrazu
+                w obszarze pozycjonowania tła.
+            </p>
+
+            <h3>Podstawowe wartości</h3>
+
+            <table>
+
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>left</code></td>
+                    <td>Wyrównanie do lewej.</td>
+                </tr>
+
+                <tr>
+                    <td><code>right</code></td>
+                    <td>Wyrównanie do prawej.</td>
+                </tr>
+
+                <tr>
+                    <td><code>top</code></td>
+                    <td>Wyrównanie do góry.</td>
+                </tr>
+
+                <tr>
+                    <td><code>bottom</code></td>
+                    <td>Wyrównanie do dołu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Wyśrodkowanie.</td>
+                </tr>
+
+            </table>
+
+            <h3>Obraz na środku</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}</code></pre>
+
+            <h3>Obraz w prawym górnym rogu</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}</code></pre>
+
+            <h3>Obraz na dole pośrodku</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}</code></pre>
+
+            <h3>Pozycjonowanie procentowe</h3>
+
+            <pre><code class="language-css">.baner {
+    background-position: 50% 50%;
+}</code></pre>
+
+            <p>
+                Zapis <code>50% 50%</code>
+                oznacza wyśrodkowanie obrazu.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-css">.baner {
+    background-position: 20% 70%;
+}</code></pre>
+
+            <p>
+                Pierwsza wartość dotyczy
+                położenia poziomego,
+                a druga pionowego.
+            </p>
+
+            <h3>Pozycjonowanie w pikselach</h3>
+
+            <pre><code class="language-css">.baner {
+    background-position: 30px 20px;
+}</code></pre>
+
+            <p>
+                Obraz jest przesunięty
+                o 30 px w poziomie
+                i 20 px w pionie
+                względem początku obszaru
+                pozycjonowania.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    W przypadku wartości procentowych
+                    przeglądarka dopasowuje wskazany
+                    punkt obrazu do odpowiadającego
+                    mu punktu obszaru pozycjonowania.
+                </p>
+
+                <p>
+                    Dlatego <code>50% 50%</code>
+                    oznacza środek obrazu
+                    ustawiony na środku obszaru.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-size">
+
+            <h2>7. Rozmiar obrazu tła – background-size</h2>
+
+            <p>
+                Właściwość <code>background-size</code>
+                określa rozmiar obrazu
+                wykorzystywanego jako tło.
+            </p>
+
+            <h3>Rozmiar w pikselach</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-size: 300px 200px;
+}</code></pre>
+
+            <p>
+                Obraz otrzyma szerokość
+                300 px i wysokość 200 px.
+                Jeśli proporcje oryginalnego
+                obrazu są inne, może dojść
+                do jego zniekształcenia.
+            </p>
+
+            <h3>Rozmiar z zachowaniem proporcji</h3>
+
+            <pre><code class="language-css">.baner {
+    background-size: 300px auto;
+}</code></pre>
+
+            <p>
+                Szerokość obrazu wyniesie 300 px,
+                a wysokość zostanie obliczona
+                z zachowaniem proporcji.
+            </p>
+
+            <h3>Rozmiar procentowy</h3>
+
+            <pre><code class="language-css">.baner {
+    background-size: 50% auto;
+}</code></pre>
+
+            <p>
+                Szerokość obrazu tła
+                zostanie obliczona jako 50%
+                szerokości obszaru pozycjonowania.
+            </p>
+
+            <h3>Wartość auto</h3>
+
+            <pre><code class="language-css">.baner {
+    background-size: auto;
+}</code></pre>
+
+            <p>
+                Przeglądarka wykorzystuje
+                naturalne wymiary obrazu,
+                jeśli są dostępne,
+                zgodnie z zasadami
+                obliczania rozmiaru tła.
+            </p>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>auto</code></td>
+                    <td>Automatyczne wyznaczanie rozmiaru.</td>
+                </tr>
+
+                <tr>
+                    <td><code>300px 200px</code></td>
+                    <td>Dokładna szerokość i wysokość.</td>
+                </tr>
+
+                <tr>
+                    <td><code>50% auto</code></td>
+                    <td>Szerokość procentowa z zachowaniem proporcji.</td>
+                </tr>
+
+                <tr>
+                    <td><code>cover</code></td>
+                    <td>Wypełnienie całego obszaru.</td>
+                </tr>
+
+                <tr>
+                    <td><code>contain</code></td>
+                    <td>Zmieszczenie całego obrazu w obszarze.</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section id="cover-contain">
+
+            <h2>8. Różnica między cover a contain</h2>
+
+            <p>
+                Dwie bardzo ważne wartości
+                właściwości <code>background-size</code>
+                to <code>cover</code>
+                oraz <code>contain</code>.
+            </p>
+
+            <h3>background-size: cover</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <p>
+                Obraz zostaje przeskalowany
+                z zachowaniem proporcji tak,
+                aby całkowicie pokrywał
+                obszar tła.
+            </p>
+
+            <p>
+                Część obrazu może zostać
+                niewidoczna poza granicami
+                elementu.
+            </p>
+
+            <h3>background-size: contain</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <p>
+                Cały obraz zostaje
+                zmieszczony w obszarze
+                z zachowaniem proporcji.
+            </p>
+
+            <p>
+                Mogą pozostać fragmenty
+                obszaru niepokryte obrazem.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+
+                <tr>
+                    <th>Właściwość</th>
+                    <th>cover</th>
+                    <th>contain</th>
+                </tr>
+
+                <tr>
+                    <td>Cały obraz widoczny</td>
+                    <td>Niekoniecznie</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Cały obszar pokryty</td>
+                    <td>Tak</td>
+                    <td>Niekoniecznie</td>
+                </tr>
+
+                <tr>
+                    <td>Zachowanie proporcji</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Banery, sekcje ze zdjęciem</td>
+                    <td>Grafiki dekoracyjne, ilustracje</td>
+                </tr>
+
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <strong>cover</strong> – wypełnia
+                    cały obszar, ale może przyciąć obraz.
+                </p>
+
+                <p>
+                    <strong>contain</strong> – pokazuje
+                    cały obraz, ale może pozostawić
+                    wolną przestrzeń.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-attachment">
+
+            <h2>9. Przewijanie tła – background-attachment</h2>
+
+            <p>
+                Właściwość
+                <code>background-attachment</code>
+                określa zachowanie obrazu tła
+                podczas przewijania.
+            </p>
+
+            <h3>scroll</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/las.jpg");
+    background-attachment: scroll;
+}</code></pre>
+
+            <p>
+                Tło przewija się razem
+                z elementem w dokumencie.
+            </p>
+
+            <h3>fixed</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/las.jpg");
+    background-attachment: fixed;
+}</code></pre>
+
+            <p>
+                Tło jest przywiązane
+                do obszaru widoku,
+                a nie do przewijanej
+                zawartości elementu.
+            </p>
+
+            <h3>local</h3>
+
+            <pre><code class="language-css">.panel {
+    height: 200px;
+    overflow: auto;
+    background-image: url("img/wzor.png");
+    background-attachment: local;
+}</code></pre>
+
+            <p>
+                Tło przewija się razem
+                z zawartością elementu,
+                jeśli element posiada
+                własny obszar przewijania.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Wartość</th>
+                    <th>Zachowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>scroll</code></td>
+                    <td>Tło przewija się z elementem w dokumencie.</td>
+                </tr>
+
+                <tr>
+                    <td><code>fixed</code></td>
+                    <td>Tło jest związane z obszarem widoku.</td>
+                </tr>
+
+                <tr>
+                    <td><code>local</code></td>
+                    <td>Tło przewija się z zawartością elementu.</td>
+                </tr>
+
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Efekt <code>fixed</code>
+                    może zachowywać się różnie
+                    na urządzeniach mobilnych.
+                    Nie należy opierać
+                    działania całej strony
+                    na tym efekcie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-origin">
+
+            <h2>10. Obszar pozycjonowania tła – background-origin</h2>
+
+            <p>
+                Właściwość
+                <code>background-origin</code>
+                określa, od którego obszaru
+                pudełka elementu
+                obliczane jest położenie
+                obrazu tła.
+            </p>
+
+            <p>
+                Najważniejsze wartości:
+            </p>
+
+            <ul>
+                <li><code>border-box</code> – obszar wraz z obramowaniem,</li>
+                <li><code>padding-box</code> – obszar wraz z paddingiem, bez obramowania,</li>
+                <li><code>content-box</code> – obszar samej zawartości.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 350px;
+    min-height: 250px;
+    padding: 30px;
+    border: 10px dashed black;
+
+    background-image: url("img/wzor.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+
+    background-origin: content-box;
+}</code></pre>
+
+            <p>
+                W tym przypadku
+                pozycjonowanie obrazu
+                rozpoczyna się względem
+                obszaru zawartości.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    background-origin: padding-box;
+}</code></pre>
+
+            <p>
+                Jest to domyślna wartość
+                dla zwykłego obrazu tła.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    <code>background-origin</code>
+                    określa obszar pozycjonowania
+                    obrazu, a nie to,
+                    gdzie tło jest widoczne.
+                </p>
+
+                <p>
+                    Za obszar malowania tła
+                    odpowiada
+                    <code>background-clip</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="background-clip">
+
+            <h2>11. Obszar malowania tła – background-clip</h2>
+
+            <p>
+                Właściwość <code>background-clip</code>
+                określa, do którego obszaru
+                pudełka elementu
+                tło może być malowane.
+            </p>
+
+            <h3>border-box</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: lightblue;
+    background-clip: border-box;
+}</code></pre>
+
+            <p>
+                Tło rozciąga się również
+                pod obszarem obramowania.
+                To wartość domyślna.
+            </p>
+
+            <h3>padding-box</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: lightblue;
+    background-clip: padding-box;
+}</code></pre>
+
+            <p>
+                Tło jest malowane
+                pod zawartością i paddingiem,
+                ale nie pod obramowaniem.
+            </p>
+
+            <h3>content-box</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: lightblue;
+    background-clip: content-box;
+}</code></pre>
+
+            <p>
+                Tło jest malowane
+                tylko w obszarze zawartości.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+
+                <tr>
+                    <th>Wartość</th>
+                    <th>Obszar tła</th>
+                </tr>
+
+                <tr>
+                    <td><code>border-box</code></td>
+                    <td>Do zewnętrznej krawędzi obramowania.</td>
+                </tr>
+
+                <tr>
+                    <td><code>padding-box</code></td>
+                    <td>Do wewnętrznej krawędzi obramowania.</td>
+                </tr>
+
+                <tr>
+                    <td><code>content-box</code></td>
+                    <td>Tylko obszar zawartości.</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <section id="background">
+
+            <h2>12. Skrócony zapis background</h2>
+
+            <p>
+                Zamiast zapisywać
+                każdą właściwość osobno,
+                możemy użyć skróconej
+                właściwości <code>background</code>.
+            </p>
+
+            <h3>Pełny zapis</h3>
+
+            <pre><code class="language-css">.baner {
+    background-color: #1E3A8A;
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}</code></pre>
+
+            <h3>Zapis skrócony</h3>
+
+            <pre><code class="language-css">.baner {
+    background: #1E3A8A
+                url("img/gory.jpg")
+                center / cover
+                no-repeat;
+}</code></pre>
+
+            <p>
+                Oba zapisy pozwalają
+                uzyskać taki sam efekt.
+            </p>
+
+            <h3>Dlaczego stosujemy ukośnik?</h3>
+
+            <p>
+                W skróconej właściwości
+                <code>background</code>
+                znak <code>/</code>
+                oddziela pozycję tła
+                od jego rozmiaru.
+            </p>
+
+            <pre><code class="language-css">background: center / cover;</code></pre>
+
+            <p>
+                <code>center</code>
+                oznacza pozycję,
+                a <code>cover</code>
+                oznacza rozmiar.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-css">.sekcja {
+    background: url("img/wzor.png")
+                left top / 100px auto
+                repeat;
+}</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Zastosowanie skróconego
+                    <code>background</code>
+                    ustawia również pominięte
+                    właściwości tła
+                    na ich wartości początkowe.
+                </p>
+
+                <p>
+                    Dlatego przy poprawianiu
+                    istniejących stylów
+                    warto sprawdzić,
+                    czy zapis skrócony
+                    nie nadpisuje
+                    wcześniejszych ustawień.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="gradienty">
+
+            <h2>13. Gradienty CSS jako tło</h2>
+
+            <p>
+                Gradient jest płynnym
+                przejściem między kolorami.
+            </p>
+
+            <p>
+                W CSS gradienty można
+                stosować jako wartość
+                <code>background-image</code>.
+            </p>
+
+            <h3>Gradient liniowy – linear-gradient()</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: linear-gradient(
+        to right,
+        #2563EB,
+        #7C3AED
+    );
+}</code></pre>
+
+            <p>
+                Kolor przechodzi
+                od niebieskiego do fioletowego
+                w kierunku od lewej do prawej.
+            </p>
+
+            <h3>Gradient pionowy</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: linear-gradient(
+        to bottom,
+        #DBEAFE,
+        #1D4ED8
+    );
+}</code></pre>
+
+            <h3>Gradient pod kątem</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: linear-gradient(
+        45deg,
+        #06B6D4,
+        #2563EB
+    );
+}</code></pre>
+
+            <h3>Gradient z trzema kolorami</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: linear-gradient(
+        to right,
+        red,
+        orange,
+        yellow
+    );
+}</code></pre>
+
+            <h3>Gradient promienisty – radial-gradient()</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: radial-gradient(
+        circle,
+        #FDE68A,
+        #F97316
+    );
+}</code></pre>
+
+            <p>
+                Kolory rozchodzą się
+                promieniście od środka
+                gradientu.
+            </p>
+
+            <h3>Gradient zamiast pliku graficznego</h3>
+
+            <pre><code class="language-css">header {
+    background: linear-gradient(
+        135deg,
+        #1E3A8A,
+        #0F172A
+    );
+}</code></pre>
+
+            <p>
+                Gradient nie wymaga
+                pobierania osobnego pliku obrazu.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Gradient jest w CSS
+                    rodzajem obrazu generowanego
+                    przez przeglądarkę.
+                </p>
+
+                <p>
+                    Dlatego można stosować
+                    go w <code>background-image</code>
+                    oraz <code>background</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="wiele-tel">
+
+            <h2>14. Nakładanie kilku warstw tła</h2>
+
+            <p>
+                CSS pozwala umieścić
+                kilka obrazów tła
+                w jednym elemencie.
+            </p>
+
+            <p>
+                Warstwy oddzielamy przecinkami.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image:
+        url("img/logo.png"),
+        url("img/gory.jpg");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right top,
+        center;
+
+    background-size:
+        100px auto,
+        cover;
+}</code></pre>
+
+            <p>
+                Pierwszy obraz
+                jest warstwą górną.
+            </p>
+
+            <p>
+                Drugi obraz znajduje się
+                pod pierwszym.
+            </p>
+
+            <h3>Gradient na zdjęciu</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("img/gory.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <p>
+                Pierwszą warstwą jest
+                półprzezroczysty gradient,
+                a drugą zdjęcie.
+            </p>
+
+            <p>
+                Dzięki temu zdjęcie
+                zostaje przyciemnione,
+                co może poprawić
+                czytelność jasnego tekstu.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;section class="baner"&gt;
+
+    &lt;h1&gt;Witaj w górach!&lt;/h1&gt;
+
+    &lt;p&gt;
+        Odkrywaj niezwykłe miejsca.
+    &lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.baner {
+    min-height: 400px;
+    padding: 50px;
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.3)
+        ),
+        url("img/gory.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Wiele warstw tła
+                    można wykorzystać
+                    do uzyskania ciekawych
+                    efektów graficznych
+                    bez dodatkowych
+                    elementów HTML.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="czytelnosc">
+
+            <h2>15. Czytelność tekstu na tle obrazu</h2>
+
+            <p>
+                Obraz w tle może wyglądać
+                atrakcyjnie, ale nie powinien
+                utrudniać czytania tekstu.
+            </p>
+
+            <h3>Przykład problemu</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/las.jpg");
+    color: white;
+}</code></pre>
+
+            <p>
+                Jeśli zdjęcie zawiera
+                jasne fragmenty,
+                biały tekst może być
+                słabo widoczny.
+            </p>
+
+            <h3>Rozwiązanie 1 – ciemna nakładka</h3>
+
+            <pre><code class="language-css">.baner {
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url("img/las.jpg");
+
+    background-size: cover;
+    background-position: center;
+}</code></pre>
+
+            <h3>Rozwiązanie 2 – półprzezroczyste tło pod tekstem</h3>
+
+            <pre><code class="language-html">&lt;section class="baner"&gt;
+
+    &lt;div class="tekst-banera"&gt;
+
+        &lt;h1&gt;Poznaj przyrodę&lt;/h1&gt;
+
+        &lt;p&gt;
+            Odkrywaj niezwykłe miejsca.
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <pre><code class="language-css">.baner {
+    padding: 50px;
+    background: url("img/las.jpg")
+                center / cover
+                no-repeat;
+}
+
+.tekst-banera {
+    max-width: 500px;
+    padding: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}</code></pre>
+
+            <h3>Rozwiązanie 3 – odpowiedni dobór zdjęcia</h3>
+
+            <p>
+                Można również wybrać
+                fotografię, na której
+                miejsce przeznaczone
+                na tekst jest spokojne,
+                jednolite lub odpowiednio ciemne.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Zawsze sprawdzaj kontrast
+                    tekstu i tła.
+                    Tekst musi być czytelny
+                    również na małych ekranach.
+                </p>
+
+                <p>
+                    Sam cień tekstu
+                    nie zawsze wystarcza
+                    do zapewnienia czytelności.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="zastosowania">
+
+            <h2>16. Praktyczne zastosowania formatowania tła</h2>
+
+            <h3>Przykład 1 – kolorowe karty</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: #EFF6FF;
+    padding: 20px;
+    border-radius: 10px;
+}</code></pre>
+
+            <h3>Przykład 2 – nagłówek z gradientem</h3>
+
+            <pre><code class="language-css">header {
+    padding: 50px;
+    color: white;
+
+    background: linear-gradient(
+        to right,
+        #1D4ED8,
+        #7C3AED
+    );
+}</code></pre>
+
+            <h3>Przykład 3 – baner ze zdjęciem</h3>
+
+            <pre><code class="language-css">.baner {
+    min-height: 350px;
+
+    background-image: url("img/miasto.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}</code></pre>
+
+            <h3>Przykład 4 – mały wzór jako tło</h3>
+
+            <pre><code class="language-css">body {
+    background-image: url("img/wzor.png");
+    background-repeat: repeat;
+}</code></pre>
+
+            <h3>Przykład 5 – logo w prawym rogu</h3>
+
+            <pre><code class="language-css">.panel {
+    background-image: url("img/logo.png");
+    background-repeat: no-repeat;
+    background-position: right 20px top 20px;
+    background-size: 80px auto;
+}</code></pre>
+
+            <h3>Przykład 6 – sekcja z nakładką</h3>
+
+            <pre><code class="language-css">.sekcja {
+    min-height: 300px;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("img/las.jpg") center / cover no-repeat;
+}</code></pre>
+
+            <p>
+                W ostatnim przykładzie
+                zastosowano skrócony zapis
+                dwóch warstw tła.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>17. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – niepoprawna ścieżka</h3>
+
+            <pre><code class="language-css">/* Błędna ścieżka, jeśli plik
+   znajduje się w folderze img */
+
+. baner {
+    background-image: url("las.jpg");
+}</code></pre>
+
+            <p>Poprawny przykład:</p>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/las.jpg");
+}</code></pre>
+
+            <h3>Błąd 2 – brak no-repeat</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+}</code></pre>
+
+            <p>
+                Obraz może powtarzać się
+                w obu kierunkach.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+    background-repeat: no-repeat;
+}</code></pre>
+
+            <h3>Błąd 3 – mylenie cover i contain</h3>
+
+            <pre><code class="language-css">.baner {
+    background-size: contain;
+}</code></pre>
+
+            <p>
+                Jeśli chcemy, aby zdjęcie
+                wypełniało cały baner,
+                często właściwsze będzie:
+            </p>
+
+            <pre><code class="language-css">.baner {
+    background-size: cover;
+}</code></pre>
+
+            <h3>Błąd 4 – brak wymiarów elementu</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/gory.jpg");
+}</code></pre>
+
+            <p>
+                Sam obraz tła nie nadaje
+                elementowi wysokości.
+            </p>
+
+            <p>
+                Jeśli element nie ma zawartości
+                ani określonych wymiarów,
+                może być niewidoczny.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">.baner {
+    min-height: 300px;
+    background-image: url("img/gory.jpg");
+}</code></pre>
+
+            <h3>Błąd 5 – nieczytelny tekst</h3>
+
+            <pre><code class="language-css">.baner {
+    background-image: url("img/jasne-zdjecie.jpg");
+    color: white;
+}</code></pre>
+
+            <p>
+                Należy dobrać odpowiedni
+                kontrast lub zastosować
+                przyciemniającą nakładkę.
+            </p>
+
+            <h3>Błąd 6 – niepoprawny zapis background-size</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.baner {
+    background-size: cover center;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.baner {
+    background-size: cover;
+    background-position: center;
+}</code></pre>
+
+            <h3>Błąd 7 – błędny zapis skrócony</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.baner {
+    background: url("img/gory.jpg") center cover;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.baner {
+    background: url("img/gory.jpg")
+                center / cover
+                no-repeat;
+}</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Wskazówka</h3>
+
+                <p>
+                    Gdy obraz tła nie pojawia się
+                    na stronie, sprawdź kolejno:
+                    ścieżkę do pliku, nazwę pliku,
+                    wielkość liter, rozmiar elementu
+                    oraz poprawność kodu CSS.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>18. Kompletny przykład – strona „Odkrywaj naturę”</h2>
+
+            <p>
+                Przygotujemy prostą stronę WWW,
+                na której wykorzystamy:
+            </p>
+
+            <ul>
+                <li>jednolity kolor tła,</li>
+                <li>zdjęcie w tle banera,</li>
+                <li>pozycjonowanie obrazu,</li>
+                <li><code>background-size: cover</code>,</li>
+                <li>gradient CSS,</li>
+                <li>półprzezroczystą nakładkę,</li>
+                <li>kolorowe tła kart.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">odkrywaj-nature/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- las.jpg
+    |
+    |-- gory.jpg</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Odkrywaj naturę&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Odkrywaj naturę&lt;/h1&gt;
+
+        &lt;p&gt;
+            Najpiękniejsze miejsca
+            czekają na Ciebie!
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="baner"&gt;
+
+            &lt;div class="tekst-banera"&gt;
+
+                &lt;h2&gt;Poznaj piękno przyrody&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Odkrywaj lasy, góry
+                    i niezwykłe krajobrazy.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Dlaczego warto podróżować?&lt;/h2&gt;
+
+            &lt;p&gt;
+                Podróże pozwalają poznawać
+                nowe miejsca i odpoczywać
+                na łonie natury.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="miejsca"&gt;
+
+            &lt;h2&gt;Nasze propozycje&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta las"&gt;
+
+                    &lt;h3&gt;Lasy&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Odpoczynek wśród drzew
+                        i śpiewu ptaków.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta gory"&gt;
+
+                    &lt;h3&gt;Góry&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Wędrówki i piękne widoki.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta jeziora"&gt;
+
+                    &lt;h3&gt;Jeziora&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Spokój, woda i relaks.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Odkrywaj naturę&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ustawienia podstawowe */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+
+    background: linear-gradient(
+        to right,
+        #166534,
+        #14532D
+    );
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Główna zawartość */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Baner ze zdjęciem */
+
+.baner {
+    min-height: 350px;
+    padding: 40px;
+    border-radius: 12px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("img/gory.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Tekst na banerze */
+
+.tekst-banera {
+    max-width: 500px;
+    padding: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+
+.tekst-banera h2 {
+    font-size: 30px;
+}
+
+/* Sekcja wprowadzająca */
+
+.wprowadzenie {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+/* Sekcja z kartami */
+
+.miejsca {
+    margin-top: 30px;
+}
+
+.karty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+    min-width: 0;
+    min-height: 220px;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* Tła kart */
+
+.las {
+    background-color: #DCFCE7;
+}
+
+.gory {
+    background-color: #DBEAFE;
+}
+
+.jeziora {
+    background-color: #CFFAFE;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: white;
+    background-color: #14532D;
+}</code></pre>
+
+            <h3>Analiza zastosowanych właściwości</h3>
+
+            <table>
+
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowane tło</th>
+                </tr>
+
+                <tr>
+                    <td>Cała strona</td>
+                    <td>Jednolity kolor tła.</td>
+                </tr>
+
+                <tr>
+                    <td>Nagłówek</td>
+                    <td>Gradient liniowy.</td>
+                </tr>
+
+                <tr>
+                    <td>Baner</td>
+                    <td>Zdjęcie i półprzezroczysty gradient.</td>
+                </tr>
+
+                <tr>
+                    <td>Tekst banera</td>
+                    <td>Półprzezroczyste ciemne tło.</td>
+                </tr>
+
+                <tr>
+                    <td>Sekcja wprowadzająca</td>
+                    <td>Białe tło.</td>
+                </tr>
+
+                <tr>
+                    <td>Karty</td>
+                    <td>Różne kolory tła.</td>
+                </tr>
+
+                <tr>
+                    <td>Stopka</td>
+                    <td>Ciemnozielone tło.</td>
+                </tr>
+
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Zwróć uwagę</h3>
+
+                <p>
+                    W przykładzie wykorzystano
+                    również <code>display: flex</code>
+                    i <code>flex-wrap</code>
+                    do rozmieszczenia kart.
+                    Te właściwości dotyczą układu
+                    elementów i będą dokładniej
+                    omawiane w kolejnych lekcjach.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+
+                    <li>
+                        <code>background-color</code>
+                        ustawia kolor tła.
+                    </li>
+
+                    <li>
+                        <code>background-image</code>
+                        ustawia obraz lub gradient jako tło.
+                    </li>
+
+                    <li>
+                        <code>url()</code>
+                        wskazuje lokalizację obrazu.
+                    </li>
+
+                    <li>
+                        Ścieżki względne w zewnętrznym CSS
+                        są liczone względem pliku CSS.
+                    </li>
+
+                    <li>
+                        <code>background-repeat</code>
+                        kontroluje powtarzanie obrazu.
+                    </li>
+
+                    <li>
+                        <code>repeat</code>
+                        powtarza obraz poziomo i pionowo.
+                    </li>
+
+                    <li>
+                        <code>repeat-x</code>
+                        powtarza obraz poziomo.
+                    </li>
+
+                    <li>
+                        <code>repeat-y</code>
+                        powtarza obraz pionowo.
+                    </li>
+
+                    <li>
+                        <code>no-repeat</code>
+                        wyłącza powtarzanie.
+                    </li>
+
+                    <li>
+                        <code>background-position</code>
+                        określa położenie obrazu.
+                    </li>
+
+                    <li>
+                        <code>background-size</code>
+                        określa rozmiar obrazu tła.
+                    </li>
+
+                    <li>
+                        <code>cover</code>
+                        wypełnia cały obszar,
+                        ale może przyciąć obraz.
+                    </li>
+
+                    <li>
+                        <code>contain</code>
+                        pokazuje cały obraz,
+                        ale może pozostawić wolną przestrzeń.
+                    </li>
+
+                    <li>
+                        <code>background-attachment</code>
+                        kontroluje zachowanie tła
+                        podczas przewijania.
+                    </li>
+
+                    <li>
+                        <code>background-origin</code>
+                        określa obszar pozycjonowania tła.
+                    </li>
+
+                    <li>
+                        <code>background-clip</code>
+                        określa obszar malowania tła.
+                    </li>
+
+                    <li>
+                        <code>background</code>
+                        umożliwia skrócony zapis
+                        właściwości tła.
+                    </li>
+
+                    <li>
+                        <code>linear-gradient()</code>
+                        tworzy gradient liniowy.
+                    </li>
+
+                    <li>
+                        <code>radial-gradient()</code>
+                        tworzy gradient promienisty.
+                    </li>
+
+                    <li>
+                        Można stosować kilka warstw
+                        tła w jednym elemencie.
+                    </li>
+
+                    <li>
+                        Obraz tła nie nadaje
+                        elementowi automatycznie wysokości.
+                    </li>
+
+                    <li>
+                        Tło nie powinno utrudniać
+                        czytania tekstu.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                zastosowanie właściwości CSS
+                do formatowania tła
+                oraz przygotowanie strony
+                zawierającej kolorowe sekcje,
+                zdjęcie w tle, gradient
+                i poprawnie pozycjonowane grafiki.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_24</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>
+                oraz folder <code>img</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                w ramach jednej strony WWW.</strong>
+                Każde kolejne zadanie
+                rozbudowuje ten sam projekt.
+            </p>
+
+            <h3>Zadanie 1 – Kolorowe tła strony</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moje wymarzone miejsce”</strong>.
+                Może ona przedstawiać
+                wybrane miasto, kraj,
+                góry, jezioro, las
+                lub inne interesujące miejsce.
+            </p>
+
+            <ol>
+
+                <li>Utwórz poprawny dokument HTML5.</li>
+
+                <li>
+                    Podłącz zewnętrzny arkusz
+                    <code>style.css</code>.
+                </li>
+
+                <li>
+                    Dodaj elementy
+                    <code>header</code>,
+                    <code>main</code>
+                    i <code>footer</code>.
+                </li>
+
+                <li>
+                    W nagłówku umieść nazwę
+                    wybranego miejsca
+                    oraz krótki opis.
+                </li>
+
+                <li>
+                    W części głównej dodaj
+                    trzy sekcje:
+                    opis miejsca, atrakcje
+                    i ciekawostki.
+                </li>
+
+                <li>
+                    Ustaw kolor tła całej strony
+                    za pomocą
+                    <code>background-color</code>.
+                </li>
+
+                <li>
+                    Ustaw inny kolor tła
+                    dla nagłówka.
+                </li>
+
+                <li>
+                    Każdej z trzech sekcji
+                    przypisz inny kolor tła.
+                </li>
+
+                <li>
+                    Zadbaj o czytelność tekstu
+                    na wszystkich tłach.
+                </li>
+
+            </ol>
+
+            <h3>Zadanie 2 – Obraz w tle banera</h3>
+
+            <p>
+                Dodaj do swojej strony
+                sekcję z dużym zdjęciem w tle.
+            </p>
+
+            <ol>
+
+                <li>
+                    Znajdź lub przygotuj
+                    zdjęcie pasujące
+                    do tematyki strony.
+                </li>
+
+                <li>
+                    Zapisz obraz w folderze
+                    <code>img</code>
+                    pod nazwą
+                    <code>baner.jpg</code>.
+                </li>
+
+                <li>
+                    Dodaj do HTML sekcję
+                    o klasie <code>baner</code>.
+                </li>
+
+                <li>
+                    Umieść w banerze
+                    nagłówek i krótki tekst.
+                </li>
+
+                <li>
+                    Ustaw minimalną wysokość
+                    banera na <code>350px</code>.
+                </li>
+
+                <li>
+                    Dodaj zdjęcie za pomocą
+                    <code>background-image</code>.
+                </li>
+
+                <li>
+                    Ustaw
+                    <code>background-repeat: no-repeat</code>.
+                </li>
+
+                <li>
+                    Wyśrodkuj obraz za pomocą
+                    <code>background-position: center</code>.
+                </li>
+
+                <li>
+                    Ustaw
+                    <code>background-size: cover</code>.
+                </li>
+
+                <li>
+                    Zmień szerokość okna
+                    i sprawdź, jak zachowuje
+                    się obraz tła.
+                </li>
+
+            </ol>
+
+            <h3>Zadanie 3 – Powtarzanie i pozycjonowanie tła</h3>
+
+            <p>
+                Dodaj do strony
+                niewielką dekorację graficzną.
+            </p>
+
+            <ol>
+
+                <li>
+                    Przygotuj mały obraz
+                    <code>wzor.png</code>
+                    i zapisz go w folderze
+                    <code>img</code>.
+                </li>
+
+                <li>
+                    Dodaj sekcję
+                    o klasie <code>wzor</code>.
+                </li>
+
+                <li>
+                    Ustaw obraz
+                    <code>wzor.png</code>
+                    jako tło tej sekcji.
+                </li>
+
+                <li>
+                    Ustaw
+                    <code>background-repeat: repeat</code>.
+                </li>
+
+                <li>
+                    Sprawdź efekt w przeglądarce.
+                </li>
+
+                <li>
+                    Zmień wartość na
+                    <code>repeat-x</code>
+                    i zaobserwuj różnicę.
+                </li>
+
+                <li>
+                    Następnie ustaw
+                    <code>repeat-y</code>.
+                </li>
+
+                <li>
+                    Na końcu ustaw
+                    <code>no-repeat</code>
+                    oraz
+                    <code>background-position: right top</code>.
+                </li>
+
+                <li>
+                    Ustaw rozmiar obrazu tła
+                    na <code>100px auto</code>.
+                </li>
+
+            </ol>
+
+            <h3>Zadanie 4 – Gradient i półprzezroczysta nakładka</h3>
+
+            <p>
+                Popraw wygląd strony,
+                wykorzystując gradienty CSS.
+            </p>
+
+            <ol>
+
+                <li>
+                    Zastąp jednolity kolor
+                    nagłówka gradientem
+                    <code>linear-gradient()</code>.
+                </li>
+
+                <li>
+                    Zastosuj co najmniej
+                    dwa różne kolory.
+                </li>
+
+                <li>
+                    Ustaw kierunek gradientu
+                    <code>to right</code>.
+                </li>
+
+                <li>
+                    W banerze ze zdjęciem
+                    dodaj półprzezroczysty
+                    ciemny gradient
+                    jako pierwszą warstwę tła.
+                </li>
+
+                <li>
+                    Ustaw zdjęcie
+                    jako drugą warstwę.
+                </li>
+
+                <li>
+                    Sprawdź, czy tekst
+                    jest dobrze widoczny
+                    na tle zdjęcia.
+                </li>
+
+                <li>
+                    Jeśli trzeba, zwiększ
+                    stopień przyciemnienia
+                    obrazu.
+                </li>
+
+            </ol>
+
+            <h3>Zadanie 5 – Skrócony zapis background</h3>
+
+            <p>
+                Uporządkuj arkusz stylów.
+            </p>
+
+            <ol>
+
+                <li>
+                    Znajdź regułę CSS
+                    odpowiadającą za
+                    tło banera.
+                </li>
+
+                <li>
+                    Zapisz właściwości
+                    <code>background-image</code>,
+                    <code>background-repeat</code>,
+                    <code>background-position</code>
+                    i <code>background-size</code>
+                    za pomocą skróconego
+                    <code>background</code>.
+                </li>
+
+                <li>
+                    Pamiętaj o znaku
+                    <code>/</code> między
+                    pozycją a rozmiarem.
+                </li>
+
+                <li>
+                    Sprawdź, czy wygląd
+                    banera się nie zmienił.
+                </li>
+
+                <li>
+                    Dodaj komentarz w CSS
+                    wyjaśniający,
+                    co oznaczają
+                    <code>center</code>,
+                    <code>cover</code>
+                    i <code>no-repeat</code>.
+                </li>
+
+            </ol>
+
+            <h3>Zadanie 6 – Dopracowanie projektu (dodatkowe)</h3>
+
+            <ol>
+
+                <li>
+                    Dodaj do strony
+                    kolejną sekcję
+                    z innym obrazem tła.
+                </li>
+
+                <li>
+                    Wykorzystaj
+                    <code>background-size: contain</code>
+                    i porównaj wynik
+                    z <code>cover</code>.
+                </li>
+
+                <li>
+                    Dodaj jeden gradient
+                    promienisty
+                    <code>radial-gradient()</code>.
+                </li>
+
+                <li>
+                    Zastosuj przynajmniej
+                    jedną półprzezroczystą
+                    powierzchnię pod tekstem.
+                </li>
+
+                <li>
+                    Przetestuj stronę
+                    na wąskim i szerokim
+                    oknie przeglądarki.
+                </li>
+
+                <li>
+                    Sprawdź poprawność
+                    ścieżek do wszystkich
+                    obrazów.
+                </li>
+
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_24/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- baner.jpg
+    |
+    |-- wzor.png
+    |
+    |-- dodatkowy.jpg</code></pre>
+
+                <p>
+                    Plik <code>dodatkowy.jpg</code>
+                    jest potrzebny tylko wtedy,
+                    gdy wykonujesz zadanie dodatkowe
+                    z kolejnym obrazem.
+                </p>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym dokumencie
+                    <code>index.html</code>
+                    i jednym arkuszu
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_24</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>,
+                    <code>style.css</code>
+                    oraz wszystkie wykorzystane obrazy.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy
+                    sprawdź działanie strony,
+                    poprawność podłączenia CSS,
+                    ścieżki do grafik,
+                    powtarzanie, pozycjonowanie
+                    i rozmiar tła
+                    oraz czytelność tekstu.
+                </p>
+
+                <p>
+                    <strong>
+                        Treści strony i dobór zdjęć
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 24
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
