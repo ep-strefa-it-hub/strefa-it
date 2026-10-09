@@ -1,0 +1,1940 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 18 – Składnia CSS i selektory | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#skladnia">2.Składnia reguły CSS</a>
+        <a href="#deklaracje">3.Właściwości i wartości</a>
+        <a href="#selektor-elementu">4.Selektor elementu</a>
+        <a href="#selektor-klasy">5.Selektor klasy</a>
+        <a href="#wiele-klas">6.Wiele klas</a>
+        <a href="#selektor-id">7.Selektor identyfikatora</a>
+        <a href="#class-id">8.Class a id</a>
+        <a href="#grupowanie">9.Grupowanie selektorów</a>
+        <a href="#laczenie">10.Łączenie selektorów</a>
+        <a href="#uniwersalny">11.Selektor uniwersalny</a>
+        <a href="#specyficznosc">12.Specyficzność</a>
+        <a href="#komentarze">13.Komentarze i zapis CSS</a>
+        <a href="#bledy">14.Najczęstsze błędy</a>
+        <a href="#przyklad">15.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">PSI • LEKCJA 18 • CSS3</div>
+
+            <h2>Składnia CSS. Selektory elementów, klas i identyfikatorów</h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                utrwalenie składni reguł CSS,
+                poznanie sposobów wybierania elementów HTML
+                za pomocą selektorów elementów, klas
+                i identyfikatorów, grupowanie i łączenie
+                selektorów oraz samodzielne stosowanie
+                poznanych zasad w zewnętrznym arkuszu stylów.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                W poprzedniej lekcji poznaliśmy język CSS,
+                trzy sposoby definiowania stylów
+                oraz podstawy kaskadowości.
+            </p>
+
+            <p>
+                Wiemy już, że CSS odpowiada za wygląd
+                strony internetowej, ale pojawia się pytanie:
+            </p>
+
+            <p>
+                <strong>Skąd przeglądarka wie, który element
+                HTML ma otrzymać określony styl?</strong>
+            </p>
+
+            <p>
+                Odpowiadają za to <strong>selektory CSS</strong>.
+                Pozwalają one wskazać jeden element,
+                wiele elementów tego samego typu
+                albo grupę elementów oznaczonych
+                odpowiednią klasą.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Moja strona&lt;/h1&gt;
+
+&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p&gt;Drugi akapit.&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Selektor <code>p</code> wskazuje
+                wszystkie akapity w dokumencie.
+                Oba akapity otrzymają niebieski kolor tekstu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Selektor określa,
+                    <strong>które elementy</strong> mają być stylowane.
+                    Deklaracje określają,
+                    <strong>jak mają wyglądać</strong>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="skladnia">
+
+            <h2>2. Składnia reguły CSS</h2>
+
+            <p>
+                Podstawowa reguła CSS składa się
+                z selektora oraz bloku deklaracji.
+            </p>
+
+            <pre><code class="language-css">h1 {
+    color: navy;
+    font-size: 32px;
+    text-align: center;
+}</code></pre>
+
+            <h3>Elementy reguły</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Opis</th>
+                </tr>
+                <tr>
+                    <td><code>h1</code></td>
+                    <td>Selektor wskazujący nagłówki h1.</td>
+                </tr>
+                <tr>
+                    <td><code>{ }</code></td>
+                    <td>Blok zawierający deklaracje CSS.</td>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Nazwa właściwości.</td>
+                </tr>
+                <tr>
+                    <td><code>navy</code></td>
+                    <td>Wartość właściwości.</td>
+                </tr>
+                <tr>
+                    <td><code>:</code></td>
+                    <td>Oddziela właściwość od wartości.</td>
+                </tr>
+                <tr>
+                    <td><code>;</code></td>
+                    <td>Kończy deklarację.</td>
+                </tr>
+            </table>
+
+            <h3>Jedna deklaracja</h3>
+
+            <pre><code class="language-css">p {
+    color: red;
+}</code></pre>
+
+            <h3>Kilka deklaracji</h3>
+
+            <pre><code class="language-css">p {
+    color: red;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-align: justify;
+}</code></pre>
+
+            <p>
+                W jednej regule można umieścić
+                wiele deklaracji.
+                Każda określa inną cechę wyglądu.
+            </p>
+
+            <h3>Znaczenie średnika</h3>
+
+            <p>
+                Średnik oddziela deklaracje.
+                W ostatniej deklaracji bloku
+                może zostać pominięty,
+                ale zaleca się stosowanie go zawsze.
+            </p>
+
+            <pre><code class="language-css">/* Zalecany zapis */
+
+h2 {
+    color: green;
+    font-size: 24px;
+}</code></pre>
+
+        </section>
+
+        <section id="deklaracje">
+
+            <h2>3. Właściwości i wartości CSS</h2>
+
+            <p>
+                Właściwość określa,
+                jaki aspekt wyglądu zmieniamy,
+                a wartość wskazuje konkretny efekt.
+            </p>
+
+            <h3>Przykładowe właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Przykład</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td><code>red</code></td>
+                    <td>Kolor tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td><code>lightblue</code></td>
+                    <td>Kolor tła.</td>
+                </tr>
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td><code>20px</code></td>
+                    <td>Rozmiar czcionki.</td>
+                </tr>
+                <tr>
+                    <td><code>font-weight</code></td>
+                    <td><code>bold</code></td>
+                    <td>Grubość pisma.</td>
+                </tr>
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td><code>center</code></td>
+                    <td>Wyrównanie tekstu.</td>
+                </tr>
+                <tr>
+                    <td><code>border</code></td>
+                    <td><code>1px solid black</code></td>
+                    <td>Obramowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td><code>15px</code></td>
+                    <td>Odstęp wewnętrzny.</td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td><code>20px</code></td>
+                    <td>Margines zewnętrzny.</td>
+                </tr>
+            </table>
+
+            <h3>Wartości liczbowe i jednostki</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 1.2rem;
+}</code></pre>
+
+            <p>
+                <code>px</code> oznacza piksele CSS,
+                natomiast <code>rem</code> odnosi się
+                do rozmiaru czcionki elementu głównego.
+            </p>
+
+            <h3>Wartości tekstowe</h3>
+
+            <pre><code class="language-css">h1 {
+    text-align: center;
+    font-weight: bold;
+}</code></pre>
+
+            <h3>Wartości kolorów</h3>
+
+            <pre><code class="language-css">h1 {
+    color: blue;
+}
+
+h2 {
+    color: #008000;
+}
+
+p {
+    color: rgb(80, 80, 80);
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Nazwy właściwości CSS zapisujemy
+                    zgodnie ze składnią języka,
+                    np. <code>font-size</code>,
+                    a nie <code>font_size</code>.
+                    Wartość musi być poprawna
+                    dla danej właściwości.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="selektor-elementu">
+
+            <h2>4. Selektor elementu</h2>
+
+            <p>
+                <strong>Selektor elementu</strong>
+                wskazuje wszystkie elementy HTML
+                o określonej nazwie znacznika.
+            </p>
+
+            <h3>Przykład – wszystkie akapity</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;p&gt;Trzeci akapit.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p {
+    color: darkblue;
+    font-size: 18px;
+}</code></pre>
+
+            <p>
+                Wszystkie trzy akapity
+                otrzymają takie same style.
+            </p>
+
+            <h3>Przykład – nagłówki</h3>
+
+            <pre><code class="language-css">h1 {
+    color: navy;
+    text-align: center;
+}
+
+h2 {
+    color: darkgreen;
+}
+
+h3 {
+    color: darkred;
+}</code></pre>
+
+            <h3>Przykład – cała strona</h3>
+
+            <pre><code class="language-css">body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}</code></pre>
+
+            <p>
+                Selektor <code>body</code>
+                wskazuje element zawierający
+                widoczną zawartość dokumentu.
+            </p>
+
+            <h3>Kiedy stosować selektor elementu?</h3>
+
+            <ul>
+                <li>Gdy wszystkie akapity mają mieć podobny wygląd.</li>
+                <li>Gdy chcemy ustawić wspólny styl nagłówków danego poziomu.</li>
+                <li>Gdy definiujemy podstawowe style całej strony.</li>
+                <li>Gdy określamy wygląd wszystkich list lub odnośników.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Selektor elementu działa na
+                    wszystkie pasujące elementy,
+                    a nie tylko na pierwszy
+                    element danego typu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="selektor-klasy">
+
+            <h2>5. Selektor klasy</h2>
+
+            <p>
+                <strong>Klasa CSS</strong>
+                pozwala przypisać ten sam styl
+                wybranym elementom HTML,
+                nawet jeśli są to elementy
+                różnych typów.
+            </p>
+
+            <p>
+                W HTML klasę przypisujemy
+                za pomocą atrybutu
+                <code>class</code>.
+            </p>
+
+            <p>
+                W CSS nazwę klasy poprzedzamy
+                <strong>kropką</strong>.
+            </p>
+
+            <h3>Przykład – wyróżniony akapit</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;
+    Uwaga! To ważna informacja.
+&lt;/p&gt;
+
+&lt;p&gt;
+    To zwykły akapit.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Styl otrzyma tylko pierwszy akapit,
+                ponieważ ma klasę <code>wazne</code>.
+            </p>
+
+            <h3>Ta sama klasa w kilku elementach</h3>
+
+            <pre><code class="language-html">&lt;h2 class="wazne"&gt;
+    Ważny nagłówek
+&lt;/h2&gt;
+
+&lt;p class="wazne"&gt;
+    Ważny akapit.
+&lt;/p&gt;
+
+&lt;div class="wazne"&gt;
+    Ważny komunikat.
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Wszystkie trzy elementy
+                otrzymają czerwony i pogrubiony tekst.
+            </p>
+
+            <h3>Przykład – różne klasy</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="sukces"&gt;
+    Operacja zakończona pomyślnie.
+&lt;/p&gt;
+
+&lt;p class="blad"&gt;
+    Wystąpił błąd.
+&lt;/p&gt;
+
+&lt;p class="ostrzezenie"&gt;
+    Sprawdź wprowadzone dane.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.sukces {
+    color: green;
+}
+
+.blad {
+    color: red;
+}
+
+.ostrzezenie {
+    color: darkorange;
+}</code></pre>
+
+            <h3>Do czego przydają się klasy?</h3>
+
+            <ul>
+                <li>Wyróżnianie ważnych informacji.</li>
+                <li>Tworzenie komunikatów o różnych znaczeniach.</li>
+                <li>Stylowanie przycisków.</li>
+                <li>Oznaczanie kart produktów.</li>
+                <li>Wielokrotne wykorzystywanie tych samych stylów.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W HTML zapisujemy
+                    <code>class="wazne"</code>,
+                    a w CSS <code>.wazne</code>.
+                    Kropka występuje
+                    w selektorze CSS,
+                    a nie w wartości atrybutu class.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="wiele-klas">
+
+            <h2>6. Przypisywanie wielu klas do jednego elementu</h2>
+
+            <p>
+                Jeden element HTML może mieć
+                więcej niż jedną klasę.
+            </p>
+
+            <p>
+                Nazwy klas wpisujemy
+                w jednym atrybucie <code>class</code>,
+                oddzielając je spacjami.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne duzy-tekst"&gt;
+    Bardzo ważny komunikat.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+    font-weight: bold;
+}
+
+.duzy-tekst {
+    font-size: 24px;
+}</code></pre>
+
+            <p>
+                Akapit otrzyma style
+                z obu klas:
+            </p>
+
+            <ul>
+                <li>Czerwony kolor tekstu.</li>
+                <li>Pogrubienie.</li>
+                <li>Rozmiar czcionki 24 piksele.</li>
+            </ul>
+
+            <h3>Przykład – wspólna klasa i różne warianty</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="komunikat sukces"&gt;
+    Zapisano dane.
+&lt;/p&gt;
+
+&lt;p class="komunikat blad"&gt;
+    Nie udało się zapisać danych.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.komunikat {
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.sukces {
+    background-color: lightgreen;
+}
+
+.blad {
+    background-color: lightpink;
+}</code></pre>
+
+            <p>
+                Oba komunikaty otrzymają
+                obramowanie i odstęp wewnętrzny,
+                ale będą miały inne kolory tła.
+            </p>
+
+            <h3>Czy kolejność nazw klas w HTML ma znaczenie?</h3>
+
+            <pre><code class="language-html">&lt;p class="wazne duzy-tekst"&gt;
+    Tekst A
+&lt;/p&gt;
+
+&lt;p class="duzy-tekst wazne"&gt;
+    Tekst B
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Oba elementy należą
+                do tych samych dwóch klas.
+                Sama zmiana kolejności nazw
+                w atrybucie <code>class</code>
+                nie zmienia pierwszeństwa
+                deklaracji CSS.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kolejność klas wpisanych w HTML
+                    nie decyduje o kaskadzie.
+                    Jeśli klasy definiują
+                    sprzeczne wartości tej samej
+                    właściwości, wynik zależy
+                    od reguł kaskady CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="selektor-id">
+
+            <h2>7. Selektor identyfikatora</h2>
+
+            <p>
+                <strong>Identyfikator</strong>
+                służy do jednoznacznego oznaczenia
+                elementu w dokumencie HTML.
+            </p>
+
+            <p>
+                W HTML używamy atrybutu
+                <code>id</code>.
+            </p>
+
+            <p>
+                W CSS nazwę identyfikatora
+                poprzedzamy znakiem
+                <strong>#</strong>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h1 id="tytul"&gt;
+    Moja strona internetowa
+&lt;/h1&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#tytul {
+    color: navy;
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje element
+                z identyfikatorem <code>tytul</code>.
+            </p>
+
+            <h3>Przykład – sekcja strony</h3>
+
+            <pre><code class="language-html">&lt;section id="kontakt"&gt;
+
+    &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+    &lt;p&gt;
+        Napisz do nas wiadomość.
+    &lt;/p&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <pre><code class="language-css">#kontakt {
+    background-color: lightyellow;
+    padding: 20px;
+}</code></pre>
+
+            <h3>Identyfikator powinien być unikatowy</h3>
+
+            <p>
+                W obrębie jednego dokumentu HTML
+                nie należy nadawać dwóch takich samych
+                identyfikatorów.
+            </p>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;h2 id="tytul"&gt;Pierwszy nagłówek&lt;/h2&gt;
+
+&lt;h2 id="tytul"&gt;Drugi nagłówek&lt;/h2&gt;</code></pre>
+
+            <p>Poprawny przykład:</p>
+
+            <pre><code class="language-html">&lt;h2 id="oferta"&gt;Oferta&lt;/h2&gt;
+
+&lt;h2 id="kontakt"&gt;Kontakt&lt;/h2&gt;</code></pre>
+
+            <h3>Identyfikatory i odnośniki</h3>
+
+            <p>
+                Identyfikatory poznaliśmy już
+                podczas tworzenia odnośników
+                do fragmentów strony.
+            </p>
+
+            <pre><code class="language-html">&lt;a href="#kontakt"&gt;
+    Przejdź do kontaktu
+&lt;/a&gt;
+
+&lt;section id="kontakt"&gt;
+
+    &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+&lt;/section&gt;</code></pre>
+
+            <p>
+                Ten sam identyfikator
+                może być wykorzystywany
+                do nawigacji oraz do stylowania.
+            </p>
+
+        </section>
+
+        <section id="class-id">
+
+            <h2>8. Różnice między class i id</h2>
+
+            <p>
+                Klasa i identyfikator
+                pozwalają oznaczać elementy HTML,
+                ale pełnią nieco inne funkcje.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>class</th>
+                    <th>id</th>
+                </tr>
+                <tr>
+                    <td>Zapis w HTML</td>
+                    <td><code>class="wazne"</code></td>
+                    <td><code>id="tytul"</code></td>
+                </tr>
+                <tr>
+                    <td>Zapis w CSS</td>
+                    <td><code>.wazne</code></td>
+                    <td><code>#tytul</code></td>
+                </tr>
+                <tr>
+                    <td>Powtarzanie</td>
+                    <td>Ta sama klasa może wystąpić wiele razy.</td>
+                    <td>Id powinno być unikatowe w dokumencie.</td>
+                </tr>
+                <tr>
+                    <td>Liczba na elemencie</td>
+                    <td>Można przypisać wiele klas.</td>
+                    <td>Jeden atrybut id z jedną wartością.</td>
+                </tr>
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Wspólne style wielu elementów.</td>
+                    <td>Oznaczenie konkretnego elementu.</td>
+                </tr>
+                <tr>
+                    <td>Specyficzność</td>
+                    <td>Niższa niż id.</td>
+                    <td>Wyższa niż class.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – poprawne wykorzystanie</h3>
+
+            <pre><code class="language-html">&lt;h1 id="tytul-strony"&gt;
+    Sklep internetowy
+&lt;/h1&gt;
+
+&lt;p class="produkt"&gt;
+    Laptop
+&lt;/p&gt;
+
+&lt;p class="produkt"&gt;
+    Monitor
+&lt;/p&gt;
+
+&lt;p class="produkt"&gt;
+    Klawiatura
+&lt;/p&gt;</code></pre>
+
+            <pre><code class="language-css">#tytul-strony {
+    color: navy;
+    text-align: center;
+}
+
+.produkt {
+    background-color: lightgray;
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Tytuł strony jest pojedynczym
+                elementem oznaczonym identyfikatorem.
+                Produkty tworzą grupę elementów,
+                dlatego zastosowano klasę.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Do wielokrotnego stylowania
+                    podobnych elementów
+                    najczęściej używamy klas.
+                    Identyfikatory stosujemy wtedy,
+                    gdy potrzebujemy jednoznacznie
+                    oznaczyć element.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="grupowanie">
+
+            <h2>9. Grupowanie selektorów</h2>
+
+            <p>
+                Czasami chcemy nadać
+                ten sam styl kilku różnym
+                rodzajom elementów.
+            </p>
+
+            <p>
+                Zamiast powtarzać deklaracje,
+                możemy połączyć selektory
+                <strong>przecinkiem</strong>.
+            </p>
+
+            <h3>Przykład – bez grupowania</h3>
+
+            <pre><code class="language-css">h1 {
+    color: navy;
+}
+
+h2 {
+    color: navy;
+}
+
+h3 {
+    color: navy;
+}</code></pre>
+
+            <h3>Ten sam efekt – z grupowaniem</h3>
+
+            <pre><code class="language-css">h1, h2, h3 {
+    color: navy;
+}</code></pre>
+
+            <p>
+                Reguła dotyczy nagłówków
+                <code>h1</code>,
+                <code>h2</code>
+                i <code>h3</code>.
+            </p>
+
+            <h3>Grupowanie różnych typów selektorów</h3>
+
+            <pre><code class="language-css">h2, .wazne, #stopka {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                Reguła dotyczy:
+            </p>
+
+            <ul>
+                <li>Wszystkich elementów <code>h2</code>.</li>
+                <li>Wszystkich elementów z klasą <code>wazne</code>.</li>
+                <li>Elementu z identyfikatorem <code>stopka</code>.</li>
+            </ul>
+
+            <h3>Przykład – wspólne obramowanie</h3>
+
+            <pre><code class="language-css">.produkt, .oferta, .komunikat {
+    border: 1px solid gray;
+    padding: 15px;
+}</code></pre>
+
+            <p>
+                Grupowanie ogranicza
+                powtarzanie kodu
+                i ułatwia późniejsze zmiany.
+            </p>
+
+        </section>
+
+        <section id="laczenie">
+
+            <h2>10. Łączenie selektorów</h2>
+
+            <p>
+                Grupowanie selektorów przecinkiem
+                nie jest tym samym
+                co ich łączenie.
+            </p>
+
+            <p>
+                Możemy tworzyć selektory,
+                które wskazują bardziej
+                konkretną grupę elementów.
+            </p>
+
+            <h3>Selektor elementu z klasą</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;
+    Ważny akapit.
+&lt;/p&gt;
+
+&lt;h2 class="wazne"&gt;
+    Ważny nagłówek.
+&lt;/h2&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p.wazne {
+    color: red;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje wyłącznie
+                elementy <code>p</code>,
+                które mają klasę <code>wazne</code>.
+            </p>
+
+            <p>
+                Nagłówek <code>h2</code>
+                nie otrzyma tego stylu,
+                mimo że ma taką samą klasę.
+            </p>
+
+            <h3>Element mający jednocześnie dwie klasy</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="komunikat wazne"&gt;
+    Ważny komunikat.
+&lt;/p&gt;
+
+&lt;p class="komunikat"&gt;
+    Zwykły komunikat.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.komunikat.wazne {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Brak spacji między nazwami klas
+                oznacza, że element musi mieć
+                <strong>obie klasy jednocześnie</strong>.
+            </p>
+
+            <h3>Selektor potomka – spacja</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;section class="oferta"&gt;
+
+    &lt;h2&gt;Nasza oferta&lt;/h2&gt;
+
+    &lt;p&gt;
+        Zapraszamy do zapoznania się
+        z ofertą.
+    &lt;/p&gt;
+
+&lt;/section&gt;
+
+&lt;p&gt;
+    Akapit poza sekcją.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.oferta p {
+    color: green;
+}</code></pre>
+
+            <p>
+                Selektor wskazuje akapity
+                znajdujące się wewnątrz
+                elementu z klasą <code>oferta</code>.
+            </p>
+
+            <p>
+                Akapit poza tą sekcją
+                nie zostanie wskazany.
+            </p>
+
+            <h3>Porównanie zapisów</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>.wazne</code></td>
+                    <td>Dowolny element z klasą wazne.</td>
+                </tr>
+                <tr>
+                    <td><code>p.wazne</code></td>
+                    <td>Akapit mający klasę wazne.</td>
+                </tr>
+                <tr>
+                    <td><code>.komunikat.wazne</code></td>
+                    <td>Element mający obie klasy.</td>
+                </tr>
+                <tr>
+                    <td><code>.oferta p</code></td>
+                    <td>Akapit będący potomkiem elementu z klasą oferta.</td>
+                </tr>
+                <tr>
+                    <td><code>h1, h2</code></td>
+                    <td>Wszystkie h1 oraz wszystkie h2.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Bardzo ważne</h3>
+                <p>
+                    <code>.komunikat.wazne</code>
+                    i <code>.komunikat .wazne</code>
+                    to dwa różne selektory.
+                    Pierwszy wskazuje jeden element
+                    mający obie klasy,
+                    a drugi element z klasą
+                    <code>wazne</code> znajdujący się
+                    wewnątrz elementu z klasą
+                    <code>komunikat</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="uniwersalny">
+
+            <h2>11. Selektor uniwersalny</h2>
+
+            <p>
+                Selektor uniwersalny
+                zapisujemy za pomocą gwiazdki
+                <code>*</code>.
+            </p>
+
+            <p>
+                Wskazuje wszystkie elementy
+                pasujące do danego kontekstu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">* {
+    box-sizing: border-box;
+}</code></pre>
+
+            <p>
+                Ta reguła ustawia
+                <code>box-sizing: border-box</code>
+                dla wszystkich elementów.
+            </p>
+
+            <p>
+                Wartość <code>border-box</code>
+                sprawia, że zadana szerokość
+                i wysokość elementu obejmuje
+                również jego obramowanie
+                i odstępy wewnętrzne.
+            </p>
+
+            <h3>Selektor uniwersalny w określonej sekcji</h3>
+
+            <pre><code class="language-css">.oferta * {
+    color: darkblue;
+}</code></pre>
+
+            <p>
+                Reguła wskazuje wszystkie
+                elementy potomne znajdujące się
+                wewnątrz elementu
+                z klasą <code>oferta</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Selektor <code>*</code>
+                    ma zerową specyficzność.
+                    Nie należy mylić go
+                    z selektorem elementu,
+                    takim jak <code>p</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="specyficznosc">
+
+            <h2>12. Specyficzność poznanych selektorów</h2>
+
+            <p>
+                W poprzedniej lekcji
+                poznaliśmy podstawy kaskadowości.
+                Teraz możemy dokładniej
+                przeanalizować wpływ selektorów
+                na wynik stylowania.
+            </p>
+
+            <h3>Porównanie specyficzności</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Specyficzność</th>
+                </tr>
+                <tr>
+                    <td><code>*</code></td>
+                    <td>0-0-0</td>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>0-0-1</td>
+                </tr>
+                <tr>
+                    <td><code>.wazne</code></td>
+                    <td>0-1-0</td>
+                </tr>
+                <tr>
+                    <td><code>p.wazne</code></td>
+                    <td>0-1-1</td>
+                </tr>
+                <tr>
+                    <td><code>.komunikat.wazne</code></td>
+                    <td>0-2-0</td>
+                </tr>
+                <tr>
+                    <td><code>#tytul</code></td>
+                    <td>1-0-0</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – który kolor wygra?</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne" id="informacja"&gt;
+    Ważna informacja.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">p {
+    color: blue;
+}
+
+.wazne {
+    color: red;
+}
+
+#informacja {
+    color: green;
+}</code></pre>
+
+            <p>
+                <strong>Wynik:</strong>
+                tekst będzie zielony.
+            </p>
+
+            <p>
+                Przy zwykłych regułach autora
+                o tym samym pochodzeniu
+                i bez dodatkowych warstw,
+                selektor identyfikatora
+                ma największą specyficzność
+                spośród tych trzech.
+            </p>
+
+            <h3>Przykład – bardziej szczegółowy selektor klasy</h3>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+}
+
+p.wazne {
+    color: purple;
+}</code></pre>
+
+            <p>
+                Dla akapitu z klasą
+                <code>wazne</code>
+                wygra kolor fioletowy,
+                ponieważ <code>p.wazne</code>
+                ma większą specyficzność
+                niż samo <code>.wazne</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Większa specyficzność
+                    nie oznacza automatycznie
+                    lepszego kodu.
+                    Do codziennego stylowania
+                    warto stosować proste,
+                    czytelne selektory,
+                    szczególnie klasy.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="komentarze">
+
+            <h2>13. Komentarze i czytelny zapis CSS</h2>
+
+            <p>
+                Czytelny kod CSS
+                ułatwia rozwijanie strony,
+                poprawianie błędów
+                i pracę nad większym projektem.
+            </p>
+
+            <h3>Komentarze</h3>
+
+            <pre><code class="language-css">/* Wygląd całej strony */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Nagłówki */
+
+h1 {
+    color: navy;
+}
+
+/* Komunikaty */
+
+.komunikat {
+    padding: 15px;
+}</code></pre>
+
+            <h3>Wcięcia i nowe linie</h3>
+
+            <p>
+                Poniższe zapisy są poprawne,
+                ale różnią się czytelnością.
+            </p>
+
+            <pre><code class="language-css">/* Mało czytelnie */
+
+h1{color:blue;font-size:30px;text-align:center;}
+
+
+/* Czytelnie */
+
+h1 {
+    color: blue;
+    font-size: 30px;
+    text-align: center;
+}</code></pre>
+
+            <h3>Nazwy klas</h3>
+
+            <p>
+                Nazwy powinny informować
+                o przeznaczeniu elementu.
+            </p>
+
+            <pre><code class="language-css">/* Przykładowe nazwy */
+
+.naglowek-strony {
+    color: navy;
+}
+
+.karta-produktu {
+    border: 1px solid gray;
+}
+
+.komunikat-bledu {
+    color: darkred;
+}</code></pre>
+
+            <p>
+                Warto stosować krótkie,
+                zrozumiałe nazwy,
+                bez spacji i polskich znaków.
+            </p>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>14. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak kropki przed klasą</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;p class="wazne"&gt;
+    Ważna informacja.
+&lt;/p&gt;</code></pre>
+
+            <p>Niepoprawny selektor:</p>
+
+            <pre><code class="language-css">wazne {
+    color: red;
+}</code></pre>
+
+            <p>Poprawny selektor:</p>
+
+            <pre><code class="language-css">.wazne {
+    color: red;
+}</code></pre>
+
+            <h3>Błąd 2 – brak znaku # przed identyfikatorem</h3>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h1 id="tytul"&gt;
+    Moja strona
+&lt;/h1&gt;</code></pre>
+
+            <p>Poprawny selektor:</p>
+
+            <pre><code class="language-css">#tytul {
+    color: navy;
+}</code></pre>
+
+            <h3>Błąd 3 – wpisanie kropki do wartości class</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;p class=".wazne"&gt;
+    Tekst
+&lt;/p&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;p class="wazne"&gt;
+    Tekst
+&lt;/p&gt;</code></pre>
+
+            <h3>Błąd 4 – kilka klas oddzielonych przecinkami</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;p class="wazne, duzy-tekst"&gt;
+    Tekst
+&lt;/p&gt;
+
+
+&lt;!-- Poprawnie --&gt;
+
+&lt;p class="wazne duzy-tekst"&gt;
+    Tekst
+&lt;/p&gt;</code></pre>
+
+            <h3>Błąd 5 – powtarzanie identyfikatorów</h3>
+
+            <pre><code class="language-html">&lt;!-- Niepoprawnie --&gt;
+
+&lt;p id="opis"&gt;Pierwszy opis.&lt;/p&gt;
+
+&lt;p id="opis"&gt;Drugi opis.&lt;/p&gt;
+
+
+&lt;!-- Lepiej zastosować klasę --&gt;
+
+&lt;p class="opis"&gt;Pierwszy opis.&lt;/p&gt;
+
+&lt;p class="opis"&gt;Drugi opis.&lt;/p&gt;</code></pre>
+
+            <h3>Błąd 6 – mylenie grupowania z łączeniem</h3>
+
+            <pre><code class="language-css">/* Wszystkie h1 i wszystkie h2 */
+
+h1, h2 {
+    color: blue;
+}
+
+
+/* Element h2 wewnątrz elementu h1 */
+
+h1 h2 {
+    color: blue;
+}</code></pre>
+
+            <p>
+                Drugi selektor nie oznacza
+                „h1 oraz h2”.
+                Oznacza element <code>h2</code>
+                będący potomkiem <code>h1</code>.
+                Takie zagnieżdżenie nagłówków
+                nie jest prawidłową strukturą HTML.
+            </p>
+
+            <h3>Błąd 7 – niepoprawne nazwy właściwości</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+p {
+    font_size: 18px;
+    text-color: red;
+}
+
+
+/* Poprawnie */
+
+p {
+    font-size: 18px;
+    color: red;
+}</code></pre>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>15. Kompletny przykład – strona z selektorami CSS</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                prezentującą trzy kursy informatyczne.
+                Wykorzystamy selektory elementów,
+                klas i identyfikatorów.
+            </p>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">kursy/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kursy informatyczne&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1 id="tytul-strony"&gt;
+            Kursy informatyczne
+        &lt;/h1&gt;
+
+        &lt;p&gt;
+            Wybierz kurs dla siebie.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="kurs"&gt;
+
+            &lt;h2&gt;HTML5&lt;/h2&gt;
+
+            &lt;p&gt;
+                Nauczysz się tworzyć
+                strukturę stron internetowych.
+            &lt;/p&gt;
+
+            &lt;p class="cena"&gt;
+                Cena: 199 zł
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="kurs polecany"&gt;
+
+            &lt;h2&gt;CSS3&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poznasz sposoby stylowania
+                stron internetowych.
+            &lt;/p&gt;
+
+            &lt;p class="cena"&gt;
+                Cena: 249 zł
+            &lt;/p&gt;
+
+            &lt;p class="etykieta"&gt;
+                Polecany kurs
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="kurs"&gt;
+
+            &lt;h2&gt;JavaScript&lt;/h2&gt;
+
+            &lt;p&gt;
+                Nauczysz się tworzyć
+                interaktywne strony WWW.
+            &lt;/p&gt;
+
+            &lt;p class="cena"&gt;
+                Cena: 299 zł
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer id="stopka"&gt;
+
+        &lt;p&gt;
+            © 2026 Kursy informatyczne
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Styl całej strony */
+
+body {
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+/* Tytuł strony */
+
+#tytul-strony {
+    color: navy;
+    text-align: center;
+}
+
+/* Wszystkie nagłówki h2 */
+
+h2 {
+    color: darkblue;
+}
+
+/* Wszystkie akapity */
+
+p {
+    font-size: 17px;
+}
+
+/* Karty kursów */
+
+.kurs {
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin: 15px;
+}
+
+/* Wyróżniony kurs */
+
+.polecany {
+    border: 3px solid orange;
+    background-color: #fff8e7;
+}
+
+/* Cena */
+
+.cena {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+/* Etykieta */
+
+.etykieta {
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Stopka */
+
+#stopka {
+    background-color: #dddddd;
+    text-align: center;
+    padding: 10px;
+}</code></pre>
+
+            <h3>Analiza wykorzystanych selektorów</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>body</code></td>
+                    <td>Podstawowy wygląd strony.</td>
+                </tr>
+                <tr>
+                    <td><code>h2</code></td>
+                    <td>Wszystkie nagłówki drugiego poziomu.</td>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>Wszystkie akapity.</td>
+                </tr>
+                <tr>
+                    <td><code>.kurs</code></td>
+                    <td>Wspólny wygląd kart kursów.</td>
+                </tr>
+                <tr>
+                    <td><code>.polecany</code></td>
+                    <td>Dodatkowe wyróżnienie jednej karty.</td>
+                </tr>
+                <tr>
+                    <td><code>.cena</code></td>
+                    <td>Wygląd cen.</td>
+                </tr>
+                <tr>
+                    <td><code>#tytul-strony</code></td>
+                    <td>Wygląd konkretnego nagłówka.</td>
+                </tr>
+                <tr>
+                    <td><code>#stopka</code></td>
+                    <td>Wygląd stopki.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    Druga karta kursu ma jednocześnie
+                    klasy <code>kurs</code>
+                    i <code>polecany</code>.
+                    Dzięki temu zachowuje
+                    podstawowe style kart
+                    i otrzymuje dodatkowe wyróżnienie.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Reguła CSS składa się z selektora i bloku deklaracji.</li>
+                    <li>Selektor określa, które elementy HTML mają otrzymać styl.</li>
+                    <li>Selektor elementu zapisujemy nazwą znacznika, np. <code>p</code>.</li>
+                    <li>Selektor klasy zapisujemy z kropką, np. <code>.wazne</code>.</li>
+                    <li>Selektor identyfikatora zapisujemy ze znakiem #, np. <code>#tytul</code>.</li>
+                    <li>Ta sama klasa może być przypisana wielu elementom.</li>
+                    <li>Identyfikator powinien być unikatowy w dokumencie HTML.</li>
+                    <li>Jeden element może mieć kilka klas oddzielonych spacjami.</li>
+                    <li>Selektory można grupować za pomocą przecinków.</li>
+                    <li><code>p.wazne</code> wskazuje akapit mający klasę wazne.</li>
+                    <li><code>.komunikat.wazne</code> wskazuje element mający obie klasy.</li>
+                    <li><code>.oferta p</code> wskazuje akapity znajdujące się wewnątrz elementu z klasą oferta.</li>
+                    <li>Selektor <code>*</code> jest selektorem uniwersalnym.</li>
+                    <li>Selektory mają różną specyficzność.</li>
+                    <li>Przy typowych konfliktach zwykłych reguł autora selektor id ma większą specyficzność niż selektor klasy, a klasa większą niż selektor elementu.</li>
+                    <li>Komentarze CSS zapisujemy pomiędzy <code>/*</code> i <code>*/</code>.</li>
+                    <li>Najlepiej stosować czytelne nazwy klas i unikać niepotrzebnego powtarzania kodu.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne stosowanie selektorów
+                elementów, klas i identyfikatorów,
+                przypisywanie wielu klas
+                oraz grupowanie i łączenie selektorów.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_18</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                oraz <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>Wszystkie zadania wykonaj
+                na jednej stronie internetowej.</strong>
+                Każde zadanie powinno tworzyć
+                osobną sekcję dokumentu.
+            </p>
+
+            <h3>Zadanie 1 – Selektory elementów</h3>
+
+            <p>
+                Przygotuj stronę
+                „Moje ulubione technologie”.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek <code>h1</code> z tytułem strony.</li>
+                <li>Dodaj trzy nagłówki <code>h2</code> z nazwami wybranych technologii.</li>
+                <li>Pod każdym nagłówkiem umieść akapit z własnym opisem.</li>
+                <li>Za pomocą selektora <code>body</code> ustaw kolor tła i rodzaj czcionki.</li>
+                <li>Za pomocą selektora <code>h1</code> ustaw kolor i wyśrodkowanie tytułu.</li>
+                <li>Za pomocą selektora <code>h2</code> ustaw wspólny kolor nagłówków.</li>
+                <li>Za pomocą selektora <code>p</code> ustaw rozmiar czcionki <code>18px</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Klasy CSS</h3>
+
+            <p>
+                Dodaj sekcję
+                „Komunikaty systemowe”.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek <code>h2</code> „Komunikaty systemowe”.</li>
+                <li>Utwórz trzy akapity z przykładowymi komunikatami.</li>
+                <li>Pierwszemu nadaj klasę <code>sukces</code>.</li>
+                <li>Drugiemu nadaj klasę <code>blad</code>.</li>
+                <li>Trzeciemu nadaj klasę <code>ostrzezenie</code>.</li>
+                <li>W CSS ustaw zielony kolor tekstu dla klasy <code>sukces</code>.</li>
+                <li>Ustaw czerwony kolor tekstu dla klasy <code>blad</code>.</li>
+                <li>Ustaw pomarańczowy kolor tekstu dla klasy <code>ostrzezenie</code>.</li>
+                <li>Dodaj klasę <code>komunikat</code> do wszystkich trzech akapitów.</li>
+                <li>Za pomocą klasy <code>komunikat</code> ustaw obramowanie i odstęp wewnętrzny.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Identyfikatory i łączenie selektorów</h3>
+
+            <p>
+                Dodaj sekcję
+                „Moje projekty”.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>section</code> z identyfikatorem <code>projekty</code>.</li>
+                <li>Dodaj nagłówek <code>h2</code> „Moje projekty”.</li>
+                <li>Utwórz trzy elementy <code>div</code> z klasą <code>projekt</code>.</li>
+                <li>W każdym elemencie umieść nagłówek <code>h3</code> i krótki opis projektu.</li>
+                <li>Za pomocą selektora <code>#projekty</code> ustaw kolor tła całej sekcji.</li>
+                <li>Za pomocą selektora <code>.projekt</code> ustaw obramowanie i odstępy.</li>
+                <li>Za pomocą selektora <code>.projekt h3</code> ustaw kolor nagłówków projektów.</li>
+                <li>Dodaj do jednego projektu dodatkową klasę <code>wyrozniony</code>.</li>
+                <li>Za pomocą klasy <code>.wyrozniony</code> ustaw inne tło tego projektu.</li>
+                <li>Za pomocą selektora <code>.projekt.wyrozniony</code> ustaw grubsze obramowanie wyróżnionego projektu.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Grupowanie selektorów</h3>
+
+            <p>
+                Wykorzystaj stronę
+                przygotowaną w poprzednich zadaniach.
+            </p>
+
+            <ol>
+                <li>Ustaw ten sam kolor tekstu dla nagłówków <code>h1</code>, <code>h2</code> i <code>h3</code>, wykorzystując jedną regułę CSS z przecinkami.</li>
+                <li>Dodaj wspólne obramowanie dla klas <code>.sukces</code>, <code>.blad</code> i <code>.ostrzezenie</code> za pomocą grupowania.</li>
+                <li>Sprawdź, czy style wspólne i indywidualne działają jednocześnie.</li>
+                <li>Dodaj do arkusza CSS komentarze opisujące poszczególne grupy reguł.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Popraw błędy (dodatkowe)</h3>
+
+            <p>
+                Znajdź i popraw błędy
+                w poniższym kodzie.
+            </p>
+
+            <p>HTML:</p>
+
+            <pre><code class="language-html">&lt;h2 class=".naglowek"&gt;
+    Aktualności
+&lt;/h2&gt;
+
+&lt;p class="wazne, komunikat"&gt;
+    Ważna wiadomość.
+&lt;/p&gt;
+
+&lt;p id="opis"&gt;
+    Pierwszy opis.
+&lt;/p&gt;
+
+&lt;p id="opis"&gt;
+    Drugi opis.
+&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">naglowek {
+    color: blue;
+}
+
+wazne {
+    color: red;
+}
+
+#komunikat {
+    background-color: yellow;
+}
+
+opis {
+    font_size: 18px;
+}</code></pre>
+
+            <p>
+                Popraw kod tak, aby:
+            </p>
+
+            <ul>
+                <li>Nagłówek był niebieski.</li>
+                <li>Ważna wiadomość była czerwona.</li>
+                <li>Wiadomość miała żółte tło.</li>
+                <li>Oba opisy miały rozmiar czcionki 18 pikseli.</li>
+                <li>W dokumencie nie powtarzały się identyfikatory.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📁 Struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_18/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie sekcje i zadania
+                    powinny znajdować się
+                    w jednym dokumencie
+                    <code>index.html</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_18</code>
+                    do archiwum ZIP
+                    i prześlij go na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum musi zawierać
+                    pliki <code>index.html</code>
+                    i <code>style.css</code>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź,
+                    czy arkusz CSS jest poprawnie
+                    podłączony, wszystkie selektory
+                    działają oraz czy strona
+                    nie zawiera błędów składniowych.
+                </p>
+
+                <p>
+                    Treści na stronie powinny być własne,
+                    a nie skopiowane z przykładów.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>STREFA IT • PSI • LEKCJA 18</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
