@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 44 – Kompletna witryna HTML/CSS – INF.03 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#materialy">2.Materiały źródłowe</a>
+        <a href="#projekt">3.Projekt witryny</a>
+        <a href="#struktura">4.Struktura plików</a>
+        <a href="#html">5.Wymagania HTML</a>
+        <a href="#naglowek">6.Nagłówek i menu</a>
+        <a href="#opis">7.Opis centrum</a>
+        <a href="#galeria">8.Galeria roślin</a>
+        <a href="#cennik">9.Cennik</a>
+        <a href="#stopka">10.Stopka</a>
+        <a href="#css">11.Wymagania CSS</a>
+        <a href="#responsywnosc">12.Responsywność</a>
+        <a href="#kontrola">13.Sprawdzenie witryny</a>
+        <a href="#zadanie">📝 Zadanie praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 44 • ĆWICZENIE PRAKTYCZNE INF.03
+            </div>
+
+            <h2>
+                Wykonanie kompletnej witryny HTML/CSS
+                z wykorzystaniem materiałów źródłowych
+            </h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne wykonanie kompletnej witryny
+                internetowej na podstawie projektu,
+                specyfikacji technicznej
+                oraz dostarczonych materiałów źródłowych.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong>
+                2 × 45 minut.
+            </p>
+
+            <p>
+                <strong>Forma pracy:</strong>
+                indywidualne zadanie praktyczne typu INF.03.
+            </p>
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Centrum ogrodnicze
+                <strong>Zielona Przystań</strong>
+                zleciło wykonanie strony internetowej,
+                na której będą prezentowane
+                informacje o działalności,
+                dostępne rośliny i cennik.
+            </p>
+
+            <p>
+                Twoim zadaniem jest wykonanie
+                kompletnej witryny HTML/CSS
+                zgodnie z przedstawionym projektem
+                i specyfikacją.
+            </p>
+
+            <p>
+                Wykorzystaj materiały źródłowe
+                przygotowane do ćwiczenia.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+
+                <p>
+                    Zadanie wykonujesz samodzielnie
+                    od początku.
+                </p>
+
+                <p>
+                    Nie korzystasz z gotowego kodu
+                    HTML ani CSS.
+                </p>
+
+                <p>
+                    Ćwiczenie zostało przygotowane
+                    na wzór zadania praktycznego INF.03,
+                    ale nie jest oficjalnym arkuszem CKE.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+
+        <section id="materialy">
+            <h2>2. Materiały źródłowe</h2>
+
+            <p>
+                Pobierz archiwum zawierające
+                pliki graficzne potrzebne
+                do wykonania witryny.
+            </p>
+
+            <div class="important">
+                <h3>📥 Pobierz materiały</h3>
+
+                <p>
+                    <a href="pliki/PSI_44_materialy_zrodlowe.zip"
+                       download
+                       style="
+                           display: inline-block;
+                           padding: 12px 20px;
+                           background-color: #2563EB;
+                           color: #FFFFFF;
+                           text-decoration: none;
+                           border-radius: 8px;
+                           font-weight: bold;
+                       ">
+                        📥 Pobierz materiały źródłowe (ZIP)
+                    </a>
+                </p>
+
+                <p>
+                    Po pobraniu wypakuj archiwum
+                    do folderu projektu.
+                </p>
+            </div>
+
+            <h3>Zawartość archiwum</h3>
+
+            <pre><code class="language-text">img/
+|-- lawenda.jpg
+|-- monstera.jpg
+|-- roza.jpg
+
+README.txt</code></pre>
+
+            <p>
+                Pliki graficzne należy wykorzystać
+                w galerii roślin.
+            </p>
+
+            <p>
+                Nie zmieniaj nazw plików.
+            </p>
+        </section>
+
+        <!-- 3 -->
+
+        <section id="projekt">
+            <h2>3. Projekt graficzny witryny</h2>
+
+            <p>
+                Poniższy projekt przedstawia
+                oczekiwany wygląd strony
+                na ekranie komputera.
+            </p>
+
+            <div style="
+                border: 2px solid #94A3B8;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 20px 0;
+                background: #F0FDF4;
+                color: #1F2937;
+                font-family: Arial, sans-serif;
+            ">
+
+                <div style="
+                    background: #166534;
+                    color: white;
+                    text-align: center;
+                    padding: 30px 15px;
+                ">
+                    <div style="
+                        font-size: 28px;
+                        font-weight: bold;
+                    ">
+                        🌿 ZIELONA PRZYSTAŃ
+                    </div>
+
+                    <p style="margin: 10px 0 0;">
+                        Rośliny do domu i ogrodu
+                    </p>
+                </div>
+
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    background: #22C55E;
+                    padding: 15px;
+                    font-weight: bold;
+                    color: #14532D;
+                ">
+                    <span>O nas</span>
+                    <span>Rośliny</span>
+                    <span>Cennik</span>
+                    <span>Kontakt</span>
+                </div>
+
+                <div style="
+                    max-width: 900px;
+                    margin: 20px auto;
+                    padding: 0 15px;
+                ">
+
+                    <div style="
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin-bottom: 20px;
+                    ">
+                        <h3 style="color: #166534; margin-top: 0;">
+                            Witamy w Zielonej Przystani!
+                        </h3>
+
+                        <p>
+                            Oferujemy rośliny doniczkowe,
+                            ogrodowe oraz akcesoria
+                            do pielęgnacji zieleni.
+                        </p>
+                    </div>
+
+                    <div style="
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin-bottom: 20px;
+                    ">
+                        <h3 style="color: #166534; margin-top: 0;">
+                            Nasze rośliny
+                        </h3>
+
+                        <div style="
+                            display: grid;
+                            grid-template-columns: repeat(3, minmax(0, 1fr));
+                            gap: 10px;
+                        ">
+                            <div style="
+                                background: #DCFCE7;
+                                padding: 12px;
+                                border-radius: 8px;
+                                text-align: center;
+                            ">
+                                <div style="font-size: 30px;">🌸</div>
+                                <strong>Lawenda</strong>
+                            </div>
+
+                            <div style="
+                                background: #DCFCE7;
+                                padding: 12px;
+                                border-radius: 8px;
+                                text-align: center;
+                            ">
+                                <div style="font-size: 30px;">🌿</div>
+                                <strong>Monstera</strong>
+                            </div>
+
+                            <div style="
+                                background: #DCFCE7;
+                                padding: 12px;
+                                border-radius: 8px;
+                                text-align: center;
+                            ">
+                                <div style="font-size: 30px;">🌹</div>
+                                <strong>Róża</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin-bottom: 20px;
+                    ">
+                        <h3 style="color: #166534; margin-top: 0;">
+                            Cennik roślin
+                        </h3>
+
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                            font-size: 13px;
+                        ">
+                            <tr style="background: #166534; color: white;">
+                                <th style="padding: 10px; text-align: left;">Roślina</th>
+                                <th style="padding: 10px; text-align: left;">Cena</th>
+                            </tr>
+
+                            <tr style="background: #F0FDF4;">
+                                <td style="padding: 10px;">Lawenda</td>
+                                <td style="padding: 10px;">18 zł</td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px;">Monstera</td>
+                                <td style="padding: 10px;">45 zł</td>
+                            </tr>
+
+                            <tr style="background: #F0FDF4;">
+                                <td style="padding: 10px;">Róża</td>
+                                <td style="padding: 10px;">25 zł</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="
+                        background: white;
+                        padding: 20px;
+                        border-radius: 10px;
+                    ">
+                        <h3 style="color: #166534; margin-top: 0;">
+                            Kontakt
+                        </h3>
+
+                        <p>ul. Ogrodowa 12, 20-100 Lublin</p>
+                        <p>Telefon: 123 456 789</p>
+                        <p>E-mail: kontakt@zielonaprzystan.example</p>
+                    </div>
+
+                </div>
+
+                <div style="
+                    background: #14532D;
+                    color: white;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    Zielona Przystań | Autor: 12
+                </div>
+            </div>
+
+            <div class="important">
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Projekt jest schematem poglądowym.
+                    W galerii zamiast symboli roślin
+                    należy umieścić
+                    <strong>obrazy z materiałów źródłowych</strong>.
+                </p>
+
+                <p>
+                    Dokładne wymagania HTML i CSS
+                    opisano poniżej.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+
+        <section id="struktura">
+            <h2>4. Struktura plików projektu</h2>
+
+            <p>
+                Utwórz folder <code>PSI_44</code>.
+            </p>
+
+            <p>
+                Przygotuj w nim następującą strukturę:
+            </p>
+
+            <pre><code class="language-text">PSI_44/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |-- lawenda.jpg
+    |-- monstera.jpg
+    |-- roza.jpg</code></pre>
+
+            <p>
+                Pliki HTML i CSS
+                utwórz samodzielnie.
+            </p>
+
+            <p>
+                Grafiki skopiuj
+                z archiwum źródłowego.
+            </p>
+        </section>
+
+        <!-- 5 -->
+
+        <section id="html">
+            <h2>5. Wymagania dotyczące HTML</h2>
+
+            <p>
+                Witryna musi zostać wykonana
+                w standardzie HTML5.
+            </p>
+
+            <h3>Wymagania ogólne</h3>
+
+            <ol>
+                <li>Dokument HTML5.</li>
+                <li>Język dokumentu: polski.</li>
+                <li>Kodowanie UTF-8.</li>
+                <li>Meta viewport.</li>
+                <li>Tytuł karty: <strong>Zielona Przystań – Centrum Ogrodnicze</strong>.</li>
+                <li>Podłączony zewnętrzny arkusz style.css.</li>
+                <li>Semantyczna struktura strony.</li>
+                <li>Brak stylów lokalnych i wewnętrznych.</li>
+            </ol>
+
+            <h3>Wymagane elementy</h3>
+
+            <ul>
+                <li><code>header</code></li>
+                <li><code>nav</code></li>
+                <li><code>main</code></li>
+                <li><code>section</code></li>
+                <li><code>footer</code></li>
+            </ul>
+
+            <p>
+                W elemencie main
+                umieść cztery sekcje:
+            </p>
+
+            <ul>
+                <li>O nas.</li>
+                <li>Rośliny.</li>
+                <li>Cennik.</li>
+                <li>Kontakt.</li>
+            </ul>
+        </section>
+
+        <!-- 6 -->
+
+        <section id="naglowek">
+            <h2>6. Nagłówek i menu</h2>
+
+            <h3>Nagłówek</h3>
+
+            <p>
+                W elemencie header
+                umieść:
+            </p>
+
+            <ul>
+                <li>Nagłówek h1: <strong>ZIELONA PRZYSTAŃ</strong>.</li>
+                <li>Akapit: <strong>Rośliny do domu i ogrodu</strong>.</li>
+            </ul>
+
+            <h3>Menu</h3>
+
+            <p>
+                Utwórz cztery odnośniki
+                prowadzące do sekcji strony.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Tekst</th>
+                    <th>Adres</th>
+                </tr>
+                <tr>
+                    <td>O nas</td>
+                    <td>#o-nas</td>
+                </tr>
+                <tr>
+                    <td>Rośliny</td>
+                    <td>#rosliny</td>
+                </tr>
+                <tr>
+                    <td>Cennik</td>
+                    <td>#cennik</td>
+                </tr>
+                <tr>
+                    <td>Kontakt</td>
+                    <td>#kontakt</td>
+                </tr>
+            </table>
+
+            <p>
+                Wszystkie odnośniki
+                muszą działać poprawnie.
+            </p>
+        </section>
+
+        <!-- 7 -->
+
+        <section id="opis">
+            <h2>7. Sekcja „O nas”</h2>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>o-nas</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek h2:
+                <strong>Witamy w Zielonej Przystani!</strong>
+            </p>
+
+            <p>
+                Umieść następujący tekst:
+            </p>
+
+            <div class="important">
+                Zielona Przystań to centrum ogrodnicze
+                oferujące rośliny doniczkowe, ogrodowe
+                oraz akcesoria do pielęgnacji zieleni.
+                Pomagamy tworzyć piękne i przyjazne
+                przestrzenie w domach i ogrodach.
+            </div>
+
+            <p>
+                Pod tekstem umieść drugi akapit:
+            </p>
+
+            <div class="important">
+                Zapraszamy do zapoznania się
+                z naszą ofertą i aktualnym cennikiem.
+            </div>
+        </section>
+
+        <!-- 8 -->
+
+        <section id="galeria">
+            <h2>8. Galeria roślin</h2>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>rosliny</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek h2:
+                <strong>Nasze rośliny</strong>.
+            </p>
+
+            <h3>Wymagania</h3>
+
+            <ol>
+                <li>Utwórz kontener galerii.</li>
+                <li>Umieść w nim trzy elementy prezentujące rośliny.</li>
+                <li>Każdy element ma zawierać obraz i nazwę rośliny.</li>
+                <li>Wykorzystaj pliki z katalogu img.</li>
+                <li>Każdy obraz musi mieć odpowiedni atrybut alt.</li>
+                <li>Obrazy mają zachowywać proporcje.</li>
+            </ol>
+
+            <h3>Dane galerii</h3>
+
+            <table>
+                <tr>
+                    <th>Plik</th>
+                    <th>Nazwa</th>
+                </tr>
+                <tr>
+                    <td>lawenda.jpg</td>
+                    <td>Lawenda</td>
+                </tr>
+                <tr>
+                    <td>monstera.jpg</td>
+                    <td>Monstera</td>
+                </tr>
+                <tr>
+                    <td>roza.jpg</td>
+                    <td>Róża</td>
+                </tr>
+            </table>
+
+            <p>
+                Na ekranie komputera
+                trzy elementy galerii
+                powinny znajdować się
+                obok siebie.
+            </p>
+        </section>
+
+        <!-- 9 -->
+
+        <section id="cennik">
+            <h2>9. Tabela cennika</h2>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>cennik</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek:
+                <strong>Cennik roślin</strong>.
+            </p>
+
+            <h3>Dane do tabeli</h3>
+
+            <table>
+                <tr>
+                    <th>Roślina</th>
+                    <th>Cena</th>
+                </tr>
+                <tr>
+                    <td>Lawenda</td>
+                    <td>18 zł</td>
+                </tr>
+                <tr>
+                    <td>Monstera</td>
+                    <td>45 zł</td>
+                </tr>
+                <tr>
+                    <td>Róża</td>
+                    <td>25 zł</td>
+                </tr>
+            </table>
+
+            <h3>Wymagania</h3>
+
+            <ul>
+                <li>Tabela zawiera dwie kolumny.</li>
+                <li>Wiersz nagłówkowy znajduje się w thead.</li>
+                <li>Dane znajdują się w tbody.</li>
+                <li>Użyj odpowiednich elementów th i td.</li>
+                <li>Dodaj podpis tabeli: <strong>Ceny detaliczne</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 10 -->
+
+        <section id="stopka">
+            <h2>10. Kontakt i stopka</h2>
+
+            <h3>Sekcja Kontakt</h3>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>kontakt</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek h2:
+                <strong>Kontakt</strong>.
+            </p>
+
+            <p>
+                Umieść następujące informacje:
+            </p>
+
+            <ul>
+                <li>Adres: ul. Ogrodowa 12, 20-100 Lublin.</li>
+                <li>Telefon: 123 456 789.</li>
+                <li>E-mail: kontakt@zielonaprzystan.example.</li>
+            </ul>
+
+            <p>
+                Numer telefonu powinien
+                być odnośnikiem typu
+                <code>tel:</code>.
+            </p>
+
+            <p>
+                Adres e-mail powinien
+                być odnośnikiem typu
+                <code>mailto:</code>.
+            </p>
+
+            <h3>Stopka</h3>
+
+            <p>
+                W elemencie footer
+                umieść:
+            </p>
+
+            <div class="important">
+                Zielona Przystań | Autor: numer z dziennika
+            </div>
+
+            <p>
+                Wstaw własny numer z dziennika.
+            </p>
+        </section>
+
+        <!-- 11 -->
+
+        <section id="css">
+            <h2>11. Wymagania dotyczące CSS</h2>
+
+            <p>
+                Całe formatowanie umieść
+                w pliku <code>style.css</code>.
+            </p>
+
+            <h3>Formatowanie ogólne</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Wartość</th>
+                </tr>
+                <tr>
+                    <td>Krój pisma</td>
+                    <td>Arial, sans-serif</td>
+                </tr>
+                <tr>
+                    <td>Tło strony</td>
+                    <td>#F0FDF4</td>
+                </tr>
+                <tr>
+                    <td>Kolor tekstu</td>
+                    <td>#1F2937</td>
+                </tr>
+                <tr>
+                    <td>Margines body</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Box sizing</td>
+                    <td>border-box</td>
+                </tr>
+            </table>
+
+            <h3>Nagłówek</h3>
+
+            <ul>
+                <li>Tło: <code>#166534</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+                <li>Wyrównanie: do środka.</li>
+                <li>Padding: 30 px.</li>
+                <li>Rozmiar h1: 32 px.</li>
+            </ul>
+
+            <h3>Menu</h3>
+
+            <ul>
+                <li>Tło: <code>#22C55E</code>.</li>
+                <li>Układ Flexbox.</li>
+                <li>Wyśrodkowanie elementów.</li>
+                <li>Odstęp między elementami: 20 px.</li>
+                <li>Padding: 15 px.</li>
+                <li>Odnośniki bez podkreślenia.</li>
+                <li>Kolor odnośników: <code>#14532D</code>.</li>
+                <li>Grubość czcionki odnośników: bold.</li>
+            </ul>
+
+            <h3>Główna zawartość</h3>
+
+            <ul>
+                <li>Maksymalna szerokość main: 900 px.</li>
+                <li>Wyśrodkowanie main.</li>
+                <li>Margines górny i dolny: 20 px.</li>
+                <li>Padding poziomy: 15 px.</li>
+            </ul>
+
+            <h3>Sekcje</h3>
+
+            <ul>
+                <li>Tło: białe.</li>
+                <li>Padding: 20 px.</li>
+                <li>Margines dolny: 20 px.</li>
+                <li>Zaokrąglenie: 10 px.</li>
+            </ul>
+
+            <h3>Nagłówki h2</h3>
+
+            <ul>
+                <li>Kolor: <code>#166534</code>.</li>
+                <li>Margines górny: 0.</li>
+            </ul>
+
+            <h3>Galeria</h3>
+
+            <ul>
+                <li>Układ CSS Grid.</li>
+                <li>Trzy kolumny na większych ekranach.</li>
+                <li>Odstęp między elementami: 15 px.</li>
+                <li>Tło kart: <code>#DCFCE7</code>.</li>
+                <li>Padding kart: 12 px.</li>
+                <li>Zaokrąglenie kart: 8 px.</li>
+                <li>Wyrównanie zawartości kart do środka.</li>
+                <li>Obrazy o szerokości 100% dostępnego miejsca.</li>
+                <li>Wysokość obrazów: auto.</li>
+            </ul>
+
+            <h3>Tabela</h3>
+
+            <ul>
+                <li>Szerokość: 100%.</li>
+                <li>Scalanie obramowań.</li>
+                <li>Padding komórek: 10 px.</li>
+                <li>Wyrównanie tekstu: do lewej.</li>
+                <li>Tło nagłówka: <code>#166534</code>.</li>
+                <li>Kolor tekstu nagłówka: biały.</li>
+                <li>Co drugi wiersz danych: <code>#F0FDF4</code>.</li>
+            </ul>
+
+            <h3>Stopka</h3>
+
+            <ul>
+                <li>Tło: <code>#14532D</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+                <li>Wyrównanie tekstu: do środka.</li>
+                <li>Padding: 20 px.</li>
+            </ul>
+        </section>
+
+        <!-- 12 -->
+
+        <section id="responsywnosc">
+            <h2>12. Responsywność</h2>
+
+            <p>
+                Strona musi poprawnie
+                wyświetlać się
+                na telefonach i komputerach.
+            </p>
+
+            <h3>Wymagania</h3>
+
+            <ol>
+                <li>Na dużym ekranie galeria ma trzy kolumny.</li>
+                <li>Przy szerokości do 600 px galeria ma jedną kolumnę.</li>
+                <li>Menu może zawijać odnośniki.</li>
+                <li>Obrazy nie wychodzą poza karty.</li>
+                <li>Strona nie powoduje zbędnego przewijania poziomego.</li>
+                <li>Przy szerokości do 600 px padding sekcji wynosi 15 px.</li>
+            </ol>
+
+            <p>
+                Wykorzystaj media query
+                dla szerokości do 600 px.
+            </p>
+        </section>
+
+        <!-- 13 -->
+
+        <section id="kontrola">
+            <h2>13. Sprawdzenie poprawności witryny</h2>
+
+            <p>
+                Po wykonaniu strony
+                przeprowadź testy.
+            </p>
+
+            <h3>Sprawdź:</h3>
+
+            <ol>
+                <li>Czy index.html otwiera się poprawnie?</li>
+                <li>Czy arkusz CSS jest podłączony?</li>
+                <li>Czy wyświetlane są wszystkie trzy obrazy?</li>
+                <li>Czy menu prowadzi do odpowiednich sekcji?</li>
+                <li>Czy tabela zawiera poprawne dane?</li>
+                <li>Czy odnośniki tel: i mailto: mają poprawne adresy?</li>
+                <li>Czy strona działa przy szerokości 375 px?</li>
+                <li>Czy strona działa przy szerokości 1366 px?</li>
+                <li>Czy HTML i CSS przechodzą walidację bez błędów?</li>
+            </ol>
+
+            <h3>Walidatory</h3>
+
+            <p>
+                HTML:
+                <a href="https://validator.w3.org/nu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    validator.w3.org/nu/
+                </a>
+            </p>
+
+            <p>
+                CSS:
+                <a href="https://jigsaw.w3.org/css-validator/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    jigsaw.w3.org/css-validator/
+                </a>
+            </p>
+        </section>
+
+        <!-- ZADANIE -->
+
+        <section id="zadanie" class="tasks">
+            <h2>📝 Zadanie praktyczne – podsumowanie</h2>
+
+            <p>
+                Wykonaj kompletną witrynę
+                <strong>Zielona Przystań</strong>
+                zgodnie z projektem
+                i specyfikacją.
+            </p>
+
+            <h3>Kolejność pracy</h3>
+
+            <ol>
+                <li>Pobierz materiały źródłowe.</li>
+                <li>Utwórz folder PSI_44.</li>
+                <li>Przygotuj plik index.html.</li>
+                <li>Wykonaj strukturę HTML5.</li>
+                <li>Dodaj nagłówek i menu.</li>
+                <li>Wprowadź wymagane treści.</li>
+                <li>Utwórz galerię z trzech obrazów.</li>
+                <li>Utwórz tabelę cennika.</li>
+                <li>Dodaj sekcję kontaktową i stopkę.</li>
+                <li>Utwórz zewnętrzny arkusz CSS.</li>
+                <li>Sformatuj witrynę zgodnie z wymaganiami.</li>
+                <li>Dodaj responsywność.</li>
+                <li>Sprawdź działanie i poprawność strony.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⏱️ Organizacja pracy</h3>
+
+                <p>
+                    Czas wykonania:
+                    <strong>2 × 45 minut</strong>.
+                </p>
+
+                <p>
+                    Pracuj samodzielnie.
+                    Korzystaj z wcześniejszych materiałów
+                    i dokumentacji HTML/CSS.
+                </p>
+            </div>
+        </section>
+
+        <!-- ODDANIE -->
+
+        <section id="oddanie" class="tasks">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Spakuj folder <code>PSI_44</code>
+                do archiwum ZIP.
+            </p>
+
+            <p>
+                Archiwum powinno zawierać:
+            </p>
+
+            <pre><code class="language-text">PSI_44/
+|
+|-- index.html
+|-- style.css
+|
+|-- img/
+    |-- lawenda.jpg
+    |-- monstera.jpg
+    |-- roza.jpg</code></pre>
+
+            <p>
+                Prześlij archiwum
+                na odpowiednie
+                <strong>Zadanie w Teams</strong>.
+            </p>
+
+            <p>
+                Przed oddaniem pracy
+                sprawdź, czy po wypakowaniu
+                archiwum witryna
+                poprawnie otwiera się
+                w przeglądarce.
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 44
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
