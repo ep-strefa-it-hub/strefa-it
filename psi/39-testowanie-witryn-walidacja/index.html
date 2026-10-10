@@ -1,0 +1,1690 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 39 – Testowanie witryn i walidacja HTML oraz CSS | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#rodzaje">2.Rodzaje testów</a>
+        <a href="#przegladarki">3.Przeglądarki internetowe</a>
+        <a href="#zgodnosc">4.Zgodność przeglądarek</a>
+        <a href="#rozdzielczosci">5.Rozdzielczości i viewport</a>
+        <a href="#devtools">6.Narzędzia deweloperskie</a>
+        <a href="#responsive">7.Testowanie responsywności</a>
+        <a href="#funkcjonalnosc">8.Testowanie funkcjonalności</a>
+        <a href="#walidacja">9.Czym jest walidacja?</a>
+        <a href="#html">10.Walidacja HTML</a>
+        <a href="#bledy-html">11.Typowe błędy HTML</a>
+        <a href="#css">12.Walidacja CSS</a>
+        <a href="#bledy-css">13.Typowe błędy CSS</a>
+        <a href="#konsola">14.Konsola i błędy zasobów</a>
+        <a href="#dostepnosc">15.Testowanie dostępności</a>
+        <a href="#wydajnosc">16.Testowanie wydajności</a>
+        <a href="#scenariusze">17.Scenariusze testowe</a>
+        <a href="#raport">18.Raportowanie błędów</a>
+        <a href="#poprawki">19.Poprawianie błędów</a>
+        <a href="#przyklad">20.Przykład kompleksowego testu</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 39 • TESTOWANIE I WALIDACJA
+            </div>
+
+            <h2>
+                Testowanie witryn w różnych przeglądarkach
+                i rozdzielczościach. Walidacja HTML i CSS
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie metod testowania stron internetowych,
+                sprawdzania responsywności i zgodności
+                z przeglądarkami oraz wykrywania
+                i poprawiania błędów HTML i CSS
+                za pomocą narzędzi deweloperskich
+                i walidatorów W3C.
+            </p>
+
+            <p><strong>Czas realizacji:</strong> 2 × 45 minut.</p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Po zakończeniu tworzenia strony internetowej
+                nie wystarczy sprawdzić, czy otwiera się
+                ona na komputerze autora.
+            </p>
+
+            <p>
+                Użytkownicy korzystają z różnych urządzeń,
+                przeglądarek i rozmiarów ekranów.
+                Witryna może wyglądać prawidłowo
+                na dużym monitorze, ale mieć problemy
+                z wyświetlaniem na telefonie.
+            </p>
+
+            <p>
+                Mogą również występować błędy w kodzie,
+                niedziałające odnośniki,
+                niewczytujące się obrazy
+                lub formularze, których nie można obsłużyć.
+            </p>
+
+            <h3>Dlaczego testujemy strony?</h3>
+
+            <ul>
+                <li>Aby wykryć błędy przed publikacją.</li>
+                <li>Aby sprawdzić działanie witryny w różnych przeglądarkach.</li>
+                <li>Aby zapewnić poprawny wygląd na różnych ekranach.</li>
+                <li>Aby sprawdzić poprawność kodu HTML i CSS.</li>
+                <li>Aby poprawić dostępność i wygodę użytkowania.</li>
+                <li>Aby uniknąć problemów z działaniem strony.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Testowanie witryny to proces sprawdzania,
+                    czy strona działa poprawnie
+                    w różnych warunkach i spełnia
+                    określone wymagania.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="rodzaje">
+
+            <h2>2. Rodzaje testów stron internetowych</h2>
+
+            <p>
+                Testowanie witryn obejmuje kilka obszarów.
+                Każdy z nich pozwala wykryć
+                inny rodzaj problemów.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Rodzaj testu</th>
+                    <th>Co sprawdzamy?</th>
+                </tr>
+
+                <tr>
+                    <td>Funkcjonalny</td>
+                    <td>Czy odnośniki, formularze i przyciski działają poprawnie?</td>
+                </tr>
+
+                <tr>
+                    <td>Responsywności</td>
+                    <td>Czy układ dostosowuje się do różnych szerokości ekranu?</td>
+                </tr>
+
+                <tr>
+                    <td>Międzyprzeglądarkowy</td>
+                    <td>Czy strona działa w różnych przeglądarkach?</td>
+                </tr>
+
+                <tr>
+                    <td>Walidacja HTML</td>
+                    <td>Czy kod HTML jest zgodny z regułami języka?</td>
+                </tr>
+
+                <tr>
+                    <td>Walidacja CSS</td>
+                    <td>Czy deklaracje i składnia CSS są poprawne?</td>
+                </tr>
+
+                <tr>
+                    <td>Dostępności</td>
+                    <td>Czy strona jest możliwa do obsługi przez osoby o różnych potrzebach?</td>
+                </tr>
+
+                <tr>
+                    <td>Wydajności</td>
+                    <td>Czy strona wczytuje się sprawnie i nie przesyła zbędnych danych?</td>
+                </tr>
+            </table>
+
+            <p>
+                Dobrze przetestowana witryna
+                powinna przejść więcej niż jeden rodzaj testów.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="przegladarki">
+
+            <h2>3. Testowanie w różnych przeglądarkach</h2>
+
+            <p>
+                Przeglądarka internetowa interpretuje
+                kod HTML, CSS i JavaScript,
+                a następnie wyświetla stronę użytkownikowi.
+            </p>
+
+            <h3>Popularne przeglądarki</h3>
+
+            <ul>
+                <li>Google Chrome</li>
+                <li>Mozilla Firefox</li>
+                <li>Microsoft Edge</li>
+                <li>Safari</li>
+                <li>Opera</li>
+            </ul>
+
+            <h3>Dlaczego wygląd może się różnić?</h3>
+
+            <p>
+                Przeglądarki mogą wykorzystywać
+                różne silniki renderujące,
+                a także różnić się obsługą
+                wybranych funkcji i ustawieniami domyślnymi.
+            </p>
+
+            <p>
+                Chrome i Edge korzystają
+                z silnika Blink,
+                Firefox z Gecko,
+                a Safari z WebKit.
+            </p>
+
+            <h3>Co należy sprawdzić?</h3>
+
+            <ol>
+                <li>Czy strona otwiera się poprawnie?</li>
+                <li>Czy tekst jest czytelny?</li>
+                <li>Czy wszystkie obrazy się wyświetlają?</li>
+                <li>Czy menu działa?</li>
+                <li>Czy układ elementów jest poprawny?</li>
+                <li>Czy przyciski reagują prawidłowo?</li>
+                <li>Czy formularze można obsługiwać?</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Sprawdzenie strony tylko w Chrome
+                    nie jest pełnym testem
+                    międzyprzeglądarkowym.
+                    W miarę możliwości należy użyć
+                    co najmniej dwóch przeglądarek
+                    z różnymi silnikami.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="zgodnosc">
+
+            <h2>4. Zgodność międzyprzeglądarkowa</h2>
+
+            <p>
+                Zgodność międzyprzeglądarkowa oznacza,
+                że strona zachowuje poprawną funkcjonalność
+                i czytelność w obsługiwanych przeglądarkach.
+            </p>
+
+            <p>
+                Nie oznacza to, że każdy element
+                musi wyglądać idealnie identycznie.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Formularz może mieć nieco inny wygląd
+                pola wyboru w Chrome i Firefox,
+                ale powinien umożliwiać
+                wykonanie tych samych działań.
+            </p>
+
+            <h3>Co może powodować problemy?</h3>
+
+            <ul>
+                <li>Nieobsługiwane właściwości CSS.</li>
+                <li>Błędna składnia HTML.</li>
+                <li>Różnice w stylach domyślnych.</li>
+                <li>Nieprawidłowe ścieżki do plików.</li>
+                <li>Błędy skryptów JavaScript.</li>
+                <li>Nieprawidłowe założenia dotyczące rozmiaru ekranu.</li>
+            </ul>
+
+            <h3>Sprawdzanie obsługi właściwości</h3>
+
+            <p>
+                W razie wątpliwości można skorzystać
+                z serwisu:
+            </p>
+
+            <p>
+                <a href="https://caniuse.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Can I Use – zgodność technologii internetowych
+                </a>
+            </p>
+
+            <p>
+                Serwis pozwala sprawdzić,
+                które przeglądarki obsługują
+                wybrane funkcje HTML, CSS i JavaScript.
+            </p>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="rozdzielczosci">
+
+            <h2>5. Rozdzielczość ekranu a viewport</h2>
+
+            <p>
+                Rozdzielczość ekranu określa
+                liczbę pikseli tworzących obraz
+                na urządzeniu.
+            </p>
+
+            <p>
+                Podczas projektowania responsywnego
+                szczególnie ważny jest jednak
+                <strong>viewport</strong>,
+                czyli obszar, w którym przeglądarka
+                wyświetla stronę.
+            </p>
+
+            <h3>Przykładowe szerokości testowe</h3>
+
+            <table>
+                <tr>
+                    <th>Urządzenie</th>
+                    <th>Przykładowa szerokość viewportu</th>
+                </tr>
+
+                <tr>
+                    <td>Mały telefon</td>
+                    <td>320 px</td>
+                </tr>
+
+                <tr>
+                    <td>Telefon</td>
+                    <td>375 px</td>
+                </tr>
+
+                <tr>
+                    <td>Większy telefon</td>
+                    <td>430 px</td>
+                </tr>
+
+                <tr>
+                    <td>Tablet</td>
+                    <td>768 px</td>
+                </tr>
+
+                <tr>
+                    <td>Laptop</td>
+                    <td>1366 px</td>
+                </tr>
+
+                <tr>
+                    <td>Duży monitor</td>
+                    <td>1920 px</td>
+                </tr>
+            </table>
+
+            <p>
+                Są to przykładowe wartości testowe,
+                a nie sztywne granice
+                poszczególnych typów urządzeń.
+            </p>
+
+            <h3>Znacznik viewport</h3>
+
+            <pre><code class="language-html">&lt;meta name="viewport"
+      content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+            <p>
+                Znacznik ten informuje przeglądarkę
+                mobilną, jak ustawić
+                szerokość obszaru wyświetlania strony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Podczas testowania responsywności
+                    sprawdzamy przede wszystkim
+                    szerokość viewportu,
+                    a nie tylko fizyczną
+                    rozdzielczość ekranu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="devtools">
+
+            <h2>6. Narzędzia deweloperskie przeglądarki</h2>
+
+            <p>
+                Nowoczesne przeglądarki posiadają
+                narzędzia deweloperskie,
+                które pomagają analizować
+                kod i wygląd witryny.
+            </p>
+
+            <h3>Otwieranie DevTools</h3>
+
+            <p>
+                W Chrome i Edge na Windows
+                można użyć klawisza:
+            </p>
+
+            <pre><code class="language-text">F12</code></pre>
+
+            <p>
+                Można również kliknąć
+                prawym przyciskiem myszy
+                wybrany element strony
+                i wybrać <strong>Zbadaj</strong>.
+            </p>
+
+            <h3>Najważniejsze zakładki</h3>
+
+            <table>
+                <tr>
+                    <th>Zakładka</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Elements / Elementy</td>
+                    <td>Analiza struktury HTML i zastosowanych stylów CSS.</td>
+                </tr>
+
+                <tr>
+                    <td>Console / Konsola</td>
+                    <td>Wyświetlanie komunikatów i błędów JavaScript.</td>
+                </tr>
+
+                <tr>
+                    <td>Network / Sieć</td>
+                    <td>Sprawdzanie pobieranych plików i odpowiedzi serwera.</td>
+                </tr>
+
+                <tr>
+                    <td>Device Toolbar</td>
+                    <td>Symulowanie różnych szerokości viewportu.</td>
+                </tr>
+            </table>
+
+            <h3>Co można sprawdzić w zakładce Elements?</h3>
+
+            <ul>
+                <li>Strukturę elementów HTML.</li>
+                <li>Przypisane klasy CSS.</li>
+                <li>Wymiary elementów.</li>
+                <li>Marginesy i odstępy wewnętrzne.</li>
+                <li>Kolory i rozmiary tekstu.</li>
+                <li>Reguły CSS wpływające na wygląd elementu.</li>
+            </ul>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="responsive">
+
+            <h2>7. Testowanie responsywności strony</h2>
+
+            <p>
+                Responsywna witryna powinna
+                dostosowywać układ do dostępnej
+                szerokości ekranu.
+            </p>
+
+            <h3>Instrukcja w Chrome lub Edge</h3>
+
+            <ol>
+                <li>Otwórz stronę internetową.</li>
+                <li>Naciśnij F12.</li>
+                <li>Włącz tryb urządzeń za pomocą ikony telefonu i tabletu.</li>
+                <li>Wybierz tryb Responsive.</li>
+                <li>Ustaw szerokość 375 px.</li>
+                <li>Sprawdź wygląd strony.</li>
+                <li>Zmień szerokość na 768 px.</li>
+                <li>Następnie sprawdź 1366 px.</li>
+            </ol>
+
+            <h3>Na co zwrócić uwagę?</h3>
+
+            <ul>
+                <li>Czy tekst mieści się w ekranie?</li>
+                <li>Czy nie pojawia się niepotrzebne przewijanie poziome?</li>
+                <li>Czy obrazy nie wychodzą poza kontener?</li>
+                <li>Czy menu jest czytelne?</li>
+                <li>Czy przyciski można wygodnie nacisnąć?</li>
+                <li>Czy kolumny zmieniają układ?</li>
+                <li>Czy formularze mieszczą się na ekranie?</li>
+            </ul>
+
+            <h3>Przykładowe media queries</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+    gap: 20px;
+}
+
+.karta {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .karty {
+        flex-direction: column;
+    }
+}</code></pre>
+
+            <p>
+                Przy szerokości większej niż 768 px
+                karty są rozmieszczone w rzędzie.
+                Przy szerokości 768 px lub mniejszej
+                ustawiają się jedna pod drugą.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Tryb urządzeń w DevTools
+                    jest przydatną symulacją,
+                    ale nie zastępuje całkowicie
+                    testowania na prawdziwym telefonie
+                    lub tablecie.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="funkcjonalnosc">
+
+            <h2>8. Testowanie funkcjonalności witryny</h2>
+
+            <p>
+                Test funkcjonalny sprawdza,
+                czy elementy interaktywne
+                działają zgodnie z przeznaczeniem.
+            </p>
+
+            <h3>Przykładowa lista kontrolna</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Co sprawdzić?</th>
+                </tr>
+
+                <tr>
+                    <td>Odnośniki</td>
+                    <td>Czy prowadzą do właściwych stron?</td>
+                </tr>
+
+                <tr>
+                    <td>Menu</td>
+                    <td>Czy wszystkie pozycje działają?</td>
+                </tr>
+
+                <tr>
+                    <td>Formularze</td>
+                    <td>Czy pola można wypełniać i czy działa walidacja?</td>
+                </tr>
+
+                <tr>
+                    <td>Przyciski</td>
+                    <td>Czy wykonują oczekiwane działania?</td>
+                </tr>
+
+                <tr>
+                    <td>Obrazy</td>
+                    <td>Czy są poprawnie wczytywane?</td>
+                </tr>
+
+                <tr>
+                    <td>Nawigacja klawiaturą</td>
+                    <td>Czy można przechodzić między elementami za pomocą Tab?</td>
+                </tr>
+            </table>
+
+            <h3>Przykład testowania formularza</h3>
+
+            <ol>
+                <li>Spróbuj wysłać pusty formularz.</li>
+                <li>Sprawdź, czy wymagane pola są kontrolowane.</li>
+                <li>Wprowadź niepoprawny adres e-mail.</li>
+                <li>Sprawdź reakcję formularza.</li>
+                <li>Wprowadź poprawne dane testowe.</li>
+                <li>Sprawdź, czy formularz zachowuje się zgodnie z projektem.</li>
+            </ol>
+
+            <p>
+                Jeżeli formularz nie ma obsługi
+                wysyłania danych, sprawdzamy jedynie
+                funkcje, które rzeczywiście
+                zostały zaimplementowane.
+            </p>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="walidacja">
+
+            <h2>9. Czym jest walidacja kodu?</h2>
+
+            <p>
+                <strong>Walidacja</strong> polega
+                na sprawdzaniu kodu
+                według reguł określonego języka
+                lub standardu.
+            </p>
+
+            <p>
+                Walidator analizuje kod
+                i informuje o wykrytych
+                błędach oraz ostrzeżeniach.
+            </p>
+
+            <h3>Dlaczego warto walidować kod?</h3>
+
+            <ul>
+                <li>Pomaga wykrywać błędy składni.</li>
+                <li>Ułatwia utrzymanie poprawnej struktury dokumentu.</li>
+                <li>Pomaga znaleźć niepoprawne atrybuty.</li>
+                <li>Ułatwia analizę problemów z wyświetlaniem strony.</li>
+                <li>Wspiera tworzenie kodu zgodnego ze specyfikacjami.</li>
+            </ul>
+
+            <h3>Walidacja a testowanie</h3>
+
+            <p>
+                Walidacja nie jest tym samym
+                co pełne testowanie witryny.
+            </p>
+
+            <p>
+                Strona może przejść walidację,
+                ale nadal mieć niedziałające odnośniki,
+                nieczytelny tekst lub problemy
+                z obsługą klawiaturą.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Poprawna walidacja kodu
+                    nie gwarantuje poprawnego
+                    działania całej witryny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="html">
+
+            <h2>10. Walidacja kodu HTML</h2>
+
+            <p>
+                Do sprawdzania dokumentów HTML
+                można wykorzystać oficjalne narzędzie:
+            </p>
+
+            <p>
+                <a href="https://validator.w3.org/nu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Nu Html Checker – walidator HTML
+                </a>
+            </p>
+
+            <h3>Metody sprawdzania kodu</h3>
+
+            <ul>
+                <li>Podanie adresu URL publicznej strony.</li>
+                <li>Przesłanie pliku HTML.</li>
+                <li>Wklejenie kodu HTML do formularza.</li>
+            </ul>
+
+            <h3>Instrukcja krok po kroku</h3>
+
+            <ol>
+                <li>Otwórz walidator HTML.</li>
+                <li>Wybierz metodę sprawdzania kodu.</li>
+                <li>Prześlij plik <code>index.html</code> lub wklej jego zawartość.</li>
+                <li>Uruchom sprawdzanie.</li>
+                <li>Przeczytaj komunikaty walidatora.</li>
+                <li>Odszukaj wskazane fragmenty kodu.</li>
+                <li>Popraw błędy.</li>
+                <li>Uruchom walidację ponownie.</li>
+            </ol>
+
+            <h3>Rodzaje komunikatów</h3>
+
+            <table>
+                <tr>
+                    <th>Komunikat</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>Error</td>
+                    <td>Wykryto błąd wymagający analizy i poprawy.</td>
+                </tr>
+
+                <tr>
+                    <td>Warning</td>
+                    <td>Ostrzeżenie dotyczące potencjalnego problemu.</td>
+                </tr>
+
+                <tr>
+                    <td>Info</td>
+                    <td>Informacja pomocnicza.</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Adres <code>localhost</code>
+                    nie jest publicznie dostępny
+                    dla walidatora internetowego.
+                </p>
+
+                <p>
+                    W przypadku strony lokalnej
+                    użyj opcji przesłania pliku
+                    lub wklejenia kodu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="bledy-html">
+
+            <h2>11. Typowe błędy HTML</h2>
+
+            <h3>Błąd 1 – Brak zamknięcia elementu</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;Witamy na stronie
+&lt;p&gt;To kolejny akapit.&lt;/p&gt;</code></pre>
+
+            <p>
+                W HTML niektóre znaczniki końcowe
+                mogą być pomijane zgodnie z regułami języka.
+                Jednak dla początkujących
+                bezpieczniej jest zapisywać
+                wyraźne zamknięcia akapitów.
+            </p>
+
+            <p><strong>Czytelniejszy zapis:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;Witamy na stronie.&lt;/p&gt;
+&lt;p&gt;To kolejny akapit.&lt;/p&gt;</code></pre>
+
+            <h3>Błąd 2 – Nieprawidłowe zagnieżdżenie</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    &lt;strong&gt;Ważny tekst
+&lt;/p&gt;
+    &lt;/strong&gt;</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;p&gt;
+    &lt;strong&gt;Ważny tekst&lt;/strong&gt;
+&lt;/p&gt;</code></pre>
+
+            <h3>Błąd 3 – Brak tekstu alternatywnego</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;img src="szkola.jpg"&gt;</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;img src="szkola.jpg"
+     alt="Budynek szkoły widziany od frontu"&gt;</code></pre>
+
+            <p>
+                Obraz czysto dekoracyjny
+                może mieć pusty atrybut
+                <code>alt=""</code>.
+            </p>
+
+            <h3>Błąd 4 – Powtarzające się identyfikatory</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;section id="kontakt"&gt;
+    &lt;h2&gt;Kontakt&lt;/h2&gt;
+&lt;/section&gt;
+
+&lt;section id="kontakt"&gt;
+    &lt;h2&gt;Adres&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;section id="kontakt"&gt;
+    &lt;h2&gt;Kontakt&lt;/h2&gt;
+&lt;/section&gt;
+
+&lt;section id="adres"&gt;
+    &lt;h2&gt;Adres&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            <h3>Błąd 5 – Niepoprawne zagnieżdżenie elementów</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;ul&gt;
+    &lt;p&gt;Pierwszy punkt&lt;/p&gt;
+    &lt;p&gt;Drugi punkt&lt;/p&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Pierwszy punkt&lt;/li&gt;
+    &lt;li&gt;Drugi punkt&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="css">
+
+            <h2>12. Walidacja kodu CSS</h2>
+
+            <p>
+                Arkusze stylów CSS również
+                można sprawdzać za pomocą walidatora.
+            </p>
+
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    W3C CSS Validation Service
+                </a>
+            </p>
+
+            <h3>Co sprawdza walidator CSS?</h3>
+
+            <ul>
+                <li>Składnię reguł CSS.</li>
+                <li>Poprawność nazw właściwości.</li>
+                <li>Poprawność wartości deklaracji.</li>
+                <li>Wybrane błędy zapisu arkusza.</li>
+            </ul>
+
+            <h3>Instrukcja krok po kroku</h3>
+
+            <ol>
+                <li>Otwórz walidator CSS.</li>
+                <li>Wybierz sprawdzanie przez przesłanie pliku lub wklejenie kodu.</li>
+                <li>Wskaż plik <code>style.css</code>.</li>
+                <li>Uruchom walidację.</li>
+                <li>Przeczytaj komunikaty.</li>
+                <li>Popraw wykryte błędy.</li>
+                <li>Sprawdź arkusz ponownie.</li>
+            </ol>
+
+            <h3>Przykład poprawnej reguły CSS</h3>
+
+            <pre><code class="language-css">h1 {
+    color: #1E3A8A;
+    font-size: 32px;
+    text-align: center;
+}</code></pre>
+
+            <p>
+                W CSS każda deklaracja
+                zawiera nazwę właściwości,
+                dwukropek i wartość.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Walidator CSS pomaga
+                    wykrywać błędy składni,
+                    ale nie ocenia,
+                    czy zaprojektowany wygląd
+                    strony jest estetyczny i czytelny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="bledy-css">
+
+            <h2>13. Typowe błędy CSS</h2>
+
+            <h3>Błąd 1 – Niepoprawna nazwa właściwości</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-css">h1 {
+    colour: red;
+}</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-css">h1 {
+    color: red;
+}</code></pre>
+
+            <h3>Błąd 2 – Brak jednostki</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-css">p {
+    font-size: 20;
+}</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-css">p {
+    font-size: 20px;
+}</code></pre>
+
+            <h3>Błąd 3 – Niepoprawna wartość</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-css">.karta {
+    display: flexbox;
+}</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-css">.karta {
+    display: flex;
+}</code></pre>
+
+            <h3>Błąd 4 – Brak nawiasu klamrowego</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-css">.box {
+    background-color: #DBEAFE;
+    padding: 20px;</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-css">.box {
+    background-color: #DBEAFE;
+    padding: 20px;
+}</code></pre>
+
+            <h3>Błąd 5 – Brak średnika między deklaracjami</h3>
+
+            <p><strong>Niepoprawnie:</strong></p>
+
+            <pre><code class="language-css">p {
+    color: blue
+    font-size: 18px;
+}</code></pre>
+
+            <p><strong>Poprawnie:</strong></p>
+
+            <pre><code class="language-css">p {
+    color: blue;
+    font-size: 18px;
+}</code></pre>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Średnik po ostatniej deklaracji
+                    w bloku CSS nie zawsze jest wymagany,
+                    ale warto go stosować
+                    dla czytelności i łatwiejszej edycji.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="konsola">
+
+            <h2>14. Konsola przeglądarki i błędy zasobów</h2>
+
+            <p>
+                Nie wszystkie problemy
+                zostaną wykryte przez walidatory HTML i CSS.
+            </p>
+
+            <p>
+                Warto również korzystać
+                z konsoli przeglądarki
+                i zakładki Network.
+            </p>
+
+            <h3>Przykład błędu 404</h3>
+
+            <pre><code class="language-text">Failed to load resource:
+the server responded with a status of 404</code></pre>
+
+            <p>
+                Komunikat może oznaczać,
+                że przeglądarka próbowała
+                pobrać plik, którego
+                nie znaleziono pod wskazanym adresem.
+            </p>
+
+            <h3>Przykład niepoprawnej ścieżki</h3>
+
+            <pre><code class="language-html">&lt;img src="images/logo.png"
+     alt="Logo strony"&gt;</code></pre>
+
+            <p>
+                Jeżeli plik znajduje się
+                w folderze <code>img</code>,
+                ścieżka jest błędna.
+            </p>
+
+            <h3>Poprawna ścieżka</h3>
+
+            <pre><code class="language-html">&lt;img src="img/logo.png"
+     alt="Logo strony"&gt;</code></pre>
+
+            <h3>Co sprawdzać w konsoli?</h3>
+
+            <ul>
+                <li>Błędy JavaScript.</li>
+                <li>Nieudane próby pobierania zasobów.</li>
+                <li>Komunikaty ostrzegawcze.</li>
+                <li>Informacje pomocne w diagnozowaniu problemów.</li>
+            </ul>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="dostepnosc">
+
+            <h2>15. Podstawowe testowanie dostępności</h2>
+
+            <p>
+                Dostępność stron internetowych
+                oznacza projektowanie witryn
+                z uwzględnieniem różnych
+                potrzeb użytkowników.
+            </p>
+
+            <p>
+                Podczas testowania warto
+                odwołać się do zasad WCAG
+                poznanych na wcześniejszej lekcji.
+            </p>
+
+            <h3>Przykładowe testy dostępności</h3>
+
+            <ol>
+                <li>Sprawdź, czy obrazy informacyjne mają opisy alternatywne.</li>
+                <li>Sprawdź czytelność tekstu i kontrast.</li>
+                <li>Spróbuj obsługiwać stronę samą klawiaturą.</li>
+                <li>Sprawdź, czy fokus jest widoczny.</li>
+                <li>Sprawdź, czy formularze mają etykiety.</li>
+                <li>Powiększ stronę do 200% i sprawdź jej czytelność.</li>
+                <li>Sprawdź, czy nagłówki tworzą logiczną strukturę.</li>
+            </ol>
+
+            <h3>Test klawiaturą</h3>
+
+            <p>
+                Naciśnij klawisz <strong>Tab</strong>
+                i obserwuj, czy możesz
+                przechodzić między odnośnikami
+                i przyciskami.
+            </p>
+
+            <p>
+                Użyj <strong>Enter</strong>,
+                aby uruchomić wybrany odnośnik.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Walidacja HTML i CSS
+                    nie zastępuje testowania dostępności.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="wydajnosc">
+
+            <h2>16. Podstawowe testowanie wydajności</h2>
+
+            <p>
+                Wydajność witryny wpływa
+                na komfort użytkowników.
+                Strona zawierająca bardzo duże
+                obrazy może wczytywać się wolniej.
+            </p>
+
+            <h3>Co wpływa na szybkość działania?</h3>
+
+            <ul>
+                <li>Rozmiar obrazów.</li>
+                <li>Liczba pobieranych plików.</li>
+                <li>Wielkość arkuszy CSS i skryptów.</li>
+                <li>Wydajność serwera.</li>
+                <li>Jakość połączenia internetowego.</li>
+                <li>Sposób wczytywania zasobów.</li>
+            </ul>
+
+            <h3>Przydatne narzędzie</h3>
+
+            <p>
+                <a href="https://pagespeed.web.dev/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    PageSpeed Insights
+                </a>
+            </p>
+
+            <p>
+                Narzędzie pozwala analizować
+                wydajność publicznie dostępnych stron.
+            </p>
+
+            <p>
+                Do sprawdzania lokalnych stron
+                można wykorzystać również
+                narzędzia deweloperskie,
+                w tym Lighthouse,
+                jeśli jest dostępny w przeglądarce.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Uwaga</h3>
+                <p>
+                    PageSpeed Insights nie przeanalizuje
+                    zwykłej lokalnej strony
+                    dostępnej wyłącznie pod adresem localhost.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="scenariusze">
+
+            <h2>17. Scenariusze testowe</h2>
+
+            <p>
+                Scenariusz testowy opisuje,
+                co należy sprawdzić
+                i jaki wynik jest oczekiwany.
+            </p>
+
+            <h3>Przykład scenariusza</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Opis</th>
+                </tr>
+
+                <tr>
+                    <td>Test</td>
+                    <td>Sprawdzenie menu na telefonie.</td>
+                </tr>
+
+                <tr>
+                    <td>Warunki</td>
+                    <td>Viewport o szerokości 375 px.</td>
+                </tr>
+
+                <tr>
+                    <td>Działanie</td>
+                    <td>Otworzenie strony i kliknięcie pozycji Kontakt.</td>
+                </tr>
+
+                <tr>
+                    <td>Oczekiwany wynik</td>
+                    <td>Przejście do właściwej sekcji lub podstrony.</td>
+                </tr>
+
+                <tr>
+                    <td>Wynik rzeczywisty</td>
+                    <td>Wpisywany po wykonaniu testu.</td>
+                </tr>
+            </table>
+
+            <h3>Przykładowe scenariusze</h3>
+
+            <ol>
+                <li>Sprawdzenie wyglądu strony przy 375 px.</li>
+                <li>Sprawdzenie układu kart przy 768 px.</li>
+                <li>Sprawdzenie menu przy 1366 px.</li>
+                <li>Sprawdzenie działania wszystkich odnośników.</li>
+                <li>Sprawdzenie poprawności kodu HTML.</li>
+                <li>Sprawdzenie poprawności kodu CSS.</li>
+            </ol>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="raport">
+
+            <h2>18. Raportowanie wykrytych błędów</h2>
+
+            <p>
+                Po zakończeniu testowania
+                należy zapisać wyniki.
+            </p>
+
+            <p>
+                Raport pomaga ustalić,
+                które elementy wymagają poprawy.
+            </p>
+
+            <h3>Przykładowy raport</h3>
+
+            <table>
+                <tr>
+                    <th>Nr</th>
+                    <th>Problem</th>
+                    <th>Warunki</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>Obraz wychodzi poza ekran.</td>
+                    <td>375 px</td>
+                    <td>Do poprawy</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Nie działa odnośnik Kontakt.</td>
+                    <td>Firefox</td>
+                    <td>Do poprawy</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Brak atrybutu alt.</td>
+                    <td>Walidator HTML</td>
+                    <td>Do poprawy</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Niepoprawna wartość display.</td>
+                    <td>Walidator CSS</td>
+                    <td>Poprawiono</td>
+                </tr>
+            </table>
+
+            <h3>Dobry opis błędu zawiera:</h3>
+
+            <ul>
+                <li>nazwę problemu,</li>
+                <li>miejsce jego występowania,</li>
+                <li>warunki testowania,</li>
+                <li>oczekiwany wynik,</li>
+                <li>rzeczywisty wynik,</li>
+                <li>status poprawki.</li>
+            </ul>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="poprawki">
+
+            <h2>19. Poprawianie błędów i ponowne testowanie</h2>
+
+            <p>
+                Wykrycie błędu to dopiero
+                pierwszy etap pracy.
+                Należy jeszcze usunąć jego przyczynę
+                i sprawdzić, czy poprawka działa.
+            </p>
+
+            <h3>Przykład – obraz wychodzi poza ekran</h3>
+
+            <p><strong>Problem:</strong></p>
+
+            <pre><code class="language-css">img {
+    width: 900px;
+}</code></pre>
+
+            <p>
+                Obraz ma stałą szerokość,
+                która może przekraczać
+                szerokość ekranu telefonu.
+            </p>
+
+            <p><strong>Poprawka:</strong></p>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <h3>Przykład – sztywny kontener</h3>
+
+            <p><strong>Problem:</strong></p>
+
+            <pre><code class="language-css">.container {
+    width: 1200px;
+}</code></pre>
+
+            <p><strong>Poprawka:</strong></p>
+
+            <pre><code class="language-css">.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}</code></pre>
+
+            <h3>Cykl poprawiania</h3>
+
+            <ol>
+                <li>Wykryj błąd.</li>
+                <li>Ustal jego przyczynę.</li>
+                <li>Popraw kod.</li>
+                <li>Zapisz pliki.</li>
+                <li>Odśwież stronę.</li>
+                <li>Powtórz test.</li>
+                <li>Sprawdź, czy poprawka nie spowodowała nowego problemu.</li>
+            </ol>
+
+        </section>
+
+        <!-- 20 -->
+
+        <section id="przyklad">
+
+            <h2>20. Przykład kompleksowego testowania witryny</h2>
+
+            <p>
+                Załóżmy, że przygotowaliśmy
+                stronę „Moje zainteresowania”.
+            </p>
+
+            <p>
+                Witryna zawiera nagłówek,
+                menu, trzy karty z obrazami,
+                formularz kontaktowy i stopkę.
+            </p>
+
+            <h3>Plan testowania</h3>
+
+            <table>
+                <tr>
+                    <th>Etap</th>
+                    <th>Działanie</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>Otwórz stronę w Chrome.</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Sprawdź ją w Firefox lub Edge.</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Przetestuj szerokości 375, 768 i 1366 px.</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Sprawdź działanie menu i formularza.</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Przeprowadź walidację HTML.</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>Przeprowadź walidację CSS.</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>Sprawdź konsolę i pobieranie zasobów.</td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td>Popraw wykryte błędy.</td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td>Powtórz testy.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Wniosek</h3>
+                <p>
+                    Poprawnie przygotowana witryna
+                    powinna być sprawdzona
+                    zarówno automatycznymi narzędziami,
+                    jak i przez samodzielne
+                    wykonanie testów funkcjonalnych.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Testowanie pozwala wykrywać problemy przed publikacją strony.</li>
+                    <li>Witrynę należy sprawdzać w różnych przeglądarkach.</li>
+                    <li>Zgodność międzyprzeglądarkowa nie wymaga identycznego wyglądu każdego elementu.</li>
+                    <li>Viewport to obszar wyświetlania strony w przeglądarce.</li>
+                    <li>Responsywność należy sprawdzać przy różnych szerokościach viewportu.</li>
+                    <li>DevTools umożliwia analizowanie HTML, CSS i działania strony.</li>
+                    <li>F12 otwiera narzędzia deweloperskie w wielu przeglądarkach na Windows.</li>
+                    <li>Walidacja HTML pomaga wykrywać błędy kodu HTML.</li>
+                    <li>Walidacja CSS pomaga wykrywać błędy arkusza stylów.</li>
+                    <li>Walidator HTML jest dostępny pod adresem validator.w3.org/nu/.</li>
+                    <li>Walidator CSS jest dostępny pod adresem jigsaw.w3.org/css-validator/.</li>
+                    <li>Stronę lokalną można walidować przez przesłanie pliku lub wklejenie kodu.</li>
+                    <li>Błędy 404 mogą wskazywać na nieprawidłowe adresy zasobów.</li>
+                    <li>Walidacja nie zastępuje testów funkcjonalnych.</li>
+                    <li>Testowanie dostępności obejmuje m.in. obsługę klawiaturą i czytelność.</li>
+                    <li>Wydajność witryny zależy m.in. od rozmiaru pobieranych zasobów.</li>
+                    <li>Scenariusz testowy określa warunki, działanie i oczekiwany wynik.</li>
+                    <li>Raport błędów dokumentuje wykryte problemy.</li>
+                    <li>Po poprawieniu błędu należy powtórzyć test.</li>
+                    <li>Witrynę warto sprawdzić również na rzeczywistym urządzeniu mobilnym.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Projekt:</strong>
+                „Testowanie i poprawianie witryny internetowej”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                sprawdzenie strony w różnych przeglądarkach
+                i szerokościach ekranu,
+                wykrycie błędów HTML i CSS
+                oraz przygotowanie raportu testów.
+            </p>
+
+            <div class="important">
+
+                <h3>📌 Przygotowanie projektu</h3>
+
+                <p>
+                    Wykorzystaj własną witrynę
+                    utworzoną na wcześniejszych zajęciach
+                    z HTML i CSS.
+                </p>
+
+                <p>
+                    Skopiuj jej pliki do folderu
+                    <code>PSI_39</code>.
+                </p>
+
+                <p>
+                    Wszystkie testy i poprawki
+                    wykonujesz na <strong>jednej witrynie</strong>.
+                </p>
+
+                <p>
+                    Jeśli witryna zawiera obrazy,
+                    zachowaj ich oryginalną strukturę folderów.
+                </p>
+
+            </div>
+
+            <h3>Zadanie 1 – Testowanie w przeglądarkach</h3>
+
+            <ol>
+                <li>Otwórz plik <code>index.html</code> w Google Chrome.</li>
+                <li>Sprawdź wygląd strony.</li>
+                <li>Przetestuj menu i wszystkie odnośniki.</li>
+                <li>Otwórz tę samą witrynę w Firefox lub Edge.</li>
+                <li>Porównaj wygląd nagłówka, menu, kart i stopki.</li>
+                <li>Sprawdź, czy obrazy wczytują się poprawnie.</li>
+                <li>Zapisz wyniki porównania w pliku <code>raport.txt</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Testowanie responsywności</h3>
+
+            <ol>
+                <li>Otwórz narzędzia deweloperskie.</li>
+                <li>Włącz tryb Responsive.</li>
+                <li>Ustaw szerokość 375 px.</li>
+                <li>Sprawdź, czy strona nie wymaga niepotrzebnego przewijania poziomego.</li>
+                <li>Ustaw szerokość 768 px.</li>
+                <li>Sprawdź układ menu i elementów strony.</li>
+                <li>Ustaw szerokość 1366 px.</li>
+                <li>Sprawdź wygląd strony na dużym ekranie.</li>
+                <li>Wykonaj zrzuty ekranu dla wszystkich trzech szerokości.</li>
+                <li>Zapisz je jako <code>mobile.png</code>, <code>tablet.png</code> i <code>desktop.png</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Walidacja HTML</h3>
+
+            <ol>
+                <li>Otwórz <a href="https://validator.w3.org/nu/" target="_blank" rel="noopener noreferrer">walidator HTML</a>.</li>
+                <li>Prześlij plik <code>index.html</code> lub wklej jego kod.</li>
+                <li>Uruchom walidację.</li>
+                <li>Przeanalizuj wykryte błędy.</li>
+                <li>Popraw kod HTML.</li>
+                <li>Powtórz walidację.</li>
+                <li>Zapisz wynik w raporcie.</li>
+                <li>Wykonaj zrzut ekranu wyniku walidacji jako <code>walidacja-html.png</code>.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Walidacja CSS</h3>
+
+            <ol>
+                <li>Otwórz <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">walidator CSS</a>.</li>
+                <li>Prześlij plik <code>style.css</code> lub wklej jego zawartość.</li>
+                <li>Uruchom sprawdzanie.</li>
+                <li>Przeczytaj komunikaty walidatora.</li>
+                <li>Popraw wykryte błędy składni.</li>
+                <li>Powtórz walidację.</li>
+                <li>Zapisz wynik w raporcie.</li>
+                <li>Wykonaj zrzut ekranu jako <code>walidacja-css.png</code>.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Testowanie funkcjonalności i dostępności</h3>
+
+            <ol>
+                <li>Sprawdź działanie wszystkich odnośników.</li>
+                <li>Sprawdź, czy obrazy są poprawnie wczytywane.</li>
+                <li>Otwórz konsolę przeglądarki.</li>
+                <li>Sprawdź, czy występują błędy związane z zasobami strony.</li>
+                <li>Spróbuj obsługiwać stronę za pomocą klawisza Tab.</li>
+                <li>Sprawdź, czy aktywny element jest widoczny.</li>
+                <li>Sprawdź opisy alternatywne obrazów.</li>
+                <li>Powiększ stronę do 200% i sprawdź jej czytelność.</li>
+                <li>Zapisz wyniki testów w raporcie.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Poprawki i raport końcowy</h3>
+
+            <ol>
+                <li>Przejrzyj wszystkie wykryte problemy.</li>
+                <li>Popraw błędy HTML i CSS.</li>
+                <li>Usuń nieprawidłowe ścieżki do plików.</li>
+                <li>Popraw elementy powodujące problemy z responsywnością.</li>
+                <li>Sprawdź witrynę ponownie.</li>
+                <li>Uzupełnij plik <code>raport.txt</code>.</li>
+                <li>Wymień co najmniej trzy wykonane testy.</li>
+                <li>Opisz wykryte błędy i sposób ich poprawienia. Jeśli błędów nie było, zapisz to w raporcie.</li>
+                <li>Podaj końcowe wyniki walidacji HTML i CSS.</li>
+            </ol>
+
+            <h3>📁 Struktura folderu do oddania</h3>
+
+            <pre><code class="language-text">PSI_39/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+|   |-- ...
+|
+|-- mobile.png
+|
+|-- tablet.png
+|
+|-- desktop.png
+|
+|-- walidacja-html.png
+|
+|-- walidacja-css.png
+|
+|-- raport.txt</code></pre>
+
+            <p>
+                Jeśli Twoja witryna korzysta
+                z innych nazw plików lub folderów,
+                zachowaj ich prawidłowe ścieżki.
+            </p>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder <code>PSI_39</code>
+                    do archiwum ZIP i prześlij
+                    na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź,
+                    czy plik <code>index.html</code>
+                    poprawnie otwiera stronę,
+                    arkusz CSS jest dołączony,
+                    obrazy się wyświetlają,
+                    a raport i zrzuty ekranu
+                    znajdują się w folderze.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 39
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
