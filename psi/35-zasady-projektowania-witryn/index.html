@@ -1,0 +1,2349 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 35 – Zasady projektowania witryn | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#cele">2.Cele projektowania</a>
+        <a href="#planowanie">3.Planowanie witryny</a>
+        <a href="#uklad">4.Układ strony</a>
+        <a href="#hierarchia">5.Hierarchia wizualna</a>
+        <a href="#wyrownanie">6.Wyrównanie i odstępy</a>
+        <a href="#kolorystyka">7.Kolorystyka witryny</a>
+        <a href="#paleta">8.Dobór palety kolorów</a>
+        <a href="#kontrast">9.Kontrast kolorów</a>
+        <a href="#typografia">10.Typografia</a>
+        <a href="#tekst">11.Czytelność tekstu</a>
+        <a href="#nawigacja">12.Nawigacja</a>
+        <a href="#grafika">13.Obrazy i grafika</a>
+        <a href="#spojnosc">14.Spójność wizualna</a>
+        <a href="#responsywnosc">15.Responsywność</a>
+        <a href="#dostepnosc">16.Dostępność</a>
+        <a href="#bledy">17.Najczęstsze błędy</a>
+        <a href="#przyklad">18.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 35 • HTML5 / CSS3
+            </div>
+
+            <h2>
+                Zasady projektowania witryn –
+                układ strony, kolorystyka,
+                typografia i czytelność
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie podstawowych zasad
+                projektowania estetycznych,
+                funkcjonalnych i czytelnych
+                stron internetowych oraz
+                zastosowanie tych zasad
+                podczas tworzenia własnej witryny
+                za pomocą HTML5 i CSS3.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong>
+                2 × 45 minut.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Poprawnie napisana strona internetowa
+                nie zawsze jest wygodna
+                i przyjemna w użytkowaniu.
+            </p>
+
+            <p>
+                Nawet jeśli wszystkie znaczniki HTML
+                i właściwości CSS działają prawidłowo,
+                strona może być nieczytelna,
+                chaotyczna lub trudna w obsłudze.
+            </p>
+
+            <p>
+                Projektowanie witryny polega
+                nie tylko na tworzeniu kodu,
+                ale również na odpowiednim
+                rozmieszczeniu treści,
+                doborze kolorów, czcionek,
+                obrazów i odstępów.
+            </p>
+
+            <h3>Przykładowe problemy</h3>
+
+            <ul>
+                <li>Zbyt wiele kolorów na jednej stronie.</li>
+                <li>Nieczytelna lub zbyt mała czcionka.</li>
+                <li>Brak wyraźnego podziału na sekcje.</li>
+                <li>Nieuporządkowane menu nawigacyjne.</li>
+                <li>Zbyt małe odstępy między elementami.</li>
+                <li>Zbyt długie linie tekstu.</li>
+                <li>Nieodpowiedni kontrast tekstu i tła.</li>
+                <li>Przypadkowe rozmieszczenie obrazów.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Dobra witryna powinna być
+                    jednocześnie
+                    <strong>estetyczna, czytelna,
+                    funkcjonalna i dostępna</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="cele">
+
+            <h2>2. Podstawowe cele projektowania witryn</h2>
+
+            <p>
+                Podczas projektowania strony
+                należy uwzględnić potrzeby
+                jej użytkowników.
+            </p>
+
+            <h3>Najważniejsze cele</h3>
+
+            <table>
+                <tr>
+                    <th>Cel</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>Funkcjonalność</td>
+                    <td>Użytkownik może łatwo korzystać ze strony.</td>
+                </tr>
+
+                <tr>
+                    <td>Czytelność</td>
+                    <td>Tekst jest łatwy do przeczytania.</td>
+                </tr>
+
+                <tr>
+                    <td>Estetyka</td>
+                    <td>Kolory, czcionki i elementy tworzą uporządkowaną całość.</td>
+                </tr>
+
+                <tr>
+                    <td>Spójność</td>
+                    <td>Podobne elementy mają podobny wygląd.</td>
+                </tr>
+
+                <tr>
+                    <td>Responsywność</td>
+                    <td>Strona dostosowuje się do różnych szerokości ekranu.</td>
+                </tr>
+
+                <tr>
+                    <td>Dostępność</td>
+                    <td>Strona jest możliwa do obsługi przez osoby o różnych potrzebach.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Jeśli projektujemy stronę
+                szkolnego koła informatycznego,
+                użytkownik powinien szybko znaleźć:
+            </p>
+
+            <ul>
+                <li>informacje o kole,</li>
+                <li>terminy spotkań,</li>
+                <li>opis realizowanych projektów,</li>
+                <li>dane kontaktowe.</li>
+            </ul>
+
+            <p>
+                Najważniejsze informacje
+                nie powinny być ukryte
+                w przypadkowych miejscach.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="planowanie">
+
+            <h2>3. Planowanie witryny przed kodowaniem</h2>
+
+            <p>
+                Przed napisaniem kodu HTML
+                warto przygotować prosty
+                projekt strony.
+            </p>
+
+            <p>
+                Taki projekt nazywamy
+                często <strong>makietą</strong>
+                (wireframe).
+            </p>
+
+            <h3>Makieta określa</h3>
+
+            <ul>
+                <li>rozmieszczenie nagłówka,</li>
+                <li>położenie menu,</li>
+                <li>kolejność sekcji,</li>
+                <li>rozmieszczenie tekstów i obrazów,</li>
+                <li>miejsce na stopkę.</li>
+            </ul>
+
+            <h3>Przykładowa makieta</h3>
+
+            <pre><code class="language-text">+--------------------------------------+
+|                LOGO                  |
+|          NAZWA WITRYNY               |
++--------------------------------------+
+|   START   OFERTA   O NAS   KONTAKT   |
++--------------------------------------+
+|                                      |
+|          SEKCJA POWITALNA            |
+|       Nagłówek i krótki opis         |
+|                                      |
++------------+------------+------------+
+|  KARTA 1   |  KARTA 2   |  KARTA 3   |
+|   Opis     |   Opis     |   Opis     |
++------------+------------+------------+
+|                                      |
+|             KONTAKT                  |
+|                                      |
++--------------------------------------+
+|               STOPKA                 |
++--------------------------------------+</code></pre>
+
+            <h3>Etapy projektowania</h3>
+
+            <ol>
+                <li>Określ temat i cel strony.</li>
+                <li>Ustal grupę odbiorców.</li>
+                <li>Wybierz najważniejsze treści.</li>
+                <li>Zaplanuj kolejność sekcji.</li>
+                <li>Przygotuj makietę.</li>
+                <li>Dobierz kolory i czcionki.</li>
+                <li>Rozpocznij kodowanie HTML i CSS.</li>
+                <li>Sprawdź wygląd oraz działanie strony.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Najpierw zaplanuj
+                    strukturę i rozmieszczenie
+                    elementów, a dopiero później
+                    zajmij się szczegółami
+                    dekoracyjnymi.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="uklad">
+
+            <h2>4. Układ strony internetowej</h2>
+
+            <p>
+                Układ strony określa
+                sposób rozmieszczenia
+                jej elementów.
+            </p>
+
+            <h3>Typowe części witryny</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>header</code></td>
+                    <td>Nagłówek strony lub sekcji.</td>
+                </tr>
+
+                <tr>
+                    <td><code>nav</code></td>
+                    <td>Obszar nawigacji.</td>
+                </tr>
+
+                <tr>
+                    <td><code>main</code></td>
+                    <td>Główna zawartość dokumentu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>section</code></td>
+                    <td>Tematyczna sekcja treści.</td>
+                </tr>
+
+                <tr>
+                    <td><code>article</code></td>
+                    <td>Samodzielna część zawartości.</td>
+                </tr>
+
+                <tr>
+                    <td><code>aside</code></td>
+                    <td>Treść uzupełniająca.</td>
+                </tr>
+
+                <tr>
+                    <td><code>footer</code></td>
+                    <td>Stopka strony lub sekcji.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Moja witryna&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+
+    &lt;section id="start"&gt;
+        &lt;h2&gt;Witaj!&lt;/h2&gt;
+        &lt;p&gt;Treść powitalna.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="oferta"&gt;
+        &lt;h2&gt;Oferta&lt;/h2&gt;
+        &lt;p&gt;Opis oferty.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="kontakt"&gt;
+        &lt;h2&gt;Kontakt&lt;/h2&gt;
+        &lt;p&gt;Dane kontaktowe.&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Autor strony&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <h3>Ograniczenie szerokości treści</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Dzięki temu zawartość
+                nie rozciąga się
+                nadmiernie na dużych ekranach.
+            </p>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="hierarchia">
+
+            <h2>5. Hierarchia wizualna</h2>
+
+            <p>
+                <strong>Hierarchia wizualna</strong>
+                określa, które elementy
+                przyciągają uwagę użytkownika
+                w pierwszej kolejności.
+            </p>
+
+            <p>
+                Najważniejsze informacje
+                powinny być łatwe
+                do zauważenia.
+            </p>
+
+            <h3>Hierarchię tworzymy przez</h3>
+
+            <ul>
+                <li>rozmiar tekstu,</li>
+                <li>grubość czcionki,</li>
+                <li>kolor,</li>
+                <li>kontrast,</li>
+                <li>odstępy,</li>
+                <li>położenie elementów.</li>
+            </ul>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 16px;
+}</code></pre>
+
+            <p>
+                Użytkownik powinien
+                łatwo odróżniać
+                tytuł strony od nagłówków
+                sekcji i zwykłych akapitów.
+            </p>
+
+            <h3>Przykład prawidłowej struktury</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Kurs tworzenia stron WWW&lt;/h1&gt;
+
+&lt;h2&gt;Technologie internetowe&lt;/h2&gt;
+
+&lt;h3&gt;HTML5&lt;/h3&gt;
+
+&lt;p&gt;Opis technologii HTML5.&lt;/p&gt;
+
+&lt;h3&gt;CSS3&lt;/h3&gt;
+
+&lt;p&gt;Opis technologii CSS3.&lt;/p&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Nagłówki HTML
+                    powinny odzwierciedlać
+                    strukturę treści,
+                    a nie służyć wyłącznie
+                    do powiększania tekstu.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="wyrownanie">
+
+            <h2>6. Wyrównanie, odstępy i pusta przestrzeń</h2>
+
+            <p>
+                Odstępy pomagają
+                uporządkować zawartość
+                i oddzielić od siebie
+                poszczególne elementy.
+            </p>
+
+            <p>
+                Pusta przestrzeń
+                nie jest błędem.
+                Ułatwia odbiór informacji.
+            </p>
+
+            <h3>margin i padding</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>Odstęp zewnętrzny elementu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Odstęp wewnętrzny elementu.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    background-color: white;
+
+    border-radius: 10px;
+}</code></pre>
+
+            <h3>Odstępy w Flexbox</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    gap: 20px;
+}</code></pre>
+
+            <h3>Wyrównanie elementów</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}</code></pre>
+
+            <p>
+                <code>justify-content</code>
+                odpowiada za rozmieszczenie
+                elementów wzdłuż osi głównej.
+            </p>
+
+            <p>
+                <code>align-items</code>
+                odpowiada za wyrównanie
+                wzdłuż osi poprzecznej.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Stosuj powtarzalne odstępy,
+                    np. 8 px, 16 px, 24 px i 32 px,
+                    zamiast przypadkowych wartości
+                    dla każdego elementu.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="kolorystyka">
+
+            <h2>7. Kolorystyka witryny internetowej</h2>
+
+            <p>
+                Kolory wpływają
+                na wygląd strony,
+                rozpoznawalność elementów
+                oraz czytelność treści.
+            </p>
+
+            <p>
+                W dobrze zaprojektowanej
+                witrynie kolory powinny
+                tworzyć spójną paletę.
+            </p>
+
+            <h3>Podstawowe role kolorów</h3>
+
+            <table>
+                <tr>
+                    <th>Rodzaj koloru</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Kolor główny</td>
+                    <td>Nagłówek, menu, najważniejsze elementy.</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor dodatkowy</td>
+                    <td>Wyróżnienie wybranych sekcji.</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor akcentowy</td>
+                    <td>Przyciski i ważne działania.</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tła</td>
+                    <td>Główna powierzchnia strony.</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tekstu</td>
+                    <td>Nagłówki i akapity.</td>
+                </tr>
+            </table>
+
+            <h3>Przykładowa paleta</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Kolor HEX</th>
+                </tr>
+
+                <tr>
+                    <td>Kolor główny</td>
+                    <td><code>#1E3A8A</code></td>
+                </tr>
+
+                <tr>
+                    <td>Kolor dodatkowy</td>
+                    <td><code>#2563EB</code></td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tła</td>
+                    <td><code>#F1F5F9</code></td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tekstu</td>
+                    <td><code>#1F2937</code></td>
+                </tr>
+
+                <tr>
+                    <td>Kolor kart</td>
+                    <td><code>#FFFFFF</code></td>
+                </tr>
+            </table>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">body {
+    background-color: #F1F5F9;
+    color: #1F2937;
+}
+
+header {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+button {
+    background-color: #2563EB;
+    color: white;
+}</code></pre>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="paleta">
+
+            <h2>8. Dobór palety kolorów</h2>
+
+            <p>
+                Jednym ze sposobów
+                organizowania kolorystyki
+                jest zasada 60–30–10.
+            </p>
+
+            <p>
+                Jest to wskazówka projektowa,
+                a nie obowiązkowa reguła CSS.
+            </p>
+
+            <h3>Zasada 60–30–10</h3>
+
+            <table>
+                <tr>
+                    <th>Udział</th>
+                    <th>Przeznaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>60%</td>
+                    <td>Kolor dominujący, np. jasne tło.</td>
+                </tr>
+
+                <tr>
+                    <td>30%</td>
+                    <td>Kolor uzupełniający, np. nagłówek i wybrane sekcje.</td>
+                </tr>
+
+                <tr>
+                    <td>10%</td>
+                    <td>Kolor akcentowy, np. przyciski.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">body {
+    background-color: #F8FAFC;
+}
+
+header,
+footer {
+    background-color: #1E3A8A;
+}
+
+.przycisk {
+    background-color: #EA580C;
+    color: white;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                jasne tło dominuje,
+                granat porządkuje strukturę,
+                a pomarańczowy
+                wyróżnia przyciski.
+            </p>
+
+            <h3>Zmienne CSS</h3>
+
+            <p>
+                W większych projektach
+                warto zapisać kolory
+                jako zmienne CSS.
+            </p>
+
+            <pre><code class="language-css">:root {
+    --kolor-glowny: #1E3A8A;
+    --kolor-dodatkowy: #2563EB;
+    --kolor-tla: #F1F5F9;
+    --kolor-tekstu: #1F2937;
+}
+
+body {
+    background-color: var(--kolor-tla);
+    color: var(--kolor-tekstu);
+}
+
+header {
+    background-color: var(--kolor-glowny);
+}</code></pre>
+
+            <p>
+                Zmiana wartości zmiennej
+                pozwala szybko zmienić
+                kolor we wszystkich miejscach,
+                które z niej korzystają.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Lepiej zastosować
+                    kilka dobrze dobranych kolorów
+                    niż wiele przypadkowych barw.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="kontrast">
+
+            <h2>9. Kontrast tekstu i tła</h2>
+
+            <p>
+                <strong>Kontrast</strong>
+                określa różnicę jasności
+                pomiędzy elementami.
+            </p>
+
+            <p>
+                Odpowiedni kontrast
+                jest szczególnie ważny
+                dla czytelności tekstu.
+            </p>
+
+            <h3>Przykład słabego kontrastu</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: #CCCCCC;
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <p>
+                Jasnoszary tekst
+                na białym tle
+                może być trudny do odczytania.
+            </p>
+
+            <h3>Przykład lepszego kontrastu</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: #1F2937;
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <h3>Wytyczne WCAG</h3>
+
+            <p>
+                Według kryteriów WCAG
+                na poziomie AA
+                typowy tekst powinien mieć
+                współczynnik kontrastu
+                wynoszący co najmniej
+                <strong>4,5:1</strong>.
+            </p>
+
+            <p>
+                Dla dużego tekstu
+                minimalny współczynnik
+                wynosi <strong>3:1</strong>.
+            </p>
+
+            <p>
+                Za duży tekst w tym kontekście
+                uznaje się m.in. tekst
+                o rozmiarze co najmniej 24 px
+                lub pogrubiony o rozmiarze
+                około 18,7 px.
+            </p>
+
+            <p>
+                Niektóre elementy
+                mają odrębne wymagania,
+                dlatego warto sprawdzać
+                projekt odpowiednim
+                narzędziem do pomiaru kontrastu.
+            </p>
+
+            <h3>Jak sprawdzić kontrast?</h3>
+
+            <ol>
+                <li>Odczytaj kolor tekstu i tła.</li>
+                <li>Otwórz narzędzie do sprawdzania kontrastu.</li>
+                <li>Wprowadź obie wartości HEX.</li>
+                <li>Sprawdź otrzymany współczynnik.</li>
+                <li>W razie potrzeby zmień kolory.</li>
+            </ol>
+
+            <p>
+                Przykładowe narzędzie:
+                <a href="https://webaim.org/resources/contrastchecker/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    WebAIM Contrast Checker
+                </a>.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Kolor tekstu powinien
+                    wyraźnie odróżniać się
+                    od koloru tła.
+                </p>
+
+                <p>
+                    Nie oceniaj kontrastu
+                    wyłącznie na podstawie
+                    własnego wrażenia.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="typografia">
+
+            <h2>10. Typografia na stronie internetowej</h2>
+
+            <p>
+                <strong>Typografia</strong>
+                obejmuje sposób prezentacji
+                tekstu, w tym dobór czcionek,
+                ich rozmiarów, grubości
+                i odstępów.
+            </p>
+
+            <h3>Najważniejsze właściwości CSS</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>font-family</code></td>
+                    <td>Rodzina czcionek.</td>
+                </tr>
+
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td>Rozmiar tekstu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>font-weight</code></td>
+                    <td>Grubość czcionki.</td>
+                </tr>
+
+                <tr>
+                    <td><code>line-height</code></td>
+                    <td>Wysokość linii.</td>
+                </tr>
+
+                <tr>
+                    <td><code>letter-spacing</code></td>
+                    <td>Odstępy między znakami.</td>
+                </tr>
+
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td>Wyrównanie tekstu.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">body {
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 40px;
+
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 28px;
+
+    font-weight: 600;
+}</code></pre>
+
+            <h3>Dobór czcionek</h3>
+
+            <p>
+                Do tekstu na stronach WWW
+                często stosuje się
+                czytelne kroje bezszeryfowe,
+                np. Arial, Verdana
+                lub systemowe czcionki interfejsu.
+            </p>
+
+            <p>
+                Nie oznacza to,
+                że kroje szeryfowe
+                są nieodpowiednie.
+                Ważniejsza jest
+                czytelność i dopasowanie
+                do charakteru witryny.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Na prostej stronie
+                    zwykle wystarczy
+                    jedna rodzina czcionek
+                    z różnymi rozmiarami
+                    i grubościami.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="tekst">
+
+            <h2>11. Czytelność tekstu</h2>
+
+            <p>
+                Nawet dobrze dobrana
+                czcionka może być
+                trudna do czytania,
+                jeśli akapity są zbyt długie
+                lub mają niewłaściwe odstępy.
+            </p>
+
+            <h3>Co wpływa na czytelność?</h3>
+
+            <ul>
+                <li>odpowiedni rozmiar czcionki,</li>
+                <li>wysokość linii,</li>
+                <li>długość wiersza tekstu,</li>
+                <li>kontrast,</li>
+                <li>podział treści na akapity,</li>
+                <li>czytelne nagłówki,</li>
+                <li>odstępy między sekcjami.</li>
+            </ul>
+
+            <h3>Wysokość linii</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 1rem;
+
+    line-height: 1.6;
+}</code></pre>
+
+            <p>
+                Wartość <code>1.6</code>
+                oznacza wysokość linii
+                równą 1,6 rozmiaru czcionki.
+            </p>
+
+            <h3>Ograniczenie długości wiersza</h3>
+
+            <pre><code class="language-css">.tekst {
+    max-width: 70ch;
+}</code></pre>
+
+            <p>
+                Jednostka <code>ch</code>
+                jest związana
+                z szerokością znaku „0”
+                używanej czcionki.
+            </p>
+
+            <p>
+                <code>70ch</code>
+                to praktyczne przybliżenie
+                długości wiersza,
+                a nie gwarancja dokładnie
+                70 znaków tekstu.
+            </p>
+
+            <h3>Wyrównanie akapitów</h3>
+
+            <pre><code class="language-css">p {
+    text-align: left;
+}</code></pre>
+
+            <p>
+                Dla dłuższych tekstów
+                wyrównanie do lewej
+                jest zwykle wygodniejsze
+                niż wyśrodkowanie.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Nie stosuj długich,
+                    wyśrodkowanych akapitów
+                    tylko dlatego,
+                    że taki układ
+                    wygląda dekoracyjnie.
+                </p>
+
+                <p>
+                    Czytelność tekstu
+                    jest ważniejsza
+                    od efektów wizualnych.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="nawigacja">
+
+            <h2>12. Projektowanie czytelnej nawigacji</h2>
+
+            <p>
+                Menu nawigacyjne
+                powinno umożliwiać
+                szybkie odnalezienie
+                najważniejszych informacji.
+            </p>
+
+            <h3>Zasady projektowania menu</h3>
+
+            <ul>
+                <li>Stosuj krótkie i zrozumiałe nazwy.</li>
+                <li>Zachowaj jednakowy wygląd odnośników.</li>
+                <li>Zapewnij odpowiednie odstępy.</li>
+                <li>Wyróżniaj odnośniki po najechaniu kursorem.</li>
+                <li>Zapewnij widoczny fokus klawiatury.</li>
+                <li>Sprawdź menu na małym ekranie.</li>
+            </ul>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu" aria-label="Menu główne"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 16px;
+
+    background-color: #1E3A8A;
+}
+
+.menu a {
+    padding: 10px 16px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #2563EB;
+}
+
+.menu a:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Menu na telefonie</h3>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+}</code></pre>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="grafika">
+
+            <h2>13. Obrazy i elementy graficzne</h2>
+
+            <p>
+                Obrazy mogą uatrakcyjniać
+                stronę i ułatwiać
+                zrozumienie treści.
+            </p>
+
+            <p>
+                Powinny jednak
+                pasować do tematu witryny
+                i nie utrudniać
+                korzystania z niej.
+            </p>
+
+            <h3>Zasady stosowania obrazów</h3>
+
+            <ul>
+                <li>Dobieraj obrazy związane z treścią.</li>
+                <li>Unikaj niepotrzebnych dekoracji.</li>
+                <li>Zachowuj proporcje obrazów.</li>
+                <li>Stosuj odpowiednią jakość i rozmiar plików.</li>
+                <li>Dodawaj opisy alternatywne do obrazów informacyjnych.</li>
+                <li>Nie umieszczaj ważnego tekstu wyłącznie w obrazie.</li>
+            </ul>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;img src="img/komputer.jpg"
+     alt="Stanowisko komputerowe z monitorem"&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+
+    height: auto;
+}</code></pre>
+
+            <h3>Obrazy w kartach</h3>
+
+            <pre><code class="language-css">.karta img {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}</code></pre>
+
+            <p>
+                <code>object-fit: cover</code>
+                pozwala wypełnić
+                wyznaczony obszar,
+                ale może przyciąć
+                część obrazu.
+            </p>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="spojnosc">
+
+            <h2>14. Spójność wizualna witryny</h2>
+
+            <p>
+                <strong>Spójność wizualna</strong>
+                oznacza stosowanie
+                powtarzalnych zasad
+                formatowania.
+            </p>
+
+            <p>
+                Jeśli wszystkie karty
+                pełnią podobną funkcję,
+                powinny mieć
+                podobny wygląd.
+            </p>
+
+            <h3>Elementy spójnego projektu</h3>
+
+            <ul>
+                <li>jednolita paleta kolorów,</li>
+                <li>powtarzalne rozmiary nagłówków,</li>
+                <li>jednakowe przyciski,</li>
+                <li>podobne odstępy,</li>
+                <li>jednakowe zaokrąglenia narożników,</li>
+                <li>spójny wygląd kart.</li>
+            </ul>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 24px;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+
+    border-radius: 12px;
+}
+
+.przycisk {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background-color: #2563EB;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}</code></pre>
+
+            <p>
+                Zamiast tworzyć
+                oddzielne style
+                dla każdego przycisku,
+                można zastosować
+                wspólną klasę
+                <code>przycisk</code>.
+            </p>
+
+            <h3>Zmienne CSS dla spójności</h3>
+
+            <pre><code class="language-css">:root {
+    --kolor-glowny: #1E3A8A;
+
+    --kolor-akcent: #2563EB;
+
+    --odstep: 20px;
+
+    --zaokraglenie: 10px;
+}
+
+.karta {
+    padding: var(--odstep);
+
+    border-radius: var(--zaokraglenie);
+}</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Spójność wizualna
+                    ułatwia użytkownikowi
+                    rozpoznawanie elementów
+                    i sprawia, że witryna
+                    wygląda bardziej profesjonalnie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="responsywnosc">
+
+            <h2>15. Responsywność jako element dobrego projektu</h2>
+
+            <p>
+                Projekt strony powinien
+                uwzględniać różne
+                szerokości viewport.
+            </p>
+
+            <p>
+                Na małym ekranie
+                należy zadbać
+                o odpowiednie rozmieszczenie
+                elementów i czytelność treści.
+            </p>
+
+            <h3>Przykład responsywnych kart</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+
+    min-width: 0;
+}</code></pre>
+
+            <p>
+                Karty mogą przechodzić
+                do kolejnego wiersza,
+                gdy zabraknie miejsca.
+            </p>
+
+            <h3>Przykład media queries</h3>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .karty {
+        flex-direction: column;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <h3>Responsywna typografia</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: clamp(26px, 4vw, 46px);
+}</code></pre>
+
+            <p>
+                Dzięki funkcji
+                <code>clamp()</code>
+                rozmiar nagłówka
+                dostosowuje się
+                do szerokości viewport
+                w ustalonych granicach.
+            </p>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="dostepnosc">
+
+            <h2>16. Podstawy dostępności witryny</h2>
+
+            <p>
+                <strong>Dostępność cyfrowa</strong>
+                oznacza projektowanie
+                stron możliwych
+                do użytkowania
+                przez osoby o różnych
+                potrzebach i możliwościach.
+            </p>
+
+            <h3>Podstawowe zasady</h3>
+
+            <ul>
+                <li>Stosuj czytelne kolory i odpowiedni kontrast.</li>
+                <li>Zachowuj logiczną strukturę nagłówków.</li>
+                <li>Dodawaj opisy alternatywne do obrazów informacyjnych.</li>
+                <li>Zapewnij możliwość obsługi strony klawiaturą.</li>
+                <li>Stosuj zrozumiałe nazwy odnośników.</li>
+                <li>Nie przekazuj informacji wyłącznie za pomocą koloru.</li>
+                <li>Nie utrudniaj powiększania tekstu.</li>
+            </ul>
+
+            <h3>Widoczny fokus</h3>
+
+            <pre><code class="language-css">a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}</code></pre>
+
+            <p>
+                Dzięki temu użytkownik
+                korzystający z klawiatury
+                może łatwiej rozpoznać,
+                który element
+                jest aktualnie aktywny.
+            </p>
+
+            <h3>Opis alternatywny obrazu</h3>
+
+            <pre><code class="language-html">&lt;img src="img/biblioteka.jpg"
+     alt="Regały z książkami w bibliotece"&gt;</code></pre>
+
+            <p>
+                Jeśli obraz jest wyłącznie
+                dekoracyjny, można użyć
+                pustego atrybutu
+                <code>alt=""</code>.
+            </p>
+
+            <h3>Poprawne nazwy odnośników</h3>
+
+            <p>
+                Zamiast ogólnego
+                „Kliknij tutaj”
+                lepiej zastosować
+                nazwę informującą
+                o celu odnośnika.
+            </p>
+
+            <pre><code class="language-html">&lt;a href="oferta.html"&gt;
+    Zobacz naszą ofertę
+&lt;/a&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Dostępność nie jest
+                    wyłącznie dodatkiem
+                    do gotowej strony.
+                    Warto uwzględniać ją
+                    już na etapie projektowania.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="bledy">
+
+            <h2>17. Najczęstsze błędy projektowe</h2>
+
+            <h3>Błąd 1 – zbyt wiele kolorów</h3>
+
+            <p>
+                Przypadkowe kolory
+                mogą powodować
+                wrażenie chaosu.
+            </p>
+
+            <p>
+                <strong>Rozwiązanie:</strong>
+                przygotuj spójną paletę
+                i stosuj ją konsekwentnie.
+            </p>
+
+            <h3>Błąd 2 – zbyt mały tekst</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 10px;
+}</code></pre>
+
+            <p>
+                Tak mały tekst
+                może być trudny do czytania.
+            </p>
+
+            <p>Przykładowe rozwiązanie:</p>
+
+            <pre><code class="language-css">p {
+    font-size: 1rem;
+
+    line-height: 1.6;
+}</code></pre>
+
+            <h3>Błąd 3 – brak odstępów</h3>
+
+            <p>
+                Elementy umieszczone
+                zbyt blisko siebie
+                utrudniają odczytywanie treści.
+            </p>
+
+            <pre><code class="language-css">section {
+    margin-bottom: 32px;
+}
+
+.karta {
+    padding: 24px;
+}</code></pre>
+
+            <h3>Błąd 4 – słaby kontrast</h3>
+
+            <p>
+                Jasny tekst na jasnym tle
+                może być nieczytelny.
+            </p>
+
+            <p>
+                <strong>Rozwiązanie:</strong>
+                sprawdzaj współczynnik
+                kontrastu kolorów.
+            </p>
+
+            <h3>Błąd 5 – zbyt długie linie tekstu</h3>
+
+            <p>
+                Długie wiersze
+                utrudniają śledzenie tekstu.
+            </p>
+
+            <pre><code class="language-css">.tekst {
+    max-width: 70ch;
+}</code></pre>
+
+            <h3>Błąd 6 – nieuporządkowane menu</h3>
+
+            <p>
+                Odnośniki o przypadkowych
+                nazwach i rozmiarach
+                utrudniają nawigację.
+            </p>
+
+            <p>
+                <strong>Rozwiązanie:</strong>
+                stosuj jednolite style
+                i logiczne nazwy.
+            </p>
+
+            <h3>Błąd 7 – brak responsywności</h3>
+
+            <p>
+                Strona może wyglądać
+                poprawnie na komputerze,
+                ale nie mieścić się
+                na telefonie.
+            </p>
+
+            <p>
+                <strong>Rozwiązanie:</strong>
+                stosuj elastyczne rozmiary
+                i media queries.
+            </p>
+
+            <h3>Błąd 8 – brak spójności</h3>
+
+            <p>
+                Jeśli każda karta
+                i każdy przycisk
+                wyglądają inaczej,
+                użytkownikowi trudniej
+                zrozumieć strukturę strony.
+            </p>
+
+            <p>
+                <strong>Rozwiązanie:</strong>
+                stosuj wspólne klasy CSS.
+            </p>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="przyklad">
+
+            <h2>18. Kompletny przykład – witryna „Studio Kreatywne”</h2>
+
+            <p>
+                Poniższy przykład
+                przedstawia prostą witrynę,
+                w której zastosowano:
+            </p>
+
+            <ul>
+                <li>uporządkowany układ,</li>
+                <li>spójną kolorystykę,</li>
+                <li>czytelną typografię,</li>
+                <li>odpowiednie odstępy,</li>
+                <li>wyraźne przyciski,</li>
+                <li>responsywne karty i menu.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">studio-kreatywne/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Studio Kreatywne&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;div class="kontener"&gt;
+
+            &lt;h1&gt;Studio Kreatywne&lt;/h1&gt;
+
+            &lt;p&gt;
+                Projektujemy nowoczesne
+                i czytelne strony internetowe.
+            &lt;/p&gt;
+
+        &lt;/div&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu" aria-label="Menu główne"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+        &lt;a href="#o-nas"&gt;O nas&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main class="kontener"&gt;
+
+        &lt;section class="powitanie" id="o-nas"&gt;
+
+            &lt;h2&gt;Dobrze zaprojektowana witryna&lt;/h2&gt;
+
+            &lt;p&gt;
+                Tworzymy strony,
+                które łączą estetykę,
+                czytelność i funkcjonalność.
+            &lt;/p&gt;
+
+            &lt;a class="przycisk" href="#oferta"&gt;
+                Poznaj naszą ofertę
+            &lt;/a&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="oferta"&gt;
+
+            &lt;h2&gt;Nasza oferta&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;Projektowanie WWW&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Przygotowujemy przejrzyste
+                        projekty stron internetowych.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;Grafika komputerowa&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Tworzymy elementy graficzne
+                        dopasowane do charakteru witryny.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;Responsywne układy&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Dostosowujemy wygląd stron
+                        do różnych szerokości ekranów.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="kontakt" id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Masz pytania?
+                Napisz do nas.
+            &lt;/p&gt;
+
+            &lt;a href="mailto:kontakt@example.com"&gt;
+                kontakt@example.com
+            &lt;/a&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Studio Kreatywne
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Zmienne kolorów */
+
+:root {
+    --kolor-glowny: #1E3A8A;
+
+    --kolor-akcent: #2563EB;
+
+    --kolor-tla: #F1F5F9;
+
+    --kolor-tekstu: #1F2937;
+
+    --kolor-karty: #FFFFFF;
+}
+
+/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ustawienia ogólne */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: var(--kolor-tekstu);
+
+    background-color: var(--kolor-tla);
+}
+
+/* Kontener */
+
+.kontener {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background-color: var(--kolor-glowny);
+
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 46px);
+}
+
+header p {
+    max-width: 65ch;
+
+    margin: 15px auto 0;
+}
+
+/* Nawigacja */
+
+.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 15px;
+
+    background-color: var(--kolor-akcent);
+}
+
+.menu a {
+    padding: 10px 16px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: var(--kolor-glowny);
+}
+
+.menu a:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}
+
+/* Sekcje */
+
+section {
+    margin: 35px 0;
+}
+
+section h2 {
+    margin-top: 0;
+
+    font-size: clamp(24px, 3vw, 32px);
+
+    color: var(--kolor-glowny);
+}
+
+/* Sekcja powitalna */
+
+.powitanie {
+    padding: 40px;
+
+    background-color: white;
+
+    border-radius: 12px;
+}
+
+.powitanie p {
+    max-width: 70ch;
+}
+
+/* Przycisk */
+
+.przycisk {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 20px;
+
+    color: white;
+
+    background-color: var(--kolor-akcent);
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.przycisk:hover {
+    background-color: var(--kolor-glowny);
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}
+
+/* Karty */
+
+.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: var(--kolor-karty);
+
+    border: 1px solid #CBD5E1;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: var(--kolor-akcent);
+}
+
+/* Kontakt */
+
+.kontakt {
+    padding: 30px;
+
+    background-color: #DBEAFE;
+
+    border-radius: 12px;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+
+    background-color: var(--kolor-glowny);
+}
+
+/* Małe ekrany */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 35px 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    .powitanie {
+        padding: 20px;
+    }
+
+    .karty {
+        flex-direction: column;
+    }
+
+    .kontakt {
+        padding: 20px;
+    }
+
+}</code></pre>
+
+            <h3>Co zostało zastosowane?</h3>
+
+            <table>
+                <tr>
+                    <th>Zasada projektowa</th>
+                    <th>Realizacja</th>
+                </tr>
+
+                <tr>
+                    <td>Układ</td>
+                    <td>Semantyczne sekcje i kontener o ograniczonej szerokości.</td>
+                </tr>
+
+                <tr>
+                    <td>Kolorystyka</td>
+                    <td>Spójna paleta kolorów zdefiniowana przez zmienne CSS.</td>
+                </tr>
+
+                <tr>
+                    <td>Typografia</td>
+                    <td>Jednolita rodzina czcionek i wyraźne nagłówki.</td>
+                </tr>
+
+                <tr>
+                    <td>Czytelność</td>
+                    <td>Odpowiednie odstępy, wysokość linii i ograniczona długość tekstu.</td>
+                </tr>
+
+                <tr>
+                    <td>Nawigacja</td>
+                    <td>Menu z czytelnymi odnośnikami i widocznym fokusem.</td>
+                </tr>
+
+                <tr>
+                    <td>Responsywność</td>
+                    <td>Elastyczne karty i pionowe menu na małych ekranach.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Dobra witryna powinna być estetyczna, czytelna i funkcjonalna.</li>
+                    <li>Projektowanie strony warto rozpocząć od określenia celu i odbiorców.</li>
+                    <li>Makieta przedstawia plan rozmieszczenia elementów strony.</li>
+                    <li>Układ powinien ułatwiać odnalezienie najważniejszych informacji.</li>
+                    <li>Elementy semantyczne HTML pomagają organizować treść.</li>
+                    <li>Hierarchia wizualna wyróżnia najważniejsze informacje.</li>
+                    <li>Nagłówki powinny tworzyć logiczną strukturę.</li>
+                    <li>Odstępy poprawiają czytelność i porządkują układ.</li>
+                    <li><code>margin</code> odpowiada za odstępy zewnętrzne.</li>
+                    <li><code>padding</code> odpowiada za odstępy wewnętrzne.</li>
+                    <li>Kolorystyka witryny powinna być spójna.</li>
+                    <li>Kolor główny, dodatkowy i akcentowy mogą pełnić różne funkcje.</li>
+                    <li>Zasada 60–30–10 jest wskazówką przy doborze kolorów.</li>
+                    <li>Zmienne CSS ułatwiają zarządzanie kolorami.</li>
+                    <li>Kontrast tekstu i tła wpływa na czytelność.</li>
+                    <li>Typowy tekst powinien osiągać kontrast co najmniej 4,5:1 zgodnie z WCAG AA.</li>
+                    <li>Typografia obejmuje dobór czcionek, rozmiarów i odstępów.</li>
+                    <li><code>line-height</code> określa wysokość linii tekstu.</li>
+                    <li><code>max-width</code> pozwala ograniczyć szerokość tekstu i kontenerów.</li>
+                    <li>Długie akapity zwykle lepiej wyrównywać do lewej.</li>
+                    <li>Menu powinno być proste i zrozumiałe.</li>
+                    <li>Obrazy powinny pasować do treści i zachowywać proporcje.</li>
+                    <li>Podobne elementy powinny mieć podobny wygląd.</li>
+                    <li>Responsywność jest częścią dobrego projektu.</li>
+                    <li>Dostępność należy uwzględniać od początku projektowania.</li>
+                    <li>Stronę należy sprawdzić na różnych szerokościach ekranu.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Temat projektu:</strong>
+                „Moja profesjonalna wizytówka WWW”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                wykonanie estetycznej,
+                czytelnej i responsywnej
+                strony internetowej
+                zgodnie z podstawowymi
+                zasadami projektowania witryn.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_35</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonuj
+                    w ramach jednego projektu.
+                    Każde kolejne zadanie
+                    rozbudowuje tę samą stronę.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Zaplanowanie wyglądu witryny</h3>
+
+            <ol>
+                <li>Wybierz temat strony wizytówkowej, np. fotografia, grafika, informatyka, sport lub inna pasja.</li>
+                <li>Określ, do kogo skierowana jest witryna.</li>
+                <li>Zaplanuj nagłówek, menu, sekcję powitalną, ofertę i kontakt.</li>
+                <li>Przygotuj prostą makietę układu strony na kartce lub w programie graficznym.</li>
+                <li>Wybierz kolor główny, dodatkowy, akcentowy i kolor tła.</li>
+                <li>Zapisz wartości wybranych kolorów w formacie HEX.</li>
+                <li>Wybierz jedną czytelną rodzinę czcionek.</li>
+            </ol>
+
+            <p>
+                <strong>Efekt:</strong>
+                gotowy pomysł na wygląd
+                i strukturę strony.
+            </p>
+
+            <h3>Zadanie 2 – Struktura HTML</h3>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Dodaj kodowanie UTF-8 i meta viewport.</li>
+                <li>Podłącz zewnętrzny plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek z nazwą witryny i krótkim opisem.</li>
+                <li>Dodaj menu z odnośnikami: Start, Oferta, O mnie, Kontakt.</li>
+                <li>Dodaj główny element <code>main</code>.</li>
+                <li>Utwórz sekcję powitalną.</li>
+                <li>Dodaj sekcję z trzema kartami opisującymi ofertę lub zainteresowania.</li>
+                <li>Dodaj sekcję „O mnie”.</li>
+                <li>Dodaj sekcję kontaktową.</li>
+                <li>Dodaj stopkę z imieniem i nazwiskiem autora.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Układ i odstępy</h3>
+
+            <ol>
+                <li>Ustaw dla <code>body</code> margines 0.</li>
+                <li>Zastosuj <code>box-sizing: border-box</code>.</li>
+                <li>Utwórz klasę <code>kontener</code>.</li>
+                <li>Ustaw szerokość kontenera na 90%.</li>
+                <li>Ustaw maksymalną szerokość na 1100 px.</li>
+                <li>Wyśrodkuj kontener za pomocą <code>margin: 0 auto</code>.</li>
+                <li>Ustaw odpowiednie odstępy między sekcjami.</li>
+                <li>Dodaj padding w sekcji powitalnej.</li>
+                <li>Rozmieść trzy karty za pomocą Flexbox.</li>
+                <li>Ustaw odstęp między kartami za pomocą <code>gap</code>.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Kolorystyka i spójność wizualna</h3>
+
+            <ol>
+                <li>W pliku CSS zdefiniuj co najmniej cztery zmienne kolorów w <code>:root</code>.</li>
+                <li>Ustaw kolor tła strony.</li>
+                <li>Ustaw kolor nagłówka i stopki.</li>
+                <li>Wybierz kolor tekstu zapewniający czytelność.</li>
+                <li>Ustaw jednakowy wygląd wszystkich kart.</li>
+                <li>Dodaj obramowanie i zaokrąglenie narożników kart.</li>
+                <li>Utwórz wspólną klasę <code>przycisk</code>.</li>
+                <li>Dodaj zmianę wyglądu przycisku po najechaniu kursorem.</li>
+                <li>Sprawdź kontrast tekstu i tła w narzędziu do pomiaru kontrastu.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Typografia i czytelność</h3>
+
+            <ol>
+                <li>Ustaw jedną rodzinę czcionek dla całej strony.</li>
+                <li>Ustaw podstawowy rozmiar tekstu na 16 px lub 1rem.</li>
+                <li>Ustaw <code>line-height: 1.6</code> dla tekstu.</li>
+                <li>Wyróżnij główny nagłówek.</li>
+                <li>Ustaw odpowiednie rozmiary nagłówków <code>h2</code> i <code>h3</code>.</li>
+                <li>Ustaw rozmiar głównego nagłówka za pomocą <code>clamp()</code>.</li>
+                <li>Ogranicz szerokość przynajmniej jednego dłuższego akapitu za pomocą <code>max-width</code>.</li>
+                <li>Zachowaj czytelne odstępy między akapitami.</li>
+                <li>Sprawdź, czy najważniejsze informacje są łatwe do zauważenia.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Responsywność i ocena projektu</h3>
+
+            <ol>
+                <li>Dodaj regułę <code>@media (max-width: 600px)</code>.</li>
+                <li>Na małym ekranie zmień menu na pionowe.</li>
+                <li>Ustaw karty jedna pod drugą.</li>
+                <li>Zmniejsz odstępy w sekcji powitalnej.</li>
+                <li>Dodaj widoczny fokus dla odnośników.</li>
+                <li>Sprawdź działanie wszystkich odnośników menu.</li>
+                <li>Przetestuj stronę przy szerokości 360 px.</li>
+                <li>Przetestuj stronę przy szerokości 768 px.</li>
+                <li>Przetestuj stronę przy szerokości 1440 px.</li>
+                <li>Popraw zauważone błędy w układzie, kolorystyce i czytelności.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_35/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Jeśli wykorzystasz
+                    własne obrazy,
+                    umieść je w dodatkowym
+                    folderze <code>img</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_35</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź:
+                    poprawność struktury HTML,
+                    działanie odnośników,
+                    spójność kolorystyki,
+                    czytelność tekstu
+                    oraz responsywność strony.
+                </p>
+
+                <p>
+                    <strong>
+                        Wszystkie teksty,
+                        tytuły i opisy
+                        powinny być własne,
+                        a nie skopiowane
+                        z przykładu.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 35
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
