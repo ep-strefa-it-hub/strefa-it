@@ -1,0 +1,1574 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 41 – Hosting, domeny, FTP i publikowanie witryny | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#serwer">2.Serwer WWW</a>
+        <a href="#hosting">3.Hosting internetowy</a>
+        <a href="#rodzaje-hostingu">4.Rodzaje hostingu</a>
+        <a href="#domena">5.Domeny internetowe</a>
+        <a href="#dns">6.System DNS</a>
+        <a href="#adres">7.Adres URL i HTTPS</a>
+        <a href="#ftp">8.Protokół FTP</a>
+        <a href="#bezpieczenstwo">9.FTP, FTPS i SFTP</a>
+        <a href="#filezilla">10.Program FileZilla</a>
+        <a href="#struktura">11.Struktura plików serwera</a>
+        <a href="#przesylanie">12.Przesyłanie plików</a>
+        <a href="#publikacja">13.Proces publikowania</a>
+        <a href="#github">14.GitHub Pages</a>
+        <a href="#github-kroki">15.Publikowanie na GitHub Pages</a>
+        <a href="#aktualizacja">16.Aktualizacja witryny</a>
+        <a href="#testowanie">17.Sprawdzanie strony na serwerze</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#bezpieczna-publikacja">19.Bezpieczeństwo publikacji</a>
+        <a href="#porownanie">20.Porównanie metod publikacji</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 41 • HOSTING I PUBLIKOWANIE
+            </div>
+
+            <h2>
+                Hosting, domeny, FTP oraz publikowanie
+                i sprawdzanie witryny na serwerze WWW
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad działania hostingu,
+                domen internetowych i systemu DNS,
+                sposobów przesyłania plików na serwer
+                oraz samodzielne opublikowanie
+                i przetestowanie statycznej witryny internetowej.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong>
+                2 × 45 minut.
+            </p>
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Podczas wcześniejszych lekcji
+                tworzyliśmy strony internetowe
+                za pomocą HTML i CSS,
+                testowaliśmy je w przeglądarkach
+                oraz poprawialiśmy ich wydajność.
+            </p>
+
+            <p>
+                Dotychczas pliki znajdowały się
+                przede wszystkim na komputerze autora.
+            </p>
+
+            <p>
+                Aby witryna była dostępna
+                dla innych użytkowników internetu,
+                należy opublikować ją
+                na odpowiednio skonfigurowanym serwerze WWW.
+            </p>
+
+            <h3>Co jest potrzebne do publikacji?</h3>
+
+            <ul>
+                <li>Gotowe pliki strony internetowej.</li>
+                <li>Miejsce do przechowywania i udostępniania plików.</li>
+                <li>Adres umożliwiający otwarcie strony.</li>
+                <li>Metoda przesłania plików na serwer.</li>
+                <li>Możliwość sprawdzenia działania opublikowanej witryny.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Publikacja witryny oznacza
+                    udostępnienie jej w taki sposób,
+                    aby użytkownicy mogli
+                    otworzyć ją przez internet.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+
+        <section id="serwer">
+            <h2>2. Czym jest serwer WWW?</h2>
+
+            <p>
+                <strong>Serwer WWW</strong>
+                to system udostępniający
+                zasoby stron internetowych
+                za pomocą protokołów HTTP lub HTTPS.
+            </p>
+
+            <p>
+                Określenie „serwer”
+                może oznaczać zarówno komputer,
+                jak i oprogramowanie obsługujące żądania.
+            </p>
+
+            <h3>Jak działa otwieranie strony?</h3>
+
+            <ol>
+                <li>Użytkownik wpisuje adres witryny w przeglądarce.</li>
+                <li>Przeglądarka ustala, z jakim serwerem należy się połączyć.</li>
+                <li>Wysyła żądanie HTTP lub HTTPS.</li>
+                <li>Serwer zwraca odpowiedź i odpowiednie zasoby.</li>
+                <li>Przeglądarka interpretuje HTML, CSS i JavaScript.</li>
+                <li>Użytkownik widzi gotową stronę.</li>
+            </ol>
+
+            <h3>Przykładowe oprogramowanie serwerowe</h3>
+
+            <ul>
+                <li>Apache HTTP Server.</li>
+                <li>Nginx.</li>
+                <li>Microsoft IIS.</li>
+            </ul>
+
+            <p>
+                Na wcześniejszych lekcjach
+                korzystaliśmy z XAMPP,
+                który umożliwia uruchomienie
+                lokalnego serwera Apache.
+            </p>
+
+            <p>
+                Serwer lokalny służy przede wszystkim
+                do pracy i testowania,
+                natomiast publiczny serwer WWW
+                udostępnia stronę innym użytkownikom.
+            </p>
+        </section>
+
+        <!-- 3 -->
+
+        <section id="hosting">
+            <h2>3. Czym jest hosting internetowy?</h2>
+
+            <p>
+                <strong>Hosting</strong>
+                to usługa udostępniania zasobów
+                potrzebnych do przechowywania
+                i obsługi witryny internetowej.
+            </p>
+
+            <p>
+                Firma świadcząca hosting
+                udostępnia odpowiednią infrastrukturę,
+                dzięki której witryna
+                może działać w internecie.
+            </p>
+
+            <h3>Co może oferować hosting?</h3>
+
+            <ul>
+                <li>Miejsce na pliki strony.</li>
+                <li>Obsługę serwera WWW.</li>
+                <li>Dostęp przez SFTP lub FTPS.</li>
+                <li>Bazy danych.</li>
+                <li>Obsługę PHP.</li>
+                <li>Certyfikaty TLS dla HTTPS.</li>
+                <li>Kopie bezpieczeństwa.</li>
+                <li>Panele administracyjne.</li>
+            </ul>
+
+            <p>
+                Zakres dostępnych funkcji
+                zależy od wybranego dostawcy
+                i rodzaju usługi.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Szkoła chce opublikować
+                witrynę informacyjną.
+                Może skorzystać z hostingu,
+                na którym zostaną umieszczone
+                pliki HTML, CSS i obrazy.
+            </p>
+
+            <p>
+                Jeżeli witryna korzysta z PHP i MySQL,
+                hosting musi dodatkowo obsługiwać
+                odpowiednie technologie serwerowe.
+            </p>
+        </section>
+
+        <!-- 4 -->
+
+        <section id="rodzaje-hostingu">
+            <h2>4. Rodzaje hostingu</h2>
+
+            <p>
+                Dostępne są różne sposoby
+                udostępniania witryn internetowych.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Rodzaj</th>
+                    <th>Charakterystyka</th>
+                    <th>Przykładowe zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Hosting współdzielony</td>
+                    <td>Wiele witryn korzysta ze wspólnej infrastruktury serwera.</td>
+                    <td>Małe strony firmowe, blogi.</td>
+                </tr>
+
+                <tr>
+                    <td>VPS</td>
+                    <td>Wirtualny serwer z wydzielonym środowiskiem.</td>
+                    <td>Bardziej rozbudowane projekty.</td>
+                </tr>
+
+                <tr>
+                    <td>Serwer dedykowany</td>
+                    <td>Serwer przeznaczony dla jednego klienta.</td>
+                    <td>Duże systemy wymagające większej kontroli.</td>
+                </tr>
+
+                <tr>
+                    <td>Hosting statyczny</td>
+                    <td>Udostępnia gotowe pliki HTML, CSS i JavaScript.</td>
+                    <td>Portfolio, wizytówki, strony projektowe.</td>
+                </tr>
+            </table>
+
+            <h3>Hosting statyczny</h3>
+
+            <p>
+                Jest szczególnie przydatny
+                podczas nauki HTML i CSS.
+            </p>
+
+            <p>
+                Przykładem takiej usługi
+                jest GitHub Pages.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    GitHub Pages nie uruchamia
+                    kodu PHP ani serwera MySQL.
+                </p>
+
+                <p>
+                    Nadaje się do publikowania
+                    statycznych stron HTML, CSS
+                    i JavaScript,
+                    ale nie do bezpośredniego
+                    uruchamiania aplikacji PHP.
+                </p>
+            </div>
+        </section>
+
+        <!-- 5 -->
+
+        <section id="domena">
+            <h2>5. Domeny internetowe</h2>
+
+            <p>
+                <strong>Domena internetowa</strong>
+                to nazwa wykorzystywana
+                do identyfikowania zasobów
+                i usług w internecie.
+            </p>
+
+            <p>
+                Dzięki domenom nie musimy
+                zapamiętywać adresów IP serwerów.
+            </p>
+
+            <h3>Przykład domeny</h3>
+
+            <pre><code class="language-text">example.com</code></pre>
+
+            <h3>Elementy nazwy</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Przykład</th>
+                </tr>
+
+                <tr>
+                    <td>Nazwa domeny drugiego poziomu</td>
+                    <td>example</td>
+                </tr>
+
+                <tr>
+                    <td>Domena najwyższego poziomu (TLD)</td>
+                    <td>.com</td>
+                </tr>
+
+                <tr>
+                    <td>Subdomena</td>
+                    <td>blog.example.com</td>
+                </tr>
+            </table>
+
+            <h3>Przykładowe rozszerzenia</h3>
+
+            <ul>
+                <li><code>.pl</code> – domena krajowa Polski.</li>
+                <li><code>.com</code> – domena ogólna.</li>
+                <li><code>.org</code> – domena ogólna.</li>
+                <li><code>.edu.pl</code> – przestrzeń nazw używana m.in. przez podmioty edukacyjne.</li>
+            </ul>
+
+            <h3>Domena a hosting</h3>
+
+            <p>
+                Domena jest nazwą,
+                natomiast hosting zapewnia
+                infrastrukturę potrzebną
+                do udostępniania witryny.
+            </p>
+
+            <p>
+                Są to powiązane,
+                ale odrębne usługi.
+            </p>
+        </section>
+
+        <!-- 6 -->
+
+        <section id="dns">
+            <h2>6. System DNS</h2>
+
+            <p>
+                <strong>DNS</strong>
+                to skrót od
+                <em>Domain Name System</em>.
+            </p>
+
+            <p>
+                System DNS pomaga odnaleźć
+                informacje potrzebne do połączenia
+                z usługą wskazaną nazwą domenową.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-text">www.example.com</code></pre>
+
+            <p>
+                Przeglądarka może wykorzystać DNS,
+                aby uzyskać adres IP serwera
+                obsługującego wskazaną nazwę.
+            </p>
+
+            <h3>Popularne rekordy DNS</h3>
+
+            <table>
+                <tr>
+                    <th>Rekord</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>A</td>
+                    <td>Powiązanie nazwy z adresem IPv4.</td>
+                </tr>
+
+                <tr>
+                    <td>AAAA</td>
+                    <td>Powiązanie nazwy z adresem IPv6.</td>
+                </tr>
+
+                <tr>
+                    <td>CNAME</td>
+                    <td>Wskazanie innej nazwy domenowej.</td>
+                </tr>
+
+                <tr>
+                    <td>MX</td>
+                    <td>Wskazanie serwerów obsługujących pocztę.</td>
+                </tr>
+
+                <tr>
+                    <td>TXT</td>
+                    <td>Przechowywanie informacji tekstowych, np. do weryfikacji usług.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    DNS umożliwia korzystanie
+                    z nazw domenowych zamiast
+                    bezpośredniego wpisywania
+                    adresów IP.
+                </p>
+            </div>
+        </section>
+
+        <!-- 7 -->
+
+        <section id="adres">
+            <h2>7. Adres URL oraz HTTP i HTTPS</h2>
+
+            <p>
+                <strong>URL</strong>
+                określa adres zasobu
+                dostępnego w internecie.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-text">https://example.com/kursy/html.html</code></pre>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>https://</td>
+                    <td>Schemat określający sposób dostępu.</td>
+                </tr>
+
+                <tr>
+                    <td>example.com</td>
+                    <td>Nazwa hosta.</td>
+                </tr>
+
+                <tr>
+                    <td>/kursy/html.html</td>
+                    <td>Ścieżka do zasobu.</td>
+                </tr>
+            </table>
+
+            <h3>HTTP a HTTPS</h3>
+
+            <p>
+                HTTP służy do komunikacji
+                między klientem a serwerem WWW.
+            </p>
+
+            <p>
+                HTTPS wykorzystuje
+                zabezpieczenie TLS,
+                dzięki któremu połączenie
+                jest szyfrowane
+                i może być uwierzytelnione.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    HTTPS zabezpiecza połączenie,
+                    ale samo w sobie nie gwarantuje,
+                    że treść witryny jest wiarygodna
+                    lub że właściciel strony
+                    nie próbuje oszukać użytkownika.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8 -->
+
+        <section id="ftp">
+            <h2>8. Protokół FTP</h2>
+
+            <p>
+                <strong>FTP</strong>
+                to skrót od
+                <em>File Transfer Protocol</em>.
+            </p>
+
+            <p>
+                Protokół ten służy
+                do przesyłania plików
+                między komputerem klienta
+                a serwerem.
+            </p>
+
+            <h3>Do czego wykorzystywano FTP?</h3>
+
+            <ul>
+                <li>Przesyłania plików HTML.</li>
+                <li>Przesyłania arkuszy CSS.</li>
+                <li>Wgrywania obrazów.</li>
+                <li>Aktualizowania zawartości witryny.</li>
+                <li>Pobierania plików z serwera.</li>
+            </ul>
+
+            <h3>Podstawowe dane połączenia</h3>
+
+            <table>
+                <tr>
+                    <th>Dane</th>
+                    <th>Przykład</th>
+                </tr>
+
+                <tr>
+                    <td>Host</td>
+                    <td>ftp.example.com</td>
+                </tr>
+
+                <tr>
+                    <td>Użytkownik</td>
+                    <td>konto_testowe</td>
+                </tr>
+
+                <tr>
+                    <td>Hasło</td>
+                    <td>Hasło przypisane do konta.</td>
+                </tr>
+
+                <tr>
+                    <td>Port</td>
+                    <td>21 dla typowego połączenia FTP.</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <h3>⚠️ Bezpieczeństwo</h3>
+                <p>
+                    Zwykły FTP nie zapewnia
+                    szyfrowania przesyłanych
+                    danych logowania i zawartości.
+                </p>
+
+                <p>
+                    Do rzeczywistego przesyłania
+                    plików należy preferować
+                    SFTP lub FTPS.
+                </p>
+            </div>
+        </section>
+
+        <!-- 9 -->
+
+        <section id="bezpieczenstwo">
+            <h2>9. FTP, FTPS i SFTP – różnice</h2>
+
+            <p>
+                Nazwy tych protokołów
+                są podobne,
+                ale nie oznaczają
+                tego samego rozwiązania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Protokół</th>
+                    <th>Szyfrowanie</th>
+                    <th>Charakterystyka</th>
+                </tr>
+
+                <tr>
+                    <td>FTP</td>
+                    <td>Brak w standardowym FTP.</td>
+                    <td>Tradycyjny protokół przesyłania plików.</td>
+                </tr>
+
+                <tr>
+                    <td>FTPS</td>
+                    <td>TLS.</td>
+                    <td>FTP zabezpieczony protokołem TLS.</td>
+                </tr>
+
+                <tr>
+                    <td>SFTP</td>
+                    <td>SSH.</td>
+                    <td>Protokół przesyłania plików działający przez SSH.</td>
+                </tr>
+            </table>
+
+            <h3>Typowe porty</h3>
+
+            <ul>
+                <li>FTP – port 21 dla połączenia sterującego.</li>
+                <li>FTPS jawny – zwykle port 21.</li>
+                <li>FTPS niejawny – zwykle port 990.</li>
+                <li>SFTP – zwykle port 22.</li>
+            </ul>
+
+            <p>
+                Numery portów mogą być inne,
+                jeśli administrator serwera
+                skonfiguruje usługę inaczej.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    SFTP nie jest odmianą FTP
+                    z dodanym szyfrowaniem.
+                    Jest osobnym protokołem
+                    działającym przez SSH.
+                </p>
+            </div>
+        </section>
+
+        <!-- 10 -->
+
+        <section id="filezilla">
+            <h2>10. Program FileZilla</h2>
+
+            <p>
+                FileZilla Client to program
+                umożliwiający zarządzanie
+                plikami na serwerze
+                przez obsługiwane protokoły,
+                m.in. FTP, FTPS i SFTP.
+            </p>
+
+            <p>
+                Oficjalna strona:
+                <a href="https://filezilla-project.org/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    filezilla-project.org
+                </a>
+            </p>
+
+            <h3>Główne obszary programu</h3>
+
+            <ul>
+                <li>Panel plików lokalnych.</li>
+                <li>Panel plików zdalnych.</li>
+                <li>Pasek połączenia.</li>
+                <li>Lista przesyłanych plików.</li>
+                <li>Komunikaty o połączeniu i błędach.</li>
+            </ul>
+
+            <h3>Jak wygląda przesyłanie plików?</h3>
+
+            <ol>
+                <li>Uruchom FileZilla Client.</li>
+                <li>Otwórz Menedżera stron.</li>
+                <li>Wybierz odpowiedni protokół, najlepiej SFTP lub FTPS.</li>
+                <li>Wpisz host i port otrzymane od administratora.</li>
+                <li>Wybierz odpowiednią metodę logowania.</li>
+                <li>Połącz się z serwerem.</li>
+                <li>W panelu lokalnym odszukaj folder witryny.</li>
+                <li>W panelu zdalnym otwórz katalog przeznaczony na pliki strony.</li>
+                <li>Prześlij odpowiednie pliki i foldery.</li>
+                <li>Sprawdź, czy transfer zakończył się poprawnie.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Dane dostępowe do serwera
+                    należy przechowywać bezpiecznie.
+                    Nie wolno umieszczać haseł
+                    w kodzie HTML ani przesyłać
+                    ich razem z projektem do Teams.
+                </p>
+            </div>
+        </section>
+
+        <!-- 11 -->
+
+        <section id="struktura">
+            <h2>11. Struktura plików na serwerze WWW</h2>
+
+            <p>
+                Na wielu hostingach
+                istnieje specjalny katalog,
+                z którego serwer
+                udostępnia pliki witryny.
+            </p>
+
+            <p>
+                Jego nazwa zależy
+                od konfiguracji hostingu.
+            </p>
+
+            <h3>Przykładowe nazwy</h3>
+
+            <ul>
+                <li><code>public_html</code></li>
+                <li><code>www</code></li>
+                <li><code>htdocs</code></li>
+            </ul>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-text">public_html/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+|   |-- logo.png
+|   |-- pracownia.jpg
+|
+|-- js/
+    |-- script.js</code></pre>
+
+            <h3>Dlaczego index.html jest ważny?</h3>
+
+            <p>
+                W wielu konfiguracjach serwera
+                plik <code>index.html</code>
+                jest traktowany jako domyślny
+                dokument katalogu.
+            </p>
+
+            <p>
+                Dzięki temu użytkownik
+                może otworzyć:
+            </p>
+
+            <pre><code class="language-text">https://example.com/</code></pre>
+
+            <p>
+                zamiast wpisywać:
+            </p>
+
+            <pre><code class="language-text">https://example.com/index.html</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Przesyłając stronę na serwer,
+                    należy zachować właściwą
+                    strukturę katalogów
+                    i ścieżki do zasobów.
+                </p>
+            </div>
+        </section>
+
+        <!-- 12 -->
+
+        <section id="przesylanie">
+            <h2>12. Przesyłanie plików na serwer</h2>
+
+            <p>
+                Przed publikacją warto sprawdzić,
+                czy folder witryny
+                zawiera wszystkie potrzebne pliki.
+            </p>
+
+            <h3>Przykładowy folder lokalny</h3>
+
+            <pre><code class="language-text">moja-strona/
+|
+|-- index.html
+|-- style.css
+|
+|-- img/
+    |-- logo.png</code></pre>
+
+            <h3>Publikacja na tradycyjnym hostingu</h3>
+
+            <ol>
+                <li>Połącz się z serwerem przez SFTP lub FTPS.</li>
+                <li>Otwórz właściwy katalog publikacji.</li>
+                <li>Prześlij plik index.html.</li>
+                <li>Prześlij plik style.css.</li>
+                <li>Prześlij folder img.</li>
+                <li>Sprawdź, czy wszystkie transfery zakończyły się powodzeniem.</li>
+                <li>Otwórz publiczny adres witryny.</li>
+            </ol>
+
+            <h3>Przykład ścieżki względnej</h3>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;img src="img/logo.png"
+     alt="Logo strony"&gt;</code></pre>
+
+            <p>
+                Jeśli zachowamy strukturę plików,
+                ścieżki względne
+                powinny nadal wskazywać
+                odpowiednie zasoby.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Uwaga</h3>
+                <p>
+                    Nie należy bez sprawdzenia
+                    przesyłać całego folderu projektu
+                    jako dodatkowego katalogu,
+                    jeśli plik index.html
+                    ma znajdować się bezpośrednio
+                    w katalogu publikacji.
+                </p>
+            </div>
+        </section>
+
+        <!-- 13 -->
+
+        <section id="publikacja">
+            <h2>13. Proces publikowania witryny</h2>
+
+            <p>
+                Publikacja strony powinna
+                przebiegać według ustalonego planu.
+            </p>
+
+            <h3>Etap 1 – Przygotowanie</h3>
+
+            <ul>
+                <li>Sprawdzenie poprawności HTML i CSS.</li>
+                <li>Sprawdzenie ścieżek do plików.</li>
+                <li>Optymalizacja obrazów.</li>
+                <li>Usunięcie niepotrzebnych plików.</li>
+            </ul>
+
+            <h3>Etap 2 – Wybór usługi</h3>
+
+            <ul>
+                <li>Hosting tradycyjny.</li>
+                <li>Hosting statyczny.</li>
+                <li>Inna usługa dostosowana do projektu.</li>
+            </ul>
+
+            <h3>Etap 3 – Przesłanie plików</h3>
+
+            <p>
+                Pliki można przesłać
+                odpowiednim klientem
+                albo wykorzystać system
+                publikacji oferowany
+                przez dostawcę usługi.
+            </p>
+
+            <h3>Etap 4 – Testowanie</h3>
+
+            <ul>
+                <li>Otwarcie publicznego adresu.</li>
+                <li>Sprawdzenie stylów.</li>
+                <li>Sprawdzenie obrazów.</li>
+                <li>Sprawdzenie odnośników.</li>
+                <li>Sprawdzenie wyglądu na telefonie.</li>
+            </ul>
+        </section>
+
+        <!-- 14 -->
+
+        <section id="github">
+            <h2>14. GitHub Pages – publikacja statycznej witryny</h2>
+
+            <p>
+                GitHub Pages umożliwia
+                publikowanie statycznych stron
+                bez konieczności
+                wykupywania tradycyjnego hostingu.
+            </p>
+
+            <p>
+                Oficjalna dokumentacja:
+                <a href="https://docs.github.com/en/pages"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub Pages
+                </a>
+            </p>
+
+            <h3>Co można opublikować?</h3>
+
+            <ul>
+                <li>Strony HTML.</li>
+                <li>Arkusze CSS.</li>
+                <li>Pliki JavaScript.</li>
+                <li>Obrazy i inne statyczne zasoby.</li>
+            </ul>
+
+            <h3>Przykładowy adres</h3>
+
+            <pre><code class="language-text">https://nazwa-uzytkownika.github.io/moj-projekt/</code></pre>
+
+            <h3>Zalety dla uczniów</h3>
+
+            <ul>
+                <li>Możliwość publikowania projektów szkolnych.</li>
+                <li>Brak konieczności kupowania domeny.</li>
+                <li>Możliwość aktualizowania plików przez GitHub.</li>
+                <li>Publiczny adres do zaprezentowania projektu.</li>
+                <li>Obsługa HTTPS dla standardowego adresu GitHub Pages.</li>
+            </ul>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    GitHub Pages nie korzysta
+                    z FTP ani SFTP
+                    jako standardowej metody
+                    publikowania projektu.
+                </p>
+
+                <p>
+                    Pliki publikuje się
+                    przez repozytorium GitHub
+                    i odpowiednią konfigurację Pages.
+                </p>
+            </div>
+        </section>
+
+        <!-- 15 -->
+
+        <section id="github-kroki">
+            <h2>15. Publikowanie strony na GitHub Pages – krok po kroku</h2>
+
+            <p>
+                W tym ćwiczeniu opublikujemy
+                prostą witrynę HTML i CSS.
+            </p>
+
+            <h3>Krok 1 – Przygotuj pliki</h3>
+
+            <pre><code class="language-text">moja-witryna/
+|
+|-- index.html
+|-- style.css
+|
+|-- img/
+    |-- logo.png</code></pre>
+
+            <h3>Krok 2 – Utwórz repozytorium</h3>
+
+            <ol>
+                <li>Zaloguj się na GitHub.</li>
+                <li>Wybierz utworzenie nowego repozytorium.</li>
+                <li>Wpisz nazwę, np. <code>moja-witryna</code>.</li>
+                <li>Ustaw repozytorium jako publiczne.</li>
+                <li>Utwórz repozytorium.</li>
+            </ol>
+
+            <h3>Krok 3 – Prześlij pliki</h3>
+
+            <ol>
+                <li>Otwórz repozytorium.</li>
+                <li>Wybierz <strong>Add file → Upload files</strong>.</li>
+                <li>Prześlij index.html, style.css i folder img.</li>
+                <li>Zatwierdź zmiany przyciskiem Commit changes.</li>
+            </ol>
+
+            <h3>Krok 4 – Włącz GitHub Pages</h3>
+
+            <ol>
+                <li>Otwórz zakładkę <strong>Settings</strong>.</li>
+                <li>W menu bocznym wybierz <strong>Pages</strong>.</li>
+                <li>W sekcji Build and deployment wybierz <strong>Deploy from a branch</strong>.</li>
+                <li>Wybierz gałąź <strong>main</strong>.</li>
+                <li>Wybierz katalog <strong>/(root)</strong>.</li>
+                <li>Zapisz ustawienia.</li>
+            </ol>
+
+            <h3>Krok 5 – Otwórz opublikowaną stronę</h3>
+
+            <p>
+                Po zakończeniu publikacji
+                GitHub Pages udostępni adres witryny.
+            </p>
+
+            <pre><code class="language-text">https://nazwa-uzytkownika.github.io/moja-witryna/</code></pre>
+
+            <p>
+                Publikacja może potrwać kilka minut.
+                Adres strony można sprawdzić
+                w ustawieniach Pages.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W repozytorium projektu
+                    plik index.html
+                    powinien znajdować się
+                    w katalogu wybranym
+                    jako źródło publikacji
+                    lub w jego odpowiedniej strukturze.
+                </p>
+            </div>
+        </section>
+
+        <!-- 16 -->
+
+        <section id="aktualizacja">
+            <h2>16. Aktualizowanie opublikowanej witryny</h2>
+
+            <p>
+                Opublikowana witryna
+                może być później modyfikowana.
+            </p>
+
+            <h3>Aktualizacja na hostingu tradycyjnym</h3>
+
+            <ol>
+                <li>Zmodyfikuj pliki na komputerze.</li>
+                <li>Przetestuj zmiany lokalnie.</li>
+                <li>Połącz się z serwerem przez SFTP lub FTPS.</li>
+                <li>Prześlij zmodyfikowane pliki.</li>
+                <li>W razie potrzeby zastąp starsze wersje.</li>
+                <li>Sprawdź działanie publicznej strony.</li>
+            </ol>
+
+            <h3>Aktualizacja na GitHub Pages</h3>
+
+            <ol>
+                <li>Otwórz repozytorium.</li>
+                <li>Zmodyfikuj plik HTML lub CSS.</li>
+                <li>Zatwierdź zmiany.</li>
+                <li>Poczekaj na zakończenie publikacji.</li>
+                <li>Odśwież publiczną stronę.</li>
+            </ol>
+
+            <h3>Dlaczego zmiany czasem nie są widoczne?</h3>
+
+            <p>
+                Przeglądarka może korzystać
+                z wcześniej zapisanej wersji zasobu
+                znajdującej się w pamięci podręcznej.
+            </p>
+
+            <p>
+                W takim przypadku można
+                ponownie załadować stronę,
+                sprawdzić ustawienia pamięci podręcznej
+                lub poczekać na zakończenie wdrożenia.
+            </p>
+        </section>
+
+        <!-- 17 -->
+
+        <section id="testowanie">
+            <h2>17. Sprawdzanie witryny na serwerze WWW</h2>
+
+            <p>
+                Po opublikowaniu strony
+                należy sprawdzić jej działanie
+                pod publicznym adresem.
+            </p>
+
+            <h3>Lista kontrolna</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Co sprawdzić?</th>
+                </tr>
+
+                <tr>
+                    <td>Adres</td>
+                    <td>Czy publiczny adres otwiera stronę?</td>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td>Czy wyświetlana jest właściwa zawartość?</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td>Czy style zostały poprawnie wczytane?</td>
+                </tr>
+
+                <tr>
+                    <td>Obrazy</td>
+                    <td>Czy wszystkie grafiki są widoczne?</td>
+                </tr>
+
+                <tr>
+                    <td>Menu</td>
+                    <td>Czy odnośniki prowadzą do odpowiednich miejsc?</td>
+                </tr>
+
+                <tr>
+                    <td>HTTPS</td>
+                    <td>Czy witryna otwiera się przez HTTPS bez błędów certyfikatu?</td>
+                </tr>
+
+                <tr>
+                    <td>Telefon</td>
+                    <td>Czy strona poprawnie działa na małym ekranie?</td>
+                </tr>
+
+                <tr>
+                    <td>Konsola</td>
+                    <td>Czy nie pojawiają się błędy wymagające poprawy?</td>
+                </tr>
+            </table>
+
+            <h3>Testowanie na telefonie</h3>
+
+            <ol>
+                <li>Otwórz publiczny adres na telefonie.</li>
+                <li>Sprawdź czytelność tekstu.</li>
+                <li>Sprawdź menu.</li>
+                <li>Sprawdź obrazy.</li>
+                <li>Sprawdź, czy nie pojawia się zbędne przewijanie poziome.</li>
+            </ol>
+        </section>
+
+        <!-- 18 -->
+
+        <section id="bledy">
+            <h2>18. Najczęstsze błędy podczas publikacji</h2>
+
+            <table>
+                <tr>
+                    <th>Problem</th>
+                    <th>Możliwa przyczyna</th>
+                    <th>Rozwiązanie</th>
+                </tr>
+
+                <tr>
+                    <td>Strona nie otwiera się.</td>
+                    <td>Nieprawidłowy adres lub nieukończona publikacja.</td>
+                    <td>Sprawdź adres i status wdrożenia.</td>
+                </tr>
+
+                <tr>
+                    <td>Brak stylów CSS.</td>
+                    <td>Niepoprawna ścieżka do arkusza.</td>
+                    <td>Sprawdź href w elemencie link.</td>
+                </tr>
+
+                <tr>
+                    <td>Nie widać obrazów.</td>
+                    <td>Nieprawidłowa nazwa pliku lub ścieżka.</td>
+                    <td>Sprawdź src i strukturę katalogów.</td>
+                </tr>
+
+                <tr>
+                    <td>Błąd 404.</td>
+                    <td>Żądany zasób nie został znaleziony.</td>
+                    <td>Sprawdź lokalizację i nazwę pliku.</td>
+                </tr>
+
+                <tr>
+                    <td>Wyświetla się starsza wersja.</td>
+                    <td>Pamięć podręczna lub niezakończone wdrożenie.</td>
+                    <td>Sprawdź status publikacji i odśwież zasoby.</td>
+                </tr>
+
+                <tr>
+                    <td>PHP nie działa na GitHub Pages.</td>
+                    <td>Brak obsługi PHP po stronie serwera.</td>
+                    <td>Wybierz hosting obsługujący PHP.</td>
+                </tr>
+            </table>
+
+            <h3>Wielkość liter w nazwach plików</h3>
+
+            <p>
+                Na wielu serwerach
+                nazwy plików rozróżniają
+                małe i wielkie litery.
+            </p>
+
+            <p>
+                Dlatego:
+            </p>
+
+            <pre><code class="language-text">Logo.png</code></pre>
+
+            <p>
+                i:
+            </p>
+
+            <pre><code class="language-text">logo.png</code></pre>
+
+            <p>
+                mogą oznaczać dwa różne pliki.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Strona może działać lokalnie
+                    na Windows,
+                    a po publikacji mieć błędy
+                    związane z wielkością liter
+                    w nazwach plików.
+                </p>
+            </div>
+        </section>
+
+        <!-- 19 -->
+
+        <section id="bezpieczna-publikacja">
+            <h2>19. Bezpieczeństwo publikowania witryny</h2>
+
+            <p>
+                Publikując stronę,
+                należy pamiętać,
+                że jej publiczne pliki
+                mogą być dostępne
+                dla innych użytkowników.
+            </p>
+
+            <h3>Podstawowe zasady</h3>
+
+            <ul>
+                <li>Nie umieszczaj haseł w plikach HTML i JavaScript.</li>
+                <li>Nie publikuj danych dostępowych do serwera.</li>
+                <li>Nie przesyłaj prywatnych dokumentów do publicznego repozytorium.</li>
+                <li>Stosuj bezpieczne metody przesyłania plików.</li>
+                <li>Sprawdzaj uprawnienia dostępu.</li>
+                <li>Aktualizuj wykorzystywane oprogramowanie.</li>
+                <li>Przechowuj kopię projektu.</li>
+                <li>Sprawdzaj zawartość przed publikacją.</li>
+            </ul>
+
+            <h3>Przykłady plików, których nie należy publikować</h3>
+
+            <pre><code class="language-text">hasla.txt
+dane-uczniow.xlsx
+kopia-bazy.sql
+prywatne-notatki.docx</code></pre>
+
+            <p>
+                Publiczne repozytorium
+                nie jest odpowiednim miejscem
+                do przechowywania
+                poufnych informacji.
+            </p>
+        </section>
+
+        <!-- 20 -->
+
+        <section id="porownanie">
+            <h2>20. Hosting tradycyjny a GitHub Pages</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>Hosting tradycyjny</th>
+                    <th>GitHub Pages</th>
+                </tr>
+
+                <tr>
+                    <td>HTML i CSS</td>
+                    <td>Tak.</td>
+                    <td>Tak.</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript w przeglądarce</td>
+                    <td>Tak.</td>
+                    <td>Tak.</td>
+                </tr>
+
+                <tr>
+                    <td>PHP</td>
+                    <td>Na planach obsługujących PHP.</td>
+                    <td>Nie.</td>
+                </tr>
+
+                <tr>
+                    <td>MySQL</td>
+                    <td>Na planach obsługujących bazy danych.</td>
+                    <td>Nie.</td>
+                </tr>
+
+                <tr>
+                    <td>SFTP / FTPS</td>
+                    <td>Często dostępne.</td>
+                    <td>Nie jest metodą publikacji.</td>
+                </tr>
+
+                <tr>
+                    <td>Publikacja przez repozytorium</td>
+                    <td>Zależnie od dostawcy i konfiguracji.</td>
+                    <td>Tak.</td>
+                </tr>
+
+                <tr>
+                    <td>Własna domena</td>
+                    <td>Zwykle możliwa.</td>
+                    <td>Możliwa po konfiguracji.</td>
+                </tr>
+
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Witryny statyczne i dynamiczne.</td>
+                    <td>Witryny statyczne.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Wniosek</h3>
+                <p>
+                    Do nauki publikowania
+                    prostych stron HTML i CSS
+                    GitHub Pages jest wygodnym rozwiązaniem.
+                </p>
+
+                <p>
+                    Do projektów PHP i MySQL
+                    potrzebny jest hosting
+                    obsługujący te technologie
+                    lub odpowiednio skonfigurowany serwer.
+                </p>
+            </div>
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Serwer WWW udostępnia zasoby stron przez HTTP lub HTTPS.</li>
+                    <li>Hosting zapewnia infrastrukturę potrzebną do publikacji witryny.</li>
+                    <li>Domena jest nazwą używaną do identyfikowania zasobów i usług.</li>
+                    <li>DNS pomaga powiązać nazwy domenowe z informacjami potrzebnymi do połączenia.</li>
+                    <li>HTTPS wykorzystuje szyfrowanie TLS.</li>
+                    <li>FTP służy do przesyłania plików, ale standardowo nie szyfruje danych.</li>
+                    <li>FTPS wykorzystuje TLS.</li>
+                    <li>SFTP działa przez SSH.</li>
+                    <li>FileZilla Client pozwala zarządzać plikami na serwerze.</li>
+                    <li>Na wielu hostingach katalog publikacji nosi nazwę public_html.</li>
+                    <li>Plik index.html często jest domyślnym dokumentem katalogu.</li>
+                    <li>Podczas publikacji należy zachować strukturę folderów.</li>
+                    <li>GitHub Pages służy do publikowania statycznych witryn.</li>
+                    <li>GitHub Pages nie uruchamia PHP i MySQL.</li>
+                    <li>Publikacja przez GitHub Pages odbywa się przez repozytorium.</li>
+                    <li>Po każdej aktualizacji należy sprawdzić działanie strony.</li>
+                    <li>Błąd 404 oznacza, że żądany zasób nie został znaleziony.</li>
+                    <li>Nazwy plików mogą rozróżniać wielkość liter.</li>
+                    <li>Nie wolno publikować haseł i prywatnych danych.</li>
+                    <li>Gotową stronę należy przetestować pod publicznym adresem.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Projekt:</strong>
+                „Publikacja witryny Szkolna Strefa IT”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                przygotowanie plików strony,
+                opublikowanie witryny na GitHub Pages
+                i sprawdzenie jej działania
+                pod publicznym adresem.
+            </p>
+
+            <div class="important">
+                <h3>📌 Przygotowanie projektu</h3>
+
+                <p>
+                    Wykorzystaj witrynę HTML i CSS
+                    przygotowaną oraz zoptymalizowaną
+                    na poprzednich lekcjach.
+                </p>
+
+                <p>
+                    Utwórz folder <code>PSI_41</code>
+                    i skopiuj do niego pliki projektu.
+                </p>
+
+                <p>
+                    W tej lekcji wykorzystamy
+                    GitHub Pages do publikacji.
+                    FTP, FTPS i SFTP poznajemy
+                    jako metody przesyłania plików
+                    na tradycyjny hosting.
+                </p>
+
+                <p>
+                    Do publikacji potrzebne jest
+                    konto GitHub oraz możliwość
+                    utworzenia publicznego repozytorium.
+                </p>
+            </div>
+
+            <h3>Zadanie 1 – Przygotowanie witryny do publikacji</h3>
+
+            <ol>
+                <li>Otwórz folder swojej witryny.</li>
+                <li>Sprawdź, czy znajduje się w nim plik index.html.</li>
+                <li>Sprawdź obecność arkusza CSS.</li>
+                <li>Sprawdź ścieżki do obrazów.</li>
+                <li>Usuń niepotrzebne pliki robocze.</li>
+                <li>Otwórz stronę lokalnie i sprawdź jej działanie.</li>
+                <li>Utwórz plik <code>raport.txt</code>.</li>
+                <li>Zapisz w nim nazwę witryny i listę jej plików.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Hosting, domeny i DNS</h3>
+
+            <p>
+                W pliku <code>raport.txt</code>
+                odpowiedz na pytania:
+            </p>
+
+            <ol>
+                <li>Czym różni się hosting od domeny?</li>
+                <li>Do czego służy system DNS?</li>
+                <li>Czym różni się HTTP od HTTPS?</li>
+                <li>Dlaczego do przesyłania plików lepiej używać SFTP lub FTPS niż zwykłego FTP?</li>
+                <li>Dlaczego GitHub Pages nie uruchomi skryptu PHP?</li>
+            </ol>
+
+            <h3>Zadanie 3 – Utworzenie repozytorium GitHub</h3>
+
+            <ol>
+                <li>Zaloguj się na GitHub.</li>
+                <li>Utwórz nowe repozytorium.</li>
+                <li>Nazwij je <code>psi41-witryna</code> lub podobnie.</li>
+                <li>Ustaw repozytorium jako publiczne.</li>
+                <li>Prześlij pliki swojej strony.</li>
+                <li>Sprawdź, czy index.html znajduje się w katalogu głównym repozytorium.</li>
+                <li>Zatwierdź zmiany.</li>
+                <li>Wpisz adres repozytorium do raportu.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Publikowanie przez GitHub Pages</h3>
+
+            <ol>
+                <li>Otwórz Settings w repozytorium.</li>
+                <li>Wybierz Pages.</li>
+                <li>Ustaw publikację z gałęzi.</li>
+                <li>Wybierz gałąź main i katalog /(root).</li>
+                <li>Zapisz ustawienia.</li>
+                <li>Poczekaj na zakończenie publikacji.</li>
+                <li>Otwórz publiczny adres witryny.</li>
+                <li>Zapisz adres w pliku raport.txt.</li>
+                <li>Wykonaj zrzut ekranu i zapisz go jako <code>publikacja.png</code>.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Testowanie opublikowanej witryny</h3>
+
+            <ol>
+                <li>Otwórz publiczny adres strony.</li>
+                <li>Sprawdź, czy poprawnie wczytuje się CSS.</li>
+                <li>Sprawdź wszystkie obrazy.</li>
+                <li>Sprawdź działanie menu.</li>
+                <li>Sprawdź, czy witryna korzysta z HTTPS.</li>
+                <li>Przetestuj stronę przy szerokości 375 px.</li>
+                <li>Otwórz narzędzia deweloperskie i sprawdź ewentualne błędy.</li>
+                <li>Wpisz wyniki testów do raportu.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Aktualizacja i raport końcowy</h3>
+
+            <ol>
+                <li>Otwórz plik index.html.</li>
+                <li>Dodaj do strony nowy akapit z informacją o zakończeniu projektu.</li>
+                <li>Zapisz zmiany.</li>
+                <li>Prześlij zaktualizowany plik do repozytorium.</li>
+                <li>Zatwierdź zmiany.</li>
+                <li>Poczekaj na aktualizację GitHub Pages.</li>
+                <li>Otwórz ponownie publiczny adres.</li>
+                <li>Sprawdź, czy nowy akapit jest widoczny.</li>
+                <li>Uzupełnij raport o wynik aktualizacji.</li>
+            </ol>
+
+            <h3>📁 Struktura folderu do oddania</h3>
+
+            <pre><code class="language-text">PSI_41/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+|   |-- ...
+|
+|-- publikacja.png
+|
+|-- raport.txt</code></pre>
+
+            <p>
+                Zachowaj rzeczywiste nazwy
+                plików i folderów projektu,
+                jeśli różnią się od przykładu.
+            </p>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj folder <code>PSI_41</code>
+                    do archiwum ZIP i prześlij
+                    na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    W pliku <code>raport.txt</code>
+                    muszą znajdować się
+                    adres repozytorium,
+                    publiczny adres witryny,
+                    odpowiedzi na pytania
+                    oraz wyniki testów.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź,
+                    czy publiczny adres strony
+                    działa poprawnie.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 41
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
