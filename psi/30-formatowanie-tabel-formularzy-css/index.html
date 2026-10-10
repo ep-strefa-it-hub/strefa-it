@@ -1,0 +1,2705 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 30 – Formatowanie tabel i formularzy CSS | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#tabele">2.Struktura tabeli</a>
+        <a href="#obramowania">3.Obramowania tabel</a>
+        <a href="#odstepy">4.Odstępy w tabelach</a>
+        <a href="#rozmiary">5.Szerokość i układ tabel</a>
+        <a href="#kolory">6.Kolory tabel</a>
+        <a href="#paski">7.Wiersze naprzemienne</a>
+        <a href="#hover-tabele">8.Efekt hover w tabeli</a>
+        <a href="#responsywne-tabele">9.Tabele na małych ekranach</a>
+        <a href="#formularze">10.Struktura formularza</a>
+        <a href="#pola">11.Formatowanie pól</a>
+        <a href="#focus">12.Stan focus</a>
+        <a href="#placeholder">13.Tekst placeholder</a>
+        <a href="#walidacja">14.Stany pól formularza</a>
+        <a href="#wybor">15.Radio i checkbox</a>
+        <a href="#select-textarea">16.Select i textarea</a>
+        <a href="#przyciski">17.Formatowanie przycisków</a>
+        <a href="#uklad">18.Układ formularza</a>
+        <a href="#bledy">19.Najczęstsze błędy</a>
+        <a href="#przyklad">20.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 30 • CSS3
+            </div>
+
+            <h2>
+                Formatowanie tabel i formularzy
+                za pomocą CSS
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie właściwości CSS służących
+                do formatowania tabel, pól formularzy,
+                etykiet, list wyboru i przycisków
+                oraz samodzielne przygotowanie
+                estetycznej i czytelnej strony
+                zawierającej tabelę i formularz.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Tabele i formularze są często
+                wykorzystywane na stronach internetowych.
+            </p>
+
+            <p>
+                <strong>Tabele</strong> służą do
+                przedstawiania danych w wierszach
+                i kolumnach, np. cenników,
+                planów zajęć i zestawień wyników.
+            </p>
+
+            <p>
+                <strong>Formularze</strong> umożliwiają
+                użytkownikom wprowadzanie danych,
+                np. podczas rejestracji,
+                logowania, zamawiania produktów
+                czy wysyłania wiadomości.
+            </p>
+
+            <p>
+                Za pomocą CSS możemy:
+            </p>
+
+            <ul>
+                <li>zmieniać obramowania i kolory komórek tabeli,</li>
+                <li>ustawiać szerokości kolumn i odstępy,</li>
+                <li>wyróżniać nagłówki i wybrane wiersze,</li>
+                <li>dodawać efekty po najechaniu kursorem,</li>
+                <li>formatować pola tekstowe i listy rozwijane,</li>
+                <li>zmieniać wygląd przycisków,</li>
+                <li>wyróżniać aktywne i niepoprawnie wypełnione pola,</li>
+                <li>dostosowywać układ do różnych ekranów.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    HTML określa strukturę tabeli
+                    lub formularza, natomiast CSS
+                    odpowiada za jego wygląd.
+                    Sam CSS nie zapisuje danych
+                    przesłanych przez formularz.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="tabele">
+
+            <h2>2. Przypomnienie struktury tabeli HTML</h2>
+
+            <p>
+                Tabelę tworzymy za pomocą
+                znacznika <code>table</code>.
+            </p>
+
+            <p>
+                Wewnątrz znajdują się
+                wiersze <code>tr</code>
+                oraz komórki <code>th</code>
+                i <code>td</code>.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Produkt&lt;/th&gt;
+            &lt;th&gt;Cena&lt;/th&gt;
+            &lt;th&gt;Dostępność&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Klawiatura&lt;/td&gt;
+            &lt;td&gt;120 zł&lt;/td&gt;
+            &lt;td&gt;Dostępna&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Mysz&lt;/td&gt;
+            &lt;td&gt;80 zł&lt;/td&gt;
+            &lt;td&gt;Dostępna&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+&lt;/table&gt;</code></pre>
+
+            <h3>Najważniejsze znaczniki</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>table</code></td>
+                    <td>Cała tabela</td>
+                </tr>
+                <tr>
+                    <td><code>thead</code></td>
+                    <td>Sekcja nagłówkowa</td>
+                </tr>
+                <tr>
+                    <td><code>tbody</code></td>
+                    <td>Sekcja z danymi</td>
+                </tr>
+                <tr>
+                    <td><code>tr</code></td>
+                    <td>Wiersz tabeli</td>
+                </tr>
+                <tr>
+                    <td><code>th</code></td>
+                    <td>Komórka nagłówkowa</td>
+                </tr>
+                <tr>
+                    <td><code>td</code></td>
+                    <td>Komórka danych</td>
+                </tr>
+                <tr>
+                    <td><code>caption</code></td>
+                    <td>Podpis tabeli</td>
+                </tr>
+            </table>
+
+            <h3>Dodawanie podpisu tabeli</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+
+    &lt;caption&gt;Cennik akcesoriów&lt;/caption&gt;
+
+    &lt;tr&gt;
+        &lt;th scope="col"&gt;Produkt&lt;/th&gt;
+        &lt;th scope="col"&gt;Cena&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Klawiatura&lt;/td&gt;
+        &lt;td&gt;120 zł&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;</code></pre>
+
+            <p>
+                <code>caption</code> opisuje zawartość
+                tabeli, a <code>scope="col"</code>
+                określa, że komórka nagłówkowa
+                odnosi się do danej kolumny.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Tabel używamy do prezentowania
+                    danych tabelarycznych,
+                    a nie do budowania
+                    układu całej strony.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="obramowania">
+
+            <h2>3. Obramowania tabel – border i border-collapse</h2>
+
+            <p>
+                Do ustawiania obramowania
+                tabeli i komórek służy
+                właściwość <code>border</code>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">table {
+    border: 2px solid black;
+}
+
+th,
+td {
+    border: 1px solid gray;
+}</code></pre>
+
+            <p>
+                Bez dodatkowego formatowania
+                między obramowaniami komórek
+                mogą być widoczne odstępy.
+            </p>
+
+            <h3>Łączenie obramowań</h3>
+
+            <pre><code class="language-css">table {
+    border-collapse: collapse;
+}</code></pre>
+
+            <p>
+                Wartość <code>collapse</code>
+                powoduje, że sąsiadujące
+                obramowania komórek
+                zostają połączone.
+            </p>
+
+            <h3>Wartości border-collapse</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>separate</code></td>
+                    <td>Komórki zachowują osobne obramowania.</td>
+                </tr>
+                <tr>
+                    <td><code>collapse</code></td>
+                    <td>Sąsiadujące obramowania są łączone.</td>
+                </tr>
+            </table>
+
+            <h3>Kompletny przykład</h3>
+
+            <pre><code class="language-css">.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td {
+    border: 1px solid #CBD5E1;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>border-collapse: collapse</code>
+                    jest często stosowane
+                    podczas tworzenia
+                    klasycznych tabel z siatką.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="odstepy">
+
+            <h2>4. Odstępy w tabelach – padding i border-spacing</h2>
+
+            <p>
+                Właściwość <code>padding</code>
+                określa wewnętrzne odstępy
+                między treścią komórki
+                a jej obramowaniem.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">th,
+td {
+    padding: 12px;
+}</code></pre>
+
+            <p>
+                Dzięki temu tekst nie przylega
+                bezpośrednio do obramowania.
+            </p>
+
+            <h3>Różne odstępy</h3>
+
+            <pre><code class="language-css">th {
+    padding: 15px 20px;
+}
+
+td {
+    padding: 10px 15px;
+}</code></pre>
+
+            <p>
+                Pierwsza wartość oznacza
+                odstęp górny i dolny,
+                a druga – lewy i prawy.
+            </p>
+
+            <h3>Odstępy między komórkami – border-spacing</h3>
+
+            <pre><code class="language-css">table {
+    border-collapse: separate;
+    border-spacing: 8px;
+}</code></pre>
+
+            <p>
+                <code>border-spacing</code>
+                określa odstępy
+                między sąsiadującymi komórkami.
+            </p>
+
+            <p>
+                Właściwość ta działa
+                przy modelu
+                <code>border-collapse: separate</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>padding</code> dodaje
+                    przestrzeń wewnątrz komórki,
+                    natomiast <code>border-spacing</code>
+                    ustawia odstępy między komórkami.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="rozmiary">
+
+            <h2>5. Szerokość i układ tabel</h2>
+
+            <p>
+                Szerokość tabeli można
+                określić za pomocą
+                właściwości <code>width</code>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">table {
+    width: 100%;
+}</code></pre>
+
+            <p>
+                Tabela zajmie całą
+                dostępną szerokość
+                elementu nadrzędnego.
+            </p>
+
+            <h3>Ograniczenie szerokości</h3>
+
+            <pre><code class="language-css">table {
+    width: 100%;
+    max-width: 900px;
+}</code></pre>
+
+            <h3>Wyrównanie tekstu</h3>
+
+            <pre><code class="language-css">th {
+    text-align: center;
+}
+
+td {
+    text-align: left;
+}</code></pre>
+
+            <h3>Wyrównanie pionowe</h3>
+
+            <pre><code class="language-css">td {
+    vertical-align: middle;
+}</code></pre>
+
+            <h3>Właściwość table-layout</h3>
+
+            <p>
+                <code>table-layout</code>
+                określa sposób
+                obliczania szerokości kolumn.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>auto</code></td>
+                    <td>Układ kolumn zależy między innymi od zawartości komórek.</td>
+                </tr>
+                <tr>
+                    <td><code>fixed</code></td>
+                    <td>Układ kolumn wynika przede wszystkim z szerokości tabeli i określonych szerokości kolumn.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.tabela {
+    width: 100%;
+    table-layout: fixed;
+}</code></pre>
+
+            <p>
+                Przy układzie <code>fixed</code>
+                należy zwrócić uwagę
+                na długie wyrazy i adresy,
+                które mogą wychodzić
+                poza obszar komórki.
+            </p>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="kolory">
+
+            <h2>6. Formatowanie kolorów tabeli</h2>
+
+            <p>
+                Kolory pomagają wyróżnić
+                nagłówki, ważne dane
+                i poszczególne sekcje tabeli.
+            </p>
+
+            <h3>Kolor nagłówków</h3>
+
+            <pre><code class="language-css">.tabela th {
+    background-color: #1E3A8A;
+    color: white;
+}</code></pre>
+
+            <h3>Kolor komórek</h3>
+
+            <pre><code class="language-css">.tabela td {
+    background-color: #F8FAFC;
+    color: #1F2937;
+}</code></pre>
+
+            <h3>Wyróżnienie jednej komórki</h3>
+
+            <pre><code class="language-html">&lt;td class="wyrozniona"&gt;Promocja&lt;/td&gt;</code></pre>
+
+            <pre><code class="language-css">.wyrozniona {
+    background-color: #DCFCE7;
+    color: #166534;
+
+    font-weight: bold;
+}</code></pre>
+
+            <p>
+                Dzięki klasom możemy
+                wyróżniać konkretne
+                komórki bez zmieniania
+                wyglądu całej tabeli.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Zadbaj o kontrast
+                    między kolorem tekstu
+                    i kolorem tła.
+                    Ważne informacje
+                    nie powinny być
+                    przekazywane wyłącznie kolorem.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="paski">
+
+            <h2>7. Naprzemienne kolory wierszy – :nth-child()</h2>
+
+            <p>
+                Długie tabele są łatwiejsze
+                do odczytania, gdy kolejne
+                wiersze mają naprzemienne
+                kolory tła.
+            </p>
+
+            <p>
+                Taki efekt nazywany jest
+                często <strong>zebra stripes</strong>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.tabela tbody tr:nth-child(even) {
+    background-color: #E2E8F0;
+}</code></pre>
+
+            <p>
+                Wiersze parzyste
+                otrzymają inne tło.
+            </p>
+
+            <h3>Wiersze nieparzyste</h3>
+
+            <pre><code class="language-css">.tabela tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <h3>Co oznacza nth-child?</h3>
+
+            <table>
+                <tr>
+                    <th>Selektor</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>:nth-child(even)</code></td>
+                    <td>Wybiera elementy parzyste.</td>
+                </tr>
+                <tr>
+                    <td><code>:nth-child(odd)</code></td>
+                    <td>Wybiera elementy nieparzyste.</td>
+                </tr>
+                <tr>
+                    <td><code>:nth-child(3)</code></td>
+                    <td>Wybiera trzeci element.</td>
+                </tr>
+                <tr>
+                    <td><code>:first-child</code></td>
+                    <td>Wybiera pierwszy element.</td>
+                </tr>
+                <tr>
+                    <td><code>:last-child</code></td>
+                    <td>Wybiera ostatni element.</td>
+                </tr>
+            </table>
+
+            <h3>Dlaczego tbody?</h3>
+
+            <p>
+                Selektor
+                <code>.tabela tbody tr</code>
+                ogranicza działanie
+                do wierszy zawierających dane,
+                bez obejmowania nagłówka
+                znajdującego się w <code>thead</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Jeśli ustawisz nieprzezroczyste
+                    tło bezpośrednio dla wszystkich
+                    komórek <code>td</code>,
+                    kolor ustawiony na <code>tr</code>
+                    może nie być widoczny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="hover-tabele">
+
+            <h2>8. Efekt hover w tabeli</h2>
+
+            <p>
+                Możemy wyróżnić wiersz tabeli,
+                na który użytkownik
+                najedzie kursorem.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.tabela tbody tr:hover {
+    background-color: #BFDBFE;
+}</code></pre>
+
+            <p>
+                Po wskazaniu wiersza
+                jego tło zmieni kolor.
+            </p>
+
+            <h3>Płynna zmiana koloru</h3>
+
+            <pre><code class="language-css">.tabela tbody tr {
+    transition: background-color 0.2s;
+}
+
+.tabela tbody tr:hover {
+    background-color: #BFDBFE;
+}</code></pre>
+
+            <p>
+                <code>transition</code>
+                powoduje płynne
+                przejście między kolorami.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>:hover</code>
+                    działa nie tylko
+                    na odnośnikach.
+                    Można go stosować
+                    także do wierszy tabel,
+                    przycisków i innych elementów.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="responsywne-tabele">
+
+            <h2>9. Tabele na małych ekranach</h2>
+
+            <p>
+                Rozbudowana tabela
+                może nie mieścić się
+                na ekranie telefonu.
+            </p>
+
+            <p>
+                Jednym z rozwiązań
+                jest umieszczenie jej
+                w kontenerze umożliwiającym
+                przewijanie poziome.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="tabela-przewijana"&gt;
+
+    &lt;table class="tabela"&gt;
+
+        &lt;tr&gt;
+            &lt;th&gt;Produkt&lt;/th&gt;
+            &lt;th&gt;Cena&lt;/th&gt;
+            &lt;th&gt;Producent&lt;/th&gt;
+            &lt;th&gt;Dostępność&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Klawiatura&lt;/td&gt;
+            &lt;td&gt;120 zł&lt;/td&gt;
+            &lt;td&gt;Firma A&lt;/td&gt;
+            &lt;td&gt;Dostępna&lt;/td&gt;
+        &lt;/tr&gt;
+
+    &lt;/table&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.tabela-przewijana {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-przewijana .tabela {
+    width: 100%;
+    min-width: 650px;
+}</code></pre>
+
+            <p>
+                Jeśli tabela będzie
+                szersza niż kontener,
+                użytkownik będzie mógł
+                przewijać ją poziomo.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie usuwaj ważnych
+                    kolumn wyłącznie po to,
+                    aby tabela zmieściła się
+                    na małym ekranie.
+                    Przewijanie poziome
+                    często jest prostszym
+                    i bezpieczniejszym rozwiązaniem.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="formularze">
+
+            <h2>10. Przypomnienie struktury formularza HTML</h2>
+
+            <p>
+                Formularz tworzymy
+                za pomocą znacznika
+                <code>form</code>.
+            </p>
+
+            <p>
+                Wewnątrz mogą znajdować się
+                pola tekstowe, etykiety,
+                listy wyboru i przyciski.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;form action="zapis.php" method="post"&gt;
+
+    &lt;label for="imie"&gt;
+        Imię:
+    &lt;/label&gt;
+
+    &lt;input
+        type="text"
+        id="imie"
+        name="imie"
+        required
+    &gt;
+
+    &lt;label for="email"&gt;
+        E-mail:
+    &lt;/label&gt;
+
+    &lt;input
+        type="email"
+        id="email"
+        name="email"
+        required
+    &gt;
+
+    &lt;button type="submit"&gt;
+        Wyślij
+    &lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>Najważniejsze elementy</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>form</code></td>
+                    <td>Formularz</td>
+                </tr>
+                <tr>
+                    <td><code>label</code></td>
+                    <td>Etykieta pola</td>
+                </tr>
+                <tr>
+                    <td><code>input</code></td>
+                    <td>Pole formularza</td>
+                </tr>
+                <tr>
+                    <td><code>select</code></td>
+                    <td>Lista rozwijana</td>
+                </tr>
+                <tr>
+                    <td><code>textarea</code></td>
+                    <td>Pole wielowierszowe</td>
+                </tr>
+                <tr>
+                    <td><code>button</code></td>
+                    <td>Przycisk</td>
+                </tr>
+                <tr>
+                    <td><code>fieldset</code></td>
+                    <td>Grupa powiązanych pól</td>
+                </tr>
+                <tr>
+                    <td><code>legend</code></td>
+                    <td>Opis grupy pól</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Każde pole powinno
+                    mieć czytelną etykietę.
+                    Atrybut <code>for</code>
+                    etykiety powinien wskazywać
+                    odpowiednie <code>id</code> pola.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="pola">
+
+            <h2>11. Formatowanie pól formularza</h2>
+
+            <p>
+                Pola formularzy można
+                formatować podobnie
+                jak inne elementy HTML.
+            </p>
+
+            <p>
+                Najczęściej zmieniamy:
+            </p>
+
+            <ul>
+                <li>szerokość,</li>
+                <li>wysokość,</li>
+                <li>padding,</li>
+                <li>obramowanie,</li>
+                <li>kolor tła,</li>
+                <li>kolor tekstu,</li>
+                <li>zaokrąglenie narożników.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;label for="nazwisko"&gt;
+    Nazwisko:
+&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="nazwisko"
+    name="nazwisko"
+    class="pole"
+&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.pole {
+    width: 100%;
+
+    padding: 12px;
+
+    font-size: 16px;
+    color: #1F2937;
+
+    background-color: white;
+
+    border: 1px solid #94A3B8;
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}</code></pre>
+
+            <h3>Dlaczego box-sizing: border-box?</h3>
+
+            <p>
+                Przy wartości
+                <code>border-box</code>
+                deklarowana szerokość
+                obejmuje zawartość,
+                padding i obramowanie.
+            </p>
+
+            <p>
+                Dzięki temu pole
+                o szerokości 100%
+                łatwiej dopasować
+                do szerokości formularza.
+            </p>
+
+            <h3>Formatowanie etykiety</h3>
+
+            <pre><code class="language-css">label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+    color: #334155;
+}</code></pre>
+
+            <p>
+                Etykieta znajdzie się
+                nad polem formularza.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Nie ustawiaj
+                    <code>width: 100%</code>
+                    bezpośrednio dla
+                    wszystkich elementów
+                    <code>input</code>,
+                    ponieważ dotyczyłoby to
+                    również pól radio
+                    i checkbox.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="focus">
+
+            <h2>12. Aktywne pole formularza – :focus</h2>
+
+            <p>
+                Pseudoklasa <code>:focus</code>
+                pozwala zmienić wygląd pola,
+                które aktualnie otrzymało fokus,
+                np. po kliknięciu
+                lub wybraniu klawiszem Tab.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">input:focus {
+    border-color: #2563EB;
+
+    outline: 3px solid #BFDBFE;
+}</code></pre>
+
+            <p>
+                Po aktywowaniu pola
+                zmieni się kolor
+                jego obramowania
+                i pojawi się
+                dodatkowy kontur.
+            </p>
+
+            <h3>Płynna zmiana wyglądu</h3>
+
+            <pre><code class="language-css">.pole {
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.pole:focus {
+    border-color: #2563EB;
+
+    box-shadow:
+        0 0 0 3px #DBEAFE;
+}</code></pre>
+
+            <p>
+                <code>box-shadow</code>
+                tworzy dodatkowy
+                efekt wokół pola.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nie usuwaj
+                    widocznego wskaźnika
+                    fokusu bez zapewnienia
+                    innego wyraźnego
+                    sposobu wyróżnienia pola.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="placeholder">
+
+            <h2>13. Formatowanie tekstu placeholder</h2>
+
+            <p>
+                Atrybut <code>placeholder</code>
+                wyświetla tekst pomocniczy
+                wewnątrz pustego pola.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;
+    Adres e-mail:
+&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="np. uczen@example.com"
+&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">input::placeholder {
+    color: #64748B;
+    font-style: italic;
+}</code></pre>
+
+            <p>
+                Pseudoelement
+                <code>::placeholder</code>
+                umożliwia zmianę wyglądu
+                tekstu pomocniczego.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-css">textarea::placeholder {
+    color: #64748B;
+    font-size: 14px;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Placeholder nie zastępuje
+                    etykiety <code>label</code>.
+                    Tekst pomocniczy znika
+                    po rozpoczęciu wpisywania
+                    i nie powinien być
+                    jedyną informacją
+                    o przeznaczeniu pola.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="walidacja">
+
+            <h2>14. Stany pól formularza – :required, :valid, :invalid, :disabled</h2>
+
+            <p>
+                CSS umożliwia
+                formatowanie pól
+                w zależności od ich stanu.
+            </p>
+
+            <h3>Pole wymagane</h3>
+
+            <pre><code class="language-html">&lt;input
+    type="email"
+    name="email"
+    required
+&gt;</code></pre>
+
+            <pre><code class="language-css">input:required {
+    border-left: 4px solid #F59E0B;
+}</code></pre>
+
+            <p>
+                Wymagane pola
+                zostaną wyróżnione
+                pomarańczowym obramowaniem.
+            </p>
+
+            <h3>Pole z poprawną wartością</h3>
+
+            <pre><code class="language-css">input:valid {
+    border-color: #16A34A;
+}</code></pre>
+
+            <h3>Pole z niepoprawną wartością</h3>
+
+            <pre><code class="language-css">input:invalid {
+    border-color: #DC2626;
+}</code></pre>
+
+            <p>
+                Przeglądarka sprawdza
+                poprawność pola
+                na podstawie jego typu
+                i ograniczeń HTML,
+                np. <code>required</code>,
+                <code>minlength</code>
+                lub <code>pattern</code>.
+            </p>
+
+            <h3>Ważne – kiedy działa invalid?</h3>
+
+            <p>
+                Puste pole z atrybutem
+                <code>required</code>
+                może być uznawane
+                za niepoprawne już
+                przed rozpoczęciem
+                wypełniania formularza.
+            </p>
+
+            <p>
+                Dlatego nie zawsze
+                warto od razu
+                pokazywać czerwone
+                obramowanie.
+            </p>
+
+            <h3>Przykład – wyróżnienie po wpisaniu błędnego e-maila</h3>
+
+            <pre><code class="language-css">input[type="email"]:not(:placeholder-shown):invalid {
+    border-color: #DC2626;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                pole musi posiadać
+                atrybut <code>placeholder</code>.
+                Styl pojawi się,
+                gdy placeholder nie jest
+                wyświetlany, a wartość
+                nie spełnia wymagań pola.
+            </p>
+
+            <h3>Pole zablokowane</h3>
+
+            <pre><code class="language-html">&lt;input
+    type="text"
+    value="Nie można edytować"
+    disabled
+&gt;</code></pre>
+
+            <pre><code class="language-css">input:disabled {
+    background-color: #E2E8F0;
+    color: #64748B;
+
+    cursor: not-allowed;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    CSS może pokazywać
+                    wizualny stan pola,
+                    ale nie zastępuje
+                    walidacji danych
+                    po stronie serwera.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="wybor">
+
+            <h2>15. Formatowanie pól radio i checkbox</h2>
+
+            <p>
+                Pola <code>radio</code>
+                pozwalają wybrać
+                jedną opcję z grupy.
+            </p>
+
+            <p>
+                Pola <code>checkbox</code>
+                umożliwiają zaznaczanie
+                niezależnych opcji.
+            </p>
+
+            <h3>Przykład radio</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Wybierz poziom kursu&lt;/legend&gt;
+
+    &lt;label&gt;
+        &lt;input
+            type="radio"
+            name="poziom"
+            value="podstawowy"
+        &gt;
+        Podstawowy
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input
+            type="radio"
+            name="poziom"
+            value="zaawansowany"
+        &gt;
+        Zaawansowany
+    &lt;/label&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <h3>Przykład checkbox</h3>
+
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input
+        type="checkbox"
+        name="newsletter"
+    &gt;
+    Chcę otrzymywać informacje
+    o nowych kursach.
+&lt;/label&gt;</code></pre>
+
+            <h3>Zmiana koloru zaznaczenia – accent-color</h3>
+
+            <pre><code class="language-css">input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #2563EB;
+}</code></pre>
+
+            <p>
+                <code>accent-color</code>
+                pozwala zmienić
+                kolor akcentu
+                natywnych kontrolek
+                formularza.
+            </p>
+
+            <h3>Odstępy między opcjami</h3>
+
+            <pre><code class="language-css">.opcja {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}</code></pre>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;label class="opcja"&gt;
+    &lt;input
+        type="checkbox"
+        name="zgoda"
+    &gt;
+    Akceptuję regulamin.
+&lt;/label&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie usuwaj domyślnego
+                    wyglądu pól radio
+                    i checkbox bez potrzeby.
+                    Natywne kontrolki
+                    są zwykle łatwiejsze
+                    do obsługi i bardziej dostępne.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="select-textarea">
+
+            <h2>16. Formatowanie select i textarea</h2>
+
+            <p>
+                Formularze często
+                zawierają listy rozwijane
+                oraz pola wielowierszowe.
+            </p>
+
+            <h3>Lista rozwijana – select</h3>
+
+            <pre><code class="language-html">&lt;label for="kurs"&gt;
+    Wybierz kurs:
+&lt;/label&gt;
+
+&lt;select id="kurs" name="kurs"&gt;
+
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+    &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+
+&lt;/select&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">select {
+    width: 100%;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+    border: 1px solid #94A3B8;
+    border-radius: 8px;
+
+    background-color: white;
+}</code></pre>
+
+            <h3>Pole wielowierszowe – textarea</h3>
+
+            <pre><code class="language-html">&lt;label for="wiadomosc"&gt;
+    Wiadomość:
+&lt;/label&gt;
+
+&lt;textarea
+    id="wiadomosc"
+    name="wiadomosc"
+    rows="5"
+    placeholder="Wpisz wiadomość..."
+&gt;&lt;/textarea&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">textarea {
+    width: 100%;
+
+    min-height: 120px;
+    padding: 12px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    border: 1px solid #94A3B8;
+    border-radius: 8px;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+}</code></pre>
+
+            <h3>Właściwość resize</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Wyłącza ręczną zmianę rozmiaru.</td>
+                </tr>
+                <tr>
+                    <td><code>vertical</code></td>
+                    <td>Pozwala zmieniać wysokość.</td>
+                </tr>
+                <tr>
+                    <td><code>horizontal</code></td>
+                    <td>Pozwala zmieniać szerokość.</td>
+                </tr>
+                <tr>
+                    <td><code>both</code></td>
+                    <td>Pozwala zmieniać oba wymiary.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    <code>resize: vertical</code>
+                    jest często dobrym wyborem,
+                    ponieważ użytkownik może
+                    zwiększyć wysokość pola
+                    bez zaburzania
+                    szerokości formularza.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="przyciski">
+
+            <h2>17. Formatowanie przycisków formularza</h2>
+
+            <p>
+                Przycisk formularza
+                może być formatowany
+                za pomocą właściwości
+                tła, obramowania,
+                paddingu i tekstu.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;button type="submit" class="przycisk"&gt;
+    Wyślij formularz
+&lt;/button&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.przycisk {
+    padding: 14px 28px;
+
+    color: white;
+    background-color: #2563EB;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}</code></pre>
+
+            <h3>Efekt hover</h3>
+
+            <pre><code class="language-css">.przycisk:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <h3>Efekt active</h3>
+
+            <pre><code class="language-css">.przycisk:active {
+    transform: scale(0.98);
+}</code></pre>
+
+            <h3>Efekt focus-visible</h3>
+
+            <pre><code class="language-css">.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Płynne przejście</h3>
+
+            <pre><code class="language-css">.przycisk {
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}</code></pre>
+
+            <h3>Przycisk nieaktywny</h3>
+
+            <pre><code class="language-css">.przycisk:disabled {
+    background-color: #94A3B8;
+    cursor: not-allowed;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>cursor: pointer</code>
+                    zmienia wygląd kursora,
+                    ale nie odpowiada
+                    za działanie przycisku.
+                    Funkcjonalność wynika
+                    z HTML i ewentualnych skryptów.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="uklad">
+
+            <h2>18. Układ formularza – grupowanie i odstępy</h2>
+
+            <p>
+                Czytelny formularz
+                powinien mieć
+                odpowiednie odstępy
+                między etykietami,
+                polami i grupami.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;form class="formularz"&gt;
+
+    &lt;div class="grupa"&gt;
+
+        &lt;label for="imie"&gt;Imię&lt;/label&gt;
+
+        &lt;input
+            type="text"
+            id="imie"
+            name="imie"
+        &gt;
+
+    &lt;/div&gt;
+
+    &lt;div class="grupa"&gt;
+
+        &lt;label for="email"&gt;E-mail&lt;/label&gt;
+
+        &lt;input
+            type="email"
+            id="email"
+            name="email"
+        &gt;
+
+    &lt;/div&gt;
+
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.formularz {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 25px;
+    margin: 20px auto;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+}
+
+.grupa {
+    margin-bottom: 20px;
+}
+
+.grupa label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.grupa input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #94A3B8;
+    border-radius: 6px;
+
+    box-sizing: border-box;
+}</code></pre>
+
+            <h3>Grupowanie pól – fieldset i legend</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;Dane kontaktowe&lt;/legend&gt;
+
+    &lt;label for="telefon"&gt;
+        Telefon:
+    &lt;/label&gt;
+
+    &lt;input
+        type="tel"
+        id="telefon"
+        name="telefon"
+    &gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <h3>Formatowanie grupy</h3>
+
+            <pre><code class="language-css">fieldset {
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+}
+
+legend {
+    padding: 0 8px;
+
+    color: #1E3A8A;
+    font-weight: bold;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Powiązane pola warto
+                    grupować za pomocą
+                    <code>fieldset</code>
+                    i <code>legend</code>,
+                    szczególnie w przypadku
+                    zestawów pól radio
+                    i checkbox.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="bledy">
+
+            <h2>19. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – podwójne obramowania tabeli</h3>
+
+            <pre><code class="language-css">table,
+td {
+    border: 1px solid black;
+}</code></pre>
+
+            <p>
+                Przy domyślnym modelu
+                oddzielnych obramowań
+                między komórkami
+                mogą być widoczne odstępy.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">table {
+    border-collapse: collapse;
+}</code></pre>
+
+            <h3>Błąd 2 – brak paddingu w komórkach</h3>
+
+            <p>
+                Tekst przylega
+                do obramowania
+                i jest mniej czytelny.
+            </p>
+
+            <pre><code class="language-css">th,
+td {
+    padding: 12px;
+}</code></pre>
+
+            <h3>Błąd 3 – tabela wychodząca poza ekran</h3>
+
+            <p>
+                Szeroka tabela
+                może powodować
+                przewijanie całej strony.
+            </p>
+
+            <pre><code class="language-css">.tabela-przewijana {
+    overflow-x: auto;
+}</code></pre>
+
+            <h3>Błąd 4 – formatowanie wszystkich input jednakowo</h3>
+
+            <pre><code class="language-css">input {
+    width: 100%;
+}</code></pre>
+
+            <p>
+                Ten zapis obejmuje
+                również checkboxy
+                i pola radio.
+            </p>
+
+            <p>Lepszy zapis:</p>
+
+            <pre><code class="language-css">input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+}</code></pre>
+
+            <h3>Błąd 5 – brak etykiet pól</h3>
+
+            <p>
+                Sam placeholder
+                nie powinien zastępować
+                etykiety pola.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="imie"&gt;Imię&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="imie"
+    name="imie"
+&gt;</code></pre>
+
+            <h3>Błąd 6 – brak widocznego fokusu</h3>
+
+            <p>
+                Użytkownik może nie wiedzieć,
+                które pole jest aktualnie
+                aktywne podczas
+                obsługi klawiaturą.
+            </p>
+
+            <pre><code class="language-css">input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #BFDBFE;
+}</code></pre>
+
+            <h3>Błąd 7 – przycisk bez określonego typu</h3>
+
+            <p>
+                Wewnątrz formularza
+                przycisk <code>button</code>
+                ma domyślnie typ
+                <code>submit</code>.
+            </p>
+
+            <p>
+                Dlatego warto
+                określać jego przeznaczenie.
+            </p>
+
+            <pre><code class="language-html">&lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+
+&lt;button type="reset"&gt;Wyczyść&lt;/button&gt;
+
+&lt;button type="button"&gt;Inna akcja&lt;/button&gt;</code></pre>
+
+            <h3>Błąd 8 – mylenie wyglądu z działaniem formularza</h3>
+
+            <p>
+                CSS zmienia wygląd
+                formularza, ale
+                nie zapisuje danych
+                w bazie danych
+                ani nie wysyła wiadomości e-mail.
+            </p>
+
+            <p>
+                Do obsługi przesłanych
+                danych potrzebne jest
+                odpowiednie rozwiązanie,
+                np. skrypt po stronie serwera.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Dobrze przygotowany
+                    formularz powinien być
+                    czytelny, wygodny
+                    i możliwy do obsługi
+                    zarówno myszą,
+                    jak i klawiaturą.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 20 -->
+
+        <section id="przyklad">
+
+            <h2>20. Kompletny przykład – oferta kursów i formularz zgłoszeniowy</h2>
+
+            <p>
+                Przygotujemy stronę
+                <strong>„Akademia IT”</strong>,
+                zawierającą:
+            </p>
+
+            <ul>
+                <li>tabelę z ofertą kursów,</li>
+                <li>wyróżniony nagłówek tabeli,</li>
+                <li>naprzemienne kolory wierszy,</li>
+                <li>efekt hover,</li>
+                <li>formularz zgłoszeniowy,</li>
+                <li>pola tekstowe i listę rozwijaną,</li>
+                <li>pole wielowierszowe,</li>
+                <li>checkbox,</li>
+                <li>przycisk z efektami wizualnymi.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">akademia-it/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Akademia IT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Akademia IT&lt;/h1&gt;
+
+        &lt;p&gt;
+            Rozwijaj umiejętności
+            programowania.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Oferta kursów&lt;/h2&gt;
+
+            &lt;div class="tabela-przewijana"&gt;
+
+                &lt;table class="tabela-kursow"&gt;
+
+                    &lt;caption&gt;
+                        Aktualna oferta kursów
+                    &lt;/caption&gt;
+
+                    &lt;thead&gt;
+
+                        &lt;tr&gt;
+                            &lt;th scope="col"&gt;Kurs&lt;/th&gt;
+                            &lt;th scope="col"&gt;Poziom&lt;/th&gt;
+                            &lt;th scope="col"&gt;Liczba godzin&lt;/th&gt;
+                            &lt;th scope="col"&gt;Cena&lt;/th&gt;
+                        &lt;/tr&gt;
+
+                    &lt;/thead&gt;
+
+                    &lt;tbody&gt;
+
+                        &lt;tr&gt;
+                            &lt;td&gt;HTML5&lt;/td&gt;
+                            &lt;td&gt;Podstawowy&lt;/td&gt;
+                            &lt;td&gt;20&lt;/td&gt;
+                            &lt;td&gt;250 zł&lt;/td&gt;
+                        &lt;/tr&gt;
+
+                        &lt;tr&gt;
+                            &lt;td&gt;CSS3&lt;/td&gt;
+                            &lt;td&gt;Podstawowy&lt;/td&gt;
+                            &lt;td&gt;25&lt;/td&gt;
+                            &lt;td&gt;300 zł&lt;/td&gt;
+                        &lt;/tr&gt;
+
+                        &lt;tr&gt;
+                            &lt;td&gt;JavaScript&lt;/td&gt;
+                            &lt;td&gt;Średni&lt;/td&gt;
+                            &lt;td&gt;35&lt;/td&gt;
+                            &lt;td&gt;450 zł&lt;/td&gt;
+                        &lt;/tr&gt;
+
+                        &lt;tr&gt;
+                            &lt;td&gt;PHP&lt;/td&gt;
+                            &lt;td&gt;Średni&lt;/td&gt;
+                            &lt;td&gt;30&lt;/td&gt;
+                            &lt;td&gt;400 zł&lt;/td&gt;
+                        &lt;/tr&gt;
+
+                    &lt;/tbody&gt;
+
+                &lt;/table&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Formularz zgłoszeniowy&lt;/h2&gt;
+
+            &lt;p&gt;
+                Wypełnij formularz,
+                aby przygotować
+                przykładowe zgłoszenie.
+            &lt;/p&gt;
+
+            &lt;form class="formularz"
+                  action="#"
+                  method="get"&gt;
+
+                &lt;div class="grupa"&gt;
+
+                    &lt;label for="imie"&gt;
+                        Imię i nazwisko:
+                    &lt;/label&gt;
+
+                    &lt;input
+                        type="text"
+                        id="imie"
+                        name="imie"
+                        placeholder="Wpisz imię i nazwisko"
+                        required
+                    &gt;
+
+                &lt;/div&gt;
+
+                &lt;div class="grupa"&gt;
+
+                    &lt;label for="email"&gt;
+                        Adres e-mail:
+                    &lt;/label&gt;
+
+                    &lt;input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="np. uczen@example.com"
+                        required
+                    &gt;
+
+                &lt;/div&gt;
+
+                &lt;div class="grupa"&gt;
+
+                    &lt;label for="kurs"&gt;
+                        Wybierz kurs:
+                    &lt;/label&gt;
+
+                    &lt;select
+                        id="kurs"
+                        name="kurs"
+                        required
+                    &gt;
+
+                        &lt;option value=""&gt;
+                            -- Wybierz kurs --
+                        &lt;/option&gt;
+
+                        &lt;option value="html"&gt;
+                            HTML5
+                        &lt;/option&gt;
+
+                        &lt;option value="css"&gt;
+                            CSS3
+                        &lt;/option&gt;
+
+                        &lt;option value="js"&gt;
+                            JavaScript
+                        &lt;/option&gt;
+
+                        &lt;option value="php"&gt;
+                            PHP
+                        &lt;/option&gt;
+
+                    &lt;/select&gt;
+
+                &lt;/div&gt;
+
+                &lt;fieldset&gt;
+
+                    &lt;legend&gt;
+                        Preferowany tryb zajęć
+                    &lt;/legend&gt;
+
+                    &lt;label class="opcja"&gt;
+
+                        &lt;input
+                            type="radio"
+                            name="tryb"
+                            value="online"
+                            required
+                        &gt;
+
+                        Online
+
+                    &lt;/label&gt;
+
+                    &lt;label class="opcja"&gt;
+
+                        &lt;input
+                            type="radio"
+                            name="tryb"
+                            value="stacjonarnie"
+                        &gt;
+
+                        Stacjonarnie
+
+                    &lt;/label&gt;
+
+                &lt;/fieldset&gt;
+
+                &lt;div class="grupa"&gt;
+
+                    &lt;label for="wiadomosc"&gt;
+                        Dodatkowe informacje:
+                    &lt;/label&gt;
+
+                    &lt;textarea
+                        id="wiadomosc"
+                        name="wiadomosc"
+                        rows="5"
+                        placeholder="Wpisz wiadomość..."
+                    &gt;&lt;/textarea&gt;
+
+                &lt;/div&gt;
+
+                &lt;label class="opcja zgoda"&gt;
+
+                    &lt;input
+                        type="checkbox"
+                        name="zgoda"
+                        required
+                    &gt;
+
+                    Potwierdzam zapoznanie się
+                    z informacjami o kursie.
+
+                &lt;/label&gt;
+
+                &lt;button
+                    type="submit"
+                    class="przycisk"
+                &gt;
+                    Wyślij zgłoszenie
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+            &lt;p class="informacja"&gt;
+                Formularz służy do ćwiczeń.
+                Nie zapisuje zgłoszeń
+                ani nie wysyła wiadomości.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Akademia IT&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* Zawartość */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 30px auto;
+}
+
+section {
+    padding: 30px;
+    margin-bottom: 25px;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+h2 {
+    color: #1E3A8A;
+}
+
+/* Tabela */
+
+.tabela-przewijana {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela-kursow {
+    width: 100%;
+    min-width: 600px;
+
+    border-collapse: collapse;
+}
+
+.tabela-kursow caption {
+    padding: 12px;
+
+    font-weight: bold;
+    color: #334155;
+}
+
+.tabela-kursow th,
+.tabela-kursow td {
+    padding: 14px;
+
+    border: 1px solid #CBD5E1;
+
+    text-align: left;
+}
+
+.tabela-kursow th {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+.tabela-kursow tbody tr:nth-child(even) {
+    background-color: #E2E8F0;
+}
+
+.tabela-kursow tbody tr {
+    transition: background-color 0.2s;
+}
+
+.tabela-kursow tbody tr:hover {
+    background-color: #BFDBFE;
+}
+
+/* Formularz */
+
+.formularz {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 25px;
+    margin: 20px auto;
+
+    background-color: #F8FAFC;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+/* Grupy pól */
+
+.grupa {
+    margin-bottom: 20px;
+}
+
+.grupa label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+    color: #334155;
+}
+
+/* Pola formularza */
+
+.grupa input,
+.grupa select,
+.grupa textarea {
+    display: block;
+
+    width: 100%;
+    padding: 12px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    color: #1F2937;
+    background-color: white;
+
+    border: 1px solid #94A3B8;
+    border-radius: 8px;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+/* Placeholder */
+
+.grupa input::placeholder,
+.grupa textarea::placeholder {
+    color: #64748B;
+    font-style: italic;
+}
+
+/* Aktywne pola */
+
+.grupa input:focus,
+.grupa select:focus,
+.grupa textarea:focus {
+    border-color: #2563EB;
+
+    outline: 3px solid #BFDBFE;
+    outline-offset: 1px;
+}
+
+/* Pole z błędnym e-mailem */
+
+.grupa input[type="email"]:not(:placeholder-shown):invalid {
+    border-color: #DC2626;
+}
+
+/* Pole wielowierszowe */
+
+.grupa textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Grupa radio */
+
+fieldset {
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+}
+
+legend {
+    padding: 0 8px;
+
+    color: #1E3A8A;
+    font-weight: bold;
+}
+
+/* Radio i checkbox */
+
+.opcja {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.opcja input {
+    margin-top: 5px;
+
+    accent-color: #2563EB;
+}
+
+.zgoda {
+    margin-bottom: 25px;
+}
+
+/* Przycisk */
+
+.przycisk {
+    padding: 14px 28px;
+
+    color: white;
+    background-color: #2563EB;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+.przycisk:active {
+    transform: scale(0.98);
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Informacja */
+
+.informacja {
+    font-size: 14px;
+    color: #475569;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+/* Małe ekrany */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 95%;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    .formularz {
+        padding: 15px;
+    }
+
+    .przycisk {
+        width: 100%;
+    }
+
+}</code></pre>
+
+            <h3>Co powinno działać?</h3>
+
+            <ol>
+                <li>Tabela posiada czytelne nagłówki i obramowania.</li>
+                <li>Co drugi wiersz ma inny kolor tła.</li>
+                <li>Po najechaniu na wiersz zmienia się jego tło.</li>
+                <li>Tabelę można przewijać poziomo na wąskim ekranie.</li>
+                <li>Pola formularza mają jednolity wygląd.</li>
+                <li>Aktywne pole jest wyraźnie wyróżnione.</li>
+                <li>Radio i checkbox mają zmieniony kolor zaznaczenia.</li>
+                <li>Przycisk reaguje na najechanie kursorem.</li>
+                <li>Wymagane pola są sprawdzane przez przeglądarkę.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Uwaga dotycząca przykładu</h3>
+                <p>
+                    Formularz jest demonstracyjny.
+                    Po zatwierdzeniu przeglądarka
+                    może zmienić adres strony,
+                    ale zgłoszenie nie zostanie
+                    zapisane ani wysłane
+                    do odbiorcy.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>border</code> ustawia obramowanie tabeli i komórek.</li>
+                    <li><code>border-collapse: collapse</code> łączy sąsiadujące obramowania.</li>
+                    <li><code>border-spacing</code> ustawia odstępy między oddzielnymi komórkami.</li>
+                    <li><code>padding</code> zwiększa odstęp między treścią komórki a obramowaniem.</li>
+                    <li><code>width</code> określa szerokość tabeli lub pola.</li>
+                    <li><code>text-align</code> ustawia poziome wyrównanie tekstu.</li>
+                    <li><code>vertical-align</code> umożliwia pionowe wyrównanie treści komórek.</li>
+                    <li><code>table-layout</code> określa sposób wyznaczania szerokości kolumn.</li>
+                    <li><code>:nth-child(even)</code> pozwala wyróżnić parzyste wiersze.</li>
+                    <li><code>:nth-child(odd)</code> pozwala wyróżnić nieparzyste wiersze.</li>
+                    <li><code>:hover</code> umożliwia zmianę wyglądu wskazywanego elementu.</li>
+                    <li><code>overflow-x: auto</code> umożliwia poziome przewijanie szerokiej tabeli.</li>
+                    <li><code>label</code> opisuje przeznaczenie pola formularza.</li>
+                    <li><code>padding</code>, <code>border</code> i <code>border-radius</code> pozwalają formatować pola.</li>
+                    <li><code>box-sizing: border-box</code> ułatwia kontrolowanie szerokości pól.</li>
+                    <li><code>:focus</code> wyróżnia aktywne pole.</li>
+                    <li><code>::placeholder</code> zmienia wygląd tekstu pomocniczego.</li>
+                    <li><code>:required</code> wybiera pola wymagane.</li>
+                    <li><code>:valid</code> i <code>:invalid</code> dotyczą stanu poprawności pola.</li>
+                    <li><code>:disabled</code> wybiera zablokowane kontrolki.</li>
+                    <li><code>accent-color</code> zmienia kolor akcentu pól radio i checkbox.</li>
+                    <li><code>resize</code> określa możliwość zmiany rozmiaru pola textarea.</li>
+                    <li><code>fieldset</code> i <code>legend</code> służą do grupowania powiązanych pól.</li>
+                    <li><code>cursor: pointer</code> zmienia wygląd kursora nad przyciskiem.</li>
+                    <li><code>transition</code> umożliwia płynne zmiany wyglądu.</li>
+                    <li>CSS nie zastępuje obsługi formularza ani walidacji po stronie serwera.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                przygotowanie strony internetowej
+                zawierającej estetycznie
+                sformatowaną tabelę
+                oraz formularz zgłoszeniowy.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_30</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                    Każde kolejne zadanie
+                    rozbudowuje ten sam projekt.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Tabela z ofertą</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moja oferta usług”</strong>.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z własnym tytułem.</li>
+                <li>Wybierz rodzaj oferty, np. kursy, usługi komputerowe, zajęcia sportowe lub produkty.</li>
+                <li>Utwórz tabelę zawierającą minimum cztery kolumny i pięć wierszy danych.</li>
+                <li>Dodaj nagłówki kolumn w znacznikach <code>th</code>.</li>
+                <li>Dodaj podpis tabeli za pomocą <code>caption</code>.</li>
+                <li>Ustaw szerokość tabeli na 100%.</li>
+                <li>Zastosuj <code>border-collapse: collapse</code>.</li>
+                <li>Dodaj obramowania i padding do komórek.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Kolory i efekty tabeli</h3>
+
+            <p>
+                Rozbuduj tabelę z zadania 1.
+            </p>
+
+            <ol>
+                <li>Ustaw ciemne tło nagłówków tabeli.</li>
+                <li>Zastosuj jasny kolor tekstu nagłówków.</li>
+                <li>Dodaj naprzemienne kolory wierszy za pomocą <code>:nth-child(even)</code>.</li>
+                <li>Dodaj efekt <code>:hover</code> zmieniający kolor tła wskazywanego wiersza.</li>
+                <li>Dodaj płynne przejście koloru za pomocą <code>transition</code>.</li>
+                <li>Wyróżnij jedną wybraną komórkę za pomocą klasy CSS.</li>
+                <li>Umieść tabelę w kontenerze z <code>overflow-x: auto</code>.</li>
+                <li>Sprawdź wygląd tabeli na małym ekranie.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Formularz zgłoszeniowy</h3>
+
+            <p>
+                Pod tabelą przygotuj
+                formularz zgłoszeniowy
+                dotyczący wybranej oferty.
+            </p>
+
+            <ol>
+                <li>Dodaj nagłówek „Formularz zgłoszeniowy”.</li>
+                <li>Utwórz formularz za pomocą znacznika <code>form</code>.</li>
+                <li>Dodaj pole imię i nazwisko.</li>
+                <li>Dodaj pole adres e-mail.</li>
+                <li>Dodaj listę rozwijaną <code>select</code> z minimum trzema opcjami.</li>
+                <li>Dodaj pole <code>textarea</code> na dodatkowe informacje.</li>
+                <li>Dodaj minimum dwa pola radio określające preferowaną formę kontaktu.</li>
+                <li>Dodaj checkbox potwierdzający zapoznanie się z informacjami.</li>
+                <li>Dodaj przycisk <code>submit</code>.</li>
+                <li>Połącz pola z odpowiednimi etykietami.</li>
+                <li>Dodaj atrybut <code>required</code> do wybranych pól.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Formatowanie formularza</h3>
+
+            <p>
+                Zastosuj CSS
+                do formularza
+                przygotowanego w zadaniu 3.
+            </p>
+
+            <ol>
+                <li>Ustaw maksymalną szerokość formularza na 600 px.</li>
+                <li>Wyśrodkuj formularz na stronie.</li>
+                <li>Dodaj padding, obramowanie i zaokrąglone narożniki.</li>
+                <li>Ustaw etykiety nad polami formularza.</li>
+                <li>Ustaw szerokość pól tekstowych, select i textarea na 100%.</li>
+                <li>Zastosuj <code>box-sizing: border-box</code>.</li>
+                <li>Dodaj odpowiednie odstępy między polami.</li>
+                <li>Zmień wygląd tekstu placeholder.</li>
+                <li>Dodaj efekt <code>:focus</code> wyróżniający aktywne pole.</li>
+                <li>Zastosuj <code>accent-color</code> dla radio i checkbox.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Formatowanie przycisku i responsywność</h3>
+
+            <p>
+                Dokończ wygląd strony.
+            </p>
+
+            <ol>
+                <li>Nadaj przyciskowi własny kolor tła.</li>
+                <li>Ustaw biały lub inny czytelny kolor tekstu.</li>
+                <li>Dodaj padding i zaokrąglone narożniki.</li>
+                <li>Usuń domyślne obramowanie przycisku.</li>
+                <li>Ustaw <code>cursor: pointer</code>.</li>
+                <li>Dodaj efekt <code>:hover</code> zmieniający kolor tła.</li>
+                <li>Dodaj efekt <code>:active</code>.</li>
+                <li>Dodaj widoczny styl <code>:focus-visible</code>.</li>
+                <li>Zastosuj regułę <code>@media (max-width: 600px)</code>.</li>
+                <li>Na małym ekranie ustaw szerokość przycisku na 100%.</li>
+                <li>Sprawdź wygląd tabeli i formularza na telefonie.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Dodatkowe efekty wizualne</h3>
+
+            <p>
+                Rozbuduj projekt
+                o dodatkowe elementy.
+            </p>
+
+            <ol>
+                <li>Dodaj delikatny cień do kontenera formularza.</li>
+                <li>Wyróżnij pola wymagane za pomocą <code>:required</code>.</li>
+                <li>Dodaj wizualne oznaczenie błędnego adresu e-mail.</li>
+                <li>Dodaj osobną sekcję z informacjami kontaktowymi.</li>
+                <li>Dodaj odnośnik umożliwiający powrót na początek strony.</li>
+                <li>Zadbaj o spójną kolorystykę tabeli, formularza i przycisków.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_30/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku HTML
+                    i jednym arkuszu CSS.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_30</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    wygląd tabeli,
+                    naprzemienne kolory wierszy,
+                    efekt hover,
+                    formatowanie pól formularza,
+                    działanie przycisków,
+                    poprawność etykiet
+                    oraz wygląd strony
+                    na małym ekranie.
+                </p>
+
+                <p>
+                    <strong>
+                        Treści tabeli oraz
+                        nazwy oferowanych usług
+                        lub produktów powinny być własne.
+                    </strong>
+                </p>
+
+                <p>
+                    Formularz ma charakter ćwiczeniowy.
+                    Nie podawaj w nim prawdziwych
+                    danych osobowych.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 30
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
