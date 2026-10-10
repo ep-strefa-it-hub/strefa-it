@@ -1,0 +1,2210 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 36 – Dostępność stron internetowych i WCAG | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#uzytkownicy">2.Potrzeby użytkowników</a>
+        <a href="#wcag">3.Standard WCAG</a>
+        <a href="#poziomy">4.Poziomy zgodności</a>
+        <a href="#postrzegalnosc">5.Postrzegalność</a>
+        <a href="#funkcjonalnosc">6.Funkcjonalność</a>
+        <a href="#zrozumialosc">7.Zrozumiałość</a>
+        <a href="#solidnosc">8.Solidność</a>
+        <a href="#semantyka">9.Semantyczny HTML</a>
+        <a href="#obrazy">10.Tekst alternatywny</a>
+        <a href="#kontrast">11.Kontrast kolorów</a>
+        <a href="#kolor">12.Informacje i kolory</a>
+        <a href="#klawiatura">13.Obsługa klawiaturą</a>
+        <a href="#formularze">14.Dostępne formularze</a>
+        <a href="#tekst">15.Tekst i skalowanie</a>
+        <a href="#multimedia">16.Multimedia</a>
+        <a href="#testowanie">17.Testowanie dostępności</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 36 • HTML5 / CSS3 / WCAG
+            </div>
+
+            <h2>
+                Dostępność stron internetowych –
+                zasady WCAG i dostosowanie witryny
+                do potrzeb użytkowników
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad dostępności cyfrowej
+                oraz wykorzystanie HTML5 i CSS3
+                do tworzenia witryn czytelnych,
+                zrozumiałych i możliwych do obsługi
+                przez osoby o różnych potrzebach.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong>
+                2 × 45 minut.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Strona internetowa powinna być
+                dostępna dla możliwie
+                szerokiej grupy użytkowników.
+            </p>
+
+            <p>
+                Nie wszyscy korzystają
+                z internetu w taki sam sposób.
+                Niektórzy używają myszy,
+                inni klawiatury,
+                ekranu dotykowego
+                lub technologii wspomagających.
+            </p>
+
+            <p>
+                <strong>Dostępność cyfrowa</strong>
+                oznacza projektowanie
+                i tworzenie stron internetowych
+                w taki sposób, aby osoby
+                o różnych potrzebach
+                mogły odbierać informacje
+                i korzystać z funkcji witryny.
+            </p>
+
+            <h3>Przykładowe bariery</h3>
+
+            <ul>
+                <li>Tekst jest zbyt mały lub ma słaby kontrast.</li>
+                <li>Obrazy nie posiadają opisów alternatywnych.</li>
+                <li>Nie można obsługiwać strony klawiaturą.</li>
+                <li>Formularze nie mają etykiet pól.</li>
+                <li>Film nie posiada napisów.</li>
+                <li>Menu jest nieczytelne lub nieuporządkowane.</li>
+                <li>Informacje przekazywane są wyłącznie kolorem.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Dostępność cyfrowa
+                    nie oznacza tworzenia
+                    osobnej strony dla osób
+                    z niepełnosprawnościami.
+                </p>
+
+                <p>
+                    Chodzi o przygotowanie
+                    jednej witryny,
+                    z której mogą korzystać
+                    osoby o różnych potrzebach.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="uzytkownicy">
+
+            <h2>2. Różne potrzeby użytkowników</h2>
+
+            <p>
+                Dostępność cyfrowa
+                jest ważna dla wielu grup osób,
+                również tych, które doświadczają
+                czasowych lub sytuacyjnych
+                trudności podczas korzystania
+                z internetu.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Potrzeba użytkownika</th>
+                    <th>Przykładowe rozwiązanie</th>
+                </tr>
+
+                <tr>
+                    <td>Trudności z widzeniem</td>
+                    <td>Odpowiedni kontrast, możliwość powiększania tekstu, obsługa czytnika ekranu.</td>
+                </tr>
+
+                <tr>
+                    <td>Trudności ze słyszeniem</td>
+                    <td>Napisy do materiałów wideo i tekstowe odpowiedniki informacji dźwiękowych.</td>
+                </tr>
+
+                <tr>
+                    <td>Trudności z obsługą myszy</td>
+                    <td>Możliwość korzystania z klawiatury.</td>
+                </tr>
+
+                <tr>
+                    <td>Trudności z koncentracją</td>
+                    <td>Prosty język, czytelny układ i logiczna nawigacja.</td>
+                </tr>
+
+                <tr>
+                    <td>Korzystanie z telefonu</td>
+                    <td>Responsywny układ i odpowiednio duże elementy interaktywne.</td>
+                </tr>
+
+                <tr>
+                    <td>Korzystanie w silnym świetle</td>
+                    <td>Wyraźny kontrast tekstu i elementów interfejsu.</td>
+                </tr>
+            </table>
+
+            <h3>Technologie wspomagające</h3>
+
+            <p>
+                Użytkownicy mogą korzystać
+                z różnych narzędzi,
+                np. czytników ekranu,
+                programów powiększających
+                lub sterowania głosem.
+            </p>
+
+            <p>
+                Przykładowe czytniki ekranu
+                to NVDA, VoiceOver i TalkBack.
+            </p>
+
+            <p>
+                Odpowiednio przygotowany HTML
+                pomaga takim narzędziom
+                interpretować zawartość strony.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="wcag">
+
+            <h2>3. Czym jest WCAG?</h2>
+
+            <p>
+                <strong>WCAG</strong>
+                to skrót od
+                <em>Web Content Accessibility Guidelines</em>,
+                czyli wytycznych dotyczących
+                dostępności treści internetowych.
+            </p>
+
+            <p>
+                Wytyczne są opracowywane
+                w ramach W3C,
+                przez inicjatywę WAI.
+            </p>
+
+            <p>
+                Opisują zasady,
+                które pomagają tworzyć
+                strony internetowe
+                dostępne dla osób
+                o różnych potrzebach.
+            </p>
+
+            <h3>Wersje standardu</h3>
+
+            <ul>
+                <li><strong>WCAG 2.0</strong> – opublikowane w 2008 roku.</li>
+                <li><strong>WCAG 2.1</strong> – opublikowane w 2018 roku.</li>
+                <li><strong>WCAG 2.2</strong> – opublikowane w 2023 roku.</li>
+            </ul>
+
+            <p>
+                WCAG 2.2 rozszerza
+                wcześniejsze wytyczne,
+                m.in. o dodatkowe kryteria
+                dotyczące obsługi interfejsów.
+            </p>
+
+            <p>
+                Zakres wymagań prawnych
+                może zależeć od rodzaju
+                podmiotu i obowiązujących przepisów.
+                Nie należy automatycznie
+                utożsamiać wszystkich kryteriów
+                WCAG 2.2 z obowiązkami
+                każdej witryny w Polsce.
+            </p>
+
+            <h3>Oficjalne materiały</h3>
+
+            <p>
+                <a href="https://www.w3.org/TR/WCAG22/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    WCAG 2.2 – dokument W3C
+                </a>
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    WCAG nie jest
+                    językiem programowania.
+                    To zbiór wytycznych
+                    i kryteriów pozwalających
+                    oceniać dostępność
+                    treści internetowych.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="poziomy">
+
+            <h2>4. Poziomy zgodności WCAG</h2>
+
+            <p>
+                Kryteria sukcesu WCAG
+                podzielono na trzy poziomy:
+                A, AA i AAA.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Poziom</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>A</td>
+                    <td>Podstawowy poziom zgodności.</td>
+                </tr>
+
+                <tr>
+                    <td>AA</td>
+                    <td>Poziom obejmujący kryteria A i AA.</td>
+                </tr>
+
+                <tr>
+                    <td>AAA</td>
+                    <td>Najwyższy poziom, obejmujący kryteria A, AA i AAA.</td>
+                </tr>
+            </table>
+
+            <p>
+                W praktyce często
+                dąży się do zgodności
+                na poziomie AA.
+            </p>
+
+            <p>
+                Spełnienie pojedynczego
+                kryterium nie oznacza jeszcze,
+                że cała witryna
+                jest zgodna z WCAG.
+            </p>
+
+            <h3>Przykładowe wymagania</h3>
+
+            <ul>
+                <li>Tekst alternatywny dla obrazów informacyjnych – poziom A.</li>
+                <li>Możliwość obsługi funkcji klawiaturą – poziom A.</li>
+                <li>Odpowiedni kontrast zwykłego tekstu – poziom AA.</li>
+                <li>Widoczność fokusu klawiatury – wymagania dotyczące fokusu występują na różnych poziomach WCAG.</li>
+            </ul>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="postrzegalnosc">
+
+            <h2>5. Zasada 1 – Postrzegalność</h2>
+
+            <p>
+                Pierwsza zasada WCAG
+                mówi, że informacje
+                i elementy interfejsu
+                muszą być przedstawione
+                w sposób możliwy
+                do odebrania przez użytkowników.
+            </p>
+
+            <h3>Przykładowe rozwiązania</h3>
+
+            <ul>
+                <li>Opisy alternatywne obrazów.</li>
+                <li>Napisy do filmów.</li>
+                <li>Odpowiedni kontrast.</li>
+                <li>Możliwość powiększania tekstu.</li>
+                <li>Poprawna struktura treści.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;img src="img/szkola.jpg"
+     alt="Budynek szkoły widziany od frontu"&gt;</code></pre>
+
+            <p>
+                Tekst alternatywny
+                pozwala przekazać
+                istotną informację
+                o obrazie osobom,
+                które go nie widzą.
+            </p>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="funkcjonalnosc">
+
+            <h2>6. Zasada 2 – Funkcjonalność</h2>
+
+            <p>
+                Druga zasada WCAG
+                dotyczy możliwości
+                obsługi elementów interfejsu.
+            </p>
+
+            <p>
+                Użytkownik powinien
+                móc korzystać z funkcji strony
+                także bez myszy.
+            </p>
+
+            <h3>Przykładowe rozwiązania</h3>
+
+            <ul>
+                <li>Obsługa klawiaturą.</li>
+                <li>Widoczny fokus.</li>
+                <li>Możliwość pominięcia powtarzalnej nawigacji.</li>
+                <li>Odpowiednie rozmiary elementów interaktywnych.</li>
+                <li>Brak pułapek klawiaturowych.</li>
+            </ul>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}</code></pre>
+
+            <p>
+                Widoczny obrys pomaga
+                rozpoznać element,
+                który ma aktualnie
+                fokus klawiatury.
+            </p>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="zrozumialosc">
+
+            <h2>7. Zasada 3 – Zrozumiałość</h2>
+
+            <p>
+                Trzecia zasada WCAG
+                oznacza, że informacje
+                oraz sposób działania
+                interfejsu powinny być
+                zrozumiałe dla użytkownika.
+            </p>
+
+            <h3>Przykładowe rozwiązania</h3>
+
+            <ul>
+                <li>Prosty i zrozumiały język.</li>
+                <li>Logiczna struktura nagłówków.</li>
+                <li>Przewidywalne działanie menu.</li>
+                <li>Poprawne etykiety formularzy.</li>
+                <li>Zrozumiałe komunikaty o błędach.</li>
+            </ul>
+
+            <h3>Nieczytelny komunikat</h3>
+
+            <pre><code class="language-text">Błąd 104.</code></pre>
+
+            <h3>Lepszy komunikat</h3>
+
+            <pre><code class="language-text">Wpisz poprawny adres e-mail,
+np. uczen@example.com.</code></pre>
+
+            <p>
+                Drugi komunikat
+                pomaga użytkownikowi
+                zrozumieć problem
+                i go poprawić.
+            </p>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="solidnosc">
+
+            <h2>8. Zasada 4 – Solidność</h2>
+
+            <p>
+                Czwarta zasada WCAG
+                dotyczy poprawnego
+                przygotowania treści,
+                aby mogły być interpretowane
+                przez różne przeglądarki
+                i technologie wspomagające.
+            </p>
+
+            <h3>Przykładowe rozwiązania</h3>
+
+            <ul>
+                <li>Stosowanie semantycznego HTML.</li>
+                <li>Używanie właściwych znaczników do odpowiednich celów.</li>
+                <li>Poprawne łączenie etykiet z polami formularzy.</li>
+                <li>Unikanie nieprawidłowego zagnieżdżania elementów.</li>
+                <li>Poprawne nazwy i role elementów interaktywnych.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;button type="button"&gt;
+    Pokaż informacje
+&lt;/button&gt;</code></pre>
+
+            <p>
+                Jeśli element ma wykonywać
+                działanie po kliknięciu,
+                należy stosować
+                odpowiedni znacznik,
+                np. <code>button</code>,
+                zamiast udawać przycisk
+                zwykłym elementem tekstowym.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Cztery zasady WCAG</h3>
+
+                <ol>
+                    <li>Postrzegalność.</li>
+                    <li>Funkcjonalność.</li>
+                    <li>Zrozumiałość.</li>
+                    <li>Solidność.</li>
+                </ol>
+
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="semantyka">
+
+            <h2>9. Semantyczny HTML a dostępność</h2>
+
+            <p>
+                Semantyczne znaczniki HTML
+                pomagają określić
+                znaczenie poszczególnych
+                części dokumentu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Moja witryna&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav aria-label="Menu główne"&gt;
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main id="tresc"&gt;
+
+    &lt;section id="start"&gt;
+        &lt;h2&gt;Wprowadzenie&lt;/h2&gt;
+        &lt;p&gt;Treść sekcji.&lt;/p&gt;
+    &lt;/section&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Autor strony&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <h3>Dlaczego to ważne?</h3>
+
+            <p>
+                Czytniki ekranu
+                mogą rozpoznawać
+                strukturę dokumentu,
+                nagłówki i obszary nawigacyjne.
+            </p>
+
+            <p>
+                Ułatwia to poruszanie się
+                po stronie.
+            </p>
+
+            <h3>Logiczna kolejność nagłówków</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Kurs HTML&lt;/h1&gt;
+
+&lt;h2&gt;Podstawy&lt;/h2&gt;
+
+&lt;h3&gt;Znaczniki tekstowe&lt;/h3&gt;
+
+&lt;h3&gt;Odnośniki&lt;/h3&gt;
+
+&lt;h2&gt;Formularze&lt;/h2&gt;</code></pre>
+
+            <p>
+                Nie należy wybierać
+                poziomu nagłówka
+                wyłącznie ze względu
+                na jego domyślny rozmiar.
+            </p>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="obrazy">
+
+            <h2>10. Tekst alternatywny obrazów</h2>
+
+            <p>
+                Atrybut <code>alt</code>
+                określa tekstowy odpowiednik
+                obrazu.
+            </p>
+
+            <h3>Obraz informacyjny</h3>
+
+            <pre><code class="language-html">&lt;img src="img/biblioteka.jpg"
+     alt="Wnętrze biblioteki z regałami książek"&gt;</code></pre>
+
+            <p>
+                Opis powinien przekazywać
+                znaczenie obrazu
+                w kontekście strony.
+            </p>
+
+            <h3>Obraz dekoracyjny</h3>
+
+            <pre><code class="language-html">&lt;img src="img/ozdoba.png"
+     alt=""&gt;</code></pre>
+
+            <p>
+                Pusty atrybut
+                <code>alt=""</code>
+                można stosować,
+                jeśli obraz nie przekazuje
+                istotnej informacji
+                i jest wyłącznie dekoracyjny.
+            </p>
+
+            <h3>Obraz będący odnośnikiem</h3>
+
+            <pre><code class="language-html">&lt;a href="index.html"&gt;
+
+    &lt;img src="img/logo.png"
+         alt="Strona główna Akademii WWW"&gt;
+
+&lt;/a&gt;</code></pre>
+
+            <p>
+                W takim przypadku
+                tekst alternatywny
+                powinien informować
+                o funkcji odnośnika.
+            </p>
+
+            <h3>Niepoprawny opis</h3>
+
+            <pre><code class="language-html">&lt;img src="img/szkola.jpg"
+     alt="obrazek"&gt;</code></pre>
+
+            <p>
+                Taki opis nie wyjaśnia,
+                co przedstawia obraz
+                ani jaką pełni funkcję.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Nie każdy obraz
+                    wymaga długiego opisu.
+                    Treść atrybutu
+                    <code>alt</code>
+                    zależy od funkcji obrazu
+                    i kontekstu jego użycia.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="kontrast">
+
+            <h2>11. Kontrast kolorów zgodnie z WCAG</h2>
+
+            <p>
+                Odpowiedni kontrast
+                ułatwia odczytywanie
+                tekstu i rozpoznawanie
+                elementów interfejsu.
+            </p>
+
+            <h3>Wymagania dla tekstu – WCAG AA</h3>
+
+            <table>
+                <tr>
+                    <th>Rodzaj tekstu</th>
+                    <th>Minimalny kontrast</th>
+                </tr>
+
+                <tr>
+                    <td>Zwykły tekst</td>
+                    <td>4,5:1</td>
+                </tr>
+
+                <tr>
+                    <td>Duży tekst</td>
+                    <td>3:1</td>
+                </tr>
+            </table>
+
+            <p>
+                Duży tekst to m.in.
+                tekst o rozmiarze
+                co najmniej 24 px
+                albo pogrubiony tekst
+                o rozmiarze około 18,7 px.
+            </p>
+
+            <p>
+                Są to ogólne progi
+                dla tekstu objętego
+                kryterium kontrastu;
+                w WCAG występują
+                określone wyjątki.
+            </p>
+
+            <h3>Przykład słabego kontrastu</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: #CCCCCC;
+
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <h3>Przykład lepszego kontrastu</h3>
+
+            <pre><code class="language-css">.tekst {
+    color: #1F2937;
+
+    background-color: #FFFFFF;
+}</code></pre>
+
+            <h3>Kontrast elementów interfejsu</h3>
+
+            <p>
+                W WCAG 2.1 i 2.2
+                występuje również
+                kryterium kontrastu
+                elementów nietekstowych
+                na poziomie AA.
+            </p>
+
+            <p>
+                Dla istotnych wizualnie
+                części elementów interfejsu
+                oraz wybranych obiektów
+                graficznych wymagany
+                jest kontrast co najmniej 3:1
+                względem sąsiadujących kolorów,
+                zgodnie z warunkami kryterium.
+            </p>
+
+            <h3>Sprawdzanie kontrastu</h3>
+
+            <p>
+                <a href="https://webaim.org/resources/contrastchecker/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    WebAIM Contrast Checker
+                </a>
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Kontrast sprawdzamy
+                    dla konkretnego zestawienia
+                    koloru tekstu i tła.
+                    Sam wybór ciemnego koloru
+                    nie gwarantuje zgodności.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="kolor">
+
+            <h2>12. Nie przekazuj informacji wyłącznie kolorem</h2>
+
+            <p>
+                Kolor może pomagać
+                w przekazywaniu informacji,
+                ale nie powinien być
+                jej jedynym nośnikiem.
+            </p>
+
+            <h3>Niepoprawny przykład</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Pola oznaczone na czerwono
+    są obowiązkowe.
+&lt;/p&gt;</code></pre>
+
+            <p>
+                Użytkownik, który
+                nie rozróżnia
+                określonych kolorów,
+                może mieć problem
+                z rozpoznaniem pól.
+            </p>
+
+            <h3>Lepszy przykład</h3>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;
+    Adres e-mail (wymagane)
+&lt;/label&gt;
+
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <p>
+                Informacja o wymaganym polu
+                została przekazana tekstowo,
+                a atrybut <code>required</code>
+                określa jego obowiązkowość.
+            </p>
+
+            <h3>Komunikaty o stanie</h3>
+
+            <p>
+                Zamiast wyróżniać
+                poprawny wynik
+                tylko kolorem zielonym,
+                warto dodać
+                odpowiedni komunikat.
+            </p>
+
+            <pre><code class="language-html">&lt;p class="sukces"&gt;
+    Formularz został poprawnie wypełniony.
+&lt;/p&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Kolor powinien
+                    wspierać przekazywanie informacji,
+                    a nie zastępować
+                    tekst lub inne oznaczenie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="klawiatura">
+
+            <h2>13. Obsługa strony za pomocą klawiatury</h2>
+
+            <p>
+                Nie wszyscy użytkownicy
+                korzystają z myszy.
+            </p>
+
+            <p>
+                Strona powinna umożliwiać
+                obsługę elementów interaktywnych
+                za pomocą klawiatury.
+            </p>
+
+            <h3>Podstawowe klawisze</h3>
+
+            <table>
+                <tr>
+                    <th>Klawisz</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Tab</td>
+                    <td>Przejście do kolejnego elementu interaktywnego.</td>
+                </tr>
+
+                <tr>
+                    <td>Shift + Tab</td>
+                    <td>Przejście do poprzedniego elementu.</td>
+                </tr>
+
+                <tr>
+                    <td>Enter</td>
+                    <td>Aktywowanie odnośnika lub przycisku w odpowiednim kontekście.</td>
+                </tr>
+
+                <tr>
+                    <td>Spacja</td>
+                    <td>Aktywowanie przycisku lub zmiana stanu wybranych kontrolek.</td>
+                </tr>
+            </table>
+
+            <h3>Widoczny fokus</h3>
+
+            <pre><code class="language-css">a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Odnośnik pomijający nawigację</h3>
+
+            <p>
+                Na stronach z rozbudowanym menu
+                warto umożliwić
+                szybkie przejście
+                do głównej treści.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;a class="skip-link" href="#tresc"&gt;
+    Przejdź do treści
+&lt;/a&gt;
+
+&lt;header&gt;
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main id="tresc" tabindex="-1"&gt;
+    &lt;h2&gt;Główna treść&lt;/h2&gt;
+&lt;/main&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.skip-link {
+    position: absolute;
+
+    top: -100px;
+    left: 10px;
+
+    padding: 10px;
+
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.skip-link:focus {
+    top: 10px;
+    z-index: 1000;
+}</code></pre>
+
+            <p>
+                Odnośnik pojawi się,
+                gdy użytkownik
+                przejdzie do niego
+                za pomocą klawiatury.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Nie usuwaj widocznego
+                    obrysu fokusu
+                    bez zapewnienia
+                    odpowiedniego
+                    zamiennika.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="formularze">
+
+            <h2>14. Dostępne formularze HTML</h2>
+
+            <p>
+                Formularze powinny
+                posiadać zrozumiałe etykiety,
+                odpowiednie typy pól
+                i informacje
+                o wymaganych danych.
+            </p>
+
+            <h3>Niepoprawny przykład</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       placeholder="Imię"&gt;</code></pre>
+
+            <p>
+                Sam placeholder
+                nie zastępuje
+                poprawnej etykiety pola.
+            </p>
+
+            <h3>Poprawny przykład</h3>
+
+            <pre><code class="language-html">&lt;label for="imie"&gt;
+    Imię
+&lt;/label&gt;
+
+&lt;input type="text"
+       id="imie"
+       name="imie"
+       autocomplete="given-name"
+       required&gt;</code></pre>
+
+            <h3>Dlaczego label jest ważny?</h3>
+
+            <p>
+                Etykieta informuje,
+                czego dotyczy pole.
+                Powiązanie atrybutów
+                <code>for</code> i <code>id</code>
+                umożliwia również
+                aktywowanie pola
+                przez kliknięcie etykiety.
+            </p>
+
+            <h3>Grupowanie pól</h3>
+
+            <pre><code class="language-html">&lt;fieldset&gt;
+
+    &lt;legend&gt;
+        Wybierz formę kontaktu
+    &lt;/legend&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="kontakt"
+               value="email"&gt;
+        E-mail
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        &lt;input type="radio"
+               name="kontakt"
+               value="telefon"&gt;
+        Telefon
+    &lt;/label&gt;
+
+&lt;/fieldset&gt;</code></pre>
+
+            <p>
+                <code>fieldset</code>
+                grupuje powiązane pola,
+                a <code>legend</code>
+                określa nazwę grupy.
+            </p>
+
+            <h3>Wskazówki dotyczące błędów</h3>
+
+            <p>
+                Komunikat powinien
+                wskazywać problem
+                i pomagać go poprawić.
+            </p>
+
+            <pre><code class="language-html">&lt;label for="email"&gt;
+    Adres e-mail (wymagane)
+&lt;/label&gt;
+
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+
+            <p>
+                Przeglądarka może
+                wykorzystać wbudowaną
+                walidację pola typu
+                <code>email</code>.
+            </p>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="tekst">
+
+            <h2>15. Czytelność tekstu i powiększanie zawartości</h2>
+
+            <p>
+                Użytkownik powinien
+                móc powiększać tekst
+                bez utraty istotnych
+                informacji i funkcji strony.
+            </p>
+
+            <h3>Rozmiary względne</h3>
+
+            <pre><code class="language-css">body {
+    font-size: 1rem;
+
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}</code></pre>
+
+            <p>
+                Jednostka <code>rem</code>
+                jest zależna od rozmiaru
+                czcionki elementu głównego.
+            </p>
+
+            <h3>Elastyczny kontener</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            <h3>Długość wiersza</h3>
+
+            <pre><code class="language-css">.tekst {
+    max-width: 70ch;
+}</code></pre>
+
+            <h3>Test powiększenia</h3>
+
+            <ol>
+                <li>Otwórz stronę w przeglądarce.</li>
+                <li>Powiększ widok do 200%.</li>
+                <li>Sprawdź, czy tekst jest czytelny.</li>
+                <li>Sprawdź, czy elementy nie nakładają się na siebie.</li>
+                <li>Sprawdź, czy menu i formularze nadal działają.</li>
+            </ol>
+
+            <p>
+                Warto również sprawdzić
+                stronę przy większym powiększeniu
+                i wąskim viewport,
+                aby wykryć problemy
+                z ponownym przepływem treści.
+            </p>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="multimedia">
+
+            <h2>16. Dostępność multimediów</h2>
+
+            <p>
+                Filmy i nagrania audio
+                również powinny być
+                dostępne dla użytkowników
+                o różnych potrzebach.
+            </p>
+
+            <h3>Przykładowe rozwiązania</h3>
+
+            <ul>
+                <li>Napisy do filmów z dźwiękiem.</li>
+                <li>Transkrypcja nagrań audio.</li>
+                <li>Opis ważnych informacji wizualnych w filmie.</li>
+                <li>Możliwość sterowania odtwarzaniem.</li>
+                <li>Unikanie automatycznego odtwarzania dźwięku.</li>
+            </ul>
+
+            <h3>Przykład wideo z napisami</h3>
+
+            <pre><code class="language-html">&lt;video controls width="640"&gt;
+
+    &lt;source src="film.mp4"
+            type="video/mp4"&gt;
+
+    &lt;track src="napisy-pl.vtt"
+           kind="captions"
+           srclang="pl"
+           label="Polski"&gt;
+
+    Twoja przeglądarka nie obsługuje wideo.
+
+&lt;/video&gt;</code></pre>
+
+            <p>
+                Plik <code>napisy-pl.vtt</code>
+                powinien zawierać
+                poprawnie przygotowane
+                i zsynchronizowane napisy.
+            </p>
+
+            <p>
+                Samo dodanie znacznika
+                <code>track</code>
+                bez odpowiedniego pliku
+                nie zapewnia dostępnych napisów.
+            </p>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="testowanie">
+
+            <h2>17. Testowanie dostępności witryny</h2>
+
+            <p>
+                Dostępność strony
+                należy sprawdzać
+                podczas tworzenia projektu,
+                a nie tylko po jego zakończeniu.
+            </p>
+
+            <h3>Test 1 – Klawiatura</h3>
+
+            <ol>
+                <li>Otwórz stronę w przeglądarce.</li>
+                <li>Odłóż mysz.</li>
+                <li>Naciskaj klawisz Tab.</li>
+                <li>Sprawdź, czy fokus jest widoczny.</li>
+                <li>Sprawdź, czy możesz otworzyć odnośniki.</li>
+                <li>Sprawdź, czy możesz obsłużyć formularz.</li>
+            </ol>
+
+            <h3>Test 2 – Kontrast</h3>
+
+            <ol>
+                <li>Sprawdź kolory tekstu i tła.</li>
+                <li>Otwórz narzędzie do pomiaru kontrastu.</li>
+                <li>Sprawdź współczynnik kontrastu.</li>
+                <li>Popraw zestawienia o zbyt małym kontraście.</li>
+            </ol>
+
+            <h3>Test 3 – Powiększenie</h3>
+
+            <ol>
+                <li>Powiększ stronę do 200%.</li>
+                <li>Sprawdź czytelność tekstu.</li>
+                <li>Sprawdź menu i przyciski.</li>
+                <li>Sprawdź, czy zawartość nie jest ucinana.</li>
+            </ol>
+
+            <h3>Test 4 – Struktura HTML</h3>
+
+            <ol>
+                <li>Sprawdź obecność atrybutu <code>lang</code>.</li>
+                <li>Sprawdź kolejność nagłówków.</li>
+                <li>Sprawdź znaczniki semantyczne.</li>
+                <li>Sprawdź opisy alternatywne obrazów.</li>
+                <li>Sprawdź etykiety formularzy.</li>
+            </ol>
+
+            <h3>Przydatne narzędzia</h3>
+
+            <ul>
+                <li>
+                    <a href="https://wave.webaim.org/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        WAVE – narzędzie do analizy dostępności
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://webaim.org/resources/contrastchecker/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        WebAIM Contrast Checker
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://validator.w3.org/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        W3C Markup Validation Service
+                    </a>
+                </li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Automatyczne narzędzia
+                    pomagają wykrywać
+                    część problemów,
+                    ale nie zastępują
+                    testów wykonywanych
+                    przez człowieka.
+                </p>
+
+                <p>
+                    Brak błędów w narzędziu
+                    nie oznacza automatycznie
+                    pełnej zgodności z WCAG.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy dostępności</h2>
+
+            <h3>Błąd 1 – brak opisu obrazu</h3>
+
+            <pre><code class="language-html">&lt;img src="img/szkola.jpg"&gt;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;img src="img/szkola.jpg"
+     alt="Budynek szkoły od frontu"&gt;</code></pre>
+
+            <h3>Błąd 2 – usunięcie fokusu</h3>
+
+            <pre><code class="language-css">a:focus {
+    outline: none;
+}</code></pre>
+
+            <p>
+                Takie rozwiązanie
+                może utrudnić obsługę
+                strony klawiaturą.
+            </p>
+
+            <p>Lepsze rozwiązanie:</p>
+
+            <pre><code class="language-css">a:focus-visible {
+    outline: 3px solid #F59E0B;
+}</code></pre>
+
+            <h3>Błąd 3 – pole bez etykiety</h3>
+
+            <pre><code class="language-html">&lt;input type="text"
+       placeholder="Nazwisko"&gt;</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-html">&lt;label for="nazwisko"&gt;
+    Nazwisko
+&lt;/label&gt;
+
+&lt;input type="text"
+       id="nazwisko"
+       name="nazwisko"&gt;</code></pre>
+
+            <h3>Błąd 4 – słaby kontrast</h3>
+
+            <pre><code class="language-css">p {
+    color: #CCCCCC;
+
+    background-color: white;
+}</code></pre>
+
+            <p>
+                Należy dobrać kolory
+                zapewniające odpowiedni
+                współczynnik kontrastu.
+            </p>
+
+            <h3>Błąd 5 – informacja tylko kolorem</h3>
+
+            <p>
+                Oznaczenie błędów
+                wyłącznie czerwonym kolorem
+                może być niewystarczające.
+            </p>
+
+            <p>
+                Dodaj komunikat tekstowy,
+                np. „To pole jest wymagane”.
+            </p>
+
+            <h3>Błąd 6 – nieczytelny odnośnik</h3>
+
+            <pre><code class="language-html">&lt;a href="oferta.html"&gt;
+    Kliknij tutaj
+&lt;/a&gt;</code></pre>
+
+            <p>Lepsze rozwiązanie:</p>
+
+            <pre><code class="language-html">&lt;a href="oferta.html"&gt;
+    Zobacz ofertę kursów
+&lt;/a&gt;</code></pre>
+
+            <h3>Błąd 7 – nieprawidłowa struktura nagłówków</h3>
+
+            <p>
+                Nagłówki powinny
+                odzwierciedlać
+                logiczną strukturę treści.
+            </p>
+
+            <p>
+                Nie należy wybierać
+                <code>h4</code>
+                tylko dlatego,
+                że ma mniejszy rozmiar
+                niż <code>h2</code>.
+            </p>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – dostępna witryna „Akademia IT”</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                informacyjną o kursach IT.
+            </p>
+
+            <p>
+                W projekcie zastosujemy:
+            </p>
+
+            <ul>
+                <li>poprawny język dokumentu,</li>
+                <li>semantyczne znaczniki HTML,</li>
+                <li>logiczną strukturę nagłówków,</li>
+                <li>odnośnik pomijający nawigację,</li>
+                <li>czytelne kolory,</li>
+                <li>widoczny fokus klawiatury,</li>
+                <li>etykiety pól formularza,</li>
+                <li>responsywny układ.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">akademia-it/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Akademia IT – kursy komputerowe&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;a class="skip-link" href="#tresc"&gt;
+        Przejdź do treści
+    &lt;/a&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;div class="kontener"&gt;
+
+            &lt;h1&gt;Akademia IT&lt;/h1&gt;
+
+            &lt;p&gt;
+                Poznaj podstawy tworzenia
+                stron internetowych.
+            &lt;/p&gt;
+
+        &lt;/div&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu" aria-label="Menu główne"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#kursy"&gt;Kursy&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main id="tresc" class="kontener" tabindex="-1"&gt;
+
+        &lt;section class="powitanie"&gt;
+
+            &lt;h2&gt;Witaj w Akademii IT&lt;/h2&gt;
+
+            &lt;p&gt;
+                Przygotowaliśmy kursy,
+                które pomogą Ci poznać
+                technologie internetowe.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kursy"&gt;
+
+            &lt;h2&gt;Nasze kursy&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Naucz się tworzyć
+                        strukturę strony WWW.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Poznaj zasady
+                        formatowania stron.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Dodawaj interaktywne
+                        elementy do witryn.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt" class="kontakt"&gt;
+
+            &lt;h2&gt;Formularz kontaktowy&lt;/h2&gt;
+
+            &lt;p&gt;
+                Pola oznaczone jako wymagane
+                należy wypełnić.
+            &lt;/p&gt;
+
+            &lt;form action="#" method="get"&gt;
+
+                &lt;label for="imie"&gt;
+                    Imię (wymagane)
+                &lt;/label&gt;
+
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       autocomplete="given-name"
+                       required&gt;
+
+                &lt;label for="email"&gt;
+                    Adres e-mail (wymagane)
+                &lt;/label&gt;
+
+                &lt;input type="email"
+                       id="email"
+                       name="email"
+                       autocomplete="email"
+                       required&gt;
+
+                &lt;label for="wiadomosc"&gt;
+                    Wiadomość (wymagane)
+                &lt;/label&gt;
+
+                &lt;textarea id="wiadomosc"
+                          name="wiadomosc"
+                          rows="5"
+                          required&gt;&lt;/textarea&gt;
+
+                &lt;button type="submit"&gt;
+                    Wyślij wiadomość
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+            &lt;p&gt;
+                Formularz jest demonstracyjny
+                i nie wysyła wiadomości
+                do odbiorcy.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Akademia IT
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Ustawienia ogólne */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    color: #1F2937;
+
+    background-color: #F1F5F9;
+}
+
+/* Kontener */
+
+.kontener {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+/* Pomijanie nawigacji */
+
+.skip-link {
+    position: absolute;
+
+    top: -100px;
+    left: 10px;
+
+    padding: 12px;
+
+    background-color: white;
+    color: black;
+
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background-color: #1E3A8A;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 44px);
+}
+
+/* Menu */
+
+.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 15px;
+
+    background-color: #2563EB;
+}
+
+.menu a {
+    padding: 10px 16px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #1E3A8A;
+}
+
+/* Widoczny fokus */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #F59E0B;
+
+    outline-offset: 3px;
+}
+
+/* Sekcje */
+
+section {
+    margin: 35px 0;
+}
+
+section h2 {
+    color: #1E3A8A;
+}
+
+/* Powitanie */
+
+.powitanie {
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 10px;
+}
+
+/* Karty */
+
+.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid #94A3B8;
+
+    border-radius: 10px;
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: #1E3A8A;
+}
+
+/* Formularz */
+
+.kontakt {
+    padding: 30px;
+
+    background-color: #DBEAFE;
+
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-width: 550px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    font: inherit;
+
+    border: 2px solid #64748B;
+
+    border-radius: 6px;
+
+    background-color: white;
+    color: #1F2937;
+}
+
+button {
+    padding: 12px 20px;
+
+    font: inherit;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #172554;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #1E3A8A;
+    color: white;
+}
+
+/* Małe ekrany */
+
+@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    .karty {
+        flex-direction: column;
+    }
+
+    .powitanie,
+    .kontakt {
+        padding: 20px;
+    }
+
+}</code></pre>
+
+            <h3>Co poprawia dostępność tej strony?</h3>
+
+            <table>
+                <tr>
+                    <th>Rozwiązanie</th>
+                    <th>Korzyść</th>
+                </tr>
+
+                <tr>
+                    <td><code>lang="pl"</code></td>
+                    <td>Określa język dokumentu.</td>
+                </tr>
+
+                <tr>
+                    <td>Semantyczny HTML</td>
+                    <td>Ułatwia interpretowanie struktury strony.</td>
+                </tr>
+
+                <tr>
+                    <td>Logiczne nagłówki</td>
+                    <td>Pomagają poruszać się po treści.</td>
+                </tr>
+
+                <tr>
+                    <td>Skip link</td>
+                    <td>Umożliwia pominięcie powtarzalnej nawigacji.</td>
+                </tr>
+
+                <tr>
+                    <td>Widoczny fokus</td>
+                    <td>Ułatwia obsługę klawiaturą.</td>
+                </tr>
+
+                <tr>
+                    <td>Etykiety formularza</td>
+                    <td>Informują o przeznaczeniu pól.</td>
+                </tr>
+
+                <tr>
+                    <td>Elastyczny układ</td>
+                    <td>Ułatwia korzystanie z różnych urządzeń.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    Przykład pokazuje
+                    wybrane dobre praktyki
+                    dostępności cyfrowej.
+                </p>
+
+                <p>
+                    Nie stanowi automatycznego
+                    potwierdzenia pełnej
+                    zgodności witryny
+                    z WCAG 2.2 AA.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Dostępność cyfrowa ułatwia korzystanie ze stron osobom o różnych potrzebach.</li>
+                    <li>WCAG to wytyczne dotyczące dostępności treści internetowych.</li>
+                    <li>WCAG 2.2 rozszerza wcześniejsze wersje standardu.</li>
+                    <li>Poziomy zgodności to A, AA i AAA.</li>
+                    <li>WCAG opiera się na czterech zasadach: postrzegalności, funkcjonalności, zrozumiałości i solidności.</li>
+                    <li>Semantyczny HTML pomaga interpretować strukturę dokumentu.</li>
+                    <li>Znaczniki nagłówków powinny tworzyć logiczną hierarchię.</li>
+                    <li>Obrazy informacyjne powinny posiadać odpowiednie teksty alternatywne.</li>
+                    <li>Obrazy dekoracyjne mogą mieć pusty atrybut <code>alt=""</code>.</li>
+                    <li>Kontrast zwykłego tekstu na poziomie WCAG AA wynosi co najmniej 4,5:1, z określonymi wyjątkami.</li>
+                    <li>Kontrast dużego tekstu na poziomie AA wynosi co najmniej 3:1.</li>
+                    <li>Informacji nie należy przekazywać wyłącznie kolorem.</li>
+                    <li>Strona powinna umożliwiać obsługę klawiaturą.</li>
+                    <li>Fokus klawiatury powinien być widoczny.</li>
+                    <li>Odnośnik pomijający nawigację ułatwia przejście do głównej treści.</li>
+                    <li>Pola formularza powinny mieć poprawnie powiązane etykiety.</li>
+                    <li><code>placeholder</code> nie zastępuje etykiety pola.</li>
+                    <li><code>fieldset</code> i <code>legend</code> pomagają grupować kontrolki.</li>
+                    <li>Tekst powinien pozostawać czytelny po powiększeniu.</li>
+                    <li>Filmy i nagrania mogą wymagać napisów lub innych odpowiedników tekstowych.</li>
+                    <li>Automatyczne testy wykrywają tylko część problemów.</li>
+                    <li>Brak błędów w walidatorze nie oznacza pełnej zgodności z WCAG.</li>
+                    <li>Dostępność należy uwzględniać już podczas projektowania witryny.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Temat projektu:</strong>
+                „Dostępna witryna informacyjna”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                stworzenie strony,
+                która wykorzystuje
+                podstawowe zasady WCAG,
+                semantyczny HTML
+                i dostępne elementy interfejsu.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_36</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania
+                    wykonuj w jednym projekcie.
+                    Każde kolejne zadanie
+                    rozbudowuje tę samą stronę.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Semantyczna struktura HTML</h3>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Ustaw język dokumentu na polski.</li>
+                <li>Dodaj kodowanie UTF-8.</li>
+                <li>Dodaj meta viewport.</li>
+                <li>Podłącz plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z tytułem <code>h1</code>.</li>
+                <li>Dodaj menu nawigacyjne.</li>
+                <li>Dodaj element <code>main</code>.</li>
+                <li>Dodaj trzy sekcje tematyczne.</li>
+                <li>Zastosuj logiczną kolejność nagłówków.</li>
+                <li>Dodaj stopkę.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Obrazy i tekst alternatywny</h3>
+
+            <ol>
+                <li>Utwórz folder <code>img</code>.</li>
+                <li>Dodaj dwa obrazy związane z tematem strony.</li>
+                <li>Umieść obrazy w odpowiednich sekcjach.</li>
+                <li>Dodaj do nich opisowe atrybuty <code>alt</code>.</li>
+                <li>Dodaj jeden obraz dekoracyjny z <code>alt=""</code>.</li>
+                <li>Ustaw responsywne rozmiary obrazów w CSS.</li>
+                <li>Sprawdź, czy opisy alternatywne przekazują właściwe informacje.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Kontrast i czytelność</h3>
+
+            <ol>
+                <li>Ustaw jasne tło strony.</li>
+                <li>Wybierz ciemny kolor tekstu.</li>
+                <li>Ustaw czytelny kolor nagłówka i menu.</li>
+                <li>Zastosuj podstawowy rozmiar tekstu 1rem.</li>
+                <li>Ustaw <code>line-height: 1.6</code>.</li>
+                <li>Dodaj odpowiednie odstępy między sekcjami.</li>
+                <li>Sprawdź kontrast tekstu i tła za pomocą WebAIM Contrast Checker.</li>
+                <li>Popraw kolory, jeśli nie spełniają wybranego kryterium.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Nawigacja klawiaturą</h3>
+
+            <ol>
+                <li>Dodaj odnośnik „Przejdź do treści” na początku dokumentu.</li>
+                <li>Ustaw identyfikator <code>tresc</code> dla elementu <code>main</code>.</li>
+                <li>Dodaj style odnośnika pomijającego nawigację.</li>
+                <li>Ustaw widoczny fokus dla odnośników.</li>
+                <li>Sprawdź działanie menu klawiszem Tab.</li>
+                <li>Sprawdź działanie odnośników klawiszem Enter.</li>
+                <li>Upewnij się, że można przejść do głównej treści bez używania myszy.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Dostępny formularz</h3>
+
+            <ol>
+                <li>Dodaj sekcję „Kontakt”.</li>
+                <li>Utwórz formularz z polami: imię, e-mail i wiadomość.</li>
+                <li>Dodaj etykietę <code>label</code> do każdego pola.</li>
+                <li>Poprawnie połącz <code>for</code> z <code>id</code>.</li>
+                <li>Ustaw odpowiednie typy pól.</li>
+                <li>Dodaj atrybut <code>required</code> do wymaganych pól.</li>
+                <li>Dodaj przycisk „Wyślij wiadomość”.</li>
+                <li>Ustaw widoczny fokus dla pól formularza.</li>
+                <li>Sprawdź działanie formularza klawiaturą.</li>
+                <li>Dodaj informację, że formularz jest demonstracyjny i nie wysyła danych.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Testowanie dostępności</h3>
+
+            <ol>
+                <li>Otwórz gotową stronę w przeglądarce.</li>
+                <li>Sprawdź obsługę klawiaturą.</li>
+                <li>Sprawdź widoczność fokusu.</li>
+                <li>Powiększ stronę do 200%.</li>
+                <li>Sprawdź, czy tekst pozostaje czytelny.</li>
+                <li>Sprawdź poprawność opisów alternatywnych.</li>
+                <li>Sprawdź działanie formularza.</li>
+                <li>Sprawdź kontrast tekstu i tła.</li>
+                <li>Sprawdź stronę przy szerokości 360 px.</li>
+                <li>Popraw zauważone błędy.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_36/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- obraz1.jpg
+    |-- obraz2.jpg
+    |-- ozdoba.png</code></pre>
+
+                <p>
+                    Możesz użyć
+                    innych nazw obrazów,
+                    jeśli ścieżki
+                    w kodzie HTML
+                    będą poprawne.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_36</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź:
+                    semantyczną strukturę HTML,
+                    opisy alternatywne obrazów,
+                    kontrast, obsługę klawiaturą,
+                    formularz i responsywność.
+                </p>
+
+                <p>
+                    <strong>
+                        Wszystkie teksty,
+                        tytuły i opisy
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 36
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
