@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 43 – ĆW: Formatowanie CSS witryny – INF.03 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#projekt">2.Projekt witryny</a>
+        <a href="#pliki">3.Pliki projektu</a>
+        <a href="#ogolne">4.Style ogólne</a>
+        <a href="#naglowek">5.Nagłówek</a>
+        <a href="#menu">6.Menu nawigacyjne</a>
+        <a href="#sekcje">7.Sekcje główne</a>
+        <a href="#oferta">8.Lista oferty</a>
+        <a href="#tabela">9.Tabela cennika</a>
+        <a href="#formularz">10.Formularz</a>
+        <a href="#stopka">11.Stopka</a>
+        <a href="#responsywnosc">12.Responsywność</a>
+        <a href="#wymagania">13.Wymagania techniczne</a>
+        <a href="#kontrola">14.Kontrola poprawności</a>
+        <a href="#zadanie">📝 Zadanie praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 43 • ĆWICZENIE PRAKTYCZNE INF.03
+            </div>
+
+            <h2>
+                ĆW – Wykonanie formatowania CSS witryny
+                zgodnie z projektem i specyfikacją
+            </h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne wykonanie zewnętrznego arkusza CSS
+                oraz sformatowanie witryny zgodnie
+                z dostarczonym projektem graficznym
+                i szczegółowymi wymaganiami.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong> 2 × 45 minut.
+            </p>
+
+            <p>
+                <strong>Forma pracy:</strong>
+                samodzielne ćwiczenie praktyczne
+                typu INF.03.
+            </p>
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Firma TECH-RENT zleciła wykonanie
+                formatowania witryny internetowej,
+                której struktura HTML
+                została przygotowana
+                podczas poprzedniego ćwiczenia.
+            </p>
+
+            <p>
+                Twoim zadaniem jest utworzenie
+                zewnętrznego arkusza stylów CSS,
+                a następnie zastosowanie
+                określonych właściwości
+                do poszczególnych elementów strony.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+
+                <p>
+                    Wykorzystaj plik
+                    <code>index.html</code>
+                    z lekcji 42.
+                </p>
+
+                <p>
+                    Nie twórz strony od początku.
+                    Możesz uzupełnić HTML
+                    o klasy lub dodatkowe kontenery,
+                    jeżeli są potrzebne
+                    do uzyskania wymaganego układu.
+                </p>
+
+                <p>
+                    Całe formatowanie umieść
+                    w zewnętrznym pliku
+                    <code>style.css</code>.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+
+        <section id="projekt">
+            <h2>2. Projekt graficzny witryny</h2>
+
+            <p>
+                Poniższy projekt przedstawia
+                oczekiwany wygląd witryny
+                na ekranie komputera.
+            </p>
+
+            <div style="
+                border: 2px solid #94A3B8;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 20px 0;
+                font-family: Arial, sans-serif;
+                color: #1F2937;
+                background: #F1F5F9;
+            ">
+
+                <div style="
+                    background: #1E3A8A;
+                    color: #FFFFFF;
+                    text-align: center;
+                    padding: 30px 15px;
+                ">
+                    <div style="
+                        font-size: 30px;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                    ">
+                        TECH-RENT
+                    </div>
+
+                    <p style="margin: 10px 0 0;">
+                        Sprzęt komputerowy na każdą okazję
+                    </p>
+                </div>
+
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    background: #2563EB;
+                    padding: 14px;
+                ">
+                    <span style="color: white; padding: 5px 10px;">O nas</span>
+                    <span style="color: white; padding: 5px 10px;">Oferta</span>
+                    <span style="color: white; padding: 5px 10px;">Cennik</span>
+                    <span style="color: white; padding: 5px 10px;">Kontakt</span>
+                </div>
+
+                <div style="
+                    max-width: 950px;
+                    margin: 20px auto;
+                    padding: 0 15px;
+                ">
+
+                    <div style="
+                        background: #FFFFFF;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                    ">
+                        <h3 style="color: #1E3A8A; margin-top: 0;">
+                            O naszej wypożyczalni
+                        </h3>
+
+                        <p>
+                            TECH-RENT oferuje wynajem sprzętu
+                            komputerowego dla uczniów, szkół
+                            i organizatorów wydarzeń.
+                        </p>
+                    </div>
+
+                    <div style="
+                        background: #FFFFFF;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                    ">
+                        <h3 style="color: #1E3A8A; margin-top: 0;">
+                            Nasza oferta
+                        </h3>
+
+                        <div style="
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 10px;
+                        ">
+                            <div style="background: #DBEAFE; padding: 12px; border-radius: 6px;">Laptopy</div>
+                            <div style="background: #DBEAFE; padding: 12px; border-radius: 6px;">Projektory</div>
+                            <div style="background: #DBEAFE; padding: 12px; border-radius: 6px;">Monitory</div>
+                            <div style="background: #DBEAFE; padding: 12px; border-radius: 6px;">Klawiatury i myszy</div>
+                            <div style="background: #DBEAFE; padding: 12px; border-radius: 6px;">Głośniki komputerowe</div>
+                        </div>
+                    </div>
+
+                    <div style="
+                        background: #FFFFFF;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                    ">
+                        <h3 style="color: #1E3A8A; margin-top: 0;">
+                            Cennik wypożyczenia
+                        </h3>
+
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                            font-size: 13px;
+                        ">
+                            <tr style="background: #1E3A8A; color: white;">
+                                <th style="padding: 10px; text-align: left;">Sprzęt</th>
+                                <th style="padding: 10px; text-align: left;">Cena / dzień</th>
+                                <th style="padding: 10px; text-align: left;">Kaucja</th>
+                            </tr>
+
+                            <tr style="background: #F8FAFC;">
+                                <td style="padding: 10px;">Laptop</td>
+                                <td style="padding: 10px;">50 zł</td>
+                                <td style="padding: 10px;">300 zł</td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding: 10px;">Projektor</td>
+                                <td style="padding: 10px;">40 zł</td>
+                                <td style="padding: 10px;">200 zł</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="
+                        background: #FFFFFF;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+                    ">
+                        <h3 style="color: #1E3A8A; margin-top: 0;">
+                            Zapytanie o wypożyczenie
+                        </h3>
+
+                        <div style="margin-bottom: 10px;">
+                            Imię i nazwisko
+                            <div style="height: 30px; border: 1px solid #CBD5E1; border-radius: 5px; margin-top: 5px;"></div>
+                        </div>
+
+                        <div style="margin-bottom: 10px;">
+                            Adres e-mail
+                            <div style="height: 30px; border: 1px solid #CBD5E1; border-radius: 5px; margin-top: 5px;"></div>
+                        </div>
+
+                        <div style="
+                            display: inline-block;
+                            background: #2563EB;
+                            color: white;
+                            padding: 10px 20px;
+                            border-radius: 6px;
+                            margin-top: 10px;
+                        ">
+                            Wyślij zapytanie
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="
+                    background: #1E293B;
+                    color: white;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    TECH-RENT | Autor strony: 12
+                </div>
+            </div>
+
+            <div class="important">
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Projekt pokazuje
+                    przykładowy wygląd witryny.
+                    Wymagania dotyczące wartości CSS
+                    znajdują się w kolejnych punktach.
+                </p>
+
+                <p>
+                    Jeśli projekt poglądowy
+                    nie przedstawia wszystkich danych,
+                    zachowaj pełną zawartość HTML
+                    wykonaną w lekcji 42.
+                </p>
+            </div>
+        </section>
+
+        <!-- 3 -->
+
+        <section id="pliki">
+            <h2>3. Pliki projektu</h2>
+
+            <p>
+                Utwórz folder <code>PSI_43</code>
+                i skopiuj do niego plik
+                <code>index.html</code>
+                z poprzedniego ćwiczenia.
+            </p>
+
+            <p>
+                Utwórz nowy plik
+                <code>style.css</code>.
+            </p>
+
+            <pre><code class="language-text">PSI_43/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <p>
+                Połącz arkusz CSS
+                z dokumentem HTML.
+            </p>
+
+            <p>
+                Nie stosuj stylów wewnętrznych
+                ani lokalnych.
+            </p>
+        </section>
+
+        <!-- 4 -->
+
+        <section id="ogolne">
+            <h2>4. Formatowanie ogólne strony</h2>
+
+            <p>
+                Ustaw następujące właściwości:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Element / właściwość</th>
+                    <th>Wartość</th>
+                </tr>
+
+                <tr>
+                    <td>Krój pisma</td>
+                    <td>Arial, sans-serif</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tekstu</td>
+                    <td>#1F2937</td>
+                </tr>
+
+                <tr>
+                    <td>Kolor tła strony</td>
+                    <td>#F1F5F9</td>
+                </tr>
+
+                <tr>
+                    <td>Margines zewnętrzny body</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>Odstęp między wierszami</td>
+                    <td>1.6</td>
+                </tr>
+
+                <tr>
+                    <td>Model pudełkowy</td>
+                    <td>border-box dla wszystkich elementów</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 5 -->
+
+        <section id="naglowek">
+            <h2>5. Formatowanie nagłówka</h2>
+
+            <p>
+                Element <code>header</code>
+                powinien mieć:
+            </p>
+
+            <ul>
+                <li>Kolor tła: <code>#1E3A8A</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+                <li>Wyrównanie tekstu: do środka.</li>
+                <li>Padding: 30 px.</li>
+            </ul>
+
+            <h3>Nagłówek h1</h3>
+
+            <ul>
+                <li>Rozmiar czcionki: 32 px.</li>
+                <li>Odstępy między literami: 2 px.</li>
+                <li>Margines: 0.</li>
+            </ul>
+
+            <h3>Akapit w nagłówku</h3>
+
+            <ul>
+                <li>Margines górny: 10 px.</li>
+                <li>Margines dolny: 0.</li>
+            </ul>
+        </section>
+
+        <!-- 6 -->
+
+        <section id="menu">
+            <h2>6. Formatowanie menu nawigacyjnego</h2>
+
+            <p>
+                Element <code>nav</code>
+                powinien mieć:
+            </p>
+
+            <ul>
+                <li>Tło: <code>#2563EB</code>.</li>
+                <li>Układ Flexbox.</li>
+                <li>Wyśrodkowanie elementów w poziomie.</li>
+                <li>Możliwość zawijania elementów.</li>
+                <li>Odstęp między elementami: 10 px.</li>
+                <li>Padding: 12 px.</li>
+            </ul>
+
+            <h3>Odnośniki menu</h3>
+
+            <ul>
+                <li>Kolor tekstu: biały.</li>
+                <li>Brak podkreślenia.</li>
+                <li>Padding: 8 px 14 px.</li>
+                <li>Zaokrąglenie: 6 px.</li>
+            </ul>
+
+            <h3>Efekt po najechaniu</h3>
+
+            <p>
+                Po wskazaniu odnośnika
+                kursorem myszy
+                tło powinno zmienić się
+                na <code>#1D4ED8</code>.
+            </p>
+
+            <p>
+                Dodaj również widoczny
+                styl dla <code>:focus-visible</code>,
+                aby menu można było
+                wygodnie obsługiwać klawiaturą.
+            </p>
+        </section>
+
+        <!-- 7 -->
+
+        <section id="sekcje">
+            <h2>7. Formatowanie sekcji głównych</h2>
+
+            <h3>Element main</h3>
+
+            <ul>
+                <li>Maksymalna szerokość: 950 px.</li>
+                <li>Wyśrodkowanie w poziomie.</li>
+                <li>Margines górny i dolny: 25 px.</li>
+                <li>Padding poziomy: 15 px.</li>
+            </ul>
+
+            <h3>Elementy section</h3>
+
+            <ul>
+                <li>Tło: białe.</li>
+                <li>Padding: 25 px.</li>
+                <li>Margines dolny: 20 px.</li>
+                <li>Zaokrąglenie rogów: 10 px.</li>
+                <li>Cień: <code>0 3px 10px rgba(0,0,0,0.08)</code>.</li>
+            </ul>
+
+            <h3>Nagłówki h2</h3>
+
+            <ul>
+                <li>Kolor: <code>#1E3A8A</code>.</li>
+                <li>Margines górny: 0.</li>
+                <li>Margines dolny: 15 px.</li>
+                <li>Rozmiar: 24 px.</li>
+            </ul>
+        </section>
+
+        <!-- 8 -->
+
+        <section id="oferta">
+            <h2>8. Formatowanie listy oferty</h2>
+
+            <p>
+                Lista znajdująca się
+                w sekcji <code>#oferta</code>
+                powinna zostać wyświetlona
+                jako siatka elementów.
+            </p>
+
+            <h3>Wymagania dla listy</h3>
+
+            <ul>
+                <li>Układ CSS Grid.</li>
+                <li>Dwie kolumny o równej szerokości na większych ekranach.</li>
+                <li>Odstęp między elementami: 10 px.</li>
+                <li>Brak domyślnych punktorów.</li>
+                <li>Brak domyślnego wcięcia listy.</li>
+            </ul>
+
+            <h3>Wymagania dla elementów li</h3>
+
+            <ul>
+                <li>Tło: <code>#DBEAFE</code>.</li>
+                <li>Padding: 12 px.</li>
+                <li>Zaokrąglenie: 6 px.</li>
+                <li>Kolor tekstu: <code>#1E3A8A</code>.</li>
+            </ul>
+
+            <p>
+                Na ekranach o szerokości
+                nieprzekraczającej 600 px
+                lista powinna mieć jedną kolumnę.
+            </p>
+        </section>
+
+        <!-- 9 -->
+
+        <section id="tabela">
+            <h2>9. Formatowanie tabeli cennika</h2>
+
+            <h3>Tabela</h3>
+
+            <ul>
+                <li>Szerokość: 100%.</li>
+                <li>Scalanie obramowań: collapse.</li>
+                <li>Margines górny: 15 px.</li>
+            </ul>
+
+            <h3>Komórki th i td</h3>
+
+            <ul>
+                <li>Padding: 12 px.</li>
+                <li>Wyrównanie tekstu: do lewej.</li>
+                <li>Dolne obramowanie: 1 px solid #CBD5E1.</li>
+            </ul>
+
+            <h3>Nagłówek tabeli</h3>
+
+            <ul>
+                <li>Tło: <code>#1E3A8A</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+            </ul>
+
+            <h3>Wiersze tabeli</h3>
+
+            <p>
+                Co drugi wiersz danych
+                powinien mieć tło
+                <code>#F8FAFC</code>.
+            </p>
+
+            <h3>Podpis tabeli</h3>
+
+            <ul>
+                <li>Wyrównanie: do lewej.</li>
+                <li>Grubość czcionki: bold.</li>
+                <li>Margines dolny: 10 px.</li>
+            </ul>
+        </section>
+
+        <!-- 10 -->
+
+        <section id="formularz">
+            <h2>10. Formatowanie formularza</h2>
+
+            <h3>Etykiety</h3>
+
+            <ul>
+                <li>Wyświetlanie blokowe.</li>
+                <li>Grubość czcionki: bold.</li>
+                <li>Margines dolny: 5 px.</li>
+            </ul>
+
+            <h3>Pola formularza</h3>
+
+            <p>
+                Elementy <code>input</code>,
+                <code>select</code>
+                i <code>textarea</code>
+                powinny mieć:
+            </p>
+
+            <ul>
+                <li>Szerokość: 100%.</li>
+                <li>Padding: 10 px.</li>
+                <li>Obramowanie: 1 px solid #CBD5E1.</li>
+                <li>Zaokrąglenie: 6 px.</li>
+                <li>Margines dolny: 15 px.</li>
+                <li>Czcionkę zgodną z resztą strony.</li>
+            </ul>
+
+            <h3>Przycisk wysyłania</h3>
+
+            <ul>
+                <li>Tło: <code>#2563EB</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+                <li>Padding: 12 px 20 px.</li>
+                <li>Brak obramowania.</li>
+                <li>Zaokrąglenie: 6 px.</li>
+                <li>Kursor: pointer.</li>
+            </ul>
+
+            <p>
+                Po najechaniu na przycisk
+                jego tło powinno zmieniać się
+                na <code>#1D4ED8</code>.
+            </p>
+
+            <p>
+                Zadbaj o widoczny fokus
+                podczas obsługi formularza
+                klawiaturą.
+            </p>
+        </section>
+
+        <!-- 11 -->
+
+        <section id="stopka">
+            <h2>11. Formatowanie stopki</h2>
+
+            <p>
+                Element <code>footer</code>
+                powinien mieć:
+            </p>
+
+            <ul>
+                <li>Kolor tła: <code>#1E293B</code>.</li>
+                <li>Kolor tekstu: biały.</li>
+                <li>Wyrównanie tekstu: do środka.</li>
+                <li>Padding: 20 px.</li>
+                <li>Margines górny: 30 px.</li>
+            </ul>
+
+            <p>
+                Jeśli w stopce znajduje się akapit,
+                usuń jego domyślne marginesy.
+            </p>
+        </section>
+
+        <!-- 12 -->
+
+        <section id="responsywnosc">
+            <h2>12. Responsywność witryny</h2>
+
+            <p>
+                Strona powinna poprawnie
+                wyświetlać się
+                na ekranach komputerów
+                i telefonów.
+            </p>
+
+            <h3>Wymagania</h3>
+
+            <ol>
+                <li>Nie stosuj sztywnej szerokości całej strony.</li>
+                <li>Główna zawartość nie może wykraczać poza szerokość ekranu.</li>
+                <li>Menu może zawijać elementy do kolejnego wiersza.</li>
+                <li>Lista oferty ma dwie kolumny na większych ekranach.</li>
+                <li>Lista oferty ma jedną kolumnę przy szerokości do 600 px.</li>
+                <li>Pola formularza nie mogą wychodzić poza kontener.</li>
+                <li>Tabela musi zachować czytelność na małym ekranie.</li>
+            </ol>
+
+            <h3>Media query</h3>
+
+            <p>
+                Zastosuj regułę
+                <code>@media</code>
+                dla szerokości ekranu
+                nieprzekraczającej 600 px.
+            </p>
+
+            <p>
+                W tej regule:
+            </p>
+
+            <ul>
+                <li>Zmień listę oferty na jedną kolumnę.</li>
+                <li>Zmniejsz padding sekcji do 15 px.</li>
+                <li>Zmniejsz rozmiar nagłówka h1 do 26 px.</li>
+            </ul>
+
+            <div class="important">
+                <h3>⚠️ Uwaga dotycząca tabeli</h3>
+
+                <p>
+                    Nie usuwaj kolumn tabeli
+                    na małych ekranach.
+                </p>
+
+                <p>
+                    W razie potrzeby zastosuj
+                    dodatkowy kontener,
+                    który umożliwi przewijanie
+                    tabeli w poziomie,
+                    bez przewijania całej strony.
+                </p>
+            </div>
+        </section>
+
+        <!-- 13 -->
+
+        <section id="wymagania">
+            <h2>13. Wymagania techniczne</h2>
+
+            <p>
+                Gotowy projekt powinien spełniać
+                następujące warunki:
+            </p>
+
+            <ul>
+                <li>Strona korzysta z zewnętrznego arkusza style.css.</li>
+                <li>W pliku HTML nie występują style lokalne.</li>
+                <li>W pliku HTML nie występuje element style.</li>
+                <li>Wszystkie sekcje mają określony wygląd.</li>
+                <li>Menu wykorzystuje Flexbox.</li>
+                <li>Lista oferty wykorzystuje CSS Grid.</li>
+                <li>Tabela ma sformatowane nagłówki i wiersze.</li>
+                <li>Formularz ma sformatowane pola i przycisk.</li>
+                <li>Zastosowano pseudoklasę hover.</li>
+                <li>Zastosowano widoczny fokus.</li>
+                <li>Zastosowano media query.</li>
+                <li>Strona nie powoduje zbędnego przewijania poziomego.</li>
+                <li>Nie zmieniono wymaganej treści strony z lekcji 42.</li>
+            </ul>
+        </section>
+
+        <!-- 14 -->
+
+        <section id="kontrola">
+            <h2>14. Kontrola poprawności</h2>
+
+            <h3>Testowanie w przeglądarce</h3>
+
+            <ol>
+                <li>Otwórz plik index.html.</li>
+                <li>Sprawdź, czy CSS jest prawidłowo podłączony.</li>
+                <li>Porównaj wygląd strony z projektem.</li>
+                <li>Sprawdź kolory i odstępy.</li>
+                <li>Sprawdź menu nawigacyjne.</li>
+                <li>Sprawdź wygląd tabeli.</li>
+                <li>Sprawdź formularz.</li>
+                <li>Sprawdź działanie hover.</li>
+                <li>Sprawdź fokus za pomocą klawisza Tab.</li>
+                <li>Przetestuj stronę przy szerokości 375 px i 1366 px.</li>
+            </ol>
+
+            <h3>Walidacja CSS</h3>
+
+            <p>
+                Otwórz:
+                <a href="https://jigsaw.w3.org/css-validator/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Walidator CSS W3C
+                </a>
+            </p>
+
+            <ol>
+                <li>Wybierz sprawdzanie przez przesłanie pliku.</li>
+                <li>Wskaż style.css.</li>
+                <li>Uruchom walidację.</li>
+                <li>Popraw wykryte błędy.</li>
+                <li>Powtórz sprawdzanie.</li>
+            </ol>
+        </section>
+
+        <!-- ZADANIE -->
+
+        <section id="zadanie" class="tasks">
+            <h2>📝 Zadanie praktyczne – podsumowanie</h2>
+
+            <p>
+                Wykonaj formatowanie witryny
+                <strong>TECH-RENT</strong>
+                zgodnie z projektem
+                i specyfikacją.
+            </p>
+
+            <h3>Kolejność pracy</h3>
+
+            <ol>
+                <li>Skopiuj index.html z lekcji 42 do folderu PSI_43.</li>
+                <li>Utwórz plik style.css.</li>
+                <li>Połącz CSS z HTML.</li>
+                <li>Ustaw formatowanie ogólne strony.</li>
+                <li>Sformatuj nagłówek.</li>
+                <li>Wykonaj menu Flexbox.</li>
+                <li>Sformatuj sekcje główne.</li>
+                <li>Wykonaj układ Grid listy oferty.</li>
+                <li>Sformatuj tabelę cennika.</li>
+                <li>Sformatuj formularz.</li>
+                <li>Sformatuj stopkę.</li>
+                <li>Dodaj responsywność.</li>
+                <li>Przetestuj stronę i popraw błędy.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⏱️ Organizacja pracy</h3>
+
+                <p>
+                    Czas wykonania:
+                    <strong>2 × 45 minut</strong>.
+                </p>
+
+                <p>
+                    Korzystaj z wiedzy
+                    zdobytej na poprzednich lekcjach
+                    i dostępnej dokumentacji CSS.
+                </p>
+
+                <p>
+                    Nie kopiuj gotowego arkusza stylów.
+                    Wszystkie reguły przygotuj samodzielnie.
+                </p>
+            </div>
+        </section>
+
+        <!-- ODDANIE -->
+
+        <section id="oddanie" class="tasks">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Spakuj cały folder
+                <code>PSI_43</code>
+                do archiwum ZIP.
+            </p>
+
+            <p>
+                Archiwum musi zawierać:
+            </p>
+
+            <pre><code class="language-text">PSI_43/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <p>
+                Prześlij plik ZIP
+                na odpowiednie
+                <strong>Zadanie w Teams</strong>.
+            </p>
+
+            <p>
+                Przed oddaniem pracy
+                sprawdź, czy strona
+                poprawnie wyświetla się
+                w przeglądarce
+                i czy arkusz CSS
+                jest prawidłowo podłączony.
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 43
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
