@@ -1,0 +1,2370 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 27 – Sposoby wyświetlania elementów | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#display">2.Właściwość display</a>
+        <a href="#block">3.Elementy blokowe</a>
+        <a href="#inline">4.Elementy liniowe</a>
+        <a href="#inline-block">5.Elementy inline-block</a>
+        <a href="#porownanie">6.Porównanie wartości display</a>
+        <a href="#zmiana">7.Zmiana sposobu wyświetlania</a>
+        <a href="#menu">8.Menu poziome</a>
+        <a href="#przyciski">9.Przyciski i odnośniki</a>
+        <a href="#karty">10.Karty obok siebie</a>
+        <a href="#none">11.Display: none</a>
+        <a href="#visibility">12.Display a visibility</a>
+        <a href="#odstepy">13.Odstępy między elementami</a>
+        <a href="#szerokosc">14.Display a model pudełkowy</a>
+        <a href="#inne">15.Inne wartości display</a>
+        <a href="#semantyka">16.Semantyka HTML a display</a>
+        <a href="#bledy">17.Najczęstsze błędy</a>
+        <a href="#przyklad">18.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 27 • CSS3
+            </div>
+
+            <h2>
+                Sposoby wyświetlania elementów –
+                display, elementy blokowe,
+                liniowe i inline-block
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie właściwości
+                <code>display</code>,
+                rozróżnianie elementów blokowych
+                i liniowych oraz stosowanie
+                wartości <code>block</code>,
+                <code>inline</code>,
+                <code>inline-block</code>
+                i <code>none</code>
+                podczas projektowania stron WWW.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – jak przeglądarka wyświetla elementy?</h2>
+
+            <p>
+                Każdy element HTML jest wyświetlany
+                przez przeglądarkę według
+                określonych zasad.
+            </p>
+
+            <p>
+                Niektóre elementy rozpoczynają się
+                w nowym wierszu i zajmują
+                całą dostępną szerokość.
+                Inne znajdują się obok siebie,
+                w tym samym wierszu tekstu.
+            </p>
+
+            <p>
+                Przykładowo:
+            </p>
+
+            <ul>
+                <li>
+                    nagłówek <code>h1</code>
+                    zwykle zajmuje osobny wiersz,
+                </li>
+                <li>
+                    akapit <code>p</code>
+                    rozpoczyna się w nowym wierszu,
+                </li>
+                <li>
+                    znacznik <code>span</code>
+                    pozostaje w tym samym wierszu
+                    co otaczający go tekst,
+                </li>
+                <li>
+                    odnośnik <code>a</code>
+                    domyślnie jest elementem liniowym.
+                </li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Nagłówek strony&lt;/h2&gt;
+
+&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p&gt;Drugi akapit.&lt;/p&gt;
+
+&lt;span&gt;Pierwszy tekst&lt;/span&gt;
+
+&lt;span&gt;Drugi tekst&lt;/span&gt;</code></pre>
+
+            <p>
+                Nagłówek i akapity
+                pojawiają się w osobnych wierszach.
+                Natomiast oba elementy
+                <code>span</code>
+                mogą znajdować się obok siebie.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    O sposobie wyświetlania elementu
+                    decydują między innymi
+                    domyślne style przeglądarki
+                    oraz zastosowane reguły CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="display">
+
+            <h2>2. Właściwość display</h2>
+
+            <p>
+                Właściwość <code>display</code>
+                określa sposób wyświetlania
+                elementu oraz jego udział
+                w układzie strony.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    display: wartosc;
+}</code></pre>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>block</code></td>
+                    <td>Element jest wyświetlany jako blok.</td>
+                </tr>
+                <tr>
+                    <td><code>inline</code></td>
+                    <td>Element jest wyświetlany liniowo.</td>
+                </tr>
+                <tr>
+                    <td><code>inline-block</code></td>
+                    <td>Element pozostaje w wierszu, ale można określić jego wymiary.</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Element nie jest wyświetlany i nie zajmuje miejsca w układzie.</td>
+                </tr>
+                <tr>
+                    <td><code>flex</code></td>
+                    <td>Tworzy kontener elastyczny Flexbox.</td>
+                </tr>
+                <tr>
+                    <td><code>grid</code></td>
+                    <td>Tworzy kontener siatkowy Grid.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.element {
+    display: block;
+}</code></pre>
+
+            <p>
+                Element z klasą
+                <code>element</code>
+                będzie wyświetlany
+                jako blok.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Za pomocą <code>display</code>
+                    można zmienić domyślny sposób
+                    wyświetlania elementu HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="block">
+
+            <h2>3. Elementy blokowe – display: block</h2>
+
+            <p>
+                Elementy blokowe w normalnym
+                układzie dokumentu
+                rozpoczynają się w nowym wierszu.
+            </p>
+
+            <p>
+                Domyślnie typowy element blokowy
+                z <code>width: auto</code>
+                rozciąga się na dostępną
+                szerokość kontenera.
+            </p>
+
+            <h3>Przykładowe elementy blokowe</h3>
+
+            <ul>
+                <li><code>div</code>,</li>
+                <li><code>p</code>,</li>
+                <li><code>h1</code> – <code>h6</code>,</li>
+                <li><code>section</code>,</li>
+                <li><code>article</code>,</li>
+                <li><code>header</code>,</li>
+                <li><code>footer</code>,</li>
+                <li><code>main</code>.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="blok"&gt;
+    Pierwszy blok
+&lt;/div&gt;
+
+&lt;div class="blok"&gt;
+    Drugi blok
+&lt;/div&gt;
+
+&lt;div class="blok"&gt;
+    Trzeci blok
+&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.blok {
+    display: block;
+
+    background-color: lightblue;
+
+    border: 2px solid blue;
+
+    padding: 15px;
+    margin-bottom: 10px;
+}</code></pre>
+
+            <p>
+                Każdy element
+                będzie wyświetlany
+                w osobnym wierszu.
+            </p>
+
+            <h3>Określanie szerokości i wysokości</h3>
+
+            <pre><code class="language-css">.blok {
+    display: block;
+
+    width: 300px;
+    height: 100px;
+
+    background-color: lightgreen;
+}</code></pre>
+
+            <p>
+                W przypadku zwykłego
+                elementu blokowego
+                można określić szerokość
+                i wysokość.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>display: block</code>
+                    tworzy pudełko blokowe,
+                    które w normalnym układzie
+                    znajduje się w osobnym wierszu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="inline">
+
+            <h2>4. Elementy liniowe – display: inline</h2>
+
+            <p>
+                Elementy liniowe są wyświetlane
+                w tym samym wierszu
+                co otaczający je tekst,
+                jeśli dostępne jest miejsce.
+            </p>
+
+            <p>
+                Nie rozpoczynają automatycznie
+                nowego wiersza.
+            </p>
+
+            <h3>Przykładowe elementy liniowe</h3>
+
+            <ul>
+                <li><code>span</code>,</li>
+                <li><code>a</code>,</li>
+                <li><code>strong</code>,</li>
+                <li><code>em</code>,</li>
+                <li><code>small</code>,</li>
+                <li><code>code</code>.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;p&gt;
+    Uczę się
+    &lt;span class="wyroznienie"&gt;HTML&lt;/span&gt;
+    i
+    &lt;span class="wyroznienie"&gt;CSS&lt;/span&gt;.
+&lt;/p&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.wyroznienie {
+    display: inline;
+
+    background-color: yellow;
+    color: black;
+}</code></pre>
+
+            <p>
+                Elementy <code>span</code>
+                pozostają wewnątrz
+                wiersza tekstu.
+            </p>
+
+            <h3>Width i height w elementach inline</h3>
+
+            <pre><code class="language-css">.wyroznienie {
+    display: inline;
+
+    width: 200px;
+    height: 100px;
+
+    background-color: yellow;
+}</code></pre>
+
+            <p>
+                Dla zwykłego,
+                niezamienionego elementu
+                liniowego, takiego jak
+                <code>span</code>,
+                właściwości
+                <code>width</code>
+                i <code>height</code>
+                nie określają jego wymiarów
+                w taki sposób jak dla bloku.
+            </p>
+
+            <h3>Margin i padding</h3>
+
+            <pre><code class="language-css">.wyroznienie {
+    display: inline;
+
+    padding: 10px;
+    margin: 10px;
+
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Padding i obramowanie
+                mogą być widoczne,
+                jednak pionowe odstępy
+                nie zmieniają wysokości
+                wiersza tak jak
+                w elementach blokowych.
+            </p>
+
+            <p>
+                Marginesy poziome działają,
+                natomiast marginesy pionowe
+                zwykłego elementu inline
+                nie odsuwają sąsiednich wierszy.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>display: inline</code>
+                    stosujemy wtedy,
+                    gdy element ma pozostać
+                    częścią wiersza tekstu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="inline-block">
+
+            <h2>5. Elementy inline-block</h2>
+
+            <p>
+                Wartość <code>inline-block</code>
+                łączy cechy elementów
+                liniowych i blokowych.
+            </p>
+
+            <p>
+                Element może znajdować się
+                obok innych elementów
+                w tym samym wierszu,
+                a jednocześnie pozwala
+                określić szerokość,
+                wysokość i odstępy.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;span class="etykieta"&gt;HTML&lt;/span&gt;
+
+&lt;span class="etykieta"&gt;CSS&lt;/span&gt;
+
+&lt;span class="etykieta"&gt;JavaScript&lt;/span&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.etykieta {
+    display: inline-block;
+
+    width: 130px;
+    padding: 15px;
+
+    text-align: center;
+
+    background-color: lightblue;
+
+    border: 2px solid blue;
+    border-radius: 8px;
+}</code></pre>
+
+            <p>
+                Etykiety mogą znajdować się
+                obok siebie,
+                a każda z nich ma
+                określoną szerokość
+                i odstępy wewnętrzne.
+            </p>
+
+            <h3>Ustawianie wysokości</h3>
+
+            <pre><code class="language-css">.etykieta {
+    display: inline-block;
+
+    width: 150px;
+    height: 60px;
+
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                W przeciwieństwie
+                do zwykłego elementu inline
+                możemy określić
+                wysokość pudełka.
+            </p>
+
+            <h3>Gdzie stosujemy inline-block?</h3>
+
+            <ul>
+                <li>przyciski i odnośniki,</li>
+                <li>etykiety i znaczniki kategorii,</li>
+                <li>niewielkie kafelki,</li>
+                <li>elementy menu,</li>
+                <li>proste układy elementów obok siebie.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Najważniejsze</h3>
+                <p>
+                    <code>inline-block</code>
+                    pozwala umieszczać
+                    elementy obok siebie
+                    i jednocześnie
+                    kontrolować ich wymiary.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="porownanie">
+
+            <h2>6. Porównanie block, inline i inline-block</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>block</th>
+                    <th>inline</th>
+                    <th>inline-block</th>
+                </tr>
+
+                <tr>
+                    <td>Nowy wiersz</td>
+                    <td>Tak</td>
+                    <td>Nie</td>
+                    <td>Nie</td>
+                </tr>
+
+                <tr>
+                    <td>Elementy obok siebie</td>
+                    <td>Nie w zwykłym układzie blokowym</td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Width</td>
+                    <td>Tak</td>
+                    <td>Nie dla zwykłych elementów inline</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Height</td>
+                    <td>Tak</td>
+                    <td>Nie dla zwykłych elementów inline</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Padding</td>
+                    <td>Tak</td>
+                    <td>Tak, z ograniczeniami układu liniowego</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Marginesy pionowe</td>
+                    <td>Tak</td>
+                    <td>Nie odsuwają wierszy</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td>Typowe zastosowanie</td>
+                    <td>Sekcje strony</td>
+                    <td>Fragmenty tekstu</td>
+                    <td>Przyciski, etykiety, kafelki</td>
+                </tr>
+
+            </table>
+
+            <h3>Przykład porównawczy</h3>
+
+            <pre><code class="language-html">&lt;div class="block"&gt;BLOCK 1&lt;/div&gt;
+&lt;div class="block"&gt;BLOCK 2&lt;/div&gt;
+
+&lt;span class="inline"&gt;INLINE 1&lt;/span&gt;
+&lt;span class="inline"&gt;INLINE 2&lt;/span&gt;
+
+&lt;div class="inline-block"&gt;INLINE-BLOCK 1&lt;/div&gt;
+&lt;div class="inline-block"&gt;INLINE-BLOCK 2&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.block {
+    display: block;
+
+    width: 200px;
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    background-color: lightblue;
+}
+
+.inline {
+    display: inline;
+
+    background-color: lightgreen;
+}
+
+.inline-block {
+    display: inline-block;
+
+    width: 180px;
+    padding: 15px;
+
+    background-color: lightcoral;
+}</code></pre>
+
+            <p>
+                Uruchom kod w przeglądarce
+                i porównaj rozmieszczenie elementów.
+            </p>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="zmiana">
+
+            <h2>7. Zmiana domyślnego sposobu wyświetlania</h2>
+
+            <p>
+                Każdy element HTML
+                ma domyślny sposób wyświetlania,
+                ale można go zmienić za pomocą CSS.
+            </p>
+
+            <h3>Przykład – span jako blok</h3>
+
+            <pre><code class="language-html">&lt;span class="blok"&gt;
+    Pierwszy element
+&lt;/span&gt;
+
+&lt;span class="blok"&gt;
+    Drugi element
+&lt;/span&gt;</code></pre>
+
+            <pre><code class="language-css">.blok {
+    display: block;
+
+    padding: 15px;
+    margin-bottom: 10px;
+
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Mimo że <code>span</code>
+                jest domyślnie liniowy,
+                po zastosowaniu
+                <code>display: block</code>
+                elementy pojawią się
+                w osobnych wierszach.
+            </p>
+
+            <h3>Przykład – div jako inline</h3>
+
+            <pre><code class="language-html">&lt;div class="linia"&gt;HTML&lt;/div&gt;
+&lt;div class="linia"&gt;CSS&lt;/div&gt;
+&lt;div class="linia"&gt;JavaScript&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.linia {
+    display: inline;
+
+    background-color: yellow;
+}</code></pre>
+
+            <p>
+                Elementy <code>div</code>
+                mogą być wyświetlane
+                w tym samym wierszu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Zmiana <code>display</code>
+                    nie zmienia znaczenia
+                    semantycznego elementu HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="menu">
+
+            <h2>8. Tworzenie poziomego menu</h2>
+
+            <p>
+                Właściwość <code>display</code>
+                można wykorzystać
+                do budowania prostego
+                menu nawigacyjnego.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.menu {
+    padding: 15px;
+
+    background-color: #1E3A8A;
+}
+
+.menu a {
+    display: inline-block;
+
+    padding: 12px 20px;
+    margin-right: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background-color: #2563EB;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <p>
+                Odnośniki zachowują się
+                jak niewielkie przyciski
+                i mogą być rozmieszczone
+                w jednym wierszu.
+            </p>
+
+            <h3>Dlaczego inline-block?</h3>
+
+            <ul>
+                <li>
+                    odnośniki pozostają
+                    obok siebie,
+                </li>
+                <li>
+                    można ustawić
+                    padding z każdej strony,
+                </li>
+                <li>
+                    można określić
+                    szerokość i wysokość,
+                </li>
+                <li>
+                    obszar kliknięcia
+                    obejmuje całe pudełko odnośnika.
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="przyciski">
+
+            <h2>9. Przyciski i odnośniki jako inline-block</h2>
+
+            <p>
+                Odnośnik <code>a</code>
+                jest domyślnie elementem liniowym.
+            </p>
+
+            <p>
+                Jeżeli chcemy nadać mu
+                wygląd przycisku,
+                często stosujemy
+                <code>display: inline-block</code>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;a href="#kontakt" class="przycisk"&gt;
+    Skontaktuj się
+&lt;/a&gt;</code></pre>
+
+            <pre><code class="language-css">.przycisk {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background-color: #16A34A;
+    color: white;
+
+    text-decoration: none;
+
+    border: 2px solid #15803D;
+    border-radius: 8px;
+}
+
+.przycisk:hover {
+    background-color: #15803D;
+}</code></pre>
+
+            <h3>Przycisk o stałej szerokości</h3>
+
+            <pre><code class="language-css">.przycisk {
+    display: inline-block;
+
+    width: 200px;
+    padding: 15px;
+
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Można teraz ustawić
+                konkretną szerokość
+                obszaru przycisku.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Odnośnik <code>a</code>
+                    służy do nawigacji,
+                    natomiast <code>button</code>
+                    do wykonywania działań.
+                    Sam wygląd przycisku
+                    nie powinien decydować
+                    o wyborze znacznika HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="karty">
+
+            <h2>10. Wyświetlanie kart obok siebie</h2>
+
+            <p>
+                <code>inline-block</code>
+                może posłużyć do utworzenia
+                prostego układu kart.
+            </p>
+
+            <h3>Kod HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+
+    &lt;h3&gt;HTML&lt;/h3&gt;
+
+    &lt;p&gt;Struktura strony WWW.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class="karta"&gt;
+
+    &lt;h3&gt;CSS&lt;/h3&gt;
+
+    &lt;p&gt;Wygląd strony WWW.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class="karta"&gt;
+
+    &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+    &lt;p&gt;Interaktywność strony.&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.karta {
+    display: inline-block;
+
+    box-sizing: border-box;
+
+    width: 250px;
+    min-height: 180px;
+
+    padding: 20px;
+    margin: 10px;
+
+    vertical-align: top;
+
+    background-color: #DBEAFE;
+
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+}</code></pre>
+
+            <p>
+                Karty mogą znajdować się
+                obok siebie,
+                jeśli pozwala na to
+                szerokość kontenera.
+            </p>
+
+            <h3>Właściwość vertical-align</h3>
+
+            <pre><code class="language-css">.karta {
+    display: inline-block;
+
+    vertical-align: top;
+}</code></pre>
+
+            <p>
+                Właściwość
+                <code>vertical-align: top</code>
+                wyrównuje górne krawędzie
+                elementów inline-block
+                w tym samym wierszu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Jeśli suma szerokości kart,
+                    ich marginesów
+                    oraz odstępów w kodzie HTML
+                    przekroczy szerokość kontenera,
+                    część kart przejdzie
+                    do następnego wiersza.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="none">
+
+            <h2>11. Ukrywanie elementów – display: none</h2>
+
+            <p>
+                Wartość <code>none</code>
+                powoduje, że element
+                nie jest wyświetlany.
+            </p>
+
+            <p>
+                Element nie zajmuje również
+                miejsca w układzie strony.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;p&gt;Pierwszy akapit.&lt;/p&gt;
+
+&lt;p class="ukryty"&gt;
+    Ten akapit jest ukryty.
+&lt;/p&gt;
+
+&lt;p&gt;Trzeci akapit.&lt;/p&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.ukryty {
+    display: none;
+}</code></pre>
+
+            <p>
+                Drugi akapit nie będzie widoczny,
+                a trzeci zajmie miejsce
+                bezpośrednio po pierwszym,
+                zgodnie z pozostałymi
+                regułami układu.
+            </p>
+
+            <h3>Przykładowe zastosowania</h3>
+
+            <ul>
+                <li>ukrywanie wybranych elementów interfejsu,</li>
+                <li>ukrywanie elementów w określonych układach responsywnych,</li>
+                <li>pokazywanie i ukrywanie fragmentów strony za pomocą JavaScript.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>display: none</code>
+                    usuwa element
+                    z układu wizualnego strony,
+                    ale nie usuwa go
+                    z kodu HTML.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="visibility">
+
+            <h2>12. Display: none a visibility: hidden</h2>
+
+            <p>
+                CSS udostępnia różne sposoby
+                ukrywania elementów.
+            </p>
+
+            <p>
+                Dwa często spotykane zapisy to:
+            </p>
+
+            <pre><code class="language-css">display: none;</code></pre>
+
+            <pre><code class="language-css">visibility: hidden;</code></pre>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="pierwszy"&gt;
+    Pierwszy element
+&lt;/div&gt;
+
+&lt;div class="drugi"&gt;
+    Drugi element
+&lt;/div&gt;
+
+&lt;div class="trzeci"&gt;
+    Trzeci element
+&lt;/div&gt;</code></pre>
+
+            <h3>Wariant 1 – display: none</h3>
+
+            <pre><code class="language-css">.drugi {
+    display: none;
+}</code></pre>
+
+            <p>
+                Drugi element znika
+                i nie zajmuje miejsca.
+            </p>
+
+            <h3>Wariant 2 – visibility: hidden</h3>
+
+            <pre><code class="language-css">.drugi {
+    visibility: hidden;
+}</code></pre>
+
+            <p>
+                Drugi element jest niewidoczny,
+                ale jego miejsce
+                pozostaje zarezerwowane
+                w układzie strony.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Element widoczny?</th>
+                    <th>Zajmuje miejsce?</th>
+                </tr>
+
+                <tr>
+                    <td><code>display: none</code></td>
+                    <td>Nie</td>
+                    <td>Nie</td>
+                </tr>
+
+                <tr>
+                    <td><code>visibility: hidden</code></td>
+                    <td>Nie</td>
+                    <td>Tak</td>
+                </tr>
+
+                <tr>
+                    <td><code>visibility: visible</code></td>
+                    <td>Tak</td>
+                    <td>Tak</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>display: none</code>
+                    usuwa miejsce elementu,
+                    a <code>visibility: hidden</code>
+                    pozostawia to miejsce.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="odstepy">
+
+            <h2>13. Odstępy między elementami inline-block</h2>
+
+            <p>
+                Elementy <code>inline-block</code>
+                są rozmieszczane
+                podobnie do fragmentów tekstu.
+            </p>
+
+            <p>
+                Dlatego białe znaki
+                znajdujące się między nimi
+                w kodzie HTML
+                mogą utworzyć widoczną przerwę.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;span class="pole"&gt;1&lt;/span&gt;
+&lt;span class="pole"&gt;2&lt;/span&gt;
+&lt;span class="pole"&gt;3&lt;/span&gt;</code></pre>
+
+            <pre><code class="language-css">.pole {
+    display: inline-block;
+
+    width: 100px;
+    padding: 10px;
+
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Między elementami
+                może być widoczny
+                niewielki odstęp,
+                mimo że nie ustawiono
+                właściwości <code>margin</code>.
+            </p>
+
+            <h3>Dlaczego tak się dzieje?</h3>
+
+            <p>
+                Znaki nowego wiersza
+                i spacje pomiędzy elementami
+                mogą być traktowane
+                jak odstępy w tekście.
+            </p>
+
+            <h3>Rozwiązanie – wykorzystanie Flexbox</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;span class="pole"&gt;1&lt;/span&gt;
+    &lt;span class="pole"&gt;2&lt;/span&gt;
+    &lt;span class="pole"&gt;3&lt;/span&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    gap: 10px;
+}
+
+.pole {
+    width: 100px;
+    padding: 10px;
+}</code></pre>
+
+            <p>
+                Flexbox pozwala
+                precyzyjnie kontrolować
+                odstępy za pomocą
+                właściwości <code>gap</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W tej lekcji poznajemy
+                    przede wszystkim
+                    <code>block</code>,
+                    <code>inline</code>
+                    i <code>inline-block</code>.
+                    Flexbox będzie przydatny
+                    podczas projektowania
+                    bardziej rozbudowanych układów.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="szerokosc">
+
+            <h2>14. Display a model pudełkowy CSS</h2>
+
+            <p>
+                W poprzedniej lekcji
+                poznaliśmy model pudełkowy CSS.
+            </p>
+
+            <p>
+                Składa się on z:
+            </p>
+
+            <ul>
+                <li>content,</li>
+                <li>padding,</li>
+                <li>border,</li>
+                <li>margin.</li>
+            </ul>
+
+            <p>
+                Właściwość <code>display</code>
+                wpływa na to,
+                jak element uczestniczy
+                w układzie strony
+                i jak stosowane są
+                jego wymiary oraz odstępy.
+            </p>
+
+            <h3>Przykład 1 – block</h3>
+
+            <pre><code class="language-css">.element {
+    display: block;
+
+    width: 200px;
+    height: 100px;
+
+    padding: 20px;
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                Element może mieć
+                określoną szerokość
+                i wysokość.
+            </p>
+
+            <h3>Przykład 2 – inline</h3>
+
+            <pre><code class="language-css">.element {
+    display: inline;
+
+    width: 200px;
+    height: 100px;
+
+    padding: 20px;
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                Dla zwykłego
+                niezamienionego elementu inline
+                właściwości
+                <code>width</code>
+                i <code>height</code>
+                nie wyznaczają
+                jego wymiarów pudełka.
+            </p>
+
+            <h3>Przykład 3 – inline-block</h3>
+
+            <pre><code class="language-css">.element {
+    display: inline-block;
+
+    width: 200px;
+    height: 100px;
+
+    padding: 20px;
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                Element może pozostać
+                w jednym wierszu
+                z innymi elementami,
+                a jednocześnie
+                mieć określone wymiary.
+            </p>
+
+            <h3>Połączenie z box-sizing</h3>
+
+            <pre><code class="language-css">.element {
+    display: inline-block;
+
+    box-sizing: border-box;
+
+    width: 200px;
+    padding: 20px;
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                W tym przypadku
+                szerokość pudełka
+                wynosi 200 px.
+                Padding i obramowanie
+                mieszczą się
+                w tej szerokości.
+            </p>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="inne">
+
+            <h2>15. Inne wartości display</h2>
+
+            <p>
+                W CSS istnieją również
+                inne wartości właściwości
+                <code>display</code>.
+            </p>
+
+            <h3>Display: flex</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+}</code></pre>
+
+            <p>
+                Tworzy kontener elastyczny,
+                którego elementy potomne
+                można wygodnie rozmieszczać.
+            </p>
+
+            <h3>Display: grid</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: grid;
+}</code></pre>
+
+            <p>
+                Tworzy kontener siatkowy,
+                umożliwiający budowanie
+                układów w wierszach
+                i kolumnach.
+            </p>
+
+            <h3>Display: list-item</h3>
+
+            <pre><code class="language-css">.element {
+    display: list-item;
+}</code></pre>
+
+            <p>
+                Element zachowuje się
+                jak element listy
+                i może otrzymać znacznik listy.
+            </p>
+
+            <h3>Display: table</h3>
+
+            <pre><code class="language-css">.element {
+    display: table;
+}</code></pre>
+
+            <p>
+                Element uczestniczy
+                w układzie podobnym
+                do tabeli.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Właściwość <code>display</code>
+                    nie ogranicza się
+                    do trzech podstawowych
+                    sposobów wyświetlania.
+                    Umożliwia również
+                    tworzenie nowoczesnych
+                    układów Flexbox i Grid.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="semantyka">
+
+            <h2>16. Znaczenie HTML a sposób wyświetlania</h2>
+
+            <p>
+                HTML określa znaczenie
+                i strukturę treści,
+                natomiast CSS odpowiada
+                za jej wygląd
+                i sposób rozmieszczenia.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <pre><code class="language-css">nav a {
+    display: block;
+}</code></pre>
+
+            <p>
+                Odnośniki zostaną
+                wyświetlone jako bloki,
+                ale nadal pozostaną
+                odnośnikami.
+            </p>
+
+            <h3>Inny przykład</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Tytuł sekcji&lt;/h2&gt;</code></pre>
+
+            <pre><code class="language-css">h2 {
+    display: inline;
+}</code></pre>
+
+            <p>
+                Nagłówek może być
+                wyświetlany liniowo,
+                ale nadal pozostaje
+                nagłówkiem drugiego poziomu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Wybieraj element HTML
+                    zgodnie z jego znaczeniem,
+                    a nie wyłącznie
+                    domyślnym wyglądem.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="bledy">
+
+            <h2>17. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – oczekiwanie działania width dla span</h3>
+
+            <pre><code class="language-css">span {
+    width: 200px;
+}</code></pre>
+
+            <p>
+                Dla zwykłego
+                elementu <code>span</code>
+                szerokość nie zostanie
+                zastosowana w oczekiwany sposób.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">span {
+    display: inline-block;
+    width: 200px;
+}</code></pre>
+
+            <h3>Błąd 2 – mylenie block i inline-block</h3>
+
+            <pre><code class="language-css">.karta {
+    display: block;
+    width: 200px;
+}</code></pre>
+
+            <p>
+                W normalnym układzie blokowym
+                kolejne karty nadal
+                będą pojawiać się
+                w osobnych wierszach.
+            </p>
+
+            <p>
+                Jeżeli mają znajdować się
+                obok siebie,
+                można użyć:
+            </p>
+
+            <pre><code class="language-css">.karta {
+    display: inline-block;
+    width: 200px;
+}</code></pre>
+
+            <h3>Błąd 3 – zapominanie o odstępach między inline-block</h3>
+
+            <p>
+                Między elementami
+                mogą występować
+                odstępy wynikające
+                z białych znaków HTML.
+            </p>
+
+            <h3>Błąd 4 – display: none zamiast visibility: hidden</h3>
+
+            <p>
+                Jeśli chcemy zachować
+                miejsce ukrytego elementu,
+                <code>display: none</code>
+                nie będzie właściwym wyborem.
+            </p>
+
+            <h3>Błąd 5 – błędna składnia</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.element {
+    display: inline block;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.element {
+    display: inline-block;
+}</code></pre>
+
+            <h3>Błąd 6 – mylenie wyrównania tekstu z display</h3>
+
+            <pre><code class="language-css">.kontener {
+    text-align: center;
+}</code></pre>
+
+            <p>
+                <code>text-align: center</code>
+                wyrównuje zawartość liniową
+                wewnątrz kontenera.
+                Nie zamienia jednak
+                elementów blokowych
+                w elementy inline-block.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Gdy element nie ustawia się
+                    zgodnie z oczekiwaniami,
+                    sprawdź jego wartość
+                    <code>display</code>
+                    oraz szerokość,
+                    marginesy i padding.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="przyklad">
+
+            <h2>18. Kompletny przykład – strona z ofertą kursów</h2>
+
+            <p>
+                Przygotujemy prostą stronę,
+                na której zastosujemy
+                różne wartości
+                właściwości <code>display</code>.
+            </p>
+
+            <p>
+                Strona będzie zawierała:
+            </p>
+
+            <ul>
+                <li>nagłówek,</li>
+                <li>poziome menu,</li>
+                <li>trzy karty kursów,</li>
+                <li>etykiety technologii,</li>
+                <li>odnośniki wyglądające jak przyciski,</li>
+                <li>ukryty komunikat.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Oferta kursów IT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;h1&gt;Oferta kursów IT&lt;/h1&gt;
+
+        &lt;p&gt;
+            Rozwijaj swoje umiejętności
+            informatyczne.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#kursy"&gt;Kursy&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Wybierz swój kurs&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poznaj podstawy
+                &lt;span class="wyroznienie"&gt;
+                    tworzenia stron WWW
+                &lt;/span&gt;.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kursy" class="oferta"&gt;
+
+            &lt;h2&gt;Dostępne kursy&lt;/h2&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Naucz się tworzyć
+                    strukturę strony.
+                &lt;/p&gt;
+
+                &lt;span class="etykieta"&gt;
+                    Podstawy
+                &lt;/span&gt;
+
+                &lt;span class="etykieta"&gt;
+                    WWW
+                &lt;/span&gt;
+
+                &lt;p&gt;
+                    &lt;a href="#kontakt"
+                       class="przycisk"&gt;
+                        Szczegóły
+                    &lt;/a&gt;
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Naucz się formatować
+                    elementy strony.
+                &lt;/p&gt;
+
+                &lt;span class="etykieta"&gt;
+                    Style
+                &lt;/span&gt;
+
+                &lt;span class="etykieta"&gt;
+                    Wygląd
+                &lt;/span&gt;
+
+                &lt;p&gt;
+                    &lt;a href="#kontakt"
+                       class="przycisk"&gt;
+                        Szczegóły
+                    &lt;/a&gt;
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                &lt;p&gt;
+                    Dodawaj interaktywność
+                    do swoich stron.
+                &lt;/p&gt;
+
+                &lt;span class="etykieta"&gt;
+                    Skrypty
+                &lt;/span&gt;
+
+                &lt;span class="etykieta"&gt;
+                    Interakcje
+                &lt;/span&gt;
+
+                &lt;p&gt;
+                    &lt;a href="#kontakt"
+                       class="przycisk"&gt;
+                        Szczegóły
+                    &lt;/a&gt;
+                &lt;/p&gt;
+
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt" class="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Napisz do nas,
+                aby dowiedzieć się więcej.
+            &lt;/p&gt;
+
+            &lt;p class="ukryty"&gt;
+                Ten komunikat
+                nie jest wyświetlany.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Kursy IT&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    display: block;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* Menu */
+
+.menu {
+    display: block;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background-color: #172554;
+}
+
+.menu a {
+    display: inline-block;
+
+    padding: 10px 20px;
+    margin: 5px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #1D4ED8;
+}
+
+/* Główna zawartość */
+
+main {
+    display: block;
+
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 30px auto;
+}
+
+/* Wprowadzenie */
+
+.wprowadzenie {
+    display: block;
+
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    border-left: 5px solid #2563EB;
+    border-radius: 8px;
+}
+
+/* Wyróżnienie tekstu */
+
+.wyroznienie {
+    display: inline;
+
+    font-weight: bold;
+
+    color: #1D4ED8;
+    background-color: #DBEAFE;
+}
+
+/* Oferta */
+
+.oferta {
+    display: block;
+
+    text-align: center;
+}
+
+/* Karty */
+
+.karta {
+    display: inline-block;
+
+    width: 280px;
+    min-height: 300px;
+
+    padding: 20px;
+    margin: 10px;
+
+    vertical-align: top;
+    text-align: left;
+
+    background-color: white;
+
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: #1D4ED8;
+}
+
+/* Etykiety */
+
+.etykieta {
+    display: inline-block;
+
+    padding: 5px 10px;
+    margin: 4px 4px 4px 0;
+
+    font-size: 13px;
+
+    background-color: #DBEAFE;
+
+    border-radius: 5px;
+}
+
+/* Odnośniki jak przyciski */
+
+.przycisk {
+    display: inline-block;
+
+    padding: 10px 18px;
+    margin-top: 15px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+/* Kontakt */
+
+.kontakt {
+    display: block;
+
+    margin-top: 30px;
+    padding: 25px;
+
+    background-color: #DBEAFE;
+
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+}
+
+/* Ukryty komunikat */
+
+.ukryty {
+    display: none;
+}
+
+/* Stopka */
+
+footer {
+    display: block;
+
+    margin-top: 40px;
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}</code></pre>
+
+            <h3>Analiza zastosowanych wartości display</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Display</th>
+                    <th>Efekt</th>
+                </tr>
+
+                <tr>
+                    <td><code>header</code></td>
+                    <td><code>block</code></td>
+                    <td>Nagłówek zajmuje osobny obszar strony.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.menu a</code></td>
+                    <td><code>inline-block</code></td>
+                    <td>Odnośniki tworzą poziome menu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.wyroznienie</code></td>
+                    <td><code>inline</code></td>
+                    <td>Wyróżnienie pozostaje w tekście.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.karta</code></td>
+                    <td><code>inline-block</code></td>
+                    <td>Karty mogą znajdować się obok siebie.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.etykieta</code></td>
+                    <td><code>inline-block</code></td>
+                    <td>Etykiety mają odstępy i mogą być w jednym wierszu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.przycisk</code></td>
+                    <td><code>inline-block</code></td>
+                    <td>Odnośnik wygląda jak przycisk.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.ukryty</code></td>
+                    <td><code>none</code></td>
+                    <td>Komunikat nie jest wyświetlany.</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+
+                    <li>
+                        Właściwość <code>display</code>
+                        określa sposób wyświetlania
+                        elementu HTML.
+                    </li>
+
+                    <li>
+                        <code>display: block</code>
+                        tworzy element blokowy.
+                    </li>
+
+                    <li>
+                        Element blokowy
+                        w normalnym układzie
+                        rozpoczyna się w nowym wierszu.
+                    </li>
+
+                    <li>
+                        <code>display: inline</code>
+                        tworzy element liniowy.
+                    </li>
+
+                    <li>
+                        Elementy liniowe
+                        mogą znajdować się
+                        obok siebie w tym samym wierszu.
+                    </li>
+
+                    <li>
+                        Zwykłe elementy inline,
+                        takie jak <code>span</code>,
+                        nie przyjmują
+                        <code>width</code>
+                        i <code>height</code>
+                        tak jak elementy blokowe.
+                    </li>
+
+                    <li>
+                        <code>display: inline-block</code>
+                        łączy cechy elementów
+                        liniowych i blokowych.
+                    </li>
+
+                    <li>
+                        Elementy inline-block
+                        mogą znajdować się obok siebie
+                        i mieć określone wymiary.
+                    </li>
+
+                    <li>
+                        <code>inline-block</code>
+                        jest przydatne
+                        do tworzenia przycisków,
+                        etykiet i prostych kafelków.
+                    </li>
+
+                    <li>
+                        <code>display: none</code>
+                        ukrywa element
+                        i usuwa zajmowane przez niego
+                        miejsce w układzie.
+                    </li>
+
+                    <li>
+                        <code>visibility: hidden</code>
+                        ukrywa element,
+                        ale zachowuje jego miejsce.
+                    </li>
+
+                    <li>
+                        Między elementami
+                        <code>inline-block</code>
+                        mogą występować odstępy
+                        wynikające z białych znaków HTML.
+                    </li>
+
+                    <li>
+                        <code>vertical-align: top</code>
+                        może służyć do wyrównywania
+                        elementów inline-block
+                        do górnej krawędzi wiersza.
+                    </li>
+
+                    <li>
+                        <code>display: flex</code>
+                        i <code>display: grid</code>
+                        umożliwiają budowanie
+                        bardziej rozbudowanych układów.
+                    </li>
+
+                    <li>
+                        CSS zmienia sposób
+                        prezentacji elementu,
+                        ale nie zmienia
+                        jego znaczenia w HTML.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                zastosowanie różnych wartości
+                właściwości <code>display</code>
+                do projektowania układu strony.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_27</code>,
+                a w nim dwa pliki:
+                <code>index.html</code>
+                oraz <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                    Każde kolejne zadanie
+                    rozbudowuje ten sam projekt.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Elementy blokowe</h3>
+
+            <p>
+                Utwórz stronę
+                <strong>„Moje ulubione technologie”</strong>.
+            </p>
+
+            <ol>
+                <li>Przygotuj poprawny dokument HTML5.</li>
+                <li>Podłącz zewnętrzny plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z tytułem.</li>
+                <li>Dodaj trzy elementy <code>div</code> opisujące wybrane technologie.</li>
+                <li>Każdemu elementowi nadaj klasę <code>blok</code>.</li>
+                <li>Zastosuj <code>display: block</code>.</li>
+                <li>Ustaw szerokość <code>300px</code>.</li>
+                <li>Dodaj padding, obramowanie i margines dolny.</li>
+                <li>Sprawdź, czy elementy znajdują się w osobnych wierszach.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Elementy liniowe</h3>
+
+            <p>
+                Dodaj pod nagłówkiem
+                akapit z wyróżnionymi
+                nazwami technologii.
+            </p>
+
+            <ol>
+                <li>Utwórz akapit zawierający co najmniej trzy nazwy technologii.</li>
+                <li>Każdą nazwę umieść w znaczniku <code>span</code>.</li>
+                <li>Nadaj elementom klasę <code>wyroznienie</code>.</li>
+                <li>Zastosuj <code>display: inline</code>.</li>
+                <li>Ustaw kolor tekstu i tła.</li>
+                <li>Spróbuj ustawić <code>width: 200px</code> i <code>height: 60px</code>.</li>
+                <li>Zaobserwuj, czy wymiary elementów się zmieniły.</li>
+                <li>Zapisz obserwację w komentarzu CSS.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Elementy inline-block</h3>
+
+            <p>
+                Zmień sposób wyświetlania
+                trzech elementów z zadania 1.
+            </p>
+
+            <ol>
+                <li>Zmień <code>display: block</code> na <code>display: inline-block</code>.</li>
+                <li>Ustaw <code>width: 250px</code>.</li>
+                <li>Ustaw <code>min-height: 180px</code>.</li>
+                <li>Dodaj <code>padding: 20px</code>.</li>
+                <li>Ustaw <code>margin: 10px</code>.</li>
+                <li>Dodaj <code>vertical-align: top</code>.</li>
+                <li>Sprawdź, czy elementy mogą znajdować się obok siebie.</li>
+                <li>Zmniejsz szerokość okna przeglądarki i zaobserwuj zachowanie kart.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poziome menu</h3>
+
+            <p>
+                Dodaj menu nawigacyjne
+                nad kartami.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>nav</code>.</li>
+                <li>Dodaj trzy odnośniki: Start, Technologie, Kontakt.</li>
+                <li>Utwórz odpowiadające im identyfikatory sekcji.</li>
+                <li>Zastosuj dla odnośników <code>display: inline-block</code>.</li>
+                <li>Dodaj <code>padding: 12px 20px</code>.</li>
+                <li>Ustaw kolor tła i tekstu.</li>
+                <li>Dodaj zaokrąglenie narożników.</li>
+                <li>Ustaw inny kolor tła po najechaniu kursorem.</li>
+                <li>Sprawdź działanie wszystkich odnośników.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Ukrywanie elementów</h3>
+
+            <p>
+                Dodaj dwa komunikaty
+                pod kartami.
+            </p>
+
+            <ol>
+                <li>Utwórz dwa elementy <code>div</code> z krótkimi komunikatami.</li>
+                <li>Pierwszemu nadaj klasę <code>ukryty1</code>.</li>
+                <li>Drugiemu nadaj klasę <code>ukryty2</code>.</li>
+                <li>Dla pierwszego zastosuj <code>display: none</code>.</li>
+                <li>Dla drugiego zastosuj <code>visibility: hidden</code>.</li>
+                <li>Dodaj pod nimi widoczny akapit.</li>
+                <li>Porównaj ilość miejsca zajmowanego przez oba ukryte elementy.</li>
+                <li>Zapisz różnicę w komentarzu CSS.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Porównanie trzech wartości display (dodatkowe)</h3>
+
+            <p>
+                Przygotuj na dole strony
+                sekcję porównawczą.
+            </p>
+
+            <ol>
+                <li>Dodaj trzy grupy elementów.</li>
+                <li>Pierwsza grupa ma wykorzystywać <code>display: block</code>.</li>
+                <li>Druga grupa ma wykorzystywać <code>display: inline</code>.</li>
+                <li>Trzecia grupa ma wykorzystywać <code>display: inline-block</code>.</li>
+                <li>Spróbuj zastosować w każdej grupie te same wartości <code>width</code>, <code>height</code>, <code>padding</code> i <code>margin</code>.</li>
+                <li>Porównaj wygląd wszystkich grup.</li>
+                <li>Pod każdą grupą dodaj jedno zdanie opisujące sposób wyświetlania elementów.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_27/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania
+                    wykonaj w jednym
+                    pliku HTML
+                    i jednym arkuszu CSS.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_27</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    działanie menu,
+                    rozmieszczenie kart,
+                    wygląd elementów liniowych
+                    i blokowych
+                    oraz różnicę między
+                    <code>display: none</code>
+                    a <code>visibility: hidden</code>.
+                </p>
+
+                <p>
+                    <strong>
+                        Teksty na stronie
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 27
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
