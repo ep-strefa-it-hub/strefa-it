@@ -1,0 +1,1596 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 38 – Zarządzanie witryną CMS | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#panel">2.Panel administracyjny</a>
+        <a href="#tresci">3.Zarządzanie treścią</a>
+        <a href="#organizacja">4.Kategorie i organizacja</a>
+        <a href="#publikacja">5.Publikowanie treści</a>
+        <a href="#menu">6.Zarządzanie menu</a>
+        <a href="#nawigacja">7.Dobra nawigacja</a>
+        <a href="#uzytkownicy">8.Zarządzanie użytkownikami</a>
+        <a href="#role">9.Role i uprawnienia</a>
+        <a href="#szablony">10.Motywy i szablony</a>
+        <a href="#personalizacja">11.Personalizacja wyglądu</a>
+        <a href="#multimedia">12.Biblioteka multimediów</a>
+        <a href="#optymalizacja">13.Optymalizacja obrazów</a>
+        <a href="#aktualizacje">14.Aktualizacje CMS</a>
+        <a href="#backup">15.Kopie bezpieczeństwa</a>
+        <a href="#przywracanie">16.Przywracanie kopii</a>
+        <a href="#bezpieczenstwo">17.Bezpieczeństwo</a>
+        <a href="#joomla">18.WordPress a Joomla</a>
+        <a href="#problemy">19.Najczęstsze błędy</a>
+        <a href="#przyklad">20.Przykładowy projekt</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PSI • LEKCJA 38 • SYSTEMY CMS</div>
+
+            <h2>
+                Zarządzanie treścią, menu, użytkownikami,
+                szablonami, multimediami, aktualizacjami
+                i kopiami bezpieczeństwa CMS
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad administrowania witryną CMS,
+                organizowania i publikowania treści,
+                zarządzania nawigacją, użytkownikami i wyglądem
+                strony oraz wykonywania aktualizacji
+                i kopii bezpieczeństwa.
+            </p>
+
+            <p><strong>Czas realizacji:</strong> 2 × 45 minut.</p>
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Na poprzedniej lekcji poznaliśmy systemy CMS,
+                takie jak WordPress i Joomla. Nauczyliśmy się,
+                czym jest panel administracyjny i w jaki sposób
+                zainstalować lokalną witrynę.
+            </p>
+
+            <p>
+                Samo zainstalowanie systemu nie oznacza jednak,
+                że strona jest gotowa do użytkowania.
+                Trzeba jeszcze przygotować jej zawartość,
+                zorganizować menu, ustalić uprawnienia
+                użytkowników i zadbać o bezpieczeństwo.
+            </p>
+
+            <h3>Do obowiązków administratora CMS należą:</h3>
+
+            <ul>
+                <li>dodawanie i aktualizowanie treści,</li>
+                <li>tworzenie kategorii i podstron,</li>
+                <li>organizowanie menu nawigacyjnego,</li>
+                <li>zarządzanie kontami użytkowników,</li>
+                <li>konfigurowanie wyglądu strony,</li>
+                <li>dodawanie i optymalizowanie multimediów,</li>
+                <li>instalowanie aktualizacji,</li>
+                <li>wykonywanie kopii bezpieczeństwa.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Administracja CMS obejmuje nie tylko
+                    publikowanie informacji, ale również
+                    utrzymanie poprawnego działania
+                    i bezpieczeństwa witryny.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+
+        <section id="panel">
+            <h2>2. Panel administracyjny CMS</h2>
+
+            <p>
+                Panel administracyjny jest częścią systemu,
+                w której uprawniony użytkownik może
+                zarządzać zawartością i ustawieniami witryny.
+            </p>
+
+            <h3>WordPress – adres panelu</h3>
+
+            <pre><code class="language-text">http://localhost/wordpress-szkola/wp-admin/</code></pre>
+
+            <h3>Joomla – adres panelu</h3>
+
+            <pre><code class="language-text">http://localhost/joomla-test/administrator/</code></pre>
+
+            <p>
+                Adresy zakładają, że systemy zostały
+                zainstalowane w folderach o nazwach
+                podanych na poprzedniej lekcji.
+            </p>
+
+            <h3>Najważniejsze obszary panelu</h3>
+
+            <table>
+                <tr>
+                    <th>Obszar</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>Treści</td>
+                    <td>Dodawanie, edytowanie i usuwanie informacji.</td>
+                </tr>
+                <tr>
+                    <td>Menu</td>
+                    <td>Tworzenie nawigacji między podstronami.</td>
+                </tr>
+                <tr>
+                    <td>Użytkownicy</td>
+                    <td>Zarządzanie kontami i uprawnieniami.</td>
+                </tr>
+                <tr>
+                    <td>Wygląd</td>
+                    <td>Konfigurowanie motywów i szablonów.</td>
+                </tr>
+                <tr>
+                    <td>Media</td>
+                    <td>Przechowywanie i wykorzystywanie plików.</td>
+                </tr>
+                <tr>
+                    <td>Aktualizacje</td>
+                    <td>Instalowanie nowych wersji oprogramowania.</td>
+                </tr>
+            </table>
+
+            <p>
+                Dostępność poszczególnych opcji zależy
+                od systemu, jego wersji, rozszerzeń
+                oraz uprawnień zalogowanego użytkownika.
+            </p>
+        </section>
+
+        <!-- 3 -->
+
+        <section id="tresci">
+            <h2>3. Zarządzanie treścią witryny</h2>
+
+            <p>
+                Jedną z najważniejszych funkcji CMS
+                jest możliwość publikowania treści
+                bez konieczności ręcznego pisania kodu HTML.
+            </p>
+
+            <h3>WordPress – strony i wpisy</h3>
+
+            <table>
+                <tr>
+                    <th>Strony</th>
+                    <th>Wpisy</th>
+                </tr>
+                <tr>
+                    <td>Przeznaczone zwykle do treści stałych.</td>
+                    <td>Przeznaczone często do aktualności i artykułów.</td>
+                </tr>
+                <tr>
+                    <td>Przykład: O nas, Kontakt, Oferta.</td>
+                    <td>Przykład: Nowy kurs, Konkurs informatyczny.</td>
+                </tr>
+                <tr>
+                    <td>Mogą mieć strukturę nadrzędną i podrzędną.</td>
+                    <td>Mogą być organizowane w kategorie i oznaczane tagami.</td>
+                </tr>
+            </table>
+
+            <h3>Dodawanie nowej strony w WordPressie</h3>
+
+            <ol>
+                <li>Zaloguj się do panelu administracyjnego.</li>
+                <li>Wybierz <strong>Strony → Dodaj nową</strong>.</li>
+                <li>Wprowadź tytuł strony.</li>
+                <li>Dodaj nagłówki, akapity i inne bloki.</li>
+                <li>Sprawdź podgląd.</li>
+                <li>Kliknij <strong>Opublikuj</strong>.</li>
+            </ol>
+
+            <h3>Joomla – artykuły</h3>
+
+            <p>
+                W Joomla podstawowym elementem treści
+                jest artykuł. Artykuły można przypisywać
+                do kategorii i udostępniać za pomocą
+                odpowiednich pozycji menu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W WordPressie wykorzystujemy przede wszystkim
+                    strony i wpisy, a w Joomla artykuły.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+
+        <section id="organizacja">
+            <h2>4. Kategorie, tagi i organizacja treści</h2>
+
+            <p>
+                W rozbudowanej witrynie informacje
+                powinny być uporządkowane tematycznie.
+                Ułatwia to zarówno pracę administratorowi,
+                jak i wyszukiwanie treści użytkownikom.
+            </p>
+
+            <h3>Przykładowe kategorie portalu szkolnego</h3>
+
+            <ul>
+                <li>Aktualności</li>
+                <li>Wydarzenia</li>
+                <li>Konkursy</li>
+                <li>Poradniki</li>
+                <li>Materiały edukacyjne</li>
+            </ul>
+
+            <h3>WordPress – kategorie</h3>
+
+            <ol>
+                <li>Otwórz <strong>Wpisy → Kategorie</strong>.</li>
+                <li>Wpisz nazwę nowej kategorii, np. Konkursy.</li>
+                <li>W razie potrzeby uzupełnij opis.</li>
+                <li>Dodaj kategorię.</li>
+                <li>Przypisz do niej odpowiedni wpis.</li>
+            </ol>
+
+            <h3>Tagi</h3>
+
+            <p>
+                Tagi pozwalają dodatkowo opisywać
+                tematykę wpisów.
+            </p>
+
+            <p>
+                Przykładowo wpis o konkursie programistycznym
+                może należeć do kategorii Konkursy
+                i mieć tagi: programowanie, JavaScript, HTML.
+            </p>
+
+            <h3>Joomla – kategorie artykułów</h3>
+
+            <p>
+                Joomla umożliwia organizowanie artykułów
+                w kategoriach, które mogą tworzyć
+                strukturę hierarchiczną.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Kategorie i tagi powinny pomagać
+                    w porządkowaniu treści.
+                    Nie należy tworzyć wielu niemal
+                    identycznych kategorii.
+                </p>
+            </div>
+        </section>
+
+        <!-- 5 -->
+
+        <section id="publikacja">
+            <h2>5. Publikowanie, edytowanie i usuwanie treści</h2>
+
+            <p>
+                CMS pozwala kontrolować, które informacje
+                są widoczne dla użytkowników.
+            </p>
+
+            <h3>Typowe działania</h3>
+
+            <table>
+                <tr>
+                    <th>Działanie</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td>Zapisanie szkicu</td>
+                    <td>Treść jest przygotowywana, ale nie została opublikowana.</td>
+                </tr>
+                <tr>
+                    <td>Publikowanie</td>
+                    <td>Treść staje się dostępna zgodnie z ustawieniami widoczności.</td>
+                </tr>
+                <tr>
+                    <td>Edytowanie</td>
+                    <td>Zmiana istniejącej treści.</td>
+                </tr>
+                <tr>
+                    <td>Planowanie</td>
+                    <td>Ustawienie przyszłego terminu publikacji, jeśli system udostępnia tę funkcję.</td>
+                </tr>
+                <tr>
+                    <td>Przeniesienie do kosza</td>
+                    <td>Usunięcie treści z aktywnej witryny z możliwością przywrócenia, jeśli system ją zapewnia.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Administrator przygotowuje wpis
+                „Dzień Otwarty Szkoły”.
+                Najpierw zapisuje go jako szkic,
+                następnie sprawdza poprawność tekstu
+                i zdjęć, a na końcu publikuje.
+            </p>
+
+            <p>
+                Przed publikacją należy sprawdzić:
+            </p>
+
+            <ul>
+                <li>poprawność językową,</li>
+                <li>aktualność informacji,</li>
+                <li>działanie odnośników,</li>
+                <li>czytelność nagłówków,</li>
+                <li>opisy alternatywne obrazów,</li>
+                <li>wygląd strony na telefonie.</li>
+            </ul>
+        </section>
+
+        <!-- 6 -->
+
+        <section id="menu">
+            <h2>6. Zarządzanie menu nawigacyjnym</h2>
+
+            <p>
+                Menu nawigacyjne pozwala użytkownikowi
+                przemieszczać się między najważniejszymi
+                częściami witryny.
+            </p>
+
+            <h3>Przykładowe menu</h3>
+
+            <div style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 20px 0;
+                padding: 15px;
+                background: #E2E8F0;
+                border-radius: 10px;
+            ">
+                <span style="padding: 10px 15px; background: #1E3A8A; color: white; border-radius: 6px;">Strona główna</span>
+                <span style="padding: 10px 15px; background: white; border-radius: 6px;">O nas</span>
+                <span style="padding: 10px 15px; background: white; border-radius: 6px;">Aktualności</span>
+                <span style="padding: 10px 15px; background: white; border-radius: 6px;">Galeria</span>
+                <span style="padding: 10px 15px; background: white; border-radius: 6px;">Kontakt</span>
+            </div>
+
+            <h3>WordPress – edycja menu</h3>
+
+            <p>
+                Sposób zarządzania menu zależy
+                od rodzaju aktywnego motywu.
+            </p>
+
+            <p>
+                W motywach blokowych nawigację
+                można edytować przez:
+            </p>
+
+            <pre><code class="language-text">Wygląd → Edytor → Nawigacja</code></pre>
+
+            <p>
+                W niektórych klasycznych motywach
+                dostępna jest ścieżka:
+            </p>
+
+            <pre><code class="language-text">Wygląd → Menu</code></pre>
+
+            <h3>Tworzenie nawigacji</h3>
+
+            <ol>
+                <li>Otwórz narzędzie zarządzania nawigacją.</li>
+                <li>Dodaj odnośnik do strony O nas.</li>
+                <li>Dodaj odnośnik do strony Kontakt.</li>
+                <li>Dodaj odnośnik do aktualności.</li>
+                <li>Ustal kolejność pozycji.</li>
+                <li>Zapisz zmiany.</li>
+                <li>Sprawdź menu na stronie publicznej.</li>
+            </ol>
+
+            <h3>Joomla – pozycje menu</h3>
+
+            <p>
+                W Joomla administrator tworzy
+                pozycje menu i wybiera typ widoku,
+                do którego mają prowadzić,
+                np. pojedynczy artykuł
+                lub lista artykułów kategorii.
+            </p>
+        </section>
+
+        <!-- 7 -->
+
+        <section id="nawigacja">
+            <h2>7. Zasady projektowania czytelnej nawigacji</h2>
+
+            <p>
+                Dobrze zaprojektowane menu powinno być
+                zrozumiałe i łatwe w obsłudze.
+            </p>
+
+            <h3>Najważniejsze zasady</h3>
+
+            <ol>
+                <li>Stosuj krótkie i jednoznaczne nazwy.</li>
+                <li>Umieszczaj najważniejsze odnośniki w widocznym miejscu.</li>
+                <li>Zachowuj logiczną kolejność elementów.</li>
+                <li>Unikaj nadmiernie rozbudowanych menu.</li>
+                <li>Sprawdzaj działanie menu na telefonach.</li>
+                <li>Zapewnij możliwość obsługi klawiaturą.</li>
+                <li>Zadbaj o widoczny stan fokusu.</li>
+                <li>Nie stosuj odnośników prowadzących do nieistniejących stron.</li>
+            </ol>
+
+            <h3>Przykład niewłaściwej nazwy</h3>
+
+            <pre><code class="language-text">Kliknij tutaj</code></pre>
+
+            <h3>Lepsza nazwa</h3>
+
+            <pre><code class="language-text">Materiały do pobrania</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Użytkownik powinien wiedzieć,
+                    dokąd prowadzi odnośnik,
+                    jeszcze przed jego otwarciem.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8 -->
+
+        <section id="uzytkownicy">
+            <h2>8. Zarządzanie użytkownikami CMS</h2>
+
+            <p>
+                System CMS może być obsługiwany
+                przez więcej niż jedną osobę.
+            </p>
+
+            <p>
+                W serwisie szkolnym jedna osoba
+                może zarządzać ustawieniami,
+                inna publikować aktualności,
+                a jeszcze inna przygotowywać artykuły.
+            </p>
+
+            <h3>WordPress – lista użytkowników</h3>
+
+            <pre><code class="language-text">Użytkownicy → Wszyscy użytkownicy</code></pre>
+
+            <h3>Dodawanie użytkownika</h3>
+
+            <ol>
+                <li>Otwórz zakładkę Użytkownicy.</li>
+                <li>Wybierz <strong>Dodaj nowego użytkownika</strong>.</li>
+                <li>Wprowadź nazwę użytkownika.</li>
+                <li>Podaj odpowiedni adres e-mail.</li>
+                <li>Ustaw bezpieczne hasło.</li>
+                <li>Wybierz rolę użytkownika.</li>
+                <li>Zapisz konto.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Uwaga</h3>
+                <p>
+                    Podczas ćwiczeń szkolnych korzystaj
+                    wyłącznie z kont testowych
+                    utworzonych za zgodą nauczyciela.
+                    Nie wpisuj danych osobowych innych osób
+                    ani rzeczywistych haseł.
+                </p>
+            </div>
+        </section>
+
+        <!-- 9 -->
+
+        <section id="role">
+            <h2>9. Role i uprawnienia użytkowników</h2>
+
+            <p>
+                Nie każdy użytkownik powinien mieć
+                dostęp do wszystkich ustawień CMS.
+            </p>
+
+            <p>
+                W WordPressie istnieją standardowe role
+                określające możliwości poszczególnych osób.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Rola</th>
+                    <th>Przykładowe uprawnienia</th>
+                </tr>
+                <tr>
+                    <td>Administrator</td>
+                    <td>Zarządzanie witryną i jej ustawieniami.</td>
+                </tr>
+                <tr>
+                    <td>Redaktor</td>
+                    <td>Zarządzanie wpisami, także innych autorów.</td>
+                </tr>
+                <tr>
+                    <td>Autor</td>
+                    <td>Tworzenie i publikowanie własnych wpisów.</td>
+                </tr>
+                <tr>
+                    <td>Współpracownik</td>
+                    <td>Przygotowywanie własnych wpisów bez samodzielnej publikacji.</td>
+                </tr>
+                <tr>
+                    <td>Subskrybent</td>
+                    <td>Podstawowe korzystanie z konta i edycja własnego profilu.</td>
+                </tr>
+            </table>
+
+            <p>
+                W instalacjach z dodatkowymi wtyczkami
+                mogą występować także inne role.
+            </p>
+
+            <h3>Zasada najmniejszych uprawnień</h3>
+
+            <p>
+                Użytkownik powinien otrzymać
+                tylko te uprawnienia,
+                które są niezbędne do wykonywania
+                jego obowiązków.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Osoba odpowiedzialna wyłącznie
+                za pisanie aktualności nie musi
+                posiadać uprawnień administratora.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Nadawanie zbyt szerokich uprawnień
+                    zwiększa ryzyko przypadkowej
+                    lub nieuprawnionej zmiany ustawień.
+                </p>
+            </div>
+        </section>
+
+        <!-- 10 -->
+
+        <section id="szablony">
+            <h2>10. Motywy i szablony CMS</h2>
+
+            <p>
+                Wygląd strony CMS można zmieniać
+                za pomocą gotowych motywów
+                lub szablonów.
+            </p>
+
+            <table>
+                <tr>
+                    <th>WordPress</th>
+                    <th>Joomla</th>
+                </tr>
+                <tr>
+                    <td>Motyw (theme)</td>
+                    <td>Szablon (template)</td>
+                </tr>
+                <tr>
+                    <td>Może określać wygląd i układ strony.</td>
+                    <td>Może określać wygląd i rozmieszczenie elementów witryny.</td>
+                </tr>
+            </table>
+
+            <h3>Co może określać motyw?</h3>
+
+            <ul>
+                <li>układ strony,</li>
+                <li>kolorystykę,</li>
+                <li>krój i rozmiar czcionek,</li>
+                <li>wygląd nagłówka,</li>
+                <li>wygląd stopki,</li>
+                <li>rozmieszczenie nawigacji,</li>
+                <li>styl przycisków i innych elementów.</li>
+            </ul>
+
+            <h3>WordPress – zmiana motywu</h3>
+
+            <ol>
+                <li>Otwórz <strong>Wygląd → Motywy</strong>.</li>
+                <li>Sprawdź aktualnie aktywny motyw.</li>
+                <li>Przejrzyj dostępne motywy.</li>
+                <li>Wybierz motyw odpowiedni do projektu.</li>
+                <li>Sprawdź jego podgląd.</li>
+                <li>Aktywuj wybrany motyw.</li>
+                <li>Sprawdź wygląd wszystkich podstron.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Zmiana motywu może wpłynąć
+                    na wygląd menu, układ strony
+                    i dostępność ustawień personalizacji.
+                    Przed zmianą motywu w działającej
+                    witrynie wykonaj kopię zapasową.
+                </p>
+            </div>
+        </section>
+
+        <!-- 11 -->
+
+        <section id="personalizacja">
+            <h2>11. Personalizacja wyglądu witryny</h2>
+
+            <p>
+                Wybranie motywu nie kończy
+                pracy nad wyglądem strony.
+            </p>
+
+            <p>
+                Należy jeszcze dopasować go
+                do tematyki i potrzeb odbiorców.
+            </p>
+
+            <h3>Przykładowe elementy personalizacji</h3>
+
+            <ul>
+                <li>logo,</li>
+                <li>tytuł witryny,</li>
+                <li>kolor tła,</li>
+                <li>kolory nagłówków,</li>
+                <li>typografia,</li>
+                <li>układ strony głównej,</li>
+                <li>nagłówek i stopka.</li>
+            </ul>
+
+            <h3>Przykładowa kolorystyka portalu IT</h3>
+
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+                margin: 20px 0;
+            ">
+                <div style="padding: 22px 12px; background: #1E3A8A; color: white; text-align: center; border-radius: 8px;">
+                    Granat<br><strong>#1E3A8A</strong>
+                </div>
+                <div style="padding: 22px 12px; background: #2563EB; color: white; text-align: center; border-radius: 8px;">
+                    Niebieski<br><strong>#2563EB</strong>
+                </div>
+                <div style="padding: 22px 12px; background: #F1F5F9; color: #0F172A; text-align: center; border-radius: 8px;">
+                    Jasne tło<br><strong>#F1F5F9</strong>
+                </div>
+                <div style="padding: 22px 12px; background: #0F172A; color: white; text-align: center; border-radius: 8px;">
+                    Tekst<br><strong>#0F172A</strong>
+                </div>
+            </div>
+
+            <h3>Na co zwrócić uwagę?</h3>
+
+            <ol>
+                <li>Zadbaj o odpowiedni kontrast tekstu i tła.</li>
+                <li>Stosuj spójną kolorystykę.</li>
+                <li>Nie używaj zbyt wielu krojów pisma.</li>
+                <li>Zachowaj czytelne odstępy między elementami.</li>
+                <li>Sprawdź wygląd witryny na różnych ekranach.</li>
+                <li>Nie usuwaj widocznego fokusu klawiatury.</li>
+            </ol>
+        </section>
+
+        <!-- 12 -->
+
+        <section id="multimedia">
+            <h2>12. Zarządzanie multimediami</h2>
+
+            <p>
+                Współczesne witryny internetowe
+                wykorzystują obrazy, dokumenty,
+                pliki dźwiękowe i materiały wideo.
+            </p>
+
+            <h3>WordPress – biblioteka mediów</h3>
+
+            <pre><code class="language-text">Media → Biblioteka</code></pre>
+
+            <p>
+                Biblioteka mediów pozwala
+                przeglądać i wykorzystywać
+                przesłane pliki.
+            </p>
+
+            <h3>Dodawanie obrazu</h3>
+
+            <ol>
+                <li>Otwórz bibliotekę mediów.</li>
+                <li>Wybierz dodawanie nowego pliku.</li>
+                <li>Wskaż obraz z komputera.</li>
+                <li>Poczekaj na zakończenie przesyłania.</li>
+                <li>Uzupełnij odpowiednie informacje o obrazie.</li>
+                <li>Dodaj obraz do wybranej strony lub wpisu.</li>
+            </ol>
+
+            <h3>Przykładowe formaty</h3>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Fotografie.</td>
+                </tr>
+                <tr>
+                    <td>PNG</td>
+                    <td>Grafiki wymagające przezroczystości lub bezstratnego zapisu.</td>
+                </tr>
+                <tr>
+                    <td>WebP</td>
+                    <td>Obrazy internetowe o często korzystnym rozmiarze pliku.</td>
+                </tr>
+                <tr>
+                    <td>SVG</td>
+                    <td>Grafika wektorowa; jej obsługa w CMS może być ograniczona ze względów bezpieczeństwa.</td>
+                </tr>
+                <tr>
+                    <td>PDF</td>
+                    <td>Dokumenty do przeglądania lub pobierania.</td>
+                </tr>
+                <tr>
+                    <td>MP3</td>
+                    <td>Pliki dźwiękowe.</td>
+                </tr>
+                <tr>
+                    <td>MP4</td>
+                    <td>Materiały wideo.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Przed przesłaniem pliku do CMS
+                    należy sprawdzić jego format,
+                    rozmiar, przeznaczenie
+                    i prawo do wykorzystania.
+                </p>
+            </div>
+        </section>
+
+        <!-- 13 -->
+
+        <section id="optymalizacja">
+            <h2>13. Optymalizacja obrazów i dostępność multimediów</h2>
+
+            <p>
+                Zbyt duże obrazy mogą spowalniać
+                wczytywanie strony internetowej.
+            </p>
+
+            <p>
+                Dlatego przed dodaniem grafiki
+                warto przygotować ją
+                do publikacji w internecie.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <table>
+                <tr>
+                    <th>Obraz</th>
+                    <th>Rozmiar</th>
+                    <th>Ocena</th>
+                </tr>
+                <tr>
+                    <td>Zdjęcie prosto z aparatu</td>
+                    <td>6000 × 4000 px</td>
+                    <td>Może być niepotrzebnie duże.</td>
+                </tr>
+                <tr>
+                    <td>Zdjęcie przygotowane do artykułu</td>
+                    <td>1200 × 800 px</td>
+                    <td>Często wystarczające do typowej publikacji.</td>
+                </tr>
+            </table>
+
+            <p>
+                Ostateczny rozmiar należy dobrać
+                do miejsca wyświetlania,
+                jakości obrazu i potrzeb witryny.
+            </p>
+
+            <h3>Opis alternatywny</h3>
+
+            <p>
+                Obrazy przekazujące informacje
+                powinny mieć odpowiedni opis alternatywny.
+            </p>
+
+            <p>
+                W kodzie HTML może to wyglądać tak:
+            </p>
+
+            <pre><code class="language-html">&lt;img src="pracownia.jpg"
+     alt="Uczniowie pracujący przy komputerach w szkolnej pracowni"&gt;</code></pre>
+
+            <p>
+                W CMS opis alternatywny
+                można zwykle wprowadzić
+                podczas edycji obrazu.
+            </p>
+
+            <h3>Dobre praktyki</h3>
+
+            <ul>
+                <li>Zmniejszaj nadmiernie duże obrazy.</li>
+                <li>Dobieraj odpowiedni format pliku.</li>
+                <li>Stosuj zrozumiałe nazwy plików.</li>
+                <li>Dodawaj opisy alternatywne obrazów informacyjnych.</li>
+                <li>Nie umieszczaj ważnych informacji wyłącznie na grafice.</li>
+                <li>Zapewniaj napisy do materiałów wideo, gdy są potrzebne.</li>
+                <li>Nie publikuj zdjęć osób bez odpowiedniej podstawy do ich wykorzystania.</li>
+            </ul>
+        </section>
+
+        <!-- 14 -->
+
+        <section id="aktualizacje">
+            <h2>14. Aktualizacje systemu CMS</h2>
+
+            <p>
+                Systemy CMS są regularnie rozwijane.
+                Pojawiają się nowe funkcje,
+                poprawki błędów
+                i aktualizacje bezpieczeństwa.
+            </p>
+
+            <h3>Co należy aktualizować?</h3>
+
+            <ul>
+                <li>główny system CMS,</li>
+                <li>motywy lub szablony,</li>
+                <li>wtyczki i rozszerzenia,</li>
+                <li>środowisko serwerowe, gdy jest to wymagane.</li>
+            </ul>
+
+            <h3>WordPress – aktualizacje</h3>
+
+            <p>
+                Informacje o aktualizacjach
+                można znaleźć w panelu:
+            </p>
+
+            <pre><code class="language-text">Kokpit → Aktualizacje</code></pre>
+
+            <h3>Bezpieczna kolejność działań</h3>
+
+            <ol>
+                <li>Sprawdź dostępność nowej wersji.</li>
+                <li>Przeczytaj informacje o zmianach.</li>
+                <li>Sprawdź wymagania i zgodność dodatków.</li>
+                <li>Wykonaj kopię bezpieczeństwa.</li>
+                <li>Przeprowadź aktualizację.</li>
+                <li>Sprawdź działanie strony.</li>
+                <li>Sprawdź działanie formularzy i menu.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Nie aktualizuj działającej witryny
+                    bez przygotowania kopii bezpieczeństwa
+                    i sprawdzenia zgodności oprogramowania.
+                </p>
+
+                <p>
+                    W szkolnym środowisku lokalnym
+                    aktualizacje wykonuj
+                    zgodnie z poleceniem nauczyciela.
+                </p>
+            </div>
+        </section>
+
+        <!-- 15 -->
+
+        <section id="backup">
+            <h2>15. Kopie bezpieczeństwa CMS</h2>
+
+            <p>
+                Kopia bezpieczeństwa,
+                nazywana również backupem,
+                to zapis danych pozwalający
+                odtworzyć witrynę
+                po awarii lub utracie informacji.
+            </p>
+
+            <h3>Co należy zabezpieczyć?</h3>
+
+            <p>
+                W typowej instalacji WordPressa
+                kopia powinna uwzględniać:
+            </p>
+
+            <ul>
+                <li>bazę danych,</li>
+                <li>przesłane obrazy i dokumenty,</li>
+                <li>motywy,</li>
+                <li>wtyczki,</li>
+                <li>ważne pliki konfiguracyjne.</li>
+            </ul>
+
+            <h3>Schemat kopii bezpieczeństwa</h3>
+
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            ">
+                <div style="background: #DBEAFE; color: #1E3A8A; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>📁 Pliki witryny</h4>
+                    <p>Motywy, wtyczki, obrazy i konfiguracja.</p>
+                </div>
+
+                <div style="background: #DCFCE7; color: #14532D; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>🗄️ Baza danych</h4>
+                    <p>Treści, konta użytkowników i ustawienia.</p>
+                </div>
+
+                <div style="background: #FEF3C7; color: #78350F; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4>💾 Kopia zapasowa</h4>
+                    <p>Komplet danych potrzebnych do odtworzenia witryny.</p>
+                </div>
+            </div>
+
+            <h3>Eksport bazy danych przez phpMyAdmin</h3>
+
+            <ol>
+                <li>Uruchom Apache i MySQL w XAMPP.</li>
+                <li>Otwórz <code>http://localhost/phpmyadmin/</code>.</li>
+                <li>Wybierz bazę <code>cms_szkola</code>.</li>
+                <li>Otwórz zakładkę <strong>Eksport</strong>.</li>
+                <li>Wybierz format <strong>SQL</strong>.</li>
+                <li>Rozpocznij eksport.</li>
+                <li>Zapisz plik w bezpiecznym miejscu.</li>
+            </ol>
+
+            <h3>Kopia plików</h3>
+
+            <ol>
+                <li>Otwórz folder <code>C:\xampp\htdocs\</code>.</li>
+                <li>Znajdź katalog <code>wordpress-szkola</code>.</li>
+                <li>Skopiuj cały folder do lokalizacji przeznaczonej na backup.</li>
+                <li>Upewnij się, że kopiowanie zostało zakończone.</li>
+            </ol>
+
+            <h3>Przykładowa struktura kopii</h3>
+
+            <pre><code class="language-text">BACKUP_CMS/
+|
+|-- wordpress-szkola/
+|   |-- wp-admin/
+|   |-- wp-content/
+|   |-- wp-includes/
+|   |-- index.php
+|   |-- ...
+|
+|-- cms_szkola.sql</code></pre>
+
+            <div class="important">
+                <h3>⚠️ Bezpieczeństwo kopii</h3>
+                <p>
+                    Kopia bazy danych i plików konfiguracyjnych
+                    może zawierać poufne informacje,
+                    w tym dane użytkowników
+                    i dane dostępowe.
+                </p>
+
+                <p>
+                    Takich plików nie należy publikować
+                    w publicznym repozytorium GitHub
+                    ani przesyłać w niezabezpieczony sposób.
+                </p>
+            </div>
+        </section>
+
+        <!-- 16 -->
+
+        <section id="przywracanie">
+            <h2>16. Przywracanie witryny z kopii bezpieczeństwa</h2>
+
+            <p>
+                Samo wykonanie kopii bezpieczeństwa
+                nie daje pewności, że uda się
+                odtworzyć witrynę.
+            </p>
+
+            <p>
+                Dlatego ważne jest również
+                sprawdzanie poprawności kopii
+                i znajomość procesu przywracania.
+            </p>
+
+            <h3>Ogólny schemat odtwarzania</h3>
+
+            <ol>
+                <li>Przygotuj zgodne środowisko serwerowe.</li>
+                <li>Utwórz odpowiednią bazę danych.</li>
+                <li>Przywróć dane z pliku SQL.</li>
+                <li>Przywróć pliki witryny.</li>
+                <li>Sprawdź konfigurację połączenia z bazą.</li>
+                <li>Sprawdź adresy witryny, jeśli zmieniło się środowisko.</li>
+                <li>Uruchom stronę.</li>
+                <li>Sprawdź logowanie, treści i multimedia.</li>
+            </ol>
+
+            <h3>Ważna różnica</h3>
+
+            <p>
+                <strong>Eksport bazy danych</strong>
+                zapisuje dane przechowywane w bazie.
+            </p>
+
+            <p>
+                <strong>Kopia plików</strong>
+                zabezpiecza pliki aplikacji
+                i przesłane materiały.
+            </p>
+
+            <p>
+                Do pełnego odtworzenia witryny
+                mogą być potrzebne oba elementy.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Skuteczna kopia bezpieczeństwa
+                    to taka, z której można
+                    poprawnie przywrócić witrynę.
+                </p>
+            </div>
+        </section>
+
+        <!-- 17 -->
+
+        <section id="bezpieczenstwo">
+            <h2>17. Bezpieczeństwo podczas administrowania CMS</h2>
+
+            <p>
+                Administrator powinien chronić
+                zarówno samą witrynę,
+                jak i dane jej użytkowników.
+            </p>
+
+            <h3>Podstawowe zasady</h3>
+
+            <ol>
+                <li>Stosuj silne, unikalne hasła.</li>
+                <li>Nie udostępniaj danych logowania.</li>
+                <li>Włącz uwierzytelnianie wieloskładnikowe, jeśli jest dostępne.</li>
+                <li>Nie przyznawaj wszystkim roli administratora.</li>
+                <li>Aktualizuj system i rozszerzenia.</li>
+                <li>Instaluj dodatki z zaufanych źródeł.</li>
+                <li>Usuwaj nieużywane dodatki.</li>
+                <li>Wykonuj regularne kopie bezpieczeństwa.</li>
+                <li>Chroń pliki kopii przed nieuprawnionym dostępem.</li>
+                <li>Na publicznych witrynach stosuj HTTPS.</li>
+            </ol>
+
+            <h3>Przykładowe zagrożenia</h3>
+
+            <table>
+                <tr>
+                    <th>Zagrożenie</th>
+                    <th>Sposób ograniczania ryzyka</th>
+                </tr>
+                <tr>
+                    <td>Słabe hasło</td>
+                    <td>Silne hasło i dodatkowe uwierzytelnianie.</td>
+                </tr>
+                <tr>
+                    <td>Nieaktualna wtyczka</td>
+                    <td>Regularne aktualizacje i usuwanie zbędnych dodatków.</td>
+                </tr>
+                <tr>
+                    <td>Przypadkowe usunięcie treści</td>
+                    <td>Kopie bezpieczeństwa i kontrola uprawnień.</td>
+                </tr>
+                <tr>
+                    <td>Nieuprawniony dostęp do panelu</td>
+                    <td>Ochrona kont i ograniczenie uprawnień.</td>
+                </tr>
+                <tr>
+                    <td>Utrata danych serwera</td>
+                    <td>Kopie przechowywane niezależnie od serwera.</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 18 -->
+
+        <section id="joomla">
+            <h2>18. Zarządzanie WordPressem i Joomla – porównanie</h2>
+
+            <p>
+                WordPress i Joomla umożliwiają
+                wykonywanie podobnych zadań,
+                jednak poszczególne funkcje
+                są inaczej zorganizowane.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zadanie</th>
+                    <th>WordPress</th>
+                    <th>Joomla</th>
+                </tr>
+                <tr>
+                    <td>Publikowanie treści</td>
+                    <td>Strony i wpisy</td>
+                    <td>Artykuły</td>
+                </tr>
+                <tr>
+                    <td>Organizowanie treści</td>
+                    <td>Kategorie i tagi wpisów</td>
+                    <td>Kategorie artykułów</td>
+                </tr>
+                <tr>
+                    <td>Tworzenie nawigacji</td>
+                    <td>Menu lub blok Nawigacja</td>
+                    <td>Menu i pozycje menu</td>
+                </tr>
+                <tr>
+                    <td>Zarządzanie kontami</td>
+                    <td>Użytkownicy i role</td>
+                    <td>Użytkownicy, grupy i poziomy dostępu</td>
+                </tr>
+                <tr>
+                    <td>Zmiana wyglądu</td>
+                    <td>Motywy</td>
+                    <td>Szablony</td>
+                </tr>
+                <tr>
+                    <td>Pliki multimedialne</td>
+                    <td>Biblioteka mediów</td>
+                    <td>Menedżer mediów</td>
+                </tr>
+                <tr>
+                    <td>Rozbudowa funkcji</td>
+                    <td>Wtyczki</td>
+                    <td>Rozszerzenia</td>
+                </tr>
+                <tr>
+                    <td>Aktualizacje</td>
+                    <td>Mechanizmy aktualizacji WordPressa</td>
+                    <td>Mechanizmy aktualizacji Joomla i rozszerzeń</td>
+                </tr>
+                <tr>
+                    <td>Kopie bezpieczeństwa</td>
+                    <td>Pliki i baza danych lub odpowiednie narzędzia</td>
+                    <td>Pliki i baza danych lub odpowiednie narzędzia</td>
+                </tr>
+            </table>
+
+            <h3>Wniosek</h3>
+
+            <p>
+                Niezależnie od wybranego CMS
+                administrator wykonuje podobne zadania:
+                zarządza treścią, wyglądem,
+                użytkownikami i bezpieczeństwem.
+            </p>
+        </section>
+
+        <!-- 19 -->
+
+        <section id="problemy">
+            <h2>19. Najczęstsze błędy administratorów CMS</h2>
+
+            <table>
+                <tr>
+                    <th>Błąd</th>
+                    <th>Możliwy skutek</th>
+                    <th>Poprawne postępowanie</th>
+                </tr>
+                <tr>
+                    <td>Brak kopii bezpieczeństwa</td>
+                    <td>Ryzyko utraty danych.</td>
+                    <td>Regularne wykonywanie i testowanie kopii.</td>
+                </tr>
+                <tr>
+                    <td>Nieaktualne wtyczki</td>
+                    <td>Problemy z bezpieczeństwem i zgodnością.</td>
+                    <td>Kontrolowane aktualizowanie dodatków.</td>
+                </tr>
+                <tr>
+                    <td>Wszyscy mają rolę administratora</td>
+                    <td>Niepotrzebnie szerokie uprawnienia.</td>
+                    <td>Dobieranie ról do obowiązków.</td>
+                </tr>
+                <tr>
+                    <td>Nieczytelne menu</td>
+                    <td>Trudności w odnalezieniu informacji.</td>
+                    <td>Logiczna i prosta nawigacja.</td>
+                </tr>
+                <tr>
+                    <td>Zbyt duże obrazy</td>
+                    <td>Wolniejsze wczytywanie witryny.</td>
+                    <td>Optymalizacja grafik.</td>
+                </tr>
+                <tr>
+                    <td>Brak opisów alternatywnych</td>
+                    <td>Utrudnienia dla części użytkowników.</td>
+                    <td>Dodawanie opisów do obrazów informacyjnych.</td>
+                </tr>
+                <tr>
+                    <td>Instalowanie nieznanych dodatków</td>
+                    <td>Ryzyko problemów technicznych i bezpieczeństwa.</td>
+                    <td>Korzystanie z zaufanych źródeł.</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 20 -->
+
+        <section id="przyklad">
+            <h2>20. Przykładowy projekt – Szkolna Strefa IT</h2>
+
+            <p>
+                Wyobraź sobie, że odpowiadasz
+                za administrowanie szkolnym portalem
+                informatycznym.
+            </p>
+
+            <p>
+                Witryna powinna zawierać:
+            </p>
+
+            <ul>
+                <li>stronę główną,</li>
+                <li>podstronę O nas,</li>
+                <li>podstronę Kontakt,</li>
+                <li>aktualności,</li>
+                <li>galerię zdjęć,</li>
+                <li>czytelne menu,</li>
+                <li>spójną kolorystykę.</li>
+            </ul>
+
+            <h3>Proponowana struktura</h3>
+
+            <pre><code class="language-text">Szkolna Strefa IT
+|
+|-- Strona główna
+|
+|-- O nas
+|
+|-- Aktualności
+|   |
+|   |-- Nowa pracownia
+|   |-- Konkurs informatyczny
+|
+|-- Galeria
+|
+|-- Kontakt</code></pre>
+
+            <h3>Plan zarządzania witryną</h3>
+
+            <table>
+                <tr>
+                    <th>Obszar</th>
+                    <th>Przykładowe działanie</th>
+                </tr>
+                <tr>
+                    <td>Treść</td>
+                    <td>Publikacja dwóch aktualności.</td>
+                </tr>
+                <tr>
+                    <td>Menu</td>
+                    <td>Dodanie odnośników do podstron.</td>
+                </tr>
+                <tr>
+                    <td>Użytkownicy</td>
+                    <td>Przygotowanie konta redaktora.</td>
+                </tr>
+                <tr>
+                    <td>Wygląd</td>
+                    <td>Dopasowanie motywu i kolorystyki.</td>
+                </tr>
+                <tr>
+                    <td>Multimedia</td>
+                    <td>Dodanie zoptymalizowanych obrazów.</td>
+                </tr>
+                <tr>
+                    <td>Bezpieczeństwo</td>
+                    <td>Wykonanie kopii zapasowej.</td>
+                </tr>
+            </table>
+
+            <p>
+                Właśnie taki projekt
+                będziemy rozwijać
+                podczas ćwiczeń praktycznych.
+            </p>
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>CMS pozwala zarządzać zawartością witryny przez panel administracyjny.</li>
+                    <li>WordPress wykorzystuje strony i wpisy.</li>
+                    <li>Joomla wykorzystuje artykuły i kategorie.</li>
+                    <li>Kategorie pomagają porządkować treści.</li>
+                    <li>Wpis można przygotować jako szkic przed publikacją.</li>
+                    <li>Menu powinno być logiczne i czytelne.</li>
+                    <li>Sposób edycji menu WordPressa zależy od motywu.</li>
+                    <li>Użytkownicy CMS mogą mieć różne role.</li>
+                    <li>Nie każdy użytkownik powinien mieć uprawnienia administratora.</li>
+                    <li>Motywy i szablony wpływają na wygląd strony.</li>
+                    <li>Biblioteka mediów umożliwia zarządzanie przesłanymi plikami.</li>
+                    <li>Obrazy należy przygotować do publikacji internetowej.</li>
+                    <li>Ważne obrazy powinny mieć odpowiednie opisy alternatywne.</li>
+                    <li>System CMS i jego rozszerzenia wymagają aktualizacji.</li>
+                    <li>Przed aktualizacją należy przygotować kopię bezpieczeństwa.</li>
+                    <li>Pełna kopia witryny obejmuje odpowiednie pliki i bazę danych.</li>
+                    <li>Kopie zapasowe powinny być przechowywane bezpiecznie.</li>
+                    <li>Należy sprawdzać możliwość przywrócenia witryny z kopii.</li>
+                    <li>Nie należy publikować kopii bazy danych w publicznym repozytorium.</li>
+                    <li>Bezpieczeństwo CMS jest stałym obowiązkiem administratora.</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Projekt:</strong>
+                Rozbudowa witryny „Szkolna Strefa IT”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne zarządzanie treścią,
+                menu, użytkownikami, wyglądem,
+                multimediami i kopią bezpieczeństwa
+                lokalnej witryny WordPress.
+            </p>
+
+            <div class="important">
+                <h3>📌 Przygotowanie</h3>
+
+                <p>
+                    Kontynuuj projekt WordPress
+                    z poprzedniej lekcji.
+                </p>
+
+                <p>
+                    Uruchom Apache i MySQL w XAMPP,
+                    a następnie zaloguj się do panelu:
+                </p>
+
+                <pre><code class="language-text">http://localhost/wordpress-szkola/wp-admin/</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonujesz
+                    w <strong>jednej witrynie</strong>.
+                </p>
+            </div>
+
+            <h3>Zadanie 1 – Zarządzanie treścią</h3>
+
+            <ol>
+                <li>Zaloguj się do panelu WordPressa.</li>
+                <li>Otwórz zakładkę Wpisy.</li>
+                <li>Utwórz kategorię <strong>Konkursy</strong>.</li>
+                <li>Dodaj wpis <strong>Konkurs programistyczny</strong>.</li>
+                <li>Napisz co najmniej dwa akapity własnego tekstu.</li>
+                <li>Dodaj jeden nagłówek drugiego poziomu.</li>
+                <li>Przypisz wpis do kategorii Konkursy.</li>
+                <li>Zapisz wpis jako szkic.</li>
+                <li>Sprawdź podgląd i opublikuj wpis.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Menu nawigacyjne</h3>
+
+            <ol>
+                <li>Otwórz narzędzie edycji nawigacji.</li>
+                <li>Dodaj odnośnik do strony głównej.</li>
+                <li>Dodaj odnośnik do podstrony O nas.</li>
+                <li>Dodaj odnośnik do Kontakt.</li>
+                <li>Dodaj odnośnik prowadzący do aktualności.</li>
+                <li>Ustal logiczną kolejność pozycji.</li>
+                <li>Zapisz menu.</li>
+                <li>Sprawdź działanie wszystkich odnośników.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Użytkownicy i uprawnienia</h3>
+
+            <ol>
+                <li>Otwórz zakładkę Użytkownicy.</li>
+                <li>Sprawdź role dostępne w systemie.</li>
+                <li>Utwórz testowego użytkownika, jeśli nauczyciel zezwolił na tworzenie kont.</li>
+                <li>Nadaj mu rolę <strong>Współpracownik</strong>.</li>
+                <li>Sprawdź, jakie zadania może wykonywać ta rola.</li>
+                <li>Nie przyznawaj kontu uprawnień administratora.</li>
+                <li>Zapisz krótką notatkę o różnicy między administratorem a współpracownikiem.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Wygląd i multimedia</h3>
+
+            <ol>
+                <li>Otwórz zakładkę Wygląd.</li>
+                <li>Sprawdź nazwę aktywnego motywu.</li>
+                <li>Dostosuj dostępne ustawienia kolorystyki.</li>
+                <li>Sprawdź czytelność nagłówków i tekstu.</li>
+                <li>Przygotuj obraz do publikacji, zmniejszając jego rozmiary, jeśli to konieczne.</li>
+                <li>Prześlij obraz do biblioteki mediów.</li>
+                <li>Dodaj odpowiedni opis alternatywny.</li>
+                <li>Umieść obraz w opublikowanym wpisie.</li>
+                <li>Sprawdź wygląd witryny na telefonie lub w narzędziach deweloperskich.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Aktualizacje i kopia bezpieczeństwa</h3>
+
+            <ol>
+                <li>Otwórz Kokpit → Aktualizacje.</li>
+                <li>Sprawdź, czy dostępne są aktualizacje WordPressa, motywów lub wtyczek.</li>
+                <li>Zapisz wyniki sprawdzenia.</li>
+                <li>Nie uruchamiaj aktualizacji bez zgody nauczyciela.</li>
+                <li>Otwórz phpMyAdmin.</li>
+                <li>Wybierz bazę danych swojej witryny.</li>
+                <li>Wykonaj eksport bazy do pliku SQL.</li>
+                <li>Skopiuj folder lokalnej instalacji WordPressa do bezpiecznego katalogu backupu.</li>
+                <li>Sprawdź, czy oba elementy kopii zostały zapisane.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Uwaga dotycząca plików</h3>
+                <p>
+                    Kopia bazy SQL i kopia plików CMS
+                    służą do lokalnego zabezpieczenia witryny.
+                </p>
+                <p>
+                    <strong>Nie dołączaj ich do pracy przesyłanej w Teams.</strong>
+                    Mogą zawierać dane dostępowe
+                    lub informacje o użytkownikach.
+                </p>
+            </div>
+
+            <h3>Zadanie 6 – Dokumentacja wykonanej pracy</h3>
+
+            <p>
+                Przygotuj folder <code>PSI_38</code>.
+            </p>
+
+            <ol>
+                <li>Wykonaj zrzut ekranu opublikowanego wpisu.</li>
+                <li>Zapisz go jako <code>wpis.png</code>.</li>
+                <li>Wykonaj zrzut ekranu menu witryny.</li>
+                <li>Zapisz go jako <code>menu.png</code>.</li>
+                <li>Wykonaj zrzut ekranu wpisu z obrazem.</li>
+                <li>Zapisz go jako <code>multimedia.png</code>.</li>
+                <li>Utwórz plik <code>sprawozdanie.txt</code>.</li>
+                <li>Odpowiedz w nim na poniższe pytania.</li>
+            </ol>
+
+            <h3>Pytania do sprawozdania</h3>
+
+            <ol>
+                <li>Czym różni się wpis od strony w WordPressie?</li>
+                <li>Jaką rolę pełni menu nawigacyjne?</li>
+                <li>Dlaczego nie należy nadawać wszystkim uprawnień administratora?</li>
+                <li>Co należy zrobić przed aktualizacją CMS?</li>
+                <li>Dlaczego kopia bezpieczeństwa powinna zawierać pliki i bazę danych?</li>
+            </ol>
+
+            <h3>📁 Struktura folderu</h3>
+
+            <pre><code class="language-text">PSI_38/
+|
+|-- wpis.png
+|
+|-- menu.png
+|
+|-- multimedia.png
+|
+|-- sprawozdanie.txt</code></pre>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder <code>PSI_38</code>
+                    do archiwum ZIP i prześlij
+                    na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Nie przesyłaj haseł,
+                    plików konfiguracyjnych,
+                    eksportu bazy danych
+                    ani całej instalacji CMS.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź,
+                    czy witryna działa poprawnie,
+                    menu prowadzi do odpowiednich podstron,
+                    a wszystkie wymagane pliki
+                    znajdują się w folderze.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 38
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
