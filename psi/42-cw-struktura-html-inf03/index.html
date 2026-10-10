@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 42 – ĆW: Struktura HTML witryny – INF.03 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#opis">2.Opis zadania</a>
+        <a href="#projekt">3.Projekt witryny</a>
+        <a href="#pliki">4.Struktura plików</a>
+        <a href="#specyfikacja">5.Specyfikacja HTML</a>
+        <a href="#naglowek">6.Nagłówek i nawigacja</a>
+        <a href="#tresc">7.Treść główna</a>
+        <a href="#tabela">8.Tabela danych</a>
+        <a href="#formularz">9.Formularz</a>
+        <a href="#stopka">10.Stopka</a>
+        <a href="#wymagania">11.Wymagania techniczne</a>
+        <a href="#kontrola">12.Kontrola poprawności</a>
+        <a href="#zadania">📝 Zadanie praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 42 • ĆWICZENIE PRAKTYCZNE INF.03
+            </div>
+
+            <h2>
+                ĆW – Wykonanie struktury HTML witryny
+                na podstawie projektu i specyfikacji
+            </h2>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne wykonanie struktury witryny
+                z wykorzystaniem znaczników HTML5
+                na podstawie dostarczonej specyfikacji,
+                zgodnie z zasadami stosowanymi
+                w zadaniach praktycznych INF.03.
+            </p>
+
+            <p><strong>Czas realizacji:</strong> 2 × 45 minut.</p>
+
+            <p>
+                <strong>Forma pracy:</strong>
+                samodzielne ćwiczenie praktyczne.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Twoim zadaniem jest wykonanie
+                struktury strony internetowej
+                dla fikcyjnej szkolnej wypożyczalni sprzętu
+                komputerowego o nazwie
+                <strong>TECH-RENT</strong>.
+            </p>
+
+            <p>
+                Pracujesz na podstawie
+                projektu układu witryny
+                oraz szczegółowej specyfikacji.
+            </p>
+
+            <p>
+                Ćwiczenie ma charakter
+                zbliżony do zadania praktycznego
+                egzaminu zawodowego INF.03.
+                Nie jest oficjalnym arkuszem CKE.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+
+                <p>
+                    W tym ćwiczeniu wykonujesz
+                    <strong>strukturę HTML5</strong>.
+                </p>
+
+                <p>
+                    Nie tworzysz arkusza CSS
+                    i nie stylizujesz strony.
+                    Układ graficzny przedstawia
+                    rozmieszczenie elementów,
+                    które należy odtworzyć
+                    za pomocą odpowiednich znaczników HTML.
+                </p>
+            </div>
+        </section>
+
+        <section id="opis">
+            <h2>2. Opis zadania</h2>
+
+            <p>
+                Firma TECH-RENT wypożycza
+                sprzęt komputerowy uczniom
+                i organizatorom wydarzeń.
+            </p>
+
+            <p>
+                Przygotuj stronę główną witryny,
+                która będzie zawierać:
+            </p>
+
+            <ul>
+                <li>Nagłówek z nazwą firmy i hasłem reklamowym.</li>
+                <li>Menu nawigacyjne.</li>
+                <li>Informacje o wypożyczalni.</li>
+                <li>Listę oferowanego sprzętu.</li>
+                <li>Tabelę z cennikiem.</li>
+                <li>Formularz zapytania o wypożyczenie.</li>
+                <li>Stopkę z informacją o autorze.</li>
+            </ul>
+
+            <p>
+                Wszystkie elementy powinny
+                zostać umieszczone w jednym
+                poprawnym dokumencie HTML5.
+            </p>
+        </section>
+
+        <section id="projekt">
+            <h2>3. Projekt układu witryny</h2>
+
+            <p>
+                Poniższy schemat przedstawia
+                kolejność i rozmieszczenie
+                poszczególnych obszarów strony.
+            </p>
+
+            <div style="
+                border: 2px solid #64748B;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 20px 0;
+                font-family: Arial, sans-serif;
+                background: white;
+                color: #172033;
+            ">
+
+                <div style="
+                    background: #1E3A8A;
+                    color: white;
+                    padding: 24px;
+                    text-align: center;
+                ">
+                    <strong style="font-size: 25px;">
+                        TECH-RENT
+                    </strong>
+                    <p style="margin: 8px 0 0;">
+                        Sprzęt komputerowy na każdą okazję
+                    </p>
+                </div>
+
+                <div style="
+                    background: #DBEAFE;
+                    padding: 15px;
+                    text-align: center;
+                    font-weight: bold;
+                ">
+                    O nas | Oferta | Cennik | Kontakt
+                </div>
+
+                <div style="padding: 20px;">
+
+                    <div style="
+                        border: 1px dashed #94A3B8;
+                        padding: 15px;
+                        margin-bottom: 15px;
+                    ">
+                        <h3>O naszej wypożyczalni</h3>
+                        <p>
+                            Krótki opis działalności firmy.
+                        </p>
+                    </div>
+
+                    <div style="
+                        border: 1px dashed #94A3B8;
+                        padding: 15px;
+                        margin-bottom: 15px;
+                    ">
+                        <h3>Nasza oferta</h3>
+                        <p>Lista dostępnego sprzętu:</p>
+                        <ul>
+                            <li>Laptopy</li>
+                            <li>Projektory</li>
+                            <li>Monitory</li>
+                        </ul>
+                    </div>
+
+                    <div style="
+                        border: 1px dashed #94A3B8;
+                        padding: 15px;
+                        margin-bottom: 15px;
+                    ">
+                        <h3>Cennik wypożyczenia</h3>
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                        ">
+                            <tr>
+                                <th style="border: 1px solid #999; padding: 8px;">Sprzęt</th>
+                                <th style="border: 1px solid #999; padding: 8px;">Cena / dzień</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #999; padding: 8px;">Laptop</td>
+                                <td style="border: 1px solid #999; padding: 8px;">50 zł</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #999; padding: 8px;">Projektor</td>
+                                <td style="border: 1px solid #999; padding: 8px;">40 zł</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="
+                        border: 1px dashed #94A3B8;
+                        padding: 15px;
+                    ">
+                        <h3>Zapytanie o wypożyczenie</h3>
+
+                        <p>Imię i nazwisko: [ pole tekstowe ]</p>
+                        <p>E-mail: [ pole e-mail ]</p>
+                        <p>Sprzęt: [ lista rozwijana ]</p>
+                        <p>Termin: [ pole daty ]</p>
+                        <p>[ Wyślij zapytanie ]</p>
+                    </div>
+                </div>
+
+                <div style="
+                    background: #E2E8F0;
+                    padding: 18px;
+                    text-align: center;
+                ">
+                    TECH-RENT | Autor strony: numer PESEL
+                </div>
+            </div>
+
+            <p>
+                <strong>Uwaga:</strong>
+                jest to schemat układu i zawartości,
+                a nie wzór kolorystyki.
+                W tej lekcji nie odwzorowujesz
+                wyglądu za pomocą CSS.
+            </p>
+        </section>
+
+        <section id="pliki">
+            <h2>4. Struktura plików</h2>
+
+            <p>
+                Na dysku utwórz folder
+                <code>PSI_42</code>.
+            </p>
+
+            <p>
+                Wewnątrz utwórz
+                jeden plik:
+                <code>index.html</code>.
+            </p>
+
+            <pre><code class="language-text">PSI_42/
+|
+|-- index.html</code></pre>
+
+            <p>
+                Wszystkie wymagane elementy
+                umieść w tym pliku.
+            </p>
+        </section>
+
+        <section id="specyfikacja">
+            <h2>5. Specyfikacja dokumentu HTML</h2>
+
+            <p>
+                Dokument musi spełniać
+                następujące wymagania:
+            </p>
+
+            <ol>
+                <li>Zastosowany standard HTML5.</li>
+                <li>Ustawiony język polski.</li>
+                <li>Kodowanie znaków UTF-8.</li>
+                <li>Ustawiony meta viewport.</li>
+                <li>Tytuł karty przeglądarki: <strong>TECH-RENT – Wypożyczalnia sprzętu</strong>.</li>
+                <li>Jedna sekcja <code>head</code>.</li>
+                <li>Jedna sekcja <code>body</code>.</li>
+                <li>Zastosowane elementy semantyczne HTML5.</li>
+                <li>Poprawne zagnieżdżenie elementów.</li>
+                <li>Brak stylów CSS i kodu JavaScript.</li>
+            </ol>
+
+            <h3>Wymagane elementy semantyczne</h3>
+
+            <ul>
+                <li><code>header</code></li>
+                <li><code>nav</code></li>
+                <li><code>main</code></li>
+                <li><code>section</code></li>
+                <li><code>footer</code></li>
+            </ul>
+        </section>
+
+        <section id="naglowek">
+            <h2>6. Nagłówek i nawigacja</h2>
+
+            <h3>Nagłówek strony</h3>
+
+            <p>
+                W elemencie <code>header</code>
+                umieść:
+            </p>
+
+            <ul>
+                <li>Nagłówek pierwszego poziomu: <strong>TECH-RENT</strong>.</li>
+                <li>Akapit: <strong>Sprzęt komputerowy na każdą okazję</strong>.</li>
+            </ul>
+
+            <h3>Menu nawigacyjne</h3>
+
+            <p>
+                W elemencie <code>nav</code>
+                utwórz cztery odnośniki:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Tekst odnośnika</th>
+                    <th>Cel</th>
+                </tr>
+                <tr>
+                    <td>O nas</td>
+                    <td>#o-nas</td>
+                </tr>
+                <tr>
+                    <td>Oferta</td>
+                    <td>#oferta</td>
+                </tr>
+                <tr>
+                    <td>Cennik</td>
+                    <td>#cennik</td>
+                </tr>
+                <tr>
+                    <td>Kontakt</td>
+                    <td>#kontakt</td>
+                </tr>
+            </table>
+
+            <p>
+                Odnośniki mają prowadzić
+                do odpowiednich sekcji
+                w tym samym dokumencie.
+            </p>
+        </section>
+
+        <section id="tresc">
+            <h2>7. Treść główna witryny</h2>
+
+            <p>
+                Wszystkie poniższe sekcje
+                umieść wewnątrz elementu
+                <code>main</code>.
+            </p>
+
+            <h3>Sekcja „O nas”</h3>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>o-nas</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek drugiego poziomu:
+                <strong>O naszej wypożyczalni</strong>.
+            </p>
+
+            <p>
+                Następnie dodaj akapit:
+            </p>
+
+            <div class="important">
+                TECH-RENT oferuje wynajem sprzętu komputerowego
+                dla uczniów, szkół i organizatorów wydarzeń.
+                Zapewniamy sprawny sprzęt oraz elastyczne
+                terminy wypożyczenia.
+            </div>
+
+            <h3>Sekcja „Oferta”</h3>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>oferta</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek:
+                <strong>Nasza oferta</strong>.
+            </p>
+
+            <p>
+                Utwórz listę nieuporządkowaną
+                zawierającą:
+            </p>
+
+            <ul>
+                <li>Laptopy</li>
+                <li>Projektory</li>
+                <li>Monitory</li>
+                <li>Klawiatury i myszy</li>
+                <li>Głośniki komputerowe</li>
+            </ul>
+
+            <p>
+                Pod listą umieść akapit:
+            </p>
+
+            <div class="important">
+                Wybierz sprzęt dopasowany do swoich potrzeb.
+                Skontaktuj się z nami, aby sprawdzić dostępność.
+            </div>
+        </section>
+
+        <section id="tabela">
+            <h2>8. Tabela z cennikiem</h2>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>cennik</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek:
+                <strong>Cennik wypożyczenia</strong>.
+            </p>
+
+            <p>
+                Pod nagłówkiem utwórz tabelę
+                zawierającą trzy kolumny:
+            </p>
+
+            <ul>
+                <li>Sprzęt</li>
+                <li>Cena za dzień</li>
+                <li>Kaucja</li>
+            </ul>
+
+            <h3>Dane do tabeli</h3>
+
+            <table>
+                <tr>
+                    <th>Sprzęt</th>
+                    <th>Cena za dzień</th>
+                    <th>Kaucja</th>
+                </tr>
+                <tr>
+                    <td>Laptop</td>
+                    <td>50 zł</td>
+                    <td>300 zł</td>
+                </tr>
+                <tr>
+                    <td>Projektor</td>
+                    <td>40 zł</td>
+                    <td>200 zł</td>
+                </tr>
+                <tr>
+                    <td>Monitor</td>
+                    <td>30 zł</td>
+                    <td>150 zł</td>
+                </tr>
+                <tr>
+                    <td>Głośniki</td>
+                    <td>20 zł</td>
+                    <td>100 zł</td>
+                </tr>
+            </table>
+
+            <h3>Wymagania dotyczące tabeli</h3>
+
+            <ol>
+                <li>Zastosuj element <code>table</code>.</li>
+                <li>Utwórz nagłówek tabeli w <code>thead</code>.</li>
+                <li>Umieść dane w <code>tbody</code>.</li>
+                <li>Użyj <code>th</code> dla nagłówków kolumn.</li>
+                <li>Użyj <code>td</code> dla danych.</li>
+                <li>Dodaj <code>caption</code> z tekstem <strong>Cennik dzienny</strong>.</li>
+            </ol>
+        </section>
+
+        <section id="formularz">
+            <h2>9. Formularz zapytania o wypożyczenie</h2>
+
+            <p>
+                Utwórz sekcję
+                o identyfikatorze
+                <code>kontakt</code>.
+            </p>
+
+            <p>
+                Dodaj nagłówek:
+                <strong>Zapytanie o wypożyczenie</strong>.
+            </p>
+
+            <p>
+                W sekcji umieść formularz
+                zawierający poniższe kontrolki.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Wymagania</th>
+                </tr>
+
+                <tr>
+                    <td>Imię i nazwisko</td>
+                    <td>Pole tekstowe, wymagane, name="imie".</td>
+                </tr>
+
+                <tr>
+                    <td>Adres e-mail</td>
+                    <td>Pole typu email, wymagane, name="email".</td>
+                </tr>
+
+                <tr>
+                    <td>Wybór sprzętu</td>
+                    <td>Lista select, name="sprzet".</td>
+                </tr>
+
+                <tr>
+                    <td>Termin wypożyczenia</td>
+                    <td>Pole typu date, wymagane, name="termin".</td>
+                </tr>
+
+                <tr>
+                    <td>Dodatkowe informacje</td>
+                    <td>Textarea, name="uwagi".</td>
+                </tr>
+
+                <tr>
+                    <td>Przycisk</td>
+                    <td>Wyślij zapytanie, type="submit".</td>
+                </tr>
+            </table>
+
+            <h3>Opcje listy wyboru</h3>
+
+            <ul>
+                <li>Laptop</li>
+                <li>Projektor</li>
+                <li>Monitor</li>
+                <li>Głośniki</li>
+            </ul>
+
+            <h3>Dodatkowe wymagania</h3>
+
+            <ol>
+                <li>Każda kontrolka musi mieć odpowiednią etykietę <code>label</code>.</li>
+                <li>Etykiety mają być powiązane z polami za pomocą <code>for</code> i <code>id</code>.</li>
+                <li>Identyfikatory pól muszą być unikalne.</li>
+                <li>Formularz ma wykorzystywać metodę <code>get</code>.</li>
+                <li>Ustaw <code>action=""</code>, aby formularz wysyłał dane do bieżącego adresu.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⚠️ Uwaga</h3>
+
+                <p>
+                    Formularz jest ćwiczeniem
+                    z budowania struktury HTML.
+                    Nie wykonujemy obsługi danych
+                    po stronie serwera.
+                </p>
+
+                <p>
+                    Metoda GET umieszcza dane formularza
+                    w adresie URL.
+                    Nie wpisuj do formularza
+                    prawdziwych danych osobowych
+                    ani informacji poufnych.
+                </p>
+            </div>
+        </section>
+
+        <section id="stopka">
+            <h2>10. Stopka witryny</h2>
+
+            <p>
+                W elemencie <code>footer</code>
+                umieść akapit:
+            </p>
+
+            <div class="important">
+                TECH-RENT | Autor strony: numer PESEL
+            </div>
+
+            <p>
+                Zamiast tekstu
+                <strong>numer PESEL</strong>
+                wpisz swój <strong>numer z dziennika</strong>.
+            </p>
+
+            <p>
+                Przykład:
+            </p>
+
+            <pre><code class="language-text">TECH-RENT | Autor strony: 12</code></pre>
+
+            <p>
+                Nie wpisuj rzeczywistego
+                numeru PESEL.
+            </p>
+        </section>
+
+        <section id="wymagania">
+            <h2>11. Wymagania techniczne</h2>
+
+            <p>
+                Gotowy plik
+                <code>index.html</code>
+                powinien spełniać wszystkie
+                poniższe warunki:
+            </p>
+
+            <ul>
+                <li>Poprawny dokument HTML5.</li>
+                <li>Język polski dokumentu.</li>
+                <li>Kodowanie UTF-8.</li>
+                <li>Poprawny tytuł karty przeglądarki.</li>
+                <li>Meta viewport.</li>
+                <li>Semantyczny nagłówek strony.</li>
+                <li>Menu z czterema działającymi kotwicami.</li>
+                <li>Element main z czterema sekcjami.</li>
+                <li>Lista nieuporządkowana.</li>
+                <li>Tabela z caption, thead i tbody.</li>
+                <li>Formularz z wymaganymi kontrolkami.</li>
+                <li>Poprawne etykiety formularza.</li>
+                <li>Stopka z numerem z dziennika.</li>
+                <li>Brak błędów zagnieżdżenia HTML.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Pamiętaj</h3>
+                <p>
+                    Nie oceniaj wyglądu strony
+                    na podstawie kolorów i układu
+                    elementów obok siebie.
+                </p>
+
+                <p>
+                    Bez CSS przeglądarka
+                    wyświetla elementy
+                    zgodnie z domyślnymi stylami.
+                    W tym ćwiczeniu liczy się
+                    poprawna struktura HTML.
+                </p>
+            </div>
+        </section>
+
+        <section id="kontrola">
+            <h2>12. Kontrola poprawności</h2>
+
+            <p>
+                Po wykonaniu zadania
+                sprawdź stronę w przeglądarce.
+            </p>
+
+            <h3>Sprawdź następujące elementy:</h3>
+
+            <ol>
+                <li>Czy strona otwiera się poprawnie?</li>
+                <li>Czy polskie znaki są wyświetlane prawidłowo?</li>
+                <li>Czy menu przewija stronę do odpowiednich sekcji?</li>
+                <li>Czy lista zawiera wszystkie pozycje?</li>
+                <li>Czy tabela zawiera poprawne dane?</li>
+                <li>Czy formularz ma wszystkie pola?</li>
+                <li>Czy pola wymagane są oznaczone jako required?</li>
+                <li>Czy stopka zawiera właściwy numer z dziennika?</li>
+            </ol>
+
+            <h3>Walidacja HTML</h3>
+
+            <p>
+                Otwórz walidator:
+                <a href="https://validator.w3.org/nu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    validator.w3.org/nu/
+                </a>
+            </p>
+
+            <ol>
+                <li>Wybierz sprawdzanie przez przesłanie pliku.</li>
+                <li>Wskaż swój plik index.html.</li>
+                <li>Uruchom walidację.</li>
+                <li>Popraw wykryte błędy.</li>
+                <li>Powtórz sprawdzanie.</li>
+            </ol>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadanie praktyczne – podsumowanie</h2>
+
+            <p>
+                Wykonaj samodzielnie stronę
+                <strong>TECH-RENT</strong>
+                zgodnie z projektem
+                i wszystkimi wymaganiami
+                zawartymi w specyfikacji.
+            </p>
+
+            <h3>Kolejność pracy</h3>
+
+            <ol>
+                <li>Utwórz folder PSI_42.</li>
+                <li>Utwórz dokument index.html.</li>
+                <li>Przygotuj podstawową strukturę HTML5.</li>
+                <li>Wykonaj nagłówek i nawigację.</li>
+                <li>Dodaj sekcje „O nas” i „Oferta”.</li>
+                <li>Utwórz tabelę cennika.</li>
+                <li>Utwórz formularz zapytania.</li>
+                <li>Dodaj stopkę.</li>
+                <li>Sprawdź działanie strony.</li>
+                <li>Przeprowadź walidację HTML.</li>
+            </ol>
+
+            <div class="important">
+                <h3>⏱️ Organizacja pracy</h3>
+
+                <p>
+                    Zadanie wykonaj w czasie
+                    dwóch godzin lekcyjnych.
+                </p>
+
+                <p>
+                    Korzystaj z własnej wiedzy,
+                    wcześniejszych materiałów
+                    oraz dokumentacji HTML.
+                </p>
+
+                <p>
+                    Nie kopiuj gotowego rozwiązania.
+                </p>
+            </div>
+        </section>
+
+        <section id="oddanie" class="tasks">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Spakuj folder
+                <code>PSI_42</code>
+                do archiwum ZIP.
+            </p>
+
+            <p>
+                Prześlij archiwum
+                na odpowiednie
+                <strong>Zadanie w Teams</strong>.
+            </p>
+
+            <p>
+                Przed oddaniem pracy
+                sprawdź, czy archiwum
+                zawiera plik
+                <code>index.html</code>.
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 42
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
