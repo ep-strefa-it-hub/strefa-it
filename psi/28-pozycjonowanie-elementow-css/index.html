@@ -1,0 +1,2544 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 28 – Pozycjonowanie elementów w CSS | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#position">2.Właściwość position</a>
+        <a href="#static">3.Position: static</a>
+        <a href="#relative">4.Position: relative</a>
+        <a href="#absolute">5.Position: absolute</a>
+        <a href="#rodzic">6.Rodzic relative i dziecko absolute</a>
+        <a href="#fixed">7.Position: fixed</a>
+        <a href="#sticky">8.Position: sticky</a>
+        <a href="#kierunki">9.Top, right, bottom i left</a>
+        <a href="#porownanie">10.Porównanie pozycjonowania</a>
+        <a href="#z-index">11.Właściwość z-index</a>
+        <a href="#stacking">12.Kontekst nakładania</a>
+        <a href="#odznaki">13.Odznaki na kartach</a>
+        <a href="#nawigacja">14.Przyklejona nawigacja</a>
+        <a href="#przycisk">15.Przycisk powrotu na górę</a>
+        <a href="#responsywnosc">16.Pozycjonowanie a responsywność</a>
+        <a href="#bledy">17.Najczęstsze błędy</a>
+        <a href="#przyklad">18.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 28 • CSS3
+            </div>
+
+            <h2>
+                Pozycjonowanie elementów w CSS –
+                relative, absolute, fixed,
+                sticky oraz z-index
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie sposobów pozycjonowania
+                elementów strony internetowej,
+                określania ich położenia za pomocą
+                właściwości top, right, bottom i left
+                oraz kontrolowania kolejności
+                nakładania elementów przy użyciu z-index.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – czym jest pozycjonowanie?</h2>
+
+            <p>
+                Elementy HTML są domyślnie
+                rozmieszczane przez przeglądarkę
+                zgodnie z zasadami układu dokumentu.
+            </p>
+
+            <p>
+                Elementy blokowe zazwyczaj
+                pojawiają się jeden pod drugim,
+                a elementy liniowe mogą znajdować się
+                obok siebie w tym samym wierszu.
+            </p>
+
+            <p>
+                Czasami jednak chcemy umieścić
+                element w konkretnym miejscu,
+                na przykład:
+            </p>
+
+            <ul>
+                <li>odznakę „NOWOŚĆ” w rogu karty produktu,</li>
+                <li>przycisk w prawym dolnym rogu ekranu,</li>
+                <li>menu pozostające na górze podczas przewijania,</li>
+                <li>tekst nałożony na obraz,</li>
+                <li>komunikat wyświetlany nad innymi elementami.</li>
+            </ul>
+
+            <p>
+                Do takich zadań wykorzystujemy
+                <strong>pozycjonowanie CSS</strong>.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+    &lt;span class="odznaka"&gt;NOWOŚĆ&lt;/span&gt;
+    &lt;h2&gt;Nowy kurs CSS&lt;/h2&gt;
+    &lt;p&gt;Poznaj możliwości CSS3.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta {
+    position: relative;
+}
+
+.odznaka {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            <p>
+                Odznaka zostanie umieszczona
+                w prawym górnym rogu karty,
+                z odstępem 10 px od jej krawędzi
+                obszaru pozycjonowania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Pozycjonowanie CSS pozwala
+                    kontrolować położenie elementów
+                    względem ich zwykłego miejsca,
+                    kontenera lub obszaru widocznego
+                    w oknie przeglądarki.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="position">
+
+            <h2>2. Właściwość position</h2>
+
+            <p>
+                Właściwość <code>position</code>
+                określa sposób pozycjonowania
+                elementu HTML.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    position: wartosc;
+}</code></pre>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>static</code></td>
+                    <td>Domyślne pozycjonowanie elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>relative</code></td>
+                    <td>Przesuwa element względem jego normalnego położenia.</td>
+                </tr>
+                <tr>
+                    <td><code>absolute</code></td>
+                    <td>Pozycjonuje element względem odpowiedniego bloku odniesienia, często pozycjonowanego rodzica.</td>
+                </tr>
+                <tr>
+                    <td><code>fixed</code></td>
+                    <td>Zwykle pozycjonuje element względem widocznego obszaru przeglądarki.</td>
+                </tr>
+                <tr>
+                    <td><code>sticky</code></td>
+                    <td>Łączy zachowanie normalnego układu z przyklejaniem podczas przewijania.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.element {
+    position: relative;
+}</code></pre>
+
+            <p>
+                Samo ustawienie
+                <code>position: relative</code>
+                nie musi powodować
+                widocznego przesunięcia.
+            </p>
+
+            <p>
+                Położenie możemy zmienić
+                za pomocą właściwości
+                <code>top</code>,
+                <code>right</code>,
+                <code>bottom</code>
+                i <code>left</code>.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="static">
+
+            <h2>3. Position: static – pozycjonowanie domyślne</h2>
+
+            <p>
+                Wartość <code>static</code>
+                jest domyślnym sposobem
+                pozycjonowania większości
+                elementów HTML.
+            </p>
+
+            <p>
+                Element zajmuje swoje miejsce
+                w normalnym układzie strony.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="blok"&gt;Blok 1&lt;/div&gt;
+&lt;div class="blok"&gt;Blok 2&lt;/div&gt;
+&lt;div class="blok"&gt;Blok 3&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.blok {
+    position: static;
+
+    padding: 20px;
+    margin-bottom: 10px;
+
+    background-color: lightblue;
+}</code></pre>
+
+            <p>
+                Bloki będą rozmieszczone
+                zgodnie z normalnym układem dokumentu.
+            </p>
+
+            <h3>Czy top i left zadziałają?</h3>
+
+            <pre><code class="language-css">.blok {
+    position: static;
+
+    top: 30px;
+    left: 50px;
+}</code></pre>
+
+            <p>
+                Nie. Dla elementu
+                z <code>position: static</code>
+                właściwości pozycjonujące
+                <code>top</code>,
+                <code>right</code>,
+                <code>bottom</code>
+                i <code>left</code>
+                nie powodują przesunięcia.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>position: static</code>
+                    oznacza zwykłe położenie elementu.
+                    Nie można przesuwać go
+                    za pomocą top, right,
+                    bottom i left.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="relative">
+
+            <h2>4. Position: relative – pozycjonowanie względne</h2>
+
+            <p>
+                <code>position: relative</code>
+                pozwala przesunąć element
+                względem miejsca,
+                które zajmowałby
+                w normalnym układzie strony.
+            </p>
+
+            <p>
+                Bardzo ważne jest to,
+                że <strong>pierwotne miejsce elementu
+                pozostaje zarezerwowane</strong>.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="blok"&gt;Pierwszy blok&lt;/div&gt;
+
+&lt;div class="blok przesuniety"&gt;
+    Drugi blok
+&lt;/div&gt;
+
+&lt;div class="blok"&gt;Trzeci blok&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.blok {
+    width: 250px;
+    padding: 20px;
+    margin-bottom: 15px;
+
+    background-color: lightblue;
+    border: 2px solid blue;
+}
+
+.przesuniety {
+    position: relative;
+
+    top: 20px;
+    left: 40px;
+
+    background-color: lightgreen;
+}</code></pre>
+
+            <h3>Co się stanie?</h3>
+
+            <ul>
+                <li>Drugi blok przesunie się o 20 px w dół.</li>
+                <li>Drugi blok przesunie się o 40 px w prawo.</li>
+                <li>Jego pierwotne miejsce nadal będzie zarezerwowane.</li>
+                <li>Trzeci blok nie przesunie się automatycznie razem z nim.</li>
+            </ul>
+
+            <h3>Wartości ujemne</h3>
+
+            <pre><code class="language-css">.przesuniety {
+    position: relative;
+
+    top: -10px;
+    left: -20px;
+}</code></pre>
+
+            <p>
+                Element przesunie się
+                o 10 px w górę
+                i 20 px w lewo.
+            </p>
+
+            <h3>Do czego służy relative?</h3>
+
+            <p>
+                Najczęściej do niewielkiego
+                przesuwania elementów
+                oraz tworzenia punktu odniesienia
+                dla elementów
+                z <code>position: absolute</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>relative</code>
+                    przesuwa element wizualnie,
+                    ale nie usuwa jego miejsca
+                    z normalnego układu strony.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="absolute">
+
+            <h2>5. Position: absolute – pozycjonowanie bezwzględne</h2>
+
+            <p>
+                <code>position: absolute</code>
+                pozwala umieścić element
+                w określonym miejscu
+                względem jego bloku odniesienia.
+            </p>
+
+            <p>
+                Element z pozycjonowaniem
+                bezwzględnym zostaje
+                <strong>wyjęty z normalnego
+                układu dokumentu</strong>.
+            </p>
+
+            <p>
+                Oznacza to, że inne elementy
+                nie rezerwują dla niego
+                miejsca w taki sam sposób
+                jak dla zwykłego bloku.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="etykieta"&gt;
+        PROMOCJA
+    &lt;/div&gt;
+
+    &lt;h2&gt;Kurs CSS&lt;/h2&gt;
+
+    &lt;p&gt;Poznaj podstawy CSS.&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.kontener {
+    position: relative;
+
+    width: 350px;
+    min-height: 200px;
+
+    padding: 25px;
+
+    background-color: lightblue;
+}
+
+.etykieta {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    padding: 8px;
+
+    color: white;
+    background-color: red;
+}</code></pre>
+
+            <p>
+                Etykieta pojawi się
+                w prawym górnym rogu kontenera.
+            </p>
+
+            <h3>Co oznaczają top i right?</h3>
+
+            <pre><code class="language-css">top: 10px;
+right: 10px;</code></pre>
+
+            <p>
+                Górna krawędź elementu
+                znajduje się 10 px
+                od odpowiedniej górnej krawędzi
+                obszaru odniesienia,
+                a prawa krawędź 10 px
+                od jego prawej strony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Element <code>absolute</code>
+                    nie musi być pozycjonowany
+                    względem całej strony.
+                    Bardzo często jego punktem
+                    odniesienia jest najbliższy
+                    odpowiednio pozycjonowany przodek.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="rodzic">
+
+            <h2>6. Rodzic relative i dziecko absolute</h2>
+
+            <p>
+                Jednym z najważniejszych
+                zastosowań pozycjonowania CSS
+                jest połączenie:
+            </p>
+
+            <pre><code class="language-css">.rodzic {
+    position: relative;
+}
+
+.dziecko {
+    position: absolute;
+}</code></pre>
+
+            <p>
+                Dzięki temu element potomny
+                może być pozycjonowany
+                względem kontenera rodzica.
+            </p>
+
+            <h3>Przykład – odznaka na karcie</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+
+    &lt;span class="odznaka"&gt;
+        NOWOŚĆ
+    &lt;/span&gt;
+
+    &lt;h2&gt;Kurs HTML5&lt;/h2&gt;
+
+    &lt;p&gt;
+        Poznaj podstawy tworzenia stron.
+    &lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta {
+    position: relative;
+
+    width: 300px;
+    min-height: 200px;
+
+    padding: 30px;
+
+    background-color: white;
+
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+.odznaka {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    padding: 5px 10px;
+
+    background-color: red;
+    color: white;
+}</code></pre>
+
+            <h3>Dlaczego position: relative jest ważne?</h3>
+
+            <p>
+                Jeżeli usuniemy
+                <code>position: relative</code>
+                z kontenera, element
+                <code>absolute</code>
+                może zostać pozycjonowany
+                względem innego przodka
+                albo początkowego bloku odniesienia.
+            </p>
+
+            <p>
+                Wtedy odznaka może znaleźć się
+                w zupełnie innym miejscu,
+                niż oczekiwaliśmy.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Najważniejsza zasada</h3>
+                <p>
+                    Jeśli chcesz umieścić element
+                    w konkretnym rogu karty,
+                    najczęściej zastosuj:
+                </p>
+
+                <pre><code class="language-css">.karta {
+    position: relative;
+}
+
+.odznaka {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="fixed">
+
+            <h2>7. Position: fixed – pozycjonowanie stałe</h2>
+
+            <p>
+                <code>position: fixed</code>
+                pozwala umieścić element
+                w stałym miejscu
+                względem widocznego obszaru
+                przeglądarki.
+            </p>
+
+            <p>
+                W typowym przypadku
+                element pozostaje w tym samym
+                miejscu ekranu,
+                nawet gdy użytkownik
+                przewija stronę.
+            </p>
+
+            <h3>Przykład – przycisk w rogu ekranu</h3>
+
+            <pre><code class="language-html">&lt;a href="#start" class="do-gory"&gt;
+    ↑
+&lt;/a&gt;</code></pre>
+
+            <pre><code class="language-css">.do-gory {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    padding: 15px;
+
+    background-color: blue;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 50%;
+}</code></pre>
+
+            <p>
+                Przycisk będzie znajdował się
+                w prawym dolnym rogu
+                widocznego obszaru strony.
+            </p>
+
+            <h3>Inne zastosowania</h3>
+
+            <ul>
+                <li>przycisk powrotu na górę,</li>
+                <li>przycisk kontaktu,</li>
+                <li>pływający panel pomocy,</li>
+                <li>stały pasek nawigacji,</li>
+                <li>komunikat wyświetlany na ekranie.</li>
+            </ul>
+
+            <h3>Element fixed a układ strony</h3>
+
+            <p>
+                Podobnie jak <code>absolute</code>,
+                element <code>fixed</code>
+                jest wyjęty z normalnego
+                układu dokumentu.
+            </p>
+
+            <p>
+                Może więc zasłaniać
+                inne elementy strony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>fixed</code>
+                    najczęściej oznacza
+                    stałą pozycję względem
+                    okna przeglądarki.
+                    Niektóre właściwości przodków,
+                    np. <code>transform</code>,
+                    mogą jednak zmienić
+                    jego blok odniesienia.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="sticky">
+
+            <h2>8. Position: sticky – pozycjonowanie przyklejone</h2>
+
+            <p>
+                <code>position: sticky</code>
+                łączy cechy pozycjonowania
+                względnego i przyklejania
+                elementu podczas przewijania.
+            </p>
+
+            <p>
+                Początkowo element znajduje się
+                w swoim zwykłym miejscu.
+                Po osiągnięciu określonej
+                pozycji podczas przewijania
+                może pozostać przyklejony
+                do krawędzi obszaru przewijania.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <pre><code class="language-css">.menu {
+    position: sticky;
+
+    top: 0;
+
+    padding: 15px;
+
+    background-color: #1E3A8A;
+}</code></pre>
+
+            <p>
+                Menu będzie przyklejać się
+                do górnej krawędzi
+                odpowiedniego obszaru przewijania.
+            </p>
+
+            <h3>Dlaczego top: 0 jest ważne?</h3>
+
+            <pre><code class="language-css">position: sticky;
+top: 0;</code></pre>
+
+            <p>
+                Właściwość <code>top</code>
+                wskazuje granicę,
+                przy której element
+                ma zacząć się przyklejać.
+            </p>
+
+            <h3>Sticky a fixed</h3>
+
+            <p>
+                Element <code>fixed</code>
+                zwykle pozostaje stale
+                w tym samym miejscu ekranu.
+            </p>
+
+            <p>
+                Element <code>sticky</code>
+                początkowo uczestniczy
+                w normalnym układzie
+                i przykleja się dopiero
+                podczas przewijania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Działanie <code>sticky</code>
+                    zależy od obszaru przewijania
+                    oraz granic kontenera.
+                    Jeśli element nie ma miejsca
+                    na przyklejenie lub odpowiedniego
+                    przewijania, efekt może być niewidoczny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="kierunki">
+
+            <h2>9. Właściwości top, right, bottom i left</h2>
+
+            <p>
+                Właściwości te określają
+                położenie elementów
+                z odpowiednim
+                <code>position</code>.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>top</code></td>
+                    <td>Określa odsunięcie od górnej strony.</td>
+                </tr>
+                <tr>
+                    <td><code>right</code></td>
+                    <td>Określa odsunięcie od prawej strony.</td>
+                </tr>
+                <tr>
+                    <td><code>bottom</code></td>
+                    <td>Określa odsunięcie od dolnej strony.</td>
+                </tr>
+                <tr>
+                    <td><code>left</code></td>
+                    <td>Określa odsunięcie od lewej strony.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład 1 – lewy górny róg</h3>
+
+            <pre><code class="language-css">.element {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+}</code></pre>
+
+            <h3>Przykład 2 – prawy górny róg</h3>
+
+            <pre><code class="language-css">.element {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            <h3>Przykład 3 – lewy dolny róg</h3>
+
+            <pre><code class="language-css">.element {
+    position: absolute;
+
+    bottom: 10px;
+    left: 10px;
+}</code></pre>
+
+            <h3>Przykład 4 – prawy dolny róg</h3>
+
+            <pre><code class="language-css">.element {
+    position: absolute;
+
+    bottom: 10px;
+    right: 10px;
+}</code></pre>
+
+            <h3>Wartości ujemne</h3>
+
+            <pre><code class="language-css">.element {
+    position: absolute;
+
+    top: -10px;
+    right: -10px;
+}</code></pre>
+
+            <p>
+                Element może częściowo
+                wystawać poza kontener.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Działanie top, right,
+                    bottom i left
+                    zależy od wartości
+                    właściwości <code>position</code>.
+                    Nie zawsze oznaczają one
+                    odsunięcie od krawędzi
+                    całego okna przeglądarki.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="porownanie">
+
+            <h2>10. Porównanie sposobów pozycjonowania</h2>
+
+            <table>
+                <tr>
+                    <th>Position</th>
+                    <th>Punkt odniesienia</th>
+                    <th>Miejsce w normalnym układzie</th>
+                    <th>Typowe zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>static</code></td>
+                    <td>Normalny układ strony</td>
+                    <td>Tak</td>
+                    <td>Zwykłe elementy</td>
+                </tr>
+
+                <tr>
+                    <td><code>relative</code></td>
+                    <td>Własne normalne położenie</td>
+                    <td>Tak</td>
+                    <td>Drobne przesunięcia, rodzic dla absolute</td>
+                </tr>
+
+                <tr>
+                    <td><code>absolute</code></td>
+                    <td>Odpowiedni blok odniesienia</td>
+                    <td>Nie</td>
+                    <td>Odznaki, nakładki, elementy w rogach kart</td>
+                </tr>
+
+                <tr>
+                    <td><code>fixed</code></td>
+                    <td>Zwykle obszar widoczny przeglądarki</td>
+                    <td>Nie</td>
+                    <td>Pływające przyciski i panele</td>
+                </tr>
+
+                <tr>
+                    <td><code>sticky</code></td>
+                    <td>Normalne położenie i obszar przewijania</td>
+                    <td>Tak</td>
+                    <td>Przyklejone menu i nagłówki</td>
+                </tr>
+            </table>
+
+            <h3>Jak zapamiętać różnice?</h3>
+
+            <ul>
+                <li><strong>static</strong> – zwykłe położenie.</li>
+                <li><strong>relative</strong> – przesunięcie względem siebie.</li>
+                <li><strong>absolute</strong> – położenie względem bloku odniesienia.</li>
+                <li><strong>fixed</strong> – zwykle stałe miejsce na ekranie.</li>
+                <li><strong>sticky</strong> – przyklejenie podczas przewijania.</li>
+            </ul>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="z-index">
+
+            <h2>11. Właściwość z-index – kolejność nakładania elementów</h2>
+
+            <p>
+                Elementy strony mogą
+                częściowo lub całkowicie
+                nakładać się na siebie.
+            </p>
+
+            <p>
+                Właściwość <code>z-index</code>
+                pomaga określić,
+                który element ma być
+                wyświetlany nad innym.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="obszar"&gt;
+
+    &lt;div class="kwadrat pierwszy"&gt;
+        1
+    &lt;/div&gt;
+
+    &lt;div class="kwadrat drugi"&gt;
+        2
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.obszar {
+    position: relative;
+
+    height: 220px;
+}
+
+.kwadrat {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+}
+
+.pierwszy {
+    top: 20px;
+    left: 20px;
+
+    background-color: lightblue;
+
+    z-index: 1;
+}
+
+.drugi {
+    top: 70px;
+    left: 70px;
+
+    background-color: lightcoral;
+
+    z-index: 2;
+}</code></pre>
+
+            <p>
+                Drugi kwadrat
+                będzie wyświetlany
+                nad pierwszym,
+                ponieważ w tym samym
+                kontekście nakładania
+                ma wyższą wartość
+                <code>z-index</code>.
+            </p>
+
+            <h3>Przykładowe wartości</h3>
+
+            <pre><code class="language-css">z-index: 1;
+
+z-index: 10;
+
+z-index: 100;
+
+z-index: -1;</code></pre>
+
+            <p>
+                Wartości mogą być
+                dodatnie, zerowe lub ujemne.
+            </p>
+
+            <h3>Ważna zasada</h3>
+
+            <p>
+                <code>z-index</code>
+                nie jest prostym numerem
+                warstwy dla całej strony.
+                Jego działanie zależy
+                od kontekstów nakładania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>z-index</code>
+                    służy do kontrolowania
+                    kolejności nakładania elementów.
+                    W typowych przykładach działa
+                    dla elementów pozycjonowanych,
+                    a także m.in. dla elementów
+                    flex i grid.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="stacking">
+
+            <h2>12. Kontekst nakładania – stacking context</h2>
+
+            <p>
+                Podczas pracy z
+                <code>z-index</code>
+                można spotkać sytuację,
+                w której bardzo wysoka
+                wartość nie powoduje
+                wyświetlenia elementu
+                nad wszystkimi innymi.
+            </p>
+
+            <p>
+                Wynika to z istnienia
+                <strong>kontekstów nakładania</strong>
+                (ang. <em>stacking contexts</em>).
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div class="panel1"&gt;
+
+    &lt;div class="odznaka"&gt;
+        Odznaka
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="panel2"&gt;
+    Drugi panel
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.panel1 {
+    position: relative;
+    z-index: 1;
+}
+
+.panel2 {
+    position: relative;
+    z-index: 2;
+}
+
+.odznaka {
+    position: absolute;
+    z-index: 9999;
+}</code></pre>
+
+            <p>
+                Mimo że odznaka ma
+                <code>z-index: 9999</code>,
+                nie może samodzielnie
+                przeskoczyć ponad
+                cały kontekst nakładania
+                panelu o wyższej warstwie.
+            </p>
+
+            <h3>Co może utworzyć stacking context?</h3>
+
+            <ul>
+                <li>pozycjonowany element z <code>z-index</code> innym niż <code>auto</code>,</li>
+                <li>element z <code>position: fixed</code> lub <code>sticky</code>,</li>
+                <li>element z <code>opacity</code> mniejszym niż 1,</li>
+                <li>element z <code>transform</code> innym niż <code>none</code>,</li>
+                <li>niektóre elementy flex i grid z ustawionym <code>z-index</code>.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Jeśli <code>z-index</code>
+                    nie działa zgodnie
+                    z oczekiwaniami,
+                    sprawdź nie tylko
+                    sam element,
+                    ale również jego rodziców.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="odznaki">
+
+            <h2>13. Praktyczny przykład – odznaki na kartach</h2>
+
+            <p>
+                Pozycjonowanie bezwzględne
+                często wykorzystuje się
+                do umieszczania informacji
+                w narożnikach kart.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;article class="karta"&gt;
+
+    &lt;span class="odznaka"&gt;
+        HIT
+    &lt;/span&gt;
+
+    &lt;h2&gt;Kurs CSS3&lt;/h2&gt;
+
+    &lt;p&gt;
+        Naucz się projektować
+        nowoczesne strony WWW.
+    &lt;/p&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.karta {
+    position: relative;
+
+    width: 300px;
+    min-height: 200px;
+
+    padding: 45px 20px 20px;
+
+    background-color: white;
+
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+.odznaka {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    padding: 5px 12px;
+
+    background-color: #DC2626;
+    color: white;
+
+    border-radius: 5px;
+}</code></pre>
+
+            <p>
+                Zwróć uwagę na większy
+                górny padding karty.
+                Dzięki niemu odznaka
+                nie zasłania nagłówka.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Elementy pozycjonowane
+                    bezwzględnie mogą
+                    nachodzić na treść.
+                    Dlatego należy
+                    zaplanować dla nich
+                    odpowiednio dużo miejsca.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="nawigacja">
+
+            <h2>14. Praktyczny przykład – przyklejona nawigacja</h2>
+
+            <p>
+                Menu z
+                <code>position: sticky</code>
+                może pozostać widoczne
+                podczas przewijania strony.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;header id="start"&gt;
+
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+
+&lt;/header&gt;
+
+&lt;nav class="menu"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu {
+    position: sticky;
+
+    top: 0;
+    z-index: 100;
+
+    padding: 15px;
+
+    background-color: #1E3A8A;
+}
+
+.menu a {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    color: white;
+    text-decoration: none;
+}</code></pre>
+
+            <p>
+                Wartość <code>z-index: 100</code>
+                pomaga wyświetlać menu
+                nad zwykłą zawartością
+                w odpowiednim kontekście nakładania.
+            </p>
+
+            <h3>Dlaczego warto ustawić kolor tła?</h3>
+
+            <p>
+                Bez wyraźnego tła
+                tekst i elementy znajdujące się
+                pod przyklejonym menu
+                mogą prześwitywać,
+                utrudniając czytanie.
+            </p>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="przycisk">
+
+            <h2>15. Praktyczny przykład – przycisk powrotu na górę</h2>
+
+            <p>
+                Za pomocą
+                <code>position: fixed</code>
+                możemy utworzyć przycisk,
+                który pozostaje
+                w prawym dolnym rogu ekranu.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;header id="start"&gt;
+
+    &lt;h1&gt;Moja strona&lt;/h1&gt;
+
+&lt;/header&gt;
+
+&lt;a href="#start"
+   class="do-gory"
+   aria-label="Powrót na górę strony"&gt;
+    ↑
+&lt;/a&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.do-gory {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 200;
+
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+
+    line-height: 50px;
+    text-align: center;
+
+    background-color: #2563EB;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 50%;
+}
+
+.do-gory:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <p>
+                Przycisk pozostaje
+                w stałym miejscu ekranu
+                podczas przewijania.
+            </p>
+
+            <p>
+                Po kliknięciu odnośnika
+                przeglądarka przechodzi
+                do elementu o identyfikatorze
+                <code>start</code>.
+            </p>
+
+            <h3>Płynne przewijanie</h3>
+
+            <pre><code class="language-css">html {
+    scroll-behavior: smooth;
+}</code></pre>
+
+            <p>
+                Ta właściwość umożliwia
+                płynne przewijanie
+                przy przechodzeniu
+                do kotwic strony.
+            </p>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="responsywnosc">
+
+            <h2>16. Pozycjonowanie a responsywność strony</h2>
+
+            <p>
+                Pozycjonowanie elementów
+                wymaga uwzględnienia
+                różnych rozmiarów ekranów.
+            </p>
+
+            <p>
+                Element umieszczony
+                w konkretnym miejscu
+                na dużym monitorze
+                może zasłaniać treść
+                na ekranie telefonu.
+            </p>
+
+            <h3>Przykład problemu</h3>
+
+            <pre><code class="language-css">.panel {
+    position: absolute;
+
+    left: 800px;
+    top: 100px;
+}</code></pre>
+
+            <p>
+                Na małym ekranie
+                panel może znaleźć się
+                poza widocznym obszarem.
+            </p>
+
+            <h3>Lepsze rozwiązanie</h3>
+
+            <pre><code class="language-css">.kontener {
+    position: relative;
+}
+
+.panel {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            <p>
+                Panel będzie pozycjonowany
+                względem kontenera,
+                a nie za pomocą
+                dużej, sztywnej odległości
+                od lewej strony.
+            </p>
+
+            <h3>Media queries</h3>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .do-gory {
+        right: 10px;
+        bottom: 10px;
+
+        width: 42px;
+        height: 42px;
+
+        line-height: 42px;
+    }
+
+}</code></pre>
+
+            <p>
+                Na mniejszych ekranach
+                przycisk zajmuje mniej miejsca.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie używaj
+                    <code>position: absolute</code>
+                    do rozmieszczania wszystkich
+                    elementów całej strony.
+                    Do głównego układu
+                    zwykle lepiej nadają się
+                    normalny przepływ dokumentu,
+                    Flexbox lub Grid.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="bledy">
+
+            <h2>17. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – top i left bez odpowiedniego position</h3>
+
+            <pre><code class="language-css">.element {
+    top: 20px;
+    left: 30px;
+}</code></pre>
+
+            <p>
+                Element ma domyślnie
+                <code>position: static</code>,
+                więc właściwości te
+                nie przesuną go.
+            </p>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.element {
+    position: relative;
+
+    top: 20px;
+    left: 30px;
+}</code></pre>
+
+            <h3>Błąd 2 – absolute bez punktu odniesienia</h3>
+
+            <pre><code class="language-css">.odznaka {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            <p>
+                Jeśli nie ustawimy
+                odpowiedniego rodzica,
+                odznaka może zostać
+                pozycjonowana
+                względem innego obszaru.
+            </p>
+
+            <p>Typowe rozwiązanie:</p>
+
+            <pre><code class="language-css">.karta {
+    position: relative;
+}
+
+.odznaka {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}</code></pre>
+
+            <h3>Błąd 3 – fixed zasłania treść</h3>
+
+            <p>
+                Element <code>fixed</code>
+                nie rezerwuje miejsca
+                w normalnym układzie.
+                Może więc zasłaniać
+                nagłówki, tekst lub przyciski.
+            </p>
+
+            <h3>Błąd 4 – sticky bez określenia granicy</h3>
+
+            <pre><code class="language-css">.menu {
+    position: sticky;
+}</code></pre>
+
+            <p>
+                Bez odpowiedniej wartości
+                takiej jak <code>top: 0</code>
+                przyklejanie w pionie
+                może nie być widoczne.
+            </p>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.menu {
+    position: sticky;
+    top: 0;
+}</code></pre>
+
+            <h3>Błąd 5 – z-index bez uwzględnienia kontekstu</h3>
+
+            <pre><code class="language-css">.element {
+    z-index: 9999;
+}</code></pre>
+
+            <p>
+                Wysoka wartość
+                nie gwarantuje,
+                że element znajdzie się
+                nad wszystkimi innymi.
+            </p>
+
+            <h3>Błąd 6 – absolute do całego układu strony</h3>
+
+            <p>
+                Pozycjonowanie wszystkich
+                elementów za pomocą
+                sztywnych współrzędnych
+                może powodować
+                nakładanie się treści
+                i problemy na różnych ekranach.
+            </p>
+
+            <h3>Błąd 7 – relative jako sposób tworzenia odstępów</h3>
+
+            <p>
+                <code>position: relative</code>
+                przesuwa element wizualnie,
+                ale pozostawia jego pierwotne
+                miejsce w układzie.
+            </p>
+
+            <p>
+                Do zwykłych odstępów
+                między elementami
+                lepiej wykorzystać
+                <code>margin</code>,
+                <code>padding</code>
+                lub <code>gap</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Jeśli element znajduje się
+                    w niewłaściwym miejscu,
+                    sprawdź kolejno:
+                    <code>position</code>,
+                    jego blok odniesienia,
+                    wartości <code>top</code>,
+                    <code>right</code>,
+                    <code>bottom</code>,
+                    <code>left</code>
+                    oraz <code>z-index</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="przyklad">
+
+            <h2>18. Kompletny przykład – strona z pozycjonowanymi elementami</h2>
+
+            <p>
+                Przygotujemy stronę
+                <strong>„Kursy programowania”</strong>,
+                wykorzystującą kilka sposobów
+                pozycjonowania CSS.
+            </p>
+
+            <p>
+                Na stronie znajdą się:
+            </p>
+
+            <ul>
+                <li>przyklejone menu – <code>sticky</code>,</li>
+                <li>karty z odznakami – <code>relative</code> i <code>absolute</code>,</li>
+                <li>przycisk powrotu na górę – <code>fixed</code>,</li>
+                <li>nakładające się kwadraty – <code>z-index</code>.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kursy programowania&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;h1&gt;Kursy programowania&lt;/h1&gt;
+
+        &lt;p&gt;
+            Rozwijaj swoje umiejętności
+            tworzenia stron WWW.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+        &lt;a href="#warstwy"&gt;Warstwy&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Wybierz kurs dla siebie&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poznaj HTML, CSS
+                i JavaScript.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="oferta" class="oferta"&gt;
+
+            &lt;h2&gt;Nasza oferta&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;span class="odznaka"&gt;
+                        NOWOŚĆ
+                    &lt;/span&gt;
+
+                    &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Naucz się tworzyć
+                        strukturę strony WWW.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;span class="odznaka promocja"&gt;
+                        PROMOCJA
+                    &lt;/span&gt;
+
+                    &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Poznaj zasady
+                        formatowania stron.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;span class="odznaka hit"&gt;
+                        HIT
+                    &lt;/span&gt;
+
+                    &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Dodawaj interaktywność
+                        do stron internetowych.
+                    &lt;/p&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="warstwy" class="warstwy"&gt;
+
+            &lt;h2&gt;Przykład działania z-index&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poniższe kwadraty
+                nakładają się na siebie.
+            &lt;/p&gt;
+
+            &lt;div class="obszar-warstw"&gt;
+
+                &lt;div class="kwadrat kwadrat1"&gt;
+                    1
+                &lt;/div&gt;
+
+                &lt;div class="kwadrat kwadrat2"&gt;
+                    2
+                &lt;/div&gt;
+
+                &lt;div class="kwadrat kwadrat3"&gt;
+                    3
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt" class="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Skontaktuj się z nami,
+                aby dowiedzieć się więcej
+                o dostępnych kursach.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;a href="#start"
+       class="do-gory"
+       aria-label="Powrót na górę strony"&gt;
+        ↑
+    &lt;/a&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Kursy programowania&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Płynne przewijanie */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* Przyklejone menu */
+
+.menu {
+    position: sticky;
+
+    top: 0;
+    z-index: 100;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background-color: #172554;
+}
+
+.menu a {
+    display: inline-block;
+
+    padding: 10px 18px;
+    margin: 4px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #1D4ED8;
+}
+
+/* Główna zawartość */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 30px auto;
+}
+
+/* Wprowadzenie */
+
+.wprowadzenie {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    border-left: 5px solid #2563EB;
+    border-radius: 8px;
+}
+
+/* Oferta */
+
+.oferta {
+    margin-bottom: 40px;
+}
+
+.karty {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+/* Karty */
+
+.karta {
+    position: relative;
+
+    flex: 1 1 250px;
+    min-width: 0;
+    min-height: 200px;
+
+    padding: 50px 25px 25px;
+
+    background-color: white;
+
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: #1D4ED8;
+}
+
+/* Odznaki */
+
+.odznaka {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    padding: 5px 10px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    color: white;
+    background-color: #2563EB;
+
+    border-radius: 5px;
+}
+
+.promocja {
+    background-color: #DC2626;
+}
+
+.hit {
+    background-color: #16A34A;
+}
+
+/* Sekcja warstw */
+
+.warstwy {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+}
+
+/* Obszar pozycjonowania */
+
+.obszar-warstw {
+    position: relative;
+
+    height: 280px;
+    max-width: 400px;
+
+    background-color: #F8FAFC;
+
+    border: 2px dashed #94A3B8;
+}
+
+/* Kwadraty */
+
+.kwadrat {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    color: white;
+}
+
+.kwadrat1 {
+    top: 20px;
+    left: 20px;
+
+    z-index: 1;
+
+    background-color: #2563EB;
+}
+
+.kwadrat2 {
+    top: 70px;
+    left: 70px;
+
+    z-index: 2;
+
+    background-color: #DC2626;
+}
+
+.kwadrat3 {
+    top: 120px;
+    left: 120px;
+
+    z-index: 3;
+
+    background-color: #16A34A;
+}
+
+/* Kontakt */
+
+.kontakt {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: #DBEAFE;
+
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+}
+
+/* Przycisk powrotu */
+
+.do-gory {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 200;
+
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+
+    line-height: 50px;
+    text-align: center;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+
+    border-radius: 50%;
+}
+
+.do-gory:hover {
+    background-color: #1D4ED8;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+/* Mniejsze ekrany */
+
+@media (max-width: 600px) {
+
+    .do-gory {
+        right: 10px;
+        bottom: 10px;
+
+        width: 42px;
+        height: 42px;
+
+        line-height: 42px;
+    }
+
+    .kwadrat {
+        width: 100px;
+        height: 100px;
+    }
+
+    .kwadrat2 {
+        top: 60px;
+        left: 60px;
+    }
+
+    .kwadrat3 {
+        top: 120px;
+        left: 120px;
+    }
+
+}</code></pre>
+
+            <h3>Analiza zastosowanych właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Właściwość</th>
+                    <th>Efekt</th>
+                </tr>
+
+                <tr>
+                    <td><code>.menu</code></td>
+                    <td><code>position: sticky</code></td>
+                    <td>Menu przykleja się podczas przewijania.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.karta</code></td>
+                    <td><code>position: relative</code></td>
+                    <td>Tworzy punkt odniesienia dla odznaki.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.odznaka</code></td>
+                    <td><code>position: absolute</code></td>
+                    <td>Odznaka znajduje się w rogu karty.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.do-gory</code></td>
+                    <td><code>position: fixed</code></td>
+                    <td>Przycisk pozostaje w rogu ekranu.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.kwadrat1</code></td>
+                    <td><code>z-index: 1</code></td>
+                    <td>Pierwszy poziom nakładania.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.kwadrat2</code></td>
+                    <td><code>z-index: 2</code></td>
+                    <td>Wyświetla się nad pierwszym kwadratem.</td>
+                </tr>
+
+                <tr>
+                    <td><code>.kwadrat3</code></td>
+                    <td><code>z-index: 3</code></td>
+                    <td>Wyświetla się nad pozostałymi kwadratami.</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+
+                    <li>
+                        Właściwość <code>position</code>
+                        określa sposób pozycjonowania
+                        elementu HTML.
+                    </li>
+
+                    <li>
+                        <code>position: static</code>
+                        jest domyślną wartością.
+                    </li>
+
+                    <li>
+                        Element static
+                        nie jest przesuwany
+                        przez top, right,
+                        bottom i left.
+                    </li>
+
+                    <li>
+                        <code>position: relative</code>
+                        przesuwa element względem
+                        jego normalnego położenia.
+                    </li>
+
+                    <li>
+                        Element relative
+                        zachowuje swoje miejsce
+                        w normalnym układzie strony.
+                    </li>
+
+                    <li>
+                        <code>position: absolute</code>
+                        wyjmuje element
+                        z normalnego układu.
+                    </li>
+
+                    <li>
+                        Element absolute
+                        jest pozycjonowany
+                        względem odpowiedniego
+                        bloku odniesienia.
+                    </li>
+
+                    <li>
+                        Połączenie rodzica
+                        <code>relative</code>
+                        i dziecka
+                        <code>absolute</code>
+                        jest często wykorzystywane
+                        do umieszczania odznak
+                        w rogach kart.
+                    </li>
+
+                    <li>
+                        <code>position: fixed</code>
+                        zwykle utrzymuje element
+                        w stałym miejscu ekranu.
+                    </li>
+
+                    <li>
+                        Element fixed
+                        nie zajmuje miejsca
+                        w normalnym układzie strony.
+                    </li>
+
+                    <li>
+                        <code>position: sticky</code>
+                        pozwala przyklejać element
+                        podczas przewijania.
+                    </li>
+
+                    <li>
+                        Sticky wymaga
+                        odpowiedniej granicy,
+                        np. <code>top: 0</code>.
+                    </li>
+
+                    <li>
+                        <code>top</code>,
+                        <code>right</code>,
+                        <code>bottom</code>
+                        i <code>left</code>
+                        służą do określania
+                        położenia elementu.
+                    </li>
+
+                    <li>
+                        <code>z-index</code>
+                        pomaga kontrolować
+                        kolejność nakładania
+                        elementów.
+                    </li>
+
+                    <li>
+                        Wyższy z-index
+                        nie zawsze oznacza,
+                        że element znajdzie się
+                        nad wszystkimi innymi.
+                    </li>
+
+                    <li>
+                        Kontekst nakładania
+                        wpływa na działanie
+                        <code>z-index</code>.
+                    </li>
+
+                    <li>
+                        Pozycjonowanie należy
+                        stosować świadomie,
+                        zwłaszcza na stronach
+                        przeznaczonych
+                        na różne rozmiary ekranów.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                zastosowanie różnych sposobów
+                pozycjonowania CSS
+                oraz kontrolowanie
+                kolejności nakładania elementów.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_28</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                    Każde kolejne zadanie
+                    rozbudowuje ten sam projekt.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Pozycjonowanie względne</h3>
+
+            <p>
+                Utwórz stronę
+                <strong>„Moja oferta kursów”</strong>.
+            </p>
+
+            <ol>
+                <li>Przygotuj poprawny dokument HTML5.</li>
+                <li>Podłącz plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z tytułem.</li>
+                <li>Utwórz trzy bloki opisujące wybrane kursy.</li>
+                <li>Ustaw dla bloków szerokość, padding i obramowanie.</li>
+                <li>Drugiemu blokowi nadaj <code>position: relative</code>.</li>
+                <li>Przesuń go o 20 px w dół i 30 px w prawo.</li>
+                <li>Sprawdź, czy pozostałe bloki zmieniły swoje położenie.</li>
+                <li>Zapisz obserwację w komentarzu CSS.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Odznaki absolute</h3>
+
+            <p>
+                Zmień bloki w karty
+                z odznakami.
+            </p>
+
+            <ol>
+                <li>Każdej karcie nadaj klasę <code>karta</code>.</li>
+                <li>Ustaw dla kart <code>position: relative</code>.</li>
+                <li>W każdej karcie dodaj element <code>span</code> z odznaką.</li>
+                <li>Dla odznak zastosuj <code>position: absolute</code>.</li>
+                <li>Umieść pierwszą odznakę w prawym górnym rogu.</li>
+                <li>Umieść drugą odznakę w lewym górnym rogu.</li>
+                <li>Umieść trzecią odznakę w prawym dolnym rogu.</li>
+                <li>Dodaj odznakom kolory tła i padding.</li>
+                <li>Sprawdź, czy odznaki nie zasłaniają tekstu kart.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Przyklejone menu sticky</h3>
+
+            <p>
+                Dodaj nawigację
+                na górze strony.
+            </p>
+
+            <ol>
+                <li>Utwórz element <code>nav</code>.</li>
+                <li>Dodaj odnośniki: Start, Oferta, Kontakt.</li>
+                <li>Dodaj odpowiednie identyfikatory sekcji.</li>
+                <li>Ustaw <code>position: sticky</code>.</li>
+                <li>Dodaj <code>top: 0</code>.</li>
+                <li>Ustaw <code>z-index: 100</code>.</li>
+                <li>Dodaj kolor tła i odpowiedni padding.</li>
+                <li>Rozbuduj stronę o treść, aby można było ją przewijać.</li>
+                <li>Sprawdź, czy menu przykleja się podczas przewijania.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Przycisk fixed</h3>
+
+            <p>
+                Dodaj przycisk
+                umożliwiający powrót
+                na górę strony.
+            </p>
+
+            <ol>
+                <li>Dodaj odnośnik z symbolem <code>↑</code>.</li>
+                <li>Ustaw jego adres na <code>#start</code>.</li>
+                <li>Nadaj mu klasę <code>do-gory</code>.</li>
+                <li>Zastosuj <code>position: fixed</code>.</li>
+                <li>Ustaw <code>right: 20px</code> i <code>bottom: 20px</code>.</li>
+                <li>Dodaj kolor tła, padding i zaokrąglenie.</li>
+                <li>Ustaw <code>z-index: 200</code>.</li>
+                <li>Sprawdź działanie przycisku podczas przewijania.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Nakładanie elementów z-index</h3>
+
+            <p>
+                Utwórz sekcję
+                prezentującą trzy
+                nakładające się kwadraty.
+            </p>
+
+            <ol>
+                <li>Dodaj kontener z klasą <code>obszar</code>.</li>
+                <li>Ustaw <code>position: relative</code>.</li>
+                <li>Wewnątrz umieść trzy elementy <code>div</code>.</li>
+                <li>Każdemu nadaj szerokość i wysokość 120 px.</li>
+                <li>Zastosuj <code>position: absolute</code>.</li>
+                <li>Ustaw różne wartości <code>top</code> i <code>left</code>, aby kwadraty na siebie nachodziły.</li>
+                <li>Ustaw kolejno <code>z-index: 1</code>, <code>z-index: 2</code> i <code>z-index: 3</code>.</li>
+                <li>Zmieniając wartości <code>z-index</code>, sprawdź kolejność nakładania kwadratów.</li>
+                <li>Zapisz obserwację w komentarzu CSS.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Porównanie position (dodatkowe)</h3>
+
+            <p>
+                Dodaj sekcję
+                porównującą różne sposoby
+                pozycjonowania.
+            </p>
+
+            <ol>
+                <li>Przygotuj pięć elementów opisanych: static, relative, absolute, fixed i sticky.</li>
+                <li>Zastosuj dla każdego odpowiednią wartość <code>position</code>.</li>
+                <li>Dla elementu absolute przygotuj osobny kontener relative.</li>
+                <li>Dla sticky zastosuj <code>top: 0</code> i zapewnij odpowiednią przestrzeń do przewijania.</li>
+                <li>Dla fixed wybierz miejsce, które nie zasłania przycisku powrotu na górę.</li>
+                <li>Sprawdź zachowanie elementów podczas przewijania.</li>
+                <li>Pod przykładami dodaj krótkie wyjaśnienie różnic między sposobami pozycjonowania.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_28/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku HTML
+                    i jednym arkuszu CSS.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_28</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    działanie menu sticky,
+                    rozmieszczenie odznak,
+                    przycisk fixed,
+                    nakładanie kwadratów
+                    oraz poprawność
+                    zastosowanych wartości
+                    <code>position</code>
+                    i <code>z-index</code>.
+                </p>
+
+                <p>
+                    <strong>
+                        Teksty na stronie
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 28
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
