@@ -1,0 +1,2301 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 25 – Obramowania, cienie i efekty wizualne | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#border">2.Obramowanie border</a>
+        <a href="#border-style">3.Style obramowania</a>
+        <a href="#border-width">4.Grubość obramowania</a>
+        <a href="#border-color">5.Kolor obramowania</a>
+        <a href="#border-sides">6.Obramowanie wybranych boków</a>
+        <a href="#border-radius">7.Zaokrąglanie narożników</a>
+        <a href="#radius-corners">8.Niezależne narożniki</a>
+        <a href="#outline">9.Obramowanie outline</a>
+        <a href="#box-shadow">10.Cień elementu</a>
+        <a href="#shadow-effects">11.Rodzaje cieni</a>
+        <a href="#text-shadow">12.Cień tekstu</a>
+        <a href="#opacity">13.Przezroczystość</a>
+        <a href="#filter">14.Filtry CSS</a>
+        <a href="#hover">15.Efekty po najechaniu</a>
+        <a href="#transition">16.Płynne przejścia</a>
+        <a href="#zastosowania">17.Praktyczne zastosowania</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 25 • CSS3
+            </div>
+
+            <h2>
+                Obramowania, zaokrąglenia, cienie
+                i efekty wizualne elementów strony
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie właściwości CSS3
+                umożliwiających formatowanie obramowań,
+                zaokrąglanie narożników, dodawanie cieni,
+                stosowanie przezroczystości i filtrów
+                oraz tworzenie prostych efektów wizualnych.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – efekty wizualne w CSS</h2>
+
+            <p>
+                CSS pozwala zmieniać nie tylko
+                kolory, rozmiary i tła elementów,
+                ale również ich wygląd wizualny.
+            </p>
+
+            <p>
+                Dzięki odpowiednim właściwościom
+                możemy tworzyć:
+            </p>
+
+            <ul>
+                <li>obramowania wokół elementów,</li>
+                <li>zaokrąglone narożniki,</li>
+                <li>karty z delikatnymi cieniami,</li>
+                <li>przyciski reagujące na najechanie myszą,</li>
+                <li>półprzezroczyste elementy,</li>
+                <li>efekty rozmycia i zmiany kolorów obrazów,</li>
+                <li>płynne zmiany wyglądu elementów.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    background-color: white;
+    padding: 25px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}</code></pre>
+
+            <p>
+                W tym przykładzie element
+                otrzymuje cienkie obramowanie,
+                zaokrąglone narożniki
+                oraz delikatny cień.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Efekty wizualne powinny
+                    poprawiać wygląd i czytelność strony,
+                    a nie utrudniać korzystanie z niej.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="border">
+
+            <h2>2. Obramowanie elementu – border</h2>
+
+            <p>
+                Właściwość <code>border</code>
+                pozwala dodać obramowanie
+                wokół elementu HTML.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    border: grubość styl kolor;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border: 2px solid blue;
+}</code></pre>
+
+            <p>
+                Poszczególne wartości oznaczają:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>2px</code></td>
+                    <td>Grubość obramowania.</td>
+                </tr>
+                <tr>
+                    <td><code>solid</code></td>
+                    <td>Styl obramowania – linia ciągła.</td>
+                </tr>
+                <tr>
+                    <td><code>blue</code></td>
+                    <td>Kolor obramowania.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+    &lt;h2&gt;Moja karta&lt;/h2&gt;
+    &lt;p&gt;Przykładowa zawartość.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Przykład CSS</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 20px;
+    border: 2px solid #2563EB;
+}</code></pre>
+
+            <p>
+                Obramowanie jest częścią
+                modelu pudełkowego CSS
+                i wpływa na wymiary elementu,
+                jeśli nie zastosowano
+                odpowiednich ustawień
+                <code>box-sizing</code>.
+            </p>
+
+        </section>
+
+        <section id="border-style">
+
+            <h2>3. Style obramowania – border-style</h2>
+
+            <p>
+                Właściwość <code>border-style</code>
+                określa wygląd linii obramowania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Efekt</th>
+                </tr>
+                <tr>
+                    <td><code>solid</code></td>
+                    <td>Linia ciągła.</td>
+                </tr>
+                <tr>
+                    <td><code>dashed</code></td>
+                    <td>Linia kreskowana.</td>
+                </tr>
+                <tr>
+                    <td><code>dotted</code></td>
+                    <td>Linia kropkowana.</td>
+                </tr>
+                <tr>
+                    <td><code>double</code></td>
+                    <td>Linia podwójna.</td>
+                </tr>
+                <tr>
+                    <td><code>groove</code></td>
+                    <td>Efekt wklęsłego rowka.</td>
+                </tr>
+                <tr>
+                    <td><code>ridge</code></td>
+                    <td>Efekt wypukłego grzbietu.</td>
+                </tr>
+                <tr>
+                    <td><code>inset</code></td>
+                    <td>Efekt wciśniętego elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>outset</code></td>
+                    <td>Efekt wysuniętego elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Brak obramowania.</td>
+                </tr>
+                <tr>
+                    <td><code>hidden</code></td>
+                    <td>Ukryte obramowanie; istotne także przy tabelach.</td>
+                </tr>
+            </table>
+
+            <h3>Przykłady</h3>
+
+            <pre><code class="language-css">.karta1 {
+    border: 3px solid blue;
+}
+
+.karta2 {
+    border: 3px dashed green;
+}
+
+.karta3 {
+    border: 3px dotted red;
+}
+
+.karta4 {
+    border: 6px double purple;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Samo ustawienie grubości
+                    i koloru obramowania
+                    nie wystarczy, jeśli
+                    styl pozostaje równy
+                    <code>none</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="border-width">
+
+            <h2>4. Grubość obramowania – border-width</h2>
+
+            <p>
+                Właściwość <code>border-width</code>
+                określa grubość obramowania.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border-style: solid;
+    border-width: 4px;
+    border-color: blue;
+}</code></pre>
+
+            <p>
+                Można również ustawić
+                różną grubość poszczególnych boków.
+            </p>
+
+            <pre><code class="language-css">.karta {
+    border-style: solid;
+    border-width: 2px 4px 6px 8px;
+}</code></pre>
+
+            <p>
+                Kolejność wartości:
+            </p>
+
+            <ol>
+                <li>góra – <code>2px</code>,</li>
+                <li>prawo – <code>4px</code>,</li>
+                <li>dół – <code>6px</code>,</li>
+                <li>lewo – <code>8px</code>.</li>
+            </ol>
+
+            <h3>Inne zapisy</h3>
+
+            <pre><code class="language-css">/* Wszystkie boki */
+
+.karta1 {
+    border-width: 3px;
+}
+
+/* Góra i dół | lewo i prawo */
+
+.karta2 {
+    border-width: 2px 5px;
+}
+
+/* Góra | lewo i prawo | dół */
+
+.karta3 {
+    border-width: 2px 4px 6px;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Przy czterech wartościach
+                    kolejność jest następująca:
+                    <strong>góra, prawo, dół, lewo</strong>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="border-color">
+
+            <h2>5. Kolor obramowania – border-color</h2>
+
+            <p>
+                Właściwość <code>border-color</code>
+                określa kolor obramowania.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #2563EB;
+}</code></pre>
+
+            <h3>Różne kolory boków</h3>
+
+            <pre><code class="language-css">.karta {
+    border-style: solid;
+    border-width: 4px;
+
+    border-color:
+        red
+        green
+        blue
+        orange;
+}</code></pre>
+
+            <p>
+                Kolory odpowiadają kolejno
+                górnemu, prawemu,
+                dolnemu i lewemu bokowi.
+            </p>
+
+            <h3>Kolor z przezroczystością</h3>
+
+            <pre><code class="language-css">.karta {
+    border: 3px solid rgba(37, 99, 235, 0.4);
+}</code></pre>
+
+            <p>
+                Dzięki <code>rgba()</code>
+                można uzyskać delikatne,
+                częściowo przezroczyste obramowanie.
+            </p>
+
+        </section>
+
+        <section id="border-sides">
+
+            <h2>6. Obramowanie wybranych boków</h2>
+
+            <p>
+                CSS pozwala ustawiać
+                obramowanie każdego boku
+                niezależnie.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>border-top</code></td>
+                    <td>Górne obramowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>border-right</code></td>
+                    <td>Prawe obramowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom</code></td>
+                    <td>Dolne obramowanie.</td>
+                </tr>
+                <tr>
+                    <td><code>border-left</code></td>
+                    <td>Lewe obramowanie.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – wyróżniony komunikat</h3>
+
+            <pre><code class="language-css">.komunikat {
+    padding: 20px;
+    background-color: #EFF6FF;
+
+    border-left: 5px solid #2563EB;
+}</code></pre>
+
+            <h3>Przykład – linia pod nagłówkiem</h3>
+
+            <pre><code class="language-css">h2 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #CBD5E1;
+}</code></pre>
+
+            <h3>Przykład – różne obramowania</h3>
+
+            <pre><code class="language-css">.panel {
+    border-top: 3px solid red;
+    border-right: 2px dashed blue;
+    border-bottom: 4px double green;
+    border-left: 5px solid orange;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Obramowanie tylko jednego boku
+                    często służy do wyróżniania
+                    informacji, cytatów
+                    i komunikatów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="border-radius">
+
+            <h2>7. Zaokrąglanie narożników – border-radius</h2>
+
+            <p>
+                Właściwość <code>border-radius</code>
+                pozwala zaokrąglić narożniki elementu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+}</code></pre>
+
+            <p>
+                Wszystkie cztery narożniki
+                zostaną zaokrąglone.
+            </p>
+
+            <h3>Różne stopnie zaokrąglenia</h3>
+
+            <pre><code class="language-css">.karta1 {
+    border-radius: 5px;
+}
+
+.karta2 {
+    border-radius: 15px;
+}
+
+.karta3 {
+    border-radius: 30px;
+}</code></pre>
+
+            <h3>Zaokrąglenie procentowe</h3>
+
+            <pre><code class="language-css">.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}</code></pre>
+
+            <p>
+                Dla kwadratowego elementu
+                <code>border-radius: 50%</code>
+                tworzy kształt koła.
+            </p>
+
+            <h3>Przykład – okrągłe zdjęcie</h3>
+
+            <pre><code class="language-html">&lt;img
+    class="avatar"
+    src="img/osoba.jpg"
+    alt="Zdjęcie profilowe"&gt;</code></pre>
+
+            <pre><code class="language-css">.avatar {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}</code></pre>
+
+            <p>
+                <code>object-fit: cover</code>
+                sprawia, że zdjęcie
+                wypełnia wyznaczony obszar
+                z zachowaniem proporcji.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>border-radius</code>
+                    działa również wtedy,
+                    gdy element nie ma
+                    widocznego obramowania.
+                    Zaokrągla także jego tło.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="radius-corners">
+
+            <h2>8. Niezależne zaokrąglanie narożników</h2>
+
+            <p>
+                Każdy narożnik elementu
+                może mieć inny promień
+                zaokrąglenia.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border-radius: 10px 20px 30px 40px;
+}</code></pre>
+
+            <p>
+                Kolejność:
+            </p>
+
+            <ol>
+                <li>lewy górny – <code>10px</code>,</li>
+                <li>prawy górny – <code>20px</code>,</li>
+                <li>prawy dolny – <code>30px</code>,</li>
+                <li>lewy dolny – <code>40px</code>.</li>
+            </ol>
+
+            <h3>Osobne właściwości</h3>
+
+            <pre><code class="language-css">.karta {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 5px;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+}</code></pre>
+
+            <h3>Przykład – przycisk w kształcie kapsułki</h3>
+
+            <pre><code class="language-css">.przycisk {
+    padding: 12px 30px;
+    background-color: #2563EB;
+    color: white;
+
+    border: none;
+    border-radius: 999px;
+}</code></pre>
+
+            <p>
+                Duża wartość promienia
+                pozwala uzyskać mocno
+                zaokrąglone końce przycisku.
+            </p>
+
+        </section>
+
+        <section id="outline">
+
+            <h2>9. Dodatkowy kontur – outline</h2>
+
+            <p>
+                Właściwość <code>outline</code>
+                pozwala narysować kontur
+                wokół elementu.
+            </p>
+
+            <p>
+                Wygląda podobnie do
+                <code>border</code>,
+                ale nie zajmuje miejsca
+                w modelu pudełkowym.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.pole {
+    border: 2px solid #CBD5E1;
+    outline: 3px solid #2563EB;
+}</code></pre>
+
+            <h3>Odstęp konturu</h3>
+
+            <pre><code class="language-css">.pole {
+    border: 2px solid gray;
+
+    outline: 3px solid blue;
+    outline-offset: 5px;
+}</code></pre>
+
+            <p>
+                <code>outline-offset</code>
+                określa odległość konturu
+                od krawędzi obramowania.
+            </p>
+
+            <h3>Przykład – aktywne pole formularza</h3>
+
+            <pre><code class="language-css">input:focus {
+    outline: 3px solid #2563EB;
+    outline-offset: 2px;
+}</code></pre>
+
+            <p>
+                Kontur może wskazywać,
+                który element jest aktualnie
+                aktywny podczas korzystania
+                z klawiatury.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne – dostępność</h3>
+                <p>
+                    Nie usuwaj bez potrzeby
+                    konturu aktywnych elementów.
+                    Jeśli zmieniasz wygląd
+                    <code>:focus</code>,
+                    zapewnij wyraźny
+                    zamiennik obramowania
+                    lub konturu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="box-shadow">
+
+            <h2>10. Cień elementu – box-shadow</h2>
+
+            <p>
+                Właściwość <code>box-shadow</code>
+                dodaje cień do pudełka elementu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    box-shadow:
+        przesunięcie-x
+        przesunięcie-y
+        rozmycie
+        kolor;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow: 5px 5px 10px gray;
+}</code></pre>
+
+            <p>
+                Znaczenie wartości:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>5px</code></td>
+                    <td>Przesunięcie poziome.</td>
+                </tr>
+                <tr>
+                    <td><code>5px</code></td>
+                    <td>Przesunięcie pionowe.</td>
+                </tr>
+                <tr>
+                    <td><code>10px</code></td>
+                    <td>Promień rozmycia.</td>
+                </tr>
+                <tr>
+                    <td><code>gray</code></td>
+                    <td>Kolor cienia.</td>
+                </tr>
+            </table>
+
+            <h3>Delikatny cień</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}</code></pre>
+
+            <p>
+                Taki cień często wykorzystuje się
+                w kartach produktów, panelach
+                i elementach interfejsu.
+            </p>
+
+            <h3>Cień bez przesunięcia</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.25);
+}</code></pre>
+
+            <p>
+                Cień jest widoczny
+                wokół całego elementu.
+            </p>
+
+        </section>
+
+        <section id="shadow-effects">
+
+            <h2>11. Rodzaje i parametry cieni</h2>
+
+            <p>
+                Właściwość <code>box-shadow</code>
+                pozwala tworzyć różne efekty
+                dzięki dodatkowym parametrom.
+            </p>
+
+            <h3>Pełna składnia</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        4px 6px 12px 2px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <p>
+                Poszczególne wartości oznaczają:
+            </p>
+
+            <ol>
+                <li>przesunięcie poziome – <code>4px</code>,</li>
+                <li>przesunięcie pionowe – <code>6px</code>,</li>
+                <li>promień rozmycia – <code>12px</code>,</li>
+                <li>rozszerzenie cienia – <code>2px</code>,</li>
+                <li>kolor cienia – <code>rgba(...)</code>.</li>
+            </ol>
+
+            <h3>Cień wewnętrzny – inset</h3>
+
+            <pre><code class="language-css">.panel {
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.25);
+}</code></pre>
+
+            <p>
+                Słowo <code>inset</code>
+                powoduje, że cień
+                pojawia się wewnątrz elementu.
+            </p>
+
+            <h3>Kilka cieni jednocześnie</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.15);
+}</code></pre>
+
+            <p>
+                Kolejne cienie oddzielamy
+                przecinkami.
+            </p>
+
+            <h3>Cień przesunięty w lewo i w górę</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        -5px -5px 10px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <p>
+                Ujemne przesunięcia
+                kierują cień w lewo
+                lub w górę.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Na stronach internetowych
+                    zwykle najlepiej wyglądają
+                    subtelne cienie
+                    o niewielkiej przezroczystości.
+                    Zbyt mocne cienie
+                    mogą sprawiać wrażenie
+                    chaotycznego projektu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="text-shadow">
+
+            <h2>12. Cień tekstu – text-shadow</h2>
+
+            <p>
+                Właściwość <code>text-shadow</code>
+                pozwala dodać cień do tekstu.
+            </p>
+
+            <h3>Składnia</h3>
+
+            <pre><code class="language-css">selektor {
+    text-shadow:
+        przesunięcie-x
+        przesunięcie-y
+        rozmycie
+        kolor;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    text-shadow: 2px 2px 4px gray;
+}</code></pre>
+
+            <h3>Jasny tekst na ciemnym tle</h3>
+
+            <pre><code class="language-css">.baner h1 {
+    color: white;
+
+    text-shadow:
+        2px 3px 6px rgba(0, 0, 0, 0.7);
+}</code></pre>
+
+            <h3>Kilka cieni tekstu</h3>
+
+            <pre><code class="language-css">h1 {
+    text-shadow:
+        1px 1px 2px #000000,
+        0 0 10px #60A5FA;
+}</code></pre>
+
+            <p>
+                Możemy łączyć kilka cieni,
+                oddzielając je przecinkami.
+            </p>
+
+            <h3>Różnica między box-shadow a text-shadow</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>box-shadow</code></td>
+                    <td>Dodaje cień do pudełka elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>text-shadow</code></td>
+                    <td>Dodaje cień do znaków tekstu.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Cień tekstu jest efektem
+                    dekoracyjnym. Nie powinien
+                    zastępować odpowiedniego
+                    kontrastu między tekstem a tłem.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="opacity">
+
+            <h2>13. Przezroczystość elementów – opacity</h2>
+
+            <p>
+                Właściwość <code>opacity</code>
+                określa stopień
+                nieprzezroczystości elementu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.obraz {
+    opacity: 0.5;
+}</code></pre>
+
+            <p>
+                Wartość <code>0.5</code>
+                oznacza częściową przezroczystość.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Efekt</th>
+                </tr>
+                <tr>
+                    <td><code>1</code></td>
+                    <td>Pełna nieprzezroczystość.</td>
+                </tr>
+                <tr>
+                    <td><code>0.75</code></td>
+                    <td>Element lekko przezroczysty.</td>
+                </tr>
+                <tr>
+                    <td><code>0.5</code></td>
+                    <td>Element częściowo przezroczysty.</td>
+                </tr>
+                <tr>
+                    <td><code>0.25</code></td>
+                    <td>Element bardzo przezroczysty.</td>
+                </tr>
+                <tr>
+                    <td><code>0</code></td>
+                    <td>Element całkowicie przezroczysty.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – zdjęcie</h3>
+
+            <pre><code class="language-css">img {
+    opacity: 0.7;
+}</code></pre>
+
+            <h3>Przykład – przezroczystość po najechaniu</h3>
+
+            <pre><code class="language-css">img:hover {
+    opacity: 1;
+}</code></pre>
+
+            <h3>Różnica między opacity a rgba()</h3>
+
+            <pre><code class="language-css">/* Przezroczysty cały element */
+
+.karta1 {
+    opacity: 0.5;
+}
+
+/* Przezroczyste tylko tło */
+
+.karta2 {
+    background-color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>opacity</code>
+                    wpływa na cały element,
+                    w tym tekst, obrazy
+                    i jego potomków.
+                </p>
+                <p>
+                    Jeśli chcemy uzyskać
+                    przezroczyste tło
+                    bez zmiany widoczności tekstu,
+                    lepiej zastosować
+                    kolor z kanałem alfa,
+                    np. <code>rgba()</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="filter">
+
+            <h2>14. Filtry CSS – filter</h2>
+
+            <p>
+                Właściwość <code>filter</code>
+                pozwala stosować efekty
+                graficzne do elementów,
+                szczególnie obrazów.
+            </p>
+
+            <h3>Rozmycie – blur()</h3>
+
+            <pre><code class="language-css">img {
+    filter: blur(3px);
+}</code></pre>
+
+            <p>
+                Obraz zostaje rozmyty.
+            </p>
+
+            <h3>Skala szarości – grayscale()</h3>
+
+            <pre><code class="language-css">img {
+    filter: grayscale(100%);
+}</code></pre>
+
+            <p>
+                Obraz zostaje pozbawiony kolorów.
+            </p>
+
+            <h3>Jasność – brightness()</h3>
+
+            <pre><code class="language-css">img {
+    filter: brightness(70%);
+}</code></pre>
+
+            <p>
+                Obraz staje się ciemniejszy.
+            </p>
+
+            <h3>Kontrast – contrast()</h3>
+
+            <pre><code class="language-css">img {
+    filter: contrast(150%);
+}</code></pre>
+
+            <p>
+                Kontrast obrazu zostaje zwiększony.
+            </p>
+
+            <h3>Nasycenie – saturate()</h3>
+
+            <pre><code class="language-css">img {
+    filter: saturate(150%);
+}</code></pre>
+
+            <p>
+                Kolory obrazu stają się
+                bardziej intensywne.
+            </p>
+
+            <h3>Sepia – sepia()</h3>
+
+            <pre><code class="language-css">img {
+    filter: sepia(100%);
+}</code></pre>
+
+            <p>
+                Obraz uzyskuje odcień
+                przypominający starą fotografię.
+            </p>
+
+            <h3>Łączenie filtrów</h3>
+
+            <pre><code class="language-css">img {
+    filter:
+        grayscale(50%)
+        brightness(90%)
+        contrast(120%);
+}</code></pre>
+
+            <p>
+                Kilka filtrów można zastosować
+                do jednego elementu.
+                Są wykonywane w podanej kolejności.
+            </p>
+
+            <h3>Przykład – zdjęcie po najechaniu</h3>
+
+            <pre><code class="language-css">.zdjecie {
+    filter: grayscale(100%);
+}
+
+.zdjecie:hover {
+    filter: grayscale(0%);
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Filtry zmieniają wygląd
+                    renderowanego elementu,
+                    ale nie modyfikują
+                    oryginalnego pliku graficznego.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="hover">
+
+            <h2>15. Efekty po najechaniu myszą – :hover</h2>
+
+            <p>
+                Pseudoklasa <code>:hover</code>
+                pozwala zmienić wygląd elementu,
+                gdy wskaźnik myszy
+                znajduje się nad nim.
+            </p>
+
+            <h3>Przykład – przycisk</h3>
+
+            <pre><code class="language-css">.przycisk {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <h3>Przykład – cień karty</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.karta:hover {
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <h3>Przykład – zdjęcie</h3>
+
+            <pre><code class="language-css">.zdjecie {
+    filter: grayscale(100%);
+}
+
+.zdjecie:hover {
+    filter: grayscale(0%);
+}</code></pre>
+
+            <p>
+                Efekty <code>:hover</code>
+                są przydatne przy przyciskach,
+                odnośnikach i kartach.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Na ekranach dotykowych
+                    efekt <code>:hover</code>
+                    może działać inaczej
+                    niż na komputerze.
+                    Nie należy ukrywać
+                    ważnych informacji,
+                    które można zobaczyć
+                    wyłącznie po najechaniu myszą.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="transition">
+
+            <h2>16. Płynne przejścia – transition</h2>
+
+            <p>
+                Domyślnie zmiana stylu
+                po najechaniu myszą
+                następuje natychmiast.
+            </p>
+
+            <p>
+                Właściwość <code>transition</code>
+                pozwala uzyskać
+                płynną zmianę wyglądu.
+            </p>
+
+            <h3>Przykład – zmiana koloru</h3>
+
+            <pre><code class="language-css">.przycisk {
+    background-color: #2563EB;
+
+    transition:
+        background-color 0.3s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <p>
+                Zmiana koloru trwa
+                <code>0.3s</code>,
+                czyli 0,3 sekundy.
+            </p>
+
+            <h3>Przykład – płynna zmiana cienia</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.1);
+
+    transition:
+        box-shadow 0.3s;
+}
+
+.karta:hover {
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <h3>Przykład – kilka właściwości</h3>
+
+            <pre><code class="language-css">.przycisk {
+    background-color: #2563EB;
+    box-shadow: 0 2px 5px #999999;
+
+    transition:
+        background-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+    box-shadow: 0 6px 15px #777777;
+}</code></pre>
+
+            <h3>Właściwość transform</h3>
+
+            <p>
+                CSS umożliwia również
+                przesuwanie, obracanie
+                i skalowanie elementów.
+            </p>
+
+            <pre><code class="language-css">.karta {
+    transition:
+        transform 0.3s;
+}
+
+.karta:hover {
+    transform: translateY(-5px);
+}</code></pre>
+
+            <p>
+                Po najechaniu myszą
+                karta przesuwa się
+                o 5 px w górę.
+            </p>
+
+            <h3>Połączenie transform i box-shadow</h3>
+
+            <pre><code class="language-css">.karta {
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.karta:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Stosuj krótkie,
+                    subtelne przejścia.
+                    Nie animuj bez potrzeby
+                    wszystkich właściwości.
+                </p>
+                <p>
+                    Przy rozbudowanych animacjach
+                    warto uwzględnić preferencje
+                    użytkowników ograniczających ruch,
+                    np. za pomocą
+                    <code>prefers-reduced-motion</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zastosowania">
+
+            <h2>17. Praktyczne zastosowania</h2>
+
+            <h3>Przykład 1 – karta informacyjna</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 25px;
+    background-color: white;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1);
+}</code></pre>
+
+            <h3>Przykład 2 – komunikat ostrzegawczy</h3>
+
+            <pre><code class="language-css">.ostrzezenie {
+    padding: 20px;
+    background-color: #FEF3C7;
+
+    border-left: 5px solid #F59E0B;
+    border-radius: 6px;
+}</code></pre>
+
+            <h3>Przykład 3 – okrągłe zdjęcie</h3>
+
+            <pre><code class="language-css">.avatar {
+    width: 120px;
+    height: 120px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid white;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.2);
+}</code></pre>
+
+            <h3>Przykład 4 – przycisk z efektem hover</h3>
+
+            <pre><code class="language-css">.przycisk {
+    display: inline-block;
+    padding: 12px 25px;
+
+    background-color: #2563EB;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}</code></pre>
+
+            <h3>Przykład 5 – pole formularza</h3>
+
+            <pre><code class="language-css">input {
+    padding: 10px;
+    border: 1px solid #94A3B8;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: 3px solid #93C5FD;
+    outline-offset: 2px;
+}</code></pre>
+
+            <h3>Przykład 6 – zdjęcie z filtrem</h3>
+
+            <pre><code class="language-css">.zdjecie {
+    width: 300px;
+    max-width: 100%;
+
+    border-radius: 10px;
+
+    filter: grayscale(100%);
+
+    transition: filter 0.3s;
+}
+
+.zdjecie:hover {
+    filter: grayscale(0%);
+}</code></pre>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak stylu obramowania</h3>
+
+            <pre><code class="language-css">/* Niepełne ustawienie */
+
+.karta {
+    border-width: 3px;
+    border-color: blue;
+}</code></pre>
+
+            <p>
+                Jeśli nie ustawiono
+                stylu obramowania,
+                a obowiązuje domyślne
+                <code>none</code>,
+                obramowanie nie będzie widoczne.
+            </p>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.karta {
+    border: 3px solid blue;
+}</code></pre>
+
+            <h3>Błąd 2 – brak jednostki</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.karta {
+    border-radius: 10;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.karta {
+    border-radius: 10px;
+}</code></pre>
+
+            <h3>Błąd 3 – niepoprawny cień</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.karta {
+    box-shadow: 5 5 10 gray;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.karta {
+    box-shadow: 5px 5px 10px gray;
+}</code></pre>
+
+            <h3>Błąd 4 – mylenie box-shadow z text-shadow</h3>
+
+            <pre><code class="language-css">/* Cień całego pudełka */
+
+.karta {
+    box-shadow: 0 4px 10px gray;
+}
+
+/* Cień liter */
+
+h1 {
+    text-shadow: 2px 2px 4px gray;
+}</code></pre>
+
+            <h3>Błąd 5 – opacity zmienia także tekst</h3>
+
+            <pre><code class="language-css">.karta {
+    opacity: 0.5;
+}</code></pre>
+
+            <p>
+                W ten sposób przezroczysty
+                staje się cały element,
+                włącznie z jego zawartością.
+            </p>
+
+            <p>
+                Jeśli chcemy uzyskać
+                przezroczyste tylko tło:
+            </p>
+
+            <pre><code class="language-css">.karta {
+    background-color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+
+            <h3>Błąd 6 – transition w niewłaściwym miejscu</h3>
+
+            <pre><code class="language-css">/* Mniej wygodne rozwiązanie */
+
+.karta:hover {
+    transition: box-shadow 0.3s;
+    box-shadow: 0 10px 20px gray;
+}</code></pre>
+
+            <p>
+                Takie rozwiązanie może powodować,
+                że przejście działa płynnie
+                tylko w jednym kierunku.
+            </p>
+
+            <p>
+                Lepiej zapisać
+                <code>transition</code>
+                w podstawowej regule elementu.
+            </p>
+
+            <pre><code class="language-css">.karta {
+    transition: box-shadow 0.3s;
+}
+
+.karta:hover {
+    box-shadow: 0 10px 20px gray;
+}</code></pre>
+
+            <h3>Błąd 7 – usuwanie konturu aktywnego elementu</h3>
+
+            <pre><code class="language-css">/* Niewskazane bez zamiennika */
+
+button:focus {
+    outline: none;
+}</code></pre>
+
+            <p>
+                Usunięcie konturu
+                bez zapewnienia innego
+                widocznego wyróżnienia
+                utrudnia obsługę strony
+                za pomocą klawiatury.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Gdy efekt nie działa,
+                    sprawdź poprawność nazwy
+                    właściwości, jednostek,
+                    średników, nawiasów
+                    i wartości CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – karty miejsc</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                prezentującą trzy miejsca.
+            </p>
+
+            <p>
+                W przykładzie zastosujemy:
+            </p>
+
+            <ul>
+                <li>obramowania kart,</li>
+                <li>zaokrąglone narożniki,</li>
+                <li>cienie elementów,</li>
+                <li>okrągłe zdjęcia,</li>
+                <li>przyciski z efektem hover,</li>
+                <li>płynne przejścia,</li>
+                <li>filtry zdjęć.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- las.jpg
+    |
+    |-- gory.jpg
+    |
+    |-- jezioro.jpg</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Najpiękniejsze miejsca&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Najpiękniejsze miejsca&lt;/h1&gt;
+
+        &lt;p&gt;
+            Poznaj wyjątkowe zakątki natury.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Wybierz swoje miejsce&lt;/h2&gt;
+
+            &lt;p&gt;
+                Sprawdź nasze propozycje
+                i znajdź miejsce na wypoczynek.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="karty"&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;img
+                    src="img/las.jpg"
+                    alt="Zielony las"
+                    class="zdjecie"&gt;
+
+                &lt;h2&gt;Las&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Spokojne miejsce
+                    na spacer i odpoczynek.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Dowiedz się więcej
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;img
+                    src="img/gory.jpg"
+                    alt="Górski krajobraz"
+                    class="zdjecie"&gt;
+
+                &lt;h2&gt;Góry&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Piękne widoki
+                    i niezapomniane wędrówki.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Dowiedz się więcej
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;img
+                    src="img/jezioro.jpg"
+                    alt="Jezioro wśród zieleni"
+                    class="zdjecie"&gt;
+
+                &lt;h2&gt;Jezioro&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Idealne miejsce
+                    na relaks nad wodą.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Dowiedz się więcej
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="informacje"
+                 class="informacje"&gt;
+
+            &lt;h2&gt;Więcej informacji&lt;/h2&gt;
+
+            &lt;p&gt;
+                Wybierz miejsce,
+                które najbardziej Ci odpowiada.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Najpiękniejsze miejsca&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Ustawienia podstawowe */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+
+    border-bottom: 5px solid #60A5FA;
+}
+
+header h1 {
+    font-size: 36px;
+
+    text-shadow:
+        2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Główna zawartość */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Wprowadzenie */
+
+.wprowadzenie {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    border-left: 5px solid #2563EB;
+    border-radius: 8px;
+}
+
+/* Układ kart */
+
+.karty {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* Karty */
+
+.karta {
+    flex: 1 1 250px;
+    min-width: 0;
+
+    padding: 25px;
+    text-align: center;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+/* Efekt po najechaniu */
+
+.karta:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Zdjęcia */
+
+.zdjecie {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 4px solid #DBEAFE;
+
+    filter: grayscale(30%);
+
+    transition: filter 0.3s;
+}
+
+.karta:hover .zdjecie {
+    filter: grayscale(0%);
+}
+
+/* Przyciski */
+
+.przycisk {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 12px 25px;
+
+    background-color: #2563EB;
+    color: white;
+
+    text-decoration: none;
+
+    border: 2px solid #2563EB;
+    border-radius: 8px;
+
+    transition:
+        background-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Sekcja informacji */
+
+.informacje {
+    margin-top: 35px;
+    padding: 25px;
+
+    background-color: #DBEAFE;
+
+    border: 2px dashed #2563EB;
+    border-radius: 12px;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+
+    border-top: 4px solid #60A5FA;
+}
+
+/* Ograniczenie animacji */
+
+@media (prefers-reduced-motion: reduce) {
+    .karta,
+    .zdjecie,
+    .przycisk {
+        transition: none;
+    }
+}</code></pre>
+
+            <h3>Analiza zastosowanych efektów</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Efekt CSS</th>
+                </tr>
+                <tr>
+                    <td>Nagłówek</td>
+                    <td>Dolne obramowanie i cień tekstu.</td>
+                </tr>
+                <tr>
+                    <td>Wprowadzenie</td>
+                    <td>Kolorowe lewe obramowanie i zaokrąglenie.</td>
+                </tr>
+                <tr>
+                    <td>Karty</td>
+                    <td>Obramowanie, zaokrąglenie i cień.</td>
+                </tr>
+                <tr>
+                    <td>Zdjęcia</td>
+                    <td>Okrągły kształt, obramowanie i filtr.</td>
+                </tr>
+                <tr>
+                    <td>Przyciski</td>
+                    <td>Zaokrąglenie, hover i transition.</td>
+                </tr>
+                <tr>
+                    <td>Sekcja informacji</td>
+                    <td>Przerywane obramowanie.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W przykładzie wykorzystano
+                    także <code>display: flex</code>
+                    do ułożenia kart obok siebie.
+                    Szczegółowe zasady
+                    tworzenia układów strony
+                    będą omawiane
+                    w kolejnych lekcjach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>
+                        <code>border</code>
+                        ustawia obramowanie elementu.
+                    </li>
+                    <li>
+                        <code>border-style</code>
+                        określa styl obramowania.
+                    </li>
+                    <li>
+                        <code>border-width</code>
+                        określa grubość obramowania.
+                    </li>
+                    <li>
+                        <code>border-color</code>
+                        określa kolor obramowania.
+                    </li>
+                    <li>
+                        <code>border-top</code>,
+                        <code>border-right</code>,
+                        <code>border-bottom</code>
+                        i <code>border-left</code>
+                        ustawiają poszczególne boki.
+                    </li>
+                    <li>
+                        <code>border-radius</code>
+                        zaokrągla narożniki.
+                    </li>
+                    <li>
+                        <code>border-radius: 50%</code>
+                        pozwala utworzyć koło
+                        z kwadratowego elementu.
+                    </li>
+                    <li>
+                        <code>outline</code>
+                        dodaje kontur
+                        bez zajmowania miejsca
+                        w modelu pudełkowym.
+                    </li>
+                    <li>
+                        <code>outline-offset</code>
+                        określa odstęp konturu.
+                    </li>
+                    <li>
+                        <code>box-shadow</code>
+                        dodaje cień elementu.
+                    </li>
+                    <li>
+                        <code>inset</code>
+                        tworzy cień wewnętrzny.
+                    </li>
+                    <li>
+                        <code>text-shadow</code>
+                        dodaje cień tekstu.
+                    </li>
+                    <li>
+                        <code>opacity</code>
+                        określa nieprzezroczystość
+                        całego elementu.
+                    </li>
+                    <li>
+                        <code>rgba()</code>
+                        umożliwia przezroczystość
+                        samego koloru.
+                    </li>
+                    <li>
+                        <code>filter</code>
+                        pozwala stosować efekty
+                        graficzne do elementów.
+                    </li>
+                    <li>
+                        <code>blur()</code>
+                        rozmywa obraz.
+                    </li>
+                    <li>
+                        <code>grayscale()</code>
+                        zmienia obraz
+                        na odcienie szarości.
+                    </li>
+                    <li>
+                        <code>brightness()</code>
+                        zmienia jasność.
+                    </li>
+                    <li>
+                        <code>contrast()</code>
+                        zmienia kontrast.
+                    </li>
+                    <li>
+                        <code>:hover</code>
+                        zmienia wygląd elementu
+                        po najechaniu wskaźnikiem.
+                    </li>
+                    <li>
+                        <code>transition</code>
+                        umożliwia płynne przejście
+                        między stylami.
+                    </li>
+                    <li>
+                        Efekty wizualne
+                        powinny być subtelne,
+                        czytelne i dostępne
+                        dla użytkowników.
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                wykorzystanie właściwości CSS
+                do tworzenia obramowań,
+                zaokrągleń, cieni,
+                przezroczystości i prostych
+                efektów wizualnych.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_25</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>
+                oraz folder <code>img</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                </strong>
+                Każde kolejne zadanie
+                rozbudowuje ten sam projekt.
+            </p>
+
+            <h3>Zadanie 1 – Karty informacyjne</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moje ulubione miejsca”</strong>.
+                Możesz przedstawić miejsca,
+                które odwiedziłeś,
+                lub takie, które chciałbyś odwiedzić.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z tytułem i opisem.</li>
+                <li>Utwórz trzy karty opisujące wybrane miejsca.</li>
+                <li>Każda karta powinna zawierać nagłówek i akapit.</li>
+                <li>Ustaw jasny kolor tła kart.</li>
+                <li>Dodaj obramowanie <code>1px solid</code>.</li>
+                <li>Zaokrąglij narożniki za pomocą <code>border-radius: 12px</code>.</li>
+                <li>Dodaj wewnętrzne odstępy <code>padding: 20px</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Cienie i wyróżnienia</h3>
+
+            <p>
+                Rozbuduj wygląd kart.
+            </p>
+
+            <ol>
+                <li>Dodaj każdej karcie delikatny cień <code>box-shadow</code>.</li>
+                <li>Ustaw cień z przesunięciem pionowym <code>4px</code>.</li>
+                <li>Ustaw rozmycie cienia na <code>12px</code>.</li>
+                <li>Zastosuj kolor z przezroczystością <code>rgba()</code>.</li>
+                <li>Wybierz jedną kartę i wyróżnij ją lewym obramowaniem o grubości <code>5px</code>.</li>
+                <li>Dodaj linię pod głównym nagłówkiem sekcji.</li>
+                <li>Sprawdź, czy wszystkie obramowania i cienie są widoczne.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Okrągłe zdjęcia</h3>
+
+            <p>
+                Dodaj zdjęcia do każdej karty.
+            </p>
+
+            <ol>
+                <li>Przygotuj trzy zdjęcia wybranych miejsc.</li>
+                <li>Zapisz je w folderze <code>img</code>.</li>
+                <li>Umieść po jednym zdjęciu w każdej karcie.</li>
+                <li>Ustaw szerokość i wysokość zdjęć na <code>150px</code>.</li>
+                <li>Zastosuj <code>border-radius: 50%</code>.</li>
+                <li>Ustaw <code>object-fit: cover</code>.</li>
+                <li>Dodaj obramowanie zdjęcia o grubości <code>4px</code>.</li>
+                <li>Dodaj delikatny cień wokół zdjęcia.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Efekty hover i transition</h3>
+
+            <p>
+                Dodaj interaktywne efekty wizualne.
+            </p>
+
+            <ol>
+                <li>Dodaj do każdej karty przycisk lub odnośnik.</li>
+                <li>Ustaw kolor tła przycisków.</li>
+                <li>Zaokrąglij narożniki przycisków.</li>
+                <li>Po najechaniu myszą zmień kolor tła przycisku.</li>
+                <li>Dodaj płynne przejście <code>transition: background-color 0.3s</code>.</li>
+                <li>Po najechaniu na kartę zwiększ jej cień.</li>
+                <li>Dodaj płynne przejście cienia.</li>
+                <li>Sprawdź, czy efekty działają w przeglądarce.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Filtry i przezroczystość</h3>
+
+            <p>
+                Zastosuj dodatkowe efekty graficzne.
+            </p>
+
+            <ol>
+                <li>Ustaw dla zdjęć filtr <code>grayscale(100%)</code>.</li>
+                <li>Po najechaniu myszą przywróć kolory przez <code>grayscale(0%)</code>.</li>
+                <li>Dodaj płynne przejście filtra trwające <code>0.3s</code>.</li>
+                <li>Dodaj pod kartami komunikat informacyjny.</li>
+                <li>Ustaw dla komunikatu półprzezroczyste tło za pomocą <code>rgba()</code>.</li>
+                <li>Dodaj kolorowe lewe obramowanie komunikatu.</li>
+                <li>Sprawdź, czy tekst pozostaje czytelny.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Dopracowanie projektu (dodatkowe)</h3>
+
+            <ol>
+                <li>Dodaj efekt lekkiego przesunięcia karty po najechaniu myszą.</li>
+                <li>Wykorzystaj <code>transform: translateY(-5px)</code>.</li>
+                <li>Dodaj cień tekstu do głównego nagłówka.</li>
+                <li>Zastosuj <code>outline</code> do wyróżnienia przycisku podczas nawigacji klawiaturą.</li>
+                <li>W jednej sekcji wykorzystaj obramowanie <code>dashed</code> lub <code>dotted</code>.</li>
+                <li>Sprawdź wygląd strony na wąskim i szerokim ekranie.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_25/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- miejsce1.jpg
+    |
+    |-- miejsce2.jpg
+    |
+    |-- miejsce3.jpg</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>
+                    i jednym arkuszu
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_25</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Archiwum powinno zawierać
+                    pliki <code>index.html</code>,
+                    <code>style.css</code>
+                    oraz wszystkie wykorzystane obrazy.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    obramowania, zaokrąglenia,
+                    cienie, działanie efektów
+                    <code>:hover</code>,
+                    płynne przejścia,
+                    filtry oraz czytelność tekstu.
+                </p>
+
+                <p>
+                    <strong>
+                        Treści i dobór zdjęć
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 25
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
