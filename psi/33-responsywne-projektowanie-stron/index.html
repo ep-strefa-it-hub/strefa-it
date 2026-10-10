@@ -1,0 +1,2435 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 33 – Responsywne projektowanie stron | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#rwd">2.Czym jest RWD?</a>
+        <a href="#viewport">3.Meta viewport</a>
+        <a href="#podejscia">4.Mobile First i Desktop First</a>
+        <a href="#jednostki">5.Jednostki CSS</a>
+        <a href="#procenty">6.Jednostka %</a>
+        <a href="#em-rem">7.Jednostki em i rem</a>
+        <a href="#vw-vh">8.Jednostki vw i vh</a>
+        <a href="#min-max">9.min-width i max-width</a>
+        <a href="#funkcje">10.calc, min, max i clamp</a>
+        <a href="#obrazy">11.Responsywne obrazy</a>
+        <a href="#media">12.Media queries</a>
+        <a href="#breakpoints">13.Punkty przełamania</a>
+        <a href="#menu">14.Responsywne menu</a>
+        <a href="#flexbox">15.Responsywny Flexbox</a>
+        <a href="#typografia">16.Responsywna typografia</a>
+        <a href="#testowanie">17.Testowanie strony</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 33 • CSS3
+            </div>
+
+            <h2>
+                Responsywne projektowanie stron –
+                viewport, jednostki elastyczne
+                i media queries
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad responsywnego
+                projektowania stron internetowych
+                oraz wykorzystanie jednostek
+                elastycznych, właściwości CSS
+                i media queries do dostosowywania
+                układu witryny do różnych
+                szerokości ekranu.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong>
+                2 × 45 minut.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Strony internetowe są wyświetlane
+                na urządzeniach o różnych
+                rozmiarach ekranów:
+                komputerach, laptopach,
+                tabletach i smartfonach.
+            </p>
+
+            <p>
+                Strona zaprojektowana wyłącznie
+                dla dużego monitora
+                może być niewygodna
+                podczas przeglądania na telefonie.
+            </p>
+
+            <h3>Przykładowe problemy</h3>
+
+            <ul>
+                <li>Tekst jest zbyt mały i trudny do przeczytania.</li>
+                <li>Menu nie mieści się na ekranie.</li>
+                <li>Obrazy wychodzą poza szerokość strony.</li>
+                <li>Karty są zbyt wąskie.</li>
+                <li>Użytkownik musi przewijać stronę poziomo.</li>
+                <li>Przyciski są zbyt małe lub znajdują się zbyt blisko siebie.</li>
+            </ul>
+
+            <p>
+                Rozwiązaniem jest
+                <strong>responsywne projektowanie stron</strong>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Dobrze zaprojektowana strona
+                    powinna być czytelna
+                    i wygodna w obsłudze
+                    zarówno na dużym,
+                    jak i małym ekranie.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="rwd">
+
+            <h2>2. Czym jest RWD?</h2>
+
+            <p>
+                <strong>RWD</strong>
+                (Responsive Web Design)
+                to sposób projektowania
+                stron internetowych,
+                w którym układ i wygląd
+                strony dostosowują się
+                do dostępnej przestrzeni.
+            </p>
+
+            <p>
+                Responsywność nie polega
+                wyłącznie na zmniejszeniu
+                całej strony.
+            </p>
+
+            <p>
+                Elementy mogą zmieniać:
+            </p>
+
+            <ul>
+                <li>szerokość,</li>
+                <li>wysokość,</li>
+                <li>rozmieszczenie,</li>
+                <li>kierunek ułożenia,</li>
+                <li>odstępy,</li>
+                <li>rozmiary tekstu.</li>
+            </ul>
+
+            <h3>Przykład – trzy karty</h3>
+
+            <p>
+                Na dużym ekranie:
+            </p>
+
+            <pre><code class="language-text">+------------+ +------------+ +------------+
+|   KARTA 1  | |   KARTA 2  | |   KARTA 3  |
++------------+ +------------+ +------------+</code></pre>
+
+            <p>
+                Na małym ekranie:
+            </p>
+
+            <pre><code class="language-text">+------------------+
+|      KARTA 1     |
++------------------+
+
++------------------+
+|      KARTA 2     |
++------------------+
+
++------------------+
+|      KARTA 3     |
++------------------+</code></pre>
+
+            <p>
+                Zawartość pozostaje taka sama,
+                ale zmienia się sposób
+                rozmieszczenia elementów.
+            </p>
+
+            <h3>Podstawowe techniki RWD</h3>
+
+            <ol>
+                <li>Poprawne ustawienie viewport.</li>
+                <li>Stosowanie elastycznych rozmiarów.</li>
+                <li>Ograniczanie maksymalnej szerokości elementów.</li>
+                <li>Tworzenie elastycznych układów Flexbox.</li>
+                <li>Wykorzystanie media queries.</li>
+                <li>Dostosowywanie obrazów i tekstu.</li>
+            </ol>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="viewport">
+
+            <h2>3. Meta viewport</h2>
+
+            <p>
+                <strong>Viewport</strong>
+                to obszar przeglądarki,
+                w którym wyświetlana jest
+                strona internetowa.
+            </p>
+
+            <p>
+                W responsywnym dokumencie HTML
+                należy umieścić znacznik:
+            </p>
+
+            <pre><code class="language-html">&lt;meta name="viewport"
+      content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+            <p>
+                Znacznik umieszczamy
+                wewnątrz sekcji
+                <code>head</code>.
+            </p>
+
+            <h3>Znaczenie atrybutów</h3>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>name="viewport"</code></td>
+                    <td>Określa ustawienia obszaru wyświetlania strony.</td>
+                </tr>
+
+                <tr>
+                    <td><code>width=device-width</code></td>
+                    <td>Ustawia szerokość viewport zgodnie z szerokością urządzenia w pikselach CSS.</td>
+                </tr>
+
+                <tr>
+                    <td><code>initial-scale=1.0</code></td>
+                    <td>Ustawia początkową skalę strony na 1.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład poprawnego dokumentu</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Responsywna strona&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Moja responsywna strona&lt;/h1&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Znacznik viewport
+                    nie tworzy samodzielnie
+                    responsywnego układu,
+                    ale pozwala przeglądarkom
+                    mobilnym prawidłowo
+                    interpretować szerokość strony.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="podejscia">
+
+            <h2>4. Mobile First i Desktop First</h2>
+
+            <p>
+                Podczas projektowania
+                responsywnych stron
+                można stosować
+                dwa podejścia.
+            </p>
+
+            <h3>Mobile First</h3>
+
+            <p>
+                Najpierw przygotowujemy
+                wygląd strony dla małych ekranów,
+                a następnie rozszerzamy układ
+                dla większych.
+            </p>
+
+            <pre><code class="language-css">/* Wygląd podstawowy – małe ekrany */
+
+.karty {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Większe ekrany */
+
+@media (min-width: 768px) {
+
+    .karty {
+        flex-direction: row;
+    }
+
+}</code></pre>
+
+            <h3>Desktop First</h3>
+
+            <p>
+                Najpierw przygotowujemy
+                układ dla większych ekranów,
+                a później dostosowujemy go
+                do mniejszych.
+            </p>
+
+            <pre><code class="language-css">/* Wygląd podstawowy – większe ekrany */
+
+.karty {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Małe ekrany */
+
+@media (max-width: 767px) {
+
+    .karty {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Mobile First</th>
+                    <th>Desktop First</th>
+                </tr>
+
+                <tr>
+                    <td>Projektowanie zaczyna się od małego ekranu.</td>
+                    <td>Projektowanie zaczyna się od dużego ekranu.</td>
+                </tr>
+
+                <tr>
+                    <td>Często stosuje się min-width.</td>
+                    <td>Często stosuje się max-width.</td>
+                </tr>
+
+                <tr>
+                    <td>Rozbudowujemy układ wraz ze wzrostem szerokości.</td>
+                    <td>Upraszczamy układ wraz ze zmniejszaniem szerokości.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Oba podejścia są poprawne.
+                    W jednym projekcie warto
+                    zachować spójny sposób
+                    organizowania reguł CSS.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="jednostki">
+
+            <h2>5. Jednostki CSS a responsywność</h2>
+
+            <p>
+                W CSS możemy stosować
+                jednostki bezwzględne
+                i względne.
+            </p>
+
+            <p>
+                Jednostki względne
+                często ułatwiają
+                tworzenie elastycznych układów.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Znaczenie</th>
+                    <th>Przykład</th>
+                </tr>
+
+                <tr>
+                    <td><code>px</code></td>
+                    <td>Piksele CSS.</td>
+                    <td><code>padding: 20px</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>%</code></td>
+                    <td>Procent wartości odniesienia zależnej od właściwości.</td>
+                    <td><code>width: 80%</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>em</code></td>
+                    <td>Jednostka zależna od rozmiaru czcionki.</td>
+                    <td><code>padding: 2em</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>rem</code></td>
+                    <td>Jednostka zależna od rozmiaru czcionki elementu głównego.</td>
+                    <td><code>font-size: 1.5rem</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>vw</code></td>
+                    <td>Procent szerokości viewport.</td>
+                    <td><code>width: 80vw</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>vh</code></td>
+                    <td>Procent wysokości viewport.</td>
+                    <td><code>min-height: 100vh</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>dvh</code></td>
+                    <td>Procent dynamicznej wysokości viewport.</td>
+                    <td><code>min-height: 100dvh</code></td>
+                </tr>
+            </table>
+
+            <p>
+                Nie oznacza to,
+                że jednostka <code>px</code>
+                jest niepoprawna.
+            </p>
+
+            <p>
+                W responsywnych projektach
+                często łączy się
+                różne jednostki.
+            </p>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="procenty">
+
+            <h2>6. Jednostka procentowa – %</h2>
+
+            <p>
+                Procenty pozwalają
+                określać rozmiary
+                w odniesieniu
+                do innej wartości.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 80%;
+}</code></pre>
+
+            <p>
+                W typowym układzie blokowym
+                oznacza to szerokość równą
+                80% szerokości bloku zawierającego.
+            </p>
+
+            <h3>Przykład dwóch kolumn</h3>
+
+            <pre><code class="language-css">.uklad {
+    display: flex;
+}
+
+.lewy {
+    width: 60%;
+}
+
+.prawy {
+    width: 40%;
+}</code></pre>
+
+            <p>
+                Kolumny zajmują
+                odpowiednio 60% i 40%
+                dostępnej szerokości.
+            </p>
+
+            <h3>Ważne</h3>
+
+            <p>
+                Znaczenie procentów
+                zależy od właściwości CSS.
+                Na przykład procentowe
+                szerokości i wysokości
+                mogą mieć różne
+                zasady obliczania.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Dla głównego kontenera
+                    strony można połączyć
+                    szerokość procentową
+                    z ograniczeniem
+                    maksymalnej szerokości.
+                </p>
+
+                <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="em-rem">
+
+            <h2>7. Jednostki em i rem</h2>
+
+            <p>
+                Jednostki <code>em</code>
+                i <code>rem</code>
+                są powiązane
+                z rozmiarem czcionki.
+            </p>
+
+            <h3>Jednostka rem</h3>
+
+            <p>
+                <code>1rem</code>
+                odpowiada rozmiarowi
+                czcionki elementu głównego
+                <code>html</code>.
+            </p>
+
+            <pre><code class="language-css">html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+}</code></pre>
+
+            <p>
+                Przy takim ustawieniu:
+            </p>
+
+            <ul>
+                <li><code>1rem = 16px</code>,</li>
+                <li><code>2rem = 32px</code>.</li>
+            </ul>
+
+            <h3>Jednostka em</h3>
+
+            <p>
+                Przy właściwości
+                <code>font-size</code>
+                jednostka <code>em</code>
+                odnosi się do rozmiaru
+                czcionki rodzica.
+            </p>
+
+            <p>
+                W przypadku wielu
+                innych właściwości,
+                np. <code>padding</code>,
+                odnosi się do rozmiaru
+                czcionki samego elementu.
+            </p>
+
+            <pre><code class="language-css">.karta {
+    font-size: 20px;
+
+    padding: 1.5em;
+}</code></pre>
+
+            <p>
+                W tym przypadku
+                padding wyniesie 30 px.
+            </p>
+
+            <h3>Porównanie</h3>
+
+            <table>
+                <tr>
+                    <th>Jednostka</th>
+                    <th>Od czego zależy?</th>
+                </tr>
+
+                <tr>
+                    <td><code>rem</code></td>
+                    <td>Od rozmiaru czcionki elementu html.</td>
+                </tr>
+
+                <tr>
+                    <td><code>em</code></td>
+                    <td>Od kontekstu rozmiaru czcionki danego elementu.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <code>rem</code>
+                    jest wygodne do ustalania
+                    spójnych rozmiarów tekstu
+                    i odstępów na całej stronie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="vw-vh">
+
+            <h2>8. Jednostki vw, vh i dvh</h2>
+
+            <p>
+                Jednostki viewport
+                pozwalają określać
+                rozmiary w odniesieniu
+                do obszaru wyświetlania strony.
+            </p>
+
+            <h3>vw – szerokość viewport</h3>
+
+            <pre><code class="language-css">.baner {
+    width: 80vw;
+}</code></pre>
+
+            <p>
+                <code>80vw</code>
+                odpowiada 80%
+                szerokości viewport.
+            </p>
+
+            <h3>vh – wysokość viewport</h3>
+
+            <pre><code class="language-css">.baner {
+    min-height: 70vh;
+}</code></pre>
+
+            <p>
+                Minimalna wysokość
+                banera odpowiada
+                70% wysokości viewport.
+            </p>
+
+            <h3>dvh – dynamiczna wysokość viewport</h3>
+
+            <pre><code class="language-css">.baner {
+    min-height: 100dvh;
+}</code></pre>
+
+            <p>
+                Jednostka <code>dvh</code>
+                uwzględnia dynamiczne zmiany
+                dostępnej wysokości viewport,
+                np. związane z paskami
+                przeglądarki mobilnej.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.powitanie {
+    min-height: 60vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Zawartość sekcji
+                będzie wyśrodkowana,
+                a wysokość sekcji
+                będzie zależeć
+                od wysokości viewport.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Stosowanie <code>100vw</code>
+                    dla elementów strony
+                    nie zawsze jest potrzebne
+                    i może powodować
+                    poziome przewijanie,
+                    np. gdy szerokość
+                    obejmuje obszar paska przewijania.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="min-max">
+
+            <h2>9. Ograniczanie rozmiarów – min-width i max-width</h2>
+
+            <p>
+                Właściwości
+                <code>min-width</code>
+                i <code>max-width</code>
+                określają minimalną
+                i maksymalną szerokość
+                elementu.
+            </p>
+
+            <h3>max-width</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1100px;
+}</code></pre>
+
+            <p>
+                Kontener może zajmować
+                90% dostępnej szerokości,
+                ale nie będzie szerszy
+                niż 1100 px.
+            </p>
+
+            <h3>min-width</h3>
+
+            <pre><code class="language-css">.przycisk {
+    min-width: 150px;
+}</code></pre>
+
+            <p>
+                Element nie będzie
+                węższy niż 150 px,
+                o ile nie zostanie to
+                zmienione przez inne
+                reguły układu.
+            </p>
+
+            <h3>Praktyczny kontener strony</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                To popularny sposób
+                tworzenia głównego
+                obszaru zawartości strony.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Zbyt duże wartości
+                    <code>min-width</code>
+                    mogą powodować,
+                    że element nie zmieści się
+                    na ekranie telefonu.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="funkcje">
+
+            <h2>10. Funkcje calc(), min(), max() i clamp()</h2>
+
+            <p>
+                CSS udostępnia funkcje,
+                które umożliwiają
+                elastyczne obliczanie
+                rozmiarów elementów.
+            </p>
+
+            <h3>calc()</h3>
+
+            <p>
+                Funkcja <code>calc()</code>
+                pozwala wykonywać obliczenia
+                na wartościach CSS.
+            </p>
+
+            <pre><code class="language-css">.kontener {
+    width: calc(100% - 40px);
+}</code></pre>
+
+            <p>
+                Szerokość elementu
+                będzie równa
+                dostępnej szerokości
+                pomniejszonej o 40 px.
+            </p>
+
+            <h3>min()</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: min(90%, 1100px);
+}</code></pre>
+
+            <p>
+                Przeglądarka wybierze
+                mniejszą z podanych wartości.
+            </p>
+
+            <h3>max()</h3>
+
+            <pre><code class="language-css">.kontener {
+    padding: max(15px, 2vw);
+}</code></pre>
+
+            <p>
+                Przeglądarka wybierze
+                większą z podanych wartości.
+            </p>
+
+            <h3>clamp()</h3>
+
+            <p>
+                Funkcja <code>clamp()</code>
+                określa wartość minimalną,
+                preferowaną i maksymalną.
+            </p>
+
+            <pre><code class="language-css">h1 {
+    font-size: clamp(24px, 4vw, 48px);
+}</code></pre>
+
+            <p>
+                Rozmiar tekstu:
+            </p>
+
+            <ul>
+                <li>nie będzie mniejszy niż 24 px,</li>
+                <li>będzie dostosowywany według 4vw,</li>
+                <li>nie będzie większy niż 48 px.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <code>clamp()</code>
+                    pozwala uzyskać
+                    płynne zmiany rozmiaru
+                    bez konieczności
+                    tworzenia wielu reguł
+                    <code>@media</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="obrazy">
+
+            <h2>11. Responsywne obrazy</h2>
+
+            <p>
+                Obrazy o stałej,
+                dużej szerokości
+                mogą wychodzić
+                poza ekran telefonu.
+            </p>
+
+            <h3>Przykład problemu</h3>
+
+            <pre><code class="language-css">img {
+    width: 1000px;
+}</code></pre>
+
+            <p>
+                Na ekranie węższym
+                niż 1000 px
+                taki obraz może
+                powodować poziome przewijanie.
+            </p>
+
+            <h3>Poprawne rozwiązanie</h3>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <p>
+                <code>max-width: 100%</code>
+                ogranicza szerokość obrazu
+                do dostępnej szerokości
+                jego kontenera.
+            </p>
+
+            <p>
+                <code>height: auto</code>
+                pozwala zachować
+                proporcje obrazu.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;img src="img/komputer.jpg"
+     alt="Stanowisko komputerowe"&gt;</code></pre>
+
+            <h3>Obraz wypełniający kontener</h3>
+
+            <pre><code class="language-css">.zdjecie {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+}</code></pre>
+
+            <p>
+                Właściwość
+                <code>object-fit: cover</code>
+                powoduje wypełnienie
+                wyznaczonego obszaru,
+                ale część obrazu
+                może zostać przycięta.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Do podstawowego
+                    dostosowywania obrazów
+                    bardzo często wystarcza:
+                </p>
+
+                <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="media">
+
+            <h2>12. Media queries – reguła @media</h2>
+
+            <p>
+                <strong>Media queries</strong>
+                umożliwiają stosowanie
+                różnych reguł CSS
+                w zależności od warunków,
+                np. szerokości viewport.
+            </p>
+
+            <h3>Podstawowa składnia</h3>
+
+            <pre><code class="language-css">@media (warunek) {
+
+    selektor {
+        właściwość: wartość;
+    }
+
+}</code></pre>
+
+            <h3>Przykład – zmiana koloru tła</h3>
+
+            <pre><code class="language-css">body {
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        background-color: #DBEAFE;
+    }
+
+}</code></pre>
+
+            <p>
+                Gdy szerokość viewport
+                wynosi maksymalnie 600 px,
+                tło strony zmieni kolor.
+            </p>
+
+            <h3>min-width</h3>
+
+            <pre><code class="language-css">@media (min-width: 768px) {
+
+    .karty {
+        flex-direction: row;
+    }
+
+}</code></pre>
+
+            <p>
+                Reguła działa
+                przy szerokości viewport
+                wynoszącej co najmniej 768 px.
+            </p>
+
+            <h3>max-width</h3>
+
+            <pre><code class="language-css">@media (max-width: 767px) {
+
+    .karty {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <p>
+                Reguła działa
+                przy szerokości viewport
+                wynoszącej maksymalnie 767 px.
+            </p>
+
+            <h3>Łączenie warunków</h3>
+
+            <pre><code class="language-css">@media (min-width: 600px) and (max-width: 1000px) {
+
+    .kontener {
+        width: 85%;
+    }
+
+}</code></pre>
+
+            <p>
+                Powyższe reguły
+                będą obowiązywały
+                w podanym przedziale
+                szerokości viewport.
+            </p>
+
+            <h3>Media queries a kaskadowość</h3>
+
+            <p>
+                Reguły znajdujące się
+                wewnątrz <code>@media</code>
+                podlegają tym samym zasadom
+                kaskadowości i specyficzności
+                co pozostałe reguły CSS.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <code>@media</code>
+                    nie tworzy nowej strony.
+                    Zmienia jedynie
+                    sposób formatowania
+                    tej samej zawartości.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="breakpoints">
+
+            <h2>13. Punkty przełamania – breakpoints</h2>
+
+            <p>
+                <strong>Breakpoint</strong>
+                to wartość graniczna,
+                przy której zmienia się
+                układ lub wygląd strony.
+            </p>
+
+            <h3>Przykładowe wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Szerokość</th>
+                    <th>Przykładowe zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Do 600 px</td>
+                    <td>Zmiana menu poziomego na pionowe.</td>
+                </tr>
+
+                <tr>
+                    <td>Do 768 px</td>
+                    <td>Ustawienie dwóch kolumn jedna pod drugą.</td>
+                </tr>
+
+                <tr>
+                    <td>Od 1024 px</td>
+                    <td>Rozbudowany układ dla szerszego ekranu.</td>
+                </tr>
+            </table>
+
+            <p>
+                Są to wartości przykładowe.
+                Nie istnieje jeden
+                obowiązkowy zestaw
+                breakpointów dla wszystkich stron.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 700px) {
+
+    .karty {
+        flex-direction: row;
+    }
+
+}</code></pre>
+
+            <p>
+                Przy szerokości
+                mniejszej niż 700 px
+                karty będą ustawione
+                w kolumnie.
+            </p>
+
+            <p>
+                Przy szerokości
+                co najmniej 700 px
+                będą ustawione
+                w wierszu.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Punkt przełamania
+                    warto dobrać do momentu,
+                    w którym układ strony
+                    zaczyna wyglądać źle,
+                    zamiast kierować się
+                    wyłącznie nazwą urządzenia.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="menu">
+
+            <h2>14. Responsywne menu nawigacyjne</h2>
+
+            <p>
+                Na dużym ekranie
+                menu może być poziome,
+                a na telefonie pionowe.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#galeria"&gt;Galeria&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS – duży ekran</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    background-color: #1E3A8A;
+}
+
+.menu a {
+    padding: 10px 15px;
+
+    color: white;
+    text-decoration: none;
+}</code></pre>
+
+            <h3>CSS – mały ekran</h3>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+}</code></pre>
+
+            <h3>Efekt</h3>
+
+            <p>
+                Na dużym ekranie:
+            </p>
+
+            <pre><code class="language-text">Start    Oferta    Galeria    Kontakt</code></pre>
+
+            <p>
+                Na małym ekranie:
+            </p>
+
+            <pre><code class="language-text">Start
+
+Oferta
+
+Galeria
+
+Kontakt</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Responsywne menu
+                    można wykonać
+                    za pomocą samego
+                    HTML i CSS.
+                    Nie zawsze potrzebny
+                    jest JavaScript.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="flexbox">
+
+            <h2>15. Responsywny układ kart za pomocą Flexbox</h2>
+
+            <p>
+                Flexbox pozwala
+                tworzyć układy,
+                które dostosowują się
+                do dostępnej szerokości.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karty"&gt;
+
+    &lt;article class="karta"&gt;
+        &lt;h3&gt;HTML&lt;/h3&gt;
+        &lt;p&gt;Struktura strony.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="karta"&gt;
+        &lt;h3&gt;CSS&lt;/h3&gt;
+        &lt;p&gt;Wygląd strony.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="karta"&gt;
+        &lt;h3&gt;JavaScript&lt;/h3&gt;
+        &lt;p&gt;Interaktywność.&lt;/p&gt;
+    &lt;/article&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+
+    min-width: 0;
+
+    padding: 20px;
+
+    background-color: #DBEAFE;
+
+    border-radius: 10px;
+}</code></pre>
+
+            <p>
+                Karty będą próbowały
+                zajmować dostępną
+                przestrzeń w wierszu.
+            </p>
+
+            <p>
+                Jeśli zabraknie miejsca,
+                zostaną przeniesione
+                do kolejnego wiersza.
+            </p>
+
+            <h3>Wariant Mobile First</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+
+    .karty {
+        flex-direction: row;
+    }
+
+    .karta {
+        flex: 1;
+    }
+
+}</code></pre>
+
+            <p>
+                Na małych ekranach
+                karty są ustawione
+                jedna pod drugą.
+            </p>
+
+            <p>
+                Na większych ekranach
+                znajdują się obok siebie.
+            </p>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="typografia">
+
+            <h2>16. Responsywna typografia</h2>
+
+            <p>
+                Rozmiary tekstu
+                powinny zapewniać
+                czytelność na różnych
+                szerokościach ekranu.
+            </p>
+
+            <h3>Zmiana rozmiaru przez @media</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: 40px;
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+}</code></pre>
+
+            <p>
+                Na małym ekranie
+                nagłówek będzie mniejszy.
+            </p>
+
+            <h3>Płynna typografia z clamp()</h3>
+
+            <pre><code class="language-css">h1 {
+    font-size: clamp(26px, 4vw, 48px);
+}</code></pre>
+
+            <p>
+                Rozmiar nagłówka
+                będzie dostosowywał się
+                płynnie do szerokości viewport,
+                w podanych granicach.
+            </p>
+
+            <h3>Przykład akapitu</h3>
+
+            <pre><code class="language-css">p {
+    font-size: 1rem;
+
+    line-height: 1.6;
+}</code></pre>
+
+            <p>
+                Odpowiednia wysokość
+                linii poprawia
+                czytelność tekstu.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Nie zmniejszaj
+                    nadmiernie tekstu
+                    tylko po to,
+                    aby zmieścić
+                    więcej treści
+                    na małym ekranie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="testowanie">
+
+            <h2>17. Testowanie responsywności strony</h2>
+
+            <p>
+                Responsywność należy
+                sprawdzać podczas pracy,
+                a nie dopiero
+                po zakończeniu projektu.
+            </p>
+
+            <h3>Sposób 1 – zmiana szerokości okna</h3>
+
+            <ol>
+                <li>Otwórz stronę w przeglądarce.</li>
+                <li>Zmniejsz szerokość okna.</li>
+                <li>Obserwuj zmiany układu.</li>
+                <li>Sprawdź menu, obrazy, karty i tekst.</li>
+            </ol>
+
+            <h3>Sposób 2 – narzędzia deweloperskie</h3>
+
+            <ol>
+                <li>Otwórz stronę w Chrome lub Edge.</li>
+                <li>Naciśnij klawisz <strong>F12</strong>.</li>
+                <li>Włącz tryb urządzenia mobilnego – ikonę telefonu i tabletu.</li>
+                <li>Wybierz przykładową szerokość ekranu.</li>
+                <li>Sprawdź wygląd strony.</li>
+                <li>Zmieniaj szerokość viewport i obserwuj układ.</li>
+            </ol>
+
+            <h3>Przykładowe szerokości testowe</h3>
+
+            <table>
+                <tr>
+                    <th>Szerokość viewport</th>
+                    <th>Cel testu</th>
+                </tr>
+
+                <tr>
+                    <td>360 px</td>
+                    <td>Wąski ekran telefonu.</td>
+                </tr>
+
+                <tr>
+                    <td>390 px</td>
+                    <td>Typowa szerokość mobilna.</td>
+                </tr>
+
+                <tr>
+                    <td>768 px</td>
+                    <td>Węższy ekran tabletu lub okno przeglądarki.</td>
+                </tr>
+
+                <tr>
+                    <td>1024 px</td>
+                    <td>Szerszy tablet lub małe okno desktopowe.</td>
+                </tr>
+
+                <tr>
+                    <td>1440 px</td>
+                    <td>Duży ekran komputera.</td>
+                </tr>
+            </table>
+
+            <p>
+                Podane szerokości
+                są przykładowymi
+                wartościami do testów,
+                a nie sztywnymi
+                kategoriami urządzeń.
+            </p>
+
+            <h3>Lista kontrolna</h3>
+
+            <ul>
+                <li>Czy tekst jest czytelny?</li>
+                <li>Czy menu mieści się na ekranie?</li>
+                <li>Czy obrazy zachowują proporcje?</li>
+                <li>Czy karty poprawnie zmieniają układ?</li>
+                <li>Czy przyciski można wygodnie nacisnąć?</li>
+                <li>Czy nie pojawia się niepotrzebne przewijanie poziome?</li>
+                <li>Czy wszystkie sekcje są dostępne?</li>
+            </ul>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak meta viewport</h3>
+
+            <p>
+                Na telefonie strona
+                może być wyświetlana
+                w nieodpowiedniej skali.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-html">&lt;meta name="viewport"
+      content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+            <h3>Błąd 2 – sztywna szerokość strony</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 1200px;
+}</code></pre>
+
+            <p>
+                Na małym ekranie
+                kontener może
+                wychodzić poza viewport.
+            </p>
+
+            <p>Lepsze rozwiązanie:</p>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1200px;
+}</code></pre>
+
+            <h3>Błąd 3 – zbyt duży obraz</h3>
+
+            <pre><code class="language-css">img {
+    width: 900px;
+}</code></pre>
+
+            <p>Lepsze rozwiązanie:</p>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <h3>Błąd 4 – brak zmiany kierunku menu</h3>
+
+            <p>
+                Menu poziome
+                może nie mieścić się
+                na małym ekranie.
+            </p>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <h3>Błąd 5 – błędny zapis @media</h3>
+
+            <pre><code class="language-css">@media max-width: 600px {
+    /* Błędna składnia */
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <h3>Błąd 6 – niepotrzebne używanie 100vw</h3>
+
+            <p>
+                W niektórych układach
+                <code>width: 100vw</code>
+                może spowodować
+                poziome przewijanie.
+            </p>
+
+            <p>
+                Dla elementu blokowego
+                często wystarczy
+                jego domyślna
+                automatyczna szerokość.
+            </p>
+
+            <h3>Błąd 7 – brak testów</h3>
+
+            <p>
+                Strona może wyglądać
+                poprawnie na komputerze,
+                ale mieć problemy
+                na telefonie.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Responsywność
+                    należy sprawdzać
+                    na różnych szerokościach,
+                    również pomiędzy
+                    wybranymi breakpointami.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – responsywna strona „Technologie WWW”</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                stronę internetową,
+                która dostosowuje
+                układ do szerokości viewport.
+            </p>
+
+            <p>
+                Wykorzystamy:
+            </p>
+
+            <ul>
+                <li>meta viewport,</li>
+                <li>jednostki procentowe i rem,</li>
+                <li>max-width,</li>
+                <li>clamp(),</li>
+                <li>Flexbox,</li>
+                <li>media queries,</li>
+                <li>responsywne menu i karty.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">technologie-www/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Technologie WWW&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;div class="kontener"&gt;
+
+            &lt;h1&gt;Technologie WWW&lt;/h1&gt;
+
+            &lt;p&gt;
+                Poznaj podstawy tworzenia
+                nowoczesnych stron internetowych.
+            &lt;/p&gt;
+
+        &lt;/div&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#technologie"&gt;Technologie&lt;/a&gt;
+
+        &lt;a href="#o-nas"&gt;O nas&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main class="kontener"&gt;
+
+        &lt;section class="powitanie" id="o-nas"&gt;
+
+            &lt;h2&gt;Tworzenie stron internetowych&lt;/h2&gt;
+
+            &lt;p&gt;
+                HTML odpowiada za strukturę,
+                CSS za wygląd,
+                a JavaScript za interaktywność.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="technologie"&gt;
+
+            &lt;h2&gt;Poznaj technologie&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Język znaczników
+                        służący do tworzenia
+                        struktury stron WWW.
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Język stylów
+                        umożliwiający formatowanie
+                        i tworzenie układów stron.
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Język programowania
+                        wykorzystywany do tworzenia
+                        interaktywnych elementów.
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="kontakt" id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Napisz do nas:
+                &lt;a href="mailto:kontakt@example.com"&gt;
+                    kontakt@example.com
+                &lt;/a&gt;
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Technologie WWW
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ustawienia ogólne */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Główny kontener */
+
+.kontener {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 3rem 1rem;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+header h1 {
+    margin-top: 0;
+
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* Menu */
+
+.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    background-color: #2563EB;
+}
+
+.menu a {
+    padding: 0.7rem 1rem;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #1D4ED8;
+}
+
+.menu a:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Sekcje */
+
+section {
+    margin: 2rem 0;
+}
+
+section h2 {
+    color: #1E3A8A;
+
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+/* Powitanie */
+
+.powitanie {
+    padding: 2rem;
+
+    background-color: white;
+
+    border-radius: 12px;
+}
+
+/* Karty */
+
+.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1.25rem;
+}
+
+.karta {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1 1 250px;
+
+    min-width: 0;
+
+    padding: 1.5rem;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: #2563EB;
+}
+
+.karta a {
+    display: inline-block;
+
+    margin-top: auto;
+
+    padding: 0.8rem 1rem;
+
+    text-align: center;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.karta a:hover {
+    background-color: #1D4ED8;
+}
+
+.karta a:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Kontakt */
+
+.kontakt {
+    padding: 2rem;
+
+    background-color: #DBEAFE;
+
+    border-radius: 12px;
+}
+
+/* Stopka */
+
+footer {
+    padding: 1.5rem;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+/* Małe ekrany */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 2rem 1rem;
+    }
+
+    .menu {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0.5rem;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    .karty {
+        flex-direction: column;
+    }
+
+    .powitanie,
+    .kontakt {
+        padding: 1.25rem;
+    }
+
+}
+
+/* Średnie ekrany */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .kontener {
+        width: 92%;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Ograniczenie animacji */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto;
+    }
+
+}</code></pre>
+
+            <h3>Oczekiwany efekt</h3>
+
+            <ol>
+                <li>Na dużym ekranie menu jest poziome.</li>
+                <li>Na małym ekranie menu jest pionowe.</li>
+                <li>Karty dostosowują się do dostępnej szerokości.</li>
+                <li>Na wąskim ekranie karty znajdują się jedna pod drugą.</li>
+                <li>Nagłówki mają elastyczne rozmiary.</li>
+                <li>Główny kontener nie przekracza 1100 px szerokości.</li>
+                <li>Strona nie wymaga poziomego przewijania przy typowych szerokościach ekranu.</li>
+            </ol>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>RWD oznacza Responsive Web Design.</li>
+                    <li>Responsywna strona dostosowuje układ do dostępnej przestrzeni.</li>
+                    <li>Viewport to obszar wyświetlania strony.</li>
+                    <li>Znacznik meta viewport należy umieścić w sekcji head.</li>
+                    <li><code>width=device-width</code> ustawia szerokość viewport zgodnie z szerokością urządzenia w pikselach CSS.</li>
+                    <li><code>initial-scale=1.0</code> ustawia początkową skalę.</li>
+                    <li>Mobile First oznacza projektowanie najpierw dla małych ekranów.</li>
+                    <li>Desktop First oznacza projektowanie najpierw dla dużych ekranów.</li>
+                    <li>Jednostka % pozwala określać wartości względne.</li>
+                    <li>Jednostka rem zależy od rozmiaru czcionki elementu html.</li>
+                    <li>Jednostka em zależy od kontekstu rozmiaru czcionki.</li>
+                    <li>Jednostka vw odnosi się do szerokości viewport.</li>
+                    <li>Jednostka vh odnosi się do wysokości viewport.</li>
+                    <li>Jednostka dvh uwzględnia dynamiczną wysokość viewport.</li>
+                    <li><code>max-width</code> ogranicza maksymalną szerokość elementu.</li>
+                    <li><code>min-width</code> określa minimalną szerokość elementu.</li>
+                    <li><code>calc()</code> pozwala wykonywać obliczenia w CSS.</li>
+                    <li><code>min()</code> wybiera mniejszą z wartości.</li>
+                    <li><code>max()</code> wybiera większą z wartości.</li>
+                    <li><code>clamp()</code> określa minimum, wartość preferowaną i maksimum.</li>
+                    <li><code>max-width: 100%</code> pomaga dostosować obrazy do kontenera.</li>
+                    <li><code>height: auto</code> pozwala zachować proporcje obrazu.</li>
+                    <li><code>@media</code> umożliwia zmianę stylów zależnie od warunków.</li>
+                    <li><code>min-width</code> w media queries określa dolną granicę szerokości.</li>
+                    <li><code>max-width</code> w media queries określa górną granicę szerokości.</li>
+                    <li>Breakpoint to punkt, w którym zmienia się układ strony.</li>
+                    <li>Flexbox ułatwia tworzenie responsywnych kart i menu.</li>
+                    <li>Responsywność należy testować na różnych szerokościach viewport.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                wykonanie responsywnej
+                strony internetowej
+                z wykorzystaniem
+                viewport, jednostek elastycznych,
+                Flexbox i media queries.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_33</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania
+                    wykonaj w ramach jednego projektu.
+                    Każde kolejne zadanie
+                    rozbudowuje tę samą stronę.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Struktura responsywnej strony</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moje zainteresowania”</strong>
+                lub <strong>„Moja oferta”</strong>.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Ustaw język dokumentu na polski.</li>
+                <li>Dodaj kodowanie UTF-8.</li>
+                <li>Dodaj znacznik meta viewport.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z własnym tytułem.</li>
+                <li>Dodaj menu z co najmniej trzema odnośnikami.</li>
+                <li>Dodaj sekcję powitalną.</li>
+                <li>Dodaj sekcję z co najmniej trzema kartami.</li>
+                <li>Dodaj stopkę z imieniem i nazwiskiem autora.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Elastyczne rozmiary elementów</h3>
+
+            <p>
+                Dostosuj szerokości
+                i odstępy na stronie.
+            </p>
+
+            <ol>
+                <li>Ustaw dla całej strony <code>margin: 0</code>.</li>
+                <li>Zastosuj <code>box-sizing: border-box</code>.</li>
+                <li>Utwórz klasę <code>kontener</code>.</li>
+                <li>Ustaw szerokość kontenera na 90%.</li>
+                <li>Ustaw maksymalną szerokość na 1100 px.</li>
+                <li>Wyśrodkuj kontener za pomocą <code>margin: 0 auto</code>.</li>
+                <li>Wykorzystaj jednostki <code>rem</code> do ustawienia paddingu.</li>
+                <li>Ustaw odstępy między sekcjami.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Responsywne menu i karty</h3>
+
+            <p>
+                Zastosuj Flexbox
+                do rozmieszczenia
+                elementów strony.
+            </p>
+
+            <ol>
+                <li>Ustaw <code>display: flex</code> dla menu.</li>
+                <li>Wyśrodkuj odnośniki.</li>
+                <li>Dodaj odstępy między odnośnikami za pomocą <code>gap</code>.</li>
+                <li>Ustaw <code>display: flex</code> dla kontenera kart.</li>
+                <li>Dodaj <code>flex-wrap: wrap</code>.</li>
+                <li>Ustaw dla kart <code>flex: 1 1 250px</code>.</li>
+                <li>Dodaj odstępy między kartami.</li>
+                <li>Zmniejsz szerokość okna przeglądarki i obserwuj układ.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Responsywne obrazy i tekst</h3>
+
+            <p>
+                Rozbuduj stronę
+                o elementy graficzne
+                i elastyczną typografię.
+            </p>
+
+            <ol>
+                <li>Dodaj co najmniej jeden obraz do strony.</li>
+                <li>Umieść obraz w katalogu <code>img</code>.</li>
+                <li>Ustaw dla obrazu <code>max-width: 100%</code>.</li>
+                <li>Ustaw <code>height: auto</code>.</li>
+                <li>Dodaj odpowiedni atrybut <code>alt</code>.</li>
+                <li>Ustaw rozmiar głównego nagłówka za pomocą <code>clamp()</code>.</li>
+                <li>Zastosuj jednostki <code>rem</code> dla tekstu i odstępów.</li>
+                <li>Sprawdź wygląd obrazu i tekstu na małym ekranie.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Media queries</h3>
+
+            <p>
+                Dostosuj układ strony
+                do szerokości viewport.
+            </p>
+
+            <ol>
+                <li>Dodaj regułę <code>@media (max-width: 600px)</code>.</li>
+                <li>Na małym ekranie ustaw menu pionowo.</li>
+                <li>Wyśrodkuj odnośniki menu.</li>
+                <li>Ustaw karty jedna pod drugą.</li>
+                <li>Zmniejsz padding sekcji powitalnej.</li>
+                <li>Dodaj regułę dla szerokości od 601 px do 900 px.</li>
+                <li>W tym przedziale ustaw szerokość głównego kontenera na 92%.</li>
+                <li>Sprawdź, czy wszystkie reguły działają poprawnie.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Testowanie responsywności</h3>
+
+            <p>
+                Sprawdź gotową stronę
+                w narzędziach deweloperskich
+                przeglądarki.
+            </p>
+
+            <ol>
+                <li>Uruchom stronę w Chrome lub Edge.</li>
+                <li>Otwórz narzędzia deweloperskie klawiszem F12.</li>
+                <li>Włącz widok urządzenia mobilnego.</li>
+                <li>Sprawdź stronę przy szerokości 360 px.</li>
+                <li>Sprawdź stronę przy szerokości 768 px.</li>
+                <li>Sprawdź stronę przy szerokości 1024 px.</li>
+                <li>Sprawdź stronę przy szerokości 1440 px.</li>
+                <li>Upewnij się, że nie występuje niepotrzebne przewijanie poziome.</li>
+                <li>Sprawdź, czy menu i karty zmieniają układ.</li>
+                <li>Popraw zauważone błędy.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_33/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+    |
+    |-- zdjecie.jpg</code></pre>
+
+                <p>
+                    Nazwa pliku graficznego
+                    może być inna,
+                    ale ścieżka w HTML
+                    musi być poprawna.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_33</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy
+                    sprawdź działanie strony
+                    na różnych szerokościach ekranu,
+                    poprawność odnośników,
+                    wyświetlanie obrazów
+                    i działanie media queries.
+                </p>
+
+                <p>
+                    <strong>
+                        Teksty, tytuły
+                        i opisy powinny być własne,
+                        a nie skopiowane
+                        z przykładu.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 33
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
