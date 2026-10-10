@@ -1,0 +1,1536 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 40 – Optymalizacja witryny, dostępność i SEO | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#optymalizacja">2.Czym jest optymalizacja?</a>
+        <a href="#szybkosc">3.Szybkość wczytywania</a>
+        <a href="#czynniki">4.Czynniki wpływające na szybkość</a>
+        <a href="#obrazy">5.Optymalizacja obrazów</a>
+        <a href="#lazy">6.Leniwe ładowanie obrazów</a>
+        <a href="#css-js">7.Optymalizacja CSS i JS</a>
+        <a href="#narzedzia">8.PageSpeed i Lighthouse</a>
+        <a href="#web-vitals">9.Core Web Vitals</a>
+        <a href="#dostepnosc">10.Dostępność witryny</a>
+        <a href="#semantyka">11.Semantyczny HTML</a>
+        <a href="#kontrast">12.Kontrast i czytelność</a>
+        <a href="#klawiatura">13.Obsługa klawiaturą</a>
+        <a href="#seo">14.Czym jest SEO?</a>
+        <a href="#meta">15.Title i meta description</a>
+        <a href="#naglowki">16.Nagłówki i treści</a>
+        <a href="#linki">17.Linki i adresy URL</a>
+        <a href="#indeksowanie">18.Indeksowanie i robots.txt</a>
+        <a href="#bledy">19.Najczęstsze błędy</a>
+        <a href="#proces">20.Proces optymalizacji</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 40 • OPTYMALIZACJA I SEO
+            </div>
+
+            <h2>
+                Optymalizacja witryny, szybkość wczytywania,
+                dostępność i podstawowe zasady SEO
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie metod poprawiania wydajności,
+                dostępności i widoczności stron internetowych,
+                optymalizowanie obrazów i kodu,
+                korzystanie z narzędzi diagnostycznych
+                oraz stosowanie podstawowych zasad SEO.
+            </p>
+
+            <p><strong>Czas realizacji:</strong> 2 × 45 minut.</p>
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Strona internetowa może być poprawnie napisana
+                i przechodzić walidację HTML oraz CSS,
+                ale nadal działać zbyt wolno,
+                być trudna w obsłudze
+                lub niewidoczna w wynikach wyszukiwania.
+            </p>
+
+            <p>
+                Dlatego po zakończeniu projektowania
+                i testowania witryny należy zadbać
+                o jej optymalizację.
+            </p>
+
+            <h3>Trzy główne obszary optymalizacji</h3>
+
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            ">
+                <div style="padding: 20px; border-radius: 10px; background: #DBEAFE; color: #1E3A8A;">
+                    <h3>⚡ Wydajność</h3>
+                    <p>Szybkie wczytywanie i sprawne działanie witryny.</p>
+                </div>
+
+                <div style="padding: 20px; border-radius: 10px; background: #DCFCE7; color: #14532D;">
+                    <h3>♿ Dostępność</h3>
+                    <p>Możliwość korzystania ze strony przez osoby o różnych potrzebach.</p>
+                </div>
+
+                <div style="padding: 20px; border-radius: 10px; background: #FEF3C7; color: #78350F;">
+                    <h3>🔎 SEO</h3>
+                    <p>Ułatwianie wyszukiwarkom zrozumienia zawartości strony.</p>
+                </div>
+            </div>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Optymalizacja witryny to proces
+                    poprawiania jej działania,
+                    użyteczności i jakości technicznej.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+
+        <section id="optymalizacja">
+            <h2>2. Czym jest optymalizacja witryny?</h2>
+
+            <p>
+                Optymalizacja polega na wprowadzaniu zmian,
+                dzięki którym strona lepiej spełnia
+                potrzeby użytkowników
+                i działa sprawniej.
+            </p>
+
+            <h3>Przykładowe działania optymalizacyjne</h3>
+
+            <ul>
+                <li>Zmniejszanie rozmiaru obrazów.</li>
+                <li>Usuwanie niepotrzebnego kodu.</li>
+                <li>Ograniczanie liczby pobieranych zasobów.</li>
+                <li>Poprawianie struktury nagłówków.</li>
+                <li>Dodawanie opisów alternatywnych.</li>
+                <li>Poprawianie kontrastu tekstu.</li>
+                <li>Tworzenie opisowych tytułów stron.</li>
+                <li>Sprawdzanie działania witryny na telefonach.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Strona zawiera zdjęcie o rozmiarze 8 MB.
+                Po przygotowaniu obrazu do internetu
+                jego rozmiar zmniejszono do 180 KB,
+                zachowując jakość wystarczającą
+                do wyświetlania na stronie.
+            </p>
+
+            <p>
+                Dzięki temu przeglądarka pobiera
+                znacznie mniej danych.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Optymalizacja nie polega wyłącznie
+                    na uzyskaniu wysokiego wyniku
+                    w automatycznym narzędziu.
+                    Najważniejsze jest rzeczywiste
+                    doświadczenie użytkownika.
+                </p>
+            </div>
+        </section>
+
+        <!-- 3 -->
+
+        <section id="szybkosc">
+            <h2>3. Dlaczego szybkość wczytywania strony jest ważna?</h2>
+
+            <p>
+                Użytkownik oczekuje,
+                że strona otworzy się sprawnie
+                i szybko pozwoli rozpocząć korzystanie
+                z jej zawartości.
+            </p>
+
+            <p>
+                Powolna witryna może utrudniać
+                czytanie informacji,
+                przeglądanie galerii
+                i wykonywanie działań.
+            </p>
+
+            <h3>Skutki wolnego wczytywania</h3>
+
+            <ul>
+                <li>Dłuższe oczekiwanie na wyświetlenie treści.</li>
+                <li>Większe zużycie transferu danych.</li>
+                <li>Opóźniona reakcja strony na działania użytkownika.</li>
+                <li>Gorszy komfort korzystania na słabszych urządzeniach.</li>
+                <li>Możliwość opuszczenia witryny przed jej wczytaniem.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Strona z pięcioma zdjęciami
+                po 4 MB każde wymaga pobrania
+                około 20 MB samych obrazów.
+            </p>
+
+            <p>
+                Jeśli każde zdjęcie zostanie
+                zoptymalizowane do 200 KB,
+                łączny rozmiar obrazów
+                wyniesie około 1 MB.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Im mniej zbędnych danych
+                    musi pobrać przeglądarka,
+                    tym większa szansa
+                    na szybkie wczytanie strony.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+
+        <section id="czynniki">
+            <h2>4. Czynniki wpływające na szybkość strony</h2>
+
+            <table>
+                <tr>
+                    <th>Czynnik</th>
+                    <th>Wpływ na witrynę</th>
+                </tr>
+                <tr>
+                    <td>Rozmiar obrazów</td>
+                    <td>Duże pliki zwiększają ilość pobieranych danych.</td>
+                </tr>
+                <tr>
+                    <td>Pliki CSS</td>
+                    <td>Duże lub zbędne arkusze mogą opóźniać wyświetlanie strony.</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Rozbudowane skrypty mogą obciążać przeglądarkę.</td>
+                </tr>
+                <tr>
+                    <td>Serwer</td>
+                    <td>Powolna odpowiedź serwera opóźnia pobieranie zasobów.</td>
+                </tr>
+                <tr>
+                    <td>Połączenie internetowe</td>
+                    <td>Wolniejsze połączenie wydłuża pobieranie plików.</td>
+                </tr>
+                <tr>
+                    <td>Liczba zasobów</td>
+                    <td>Duża liczba żądań może zwiększać czas ładowania.</td>
+                </tr>
+                <tr>
+                    <td>Czcionki internetowe</td>
+                    <td>Dodatkowe pliki fontów wymagają pobrania.</td>
+                </tr>
+            </table>
+
+            <h3>Co możemy poprawić jako autorzy strony?</h3>
+
+            <ul>
+                <li>Rozmiary i formaty grafik.</li>
+                <li>Sposób ładowania obrazów.</li>
+                <li>Ilość zbędnego CSS i JavaScript.</li>
+                <li>Strukturę dokumentu.</li>
+                <li>Liczbę niepotrzebnych dodatków.</li>
+            </ul>
+        </section>
+
+        <!-- 5 -->
+
+        <section id="obrazy">
+            <h2>5. Optymalizacja obrazów</h2>
+
+            <p>
+                Obrazy należą do najczęstszych
+                dużych zasobów pobieranych przez witrynę.
+            </p>
+
+            <h3>Najważniejsze metody</h3>
+
+            <ol>
+                <li>Zmniejszenie wymiarów obrazu.</li>
+                <li>Wybranie odpowiedniego formatu.</li>
+                <li>Kompresja pliku.</li>
+                <li>Unikanie przesyłania zdjęć w pełnej rozdzielczości aparatu.</li>
+                <li>Dobranie obrazu do rzeczywistego miejsca wyświetlania.</li>
+            </ol>
+
+            <h3>Popularne formaty</h3>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Fotografie.</td>
+                </tr>
+                <tr>
+                    <td>PNG</td>
+                    <td>Grafiki wymagające przezroczystości lub bezstratnego zapisu.</td>
+                </tr>
+                <tr>
+                    <td>WebP</td>
+                    <td>Obrazy internetowe, często o mniejszym rozmiarze.</td>
+                </tr>
+                <tr>
+                    <td>AVIF</td>
+                    <td>Nowoczesny format oferujący efektywną kompresję.</td>
+                </tr>
+                <tr>
+                    <td>SVG</td>
+                    <td>Logo, ikony i inne grafiki wektorowe.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład optymalizacji</h3>
+
+            <table>
+                <tr>
+                    <th>Parametr</th>
+                    <th>Przed</th>
+                    <th>Po</th>
+                </tr>
+                <tr>
+                    <td>Wymiary</td>
+                    <td>4000 × 3000 px</td>
+                    <td>1200 × 900 px</td>
+                </tr>
+                <tr>
+                    <td>Rozmiar pliku</td>
+                    <td>5 MB</td>
+                    <td>250 KB</td>
+                </tr>
+                <tr>
+                    <td>Zastosowanie</td>
+                    <td>Oryginał z aparatu</td>
+                    <td>Obraz przygotowany do artykułu</td>
+                </tr>
+            </table>
+
+            <p>
+                Wartości w tabeli są przykładowe.
+                Rzeczywisty wynik kompresji
+                zależy od zawartości obrazu
+                i zastosowanych ustawień.
+            </p>
+
+            <h3>Przykład kodu HTML</h3>
+
+            <pre><code class="language-html">&lt;img src="img/pracownia.webp"
+     alt="Uczniowie pracujący w pracowni komputerowej"
+     width="1200"
+     height="900"&gt;</code></pre>
+
+            <p>
+                Atrybuty <code>width</code>
+                i <code>height</code>
+                pomagają przeglądarce
+                zarezerwować miejsce na obraz,
+                zanim zostanie pobrany.
+            </p>
+        </section>
+
+        <!-- 6 -->
+
+        <section id="lazy">
+            <h2>6. Leniwe ładowanie obrazów – lazy loading</h2>
+
+            <p>
+                Lazy loading oznacza opóźnianie
+                pobierania wybranych zasobów
+                do momentu, gdy są potrzebne.
+            </p>
+
+            <p>
+                Jest to szczególnie przydatne
+                w długich stronach i galeriach.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;img src="img/galeria1.webp"
+     alt="Szkolna pracownia komputerowa"
+     width="800"
+     height="600"
+     loading="lazy"&gt;</code></pre>
+
+            <p>
+                Atrybut <code>loading="lazy"</code>
+                sugeruje przeglądarce,
+                że obraz może zostać załadowany później.
+            </p>
+
+            <h3>Kiedy stosować?</h3>
+
+            <ul>
+                <li>W galeriach zawierających wiele zdjęć.</li>
+                <li>W długich artykułach.</li>
+                <li>Przy obrazach znajdujących się daleko poniżej początkowego widoku.</li>
+            </ul>
+
+            <h3>Kiedy uważać?</h3>
+
+            <p>
+                Nie należy automatycznie dodawać
+                <code>loading="lazy"</code>
+                do wszystkich obrazów.
+            </p>
+
+            <p>
+                Obraz widoczny od razu po otwarciu strony,
+                szczególnie główna grafika,
+                powinien zwykle ładować się bez opóźnienia.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Lazy loading jest korzystny
+                    przede wszystkim dla obrazów,
+                    których użytkownik
+                    nie widzi na początku.
+                </p>
+            </div>
+        </section>
+
+        <!-- 7 -->
+
+        <section id="css-js">
+            <h2>7. Optymalizacja CSS i JavaScript</h2>
+
+            <p>
+                Arkusze stylów i skrypty
+                również wpływają na wydajność strony.
+            </p>
+
+            <h3>Dobre praktyki</h3>
+
+            <ul>
+                <li>Usuwaj nieużywane fragmenty kodu.</li>
+                <li>Unikaj wielokrotnego zapisywania identycznych reguł.</li>
+                <li>Nie dołączaj bibliotek, których strona nie wykorzystuje.</li>
+                <li>Ograniczaj niepotrzebne skrypty.</li>
+                <li>Sprawdzaj, czy wszystkie dołączane pliki są potrzebne.</li>
+            </ul>
+
+            <h3>Przykład powtarzającego się CSS</h3>
+
+            <p><strong>Przed:</strong></p>
+
+            <pre><code class="language-css">h1 {
+    color: #1E3A8A;
+}
+
+h2 {
+    color: #1E3A8A;
+}
+
+h3 {
+    color: #1E3A8A;
+}</code></pre>
+
+            <p><strong>Po:</strong></p>
+
+            <pre><code class="language-css">h1, h2, h3 {
+    color: #1E3A8A;
+}</code></pre>
+
+            <h3>Atrybut defer</h3>
+
+            <p>
+                W przypadku odpowiednich
+                zewnętrznych skryptów klasycznych
+                można zastosować:
+            </p>
+
+            <pre><code class="language-html">&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+
+            <p>
+                Przeglądarka może pobierać taki skrypt
+                podczas analizowania dokumentu,
+                a jego wykonanie następuje
+                po zakończeniu parsowania HTML,
+                przed zdarzeniem DOMContentLoaded.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Nie należy bez sprawdzenia
+                    zmieniać sposobu ładowania
+                    wszystkich skryptów.
+                    Niektóre skrypty mogą wymagać
+                    określonej kolejności działania.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8 -->
+
+        <section id="narzedzia">
+            <h2>8. PageSpeed Insights i Lighthouse</h2>
+
+            <p>
+                Do analizowania wydajności witryn
+                można wykorzystać narzędzia diagnostyczne.
+            </p>
+
+            <h3>PageSpeed Insights</h3>
+
+            <p>
+                <a href="https://pagespeed.web.dev/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    https://pagespeed.web.dev/
+                </a>
+            </p>
+
+            <p>
+                Narzędzie analizuje publicznie
+                dostępne strony internetowe
+                i przedstawia informacje
+                o ich wydajności.
+            </p>
+
+            <h3>Jak wykonać test?</h3>
+
+            <ol>
+                <li>Otwórz PageSpeed Insights.</li>
+                <li>Wpisz publiczny adres strony.</li>
+                <li>Uruchom analizę.</li>
+                <li>Sprawdź wyniki dla urządzeń mobilnych.</li>
+                <li>Sprawdź wyniki dla komputerów.</li>
+                <li>Przeczytaj proponowane usprawnienia.</li>
+            </ol>
+
+            <h3>Lighthouse</h3>
+
+            <p>
+                Lighthouse to narzędzie
+                umożliwiające przeprowadzenie
+                automatycznego audytu strony.
+            </p>
+
+            <p>
+                W Chrome można je uruchomić
+                z narzędzi deweloperskich,
+                jeśli jest dostępne
+                w danej instalacji przeglądarki.
+            </p>
+
+            <h3>Przykładowe obszary analizy</h3>
+
+            <ul>
+                <li>Performance – wydajność.</li>
+                <li>Accessibility – dostępność.</li>
+                <li>Best Practices – dobre praktyki.</li>
+                <li>SEO – podstawowe kontrole związane z wyszukiwarkami.</li>
+            </ul>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    PageSpeed Insights wymaga
+                    publicznie dostępnego adresu.
+                    Do analizy lokalnego projektu
+                    można użyć Lighthouse
+                    w przeglądarce.
+                </p>
+            </div>
+        </section>
+
+        <!-- 9 -->
+
+        <section id="web-vitals">
+            <h2>9. Core Web Vitals – podstawowe wskaźniki wydajności</h2>
+
+            <p>
+                Core Web Vitals to wskaźniki
+                opisujące wybrane aspekty
+                doświadczenia użytkownika strony.
+            </p>
+
+            <h3>Trzy podstawowe wskaźniki</h3>
+
+            <table>
+                <tr>
+                    <th>Wskaźnik</th>
+                    <th>Co mierzy?</th>
+                    <th>Dobry wynik</th>
+                </tr>
+                <tr>
+                    <td>LCP</td>
+                    <td>Czas wyświetlenia największego istotnego elementu treści.</td>
+                    <td>Do 2,5 s</td>
+                </tr>
+                <tr>
+                    <td>INP</td>
+                    <td>Responsywność strony na interakcje użytkownika.</td>
+                    <td>Do 200 ms</td>
+                </tr>
+                <tr>
+                    <td>CLS</td>
+                    <td>Nieoczekiwane przesunięcia układu strony.</td>
+                    <td>Do 0,1</td>
+                </tr>
+            </table>
+
+            <p>
+                Progi te są stosowane
+                do oceny doświadczenia użytkowników,
+                zwykle z uwzględnieniem
+                75. percentyla pomiarów.
+            </p>
+
+            <h3>Przykład CLS</h3>
+
+            <p>
+                Użytkownik chce kliknąć przycisk,
+                ale po załadowaniu dużego obrazu
+                przycisk nagle przesuwa się w dół.
+            </p>
+
+            <p>
+                Takie nieoczekiwane przesunięcie
+                pogarsza komfort korzystania ze strony.
+            </p>
+
+            <h3>Jak ograniczać problemy?</h3>
+
+            <ul>
+                <li>Podawaj wymiary obrazów.</li>
+                <li>Optymalizuj główne grafiki.</li>
+                <li>Unikaj zbędnego JavaScript.</li>
+                <li>Nie wstawiaj nagle elementów nad widoczną treścią.</li>
+                <li>Sprawdzaj szybkość reakcji strony na kliknięcia.</li>
+            </ul>
+        </section>
+
+        <!-- 10 -->
+
+        <section id="dostepnosc">
+            <h2>10. Dostępność witryny internetowej</h2>
+
+            <p>
+                Dostępność oznacza tworzenie stron,
+                z których mogą korzystać osoby
+                o różnych możliwościach
+                i potrzebach.
+            </p>
+
+            <p>
+                Wcześniej poznaliśmy zasady WCAG,
+                które pomagają projektować
+                bardziej dostępne witryny.
+            </p>
+
+            <h3>Cztery zasady WCAG</h3>
+
+            <ul>
+                <li><strong>Postrzegalność</strong> – użytkownik może odbierać informacje.</li>
+                <li><strong>Funkcjonalność</strong> – użytkownik może obsługiwać interfejs.</li>
+                <li><strong>Zrozumiałość</strong> – treści i sposób działania są zrozumiałe.</li>
+                <li><strong>Solidność</strong> – treść jest poprawnie interpretowana przez odpowiednie technologie.</li>
+            </ul>
+
+            <h3>Przykładowe problemy</h3>
+
+            <ul>
+                <li>Zbyt mały kontrast tekstu.</li>
+                <li>Brak opisów alternatywnych obrazów.</li>
+                <li>Nieczytelne etykiety formularzy.</li>
+                <li>Brak możliwości obsługi klawiaturą.</li>
+                <li>Nieprawidłowa struktura nagłówków.</li>
+                <li>Treści przekazywane wyłącznie kolorem.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Dostępność należy uwzględniać
+                    podczas projektowania,
+                    tworzenia i testowania witryny,
+                    a nie dopiero po jej opublikowaniu.
+                </p>
+            </div>
+        </section>
+
+        <!-- 11 -->
+
+        <section id="semantyka">
+            <h2>11. Semantyczny HTML a dostępność i SEO</h2>
+
+            <p>
+                Semantyczne elementy HTML
+                informują o znaczeniu
+                poszczególnych części dokumentu.
+            </p>
+
+            <h3>Przykładowe elementy</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td>header</td>
+                    <td>Nagłówek strony lub sekcji.</td>
+                </tr>
+                <tr>
+                    <td>nav</td>
+                    <td>Obszar nawigacji.</td>
+                </tr>
+                <tr>
+                    <td>main</td>
+                    <td>Główna zawartość dokumentu.</td>
+                </tr>
+                <tr>
+                    <td>section</td>
+                    <td>Tematyczna sekcja treści.</td>
+                </tr>
+                <tr>
+                    <td>article</td>
+                    <td>Samodzielna treść, np. artykuł.</td>
+                </tr>
+                <tr>
+                    <td>footer</td>
+                    <td>Stopka strony lub sekcji.</td>
+                </tr>
+            </table>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;Szkolna Strefa IT&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav aria-label="Menu główne"&gt;
+    &lt;a href="index.html"&gt;Strona główna&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Nowy kurs HTML&lt;/h2&gt;
+        &lt;p&gt;Poznaj podstawy tworzenia stron.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Szkolna Strefa IT&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <p>
+                Taka struktura pomaga
+                organizować zawartość dokumentu
+                i ułatwia jej interpretację
+                technologiom wspomagającym.
+            </p>
+        </section>
+
+        <!-- 12 -->
+
+        <section id="kontrast">
+            <h2>12. Kontrast, czytelność i opisy alternatywne</h2>
+
+            <p>
+                Treść powinna być czytelna
+                niezależnie od urządzenia
+                i warunków korzystania ze strony.
+            </p>
+
+            <h3>Kontrast tekstu</h3>
+
+            <p>
+                Dla zwykłego tekstu
+                WCAG na poziomie AA
+                wymaga zwykle kontrastu
+                co najmniej 4,5:1.
+            </p>
+
+            <p>
+                Dla dużego tekstu
+                minimalny wymagany kontrast
+                wynosi zwykle 3:1.
+            </p>
+
+            <h3>Przykład nieczytelnego tekstu</h3>
+
+            <div style="
+                background: #FFFFFF;
+                color: #BBBBBB;
+                padding: 20px;
+                border: 1px solid #DDD;
+                border-radius: 8px;
+                margin: 15px 0;
+            ">
+                Ten tekst ma bardzo słaby kontrast z tłem.
+            </div>
+
+            <h3>Przykład czytelniejszego tekstu</h3>
+
+            <div style="
+                background: #FFFFFF;
+                color: #1F2937;
+                padding: 20px;
+                border: 1px solid #DDD;
+                border-radius: 8px;
+                margin: 15px 0;
+            ">
+                Ten tekst ma wyraźny kontrast z tłem.
+            </div>
+
+            <h3>Opisy alternatywne</h3>
+
+            <pre><code class="language-html">&lt;img src="img/komputer.webp"
+     alt="Komputer stacjonarny na biurku w pracowni"
+     width="800"
+     height="600"&gt;</code></pre>
+
+            <p>
+                Opis alternatywny powinien
+                przekazywać istotne informacje
+                zawarte w obrazie.
+            </p>
+
+            <p>
+                Obrazy wyłącznie dekoracyjne
+                mogą mieć pusty atrybut
+                <code>alt=""</code>.
+            </p>
+        </section>
+
+        <!-- 13 -->
+
+        <section id="klawiatura">
+            <h2>13. Obsługa witryny za pomocą klawiatury</h2>
+
+            <p>
+                Nie wszyscy użytkownicy
+                korzystają z myszy.
+            </p>
+
+            <p>
+                Dlatego ważne jest,
+                aby podstawowe funkcje witryny
+                można było obsługiwać klawiaturą.
+            </p>
+
+            <h3>Najważniejsze klawisze</h3>
+
+            <ul>
+                <li><strong>Tab</strong> – przejście do następnego elementu interaktywnego.</li>
+                <li><strong>Shift + Tab</strong> – przejście do poprzedniego elementu.</li>
+                <li><strong>Enter</strong> – aktywowanie wielu odnośników i przycisków.</li>
+                <li><strong>Spacja</strong> – aktywowanie niektórych kontrolek.</li>
+            </ul>
+
+            <h3>Widoczny fokus</h3>
+
+            <p>
+                Fokus wskazuje element,
+                który aktualnie jest
+                aktywny podczas nawigacji klawiaturą.
+            </p>
+
+            <pre><code class="language-css">a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}</code></pre>
+
+            <p>
+                Dzięki temu użytkownik
+                widzi, który element
+                został wybrany.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Nie usuwaj obramowania fokusu
+                    bez zapewnienia innego,
+                    równie czytelnego wskaźnika.
+                </p>
+            </div>
+        </section>
+
+        <!-- 14 -->
+
+        <section id="seo">
+            <h2>14. Czym jest SEO?</h2>
+
+            <p>
+                <strong>SEO</strong> to skrót
+                od <em>Search Engine Optimization</em>,
+                czyli optymalizacji witryny
+                pod kątem wyszukiwarek internetowych.
+            </p>
+
+            <p>
+                Celem SEO jest ułatwienie
+                wyszukiwarkom odnajdywania,
+                analizowania i rozumienia
+                zawartości strony.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Użytkownik wpisuje w wyszukiwarce:
+            </p>
+
+            <pre><code class="language-text">podstawy HTML dla początkujących</code></pre>
+
+            <p>
+                Strona zawierająca wartościowy,
+                odpowiednio zatytułowany
+                i uporządkowany materiał
+                o podstawach HTML
+                może lepiej odpowiadać
+                na takie zapytanie.
+            </p>
+
+            <h3>Podstawowe elementy SEO</h3>
+
+            <ul>
+                <li>Opisowy tytuł strony.</li>
+                <li>Wartościowa i oryginalna treść.</li>
+                <li>Logiczne nagłówki.</li>
+                <li>Zrozumiałe adresy URL.</li>
+                <li>Opisowe odnośniki.</li>
+                <li>Poprawne działanie na urządzeniach mobilnych.</li>
+                <li>Sprawne wczytywanie strony.</li>
+                <li>Możliwość indeksowania publicznych treści.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    SEO nie gwarantuje pierwszego miejsca
+                    w wynikach wyszukiwania.
+                    Pomaga natomiast przygotować witrynę,
+                    którą wyszukiwarka może
+                    łatwiej zrozumieć.
+                </p>
+            </div>
+        </section>
+
+        <!-- 15 -->
+
+        <section id="meta">
+            <h2>15. Tytuł strony i meta description</h2>
+
+            <p>
+                Jednym z podstawowych elementów SEO
+                jest odpowiednie przygotowanie
+                sekcji <code>head</code>
+                dokumentu HTML.
+            </p>
+
+            <h3>Element title</h3>
+
+            <pre><code class="language-html">&lt;title&gt;Kurs HTML dla początkujących | Strefa IT&lt;/title&gt;</code></pre>
+
+            <p>
+                Tytuł powinien jasno określać
+                temat strony.
+            </p>
+
+            <h3>Meta description</h3>
+
+            <pre><code class="language-html">&lt;meta name="description"
+      content="Poznaj podstawy HTML. Naucz się tworzyć nagłówki, akapity, listy, tabele i formularze."&gt;</code></pre>
+
+            <p>
+                Meta description zawiera
+                krótki opis zawartości strony.
+                Wyszukiwarka może wykorzystać go
+                jako fragment opisu wyniku,
+                ale nie musi.
+            </p>
+
+            <h3>Przykład sekcji head</h3>
+
+            <pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kurs HTML dla początkujących | Strefa IT&lt;/title&gt;
+
+    &lt;meta name="description"
+          content="Praktyczny kurs HTML dla początkujących. Poznaj podstawowe znaczniki i zbuduj własną stronę."&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+            <div class="important">
+                <h3>⚠️ Ważne</h3>
+                <p>
+                    Nie należy wypełniać tytułu
+                    i opisu przypadkowymi słowami kluczowymi.
+                    Powinny one naturalnie
+                    opisywać rzeczywistą zawartość strony.
+                </p>
+            </div>
+        </section>
+
+        <!-- 16 -->
+
+        <section id="naglowki">
+            <h2>16. Nagłówki i wartościowa treść</h2>
+
+            <p>
+                Nagłówki pomagają organizować
+                treść dokumentu
+                i wskazują jego strukturę.
+            </p>
+
+            <h3>Przykładowa hierarchia</h3>
+
+            <pre><code class="language-html">&lt;h1&gt;Kurs HTML dla początkujących&lt;/h1&gt;
+
+&lt;h2&gt;Czym jest HTML?&lt;/h2&gt;
+&lt;p&gt;HTML służy do opisywania struktury strony.&lt;/p&gt;
+
+&lt;h2&gt;Podstawowe znaczniki&lt;/h2&gt;
+
+&lt;h3&gt;Nagłówki&lt;/h3&gt;
+&lt;p&gt;Nagłówki tworzymy za pomocą h1–h6.&lt;/p&gt;
+
+&lt;h3&gt;Akapity&lt;/h3&gt;
+&lt;p&gt;Akapity tworzymy za pomocą p.&lt;/p&gt;</code></pre>
+
+            <h3>Dobre praktyki</h3>
+
+            <ul>
+                <li>Stosuj nagłówki zgodnie z hierarchią treści.</li>
+                <li>Używaj opisowych tytułów sekcji.</li>
+                <li>Nie wybieraj poziomu nagłówka wyłącznie ze względu na wygląd.</li>
+                <li>Twórz treści przydatne dla odbiorców.</li>
+                <li>Unikaj niepotrzebnego powtarzania słów kluczowych.</li>
+                <li>Dbaj o poprawność językową i aktualność informacji.</li>
+            </ul>
+
+            <h3>Przykład słabego nagłówka</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Informacje&lt;/h2&gt;</code></pre>
+
+            <h3>Przykład lepszego nagłówka</h3>
+
+            <pre><code class="language-html">&lt;h2&gt;Jak utworzyć pierwszy dokument HTML?&lt;/h2&gt;</code></pre>
+        </section>
+
+        <!-- 17 -->
+
+        <section id="linki">
+            <h2>17. Odnośniki i przyjazne adresy URL</h2>
+
+            <p>
+                Linki pomagają użytkownikom
+                i wyszukiwarkom
+                poruszać się po witrynie.
+            </p>
+
+            <h3>Opisowe odnośniki</h3>
+
+            <p><strong>Mniej czytelnie:</strong></p>
+
+            <pre><code class="language-html">&lt;a href="kurs.html"&gt;Kliknij tutaj&lt;/a&gt;</code></pre>
+
+            <p><strong>Lepiej:</strong></p>
+
+            <pre><code class="language-html">&lt;a href="kurs.html"&gt;Zobacz kurs HTML&lt;/a&gt;</code></pre>
+
+            <h3>Przyjazne adresy URL</h3>
+
+            <p><strong>Mniej zrozumiały adres:</strong></p>
+
+            <pre><code class="language-text">https://example.com/page?id=123</code></pre>
+
+            <p><strong>Bardziej opisowy adres:</strong></p>
+
+            <pre><code class="language-text">https://example.com/kurs-html/</code></pre>
+
+            <p>
+                Opisowe adresy URL
+                ułatwiają użytkownikowi
+                zorientowanie się,
+                czego dotyczy strona.
+            </p>
+
+            <h3>Dobre praktyki</h3>
+
+            <ul>
+                <li>Stosuj krótkie, zrozumiałe nazwy.</li>
+                <li>Unikaj przypadkowych ciągów znaków.</li>
+                <li>Utrzymuj logiczną strukturę podstron.</li>
+                <li>Sprawdzaj działanie linków wewnętrznych.</li>
+                <li>Nie twórz wielu niepotrzebnych kopii tej samej treści.</li>
+            </ul>
+        </section>
+
+        <!-- 18 -->
+
+        <section id="indeksowanie">
+            <h2>18. Indeksowanie stron i plik robots.txt</h2>
+
+            <p>
+                Wyszukiwarki wykorzystują roboty,
+                które odwiedzają strony
+                i analizują ich zawartość.
+            </p>
+
+            <p>
+                <strong>Indeksowanie</strong>
+                oznacza przetwarzanie
+                i zapisywanie informacji
+                o stronie w indeksie wyszukiwarki.
+            </p>
+
+            <h3>Plik robots.txt</h3>
+
+            <p>
+                Plik <code>robots.txt</code>
+                może zawierać wskazówki
+                dotyczące pobierania zasobów
+                przez roboty wyszukiwarek.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-text">User-agent: *
+Disallow: /panel-testowy/</code></pre>
+
+            <p>
+                Przykład informuje roboty
+                przestrzegające tych zasad,
+                że nie powinny pobierać zasobów
+                z podanej ścieżki.
+            </p>
+
+            <div class="important">
+                <h3>⚠️ Bardzo ważne</h3>
+
+                <p>
+                    <code>robots.txt</code>
+                    nie służy do zabezpieczania
+                    poufnych informacji.
+                </p>
+
+                <p>
+                    Nie gwarantuje również,
+                    że dany adres
+                    nie pojawi się w wynikach wyszukiwania.
+                </p>
+
+                <p>
+                    Jeśli chcemy ograniczyć indeksowanie
+                    dostępnej strony HTML,
+                    możemy zastosować
+                    odpowiednie ustawienia,
+                    np. dyrektywę <code>noindex</code>.
+                </p>
+            </div>
+
+            <h3>Przykład noindex</h3>
+
+            <pre><code class="language-html">&lt;meta name="robots" content="noindex"&gt;</code></pre>
+
+            <p>
+                Aby robot mógł odczytać tę dyrektywę,
+                musi mieć możliwość pobrania strony.
+            </p>
+
+            <p>
+                Strony wymagające rzeczywistej ochrony
+                powinny być zabezpieczane
+                odpowiednimi mechanizmami dostępu,
+                a nie samym plikiem robots.txt.
+            </p>
+        </section>
+
+        <!-- 19 -->
+
+        <section id="bledy">
+            <h2>19. Najczęstsze błędy optymalizacji</h2>
+
+            <table>
+                <tr>
+                    <th>Błąd</th>
+                    <th>Skutek</th>
+                    <th>Rozwiązanie</th>
+                </tr>
+                <tr>
+                    <td>Bardzo duże zdjęcia</td>
+                    <td>Większa ilość pobieranych danych.</td>
+                    <td>Zmniejszenie wymiarów i kompresja.</td>
+                </tr>
+                <tr>
+                    <td>Brak wymiarów obrazów</td>
+                    <td>Możliwe przesunięcia układu.</td>
+                    <td>Podanie width i height lub właściwych proporcji.</td>
+                </tr>
+                <tr>
+                    <td>Lazy loading głównej grafiki</td>
+                    <td>Możliwe opóźnienie wyświetlenia ważnego obrazu.</td>
+                    <td>Nie stosować lazy loading bez potrzeby.</td>
+                </tr>
+                <tr>
+                    <td>Niepotrzebne skrypty</td>
+                    <td>Dodatkowe obciążenie przeglądarki.</td>
+                    <td>Usunięcie zbędnego kodu.</td>
+                </tr>
+                <tr>
+                    <td>Słaby kontrast</td>
+                    <td>Trudności z odczytywaniem tekstu.</td>
+                    <td>Poprawa kolorystyki.</td>
+                </tr>
+                <tr>
+                    <td>Brak opisów alternatywnych</td>
+                    <td>Utrudnienia dla użytkowników technologii wspomagających.</td>
+                    <td>Dodanie odpowiednich opisów.</td>
+                </tr>
+                <tr>
+                    <td>Nieopisowy title</td>
+                    <td>Trudniejsza identyfikacja tematu strony.</td>
+                    <td>Przygotowanie konkretnego tytułu.</td>
+                </tr>
+                <tr>
+                    <td>Nieuporządkowane nagłówki</td>
+                    <td>Gorsza struktura dokumentu.</td>
+                    <td>Logiczna hierarchia nagłówków.</td>
+                </tr>
+                <tr>
+                    <td>Link „Kliknij tutaj”</td>
+                    <td>Niejasne przeznaczenie odnośnika.</td>
+                    <td>Opisowa nazwa linku.</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 20 -->
+
+        <section id="proces">
+            <h2>20. Proces optymalizacji witryny krok po kroku</h2>
+
+            <p>
+                Optymalizację warto przeprowadzać
+                w uporządkowany sposób.
+            </p>
+
+            <h3>Etap 1 – Analiza</h3>
+
+            <ul>
+                <li>Otwórz witrynę.</li>
+                <li>Sprawdź szybkość jej działania.</li>
+                <li>Przeanalizuj rozmiary zasobów.</li>
+                <li>Sprawdź działanie na telefonie.</li>
+            </ul>
+
+            <h3>Etap 2 – Wydajność</h3>
+
+            <ul>
+                <li>Zmniejsz duże obrazy.</li>
+                <li>Usuń niepotrzebne pliki.</li>
+                <li>Sprawdź sposób ładowania multimediów.</li>
+                <li>Ogranicz zbędny kod.</li>
+            </ul>
+
+            <h3>Etap 3 – Dostępność</h3>
+
+            <ul>
+                <li>Sprawdź kontrast tekstu.</li>
+                <li>Sprawdź opisy alternatywne.</li>
+                <li>Przetestuj obsługę klawiaturą.</li>
+                <li>Sprawdź semantyczną strukturę dokumentu.</li>
+            </ul>
+
+            <h3>Etap 4 – SEO</h3>
+
+            <ul>
+                <li>Popraw tytuł strony.</li>
+                <li>Dodaj meta description.</li>
+                <li>Uporządkuj nagłówki.</li>
+                <li>Popraw nazwy odnośników.</li>
+                <li>Sprawdź poprawność adresów URL.</li>
+            </ul>
+
+            <h3>Etap 5 – Ponowny test</h3>
+
+            <ul>
+                <li>Powtórz analizę wydajności.</li>
+                <li>Sprawdź wygląd strony.</li>
+                <li>Sprawdź funkcjonalność.</li>
+                <li>Porównaj wyniki przed i po zmianach.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Wniosek</h3>
+                <p>
+                    Optymalizacja to proces ciągły.
+                    Po każdej większej zmianie
+                    warto ponownie sprawdzić
+                    działanie witryny.
+                </p>
+            </div>
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+            <div class="remember">
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Optymalizacja poprawia działanie i użyteczność witryny.</li>
+                    <li>Duże obrazy mogą spowalniać wczytywanie strony.</li>
+                    <li>Obrazy należy przygotowywać do publikacji internetowej.</li>
+                    <li>WebP i AVIF to nowoczesne formaty obrazów.</li>
+                    <li>Atrybuty width i height pomagają ograniczać przesunięcia układu.</li>
+                    <li>Lazy loading może opóźniać pobieranie obrazów znajdujących się poza początkowym widokiem.</li>
+                    <li>Głównego obrazu strony zwykle nie należy ładować leniwie.</li>
+                    <li>Niepotrzebny CSS i JavaScript mogą pogarszać wydajność.</li>
+                    <li>PageSpeed Insights analizuje publicznie dostępne strony.</li>
+                    <li>Lighthouse umożliwia wykonywanie audytów witryny.</li>
+                    <li>LCP, INP i CLS to wskaźniki Core Web Vitals.</li>
+                    <li>Dostępność obejmuje m.in. kontrast, semantykę i obsługę klawiaturą.</li>
+                    <li>Opis alternatywny powinien przekazywać istotną informację z obrazu.</li>
+                    <li>SEO oznacza optymalizację pod kątem wyszukiwarek.</li>
+                    <li>Title powinien jasno określać temat strony.</li>
+                    <li>Meta description jest krótkim opisem zawartości strony.</li>
+                    <li>Nagłówki powinny tworzyć logiczną strukturę.</li>
+                    <li>Odnośniki powinny mieć zrozumiałe nazwy.</li>
+                    <li>Plik robots.txt nie zabezpiecza poufnych danych.</li>
+                    <li>Po optymalizacji należy ponownie przetestować witrynę.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Projekt:</strong>
+                „Optymalizacja witryny Szkolna Strefa IT”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                poprawienie wydajności,
+                dostępności i podstawowych
+                elementów SEO istniejącej witryny.
+            </p>
+
+            <div class="important">
+                <h3>📌 Przygotowanie</h3>
+
+                <p>
+                    Wykorzystaj witrynę HTML i CSS
+                    przygotowaną na wcześniejszych zajęciach.
+                </p>
+
+                <p>
+                    Utwórz folder <code>PSI_40</code>
+                    i skopiuj do niego pliki strony.
+                </p>
+
+                <p>
+                    Wszystkie zadania wykonujesz
+                    w <strong>jednym projekcie</strong>.
+                </p>
+            </div>
+
+            <h3>Zadanie 1 – Analiza witryny przed optymalizacją</h3>
+
+            <ol>
+                <li>Otwórz witrynę w przeglądarce.</li>
+                <li>Uruchom narzędzia deweloperskie.</li>
+                <li>Sprawdź wygląd przy szerokości 375 px.</li>
+                <li>Sprawdź wygląd przy szerokości 1366 px.</li>
+                <li>Otwórz zakładkę Network.</li>
+                <li>Odśwież stronę i sprawdź pobierane zasoby.</li>
+                <li>Zanotuj największe pliki.</li>
+                <li>Utwórz plik <code>raport.txt</code> i zapisz obserwacje.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Optymalizacja obrazów</h3>
+
+            <ol>
+                <li>Wybierz co najmniej dwa obrazy używane na stronie.</li>
+                <li>Sprawdź ich wymiary i rozmiary plików.</li>
+                <li>Zmniejsz nadmiernie duże obrazy, zachowując proporcje.</li>
+                <li>Zapisz je w odpowiednim formacie, np. WebP lub JPG.</li>
+                <li>Podmień obrazy na stronie.</li>
+                <li>Uzupełnij odpowiednie atrybuty alt.</li>
+                <li>Dodaj width i height odpowiadające proporcjom obrazów.</li>
+                <li>Do obrazu umieszczonego daleko poniżej początku strony dodaj loading="lazy".</li>
+                <li>Zapisz w raporcie rozmiary plików przed i po optymalizacji.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Optymalizacja kodu CSS i HTML</h3>
+
+            <ol>
+                <li>Otwórz plik CSS.</li>
+                <li>Sprawdź, czy znajdują się w nim powtarzające się reguły.</li>
+                <li>Usuń zbędne deklaracje, jeśli ich usunięcie nie zmienia zamierzonego wyglądu.</li>
+                <li>Sprawdź, czy strona nie pobiera nieużywanych plików.</li>
+                <li>Sprawdź obecność meta viewport.</li>
+                <li>Sprawdź, czy obrazy nie wychodzą poza kontenery.</li>
+                <li>Przetestuj stronę ponownie przy 375 px i 1366 px.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poprawa dostępności</h3>
+
+            <ol>
+                <li>Sprawdź strukturę nagłówków.</li>
+                <li>Sprawdź, czy strona zawiera odpowiednie elementy semantyczne.</li>
+                <li>Przejdź po stronie za pomocą klawisza Tab.</li>
+                <li>Sprawdź widoczność fokusu.</li>
+                <li>Popraw brakujące opisy alternatywne obrazów informacyjnych.</li>
+                <li>Sprawdź czytelność tekstu i kontrast.</li>
+                <li>W razie potrzeby popraw kolory lub rozmiary tekstu.</li>
+                <li>Zapisz w raporcie wprowadzone zmiany.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Podstawowe SEO</h3>
+
+            <ol>
+                <li>Otwórz plik <code>index.html</code>.</li>
+                <li>Ustaw opisowy element title.</li>
+                <li>Dodaj meta description zgodny z zawartością strony.</li>
+                <li>Sprawdź główny nagłówek h1.</li>
+                <li>Uporządkuj nagłówki h2 i h3.</li>
+                <li>Zamień niejasne nazwy linków na opisowe.</li>
+                <li>Sprawdź działanie odnośników.</li>
+                <li>Wpisz w raporcie trzy zasady SEO zastosowane w projekcie.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Audyt końcowy i sprawozdanie</h3>
+
+            <ol>
+                <li>Otwórz zoptymalizowaną witrynę.</li>
+                <li>Uruchom Lighthouse, jeśli jest dostępny.</li>
+                <li>Przeprowadź audyt wydajności, dostępności i SEO.</li>
+                <li>Jeżeli Lighthouse nie jest dostępny, wykonaj ręczny przegląd według list z tej lekcji.</li>
+                <li>Wykonaj zrzut ekranu witryny po optymalizacji.</li>
+                <li>Zapisz go jako <code>witryna.png</code>.</li>
+                <li>Uzupełnij plik <code>raport.txt</code>.</li>
+                <li>Opisz co najmniej pięć wykonanych usprawnień.</li>
+                <li>Podaj rozmiary co najmniej dwóch obrazów przed i po optymalizacji.</li>
+                <li>Napisz, które zmiany dotyczą wydajności, dostępności, a które SEO.</li>
+            </ol>
+
+            <h3>📁 Struktura folderu</h3>
+
+            <pre><code class="language-text">PSI_40/
+|
+|-- index.html
+|
+|-- style.css
+|
+|-- img/
+|   |-- obraz1.webp
+|   |-- obraz2.webp
+|
+|-- witryna.png
+|
+|-- raport.txt</code></pre>
+
+            <p>
+                Nazwy obrazów są przykładowe.
+                Zachowaj rzeczywiste nazwy
+                i strukturę swojego projektu.
+            </p>
+
+            <div class="important">
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder <code>PSI_40</code>
+                    do archiwum ZIP i prześlij
+                    na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź,
+                    czy witryna poprawnie się otwiera,
+                    wszystkie obrazy są widoczne,
+                    arkusz CSS działa,
+                    a raport zawiera opis wykonanych zmian.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 40
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
