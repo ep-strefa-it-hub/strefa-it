@@ -1,0 +1,2557 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 31 – Flexbox | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#zasada">2.Zasada działania Flexbox</a>
+        <a href="#display">3.display: flex</a>
+        <a href="#osie">4.Oś główna i poprzeczna</a>
+        <a href="#direction">5.flex-direction</a>
+        <a href="#justify">6.justify-content</a>
+        <a href="#align">7.align-items</a>
+        <a href="#wrap">8.flex-wrap</a>
+        <a href="#gap">9.gap</a>
+        <a href="#align-content">10.align-content</a>
+        <a href="#align-self">11.align-self</a>
+        <a href="#grow">12.flex-grow</a>
+        <a href="#shrink">13.flex-shrink</a>
+        <a href="#basis">14.flex-basis i flex</a>
+        <a href="#order">15.order</a>
+        <a href="#menu">16.Menu nawigacyjne</a>
+        <a href="#karty">17.Elastyczne karty</a>
+        <a href="#responsywnosc">18.Responsywność</a>
+        <a href="#bledy">19.Najczęstsze błędy</a>
+        <a href="#przyklad">20.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 31 • CSS3
+            </div>
+
+            <h2>
+                Flexbox – kontener elastyczny,
+                kierunek, rozmieszczanie
+                i wyrównywanie elementów
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie modelu Flexbox
+                i wykorzystanie jego właściwości
+                do tworzenia elastycznych układów
+                elementów strony internetowej,
+                w tym menu nawigacyjnego,
+                kart informacyjnych
+                i responsywnych sekcji.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Podczas projektowania stron internetowych
+                często musimy umieszczać elementy
+                obok siebie, wyrównywać je,
+                rozdzielać wolną przestrzeń
+                lub dostosowywać ich układ
+                do szerokości ekranu.
+            </p>
+
+            <p>
+                Do takich zadań służy
+                <strong>Flexbox</strong>,
+                czyli elastyczny model układu CSS
+                (Flexible Box Layout).
+            </p>
+
+            <p>
+                Flexbox pozwala między innymi:
+            </p>
+
+            <ul>
+                <li>ustawiać elementy w jednym wierszu lub kolumnie,</li>
+                <li>wyrównywać elementy w poziomie i pionie,</li>
+                <li>rozdzielać wolne miejsce między elementami,</li>
+                <li>tworzyć elastyczne menu nawigacyjne,</li>
+                <li>budować układy kart i paneli,</li>
+                <li>przenosić elementy do kolejnych wierszy,</li>
+                <li>dostosowywać układ do różnych rozmiarów ekranu.</li>
+            </ul>
+
+            <h3>Przykładowe zastosowania</h3>
+
+            <p>
+                Flexbox sprawdza się przy tworzeniu:
+            </p>
+
+            <ul>
+                <li>menu poziomego,</li>
+                <li>pasków narzędzi,</li>
+                <li>kart produktów,</li>
+                <li>sekcji z kilkoma kolumnami,</li>
+                <li>układów tekstu i obrazu,</li>
+                <li>przycisków ustawionych obok siebie.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Flexbox służy przede wszystkim
+                    do rozmieszczania elementów
+                    w jednym wymiarze:
+                    w wierszu lub kolumnie.
+                    Może też zawijać elementy
+                    do kolejnych wierszy.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="zasada">
+
+            <h2>2. Zasada działania Flexbox</h2>
+
+            <p>
+                W modelu Flexbox wyróżniamy
+                dwa podstawowe pojęcia:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Kontener elastyczny</strong>
+                    (flex container) – element,
+                    któremu nadano
+                    <code>display: flex</code>.
+                </li>
+                <li>
+                    <strong>Elementy elastyczne</strong>
+                    (flex items) – bezpośrednie
+                    elementy potomne kontenera.
+                </li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="element"&gt;1&lt;/div&gt;
+
+    &lt;div class="element"&gt;2&lt;/div&gt;
+
+    &lt;div class="element"&gt;3&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+}
+
+.element {
+    padding: 20px;
+    background-color: #BFDBFE;
+    border: 1px solid #2563EB;
+}</code></pre>
+
+            <p>
+                Po zastosowaniu
+                <code>display: flex</code>
+                trzy elementy zostaną
+                ustawione obok siebie
+                w jednym wierszu,
+                jeśli pozwoli na to dostępne miejsce.
+            </p>
+
+            <h3>Ważna zasada</h3>
+
+            <p>
+                Właściwości kontenera Flexbox
+                wpływają na jego
+                <strong>bezpośrednie dzieci</strong>.
+            </p>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="karta"&gt;
+
+        &lt;h3&gt;Tytuł&lt;/h3&gt;
+
+        &lt;p&gt;Opis karty.&lt;/p&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class="karta"&gt;
+        Druga karta
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Elementami Flexbox
+                są tutaj dwa elementy
+                <code>.karta</code>,
+                a nie znajdujące się
+                wewnątrz pierwszej karty
+                nagłówek i akapit.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="display">
+
+            <h2>3. Tworzenie kontenera – display: flex</h2>
+
+            <p>
+                Aby rozpocząć pracę z Flexbox,
+                należy nadać elementowi nadrzędnemu
+                właściwość:
+            </p>
+
+            <pre><code class="language-css">display: flex;</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div class="pudelka"&gt;
+
+    &lt;div&gt;HTML&lt;/div&gt;
+    &lt;div&gt;CSS&lt;/div&gt;
+    &lt;div&gt;JavaScript&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.pudelka {
+    display: flex;
+
+    padding: 20px;
+    background-color: #E2E8F0;
+}
+
+.pudelka div {
+    padding: 20px;
+    background-color: #93C5FD;
+    border: 1px solid #1D4ED8;
+}</code></pre>
+
+            <p>
+                Elementy będą rozmieszczone
+                w jednym wierszu,
+                ponieważ jest to
+                domyślny kierunek Flexbox.
+            </p>
+
+            <h3>display: flex a display: inline-flex</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>display: flex</code></td>
+                    <td>Tworzy kontener elastyczny zachowujący się na zewnątrz jak element blokowy.</td>
+                </tr>
+                <tr>
+                    <td><code>display: inline-flex</code></td>
+                    <td>Tworzy kontener elastyczny zachowujący się na zewnątrz jak element liniowy.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>display: flex</code>
+                    ustawiamy na rodzicu,
+                    a nie osobno
+                    na każdym elemencie,
+                    który chcemy
+                    rozmieścić w kontenerze.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="osie">
+
+            <h2>4. Oś główna i oś poprzeczna</h2>
+
+            <p>
+                Flexbox działa w oparciu
+                o dwie osie:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Oś główna (main axis)</strong> –
+                    kierunek rozmieszczania elementów.
+                </li>
+                <li>
+                    <strong>Oś poprzeczna (cross axis)</strong> –
+                    oś prostopadła do osi głównej.
+                </li>
+            </ul>
+
+            <h3>Przy flex-direction: row</h3>
+
+            <pre><code class="language-text">OŚ GŁÓWNA →
+
++----------------------------------+
+|                                  |
+|  [ 1 ]   [ 2 ]   [ 3 ]           |
+|                                  |
++----------------------------------+
+
+Oś poprzeczna: pionowa</code></pre>
+
+            <h3>Przy flex-direction: column</h3>
+
+            <pre><code class="language-text">+--------------------+
+|                    |
+|       [ 1 ]        |
+|                    |
+|       [ 2 ]        |
+|                    |
+|       [ 3 ]        |
+|                    |
++--------------------+
+
+Oś główna: pionowa ↓
+Oś poprzeczna: pozioma</code></pre>
+
+            <p>
+                Kierunek osi głównej
+                zależy od wartości
+                <code>flex-direction</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Bardzo ważne</h3>
+                <p>
+                    <code>justify-content</code>
+                    działa wzdłuż osi głównej,
+                    natomiast <code>align-items</code>
+                    działa wzdłuż osi poprzecznej.
+                    Nie zawsze oznacza to
+                    odpowiednio poziom i pion.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="direction">
+
+            <h2>5. Kierunek elementów – flex-direction</h2>
+
+            <p>
+                Właściwość
+                <code>flex-direction</code>
+                określa kierunek
+                rozmieszczania elementów.
+            </p>
+
+            <h3>Dostępne wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>row</code></td>
+                    <td>Elementy w wierszu – wartość domyślna.</td>
+                </tr>
+                <tr>
+                    <td><code>row-reverse</code></td>
+                    <td>Elementy w wierszu, w odwróconym kierunku.</td>
+                </tr>
+                <tr>
+                    <td><code>column</code></td>
+                    <td>Elementy w kolumnie.</td>
+                </tr>
+                <tr>
+                    <td><code>column-reverse</code></td>
+                    <td>Elementy w kolumnie, w odwróconym kierunku.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – wiersz</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    flex-direction: row;
+}</code></pre>
+
+            <pre><code class="language-text">[ 1 ] [ 2 ] [ 3 ]</code></pre>
+
+            <h3>Przykład – kolumna</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    flex-direction: column;
+}</code></pre>
+
+            <pre><code class="language-text">[ 1 ]
+[ 2 ]
+[ 3 ]</code></pre>
+
+            <h3>Przykład – odwrócony wiersz</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    flex-direction: row-reverse;
+}</code></pre>
+
+            <p>
+                Elementy zostaną rozmieszczone
+                w przeciwnym kierunku,
+                ale kolejność elementów
+                w kodzie HTML nie ulegnie zmianie.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Wartości <code>row-reverse</code>
+                    i <code>column-reverse</code>
+                    zmieniają kolejność wizualną.
+                    Nie zmieniają kolejności
+                    w dokumencie HTML
+                    ani logicznej kolejności
+                    odczytu przez technologie wspomagające.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="justify">
+
+            <h2>6. Rozmieszczanie elementów – justify-content</h2>
+
+            <p>
+                Właściwość
+                <code>justify-content</code>
+                określa sposób rozmieszczenia
+                elementów wzdłuż osi głównej.
+            </p>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>flex-start</code></td>
+                    <td>Elementy przy początku osi głównej.</td>
+                </tr>
+                <tr>
+                    <td><code>flex-end</code></td>
+                    <td>Elementy przy końcu osi głównej.</td>
+                </tr>
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Elementy wyśrodkowane.</td>
+                </tr>
+                <tr>
+                    <td><code>space-between</code></td>
+                    <td>Wolna przestrzeń między elementami.</td>
+                </tr>
+                <tr>
+                    <td><code>space-around</code></td>
+                    <td>Wolna przestrzeń wokół każdego elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>space-evenly</code></td>
+                    <td>Równe odstępy między elementami i przy krawędziach kontenera.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – wyśrodkowanie</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+
+            <pre><code class="language-text">|        [1] [2] [3]        |</code></pre>
+
+            <h3>Przykład – space-between</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    justify-content: space-between;
+}</code></pre>
+
+            <pre><code class="language-text">|[1]         [2]         [3]|</code></pre>
+
+            <h3>Przykład – space-evenly</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    justify-content: space-evenly;
+}</code></pre>
+
+            <pre><code class="language-text">|   [1]    [2]    [3]   |</code></pre>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}</code></pre>
+
+            <p>
+                Elementy menu zostaną
+                wyśrodkowane w kontenerze.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>justify-content</code>
+                    rozdziela dostępną
+                    wolną przestrzeń
+                    wzdłuż osi głównej.
+                    Jeżeli elementy zajmują
+                    całą dostępną przestrzeń,
+                    efekt niektórych wartości
+                    może być niewidoczny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="align">
+
+            <h2>7. Wyrównywanie elementów – align-items</h2>
+
+            <p>
+                Właściwość
+                <code>align-items</code>
+                służy do wyrównywania
+                elementów wzdłuż
+                osi poprzecznej.
+            </p>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>stretch</code></td>
+                    <td>Rozciąga elementy wzdłuż osi poprzecznej, jeśli pozwalają na to ich rozmiary.</td>
+                </tr>
+                <tr>
+                    <td><code>flex-start</code></td>
+                    <td>Wyrównuje do początku osi poprzecznej.</td>
+                </tr>
+                <tr>
+                    <td><code>flex-end</code></td>
+                    <td>Wyrównuje do końca osi poprzecznej.</td>
+                </tr>
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Wyrównuje do środka osi poprzecznej.</td>
+                </tr>
+                <tr>
+                    <td><code>baseline</code></td>
+                    <td>Wyrównuje elementy według linii bazowej tekstu.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – wyrównanie pionowe</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    height: 250px;
+
+    align-items: center;
+}</code></pre>
+
+            <p>
+                Przy domyślnym
+                <code>flex-direction: row</code>
+                elementy zostaną
+                wyśrodkowane pionowo
+                w kontenerze.
+            </p>
+
+            <h3>Wyśrodkowanie w obu osiach</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 300px;
+}</code></pre>
+
+            <p>
+                Jest to jeden
+                z najprostszych sposobów
+                wyśrodkowania elementu
+                w poziomie i pionie.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="element"&gt;
+        Wyśrodkowany element
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Przy <code>flex-direction: column</code>
+                    oś główna jest pionowa.
+                    Wówczas <code>justify-content</code>
+                    steruje rozmieszczeniem pionowym,
+                    a <code>align-items</code>
+                    wyrównaniem poziomym.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="wrap">
+
+            <h2>8. Przenoszenie elementów – flex-wrap</h2>
+
+            <p>
+                Domyślnie Flexbox
+                próbuje umieścić
+                elementy w jednym wierszu
+                lub jednej kolumnie.
+            </p>
+
+            <p>
+                Właściwość
+                <code>flex-wrap</code>
+                pozwala przenosić
+                elementy do kolejnych linii.
+            </p>
+
+            <h3>Dostępne wartości</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>nowrap</code></td>
+                    <td>Elementy nie są zawijane – wartość domyślna.</td>
+                </tr>
+                <tr>
+                    <td><code>wrap</code></td>
+                    <td>Elementy mogą przechodzić do kolejnych linii.</td>
+                </tr>
+                <tr>
+                    <td><code>wrap-reverse</code></td>
+                    <td>Elementy mogą się zawijać w odwróconym kierunku osi poprzecznej.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.element {
+    width: 200px;
+    padding: 20px;
+
+    background-color: #BFDBFE;
+}</code></pre>
+
+            <p>
+                Jeżeli szerokość
+                kontenera będzie zbyt mała,
+                kolejne elementy
+                zostaną przeniesione
+                do następnego wiersza.
+            </p>
+
+            <h3>Skrócony zapis – flex-flow</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    flex-flow: row wrap;
+}</code></pre>
+
+            <p>
+                Powyższy zapis
+                odpowiada:
+            </p>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>flex-wrap: wrap</code>
+                    jest bardzo przydatne
+                    podczas tworzenia
+                    responsywnych układów kart.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="gap">
+
+            <h2>9. Odstępy między elementami – gap</h2>
+
+            <p>
+                Właściwość
+                <code>gap</code>
+                określa odstępy
+                między elementami
+                kontenera Flexbox.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    gap: 20px;
+}</code></pre>
+
+            <p>
+                Między elementami
+                pojawi się odstęp 20 px.
+            </p>
+
+            <h3>Różne odstępy między wierszami i kolumnami</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    flex-wrap: wrap;
+
+    row-gap: 30px;
+    column-gap: 15px;
+}</code></pre>
+
+            <h3>Skrócony zapis</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 30px 15px;
+}</code></pre>
+
+            <p>
+                Pierwsza wartość
+                określa odstęp między wierszami,
+                a druga między kolumnami.
+            </p>
+
+            <h3>gap a margin</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>gap</code></td>
+                    <td>Odstępy między elementami w układzie Flexbox.</td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>Zewnętrzny odstęp konkretnego elementu.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    W układach Flexbox
+                    często wygodniej używać
+                    <code>gap</code>
+                    niż dodawać marginesy
+                    do każdego elementu osobno.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="align-content">
+
+            <h2>10. Wyrównywanie wielu wierszy – align-content</h2>
+
+            <p>
+                Właściwość
+                <code>align-content</code>
+                określa rozmieszczenie
+                linii elementów
+                wzdłuż osi poprzecznej.
+            </p>
+
+            <p>
+                Jest szczególnie przydatna,
+                gdy elementy zostały
+                zawinięte do kilku wierszy.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    height: 400px;
+
+    align-content: center;
+}</code></pre>
+
+            <p>
+                Wiersze zostaną
+                zgrupowane bliżej
+                środka osi poprzecznej,
+                jeśli w kontenerze
+                znajduje się wolna przestrzeń.
+            </p>
+
+            <h3>Najważniejsze wartości</h3>
+
+            <ul>
+                <li><code>flex-start</code> – linie przy początku osi poprzecznej,</li>
+                <li><code>flex-end</code> – linie przy końcu osi poprzecznej,</li>
+                <li><code>center</code> – linie wyśrodkowane,</li>
+                <li><code>space-between</code> – przestrzeń między liniami,</li>
+                <li><code>space-around</code> – przestrzeń wokół linii,</li>
+                <li><code>stretch</code> – rozciąganie linii, gdy jest dostępne miejsce.</li>
+            </ul>
+
+            <h3>Różnica między align-items i align-content</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Co wyrównuje?</th>
+                </tr>
+                <tr>
+                    <td><code>align-items</code></td>
+                    <td>Elementy wewnątrz linii.</td>
+                </tr>
+                <tr>
+                    <td><code>align-content</code></td>
+                    <td>Linie elementów w kontenerze.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Przy jednej linii
+                    lub bez wolnego miejsca
+                    w osi poprzecznej
+                    efekt <code>align-content</code>
+                    może być niewidoczny.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="align-self">
+
+            <h2>11. Wyrównanie pojedynczego elementu – align-self</h2>
+
+            <p>
+                Właściwość
+                <code>align-self</code>
+                pozwala zmienić
+                wyrównanie jednego
+                elementu Flexbox.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="element"&gt;1&lt;/div&gt;
+
+    &lt;div class="element specjalny"&gt;2&lt;/div&gt;
+
+    &lt;div class="element"&gt;3&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+
+    height: 250px;
+
+    align-items: flex-start;
+}
+
+.specjalny {
+    align-self: flex-end;
+}</code></pre>
+
+            <p>
+                Wszystkie elementy
+                są wyrównane do początku
+                osi poprzecznej,
+                z wyjątkiem drugiego,
+                który zostanie wyrównany
+                do jej końca.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>align-items</code>
+                    ustawiamy na kontenerze,
+                    natomiast <code>align-self</code>
+                    na konkretnym elemencie.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="grow">
+
+            <h2>12. Rozciąganie elementów – flex-grow</h2>
+
+            <p>
+                Właściwość
+                <code>flex-grow</code>
+                określa, jak element
+                może powiększać się,
+                wykorzystując dodatnią
+                wolną przestrzeń
+                wzdłuż osi głównej.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    gap: 10px;
+}
+
+.element {
+    flex-grow: 1;
+}</code></pre>
+
+            <p>
+                Wszystkie elementy
+                mają taki sam współczynnik
+                rozdzielania wolnego miejsca.
+            </p>
+
+            <h3>Jeden element szerszy</h3>
+
+            <pre><code class="language-css">.pierwszy {
+    flex-grow: 2;
+}
+
+.drugi {
+    flex-grow: 1;
+}
+
+.trzeci {
+    flex-grow: 1;
+}</code></pre>
+
+            <p>
+                Pierwszy element
+                otrzyma dwa udziały
+                w dodatkowej wolnej przestrzeni,
+                a pozostałe po jednym.
+            </p>
+
+            <p>
+                Nie oznacza to automatycznie,
+                że pierwszy element
+                będzie miał dokładnie
+                dwa razy większą
+                końcową szerokość.
+                Znaczenie mają także
+                rozmiary początkowe elementów.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Domyślna wartość
+                    <code>flex-grow</code>
+                    wynosi <code>0</code>,
+                    czyli element
+                    nie powiększa się
+                    automatycznie
+                    tylko po to,
+                    aby zająć wolne miejsce.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="shrink">
+
+            <h2>13. Zmniejszanie elementów – flex-shrink</h2>
+
+            <p>
+                Właściwość
+                <code>flex-shrink</code>
+                określa, w jakim stopniu
+                element może się zmniejszać,
+                gdy wzdłuż osi głównej
+                brakuje miejsca.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.element {
+    flex-shrink: 1;
+}</code></pre>
+
+            <p>
+                Wartość <code>1</code>
+                jest domyślna.
+            </p>
+
+            <h3>Blokowanie zmniejszania</h3>
+
+            <pre><code class="language-css">.element {
+    flex-shrink: 0;
+}</code></pre>
+
+            <p>
+                Element nie będzie
+                zmniejszany przez
+                mechanizm flex-shrink.
+            </p>
+
+            <p>
+                Może to jednak
+                spowodować wyjście
+                elementu poza kontener,
+                jeśli zabraknie miejsca.
+            </p>
+
+            <h3>Przykład zastosowania</h3>
+
+            <pre><code class="language-css">.logo {
+    width: 120px;
+    flex-shrink: 0;
+}</code></pre>
+
+            <p>
+                Takie rozwiązanie
+                może być przydatne,
+                gdy nie chcemy,
+                aby logo zmniejszało się
+                razem z innymi elementami menu.
+            </p>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="basis">
+
+            <h2>14. Rozmiar początkowy – flex-basis i skrót flex</h2>
+
+            <p>
+                Właściwość
+                <code>flex-basis</code>
+                określa początkowy
+                rozmiar elementu
+                wzdłuż osi głównej.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    flex-basis: 250px;
+}</code></pre>
+
+            <p>
+                Przy kierunku <code>row</code>
+                jest to początkowa szerokość,
+                a przy kierunku
+                <code>column</code>
+                początkowa wysokość.
+            </p>
+
+            <h3>Skrócona właściwość flex</h3>
+
+            <p>
+                Właściwość <code>flex</code>
+                pozwala jednocześnie
+                określić:
+            </p>
+
+            <ul>
+                <li><code>flex-grow</code>,</li>
+                <li><code>flex-shrink</code>,</li>
+                <li><code>flex-basis</code>.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    flex: 1 1 250px;
+}</code></pre>
+
+            <p>
+                Oznacza to:
+            </p>
+
+            <pre><code class="language-css">.karta {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 250px;
+}</code></pre>
+
+            <h3>Praktyczne zastosowanie</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+}</code></pre>
+
+            <p>
+                Karty mogą
+                zajmować dostępną przestrzeń,
+                zmniejszać się w razie potrzeby
+                i przechodzić do kolejnych
+                wierszy.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Zapis
+                    <code>flex: 1 1 250px</code>
+                    jest często wykorzystywany
+                    podczas tworzenia
+                    elastycznych kart
+                    o podobnych rozmiarach.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="order">
+
+            <h2>15. Kolejność wizualna elementów – order</h2>
+
+            <p>
+                Właściwość
+                <code>order</code>
+                pozwala zmieniać
+                kolejność wizualną
+                elementów Flexbox.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="kontener"&gt;
+
+    &lt;div class="pierwszy"&gt;A&lt;/div&gt;
+
+    &lt;div class="drugi"&gt;B&lt;/div&gt;
+
+    &lt;div class="trzeci"&gt;C&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+}
+
+.pierwszy {
+    order: 3;
+}
+
+.drugi {
+    order: 1;
+}
+
+.trzeci {
+    order: 2;
+}</code></pre>
+
+            <p>
+                Wizualna kolejność
+                elementów będzie następująca:
+            </p>
+
+            <pre><code class="language-text">B   C   A</code></pre>
+
+            <p>
+                Domyślna wartość
+                <code>order</code>
+                wynosi <code>0</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>order</code>
+                    nie zmienia kolejności
+                    elementów w HTML
+                    ani kolejności
+                    nawigacji klawiaturą.
+                    Nie używaj go
+                    do zmieniania
+                    logicznej kolejności
+                    ważnych treści.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="menu">
+
+            <h2>16. Tworzenie menu nawigacyjnego za pomocą Flexbox</h2>
+
+            <p>
+                Jednym z najczęstszych
+                zastosowań Flexbox
+                jest tworzenie
+                poziomego menu nawigacyjnego.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu"&gt;
+
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+    &lt;a href="#galeria"&gt;Galeria&lt;/a&gt;
+
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    background-color: #1E3A8A;
+}
+
+.menu a {
+    padding: 10px 15px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: #2563EB;
+}</code></pre>
+
+            <h3>Menu z logo po lewej stronie</h3>
+
+            <pre><code class="language-html">&lt;nav class="pasek"&gt;
+
+    &lt;div class="logo"&gt;
+        STREFA IT
+    &lt;/div&gt;
+
+    &lt;div class="linki"&gt;
+
+        &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+        &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+    &lt;/div&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <pre><code class="language-css">.pasek {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    background-color: #1E3A8A;
+    color: white;
+}
+
+.linki {
+    display: flex;
+    gap: 20px;
+}
+
+.linki a {
+    color: white;
+    text-decoration: none;
+}</code></pre>
+
+            <p>
+                Dzięki
+                <code>justify-content: space-between</code>
+                logo znajduje się
+                przy jednej krawędzi,
+                a grupa odnośników
+                przy drugiej.
+            </p>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="karty">
+
+            <h2>17. Elastyczne karty informacyjne</h2>
+
+            <p>
+                Flexbox świetnie
+                nadaje się do tworzenia
+                kart prezentujących
+                produkty, usługi,
+                projekty lub informacje.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karty"&gt;
+
+    &lt;article class="karta"&gt;
+
+        &lt;h3&gt;HTML5&lt;/h3&gt;
+
+        &lt;p&gt;
+            Budowanie struktury stron WWW.
+        &lt;/p&gt;
+
+    &lt;/article&gt;
+
+    &lt;article class="karta"&gt;
+
+        &lt;h3&gt;CSS3&lt;/h3&gt;
+
+        &lt;p&gt;
+            Projektowanie wyglądu stron.
+        &lt;/p&gt;
+
+    &lt;/article&gt;
+
+    &lt;article class="karta"&gt;
+
+        &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+        &lt;p&gt;
+            Dodawanie interaktywności.
+        &lt;/p&gt;
+
+    &lt;/article&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.karta {
+    flex: 1 1 250px;
+
+    padding: 25px;
+
+    background-color: #F8FAFC;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.08);
+}</code></pre>
+
+            <h3>Jak działa ten układ?</h3>
+
+            <ol>
+                <li><code>display: flex</code> tworzy kontener elastyczny.</li>
+                <li><code>flex-wrap: wrap</code> pozwala przenosić karty do następnego wiersza.</li>
+                <li><code>gap: 20px</code> dodaje odstępy między kartami.</li>
+                <li><code>flex: 1 1 250px</code> określa sposób powiększania, zmniejszania i początkowy rozmiar kart.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Połączenie
+                    <code>display: flex</code>,
+                    <code>flex-wrap: wrap</code>,
+                    <code>gap</code>
+                    i <code>flex-basis</code>
+                    umożliwia tworzenie
+                    elastycznych układów
+                    bez konieczności
+                    ustawiania każdej karty osobno.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="responsywnosc">
+
+            <h2>18. Flexbox i responsywność strony</h2>
+
+            <p>
+                Responsywna strona
+                dostosowuje swój układ
+                do szerokości urządzenia.
+            </p>
+
+            <p>
+                Flexbox ułatwia
+                takie dostosowanie,
+                szczególnie w połączeniu
+                z regułami <code>@media</code>.
+            </p>
+
+            <h3>Przykład – menu na telefonie</h3>
+
+            <pre><code class="language-css">.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .menu {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+}</code></pre>
+
+            <p>
+                Na szerokim ekranie
+                odnośniki będą
+                ustawione poziomo.
+            </p>
+
+            <p>
+                Na ekranie o szerokości
+                maksymalnie 600 px
+                menu zmieni kierunek
+                na pionowy.
+            </p>
+
+            <h3>Przykład – dwie kolumny</h3>
+
+            <pre><code class="language-html">&lt;div class="uklad"&gt;
+
+    &lt;main class="tresc"&gt;
+        Główna treść
+    &lt;/main&gt;
+
+    &lt;aside class="panel"&gt;
+        Panel boczny
+    &lt;/aside&gt;
+
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.uklad {
+    display: flex;
+
+    gap: 20px;
+}
+
+.tresc {
+    flex: 3;
+    min-width: 0;
+}
+
+.panel {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+
+    .uklad {
+        flex-direction: column;
+    }
+
+}</code></pre>
+
+            <p>
+                Na większym ekranie
+                główna treść i panel
+                znajdują się obok siebie.
+            </p>
+
+            <p>
+                Na mniejszym ekranie
+                zostają ustawione
+                jeden pod drugim.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Flexbox i media queries
+                    można łączyć,
+                    aby zmieniać układ
+                    elementów w zależności
+                    od szerokości ekranu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="bledy">
+
+            <h2>19. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – brak display: flex</h3>
+
+            <pre><code class="language-css">.kontener {
+    justify-content: center;
+}</code></pre>
+
+            <p>
+                Samo <code>justify-content</code>
+                nie tworzy kontenera Flexbox.
+            </p>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+
+            <h3>Błąd 2 – ustawianie justify-content na dziecku</h3>
+
+            <pre><code class="language-css">.element {
+    justify-content: center;
+}</code></pre>
+
+            <p>
+                Jeśli chcemy rozmieścić
+                elementy wewnątrz kontenera,
+                właściwość powinna
+                znajdować się
+                na tym kontenerze.
+            </p>
+
+            <h3>Błąd 3 – mylenie osi</h3>
+
+            <p>
+                <code>justify-content</code>
+                nie zawsze oznacza
+                wyrównanie poziome.
+            </p>
+
+            <p>
+                Wszystko zależy
+                od <code>flex-direction</code>.
+            </p>
+
+            <h3>Błąd 4 – brak flex-wrap</h3>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+}</code></pre>
+
+            <p>
+                Elementy domyślnie
+                nie będą zawijane
+                do kolejnych wierszy.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">.karty {
+    display: flex;
+    flex-wrap: wrap;
+}</code></pre>
+
+            <h3>Błąd 5 – brak miejsca na wyrównanie</h3>
+
+            <p>
+                Jeśli kontener
+                nie ma wolnej przestrzeni
+                w odpowiedniej osi,
+                działanie
+                <code>justify-content</code>
+                lub <code>align-content</code>
+                może nie być widoczne.
+            </p>
+
+            <h3>Błąd 6 – sztywne szerokości kart</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 400px;
+}</code></pre>
+
+            <p>
+                Taki układ
+                może być niewygodny
+                na małych ekranach.
+            </p>
+
+            <p>Elastyczniejszy zapis:</p>
+
+            <pre><code class="language-css">.karta {
+    flex: 1 1 250px;
+}</code></pre>
+
+            <h3>Błąd 7 – niepotrzebna zmiana kolejności</h3>
+
+            <p>
+                Używanie <code>order</code>
+                do zmiany logicznej
+                kolejności treści
+                może utrudniać
+                nawigację klawiaturą.
+            </p>
+
+            <h3>Błąd 8 – zbyt wiele właściwości bez potrzeby</h3>
+
+            <p>
+                Nie zawsze trzeba
+                stosować wszystkie
+                właściwości Flexbox.
+            </p>
+
+            <p>
+                Często wystarczą:
+            </p>
+
+            <pre><code class="language-css">.kontener {
+    display: flex;
+    gap: 20px;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Najpierw określ,
+                    czy elementy mają
+                    być ustawione
+                    w wierszu czy kolumnie.
+                    Następnie zdecyduj,
+                    jak mają być rozmieszczone
+                    i wyrównane.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 20 -->
+
+        <section id="przyklad">
+
+            <h2>20. Kompletny przykład – strona „Kursy IT”</h2>
+
+            <p>
+                Przygotujemy stronę
+                prezentującą ofertę kursów
+                informatycznych.
+            </p>
+
+            <p>
+                Wykorzystamy Flexbox do:
+            </p>
+
+            <ul>
+                <li>rozmieszczenia logo i menu,</li>
+                <li>wyśrodkowania sekcji powitalnej,</li>
+                <li>utworzenia elastycznych kart kursów,</li>
+                <li>wyrównania przycisków w kartach,</li>
+                <li>dostosowania układu do telefonu.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">kursy-it/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Kursy IT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header class="naglowek" id="start"&gt;
+
+        &lt;div class="logo"&gt;
+            KURSY IT
+        &lt;/div&gt;
+
+        &lt;nav class="menu" aria-label="Menu główne"&gt;
+
+            &lt;a href="#start"&gt;Start&lt;/a&gt;
+
+            &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+
+            &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+
+        &lt;/nav&gt;
+
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="powitanie"&gt;
+
+            &lt;div class="powitanie-tresc"&gt;
+
+                &lt;h1&gt;
+                    Rozwijaj swoje umiejętności IT
+                &lt;/h1&gt;
+
+                &lt;p&gt;
+                    Poznaj podstawy tworzenia
+                    stron internetowych
+                    i programowania.
+                &lt;/p&gt;
+
+                &lt;a href="#oferta" class="przycisk"&gt;
+                    Zobacz kursy
+                &lt;/a&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="oferta" id="oferta"&gt;
+
+            &lt;h2&gt;Nasze kursy&lt;/h2&gt;
+
+            &lt;div class="karty"&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;HTML5&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Naucz się tworzyć
+                        strukturę stron internetowych.
+                    &lt;/p&gt;
+
+                    &lt;p class="czas"&gt;
+                        Czas trwania: 20 godzin
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt" class="przycisk"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;CSS3&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Poznaj formatowanie stron,
+                        kolory, układy i Flexbox.
+                    &lt;/p&gt;
+
+                    &lt;p class="czas"&gt;
+                        Czas trwania: 25 godzin
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt" class="przycisk"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Naucz się dodawać
+                        interaktywność do stron WWW.
+                    &lt;/p&gt;
+
+                    &lt;p class="czas"&gt;
+                        Czas trwania: 35 godzin
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt" class="przycisk"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+                &lt;article class="karta"&gt;
+
+                    &lt;h3&gt;PHP&lt;/h3&gt;
+
+                    &lt;p&gt;
+                        Poznaj podstawy
+                        programowania po stronie serwera.
+                    &lt;/p&gt;
+
+                    &lt;p class="czas"&gt;
+                        Czas trwania: 30 godzin
+                    &lt;/p&gt;
+
+                    &lt;a href="#kontakt" class="przycisk"&gt;
+                        Dowiedz się więcej
+                    &lt;/a&gt;
+
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="kontakt" id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Masz pytania dotyczące kursów?
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                E-mail:
+                &lt;a href="mailto:kontakt@example.com"&gt;
+                    kontakt@example.com
+                &lt;/a&gt;
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;
+            © 2026 Kursy IT
+        &lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+.naglowek {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 40px;
+
+    background-color: #1E3A8A;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+/* Menu */
+
+.menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.menu a {
+    padding: 10px 15px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: background-color 0.2s;
+}
+
+.menu a:hover {
+    background-color: #2563EB;
+}
+
+.menu a:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Sekcja powitalna */
+
+.powitanie {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 350px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #2563EB;
+}
+
+.powitanie-tresc {
+    max-width: 700px;
+}
+
+.powitanie h1 {
+    font-size: 36px;
+}
+
+.powitanie p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Główna zawartość */
+
+.oferta,
+.kontakt {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+.oferta h2,
+.kontakt h2 {
+    text-align: center;
+    color: #1E3A8A;
+}
+
+/* Kontener kart */
+
+.karty {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+/* Karta */
+
+.karta {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1 1 240px;
+
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.karta h3 {
+    margin-top: 0;
+
+    color: #2563EB;
+}
+
+.karta .czas {
+    font-weight: bold;
+    color: #475569;
+}
+
+/* Przycisk */
+
+.przycisk {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+    text-align: center;
+
+    border-radius: 8px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+.przycisk:active {
+    transform: scale(0.98);
+}
+
+/* Przycisk wewnątrz karty */
+
+.karta .przycisk {
+    margin-top: auto;
+}
+
+/* Kontakt */
+
+.kontakt {
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+/* Responsywność */
+
+@media (max-width: 700px) {
+
+    .naglowek {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 20px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    .powitanie h1 {
+        font-size: 28px;
+    }
+
+    .karty {
+        flex-direction: column;
+    }
+
+}
+
+/* Ograniczenie animacji */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .przycisk,
+    .menu a {
+        transition: none;
+    }
+
+}</code></pre>
+
+            <h3>Co powinno działać?</h3>
+
+            <ol>
+                <li>Logo i menu są ustawione obok siebie na dużym ekranie.</li>
+                <li>Odnośniki menu są rozmieszczone poziomo.</li>
+                <li>Sekcja powitalna jest wyśrodkowana.</li>
+                <li>Karty kursów są ułożone w elastycznych wierszach.</li>
+                <li>Karty przechodzą do kolejnych wierszy, gdy brakuje miejsca.</li>
+                <li>Przyciski wewnątrz kart są wyrównane do ich dolnej części.</li>
+                <li>Na małym ekranie menu zmienia układ na pionowy.</li>
+                <li>Na małym ekranie karty ustawiają się jedna pod drugą.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W przykładzie zastosowano
+                    kilka kontenerów Flexbox.
+                    Każdy z nich odpowiada
+                    za inny fragment strony.
+                    Można zagnieżdżać
+                    kontenery elastyczne
+                    wewnątrz innych kontenerów.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li><code>display: flex</code> tworzy kontener elastyczny.</li>
+                    <li>Elementami Flexbox są bezpośrednie dzieci kontenera.</li>
+                    <li><code>flex-direction</code> określa kierunek rozmieszczania elementów.</li>
+                    <li><code>row</code> ustawia elementy w wierszu.</li>
+                    <li><code>column</code> ustawia elementy w kolumnie.</li>
+                    <li><code>row-reverse</code> i <code>column-reverse</code> odwracają kierunek wizualny.</li>
+                    <li><code>justify-content</code> rozmieszcza elementy wzdłuż osi głównej.</li>
+                    <li><code>align-items</code> wyrównuje elementy wzdłuż osi poprzecznej.</li>
+                    <li><code>justify-content: center</code> wyśrodkowuje elementy w osi głównej.</li>
+                    <li><code>align-items: center</code> wyśrodkowuje elementy w osi poprzecznej.</li>
+                    <li><code>space-between</code> rozdziela wolne miejsce między elementami.</li>
+                    <li><code>space-around</code> rozmieszcza wolne miejsce wokół elementów.</li>
+                    <li><code>space-evenly</code> tworzy równe odstępy między elementami i przy krawędziach.</li>
+                    <li><code>flex-wrap: wrap</code> pozwala przenosić elementy do kolejnych linii.</li>
+                    <li><code>flex-flow</code> łączy flex-direction i flex-wrap.</li>
+                    <li><code>gap</code> ustawia odstępy między elementami.</li>
+                    <li><code>row-gap</code> i <code>column-gap</code> ustawiają odstępy między liniami i kolumnami.</li>
+                    <li><code>align-content</code> rozmieszcza linie elementów wzdłuż osi poprzecznej.</li>
+                    <li><code>align-self</code> wyrównuje pojedynczy element.</li>
+                    <li><code>flex-grow</code> określa możliwość powiększania elementu.</li>
+                    <li><code>flex-shrink</code> określa możliwość zmniejszania elementu.</li>
+                    <li><code>flex-basis</code> określa początkowy rozmiar elementu.</li>
+                    <li><code>flex</code> jest skrótem dla grow, shrink i basis.</li>
+                    <li><code>order</code> zmienia kolejność wizualną elementów.</li>
+                    <li>Flexbox można łączyć z <code>@media</code> w celu tworzenia responsywnych układów.</li>
+                    <li>Zmiana kolejności wizualnej nie zmienia logicznej kolejności treści w HTML.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                wykonanie responsywnej
+                strony internetowej
+                prezentującej wybraną ofertę
+                z wykorzystaniem Flexbox.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_31</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednego projektu.
+                    Każde kolejne zadanie
+                    rozbudowuje tę samą stronę.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Struktura strony i kontener Flexbox</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moja oferta”</strong>.
+                Możesz wybrać temat:
+                kursy, usługi, produkty,
+                hobby lub wydarzenia.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z własnym tytułem.</li>
+                <li>Dodaj sekcję powitalną z krótkim opisem.</li>
+                <li>Utwórz sekcję „Oferta”.</li>
+                <li>W sekcji umieść kontener <code>div</code> o klasie <code>karty</code>.</li>
+                <li>Dodaj do niego minimum cztery karty <code>article</code>.</li>
+                <li>Każda karta powinna zawierać nagłówek i opis.</li>
+                <li>Ustaw dla kontenera <code>display: flex</code>.</li>
+                <li>Sprawdź, jak zmienił się układ kart.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Kierunek i wyrównywanie elementów</h3>
+
+            <p>
+                Rozbuduj układ
+                przygotowany w zadaniu 1.
+            </p>
+
+            <ol>
+                <li>Ustaw <code>flex-direction: row</code> dla kontenera kart.</li>
+                <li>Przetestuj <code>flex-direction: column</code>.</li>
+                <li>Przetestuj <code>row-reverse</code>.</li>
+                <li>Przywróć kierunek <code>row</code>.</li>
+                <li>Ustaw <code>justify-content: center</code>.</li>
+                <li>Przetestuj <code>space-between</code> i <code>space-evenly</code>.</li>
+                <li>Dodaj sekcję powitalną z kontenerem Flexbox.</li>
+                <li>Wyśrodkuj jej zawartość za pomocą <code>justify-content</code> i <code>align-items</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Elastyczne karty i odstępy</h3>
+
+            <p>
+                Dostosuj karty,
+                aby mogły zmieniać
+                swój układ zależnie
+                od szerokości ekranu.
+            </p>
+
+            <ol>
+                <li>Ustaw <code>flex-wrap: wrap</code> dla kontenera kart.</li>
+                <li>Dodaj odstępy między kartami za pomocą <code>gap: 20px</code>.</li>
+                <li>Ustaw dla kart <code>flex: 1 1 240px</code>.</li>
+                <li>Dodaj padding i obramowanie kart.</li>
+                <li>Zaokrąglij narożniki kart.</li>
+                <li>Dodaj delikatny cień.</li>
+                <li>Zmniejsz szerokość okna przeglądarki.</li>
+                <li>Sprawdź, czy karty przechodzą do kolejnych wierszy.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Menu nawigacyjne z Flexbox</h3>
+
+            <p>
+                Przygotuj menu
+                nawigacyjne strony.
+            </p>
+
+            <ol>
+                <li>Dodaj element <code>nav</code>.</li>
+                <li>Utwórz odnośniki: Start, Oferta, Kontakt.</li>
+                <li>Dodaj odpowiednie identyfikatory sekcjom strony.</li>
+                <li>Ustaw <code>display: flex</code> dla menu.</li>
+                <li>Wyśrodkuj odnośniki za pomocą <code>justify-content: center</code>.</li>
+                <li>Dodaj odstępy między odnośnikami.</li>
+                <li>Ustaw kolor tła menu.</li>
+                <li>Usuń podkreślenia odnośników.</li>
+                <li>Dodaj efekt <code>:hover</code>.</li>
+                <li>Sprawdź działanie wszystkich odnośników.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Wyrównanie elementów wewnątrz kart</h3>
+
+            <p>
+                Rozbuduj każdą kartę
+                o przycisk lub odnośnik.
+            </p>
+
+            <ol>
+                <li>Dodaj do każdej karty odnośnik „Dowiedz się więcej”.</li>
+                <li>Ustaw <code>display: flex</code> dla każdej karty.</li>
+                <li>Ustaw <code>flex-direction: column</code>.</li>
+                <li>Dodaj <code>margin-top: auto</code> do odnośnika w karcie.</li>
+                <li>Sprawdź, czy odnośniki są wyrównane do dolnej części kart.</li>
+                <li>Dodaj efekt <code>:hover</code> do przycisków.</li>
+                <li>Dodaj widoczny styl <code>:focus-visible</code>.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Responsywność i testowanie</h3>
+
+            <p>
+                Dostosuj stronę
+                do małych ekranów.
+            </p>
+
+            <ol>
+                <li>Dodaj regułę <code>@media (max-width: 700px)</code>.</li>
+                <li>Na małym ekranie ustaw menu pionowo za pomocą <code>flex-direction: column</code>.</li>
+                <li>Wyśrodkuj odnośniki menu.</li>
+                <li>Ustaw karty jedna pod drugą na małych ekranach.</li>
+                <li>Sprawdź wygląd sekcji powitalnej.</li>
+                <li>Sprawdź, czy żaden element nie wychodzi poza szerokość ekranu.</li>
+                <li>Przetestuj stronę w widoku komputera i telefonu.</li>
+                <li>Popraw ewentualne błędy w rozmieszczeniu elementów.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_31/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania
+                    wykonaj w jednym
+                    pliku HTML i jednym
+                    arkuszu CSS.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_31</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    układ menu,
+                    rozmieszczenie kart,
+                    wyrównanie elementów,
+                    odstępy między kartami,
+                    działanie odnośników
+                    oraz wygląd strony
+                    na małym ekranie.
+                </p>
+
+                <p>
+                    <strong>
+                        Treści, nazwy ofert
+                        i opisy powinny być własne,
+                        a nie skopiowane
+                        z przykładu.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 31
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
