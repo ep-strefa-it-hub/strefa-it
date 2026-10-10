@@ -1,0 +1,2059 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 37 – Systemy CMS: WordPress i Joomla | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#cms">2.Czym jest CMS?</a>
+        <a href="#dzialanie">3.Jak działa CMS?</a>
+        <a href="#porownanie">4.WordPress i Joomla</a>
+        <a href="#pojecia">5.Podstawowe pojęcia</a>
+        <a href="#wymagania">6.Wymagania techniczne</a>
+        <a href="#xampp">7.Środowisko XAMPP</a>
+        <a href="#baza">8.Tworzenie bazy danych</a>
+        <a href="#wordpress-instalacja">9.Instalacja WordPressa</a>
+        <a href="#wordpress-panel">10.Panel WordPressa</a>
+        <a href="#wordpress-konfiguracja">11.Konfiguracja WordPressa</a>
+        <a href="#wordpress-tresci">12.Strony i wpisy</a>
+        <a href="#wordpress-wyglad">13.Motywy i wtyczki</a>
+        <a href="#joomla-instalacja">14.Instalacja Joomla</a>
+        <a href="#joomla-panel">15.Panel Joomla</a>
+        <a href="#joomla-konfiguracja">16.Konfiguracja Joomla</a>
+        <a href="#joomla-tresci">17.Artykuły, kategorie i menu</a>
+        <a href="#bezpieczenstwo">18.Bezpieczeństwo CMS</a>
+        <a href="#problemy">19.Problemy instalacyjne</a>
+        <a href="#podsumowanie">20.Porównanie pracy</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 37 • SYSTEMY CMS
+            </div>
+
+            <h2>
+                Systemy CMS – WordPress i Joomla.
+                Instalacja, konfiguracja i panel administracyjny
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad działania systemów zarządzania treścią,
+                porównanie WordPressa i Joomla oraz nabycie
+                umiejętności instalacji i podstawowej konfiguracji
+                witryny CMS w lokalnym środowisku serwerowym.
+            </p>
+
+            <p>
+                <strong>Czas realizacji:</strong> 2 × 45 minut.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Dotychczas tworzyliśmy strony internetowe
+                samodzielnie, wykorzystując HTML, CSS
+                oraz inne technologie internetowe.
+            </p>
+
+            <p>
+                Każda zmiana treści wymagała
+                otwarcia odpowiedniego pliku,
+                edycji kodu i zapisania zmian.
+            </p>
+
+            <p>
+                W przypadku rozbudowanych witryn,
+                na których regularnie pojawiają się
+                nowe informacje, taki sposób pracy
+                może być czasochłonny.
+            </p>
+
+            <p>
+                Rozwiązaniem są
+                <strong>systemy zarządzania treścią – CMS</strong>.
+            </p>
+
+            <h3>Przykład zastosowania</h3>
+
+            <p>
+                Wyobraź sobie stronę internetową szkoły.
+                Każdego tygodnia publikowane są na niej:
+            </p>
+
+            <ul>
+                <li>aktualności szkolne,</li>
+                <li>ogłoszenia dla uczniów,</li>
+                <li>informacje dla rodziców,</li>
+                <li>zdjęcia z wydarzeń,</li>
+                <li>harmonogramy i dokumenty.</li>
+            </ul>
+
+            <p>
+                Dzięki CMS osoba odpowiedzialna
+                za publikację informacji
+                może dodawać nowe treści
+                z poziomu panelu administracyjnego,
+                bez ręcznej edycji kodu HTML.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    CMS umożliwia tworzenie,
+                    edytowanie i publikowanie treści
+                    za pomocą interfejsu administracyjnego.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="cms">
+
+            <h2>2. Czym jest CMS?</h2>
+
+            <p>
+                <strong>CMS</strong> to skrót od
+                <em>Content Management System</em>,
+                czyli system zarządzania treścią.
+            </p>
+
+            <p>
+                Jest to oprogramowanie pozwalające
+                zarządzać zawartością strony internetowej
+                bez konieczności samodzielnego
+                programowania każdej podstrony.
+            </p>
+
+            <h3>Najważniejsze możliwości CMS</h3>
+
+            <ul>
+                <li>Tworzenie stron i artykułów.</li>
+                <li>Edytowanie tekstów i obrazów.</li>
+                <li>Dodawanie nowych podstron.</li>
+                <li>Tworzenie menu nawigacyjnego.</li>
+                <li>Zmiana wyglądu witryny.</li>
+                <li>Instalowanie dodatkowych funkcji.</li>
+                <li>Zarządzanie użytkownikami.</li>
+                <li>Publikowanie i ukrywanie treści.</li>
+            </ul>
+
+            <h3>Przykłady systemów CMS</h3>
+
+            <table>
+                <tr>
+                    <th>System</th>
+                    <th>Przykładowe zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>WordPress</td>
+                    <td>Blogi, strony firmowe, portale, sklepy z dodatkowymi rozszerzeniami.</td>
+                </tr>
+
+                <tr>
+                    <td>Joomla</td>
+                    <td>Portale informacyjne, strony instytucji, rozbudowane serwisy.</td>
+                </tr>
+
+                <tr>
+                    <td>Drupal</td>
+                    <td>Rozbudowane serwisy wymagające zaawansowanego zarządzania treścią.</td>
+                </tr>
+            </table>
+
+            <p>
+                Na tej lekcji skupimy się
+                na dwóch systemach:
+                <strong>WordPress i Joomla</strong>.
+            </p>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="dzialanie">
+
+            <h2>3. Jak działa system CMS?</h2>
+
+            <p>
+                Typowy system CMS wykorzystuje
+                serwer WWW, język PHP
+                oraz bazę danych.
+            </p>
+
+            <p>
+                Pliki aplikacji zawierają kod programu,
+                a baza danych przechowuje
+                m.in. treści, ustawienia
+                i informacje o użytkownikach.
+            </p>
+
+            <h3>Schemat działania</h3>
+
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+                text-align: center;
+            ">
+
+                <div style="padding: 20px; background: #DBEAFE; color: #1E3A8A; border-radius: 10px;">
+                    <h4>👤 Użytkownik</h4>
+                    <p>Otwiera stronę w przeglądarce.</p>
+                </div>
+
+                <div style="padding: 20px; background: #DCFCE7; color: #14532D; border-radius: 10px;">
+                    <h4>🌐 Serwer WWW</h4>
+                    <p>Odbiera żądanie i uruchamia kod PHP.</p>
+                </div>
+
+                <div style="padding: 20px; background: #FEF3C7; color: #78350F; border-radius: 10px;">
+                    <h4>⚙️ System CMS</h4>
+                    <p>Przygotowuje zawartość strony.</p>
+                </div>
+
+                <div style="padding: 20px; background: #F3E8FF; color: #581C87; border-radius: 10px;">
+                    <h4>🗄️ Baza danych</h4>
+                    <p>Udostępnia treści i ustawienia.</p>
+                </div>
+
+            </div>
+
+            <p>
+                CMS pobiera potrzebne dane,
+                przygotowuje odpowiedź
+                i wysyła do przeglądarki
+                wynik w postaci strony WWW.
+            </p>
+
+            <h3>Strona statyczna a CMS</h3>
+
+            <table>
+                <tr>
+                    <th>Strona statyczna</th>
+                    <th>System CMS</th>
+                </tr>
+
+                <tr>
+                    <td>Treść zapisana bezpośrednio w plikach HTML.</td>
+                    <td>Treść zarządzana przez aplikację i zwykle przechowywana w bazie danych.</td>
+                </tr>
+
+                <tr>
+                    <td>Zmiany często wymagają edycji kodu.</td>
+                    <td>Zmiany można wprowadzać przez panel.</td>
+                </tr>
+
+                <tr>
+                    <td>Może działać na GitHub Pages.</td>
+                    <td>Wymaga środowiska obsługującego dany CMS.</td>
+                </tr>
+
+                <tr>
+                    <td>Zwykle prostsza konfiguracja serwera.</td>
+                    <td>Wymaga instalacji i aktualizacji oprogramowania.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+
+                <p>
+                    WordPressa i Joomla nie uruchomimy
+                    bezpośrednio na GitHub Pages,
+                    ponieważ GitHub Pages nie wykonuje PHP
+                    ani nie udostępnia bazy MySQL.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="porownanie">
+
+            <h2>4. WordPress i Joomla – porównanie</h2>
+
+            <p>
+                WordPress i Joomla są systemami CMS
+                o otwartym kodzie źródłowym.
+            </p>
+
+            <p>
+                Oba pozwalają tworzyć strony WWW,
+                publikować treści i rozbudowywać
+                funkcjonalność witryny.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>WordPress</th>
+                    <th>Joomla</th>
+                </tr>
+
+                <tr>
+                    <td>Tworzenie treści</td>
+                    <td>Wpisy i strony</td>
+                    <td>Artykuły i kategorie</td>
+                </tr>
+
+                <tr>
+                    <td>Wygląd witryny</td>
+                    <td>Motywy</td>
+                    <td>Szablony</td>
+                </tr>
+
+                <tr>
+                    <td>Rozszerzanie funkcji</td>
+                    <td>Wtyczki</td>
+                    <td>Rozszerzenia</td>
+                </tr>
+
+                <tr>
+                    <td>Panel administracyjny</td>
+                    <td>Najczęściej /wp-admin/</td>
+                    <td>Najczęściej /administrator/</td>
+                </tr>
+
+                <tr>
+                    <td>Organizacja treści</td>
+                    <td>Strony, wpisy, kategorie, tagi</td>
+                    <td>Artykuły, kategorie, pozycje menu</td>
+                </tr>
+
+                <tr>
+                    <td>Próg wejścia</td>
+                    <td>Zwykle łatwiejszy dla początkujących</td>
+                    <td>Może wymagać poznania większej liczby pojęć</td>
+                </tr>
+            </table>
+
+            <h3>Kiedy wybrać WordPress?</h3>
+
+            <p>
+                WordPress często sprawdza się
+                przy tworzeniu blogów,
+                stron informacyjnych,
+                wizytówek i stron firmowych.
+            </p>
+
+            <h3>Kiedy wybrać Joomla?</h3>
+
+            <p>
+                Joomla może być dobrym wyborem
+                dla witryn wymagających
+                rozbudowanej struktury treści,
+                zarządzania menu
+                i uprawnieniami użytkowników.
+            </p>
+
+            <p>
+                Oba systemy mogą obsługiwać
+                również bardziej złożone projekty.
+                Wybór zależy od potrzeb witryny
+                i umiejętności administratora.
+            </p>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="pojecia">
+
+            <h2>5. Podstawowe pojęcia związane z CMS</h2>
+
+            <table>
+                <tr>
+                    <th>Pojęcie</th>
+                    <th>Wyjaśnienie</th>
+                </tr>
+
+                <tr>
+                    <td>Frontend</td>
+                    <td>Część witryny widoczna dla odwiedzających.</td>
+                </tr>
+
+                <tr>
+                    <td>Backend</td>
+                    <td>Część administracyjna służąca do zarządzania witryną.</td>
+                </tr>
+
+                <tr>
+                    <td>Administrator</td>
+                    <td>Użytkownik posiadający uprawnienia do zarządzania witryną.</td>
+                </tr>
+
+                <tr>
+                    <td>Motyw / szablon</td>
+                    <td>Zestaw plików i ustawień wpływających na wygląd strony.</td>
+                </tr>
+
+                <tr>
+                    <td>Wtyczka / rozszerzenie</td>
+                    <td>Dodatek zwiększający możliwości CMS.</td>
+                </tr>
+
+                <tr>
+                    <td>Baza danych</td>
+                    <td>System przechowywania treści i ustawień.</td>
+                </tr>
+
+                <tr>
+                    <td>Panel administracyjny</td>
+                    <td>Interfejs do zarządzania treścią i konfiguracją.</td>
+                </tr>
+
+                <tr>
+                    <td>Hosting</td>
+                    <td>Usługa udostępniająca zasoby serwera dla witryny.</td>
+                </tr>
+
+                <tr>
+                    <td>Aktualizacja</td>
+                    <td>Instalacja nowszej wersji oprogramowania.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <strong>Frontend</strong> to część strony
+                    widoczna dla użytkownika,
+                    a <strong>backend</strong>
+                    to zaplecze administracyjne.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="wymagania">
+
+            <h2>6. Wymagania techniczne systemów CMS</h2>
+
+            <p>
+                Przed instalacją CMS należy sprawdzić,
+                czy środowisko serwerowe spełnia
+                wymagania wybranej wersji systemu.
+            </p>
+
+            <h3>Najważniejsze składniki</h3>
+
+            <ul>
+                <li>Serwer WWW, np. Apache.</li>
+                <li>Interpreter PHP.</li>
+                <li>Serwer bazy danych, np. MySQL lub MariaDB.</li>
+                <li>Przeglądarka internetowa.</li>
+                <li>Pliki instalacyjne CMS.</li>
+            </ul>
+
+            <h3>Wymagania zależą od wersji</h3>
+
+            <p>
+                Przykładowo aktualne zalecenia WordPressa
+                obejmują nowoczesną wersję PHP
+                oraz MySQL lub MariaDB.
+            </p>
+
+            <p>
+                Joomla 6 wymaga PHP 8.3 lub nowszego
+                i odpowiedniej wersji bazy danych.
+            </p>
+
+            <p>
+                Nie każda starsza instalacja XAMPP
+                będzie zgodna z najnowszym CMS.
+            </p>
+
+            <h3>Oficjalne wymagania</h3>
+
+            <ul>
+                <li>
+                    <a href="https://pl.wordpress.org/about/requirements/"
+                       target="_blank" rel="noopener noreferrer">
+                        WordPress – wymagania systemowe
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://manual.joomla.org/docs/6.0/get-started/technical-requirements/"
+                       target="_blank" rel="noopener noreferrer">
+                        Joomla 6 – wymagania techniczne
+                    </a>
+                </li>
+            </ul>
+
+            <div class="important">
+                <h3>⚠️ Przed rozpoczęciem instalacji</h3>
+
+                <p>
+                    Sprawdź wersję PHP i serwera bazy danych
+                    w szkolnym XAMPP.
+                    Dobierz do nich zgodną,
+                    wspieraną wersję CMS.
+                    Nie instaluj przypadkowych,
+                    przestarzałych wersji oprogramowania.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="xampp">
+
+            <h2>7. Przygotowanie środowiska XAMPP</h2>
+
+            <p>
+                Do lokalnej instalacji CMS
+                możemy wykorzystać pakiet XAMPP.
+            </p>
+
+            <p>
+                Umożliwia on uruchomienie
+                środowiska serwerowego
+                na komputerze ucznia.
+            </p>
+
+            <h3>Podstawowe składniki</h3>
+
+            <table>
+                <tr>
+                    <th>Składnik</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Apache</td>
+                    <td>Obsługa żądań HTTP.</td>
+                </tr>
+
+                <tr>
+                    <td>PHP</td>
+                    <td>Wykonywanie kodu CMS.</td>
+                </tr>
+
+                <tr>
+                    <td>MariaDB / MySQL</td>
+                    <td>Przechowywanie danych.</td>
+                </tr>
+
+                <tr>
+                    <td>phpMyAdmin</td>
+                    <td>Zarządzanie bazami danych przez przeglądarkę.</td>
+                </tr>
+            </table>
+
+            <h3>Uruchomienie XAMPP</h3>
+
+            <ol>
+                <li>Uruchom XAMPP Control Panel.</li>
+                <li>Włącz usługę Apache przyciskiem Start.</li>
+                <li>Włącz usługę MySQL przyciskiem Start.</li>
+                <li>Otwórz przeglądarkę internetową.</li>
+                <li>Wpisz adres <code>http://localhost/</code>.</li>
+                <li>Sprawdź, czy serwer działa poprawnie.</li>
+            </ol>
+
+            <h3>Folder htdocs</h3>
+
+            <p>
+                Pliki witryn lokalnych
+                umieszczamy zwykle w katalogu:
+            </p>
+
+            <pre><code class="language-text">C:\xampp\htdocs\</code></pre>
+
+            <p>
+                Przykładowa struktura:
+            </p>
+
+            <pre><code class="language-text">C:\xampp\htdocs\
+|
+|-- wordpress-szkola\
+|
+|-- joomla-test\</code></pre>
+
+            <p>
+                Po umieszczeniu plików
+                w odpowiednim folderze
+                witrynę otwieramy przez localhost,
+                a nie przez dwukrotne kliknięcie
+                pliku PHP.
+            </p>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="baza">
+
+            <h2>8. Tworzenie bazy danych w phpMyAdmin</h2>
+
+            <p>
+                Przed instalacją CMS
+                przygotowujemy bazę danych,
+                w której system zapisze
+                treści i ustawienia.
+            </p>
+
+            <h3>Instrukcja krok po kroku</h3>
+
+            <ol>
+                <li>Uruchom Apache i MySQL w XAMPP.</li>
+                <li>Otwórz przeglądarkę.</li>
+                <li>Przejdź pod adres <code>http://localhost/phpmyadmin/</code>.</li>
+                <li>Wybierz zakładkę <strong>Bazy danych</strong>.</li>
+                <li>W polu tworzenia nowej bazy wpisz <code>cms_szkola</code>.</li>
+                <li>Wybierz kodowanie lub porównywanie zgodne z <code>utf8mb4</code>, jeśli jest dostępne.</li>
+                <li>Kliknij <strong>Utwórz</strong>.</li>
+            </ol>
+
+            <h3>Dane potrzebne podczas instalacji</h3>
+
+            <table>
+                <tr>
+                    <th>Parametr</th>
+                    <th>Przykład lokalny</th>
+                </tr>
+
+                <tr>
+                    <td>Serwer bazy danych</td>
+                    <td><code>localhost</code></td>
+                </tr>
+
+                <tr>
+                    <td>Nazwa bazy</td>
+                    <td><code>cms_szkola</code></td>
+                </tr>
+
+                <tr>
+                    <td>Użytkownik bazy</td>
+                    <td>Konto skonfigurowane w XAMPP</td>
+                </tr>
+
+                <tr>
+                    <td>Hasło</td>
+                    <td>Hasło tego konta</td>
+                </tr>
+            </table>
+
+            <p>
+                W niektórych domyślnych,
+                lokalnych instalacjach XAMPP
+                konto <code>root</code>
+                nie ma ustawionego hasła.
+            </p>
+
+            <p>
+                Nie należy jednak zakładać,
+                że tak jest na każdym komputerze.
+            </p>
+
+            <div class="important">
+
+                <h3>⚠️ Bezpieczeństwo</h3>
+
+                <p>
+                    Konto bazy danych bez hasła
+                    może występować w lokalnym
+                    środowisku demonstracyjnym.
+                </p>
+
+                <p>
+                    Nie jest to prawidłowa
+                    konfiguracja serwera
+                    dostępnego publicznie.
+                    W rzeczywistych wdrożeniach
+                    należy stosować odpowiednio
+                    zabezpieczone konta
+                    o ograniczonych uprawnieniach.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="wordpress-instalacja">
+
+            <h2>9. Instalacja WordPressa na localhost</h2>
+
+            <p>
+                WordPress jest jednym
+                z najpopularniejszych
+                systemów CMS.
+            </p>
+
+            <p>
+                Jego instalacja obejmuje
+                przygotowanie plików,
+                bazy danych
+                i uruchomienie instalatora.
+            </p>
+
+            <h3>Krok 1 – Pobranie WordPressa</h3>
+
+            <ol>
+                <li>
+                    Otwórz stronę
+                    <a href="https://pl.wordpress.org/download/"
+                       target="_blank" rel="noopener noreferrer">
+                        pl.wordpress.org/download
+                    </a>.
+                </li>
+                <li>Pobierz pakiet instalacyjny WordPressa.</li>
+                <li>Rozpakuj pobrane archiwum ZIP.</li>
+            </ol>
+
+            <h3>Krok 2 – Przygotowanie folderu</h3>
+
+            <ol>
+                <li>Otwórz katalog <code>C:\xampp\htdocs\</code>.</li>
+                <li>Utwórz folder <code>wordpress-szkola</code>.</li>
+                <li>Skopiuj do niego zawartość rozpakowanego katalogu WordPressa.</li>
+            </ol>
+
+            <p>
+                W folderze projektu powinny
+                znajdować się m.in.:
+            </p>
+
+            <pre><code class="language-text">wordpress-szkola/
+|
+|-- wp-admin/
+|-- wp-content/
+|-- wp-includes/
+|-- index.php
+|-- wp-config-sample.php
+|-- wp-login.php</code></pre>
+
+            <h3>Krok 3 – Baza danych</h3>
+
+            <p>
+                Utwórz w phpMyAdmin
+                bazę danych o nazwie:
+            </p>
+
+            <pre><code class="language-text">cms_szkola</code></pre>
+
+            <h3>Krok 4 – Uruchomienie instalatora</h3>
+
+            <p>
+                W przeglądarce otwórz:
+            </p>
+
+            <pre><code class="language-text">http://localhost/wordpress-szkola/</code></pre>
+
+            <p>
+                Instalator przeprowadzi Cię
+                przez konfigurację połączenia
+                z bazą danych.
+            </p>
+
+            <h3>Krok 5 – Dane połączenia</h3>
+
+            <p>
+                Podaj dane zgodne
+                z konfiguracją lokalnego serwera:
+            </p>
+
+            <ul>
+                <li>Nazwa bazy danych: <code>cms_szkola</code>.</li>
+                <li>Nazwa użytkownika: konto bazy danych.</li>
+                <li>Hasło: hasło tego konta.</li>
+                <li>Adres serwera bazy: zwykle <code>localhost</code>.</li>
+                <li>Prefiks tabel: ustawiony przez instalator lub własny.</li>
+            </ul>
+
+            <h3>Krok 6 – Konfiguracja witryny</h3>
+
+            <p>
+                Wprowadź podstawowe informacje:
+            </p>
+
+            <ul>
+                <li>Tytuł witryny: <strong>Szkolna Strefa IT</strong>.</li>
+                <li>Nazwa użytkownika administratora: własna, nieoczywista.</li>
+                <li>Hasło administratora: silne i unikalne.</li>
+                <li>Adres e-mail administratora.</li>
+            </ul>
+
+            <p>
+                Następnie zakończ instalację
+                zgodnie z komunikatami instalatora.
+            </p>
+
+            <h3>Krok 7 – Logowanie</h3>
+
+            <p>
+                Otwórz adres:
+            </p>
+
+            <pre><code class="language-text">http://localhost/wordpress-szkola/wp-admin/</code></pre>
+
+            <p>
+                Zaloguj się danymi
+                administratora utworzonymi
+                podczas instalacji.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <code>wp-admin</code>
+                    to standardowa ścieżka
+                    prowadząca do panelu
+                    administracyjnego WordPressa.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="wordpress-panel">
+
+            <h2>10. Panel administracyjny WordPressa</h2>
+
+            <p>
+                Po zalogowaniu administrator
+                uzyskuje dostęp do kokpitu
+                i menu zarządzania witryną.
+            </p>
+
+            <h3>Najważniejsze elementy panelu</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Przeznaczenie</th>
+                </tr>
+
+                <tr>
+                    <td>Kokpit</td>
+                    <td>Podsumowanie informacji o witrynie.</td>
+                </tr>
+
+                <tr>
+                    <td>Wpisy</td>
+                    <td>Tworzenie i edytowanie aktualności lub artykułów.</td>
+                </tr>
+
+                <tr>
+                    <td>Media</td>
+                    <td>Biblioteka obrazów i innych plików.</td>
+                </tr>
+
+                <tr>
+                    <td>Strony</td>
+                    <td>Zarządzanie podstronami.</td>
+                </tr>
+
+                <tr>
+                    <td>Komentarze</td>
+                    <td>Moderowanie komentarzy, jeśli są używane.</td>
+                </tr>
+
+                <tr>
+                    <td>Wygląd</td>
+                    <td>Motywy i ustawienia wyglądu.</td>
+                </tr>
+
+                <tr>
+                    <td>Wtyczki</td>
+                    <td>Instalowanie i zarządzanie dodatkami.</td>
+                </tr>
+
+                <tr>
+                    <td>Użytkownicy</td>
+                    <td>Zarządzanie kontami i rolami.</td>
+                </tr>
+
+                <tr>
+                    <td>Ustawienia</td>
+                    <td>Konfiguracja działania witryny.</td>
+                </tr>
+            </table>
+
+            <p>
+                Dostępność poszczególnych opcji
+                może zależeć od roli użytkownika,
+                wersji WordPressa
+                i zainstalowanego motywu.
+            </p>
+
+            <h3>Ćwiczenie obserwacyjne</h3>
+
+            <ol>
+                <li>Otwórz kokpit WordPressa.</li>
+                <li>Znajdź zakładkę Wpisy.</li>
+                <li>Znajdź zakładkę Strony.</li>
+                <li>Otwórz bibliotekę Media.</li>
+                <li>Sprawdź, gdzie znajdują się Ustawienia.</li>
+                <li>Otwórz witrynę w nowej karcie.</li>
+            </ol>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="wordpress-konfiguracja">
+
+            <h2>11. Podstawowa konfiguracja WordPressa</h2>
+
+            <p>
+                Po instalacji należy dostosować
+                podstawowe ustawienia witryny.
+            </p>
+
+            <h3>Ustawienia ogólne</h3>
+
+            <p>
+                W panelu wybierz:
+            </p>
+
+            <pre><code class="language-text">Ustawienia → Ogólne</code></pre>
+
+            <p>
+                Możesz tam skonfigurować m.in.:
+            </p>
+
+            <ul>
+                <li>tytuł witryny,</li>
+                <li>opis witryny,</li>
+                <li>język witryny,</li>
+                <li>strefę czasową,</li>
+                <li>format daty i godziny.</li>
+            </ul>
+
+            <h3>Przykładowe ustawienia</h3>
+
+            <table>
+                <tr>
+                    <th>Opcja</th>
+                    <th>Wartość</th>
+                </tr>
+
+                <tr>
+                    <td>Tytuł</td>
+                    <td>Szkolna Strefa IT</td>
+                </tr>
+
+                <tr>
+                    <td>Opis</td>
+                    <td>Aktualności i materiały informatyczne</td>
+                </tr>
+
+                <tr>
+                    <td>Język</td>
+                    <td>Polski</td>
+                </tr>
+
+                <tr>
+                    <td>Strefa czasowa</td>
+                    <td>Warszawa</td>
+                </tr>
+            </table>
+
+            <h3>Ustawienia odnośników</h3>
+
+            <p>
+                W panelu wybierz:
+            </p>
+
+            <pre><code class="language-text">Ustawienia → Bezpośrednie odnośniki</code></pre>
+
+            <p>
+                Możesz wybrać czytelną
+                strukturę adresów URL,
+                np. opartą na nazwie wpisu.
+            </p>
+
+            <p>
+                Zapisz ustawienia
+                i sprawdź działanie strony.
+            </p>
+
+            <div class="important">
+
+                <h3>⚠️ Uwaga</h3>
+
+                <p>
+                    Nie zmieniaj bez potrzeby
+                    pól adresu WordPressa
+                    i adresu witryny.
+                </p>
+
+                <p>
+                    Nieprawidłowa zmiana
+                    tych wartości może
+                    utrudnić dostęp
+                    do lokalnej instalacji.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="wordpress-tresci">
+
+            <h2>12. Tworzenie stron i wpisów w WordPressie</h2>
+
+            <p>
+                W WordPressie należy rozróżniać
+                <strong>strony</strong>
+                i <strong>wpisy</strong>.
+            </p>
+
+            <h3>Strony</h3>
+
+            <p>
+                Strony służą zwykle
+                do publikowania treści,
+                które nie są typowymi aktualnościami.
+            </p>
+
+            <p>
+                Przykłady:
+            </p>
+
+            <ul>
+                <li>O nas.</li>
+                <li>Oferta.</li>
+                <li>Kontakt.</li>
+                <li>Regulamin.</li>
+            </ul>
+
+            <h3>Wpisy</h3>
+
+            <p>
+                Wpisy są często używane
+                do publikowania aktualności,
+                artykułów i informacji
+                uporządkowanych chronologicznie.
+            </p>
+
+            <h3>Dodawanie strony</h3>
+
+            <ol>
+                <li>Otwórz <strong>Strony</strong>.</li>
+                <li>Wybierz <strong>Dodaj nową</strong>.</li>
+                <li>Wpisz tytuł <strong>O nas</strong>.</li>
+                <li>Dodaj własny tekst.</li>
+                <li>Sprawdź podgląd.</li>
+                <li>Opublikuj stronę.</li>
+            </ol>
+
+            <h3>Dodawanie wpisu</h3>
+
+            <ol>
+                <li>Otwórz <strong>Wpisy</strong>.</li>
+                <li>Wybierz <strong>Dodaj nowy</strong>.</li>
+                <li>Wpisz tytuł <strong>Witamy na naszej stronie</strong>.</li>
+                <li>Dodaj dwa akapity tekstu.</li>
+                <li>Wybierz kategorię lub utwórz nową.</li>
+                <li>Opublikuj wpis.</li>
+            </ol>
+
+            <h3>Edytor blokowy</h3>
+
+            <p>
+                WordPress posiada edytor blokowy,
+                w którym można dodawać
+                różne elementy treści.
+            </p>
+
+            <ul>
+                <li>Akpit.</li>
+                <li>Nagłówek.</li>
+                <li>Obraz.</li>
+                <li>Lista.</li>
+                <li>Kolumny.</li>
+                <li>Przycisk.</li>
+            </ul>
+
+            <p>
+                Poszczególne elementy
+                dodaje się jako bloki,
+                które można edytować
+                i przestawiać.
+            </p>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="wordpress-wyglad">
+
+            <h2>13. Motywy i wtyczki WordPressa</h2>
+
+            <h3>Motyw</h3>
+
+            <p>
+                <strong>Motyw</strong>
+                odpowiada za wygląd
+                i sposób prezentowania treści.
+            </p>
+
+            <p>
+                Może określać m.in.:
+            </p>
+
+            <ul>
+                <li>układ strony,</li>
+                <li>kolorystykę,</li>
+                <li>typografię,</li>
+                <li>wygląd nagłówka,</li>
+                <li>wygląd stopki.</li>
+            </ul>
+
+            <h3>Zmiana motywu</h3>
+
+            <ol>
+                <li>Otwórz zakładkę <strong>Wygląd</strong>.</li>
+                <li>Wybierz <strong>Motywy</strong>.</li>
+                <li>Przejrzyj dostępne motywy.</li>
+                <li>Wybierz odpowiedni motyw.</li>
+                <li>Sprawdź podgląd i aktywuj go.</li>
+            </ol>
+
+            <p>
+                Możliwości dalszej edycji
+                zależą od rodzaju motywu.
+                W niektórych motywach
+                dostępny jest Edytor witryny,
+                w innych dodatkowe ustawienia wyglądu.
+            </p>
+
+            <h3>Wtyczka</h3>
+
+            <p>
+                <strong>Wtyczka</strong>
+                rozszerza funkcjonalność
+                WordPressa.
+            </p>
+
+            <p>
+                Przykładowe zastosowania:
+            </p>
+
+            <ul>
+                <li>formularze kontaktowe,</li>
+                <li>kopie zapasowe,</li>
+                <li>zabezpieczenia,</li>
+                <li>galerie,</li>
+                <li>optymalizacja strony.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    <strong>Motyw</strong>
+                    odpowiada przede wszystkim
+                    za wygląd witryny.
+                </p>
+
+                <p>
+                    <strong>Wtyczka</strong>
+                    dodaje lub rozszerza
+                    funkcje systemu.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="joomla-instalacja">
+
+            <h2>14. Instalacja Joomla na localhost</h2>
+
+            <p>
+                Joomla jest systemem CMS,
+                który umożliwia zarządzanie
+                artykułami, kategoriami,
+                menu, modułami i użytkownikami.
+            </p>
+
+            <p>
+                Instalację przeprowadzamy
+                w podobny sposób jak w WordPressie,
+                ale korzystamy z osobnego
+                katalogu i osobnej bazy danych.
+            </p>
+
+            <h3>Krok 1 – Pobranie Joomla</h3>
+
+            <ol>
+                <li>
+                    Otwórz stronę
+                    <a href="https://downloads.joomla.org/"
+                       target="_blank" rel="noopener noreferrer">
+                        downloads.joomla.org
+                    </a>.
+                </li>
+                <li>Wybierz wersję zgodną ze środowiskiem serwerowym.</li>
+                <li>Pobierz pakiet instalacyjny.</li>
+            </ol>
+
+            <h3>Krok 2 – Przygotowanie katalogu</h3>
+
+            <ol>
+                <li>Otwórz folder <code>C:\xampp\htdocs\</code>.</li>
+                <li>Utwórz katalog <code>joomla-test</code>.</li>
+                <li>Rozpakuj do niego pliki Joomla.</li>
+            </ol>
+
+            <h3>Krok 3 – Osobna baza danych</h3>
+
+            <p>
+                W phpMyAdmin utwórz bazę:
+            </p>
+
+            <pre><code class="language-text">cms_joomla</code></pre>
+
+            <p>
+                Nie wykorzystuj bazy WordPressa
+                do tego ćwiczenia.
+            </p>
+
+            <h3>Krok 4 – Uruchomienie instalatora</h3>
+
+            <p>
+                W przeglądarce wpisz:
+            </p>
+
+            <pre><code class="language-text">http://localhost/joomla-test/</code></pre>
+
+            <h3>Krok 5 – Podstawowe ustawienia</h3>
+
+            <p>
+                Instalator może poprosić o:
+            </p>
+
+            <ul>
+                <li>wybór języka,</li>
+                <li>nazwę witryny,</li>
+                <li>dane konta administratora,</li>
+                <li>dane połączenia z bazą danych.</li>
+            </ul>
+
+            <h3>Przykładowe dane</h3>
+
+            <table>
+                <tr>
+                    <th>Pole</th>
+                    <th>Przykład</th>
+                </tr>
+
+                <tr>
+                    <td>Nazwa witryny</td>
+                    <td>Portal Informatyczny</td>
+                </tr>
+
+                <tr>
+                    <td>Serwer bazy</td>
+                    <td>localhost</td>
+                </tr>
+
+                <tr>
+                    <td>Baza danych</td>
+                    <td>cms_joomla</td>
+                </tr>
+
+                <tr>
+                    <td>Administrator</td>
+                    <td>Własna nazwa użytkownika</td>
+                </tr>
+            </table>
+
+            <p>
+                Zakończ instalację
+                zgodnie z komunikatami
+                wyświetlanymi przez system.
+            </p>
+
+            <h3>Panel administracyjny Joomla</h3>
+
+            <p>
+                Standardowy adres panelu:
+            </p>
+
+            <pre><code class="language-text">http://localhost/joomla-test/administrator/</code></pre>
+
+            <p>
+                Zaloguj się za pomocą
+                danych administratora
+                podanych podczas instalacji.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    W Joomla panel administracyjny
+                    jest standardowo dostępny
+                    pod adresem zakończonym
+                    <code>/administrator/</code>.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="joomla-panel">
+
+            <h2>15. Panel administracyjny Joomla</h2>
+
+            <p>
+                Panel administracyjny Joomla
+                pozwala zarządzać
+                strukturą witryny,
+                artykułami, menu,
+                modułami i ustawieniami.
+            </p>
+
+            <h3>Najważniejsze obszary</h3>
+
+            <table>
+                <tr>
+                    <th>Obszar</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Home Dashboard</td>
+                    <td>Strona główna panelu administracyjnego.</td>
+                </tr>
+
+                <tr>
+                    <td>Content / Treści</td>
+                    <td>Zarządzanie artykułami, kategoriami i mediami.</td>
+                </tr>
+
+                <tr>
+                    <td>Menus / Menu</td>
+                    <td>Tworzenie struktury nawigacyjnej witryny.</td>
+                </tr>
+
+                <tr>
+                    <td>Components / Komponenty</td>
+                    <td>Obsługa funkcji realizowanych przez komponenty.</td>
+                </tr>
+
+                <tr>
+                    <td>Users / Użytkownicy</td>
+                    <td>Zarządzanie kontami i uprawnieniami.</td>
+                </tr>
+
+                <tr>
+                    <td>System</td>
+                    <td>Ustawienia, informacje o systemie i narzędzia administracyjne.</td>
+                </tr>
+            </table>
+
+            <p>
+                Nazwy i rozmieszczenie
+                poszczególnych opcji
+                mogą różnić się zależnie
+                od wersji Joomla
+                i języka panelu.
+            </p>
+
+            <h3>Ćwiczenie obserwacyjne</h3>
+
+            <ol>
+                <li>Zaloguj się do panelu Joomla.</li>
+                <li>Znajdź listę artykułów.</li>
+                <li>Znajdź kategorie.</li>
+                <li>Otwórz zarządzanie menu.</li>
+                <li>Znajdź ustawienia globalne.</li>
+                <li>Sprawdź możliwość otwarcia strony publicznej.</li>
+            </ol>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="joomla-konfiguracja">
+
+            <h2>16. Podstawowa konfiguracja Joomla</h2>
+
+            <p>
+                Po instalacji Joomla
+                można dostosować
+                ustawienia całej witryny.
+            </p>
+
+            <h3>Konfiguracja globalna</h3>
+
+            <p>
+                Otwórz w panelu:
+            </p>
+
+            <pre><code class="language-text">System → Global Configuration</code></pre>
+
+            <p>
+                W polskiej wersji językowej
+                odpowiednia opcja
+                może być oznaczona
+                jako Konfiguracja globalna.
+            </p>
+
+            <h3>Przykładowe ustawienia</h3>
+
+            <ul>
+                <li>Nazwa witryny.</li>
+                <li>Opis witryny.</li>
+                <li>Domyślny edytor.</li>
+                <li>Ustawienia metadanych.</li>
+                <li>Ustawienia adresów URL.</li>
+                <li>Wybrane ustawienia systemowe.</li>
+            </ul>
+
+            <h3>Przykład</h3>
+
+            <table>
+                <tr>
+                    <th>Ustawienie</th>
+                    <th>Wartość</th>
+                </tr>
+
+                <tr>
+                    <td>Nazwa witryny</td>
+                    <td>Portal Informatyczny</td>
+                </tr>
+
+                <tr>
+                    <td>Opis</td>
+                    <td>Informacje i materiały o technologiach WWW</td>
+                </tr>
+
+                <tr>
+                    <td>Język</td>
+                    <td>Polski, jeśli pakiet jest zainstalowany</td>
+                </tr>
+            </table>
+
+            <p>
+                Po zapisaniu ustawień
+                sprawdź stronę publiczną
+                i upewnij się,
+                że zmiany są widoczne.
+            </p>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="joomla-tresci">
+
+            <h2>17. Artykuły, kategorie i menu w Joomla</h2>
+
+            <p>
+                W Joomla bardzo ważne
+                jest zrozumienie zależności
+                między artykułami,
+                kategoriami
+                i pozycjami menu.
+            </p>
+
+            <h3>Artykuł</h3>
+
+            <p>
+                Artykuł zawiera treść,
+                którą chcemy opublikować.
+            </p>
+
+            <p>
+                Może składać się z:
+            </p>
+
+            <ul>
+                <li>tytułu,</li>
+                <li>akapitów,</li>
+                <li>nagłówków,</li>
+                <li>obrazów,</li>
+                <li>odnośników.</li>
+            </ul>
+
+            <h3>Kategoria</h3>
+
+            <p>
+                Kategoria pozwala
+                uporządkować artykuły
+                według tematyki.
+            </p>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-text">Portal Informatyczny
+|
+|-- Kategoria: Aktualności
+|   |
+|   |-- Artykuł: Rozpoczęcie kursu
+|   |-- Artykuł: Nowa pracownia
+|
+|-- Kategoria: Poradniki
+    |
+    |-- Artykuł: Podstawy HTML
+    |-- Artykuł: Podstawy CSS</code></pre>
+
+            <h3>Tworzenie kategorii</h3>
+
+            <ol>
+                <li>Otwórz zarządzanie kategoriami treści.</li>
+                <li>Wybierz utworzenie nowej kategorii.</li>
+                <li>Wpisz nazwę <strong>Aktualności</strong>.</li>
+                <li>Zapisz kategorię.</li>
+            </ol>
+
+            <h3>Tworzenie artykułu</h3>
+
+            <ol>
+                <li>Otwórz listę artykułów.</li>
+                <li>Wybierz utworzenie nowego artykułu.</li>
+                <li>Wpisz tytuł <strong>Witamy na portalu</strong>.</li>
+                <li>Dodaj dwa akapity tekstu.</li>
+                <li>Przypisz kategorię Aktualności.</li>
+                <li>Ustaw odpowiedni stan publikacji.</li>
+                <li>Zapisz artykuł.</li>
+            </ol>
+
+            <h3>Menu</h3>
+
+            <p>
+                Aby użytkownicy mogli
+                łatwo otwierać treści,
+                tworzymy odpowiednie
+                pozycje menu.
+            </p>
+
+            <p>
+                W Joomla pozycja menu
+                może prowadzić np.
+                do pojedynczego artykułu,
+                listy artykułów kategorii
+                lub innego widoku.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    W Joomla artykuł
+                    jest elementem treści,
+                    kategoria pomaga
+                    organizować artykuły,
+                    a menu ułatwia
+                    użytkownikowi
+                    dotarcie do nich.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="bezpieczenstwo">
+
+            <h2>18. Bezpieczeństwo systemów CMS</h2>
+
+            <p>
+                Instalacja CMS
+                to dopiero początek
+                zarządzania witryną.
+            </p>
+
+            <p>
+                Administrator powinien
+                dbać również
+                o jej bezpieczeństwo.
+            </p>
+
+            <h3>Najważniejsze zasady</h3>
+
+            <ol>
+                <li>Aktualizuj system CMS.</li>
+                <li>Aktualizuj motywy i rozszerzenia.</li>
+                <li>Stosuj silne i unikalne hasła.</li>
+                <li>Nie udostępniaj konta administratora innym osobom.</li>
+                <li>Instaluj dodatki z zaufanych źródeł.</li>
+                <li>Usuwaj nieużywane dodatki.</li>
+                <li>Regularnie wykonuj kopie zapasowe.</li>
+                <li>Stosuj HTTPS na witrynach publicznych.</li>
+                <li>Przydzielaj użytkownikom tylko potrzebne uprawnienia.</li>
+                <li>Chroń dostęp do bazy danych.</li>
+            </ol>
+
+            <h3>Kopia zapasowa</h3>
+
+            <p>
+                Pełna kopia zapasowa
+                typowej instalacji CMS
+                powinna uwzględniać:
+            </p>
+
+            <ul>
+                <li>pliki aplikacji i przesłane materiały,</li>
+                <li>bazę danych,</li>
+                <li>ważne ustawienia konfiguracyjne.</li>
+            </ul>
+
+            <p>
+                Samo skopiowanie katalogu
+                z plikami nie zawsze wystarczy,
+                ponieważ część danych
+                znajduje się w bazie.
+            </p>
+
+            <div class="important">
+
+                <h3>⚠️ Ważne</h3>
+
+                <p>
+                    XAMPP używany do ćwiczeń
+                    jest środowiskiem lokalnym.
+                    Nie należy udostępniać
+                    szkolnej instalacji XAMPP
+                    publicznie w internecie
+                    bez odpowiedniej konfiguracji
+                    i zabezpieczeń.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="problemy">
+
+            <h2>19. Najczęstsze problemy podczas instalacji</h2>
+
+            <table>
+                <tr>
+                    <th>Problem</th>
+                    <th>Możliwa przyczyna</th>
+                    <th>Co sprawdzić?</th>
+                </tr>
+
+                <tr>
+                    <td>localhost nie działa</td>
+                    <td>Apache nie został uruchomiony lub występuje konflikt portu.</td>
+                    <td>Status Apache i konfigurację portów.</td>
+                </tr>
+
+                <tr>
+                    <td>Brak połączenia z bazą danych</td>
+                    <td>Nieprawidłowe dane połączenia albo wyłączony serwer bazy.</td>
+                    <td>Nazwę bazy, użytkownika, hasło i usługę MySQL.</td>
+                </tr>
+
+                <tr>
+                    <td>Instalator nie uruchamia się</td>
+                    <td>Pliki znajdują się w niewłaściwym katalogu.</td>
+                    <td>Strukturę folderu htdocs.</td>
+                </tr>
+
+                <tr>
+                    <td>Nieobsługiwana wersja PHP</td>
+                    <td>Środowisko nie spełnia wymagań CMS.</td>
+                    <td>Wersję PHP i oficjalne wymagania systemu.</td>
+                </tr>
+
+                <tr>
+                    <td>Nie można się zalogować</td>
+                    <td>Błędny login lub hasło.</td>
+                    <td>Dane konta utworzone podczas instalacji.</td>
+                </tr>
+
+                <tr>
+                    <td>Nie działają przyjazne adresy</td>
+                    <td>Nieprawidłowa konfiguracja przepisywania adresów.</td>
+                    <td>Ustawienia CMS i konfigurację serwera.</td>
+                </tr>
+            </table>
+
+            <h3>Jak diagnozować problem?</h3>
+
+            <ol>
+                <li>Przeczytaj dokładnie komunikat błędu.</li>
+                <li>Sprawdź, czy działają usługi XAMPP.</li>
+                <li>Sprawdź poprawność adresu localhost.</li>
+                <li>Sprawdź nazwę folderu projektu.</li>
+                <li>Sprawdź dane połączenia z bazą.</li>
+                <li>Sprawdź zgodność wersji oprogramowania.</li>
+                <li>W razie potrzeby poproś nauczyciela o pomoc.</li>
+            </ol>
+
+        </section>
+
+        <!-- 20 -->
+
+        <section id="podsumowanie">
+
+            <h2>20. WordPress i Joomla – porównanie pracy administratora</h2>
+
+            <p>
+                Oba systemy realizują
+                podobne zadania,
+                ale wykorzystują
+                nieco inne nazewnictwo
+                i organizację panelu.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Zadanie</th>
+                    <th>WordPress</th>
+                    <th>Joomla</th>
+                </tr>
+
+                <tr>
+                    <td>Dodanie aktualności</td>
+                    <td>Wpis</td>
+                    <td>Artykuł</td>
+                </tr>
+
+                <tr>
+                    <td>Uporządkowanie treści</td>
+                    <td>Kategorie wpisów</td>
+                    <td>Kategorie artykułów</td>
+                </tr>
+
+                <tr>
+                    <td>Zmiana wyglądu</td>
+                    <td>Motyw</td>
+                    <td>Szablon</td>
+                </tr>
+
+                <tr>
+                    <td>Rozbudowa funkcji</td>
+                    <td>Wtyczka</td>
+                    <td>Rozszerzenie</td>
+                </tr>
+
+                <tr>
+                    <td>Konfiguracja</td>
+                    <td>Ustawienia</td>
+                    <td>Konfiguracja globalna</td>
+                </tr>
+
+                <tr>
+                    <td>Panel administratora</td>
+                    <td>/wp-admin/</td>
+                    <td>/administrator/</td>
+                </tr>
+            </table>
+
+            <h3>Pytania sprawdzające</h3>
+
+            <ol>
+                <li>Co oznacza skrót CMS?</li>
+                <li>Jaka jest różnica między frontendem a backendem?</li>
+                <li>Dlaczego CMS potrzebuje bazy danych?</li>
+                <li>Czym różni się wpis od strony w WordPressie?</li>
+                <li>Jaką funkcję pełni kategoria w Joomla?</li>
+                <li>Do czego służy motyw WordPressa?</li>
+                <li>Dlaczego należy aktualizować CMS?</li>
+                <li>Czy WordPress i Joomla można uruchomić na GitHub Pages? Uzasadnij.</li>
+            </ol>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>CMS oznacza Content Management System.</li>
+                    <li>CMS służy do zarządzania treścią witryny internetowej.</li>
+                    <li>WordPress i Joomla są systemami CMS o otwartym kodzie źródłowym.</li>
+                    <li>Frontend to część witryny widoczna dla użytkownika.</li>
+                    <li>Backend to zaplecze administracyjne.</li>
+                    <li>CMS wykorzystuje oprogramowanie serwerowe i bazę danych.</li>
+                    <li>XAMPP umożliwia uruchomienie lokalnego środowiska serwerowego.</li>
+                    <li>Folder htdocs służy do przechowywania plików lokalnych witryn.</li>
+                    <li>phpMyAdmin pozwala zarządzać bazami danych.</li>
+                    <li>WordPress wykorzystuje strony i wpisy.</li>
+                    <li>WordPress umożliwia zmianę wyglądu za pomocą motywów.</li>
+                    <li>Wtyczki rozszerzają funkcjonalność WordPressa.</li>
+                    <li>Joomla wykorzystuje artykuły i kategorie.</li>
+                    <li>Pozycje menu Joomla prowadzą do wybranych treści lub widoków.</li>
+                    <li>Panel WordPressa jest standardowo dostępny pod adresem /wp-admin/.</li>
+                    <li>Panel Joomla jest standardowo dostępny pod adresem /administrator/.</li>
+                    <li>Wymagania techniczne CMS zależą od jego wersji.</li>
+                    <li>Nie należy instalować niezweryfikowanych rozszerzeń.</li>
+                    <li>Aktualizacje i kopie zapasowe są ważne dla bezpieczeństwa.</li>
+                    <li>GitHub Pages nie uruchamia bezpośrednio WordPressa ani Joomla.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA PRAKTYCZNE -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Projekt:</strong>
+                „Szkolna Strefa IT – moja pierwsza witryna CMS”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                zainstalowanie i skonfigurowanie
+                jednej lokalnej witryny CMS,
+                dodanie treści
+                i poznanie panelu administracyjnego.
+            </p>
+
+            <div class="important">
+
+                <h3>📌 Organizacja pracy</h3>
+
+                <p>
+                    Główny projekt wykonaj
+                    w systemie <strong>WordPress</strong>.
+                    Joomla poznasz przez analizę
+                    procesu instalacji
+                    i porównanie panelu.
+                </p>
+
+                <p>
+                    Jeśli nauczyciel udostępni
+                    działającą instalację Joomla,
+                    wykonaj również ćwiczenia
+                    porównawcze w jej panelu.
+                </p>
+
+                <p>
+                    Nie trzeba tworzyć
+                    dwóch kompletnych witryn.
+                </p>
+
+            </div>
+
+            <h3>Zadanie 1 – Przygotowanie środowiska</h3>
+
+            <ol>
+                <li>Uruchom XAMPP Control Panel.</li>
+                <li>Włącz Apache i MySQL.</li>
+                <li>Sprawdź działanie localhost.</li>
+                <li>Otwórz phpMyAdmin.</li>
+                <li>Utwórz bazę danych <code>cms_szkola</code>.</li>
+                <li>Sprawdź, czy baza pojawiła się na liście.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Instalacja WordPressa</h3>
+
+            <ol>
+                <li>Pobierz WordPressa z oficjalnej strony.</li>
+                <li>Utwórz folder <code>wordpress-szkola</code> w htdocs.</li>
+                <li>Umieść w nim pliki WordPressa.</li>
+                <li>Otwórz <code>http://localhost/wordpress-szkola/</code>.</li>
+                <li>Wprowadź dane połączenia z bazą.</li>
+                <li>Ustaw nazwę witryny <strong>Szkolna Strefa IT</strong>.</li>
+                <li>Utwórz konto administratora z bezpiecznym hasłem.</li>
+                <li>Zakończ instalację.</li>
+                <li>Zaloguj się do panelu.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Konfiguracja witryny</h3>
+
+            <ol>
+                <li>Otwórz Ustawienia ogólne.</li>
+                <li>Ustaw tytuł witryny.</li>
+                <li>Wprowadź krótki opis strony.</li>
+                <li>Sprawdź język witryny.</li>
+                <li>Sprawdź strefę czasową.</li>
+                <li>Zapisz ustawienia.</li>
+                <li>Otwórz stronę publiczną i sprawdź zmiany.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Tworzenie treści</h3>
+
+            <ol>
+                <li>Utwórz stronę <strong>O nas</strong>.</li>
+                <li>Dodaj do niej nagłówek i dwa akapity własnego tekstu.</li>
+                <li>Utwórz stronę <strong>Kontakt</strong>.</li>
+                <li>Dodaj do niej przykładowe, fikcyjne dane kontaktowe.</li>
+                <li>Utwórz kategorię wpisów <strong>Aktualności</strong>.</li>
+                <li>Dodaj wpis <strong>Witamy na naszej stronie</strong>.</li>
+                <li>Przypisz wpis do kategorii Aktualności.</li>
+                <li>Dodaj do wpisu jeden obraz z opisem alternatywnym.</li>
+                <li>Opublikuj treści.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Wygląd i nawigacja</h3>
+
+            <ol>
+                <li>Otwórz zakładkę Wygląd.</li>
+                <li>Sprawdź aktywny motyw.</li>
+                <li>Wybierz odpowiednią kolorystykę witryny, jeśli motyw udostępnia takie ustawienia.</li>
+                <li>Sprawdź możliwości konfiguracji nagłówka.</li>
+                <li>Dodaj lub skonfiguruj nawigację prowadzącą do stron O nas i Kontakt.</li>
+                <li>Sprawdź, czy odnośniki działają.</li>
+                <li>Otwórz witrynę w widoku mobilnym.</li>
+                <li>Sprawdź czytelność strony.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Porównanie z Joomla i dokumentacja</h3>
+
+            <ol>
+                <li>Otwórz oficjalną stronę Joomla.</li>
+                <li>Zapoznaj się z procesem instalacji Joomla.</li>
+                <li>Ustal standardowy adres panelu administracyjnego.</li>
+                <li>Porównaj pojęcia: wpis, artykuł, motyw, szablon, wtyczka, rozszerzenie.</li>
+                <li>Przygotuj dokument <code>porownanie.txt</code>.</li>
+                <li>Zapisz w nim co najmniej pięć różnic lub podobieństw WordPressa i Joomla.</li>
+                <li>Wykonaj zrzut ekranu panelu WordPressa.</li>
+                <li>Wykonaj zrzut ekranu strony publicznej.</li>
+                <li>Zapisz obrazy jako <code>panel.png</code> i <code>witryna.png</code>.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Folder do oddania</h3>
+
+                <pre><code class="language-text">PSI_37/
+|
+|-- panel.png
+|
+|-- witryna.png
+|
+|-- porownanie.txt</code></pre>
+
+                <p>
+                    Zrzuty ekranu
+                    powinny przedstawiać
+                    własną instalację
+                    i utworzoną witrynę.
+                </p>
+
+                <p>
+                    W pliku tekstowym
+                    nie zapisuj haseł
+                    ani danych dostępowych.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj folder
+                    <code>PSI_37</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    <strong>Nie przesyłaj</strong>
+                    całego katalogu WordPressa,
+                    plików konfiguracyjnych
+                    zawierających dane dostępowe
+                    ani kopii bazy danych,
+                    jeśli nauczyciel
+                    nie poleci inaczej.
+                </p>
+
+                <p>
+                    Przed oddaniem sprawdź,
+                    czy witryna działa,
+                    treści są opublikowane,
+                    a zrzuty ekranu
+                    przedstawiają wykonany projekt.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 37
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
