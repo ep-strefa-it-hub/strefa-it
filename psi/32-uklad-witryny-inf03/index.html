@@ -1,0 +1,1806 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 32 – Układ witryny HTML i CSS – INF.03 | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#analiza">2.Analiza polecenia</a>
+        <a href="#pliki">3.Organizacja plików</a>
+        <a href="#schemat">4.Schemat witryny</a>
+        <a href="#html">5.Struktura HTML5</a>
+        <a href="#css">6.Podłączenie CSS</a>
+        <a href="#reset">7.Formatowanie ogólne</a>
+        <a href="#naglowek">8.Nagłówek</a>
+        <a href="#menu">9.Menu nawigacyjne</a>
+        <a href="#kolumny">10.Układ kolumn</a>
+        <a href="#tabela">11.Formatowanie tabeli</a>
+        <a href="#formularz">12.Formatowanie formularza</a>
+        <a href="#stopka">13.Stopka</a>
+        <a href="#responsywnosc">14.Responsywność</a>
+        <a href="#zgodnosc">15.Zgodność z poleceniem</a>
+        <a href="#bledy">16.Typowe błędy</a>
+        <a href="#przyklad">17.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadanie egzaminacyjne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 32 • HTML5 / CSS3 / INF.03
+            </div>
+
+            <h2>
+                Tworzenie układu witryny za pomocą HTML i CSS
+                – ćwiczenia w standardzie INF.03
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                samodzielne wykonanie strony internetowej
+                zgodnej z podaną specyfikacją,
+                z wykorzystaniem semantycznego HTML5,
+                zewnętrznego arkusza CSS,
+                modelu pudełkowego i Flexbox.
+            </p>
+
+            <p>
+                <strong>Czas:</strong> 2 × 45 minut.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Podczas praktycznej części egzaminu INF.03
+                jednym z możliwych zadań jest
+                przygotowanie witryny internetowej
+                zgodnie z wymaganiami zapisanymi
+                w arkuszu egzaminacyjnym.
+            </p>
+
+            <p>
+                Polecenie może określać:
+            </p>
+
+            <ul>
+                <li>nazwy i rozmieszczenie plików,</li>
+                <li>strukturę dokumentu HTML,</li>
+                <li>podział strony na bloki,</li>
+                <li>zawartość poszczególnych bloków,</li>
+                <li>kolory, wymiary i odstępy,</li>
+                <li>formatowanie tekstu, tabel i formularzy,</li>
+                <li>zastosowanie wskazanych selektorów CSS,</li>
+                <li>działanie odnośników i elementów formularza.</li>
+            </ul>
+
+            <p>
+                W tego typu zadaniach ważna jest
+                nie tylko estetyka strony,
+                lecz przede wszystkim
+                <strong>zgodność wykonania z poleceniem</strong>.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Jeśli specyfikacja wymaga konkretnej
+                    nazwy pliku, koloru, rozmiaru,
+                    selektora lub właściwości CSS,
+                    należy zastosować dokładnie
+                    wskazane rozwiązanie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="analiza">
+
+            <h2>2. Analiza polecenia egzaminacyjnego</h2>
+
+            <p>
+                Przed rozpoczęciem kodowania
+                przeczytaj całe polecenie.
+                Następnie podziel wymagania
+                na kilka grup.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Grupa wymagań</th>
+                    <th>Co należy sprawdzić?</th>
+                </tr>
+
+                <tr>
+                    <td>Pliki</td>
+                    <td>Nazwy, rozszerzenia, katalogi i ścieżki.</td>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td>Wymagane znaczniki, teksty, obrazy, tabele i formularze.</td>
+                </tr>
+
+                <tr>
+                    <td>Układ</td>
+                    <td>Liczba bloków, ich położenie, szerokości i wysokości.</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td>Kolory, czcionki, obramowania, marginesy i odstępy.</td>
+                </tr>
+
+                <tr>
+                    <td>Działanie</td>
+                    <td>Odnośniki, przyciski i inne elementy interaktywne.</td>
+                </tr>
+
+                <tr>
+                    <td>Kontrola</td>
+                    <td>Zgodność końcowej strony z każdym punktem polecenia.</td>
+                </tr>
+            </table>
+
+            <h3>Przykładowe wymaganie</h3>
+
+            <p>
+                „Blok nagłówkowy ma kolor tła #1E3A8A,
+                biały tekst, wysokość 100 px
+                i wyśrodkowaną zawartość”.
+            </p>
+
+            <p>
+                Na podstawie takiego polecenia
+                można przygotować:
+            </p>
+
+            <pre><code class="language-css">header {
+    background-color: #1E3A8A;
+    color: white;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+
+            <p>
+                Każda właściwość wynika
+                z określonego wymagania.
+            </p>
+
+        </section>
+
+        <section id="pliki">
+
+            <h2>3. Organizacja plików witryny</h2>
+
+            <p>
+                Przed rozpoczęciem pracy
+                utwórz katalog projektu.
+            </p>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code class="language-text">witryna/
+|
+|-- index.html
+|
+|-- styl.css
+|
+|-- img/
+    |
+    |-- logo.png</code></pre>
+
+            <p>
+                Plik <code>index.html</code>
+                zawiera strukturę strony,
+                natomiast <code>styl.css</code>
+                odpowiada za jej wygląd.
+            </p>
+
+            <h3>Podłączenie arkusza CSS</h3>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="styl.css"&gt;</code></pre>
+
+            <h3>Wstawienie obrazu</h3>
+
+            <pre><code class="language-html">&lt;img src="img/logo.png" alt="Logo witryny"&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Wielkość liter i nazwy plików
+                    mają znaczenie, szczególnie
+                    po opublikowaniu strony
+                    na serwerze.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="schemat">
+
+            <h2>4. Schemat układu witryny</h2>
+
+            <p>
+                W zadaniach egzaminacyjnych
+                często przedstawiony jest
+                schemat blokowy strony.
+            </p>
+
+            <p>
+                Przykładowy układ:
+            </p>
+
+            <pre><code class="language-text">+------------------------------------------+
+|                 NAGŁÓWEK                 |
++------------------------------------------+
+|                    MENU                  |
++--------------------+---------------------+
+|                    |                     |
+|    BLOK LEWY       |     BLOK PRAWY      |
+|                    |                     |
+|    Informacje      |     Formularz       |
+|    i tabela        |                     |
+|                    |                     |
++--------------------+---------------------+
+|                   STOPKA                 |
++------------------------------------------+</code></pre>
+
+            <p>
+                Układ można wykonać
+                z wykorzystaniem
+                semantycznych znaczników HTML5.
+            </p>
+
+            <ul>
+                <li><code>header</code> – nagłówek,</li>
+                <li><code>nav</code> – menu nawigacyjne,</li>
+                <li><code>main</code> – główna część strony,</li>
+                <li><code>section</code> – wydzielona sekcja,</li>
+                <li><code>aside</code> – blok uzupełniający,</li>
+                <li><code>footer</code> – stopka.</li>
+            </ul>
+
+            <p>
+                Do rozmieszczenia kolumn
+                zastosujemy Flexbox.
+            </p>
+
+        </section>
+
+        <section id="html">
+
+            <h2>5. Przygotowanie struktury HTML5</h2>
+
+            <p>
+                Najpierw utwórz wszystkie
+                wymagane bloki strony,
+                a dopiero później
+                rozpocznij ich formatowanie.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja witryna&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Moja witryna&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#informacje"&gt;Informacje&lt;/a&gt;
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="informacje"&gt;
+            &lt;h2&gt;Informacje&lt;/h2&gt;
+        &lt;/section&gt;
+
+        &lt;aside id="kontakt"&gt;
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+        &lt;/aside&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Autor strony&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <div class="remember">
+
+                <h3>📌 Dobra praktyka</h3>
+
+                <p>
+                    Zadbaj o poprawne
+                    zagnieżdżenie znaczników
+                    i czytelne wcięcia kodu.
+                    Ułatwi to późniejsze
+                    poprawianie błędów.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="css">
+
+            <h2>6. Zewnętrzny arkusz CSS</h2>
+
+            <p>
+                W arkuszu CSS zapisujemy
+                reguły odpowiadające
+                za wygląd strony.
+            </p>
+
+            <h3>Budowa reguły CSS</h3>
+
+            <pre><code class="language-css">selektor {
+    właściwość: wartość;
+}</code></pre>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">h1 {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}</code></pre>
+
+            <p>
+                Jeżeli polecenie wskazuje
+                konkretny selektor,
+                należy go zastosować.
+            </p>
+
+            <p>
+                Przykładowo:
+            </p>
+
+            <pre><code class="language-css">#lewy {
+    width: 60%;
+}
+
+#prawy {
+    width: 40%;
+}</code></pre>
+
+            <p>
+                Selektor <code>#lewy</code>
+                odnosi się do elementu
+                o identyfikatorze
+                <code>id="lewy"</code>.
+            </p>
+
+        </section>
+
+        <section id="reset">
+
+            <h2>7. Formatowanie ogólne strony</h2>
+
+            <p>
+                Przed formatowaniem poszczególnych
+                bloków warto ustawić
+                podstawowe właściwości strony.
+            </p>
+
+            <pre><code class="language-css">* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #F1F5F9;
+    color: #1F2937;
+}</code></pre>
+
+            <h3>Dlaczego box-sizing?</h3>
+
+            <p>
+                Wartość
+                <code>border-box</code>
+                sprawia, że zadeklarowana
+                szerokość elementu
+                obejmuje również
+                jego padding i obramowanie.
+            </p>
+
+            <pre><code class="language-css">.blok {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid black;
+
+    box-sizing: border-box;
+}</code></pre>
+
+            <p>
+                Całkowita szerokość
+                pudełka wynosi 300 px.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Uwaga egzaminacyjna</h3>
+
+                <p>
+                    Jeśli polecenie wymaga
+                    innego sposobu obliczania
+                    wymiarów lub konkretnego
+                    modelu pudełkowego,
+                    należy zachować
+                    zgodność ze specyfikacją.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="naglowek">
+
+            <h2>8. Formatowanie nagłówka</h2>
+
+            <p>
+                Nagłówek zwykle znajduje się
+                w górnej części strony.
+                Może zawierać tytuł,
+                logo lub dodatkowy tekst.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;CENTRUM EDUKACJI IT&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">header {
+    height: 100px;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}</code></pre>
+
+            <p>
+                W tym przykładzie
+                Flexbox wyśrodkowuje
+                nagłówek w obu osiach.
+            </p>
+
+        </section>
+
+        <section id="menu">
+
+            <h2>9. Tworzenie menu nawigacyjnego</h2>
+
+            <p>
+                Menu umożliwia
+                przemieszczanie się
+                między sekcjami witryny.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+    &lt;a href="#cennik"&gt;Cennik&lt;/a&gt;
+    &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">nav {
+    display: flex;
+
+    justify-content: center;
+    gap: 20px;
+
+    padding: 15px;
+
+    background-color: #2563EB;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    background-color: #1E40AF;
+}</code></pre>
+
+            <p>
+                Wartość
+                <code>justify-content: center</code>
+                rozmieszcza odnośniki
+                na środku osi głównej.
+            </p>
+
+            <p>
+                Właściwość <code>gap</code>
+                ustawia odstępy
+                między odnośnikami.
+            </p>
+
+        </section>
+
+        <section id="kolumny">
+
+            <h2>10. Tworzenie układu kolumn</h2>
+
+            <p>
+                W tym przykładzie
+                główna część strony
+                składa się z dwóch kolumn.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;main&gt;
+
+    &lt;section id="lewy"&gt;
+        &lt;h2&gt;Blok lewy&lt;/h2&gt;
+    &lt;/section&gt;
+
+    &lt;aside id="prawy"&gt;
+        &lt;h2&gt;Blok prawy&lt;/h2&gt;
+    &lt;/aside&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">main {
+    display: flex;
+}
+
+#lewy {
+    width: 60%;
+
+    padding: 25px;
+
+    background-color: #DBEAFE;
+}
+
+#prawy {
+    width: 40%;
+
+    padding: 25px;
+
+    background-color: #BFDBFE;
+}</code></pre>
+
+            <p>
+                Dzięki <code>display: flex</code>
+                obie kolumny znajdują się
+                obok siebie.
+            </p>
+
+            <h3>Kontrola szerokości</h3>
+
+            <p>
+                W naszym przykładzie:
+            </p>
+
+            <pre><code class="language-text">60% + 40% = 100%</code></pre>
+
+            <p>
+                Przy zastosowaniu
+                <code>box-sizing: border-box</code>
+                padding mieści się
+                w zadeklarowanej szerokości.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Zapamiętaj</h3>
+
+                <p>
+                    Jeśli w poleceniu
+                    podano szerokości bloków,
+                    sprawdź, czy nie zostały
+                    one przekroczone przez
+                    padding, obramowania
+                    lub dodatkowe odstępy.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="tabela">
+
+            <h2>11. Formatowanie tabeli</h2>
+
+            <p>
+                Tabela powinna zawierać
+                dane w wierszach i kolumnach.
+                Do nagłówków kolumn
+                stosujemy znacznik
+                <code>th</code>.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Kurs&lt;/th&gt;
+        &lt;th&gt;Cena&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;HTML&lt;/td&gt;
+        &lt;td&gt;200 zł&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;CSS&lt;/td&gt;
+        &lt;td&gt;250 zł&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #64748B;
+
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #E2E8F0;
+}</code></pre>
+
+            <h3>Ważne właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Znaczenie</th>
+                </tr>
+
+                <tr>
+                    <td><code>border-collapse</code></td>
+                    <td>Określa sposób łączenia obramowań komórek.</td>
+                </tr>
+
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Ustawia odstępy wewnątrz komórek.</td>
+                </tr>
+
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td>Wyrównuje zawartość komórek.</td>
+                </tr>
+
+                <tr>
+                    <td><code>nth-child(even)</code></td>
+                    <td>Wybiera elementy o parzystej pozycji wśród rodzeństwa.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="formularz">
+
+            <h2>12. Formatowanie formularza</h2>
+
+            <p>
+                Formularz może zawierać
+                pola tekstowe, listy wyboru,
+                pola liczbowe oraz przyciski.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;form action="#" method="get"&gt;
+
+    &lt;label for="imie"&gt;
+        Imię:
+    &lt;/label&gt;
+
+    &lt;input type="text"
+           id="imie"
+           name="imie"
+           required&gt;
+
+    &lt;label for="kurs"&gt;
+        Wybierz kurs:
+    &lt;/label&gt;
+
+    &lt;select id="kurs" name="kurs"&gt;
+        &lt;option value="html"&gt;HTML&lt;/option&gt;
+        &lt;option value="css"&gt;CSS&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;button type="submit"&gt;
+        Wyślij
+    &lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+input,
+select {
+    border: 1px solid #64748B;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #2563EB;
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1D4ED8;
+}</code></pre>
+
+            <p>
+                Flexbox ustawia
+                elementy formularza
+                jeden pod drugim.
+            </p>
+
+            <div class="remember">
+
+                <h3>📌 Uwaga</h3>
+
+                <p>
+                    Formatowanie formularza
+                    nie oznacza automatycznie,
+                    że formularz zapisuje
+                    lub przetwarza dane.
+                    Do tego może być potrzebny
+                    dodatkowy skrypt,
+                    jeśli wymaga go polecenie.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="stopka">
+
+            <h2>13. Formatowanie stopki</h2>
+
+            <p>
+                Stopka znajduje się
+                na końcu witryny
+                i może zawierać
+                informacje o autorze.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;footer&gt;
+    &lt;p&gt;Stronę wykonał: Jan Kowalski&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">footer {
+    padding: 20px;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}</code></pre>
+
+            <p>
+                Stopka znajduje się
+                poniżej głównej części strony.
+            </p>
+
+        </section>
+
+        <section id="responsywnosc">
+
+            <h2>14. Responsywność witryny</h2>
+
+            <p>
+                W nowoczesnych witrynach
+                warto zadbać o poprawny
+                wygląd na małych ekranach.
+            </p>
+
+            <p>
+                Jeżeli polecenie egzaminacyjne
+                przewiduje konkretny układ,
+                należy w pierwszej kolejności
+                zachować zgodność z wymaganiami.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">@media (max-width: 700px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    #lewy,
+    #prawy {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}</code></pre>
+
+            <p>
+                Na ekranie o szerokości
+                do 700 px kolumny
+                zostaną ustawione
+                jedna pod drugą.
+            </p>
+
+        </section>
+
+        <section id="zgodnosc">
+
+            <h2>15. Sprawdzanie zgodności z poleceniem</h2>
+
+            <p>
+                Po zakończeniu kodowania
+                należy porównać gotową
+                witrynę z wymaganiami.
+            </p>
+
+            <h3>Lista kontrolna</h3>
+
+            <ul>
+                <li>Czy nazwy plików są poprawne?</li>
+                <li>Czy arkusz CSS jest prawidłowo podłączony?</li>
+                <li>Czy strona ma odpowiedni tytuł?</li>
+                <li>Czy wszystkie bloki są obecne?</li>
+                <li>Czy bloki znajdują się we właściwych miejscach?</li>
+                <li>Czy zastosowano wymagane kolory?</li>
+                <li>Czy szerokości i wysokości odpowiadają poleceniu?</li>
+                <li>Czy teksty i nagłówki są zgodne z wymaganiami?</li>
+                <li>Czy tabela ma odpowiednią zawartość?</li>
+                <li>Czy formularz zawiera wymagane pola?</li>
+                <li>Czy odnośniki działają?</li>
+                <li>Czy w kodzie nie ma błędów składniowych?</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📌 Najważniejsza zasada</h3>
+
+                <p>
+                    Nie zastępuj wymaganego
+                    rozwiązania innym tylko dlatego,
+                    że wygląda lepiej.
+                    W zadaniu egzaminacyjnym
+                    liczy się realizacja
+                    określonej specyfikacji.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>16. Typowe błędy podczas wykonywania witryny</h2>
+
+            <h3>Błąd 1 – niepoprawna ścieżka do CSS</h3>
+
+            <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+            <p>
+                Jeśli plik nazywa się
+                <code>styl.css</code>,
+                taka ścieżka będzie błędna.
+            </p>
+
+            <h3>Błąd 2 – brak jednostki</h3>
+
+            <pre><code class="language-css">header {
+    height: 100;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">header {
+    height: 100px;
+}</code></pre>
+
+            <h3>Błąd 3 – niewłaściwy selektor</h3>
+
+            <pre><code class="language-css">lewy {
+    width: 60%;
+}</code></pre>
+
+            <p>
+                Jeśli w HTML
+                zastosowano <code>id="lewy"</code>,
+                poprawny selektor to:
+            </p>
+
+            <pre><code class="language-css">#lewy {
+    width: 60%;
+}</code></pre>
+
+            <h3>Błąd 4 – brak kontenera Flexbox</h3>
+
+            <pre><code class="language-css">main {
+    justify-content: center;
+}</code></pre>
+
+            <p>
+                Jeżeli chcemy zastosować
+                układ Flexbox,
+                należy również dodać:
+            </p>
+
+            <pre><code class="language-css">main {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+
+            <h3>Błąd 5 – przekroczenie szerokości</h3>
+
+            <p>
+                Dwa bloki o szerokościach
+                60% i 40% mogą nie zmieścić się
+                obok siebie, jeśli dodatkowe
+                marginesy lub obramowania
+                zwiększają ich rozmiary.
+            </p>
+
+            <h3>Błąd 6 – niezgodna treść</h3>
+
+            <p>
+                Zastąpienie tekstu
+                wskazanego w poleceniu
+                własnym tekstem
+                może oznaczać niespełnienie
+                wymagania.
+            </p>
+
+            <h3>Błąd 7 – brak sprawdzenia strony</h3>
+
+            <p>
+                Po zapisaniu plików
+                należy odświeżyć stronę
+                w przeglądarce
+                i sprawdzić jej działanie.
+            </p>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>17. Kompletny przykład – „Centrum Edukacji IT”</h2>
+
+            <p>
+                Poniższy przykład przedstawia
+                stronę z nagłówkiem,
+                menu, dwoma kolumnami,
+                tabelą, formularzem i stopką.
+            </p>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Centrum Edukacji IT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="styl.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;CENTRUM EDUKACJI IT&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+        &lt;a href="#cennik"&gt;Cennik&lt;/a&gt;
+        &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="lewy"&gt;
+
+            &lt;h2 id="oferta"&gt;Nasza oferta&lt;/h2&gt;
+
+            &lt;p&gt;
+                Prowadzimy kursy
+                z zakresu tworzenia stron WWW.
+            &lt;/p&gt;
+
+            &lt;h3 id="cennik"&gt;Cennik kursów&lt;/h3&gt;
+
+            &lt;table&gt;
+
+                &lt;tr&gt;
+                    &lt;th&gt;Kurs&lt;/th&gt;
+                    &lt;th&gt;Cena&lt;/th&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;HTML5&lt;/td&gt;
+                    &lt;td&gt;200 zł&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;CSS3&lt;/td&gt;
+                    &lt;td&gt;250 zł&lt;/td&gt;
+                &lt;/tr&gt;
+
+                &lt;tr&gt;
+                    &lt;td&gt;JavaScript&lt;/td&gt;
+                    &lt;td&gt;350 zł&lt;/td&gt;
+                &lt;/tr&gt;
+
+            &lt;/table&gt;
+
+        &lt;/section&gt;
+
+        &lt;aside id="prawy"&gt;
+
+            &lt;h2 id="kontakt"&gt;Zapisz się na kurs&lt;/h2&gt;
+
+            &lt;form action="#" method="get"&gt;
+
+                &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+
+                &lt;input type="text"
+                       id="imie"
+                       name="imie"
+                       required&gt;
+
+                &lt;label for="kurs"&gt;Wybierz kurs:&lt;/label&gt;
+
+                &lt;select id="kurs" name="kurs"&gt;
+                    &lt;option value="html"&gt;HTML5&lt;/option&gt;
+                    &lt;option value="css"&gt;CSS3&lt;/option&gt;
+                    &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+                &lt;/select&gt;
+
+                &lt;button type="submit"&gt;
+                    Wyślij
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+        &lt;/aside&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;
+            Centrum Edukacji IT – 2026
+        &lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik styl.css</h3>
+
+            <pre><code class="language-css">* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #F1F5F9;
+    color: #1F2937;
+}
+
+/* Nagłówek */
+
+header {
+    height: 100px;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+/* Menu */
+
+nav {
+    display: flex;
+
+    justify-content: center;
+    gap: 20px;
+
+    padding: 15px;
+
+    background-color: #2563EB;
+}
+
+nav a {
+    padding: 10px 15px;
+
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #1E40AF;
+}
+
+/* Układ strony */
+
+main {
+    display: flex;
+}
+
+#lewy {
+    width: 60%;
+
+    padding: 25px;
+
+    background-color: #DBEAFE;
+}
+
+#prawy {
+    width: 40%;
+
+    padding: 25px;
+
+    background-color: #BFDBFE;
+}
+
+/* Tabela */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+
+    border: 1px solid #64748B;
+
+    text-align: center;
+}
+
+th {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #E2E8F0;
+}
+
+/* Formularz */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+input,
+select {
+    border: 1px solid #64748B;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+
+    background-color: #2563EB;
+    color: white;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1D4ED8;
+}
+
+/* Stopka */
+
+footer {
+    padding: 20px;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    text-align: center;
+}
+
+/* Responsywność */
+
+@media (max-width: 700px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    #lewy,
+    #prawy {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}</code></pre>
+
+            <p>
+                Jest to przykład rozwiązania,
+                z którego można korzystać
+                podczas powtórzenia materiału.
+            </p>
+
+            <p>
+                W zadaniu praktycznym poniżej
+                uczniowie otrzymają
+                inną specyfikację
+                i wykonają własną witrynę.
+            </p>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>Przed kodowaniem dokładnie przeanalizuj polecenie.</li>
+                    <li>Przygotuj pliki o wymaganych nazwach.</li>
+                    <li>Oddziel strukturę HTML od formatowania CSS.</li>
+                    <li>Stosuj poprawną strukturę dokumentu HTML5.</li>
+                    <li>Wykorzystuj znaczniki semantyczne zgodnie z ich przeznaczeniem.</li>
+                    <li>Sprawdzaj poprawność ścieżek do plików.</li>
+                    <li>Przestrzegaj wymagań dotyczących selektorów CSS.</li>
+                    <li>Kontroluj szerokości i wysokości bloków.</li>
+                    <li>Pamiętaj o paddingu, marginesach i obramowaniach.</li>
+                    <li>Flexbox umożliwia ustawianie bloków obok siebie.</li>
+                    <li>Właściwość gap określa odstępy między elementami Flexbox.</li>
+                    <li>Formularz musi zawierać pola wskazane w poleceniu.</li>
+                    <li>W tabelach stosuj odpowiednie znaczniki tr, th i td.</li>
+                    <li>Sprawdzaj działanie odnośników.</li>
+                    <li>Nie zmieniaj samodzielnie treści wymaganych w specyfikacji.</li>
+                    <li>Po zakończeniu porównaj witrynę z każdym punktem polecenia.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadanie praktyczne – standard INF.03</h2>
+
+            <p>
+                <strong>Temat:</strong>
+                Wykonanie witryny internetowej
+                „Pracownia komputerowa”.
+            </p>
+
+            <p>
+                <strong>Cel:</strong>
+                samodzielne utworzenie strony
+                zgodnej z podaną specyfikacją
+                HTML i CSS.
+            </p>
+
+            <p>
+                <strong>Czas pracy:</strong>
+                2 × 45 minut.
+            </p>
+
+            <div class="remember">
+
+                <h3>📋 Informacje organizacyjne</h3>
+
+                <p>
+                    Zadanie jest autorskim
+                    ćwiczeniem przygotowującym
+                    do kwalifikacji INF.03.
+                </p>
+
+                <p>
+                    Wykonaj wszystkie wymagania
+                    w jednym projekcie.
+                    Nie twórz osobnych stron
+                    dla kolejnych punktów.
+                </p>
+
+            </div>
+
+            <h3>1. Przygotowanie plików</h3>
+
+            <p>
+                Utwórz folder
+                <code>PSI_32</code>.
+            </p>
+
+            <p>
+                W folderze zapisz:
+            </p>
+
+            <ul>
+                <li><code>index.html</code> – dokument HTML,</li>
+                <li><code>styl.css</code> – zewnętrzny arkusz CSS.</li>
+            </ul>
+
+            <p>
+                Nie stosuj stylów lokalnych
+                ani wewnętrznych.
+                Wszystkie reguły CSS
+                zapisz w pliku
+                <code>styl.css</code>.
+            </p>
+
+            <h3>2. Schemat układu strony</h3>
+
+            <p>
+                Witryna powinna mieć
+                następujący układ:
+            </p>
+
+            <pre><code class="language-text">+----------------------------------------------+
+|                   NAGŁÓWEK                   |
+|             PRACOWNIA KOMPUTEROWA            |
++----------------------------------------------+
+|                     MENU                     |
+|          Start | Sprzęt | Kontakt            |
++---------------------------+------------------+
+|                           |                  |
+|        BLOK LEWY          |    BLOK PRAWY    |
+|                           |                  |
+|  Informacje o pracowni    |  Formularz       |
+|  Lista wyposażenia        |  kontaktowy      |
+|  Tabela sprzętu           |                  |
+|                           |                  |
++---------------------------+------------------+
+|                    STOPKA                    |
++----------------------------------------------+</code></pre>
+
+            <h3>3. Wymagania dotyczące HTML</h3>
+
+            <ol>
+                <li>Dokument powinien być zapisany w standardzie HTML5.</li>
+                <li>Język dokumentu ustaw na polski.</li>
+                <li>Kodowanie znaków ustaw na UTF-8.</li>
+                <li>Tytuł strony: <strong>Pracownia komputerowa</strong>.</li>
+                <li>Podłącz zewnętrzny arkusz <code>styl.css</code>.</li>
+                <li>W nagłówku umieść nagłówek pierwszego stopnia o treści <strong>PRACOWNIA KOMPUTEROWA</strong>.</li>
+                <li>Utwórz menu z odnośnikami: Start, Sprzęt, Kontakt.</li>
+                <li>Odnośniki powinny prowadzić do odpowiednich sekcji strony.</li>
+                <li>Główna część strony powinna zawierać dwa bloki ustawione obok siebie.</li>
+                <li>Blok lewy powinien mieć identyfikator <code>lewy</code>.</li>
+                <li>Blok prawy powinien mieć identyfikator <code>prawy</code>.</li>
+                <li>Na końcu strony umieść stopkę.</li>
+            </ol>
+
+            <h3>4. Zawartość bloku lewego</h3>
+
+            <p>
+                W bloku lewym umieść:
+            </p>
+
+            <ol>
+                <li>Nagłówek drugiego stopnia: <strong>Nasza pracownia</strong>.</li>
+                <li>Akapit: <strong>Pracownia komputerowa umożliwia naukę programowania i tworzenia stron internetowych.</strong></li>
+                <li>Nagłówek trzeciego stopnia: <strong>Wyposażenie</strong>.</li>
+                <li>Listę nieuporządkowaną zawierającą: Komputery, Monitory, Drukarka, Projektor.</li>
+                <li>Nagłówek trzeciego stopnia: <strong>Spis sprzętu</strong>.</li>
+                <li>Tabelę zgodną z poniższymi danymi.</li>
+            </ol>
+
+            <table>
+                <tr>
+                    <th>Sprzęt</th>
+                    <th>Liczba sztuk</th>
+                </tr>
+
+                <tr>
+                    <td>Komputer</td>
+                    <td>16</td>
+                </tr>
+
+                <tr>
+                    <td>Monitor</td>
+                    <td>16</td>
+                </tr>
+
+                <tr>
+                    <td>Drukarka</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>Projektor</td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+            <h3>5. Zawartość bloku prawego</h3>
+
+            <p>
+                W bloku prawym
+                umieść formularz
+                z nagłówkiem:
+                <strong>Formularz kontaktowy</strong>.
+            </p>
+
+            <p>
+                Formularz powinien zawierać:
+            </p>
+
+            <ol>
+                <li>Pole tekstowe „Imię i nazwisko”.</li>
+                <li>Pole typu <code>email</code> z etykietą „Adres e-mail”.</li>
+                <li>Listę rozwijaną „Temat wiadomości”.</li>
+                <li>Opcje listy: Sprzęt, Oprogramowanie, Inne.</li>
+                <li>Pole wielowierszowe „Wiadomość”.</li>
+                <li>Przycisk „Wyślij”.</li>
+                <li>Przycisk „Wyczyść”.</li>
+            </ol>
+
+            <p>
+                Pola imienia i nazwiska,
+                adresu e-mail
+                oraz wiadomości
+                powinny być wymagane.
+            </p>
+
+            <p>
+                Przycisk „Wyczyść”
+                powinien mieć
+                <code>type="reset"</code>.
+            </p>
+
+            <p>
+                Formularz nie wymaga
+                obsługi przez PHP.
+            </p>
+
+            <h3>6. Wymagania dotyczące CSS</h3>
+
+            <p>
+                W pliku <code>styl.css</code>
+                zastosuj następujące formatowanie:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Wymagane formatowanie</th>
+                </tr>
+
+                <tr>
+                    <td>Cała strona</td>
+                    <td>Margines 0, czcionka Arial, kolor tła #F1F5F9.</td>
+                </tr>
+
+                <tr>
+                    <td>Nagłówek</td>
+                    <td>Kolor tła #1E3A8A, biały tekst, wysokość 100 px, wyśrodkowanie zawartości.</td>
+                </tr>
+
+                <tr>
+                    <td>Menu</td>
+                    <td>Kolor tła #2563EB, odnośniki poziomo, wyśrodkowane, odstęp 20 px.</td>
+                </tr>
+
+                <tr>
+                    <td>Odnośniki menu</td>
+                    <td>Biały tekst, brak podkreślenia, padding 10 px.</td>
+                </tr>
+
+                <tr>
+                    <td>Główna część strony</td>
+                    <td>Układ dwóch kolumn za pomocą Flexbox.</td>
+                </tr>
+
+                <tr>
+                    <td>Blok lewy</td>
+                    <td>Szerokość 60%, padding 25 px, tło #DBEAFE.</td>
+                </tr>
+
+                <tr>
+                    <td>Blok prawy</td>
+                    <td>Szerokość 40%, padding 25 px, tło #BFDBFE.</td>
+                </tr>
+
+                <tr>
+                    <td>Tabela</td>
+                    <td>Szerokość 100%, połączone obramowania, obramowanie komórek 1 px solid #64748B.</td>
+                </tr>
+
+                <tr>
+                    <td>Komórki tabeli</td>
+                    <td>Padding 10 px, tekst wyśrodkowany.</td>
+                </tr>
+
+                <tr>
+                    <td>Nagłówki tabeli</td>
+                    <td>Tło #1E3A8A, biały tekst.</td>
+                </tr>
+
+                <tr>
+                    <td>Formularz</td>
+                    <td>Elementy ułożone pionowo za pomocą Flexbox, odstęp 12 px.</td>
+                </tr>
+
+                <tr>
+                    <td>Pola formularza</td>
+                    <td>Padding 10 px, obramowanie 1 px solid #64748B.</td>
+                </tr>
+
+                <tr>
+                    <td>Przyciski</td>
+                    <td>Tło #2563EB, biały tekst, brak obramowania, kursor pointer.</td>
+                </tr>
+
+                <tr>
+                    <td>Stopka</td>
+                    <td>Tło #1E3A8A, biały tekst, wyśrodkowanie, padding 20 px.</td>
+                </tr>
+            </table>
+
+            <h3>7. Dodatkowe wymagania</h3>
+
+            <ol>
+                <li>Zastosuj <code>box-sizing: border-box</code> dla wszystkich elementów.</li>
+                <li>Dodaj efekt <code>:hover</code> do odnośników menu.</li>
+                <li>Dodaj efekt <code>:hover</code> do przycisków formularza.</li>
+                <li>Ustaw szerokość pól formularza na 100% szerokości dostępnej w kontenerze.</li>
+                <li>Dodaj regułę <code>@media (max-width: 700px)</code>, która ustawi bloki jeden pod drugim.</li>
+                <li>Na małych ekranach ustaw szerokość obu bloków na 100%.</li>
+            </ol>
+
+            <h3>8. Zawartość stopki</h3>
+
+            <p>
+                W stopce umieść tekst:
+            </p>
+
+            <p>
+                <strong>
+                    Stronę wykonał: imię i nazwisko ucznia
+                </strong>
+            </p>
+
+            <p>
+                Zastąp przykładowe dane
+                własnym imieniem i nazwiskiem.
+            </p>
+
+            <h3>9. Kontrola wykonania</h3>
+
+            <p>
+                Przed oddaniem projektu sprawdź:
+            </p>
+
+            <ul>
+                <li>poprawność struktury HTML5,</li>
+                <li>połączenie z arkuszem CSS,</li>
+                <li>zgodność tekstów z poleceniem,</li>
+                <li>poprawne rozmieszczenie bloków,</li>
+                <li>wymiary i kolory elementów,</li>
+                <li>wygląd tabeli,</li>
+                <li>zawartość formularza,</li>
+                <li>działanie przycisku „Wyczyść”,</li>
+                <li>działanie odnośników menu,</li>
+                <li>wygląd strony na małym ekranie.</li>
+            </ul>
+
+            <div class="remember">
+
+                <h3>📁 Struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_32/
+|
+|-- index.html
+|
+|-- styl.css</code></pre>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_32</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed przesłaniem
+                    uruchom plik
+                    <code>index.html</code>
+                    w przeglądarce
+                    i sprawdź zgodność
+                    wykonanej witryny
+                    ze specyfikacją.
+                </p>
+
+                <p>
+                    <strong>
+                        W tym ćwiczeniu należy
+                        zachować treści, kolory,
+                        wymiary i nazwy plików
+                        wskazane w poleceniu.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 32
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
