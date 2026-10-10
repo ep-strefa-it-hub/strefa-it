@@ -1,0 +1,2281 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 26 – Model pudełkowy CSS | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#budowa">2.Budowa modelu pudełkowego</a>
+        <a href="#width">3.Szerokość – width</a>
+        <a href="#height">4.Wysokość – height</a>
+        <a href="#padding">5.Margines wewnętrzny – padding</a>
+        <a href="#padding-zapis">6.Skrócony zapis padding</a>
+        <a href="#border">7.Obramowanie – border</a>
+        <a href="#margin">8.Margines zewnętrzny – margin</a>
+        <a href="#margin-zapis">9.Skrócony zapis margin</a>
+        <a href="#margin-auto">10.Wyśrodkowanie elementu</a>
+        <a href="#obliczenia">11.Obliczanie wymiarów</a>
+        <a href="#box-sizing">12.Właściwość box-sizing</a>
+        <a href="#porownanie">13.Content-box i border-box</a>
+        <a href="#max-min">14.Minimalne i maksymalne wymiary</a>
+        <a href="#overflow">15.Przepełnienie zawartości</a>
+        <a href="#margin-collapse">16.Łączenie marginesów</a>
+        <a href="#devtools">17.Model pudełkowy w DevTools</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 26 • CSS3
+            </div>
+
+            <h2>
+                Model pudełkowy CSS – width, height,
+                margin, padding, border i box-sizing
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie zasad działania modelu pudełkowego CSS,
+                określania wymiarów elementów,
+                ustawiania marginesów i obramowań
+                oraz obliczania rzeczywistej szerokości
+                i wysokości elementów strony.
+            </p>
+
+        </div>
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie – czym jest model pudełkowy CSS?</h2>
+
+            <p>
+                Każdy element HTML można traktować
+                jak prostokątne pudełko.
+                Dotyczy to między innymi nagłówków,
+                akapitów, obrazów, przycisków
+                i kontenerów <code>div</code>.
+            </p>
+
+            <p>
+                Przeglądarka oblicza wymiary
+                oraz położenie tych pudełek,
+                korzystając z właściwości CSS.
+            </p>
+
+            <p>
+                Zasady te nazywamy
+                <strong>modelem pudełkowym CSS</strong>
+                (ang. <em>CSS Box Model</em>).
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+    &lt;h2&gt;Moja karta&lt;/h2&gt;
+    &lt;p&gt;Przykładowy tekst.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid blue;
+    margin: 30px;
+}</code></pre>
+
+            <p>
+                Element ma określoną szerokość,
+                odstęp między treścią a obramowaniem,
+                obramowanie oraz odstęp
+                od innych elementów.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Model pudełkowy wyjaśnia,
+                    ile miejsca zajmuje element
+                    i jak jest oddzielony
+                    od pozostałych elementów strony.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="budowa">
+
+            <h2>2. Budowa modelu pudełkowego</h2>
+
+            <p>
+                Model pudełkowy składa się
+                z czterech podstawowych obszarów.
+            </p>
+
+            <ol>
+                <li>
+                    <strong>Content</strong> –
+                    zawartość elementu.
+                </li>
+                <li>
+                    <strong>Padding</strong> –
+                    margines wewnętrzny,
+                    czyli odstęp między zawartością
+                    a obramowaniem.
+                </li>
+                <li>
+                    <strong>Border</strong> –
+                    obramowanie elementu.
+                </li>
+                <li>
+                    <strong>Margin</strong> –
+                    margines zewnętrzny,
+                    czyli przestrzeń poza obramowaniem.
+                </li>
+            </ol>
+
+            <h3>Schemat modelu pudełkowego</h3>
+
+            <pre><code class="language-text">+--------------------------------------+
+|                MARGIN                |
+|                                      |
+|   +------------------------------+   |
+|   |            BORDER            |   |
+|   |                              |   |
+|   |   +----------------------+   |   |
+|   |   |       PADDING        |   |   |
+|   |   |                      |   |   |
+|   |   |   +--------------+   |   |   |
+|   |   |   |   CONTENT    |   |   |   |
+|   |   |   |              |   |   |   |
+|   |   |   +--------------+   |   |   |
+|   |   |                      |   |   |
+|   |   +----------------------+   |   |
+|   |                              |   |
+|   +------------------------------+   |
+|                                      |
++--------------------------------------+</code></pre>
+
+            <table>
+                <tr>
+                    <th>Obszar</th>
+                    <th>Właściwość CSS</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td>Content</td>
+                    <td><code>width</code>, <code>height</code></td>
+                    <td>Wymiary obszaru zawartości przy content-box.</td>
+                </tr>
+                <tr>
+                    <td>Padding</td>
+                    <td><code>padding</code></td>
+                    <td>Odstęp wewnątrz obramowania.</td>
+                </tr>
+                <tr>
+                    <td>Border</td>
+                    <td><code>border</code></td>
+                    <td>Obramowanie elementu.</td>
+                </tr>
+                <tr>
+                    <td>Margin</td>
+                    <td><code>margin</code></td>
+                    <td>Odstęp na zewnątrz obramowania.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Kolejność od środka elementu
+                    do jego otoczenia to:
+                    <strong>
+                        content → padding → border → margin
+                    </strong>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="width">
+
+            <h2>3. Szerokość elementu – width</h2>
+
+            <p>
+                Właściwość <code>width</code>
+                określa szerokość elementu.
+            </p>
+
+            <h3>Przykład – szerokość w pikselach</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+}</code></pre>
+
+            <p>
+                W domyślnym modelu
+                <code>content-box</code>
+                oznacza to szerokość
+                obszaru zawartości równą 300 px.
+            </p>
+
+            <h3>Szerokość procentowa</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 50%;
+}</code></pre>
+
+            <p>
+                W typowym układzie blokowym
+                oznacza to połowę szerokości
+                obszaru zawartości elementu nadrzędnego.
+            </p>
+
+            <h3>Szerokość automatyczna</h3>
+
+            <pre><code class="language-css">.karta {
+    width: auto;
+}</code></pre>
+
+            <p>
+                Wartość <code>auto</code>
+                pozwala przeglądarce
+                obliczyć szerokość
+                zgodnie z zasadami układu.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="karta1"&gt;
+    Karta o szerokości 300 px
+&lt;/div&gt;
+
+&lt;div class="karta2"&gt;
+    Karta o szerokości 50%
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta1 {
+    width: 300px;
+    background-color: lightblue;
+}
+
+.karta2 {
+    width: 50%;
+    background-color: lightgreen;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Samo <code>width: 100%</code>
+                    nie zawsze oznacza,
+                    że element zmieści się
+                    w kontenerze.
+                    Znaczenie mają także
+                    <code>padding</code>,
+                    <code>border</code>
+                    i <code>box-sizing</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="height">
+
+            <h2>4. Wysokość elementu – height</h2>
+
+            <p>
+                Właściwość <code>height</code>
+                określa wysokość elementu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.panel {
+    height: 200px;
+}</code></pre>
+
+            <p>
+                W domyślnym modelu
+                <code>content-box</code>
+                wysokość obszaru zawartości
+                wynosi 200 px.
+            </p>
+
+            <h3>Wysokość automatyczna</h3>
+
+            <pre><code class="language-css">.panel {
+    height: auto;
+}</code></pre>
+
+            <p>
+                W typowym układzie blokowym
+                wysokość elementu
+                dopasowuje się do jego zawartości.
+            </p>
+
+            <h3>Przykład – stała wysokość</h3>
+
+            <pre><code class="language-html">&lt;div class="panel"&gt;
+    &lt;p&gt;Przykładowy tekst.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.panel {
+    width: 300px;
+    height: 150px;
+
+    background-color: #DBEAFE;
+}</code></pre>
+
+            <h3>Porównanie width i height</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>Określa szerokość elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>height</code></td>
+                    <td>Określa wysokość elementu.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Nie ustawiaj stałej wysokości
+                    dla elementów zawierających
+                    dużo tekstu, jeśli nie jest to konieczne.
+                    Zawartość może nie zmieścić się
+                    w wyznaczonym obszarze.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="padding">
+
+            <h2>5. Margines wewnętrzny – padding</h2>
+
+            <p>
+                Właściwość <code>padding</code>
+                określa odległość
+                między zawartością elementu
+                a jego obramowaniem.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Oznacza to odstęp 20 px
+                z każdej strony zawartości.
+            </p>
+
+            <h3>Bez padding</h3>
+
+            <pre><code class="language-css">.karta1 {
+    border: 2px solid blue;
+    padding: 0;
+}</code></pre>
+
+            <p>
+                Tekst może znajdować się
+                bezpośrednio przy obramowaniu.
+            </p>
+
+            <h3>Z padding</h3>
+
+            <pre><code class="language-css">.karta2 {
+    border: 2px solid blue;
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Między tekstem a obramowaniem
+                pojawia się wolna przestrzeń.
+            </p>
+
+            <h3>Oddzielne właściwości</h3>
+
+            <pre><code class="language-css">.karta {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}</code></pre>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>padding-top</code></td>
+                    <td>Odstęp od góry.</td>
+                </tr>
+                <tr>
+                    <td><code>padding-right</code></td>
+                    <td>Odstęp od prawej strony.</td>
+                </tr>
+                <tr>
+                    <td><code>padding-bottom</code></td>
+                    <td>Odstęp od dołu.</td>
+                </tr>
+                <tr>
+                    <td><code>padding-left</code></td>
+                    <td>Odstęp od lewej strony.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>padding</code>
+                    tworzy przestrzeń
+                    <strong>wewnątrz elementu</strong>.
+                    Tło elementu domyślnie
+                    obejmuje również obszar padding.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="padding-zapis">
+
+            <h2>6. Skrócony zapis padding</h2>
+
+            <p>
+                Właściwość <code>padding</code>
+                pozwala ustawić odstępy
+                za pomocą od jednej
+                do czterech wartości.
+            </p>
+
+            <h3>Jedna wartość</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Wszystkie cztery strony
+                otrzymują odstęp 20 px.
+            </p>
+
+            <h3>Dwie wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 10px 20px;
+}</code></pre>
+
+            <p>
+                Pierwsza wartość dotyczy
+                góry i dołu,
+                a druga lewej i prawej strony.
+            </p>
+
+            <h3>Trzy wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 10px 20px 30px;
+}</code></pre>
+
+            <p>
+                Kolejno:
+                góra 10 px,
+                lewo i prawo 20 px,
+                dół 30 px.
+            </p>
+
+            <h3>Cztery wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    padding: 10px 20px 30px 40px;
+}</code></pre>
+
+            <p>
+                Kolejność:
+            </p>
+
+            <ol>
+                <li>góra – 10 px,</li>
+                <li>prawo – 20 px,</li>
+                <li>dół – 30 px,</li>
+                <li>lewo – 40 px.</li>
+            </ol>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Przy czterech wartościach
+                    obowiązuje kolejność:
+                    <strong>góra → prawo → dół → lewo</strong>.
+                </p>
+                <p>
+                    <code>padding</code>
+                    nie przyjmuje ujemnych wartości.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="border">
+
+            <h2>7. Obramowanie – border</h2>
+
+            <p>
+                Obramowanie znajduje się
+                między marginesem wewnętrznym
+                a zewnętrznym.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    border: 3px solid blue;
+}</code></pre>
+
+            <p>
+                Właściwość <code>border</code>
+                pozwala określić:
+            </p>
+
+            <ul>
+                <li>grubość obramowania,</li>
+                <li>styl linii,</li>
+                <li>kolor obramowania.</li>
+            </ul>
+
+            <h3>Obramowanie a wymiary</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    border: 5px solid red;
+}</code></pre>
+
+            <p>
+                Przy domyślnym
+                <code>box-sizing: content-box</code>
+                szerokość elementu
+                razem z obramowaniem wynosi:
+            </p>
+
+            <pre><code class="language-text">300 px + 5 px + 5 px = 310 px</code></pre>
+
+            <p>
+                Jeśli dodamy padding,
+                całkowita szerokość
+                będzie jeszcze większa.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    W modelu <code>content-box</code>
+                    obramowanie zwiększa
+                    rzeczywistą szerokość
+                    i wysokość elementu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="margin">
+
+            <h2>8. Margines zewnętrzny – margin</h2>
+
+            <p>
+                Właściwość <code>margin</code>
+                określa przestrzeń
+                na zewnątrz obramowania elementu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 20px;
+}</code></pre>
+
+            <p>
+                Element otrzymuje margines
+                20 px z każdej strony.
+            </p>
+
+            <h3>Przykład – dwie karty</h3>
+
+            <pre><code class="language-html">&lt;div class="karta"&gt;
+    Pierwsza karta
+&lt;/div&gt;
+
+&lt;div class="karta"&gt;
+    Druga karta
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta {
+    padding: 20px;
+    border: 2px solid blue;
+    margin-bottom: 30px;
+}</code></pre>
+
+            <p>
+                <code>margin-bottom</code>
+                tworzy odstęp
+                pod każdym elementem.
+            </p>
+
+            <h3>Oddzielne właściwości</h3>
+
+            <pre><code class="language-css">.karta {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}</code></pre>
+
+            <h3>Margin a padding</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Położenie odstępu</th>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Wewnątrz obramowania.</td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>Na zewnątrz obramowania.</td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>margin</code>
+                    oddziela element
+                    od jego otoczenia,
+                    natomiast <code>padding</code>
+                    oddziela zawartość
+                    od obramowania.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="margin-zapis">
+
+            <h2>9. Skrócony zapis margin</h2>
+
+            <p>
+                Podobnie jak <code>padding</code>,
+                właściwość <code>margin</code>
+                przyjmuje od jednej
+                do czterech wartości.
+            </p>
+
+            <h3>Jedna wartość</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 20px;
+}</code></pre>
+
+            <p>
+                Wszystkie strony: 20 px.
+            </p>
+
+            <h3>Dwie wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 10px 20px;
+}</code></pre>
+
+            <p>
+                Góra i dół: 10 px.
+                Lewo i prawo: 20 px.
+            </p>
+
+            <h3>Trzy wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 10px 20px 30px;
+}</code></pre>
+
+            <p>
+                Góra: 10 px.
+                Lewo i prawo: 20 px.
+                Dół: 30 px.
+            </p>
+
+            <h3>Cztery wartości</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 10px 20px 30px 40px;
+}</code></pre>
+
+            <p>
+                Góra: 10 px.
+                Prawo: 20 px.
+                Dół: 30 px.
+                Lewo: 40 px.
+            </p>
+
+            <h3>Ujemne marginesy</h3>
+
+            <pre><code class="language-css">.karta {
+    margin-top: -10px;
+}</code></pre>
+
+            <p>
+                W odróżnieniu od
+                <code>padding</code>,
+                <code>margin</code>
+                może przyjmować wartości ujemne.
+            </p>
+
+            <p>
+                Ujemny margines zmienia
+                położenie elementu
+                względem innych elementów
+                i może powodować nakładanie się treści.
+            </p>
+
+        </section>
+
+        <section id="margin-auto">
+
+            <h2>10. Wyśrodkowanie elementu – margin: auto</h2>
+
+            <p>
+                Jednym z częstych zastosowań
+                <code>margin</code>
+                jest poziome wyśrodkowanie
+                elementu blokowego.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 800px;
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Zapis <code>margin: 0 auto</code>
+                oznacza:
+            </p>
+
+            <ul>
+                <li>górny i dolny margines – 0,</li>
+                <li>lewy i prawy margines – automatyczny.</li>
+            </ul>
+
+            <p>
+                Wolne miejsce po obu stronach
+                jest dzielone równo,
+                dzięki czemu element
+                zostaje wyśrodkowany.
+            </p>
+
+            <h3>Przykład bardziej elastyczny</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Element może zajmować
+                90% dostępnej szerokości,
+                ale nie więcej niż 1000 px.
+            </p>
+
+            <h3>Wyśrodkowanie elementu a tekstu</h3>
+
+            <pre><code class="language-css">/* Wyśrodkowanie kontenera */
+
+.kontener {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Wyśrodkowanie tekstu */
+
+h1 {
+    text-align: center;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    <code>margin: 0 auto</code>
+                    wyśrodkowuje poziomo
+                    odpowiednio zwymiarowany
+                    element blokowy
+                    w typowym układzie.
+                </p>
+                <p>
+                    <code>text-align: center</code>
+                    wyrównuje tekst
+                    i zawartość liniową
+                    wewnątrz elementu.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="obliczenia">
+
+            <h2>11. Obliczanie rzeczywistych wymiarów elementu</h2>
+
+            <p>
+                Przy domyślnym
+                <code>box-sizing: content-box</code>
+                wartość <code>width</code>
+                określa szerokość zawartości,
+                a nie całego pudełka.
+            </p>
+
+            <h3>Przykład 1 – oblicz szerokość</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid blue;
+    margin: 10px;
+}</code></pre>
+
+            <p>
+                Obliczamy szerokość
+                od lewej do prawej strony:
+            </p>
+
+            <pre><code class="language-text">Zawartość:           300 px
+
+Padding lewy:         20 px
+Padding prawy:        20 px
+
+Border lewy:           5 px
+Border prawy:          5 px
+
+----------------------------
+
+Szerokość pudełka:   350 px
+
+Margin lewy:          10 px
+Margin prawy:         10 px
+
+----------------------------
+
+Łącznie z marginesami: 370 px</code></pre>
+
+            <p>
+                Szerokość pudełka
+                bez marginesów wynosi
+                <strong>350 px</strong>.
+            </p>
+
+            <p>
+                Po uwzględnieniu
+                obu marginesów
+                otrzymujemy
+                <strong>370 px</strong>.
+            </p>
+
+            <h3>Wzór – content-box</h3>
+
+            <pre><code class="language-text">Szerokość pudełka =
+
+width
++ padding-left
++ padding-right
++ border-left
++ border-right</code></pre>
+
+            <p>
+                Jeśli chcemy uwzględnić
+                także marginesy,
+                dodajemy <code>margin-left</code>
+                i <code>margin-right</code>.
+            </p>
+
+            <h3>Przykład 2 – oblicz wysokość</h3>
+
+            <pre><code class="language-css">.panel {
+    height: 100px;
+    padding: 15px;
+    border: 3px solid black;
+    margin: 20px;
+}</code></pre>
+
+            <pre><code class="language-text">Zawartość:           100 px
+
+Padding góra:         15 px
+Padding dół:          15 px
+
+Border góra:           3 px
+Border dół:            3 px
+
+----------------------------
+
+Wysokość pudełka:   136 px
+
+Margin góra:          20 px
+Margin dół:           20 px
+
+----------------------------
+
+Suma z marginesami: 176 px</code></pre>
+
+            <p>
+                Wysokość pudełka
+                wynosi <strong>136 px</strong>.
+            </p>
+
+            <p>
+                Suma wymiarów
+                z oboma marginesami
+                wynosi <strong>176 px</strong>.
+                W normalnym układzie blokowym
+                marginesy pionowe mogą jednak
+                podlegać łączeniu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W modelu <code>content-box</code>
+                    do szerokości i wysokości
+                    zawartości trzeba dodać
+                    odpowiednie wartości
+                    <code>padding</code>
+                    i <code>border</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="box-sizing">
+
+            <h2>12. Właściwość box-sizing</h2>
+
+            <p>
+                Właściwość <code>box-sizing</code>
+                określa sposób obliczania
+                wymiarów elementu.
+            </p>
+
+            <p>
+                Najważniejsze wartości:
+            </p>
+
+            <ul>
+                <li><code>content-box</code>,</li>
+                <li><code>border-box</code>.</li>
+            </ul>
+
+            <h3>Content-box</h3>
+
+            <pre><code class="language-css">.karta {
+    box-sizing: content-box;
+
+    width: 300px;
+    padding: 20px;
+    border: 5px solid blue;
+}</code></pre>
+
+            <p>
+                Szerokość pudełka wynosi:
+            </p>
+
+            <pre><code class="language-text">300 + 20 + 20 + 5 + 5 = 350 px</code></pre>
+
+            <h3>Border-box</h3>
+
+            <pre><code class="language-css">.karta {
+    box-sizing: border-box;
+
+    width: 300px;
+    padding: 20px;
+    border: 5px solid blue;
+}</code></pre>
+
+            <p>
+                Szerokość pudełka
+                wynosi teraz
+                <strong>300 px</strong>.
+            </p>
+
+            <p>
+                Padding i obramowanie
+                są uwzględnione
+                w zadanej szerokości.
+            </p>
+
+            <h3>Obliczenie szerokości zawartości</h3>
+
+            <pre><code class="language-text">300 - 20 - 20 - 5 - 5 = 250 px</code></pre>
+
+            <p>
+                Obszar zawartości
+                ma szerokość 250 px.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Najważniejsza zasada</h3>
+                <p>
+                    <code>content-box</code>:
+                    podana szerokość dotyczy
+                    samej zawartości.
+                </p>
+                <p>
+                    <code>border-box</code>:
+                    podana szerokość obejmuje
+                    zawartość, padding
+                    i obramowanie.
+                </p>
+                <p>
+                    Margines zewnętrzny
+                    nie jest wliczany
+                    do żadnej z tych wartości.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="porownanie">
+
+            <h2>13. Porównanie content-box i border-box</h2>
+
+            <p>
+                Porównajmy dwa elementy
+                o identycznych właściwościach
+                z wyjątkiem <code>box-sizing</code>.
+            </p>
+
+            <h3>Kod HTML</h3>
+
+            <pre><code class="language-html">&lt;div class="pudelko1"&gt;
+    content-box
+&lt;/div&gt;
+
+&lt;div class="pudelko2"&gt;
+    border-box
+&lt;/div&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.pudelko1 {
+    box-sizing: content-box;
+
+    width: 300px;
+    padding: 20px;
+    border: 5px solid blue;
+}
+
+.pudelko2 {
+    box-sizing: border-box;
+
+    width: 300px;
+    padding: 20px;
+    border: 5px solid green;
+}</code></pre>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>content-box</th>
+                    <th>border-box</th>
+                </tr>
+                <tr>
+                    <td>Zadane width</td>
+                    <td>300 px</td>
+                    <td>300 px</td>
+                </tr>
+                <tr>
+                    <td>Padding</td>
+                    <td>20 px z każdej strony</td>
+                    <td>20 px z każdej strony</td>
+                </tr>
+                <tr>
+                    <td>Border</td>
+                    <td>5 px z każdej strony</td>
+                    <td>5 px z każdej strony</td>
+                </tr>
+                <tr>
+                    <td>Szerokość zawartości</td>
+                    <td>300 px</td>
+                    <td>250 px</td>
+                </tr>
+                <tr>
+                    <td>Szerokość pudełka</td>
+                    <td><strong>350 px</strong></td>
+                    <td><strong>300 px</strong></td>
+                </tr>
+            </table>
+
+            <h3>Popularne ustawienie dla całej strony</h3>
+
+            <pre><code class="language-css">*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}</code></pre>
+
+            <p>
+                Dzięki temu większość
+                wymiarów elementów
+                łatwiej kontrolować.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    W wielu współczesnych projektach
+                    stosuje się
+                    <code>box-sizing: border-box</code>
+                    dla wszystkich elementów
+                    i pseudoelementów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="max-min">
+
+            <h2>14. Minimalne i maksymalne wymiary</h2>
+
+            <p>
+                Oprócz <code>width</code>
+                i <code>height</code>
+                CSS umożliwia określanie
+                minimalnych oraz maksymalnych wymiarów.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>min-width</code></td>
+                    <td>Minimalna szerokość.</td>
+                </tr>
+                <tr>
+                    <td><code>max-width</code></td>
+                    <td>Maksymalna szerokość.</td>
+                </tr>
+                <tr>
+                    <td><code>min-height</code></td>
+                    <td>Minimalna wysokość.</td>
+                </tr>
+                <tr>
+                    <td><code>max-height</code></td>
+                    <td>Maksymalna wysokość.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład – maksymalna szerokość</h3>
+
+            <pre><code class="language-css">.kontener {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Kontener dopasowuje się
+                do dostępnego miejsca,
+                ale nie przekracza 1000 px.
+            </p>
+
+            <h3>Przykład – minimalna wysokość</h3>
+
+            <pre><code class="language-css">.karta {
+    min-height: 200px;
+}</code></pre>
+
+            <p>
+                Element ma co najmniej 200 px
+                wysokości, ale może być wyższy,
+                jeśli wymaga tego zawartość.
+            </p>
+
+            <h3>Przykład – maksymalna szerokość obrazu</h3>
+
+            <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <p>
+                Obraz nie powinien przekraczać
+                szerokości swojego kontenera
+                i zachowuje proporcje.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Przy projektowaniu stron
+                    często warto stosować
+                    <code>max-width</code>
+                    zamiast samej sztywnej
+                    szerokości w pikselach.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="overflow">
+
+            <h2>15. Przepełnienie zawartości – overflow</h2>
+
+            <p>
+                Jeśli element ma ustaloną
+                wysokość lub szerokość,
+                jego zawartość może
+                nie zmieścić się
+                w wyznaczonym obszarze.
+            </p>
+
+            <p>
+                Właściwość <code>overflow</code>
+                określa, jak przeglądarka
+                ma obsłużyć taką sytuację.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>visible</code></td>
+                    <td>Zawartość może wystawać poza element.</td>
+                </tr>
+                <tr>
+                    <td><code>hidden</code></td>
+                    <td>Wystająca zawartość zostaje przycięta.</td>
+                </tr>
+                <tr>
+                    <td><code>scroll</code></td>
+                    <td>Tworzy obszar przewijania.</td>
+                </tr>
+                <tr>
+                    <td><code>auto</code></td>
+                    <td>Przewijanie pojawia się w razie potrzeby.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.opis {
+    width: 300px;
+    height: 100px;
+
+    padding: 15px;
+    border: 2px solid blue;
+
+    overflow: auto;
+}</code></pre>
+
+            <p>
+                Jeśli tekst jest dłuższy,
+                użytkownik może przewijać
+                zawartość elementu.
+            </p>
+
+            <h3>Przykład – ukrycie nadmiaru</h3>
+
+            <pre><code class="language-css">.panel {
+    height: 150px;
+    overflow: hidden;
+}</code></pre>
+
+            <p>
+                Nadmiar zawartości
+                zostanie przycięty.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Nie używaj
+                    <code>overflow: hidden</code>
+                    tylko po to, aby ukryć
+                    problem z układem strony.
+                    Może to spowodować
+                    utratę widocznej treści.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="margin-collapse">
+
+            <h2>16. Łączenie marginesów pionowych</h2>
+
+            <p>
+                W normalnym układzie blokowym
+                sąsiadujące marginesy pionowe
+                nie zawsze się sumują.
+            </p>
+
+            <p>
+                Zjawisko to nazywamy
+                <strong>łączeniem marginesów</strong>
+                (ang. <em>margin collapsing</em>).
+            </p>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-html">&lt;div class="karta1"&gt;
+    Pierwsza karta
+&lt;/div&gt;
+
+&lt;div class="karta2"&gt;
+    Druga karta
+&lt;/div&gt;</code></pre>
+
+            <pre><code class="language-css">.karta1 {
+    margin-bottom: 30px;
+}
+
+.karta2 {
+    margin-top: 20px;
+}</code></pre>
+
+            <p>
+                Można przypuszczać,
+                że odstęp między kartami
+                wyniesie 50 px.
+            </p>
+
+            <p>
+                Jednak w typowym układzie
+                dwóch sąsiadujących
+                elementów blokowych
+                dodatnie marginesy pionowe
+                mogą się połączyć.
+            </p>
+
+            <p>
+                W tym przykładzie
+                odstęp wyniesie
+                <strong>30 px</strong>,
+                czyli większą z dwóch wartości.
+            </p>
+
+            <h3>Marginesy poziome</h3>
+
+            <p>
+                Marginesy poziome
+                nie podlegają takiemu
+                łączeniu.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Łączenie marginesów
+                    dotyczy określonych sytuacji
+                    w normalnym układzie blokowym.
+                    Nie występuje na przykład
+                    między elementami
+                    będącymi elementami flex
+                    lub grid.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="devtools">
+
+            <h2>17. Model pudełkowy w narzędziach przeglądarki</h2>
+
+            <p>
+                Przeglądarki internetowe
+                udostępniają narzędzia
+                dla programistów
+                (ang. <em>Developer Tools</em>).
+            </p>
+
+            <p>
+                Można w nich sprawdzić
+                rzeczywiste wymiary elementów
+                oraz wartości marginesów,
+                paddingu i obramowania.
+            </p>
+
+            <h3>Instrukcja krok po kroku</h3>
+
+            <ol>
+                <li>Otwórz stronę w przeglądarce Chrome lub Edge.</li>
+                <li>Kliknij wybrany element prawym przyciskiem myszy.</li>
+                <li>Wybierz <strong>Zbadaj</strong>.</li>
+                <li>W panelu narzędzi odszukaj zakładkę <strong>Elements</strong> lub <strong>Elementy</strong>.</li>
+                <li>Zaznacz element HTML.</li>
+                <li>W zakładce <strong>Computed</strong> lub <strong>Obliczone</strong> znajdź schemat modelu pudełkowego.</li>
+                <li>Sprawdź wartości <code>content</code>, <code>padding</code>, <code>border</code> i <code>margin</code>.</li>
+            </ol>
+
+            <h3>Co można sprawdzić?</h3>
+
+            <ul>
+                <li>rzeczywistą szerokość elementu,</li>
+                <li>rzeczywistą wysokość elementu,</li>
+                <li>wartości marginesów wewnętrznych,</li>
+                <li>grubość obramowania,</li>
+                <li>wartości marginesów zewnętrznych,</li>
+                <li>zastosowaną wartość <code>box-sizing</code>.</li>
+            </ul>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Narzędzia deweloperskie
+                    pomagają zrozumieć,
+                    dlaczego element
+                    jest większy,
+                    niż wynikałoby
+                    to z samego <code>width</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – mylenie margin i padding</h3>
+
+            <pre><code class="language-css">.karta {
+    margin: 20px;
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Obie właściwości tworzą odstępy,
+                ale w innych miejscach.
+            </p>
+
+            <p>
+                <code>margin</code>
+                działa na zewnątrz obramowania,
+                a <code>padding</code>
+                wewnątrz niego.
+            </p>
+
+            <h3>Błąd 2 – pomijanie padding i border w obliczeniach</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid blue;
+}</code></pre>
+
+            <p>
+                Przy <code>content-box</code>
+                szerokość pudełka
+                wynosi 350 px,
+                a nie 300 px.
+            </p>
+
+            <h3>Błąd 3 – brak jednostki</h3>
+
+            <pre><code class="language-css">/* Niepoprawnie */
+
+.karta {
+    width: 300;
+    padding: 20;
+}</code></pre>
+
+            <p>Poprawnie:</p>
+
+            <pre><code class="language-css">.karta {
+    width: 300px;
+    padding: 20px;
+}</code></pre>
+
+            <h3>Błąd 4 – width: 100% i dodatkowy padding</h3>
+
+            <pre><code class="language-css">.karta {
+    width: 100%;
+    padding: 20px;
+}</code></pre>
+
+            <p>
+                Przy <code>content-box</code>
+                szerokość pudełka
+                może przekroczyć
+                szerokość kontenera.
+            </p>
+
+            <p>Rozwiązanie:</p>
+
+            <pre><code class="language-css">.karta {
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 20px;
+}</code></pre>
+
+            <h3>Błąd 5 – niepotrzebna stała wysokość</h3>
+
+            <pre><code class="language-css">.opis {
+    height: 50px;
+}</code></pre>
+
+            <p>
+                Jeśli tekst jest długi,
+                może wystawać poza element.
+            </p>
+
+            <p>
+                Często lepiej użyć:
+            </p>
+
+            <pre><code class="language-css">.opis {
+    min-height: 50px;
+}</code></pre>
+
+            <h3>Błąd 6 – margin: auto bez odpowiednich warunków</h3>
+
+            <pre><code class="language-css">.kontener {
+    margin: 0 auto;
+}</code></pre>
+
+            <p>
+                Jeśli zwykły element blokowy
+                automatycznie zajmuje
+                całą dostępną szerokość,
+                wyśrodkowanie może być niewidoczne.
+            </p>
+
+            <p>
+                Przykładowe rozwiązanie:
+            </p>
+
+            <pre><code class="language-css">.kontener {
+    width: 80%;
+    margin: 0 auto;
+}</code></pre>
+
+            <h3>Błąd 7 – oczekiwanie sumowania marginesów pionowych</h3>
+
+            <p>
+                W określonych sytuacjach
+                pionowe marginesy
+                sąsiadujących elementów blokowych
+                łączą się zamiast sumować.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Gdy element ma
+                    nieoczekiwane wymiary,
+                    sprawdź kolejno:
+                    <code>width</code>,
+                    <code>height</code>,
+                    <code>padding</code>,
+                    <code>border</code>,
+                    <code>margin</code>
+                    i <code>box-sizing</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – strona z kartami</h2>
+
+            <p>
+                Przygotujemy prostą stronę
+                prezentującą trzy kursy.
+            </p>
+
+            <p>
+                W przykładzie zastosujemy:
+            </p>
+
+            <ul>
+                <li>szerokość i wysokość elementów,</li>
+                <li>marginesy wewnętrzne,</li>
+                <li>marginesy zewnętrzne,</li>
+                <li>obramowania,</li>
+                <li>zaokrąglone narożniki,</li>
+                <li><code>box-sizing: border-box</code>,</li>
+                <li><code>max-width</code>,</li>
+                <li>poziome wyśrodkowanie kontenera.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Oferta kursów&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Oferta kursów&lt;/h1&gt;
+
+        &lt;p&gt;
+            Wybierz kurs dla siebie.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;main class="kontener"&gt;
+
+        &lt;section class="wprowadzenie"&gt;
+
+            &lt;h2&gt;Nasze kursy&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poznaj podstawy
+                tworzenia stron internetowych.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="oferta"&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h2&gt;HTML5&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Naucz się tworzyć
+                    strukturę strony WWW.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Szczegóły
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h2&gt;CSS3&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Poznaj zasady
+                    formatowania stron.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Szczegóły
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+            &lt;article class="karta"&gt;
+
+                &lt;h2&gt;JavaScript&lt;/h2&gt;
+
+                &lt;p&gt;
+                    Dodawaj interaktywność
+                    do stron internetowych.
+                &lt;/p&gt;
+
+                &lt;a href="#informacje"
+                   class="przycisk"&gt;
+                    Szczegóły
+                &lt;/a&gt;
+
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="informacje"
+                 class="informacje"&gt;
+
+            &lt;h2&gt;Informacje dodatkowe&lt;/h2&gt;
+
+            &lt;p&gt;
+                Wszystkie kursy
+                są przeznaczone
+                dla osób początkujących.
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Oferta kursów&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background-color: #1E3A8A;
+    color: white;
+
+    border-bottom: 5px solid #60A5FA;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* Kontener główny */
+
+.kontener {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 30px auto;
+}
+
+/* Wprowadzenie */
+
+.wprowadzenie {
+    padding: 25px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    border-left: 5px solid #2563EB;
+    border-radius: 8px;
+}
+
+/* Układ kart */
+
+.oferta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+/* Karty */
+
+.karta {
+    flex: 1 1 250px;
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+}
+
+.karta h2 {
+    margin-top: 0;
+}
+
+.karta p {
+    min-height: 75px;
+}
+
+/* Przyciski */
+
+.przycisk {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 10px 20px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+
+    border: 2px solid #2563EB;
+    border-radius: 6px;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+/* Informacje */
+
+.informacje {
+    margin-top: 30px;
+    padding: 25px;
+
+    background-color: #DBEAFE;
+
+    border: 2px dashed #2563EB;
+    border-radius: 10px;
+}
+
+/* Stopka */
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #1E3A8A;
+    color: white;
+}</code></pre>
+
+            <h3>Analiza modelu pudełkowego</h3>
+
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Zastosowane właściwości</th>
+                </tr>
+                <tr>
+                    <td><code>body</code></td>
+                    <td><code>margin: 0</code></td>
+                </tr>
+                <tr>
+                    <td><code>header</code></td>
+                    <td><code>padding</code>, <code>border-bottom</code></td>
+                </tr>
+                <tr>
+                    <td><code>.kontener</code></td>
+                    <td><code>width</code>, <code>max-width</code>, <code>margin</code></td>
+                </tr>
+                <tr>
+                    <td><code>.wprowadzenie</code></td>
+                    <td><code>padding</code>, <code>margin-bottom</code>, <code>border-left</code></td>
+                </tr>
+                <tr>
+                    <td><code>.karta</code></td>
+                    <td><code>padding</code>, <code>border</code>, <code>min-width</code></td>
+                </tr>
+                <tr>
+                    <td><code>.przycisk</code></td>
+                    <td><code>margin-top</code>, <code>padding</code>, <code>border</code></td>
+                </tr>
+                <tr>
+                    <td><code>.informacje</code></td>
+                    <td><code>margin-top</code>, <code>padding</code>, <code>border</code></td>
+                </tr>
+            </table>
+
+            <div class="remember">
+                <h3>📌 Zwróć uwagę</h3>
+                <p>
+                    W przykładzie zastosowano
+                    również <code>display: flex</code>
+                    do rozmieszczenia kart.
+                    Najważniejszym celem
+                    tej lekcji jest jednak
+                    zrozumienie wymiarów
+                    i odstępów elementów.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+                    <li>
+                        Każdy element HTML
+                        jest przedstawiany
+                        przez przeglądarkę
+                        jako pudełko.
+                    </li>
+                    <li>
+                        Model pudełkowy składa się
+                        z <strong>content, padding,
+                        border i margin</strong>.
+                    </li>
+                    <li>
+                        <code>width</code>
+                        określa szerokość elementu.
+                    </li>
+                    <li>
+                        <code>height</code>
+                        określa wysokość elementu.
+                    </li>
+                    <li>
+                        <code>padding</code>
+                        tworzy odstęp
+                        między zawartością
+                        a obramowaniem.
+                    </li>
+                    <li>
+                        <code>border</code>
+                        tworzy obramowanie elementu.
+                    </li>
+                    <li>
+                        <code>margin</code>
+                        tworzy odstęp
+                        na zewnątrz obramowania.
+                    </li>
+                    <li>
+                        <code>padding</code>
+                        nie przyjmuje wartości ujemnych.
+                    </li>
+                    <li>
+                        <code>margin</code>
+                        może przyjmować wartości ujemne.
+                    </li>
+                    <li>
+                        Przy czterech wartościach
+                        <code>margin</code>
+                        i <code>padding</code>
+                        obowiązuje kolejność:
+                        góra, prawo, dół, lewo.
+                    </li>
+                    <li>
+                        <code>margin: 0 auto</code>
+                        może służyć do poziomego
+                        wyśrodkowania kontenera.
+                    </li>
+                    <li>
+                        <code>content-box</code>
+                        oznacza, że <code>width</code>
+                        dotyczy obszaru zawartości.
+                    </li>
+                    <li>
+                        <code>border-box</code>
+                        oznacza, że <code>width</code>
+                        obejmuje zawartość,
+                        padding i border.
+                    </li>
+                    <li>
+                        <code>box-sizing</code>
+                        określa sposób
+                        obliczania wymiarów.
+                    </li>
+                    <li>
+                        <code>max-width</code>
+                        ogranicza maksymalną szerokość.
+                    </li>
+                    <li>
+                        <code>min-height</code>
+                        określa minimalną wysokość.
+                    </li>
+                    <li>
+                        <code>overflow</code>
+                        kontroluje przepełnienie
+                        zawartości elementu.
+                    </li>
+                    <li>
+                        Marginesy pionowe
+                        w określonych sytuacjach
+                        mogą się łączyć.
+                    </li>
+                    <li>
+                        Narzędzia deweloperskie
+                        umożliwiają sprawdzenie
+                        rzeczywistych wymiarów
+                        pudełka elementu.
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                zastosowanie modelu pudełkowego
+                do określania szerokości,
+                wysokości, odstępów
+                i obramowań elementów.
+            </p>
+
+            <p>
+                Utwórz folder <code>PSI_26</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                </strong>
+                Każde kolejne zadanie
+                rozbudowuje ten sam projekt.
+            </p>
+
+            <h3>Zadanie 1 – Budowa strony z kartami</h3>
+
+            <p>
+                Przygotuj stronę
+                <strong>„Moje zainteresowania”</strong>.
+            </p>
+
+            <ol>
+                <li>Utwórz poprawny dokument HTML5.</li>
+                <li>Podłącz plik <code>style.css</code>.</li>
+                <li>Dodaj nagłówek strony z tytułem i krótkim opisem.</li>
+                <li>Utwórz trzy karty opisujące Twoje zainteresowania.</li>
+                <li>Każda karta powinna zawierać nagłówek i akapit.</li>
+                <li>Ustaw dla kart <code>width: 300px</code>.</li>
+                <li>Dodaj <code>padding: 20px</code>.</li>
+                <li>Dodaj obramowanie <code>2px solid</code>.</li>
+                <li>Ustaw <code>margin-bottom: 20px</code>.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Obliczanie szerokości elementu</h3>
+
+            <p>
+                Dla każdej karty zastosowano:
+            </p>
+
+            <pre><code class="language-css">.karta {
+    box-sizing: content-box;
+
+    width: 300px;
+    padding: 20px;
+    border: 2px solid blue;
+    margin: 10px;
+}</code></pre>
+
+            <ol>
+                <li>Oblicz szerokość obszaru zawartości.</li>
+                <li>Oblicz łączną szerokość paddingu.</li>
+                <li>Oblicz łączną szerokość obramowania.</li>
+                <li>Oblicz szerokość pudełka bez marginesów.</li>
+                <li>Oblicz sumę szerokości pudełka i obu marginesów.</li>
+                <li>Zapisz wyniki w komentarzu w pliku <code>style.css</code>.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Porównanie box-sizing</h3>
+
+            <p>
+                Porównaj działanie
+                <code>content-box</code>
+                i <code>border-box</code>.
+            </p>
+
+            <ol>
+                <li>Ustaw dla pierwszej karty <code>box-sizing: content-box</code>.</li>
+                <li>Ustaw dla drugiej karty <code>box-sizing: border-box</code>.</li>
+                <li>W obu kartach ustaw <code>width: 300px</code>.</li>
+                <li>Ustaw <code>padding: 20px</code>.</li>
+                <li>Ustaw <code>border: 5px solid</code>.</li>
+                <li>Porównaj szerokości obu kart.</li>
+                <li>Oblicz szerokość pudełka każdej karty.</li>
+                <li>Zapisz w komentarzu, na czym polega różnica.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Wyśrodkowanie kontenera</h3>
+
+            <p>
+                Umieść zawartość strony
+                w głównym kontenerze.
+            </p>
+
+            <ol>
+                <li>Dodaj element <code>main</code> z klasą <code>kontener</code>.</li>
+                <li>Ustaw <code>width: 90%</code>.</li>
+                <li>Ustaw <code>max-width: 1000px</code>.</li>
+                <li>Zastosuj <code>margin: 30px auto</code>.</li>
+                <li>Dodaj <code>padding: 20px</code>.</li>
+                <li>Ustaw <code>box-sizing: border-box</code>.</li>
+                <li>Sprawdź wyśrodkowanie kontenera w przeglądarce.</li>
+                <li>Zmień szerokość okna i obserwuj działanie <code>max-width</code>.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Marginesy i wysokość</h3>
+
+            <p>
+                Rozbuduj stronę
+                o dodatkową sekcję informacyjną.
+            </p>
+
+            <ol>
+                <li>Dodaj sekcję z nagłówkiem i dłuższym akapitem.</li>
+                <li>Ustaw <code>padding: 25px</code>.</li>
+                <li>Dodaj <code>margin-top: 30px</code>.</li>
+                <li>Dodaj lewe obramowanie o grubości <code>5px</code>.</li>
+                <li>Ustaw <code>min-height: 150px</code>.</li>
+                <li>Sprawdź, co się stanie po dodaniu większej ilości tekstu.</li>
+                <li>Porównaj działanie <code>min-height</code> i <code>height</code>.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Analiza w DevTools (dodatkowe)</h3>
+
+            <ol>
+                <li>Otwórz stronę w przeglądarce Chrome lub Edge.</li>
+                <li>Kliknij kartę prawym przyciskiem myszy.</li>
+                <li>Wybierz <strong>Zbadaj</strong>.</li>
+                <li>Odszukaj schemat modelu pudełkowego.</li>
+                <li>Sprawdź wartości <code>width</code>, <code>padding</code>, <code>border</code> i <code>margin</code>.</li>
+                <li>Porównaj odczytane wartości z obliczeniami z zadania 2.</li>
+                <li>Zapisz krótką obserwację w komentarzu w pliku CSS.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_26/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku
+                    <code>index.html</code>
+                    i jednym arkuszu
+                    <code>style.css</code>.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_26</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    szerokości i wysokości elementów,
+                    odstępy wewnętrzne i zewnętrzne,
+                    obramowania,
+                    działanie <code>box-sizing</code>
+                    oraz wyśrodkowanie kontenera.
+                </p>
+
+                <p>
+                    <strong>
+                        Teksty na stronie
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 26
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
