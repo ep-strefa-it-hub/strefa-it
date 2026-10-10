@@ -1,0 +1,2661 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 29 – Formatowanie list, odnośników i menu | Strefa IT</title>
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1.Wprowadzenie</a>
+        <a href="#rodzaje-list">2.Rodzaje list HTML</a>
+        <a href="#list-style-type">3.List-style-type</a>
+        <a href="#list-style-position">4.List-style-position</a>
+        <a href="#list-style-image">5.List-style-image</a>
+        <a href="#list-style">6.Właściwość list-style</a>
+        <a href="#odstepy-list">7.Odstępy i wygląd list</a>
+        <a href="#wlasne-znaczniki">8.Własne znaczniki list</a>
+        <a href="#odnosniki">9.Formatowanie odnośników</a>
+        <a href="#pseudoklasy">10.Stany odnośników</a>
+        <a href="#przyciski">11.Odnośnik jako przycisk</a>
+        <a href="#menu-struktura">12.Struktura menu HTML</a>
+        <a href="#menu-pionowe">13.Menu pionowe</a>
+        <a href="#menu-poziome">14.Menu poziome</a>
+        <a href="#menu-aktywne">15.Aktywna pozycja menu</a>
+        <a href="#menu-sticky">16.Menu przyklejone</a>
+        <a href="#responsywne">17.Menu responsywne</a>
+        <a href="#bledy">18.Najczęstsze błędy</a>
+        <a href="#przyklad">19.Kompletny przykład</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania praktyczne</a>
+
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+
+            <div class="lesson-number">
+                PSI • LEKCJA 29 • CSS3
+            </div>
+
+            <h2>
+                Formatowanie list i odnośników.
+                Tworzenie menu nawigacyjnego za pomocą CSS
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie sposobów formatowania list HTML,
+                zmiany wyglądu odnośników i ich stanów
+                oraz samodzielne przygotowanie
+                estetycznego, funkcjonalnego
+                i responsywnego menu nawigacyjnego.
+            </p>
+
+        </div>
+
+        <!-- 1 -->
+
+        <section id="wprowadzenie">
+
+            <h2>1. Wprowadzenie</h2>
+
+            <p>
+                Listy i odnośniki należą do najczęściej
+                wykorzystywanych elementów stron WWW.
+            </p>
+
+            <p>
+                Listy pomagają uporządkować informacje,
+                natomiast odnośniki umożliwiają
+                przechodzenie między stronami,
+                podstronami oraz sekcjami dokumentu.
+            </p>
+
+            <p>
+                Dzięki CSS możemy zmienić
+                ich domyślny wygląd:
+            </p>
+
+            <ul>
+                <li>rodzaj i położenie znaczników list,</li>
+                <li>odstępy między elementami listy,</li>
+                <li>kolor i dekorację odnośników,</li>
+                <li>wygląd odnośnika po najechaniu myszą,</li>
+                <li>wygląd aktywnej pozycji menu,</li>
+                <li>rozmieszczenie elementów menu.</li>
+            </ul>
+
+            <h3>Przykład zwykłej listy HTML</h3>
+
+            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Strona główna&lt;/li&gt;
+    &lt;li&gt;Oferta&lt;/li&gt;
+    &lt;li&gt;Kontakt&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Przykład menu z odnośnikami</h3>
+
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#start"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#oferta"&gt;Oferta&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+            <p>
+                W drugim przykładzie lista
+                stanowi strukturę menu,
+                a odnośniki odpowiadają
+                za nawigację.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    HTML określa strukturę list
+                    i odnośników, natomiast CSS
+                    odpowiada za ich wygląd
+                    oraz rozmieszczenie.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 2 -->
+
+        <section id="rodzaje-list">
+
+            <h2>2. Rodzaje list HTML</h2>
+
+            <p>
+                Przed rozpoczęciem formatowania
+                przypomnijmy trzy podstawowe
+                rodzaje list HTML.
+            </p>
+
+            <h3>Lista nieuporządkowana – ul</h3>
+
+            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <p>
+                Domyślnie elementy listy
+                są oznaczane punktami.
+            </p>
+
+            <h3>Lista uporządkowana – ol</h3>
+
+            <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Utwórz plik HTML.&lt;/li&gt;
+    &lt;li&gt;Dodaj arkusz CSS.&lt;/li&gt;
+    &lt;li&gt;Otwórz stronę w przeglądarce.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <p>
+                Domyślnie elementy listy
+                są numerowane.
+            </p>
+
+            <h3>Lista opisowa – dl</h3>
+
+            <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Język znaczników.&lt;/dd&gt;
+
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Język arkuszy stylów.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+            <p>
+                Lista opisowa wykorzystuje
+                elementy <code>dt</code>
+                i <code>dd</code>.
+            </p>
+
+            <h3>Podstawowe znaczniki</h3>
+
+            <table>
+                <tr>
+                    <th>Znacznik</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>ul</code></td>
+                    <td>Lista nieuporządkowana</td>
+                </tr>
+                <tr>
+                    <td><code>ol</code></td>
+                    <td>Lista uporządkowana</td>
+                </tr>
+                <tr>
+                    <td><code>li</code></td>
+                    <td>Element listy ul lub ol</td>
+                </tr>
+                <tr>
+                    <td><code>dl</code></td>
+                    <td>Lista opisowa</td>
+                </tr>
+                <tr>
+                    <td><code>dt</code></td>
+                    <td>Termin</td>
+                </tr>
+                <tr>
+                    <td><code>dd</code></td>
+                    <td>Opis terminu</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- 3 -->
+
+        <section id="list-style-type">
+
+            <h2>3. Właściwość list-style-type</h2>
+
+            <p>
+                Właściwość
+                <code>list-style-type</code>
+                określa rodzaj znacznika
+                elementu listy.
+            </p>
+
+            <h3>Przykład – lista punktowana</h3>
+
+            <pre><code class="language-css">ul {
+    list-style-type: square;
+}</code></pre>
+
+            <p>
+                Zamiast domyślnych punktów
+                pojawią się kwadraty.
+            </p>
+
+            <h3>Wartości dla list nieuporządkowanych</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Wygląd znacznika</th>
+                </tr>
+                <tr>
+                    <td><code>disc</code></td>
+                    <td>Pełne kółko</td>
+                </tr>
+                <tr>
+                    <td><code>circle</code></td>
+                    <td>Puste kółko</td>
+                </tr>
+                <tr>
+                    <td><code>square</code></td>
+                    <td>Kwadrat</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Brak widocznego znacznika</td>
+                </tr>
+            </table>
+
+            <h3>Przykład</h3>
+
+            <pre><code class="language-css">.lista1 {
+    list-style-type: disc;
+}
+
+.lista2 {
+    list-style-type: circle;
+}
+
+.lista3 {
+    list-style-type: square;
+}
+
+.lista4 {
+    list-style-type: none;
+}</code></pre>
+
+            <h3>Wartości dla list numerowanych</h3>
+
+            <table>
+                <tr>
+                    <th>Wartość</th>
+                    <th>Przykładowa numeracja</th>
+                </tr>
+                <tr>
+                    <td><code>decimal</code></td>
+                    <td>1, 2, 3</td>
+                </tr>
+                <tr>
+                    <td><code>decimal-leading-zero</code></td>
+                    <td>01, 02, 03</td>
+                </tr>
+                <tr>
+                    <td><code>lower-alpha</code></td>
+                    <td>a, b, c</td>
+                </tr>
+                <tr>
+                    <td><code>upper-alpha</code></td>
+                    <td>A, B, C</td>
+                </tr>
+                <tr>
+                    <td><code>lower-roman</code></td>
+                    <td>i, ii, iii</td>
+                </tr>
+                <tr>
+                    <td><code>upper-roman</code></td>
+                    <td>I, II, III</td>
+                </tr>
+            </table>
+
+            <h3>Przykład numeracji rzymskiej</h3>
+
+            <pre><code class="language-html">&lt;ol class="rzymska"&gt;
+    &lt;li&gt;Wprowadzenie&lt;/li&gt;
+    &lt;li&gt;Ćwiczenia&lt;/li&gt;
+    &lt;li&gt;Podsumowanie&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <pre><code class="language-css">.rzymska {
+    list-style-type: upper-roman;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>list-style-type</code>
+                    zmienia wygląd znaczników
+                    list punktowanych i numerowanych.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 4 -->
+
+        <section id="list-style-position">
+
+            <h2>4. Właściwość list-style-position</h2>
+
+            <p>
+                Właściwość
+                <code>list-style-position</code>
+                określa położenie znacznika
+                listy względem zawartości elementu.
+            </p>
+
+            <p>
+                Dostępne są dwie podstawowe wartości:
+            </p>
+
+            <ul>
+                <li><code>outside</code> – znacznik znajduje się poza głównym obszarem treści elementu listy,</li>
+                <li><code>inside</code> – znacznik jest umieszczony wewnątrz obszaru treści elementu listy.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;ul class="lista-outside"&gt;
+    &lt;li&gt;Pierwszy element listy z dłuższym opisem.&lt;/li&gt;
+    &lt;li&gt;Drugi element listy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul class="lista-inside"&gt;
+    &lt;li&gt;Pierwszy element listy z dłuższym opisem.&lt;/li&gt;
+    &lt;li&gt;Drugi element listy.&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.lista-outside {
+    list-style-position: outside;
+}
+
+.lista-inside {
+    list-style-position: inside;
+}</code></pre>
+
+            <p>
+                Różnica jest szczególnie widoczna,
+                gdy tekst elementu listy
+                zajmuje kilka wierszy.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>outside</code>
+                    jest wartością domyślną.
+                    <code>inside</code>
+                    umieszcza znacznik
+                    wewnątrz obszaru treści.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 5 -->
+
+        <section id="list-style-image">
+
+            <h2>5. Właściwość list-style-image</h2>
+
+            <p>
+                Zamiast standardowego
+                znacznika listy można
+                wykorzystać obraz.
+            </p>
+
+            <p>
+                Służy do tego
+                <code>list-style-image</code>.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;ul class="lista-obrazkowa"&gt;
+    &lt;li&gt;HTML5&lt;/li&gt;
+    &lt;li&gt;CSS3&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.lista-obrazkowa {
+    list-style-image: url("img/znacznik.png");
+}</code></pre>
+
+            <p>
+                Przeglądarka spróbuje użyć
+                obrazu <code>znacznik.png</code>
+                jako znacznika listy.
+            </p>
+
+            <h3>Struktura plików</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|-- style.css
+|
+|-- img/
+    |
+    |-- znacznik.png</code></pre>
+
+            <p>
+                Ścieżka w <code>url()</code>
+                jest liczona względem
+                położenia pliku CSS.
+            </p>
+
+            <h3>Ważne ograniczenie</h3>
+
+            <p>
+                <code>list-style-image</code>
+                nie pozwala wygodnie
+                sterować rozmiarem obrazu.
+            </p>
+
+            <p>
+                Jeśli chcemy dokładnie
+                ustawić wielkość
+                własnego znacznika,
+                często lepszym rozwiązaniem
+                będzie pseudoelement
+                <code>::before</code>.
+            </p>
+
+        </section>
+
+        <!-- 6 -->
+
+        <section id="list-style">
+
+            <h2>6. Skrócona właściwość list-style</h2>
+
+            <p>
+                Zamiast zapisywać
+                kilka właściwości osobno,
+                możemy użyć skrótu
+                <code>list-style</code>.
+            </p>
+
+            <h3>Przykład – zapis pełny</h3>
+
+            <pre><code class="language-css">ul {
+    list-style-type: square;
+    list-style-position: inside;
+}</code></pre>
+
+            <h3>Przykład – zapis skrócony</h3>
+
+            <pre><code class="language-css">ul {
+    list-style: square inside;
+}</code></pre>
+
+            <p>
+                Oba zapisy ustawiają
+                kwadratowe znaczniki
+                wewnątrz obszaru treści.
+            </p>
+
+            <h3>Usuwanie znaczników</h3>
+
+            <pre><code class="language-css">ul {
+    list-style: none;
+}</code></pre>
+
+            <p>
+                Ten zapis jest bardzo
+                często wykorzystywany
+                podczas tworzenia menu
+                nawigacyjnego.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Usunięcie znaczników
+                    nie oznacza automatycznego
+                    usunięcia domyślnych
+                    odstępów listy.
+                    W menu zwykle ustawiamy
+                    również <code>margin: 0</code>
+                    i <code>padding: 0</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 7 -->
+
+        <section id="odstepy-list">
+
+            <h2>7. Odstępy i wygląd elementów listy</h2>
+
+            <p>
+                Listy można formatować
+                tak samo jak inne
+                elementy HTML.
+            </p>
+
+            <p>
+                Możemy zmieniać:
+            </p>
+
+            <ul>
+                <li>marginesy,</li>
+                <li>padding,</li>
+                <li>kolory tła,</li>
+                <li>obramowania,</li>
+                <li>zaokrąglenia,</li>
+                <li>odstępy między elementami.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;ul class="lista-kursow"&gt;
+    &lt;li&gt;HTML5&lt;/li&gt;
+    &lt;li&gt;CSS3&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.lista-kursow {
+    list-style-type: square;
+
+    padding-left: 30px;
+}
+
+.lista-kursow li {
+    margin-bottom: 10px;
+    padding: 12px;
+
+    background-color: #DBEAFE;
+
+    border-left: 4px solid #2563EB;
+    border-radius: 5px;
+}</code></pre>
+
+            <h3>Co oznaczają właściwości?</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Działanie</th>
+                </tr>
+                <tr>
+                    <td><code>padding-left</code></td>
+                    <td>Ustawia wewnętrzny odstęp po lewej stronie listy.</td>
+                </tr>
+                <tr>
+                    <td><code>margin-bottom</code></td>
+                    <td>Tworzy odstęp między elementami listy.</td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Dodaje przestrzeń wewnątrz elementu.</td>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td>Ustawia kolor tła.</td>
+                </tr>
+                <tr>
+                    <td><code>border-left</code></td>
+                    <td>Dodaje obramowanie z lewej strony.</td>
+                </tr>
+                <tr>
+                    <td><code>border-radius</code></td>
+                    <td>Zaokrągla narożniki.</td>
+                </tr>
+            </table>
+
+            <h3>Zmiana koloru znacznika</h3>
+
+            <p>
+                Do stylizowania samego
+                znacznika listy możemy
+                wykorzystać pseudoelement
+                <code>::marker</code>.
+            </p>
+
+            <pre><code class="language-css">.lista-kursow li::marker {
+    color: #DC2626;
+    font-size: 20px;
+}</code></pre>
+
+            <p>
+                Znaczniki listy
+                będą czerwone,
+                a ich rozmiar
+                zostanie zwiększony.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>::marker</code>
+                    pozwala formatować
+                    znacznik listy,
+                    ale obsługuje
+                    ograniczony zestaw
+                    właściwości CSS.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 8 -->
+
+        <section id="wlasne-znaczniki">
+
+            <h2>8. Własne znaczniki list – ::before</h2>
+
+            <p>
+                Za pomocą pseudoelementu
+                <code>::before</code>
+                możemy dodać własny
+                symbol przed tekstem
+                elementu listy.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;ul class="lista-zalety"&gt;
+    &lt;li&gt;Łatwa obsługa&lt;/li&gt;
+    &lt;li&gt;Nowoczesny wygląd&lt;/li&gt;
+    &lt;li&gt;Responsywność&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.lista-zalety {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.lista-zalety li {
+    padding: 8px 0;
+}
+
+.lista-zalety li::before {
+    content: "✓";
+
+    color: green;
+    font-weight: bold;
+
+    margin-right: 10px;
+}</code></pre>
+
+            <p>
+                Przed każdym elementem
+                listy pojawi się
+                zielony symbol ✓.
+            </p>
+
+            <h3>Inne symbole</h3>
+
+            <pre><code class="language-css">.lista li::before {
+    content: "★";
+}</code></pre>
+
+            <pre><code class="language-css">.lista li::before {
+    content: "→";
+}</code></pre>
+
+            <pre><code class="language-css">.lista li::before {
+    content: "✔";
+}</code></pre>
+
+            <p>
+                Symbole dodane przez
+                <code>::before</code>
+                są dekoracją wizualną.
+                Nie należy opierać
+                wyłącznie na nich
+                ważnych informacji.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Jeśli lista ma przedstawiać
+                    kolejność wykonywania czynności,
+                    użyj elementu <code>ol</code>.
+                    Jeśli kolejność nie ma znaczenia,
+                    zastosuj <code>ul</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 9 -->
+
+        <section id="odnosniki">
+
+            <h2>9. Formatowanie odnośników w CSS</h2>
+
+            <p>
+                Odnośnik HTML tworzymy
+                za pomocą znacznika
+                <code>a</code>.
+            </p>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;a href="https://www.wikipedia.org/"&gt;
+    Wikipedia
+&lt;/a&gt;</code></pre>
+
+            <p>
+                Domyślnie odnośniki
+                są zwykle podkreślone,
+                a ich kolor zależy
+                od stanu odnośnika
+                i ustawień przeglądarki.
+            </p>
+
+            <h3>Zmiana koloru</h3>
+
+            <pre><code class="language-css">a {
+    color: #2563EB;
+}</code></pre>
+
+            <h3>Usunięcie podkreślenia</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: none;
+}</code></pre>
+
+            <h3>Dodanie podkreślenia</h3>
+
+            <pre><code class="language-css">a {
+    text-decoration: underline;
+}</code></pre>
+
+            <h3>Zmiana grubości tekstu</h3>
+
+            <pre><code class="language-css">a {
+    font-weight: bold;
+}</code></pre>
+
+            <h3>Połączenie kilku właściwości</h3>
+
+            <pre><code class="language-css">a {
+    color: #1D4ED8;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-decoration: none;
+}</code></pre>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Odnośniki w zwykłym tekście
+                    powinny być łatwe do rozpoznania.
+                    Jeśli usuwasz podkreślenie,
+                    zapewnij inny wyraźny sposób
+                    odróżnienia ich od tekstu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 10 -->
+
+        <section id="pseudoklasy">
+
+            <h2>10. Stany odnośników – pseudoklasy CSS</h2>
+
+            <p>
+                Wygląd odnośnika
+                może zmieniać się
+                w zależności od jego stanu.
+            </p>
+
+            <p>
+                Do tego służą
+                pseudoklasy CSS.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Pseudoklasa</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>:link</code></td>
+                    <td>Odnośnik, którego adres nie został odwiedzony.</td>
+                </tr>
+                <tr>
+                    <td><code>:visited</code></td>
+                    <td>Odnośnik prowadzący do odwiedzonego adresu.</td>
+                </tr>
+                <tr>
+                    <td><code>:hover</code></td>
+                    <td>Element wskazywany kursorem.</td>
+                </tr>
+                <tr>
+                    <td><code>:active</code></td>
+                    <td>Element w trakcie aktywowania, np. naciskania.</td>
+                </tr>
+                <tr>
+                    <td><code>:focus-visible</code></td>
+                    <td>Element, dla którego przeglądarka powinna pokazać widoczny wskaźnik fokusu, np. podczas nawigacji klawiaturą.</td>
+                </tr>
+            </table>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;a class="link-testowy"
+   href="https://www.wikipedia.org/"&gt;
+    Odwiedź Wikipedię
+&lt;/a&gt;</code></pre>
+
+            <h3>Kod CSS</h3>
+
+            <pre><code class="language-css">.link-testowy:link {
+    color: blue;
+}
+
+.link-testowy:visited {
+    color: purple;
+}
+
+.link-testowy:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.link-testowy:active {
+    color: orange;
+}
+
+.link-testowy:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Kolejność zapisu</h3>
+
+            <p>
+                W przypadku stylizowania
+                czterech klasycznych stanów
+                odnośnika warto zachować
+                kolejność:
+            </p>
+
+            <pre><code class="language-css">a:link { }
+
+a:visited { }
+
+a:hover { }
+
+a:active { }</code></pre>
+
+            <p>
+                Ułatwia to uniknięcie
+                nieoczekiwanego nadpisywania
+                stylów przez reguły
+                o takiej samej szczegółowości.
+            </p>
+
+            <h3>Dlaczego focus-visible jest ważne?</h3>
+
+            <p>
+                Nie wszyscy użytkownicy
+                korzystają z myszy.
+                Niektóre osoby poruszają się
+                po stronie za pomocą
+                klawisza <strong>Tab</strong>.
+            </p>
+
+            <p>
+                Wskaźnik fokusu pomaga
+                rozpoznać, który odnośnik
+                jest aktualnie wybrany.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Nie usuwaj widocznego
+                    obramowania fokusu
+                    bez zapewnienia
+                    odpowiedniego zamiennika.
+                    Pseudoklasa <code>:visited</code>
+                    ma ograniczenia dotyczące
+                    stylowania ze względów prywatności.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 11 -->
+
+        <section id="przyciski">
+
+            <h2>11. Odnośnik wyglądający jak przycisk</h2>
+
+            <p>
+                Odnośnik może wyglądać
+                jak przycisk, jeśli
+                zastosujemy odpowiednie
+                formatowanie CSS.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;a href="#oferta" class="przycisk"&gt;
+    Zobacz ofertę
+&lt;/a&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.przycisk {
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 8px;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}</code></pre>
+
+            <h3>Dlaczego display: inline-block?</h3>
+
+            <p>
+                Element <code>a</code>
+                jest domyślnie
+                elementem liniowym.
+            </p>
+
+            <p>
+                <code>display: inline-block</code>
+                umożliwia wygodne
+                ustawianie jego wymiarów
+                i odstępów, a jednocześnie
+                pozwala mu znajdować się
+                obok innych elementów.
+            </p>
+
+            <h3>Odnośnik czy button?</h3>
+
+            <p>
+                Jeśli element służy
+                do przechodzenia
+                do innej strony
+                lub sekcji,
+                używamy <code>a</code>.
+            </p>
+
+            <p>
+                Jeśli ma wykonywać
+                działanie, np. wysłać formularz,
+                zwykle odpowiedniejszy
+                jest <code>button</code>.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    Wygląd przycisku
+                    nie zmienia znaczenia
+                    elementu HTML.
+                    Odnośnik nadal służy
+                    przede wszystkim
+                    do nawigacji.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 12 -->
+
+        <section id="menu-struktura">
+
+            <h2>12. Struktura menu nawigacyjnego w HTML</h2>
+
+            <p>
+                Menu nawigacyjne
+                pomaga użytkownikowi
+                poruszać się
+                po stronie internetowej.
+            </p>
+
+            <p>
+                Do utworzenia menu
+                możemy wykorzystać:
+            </p>
+
+            <ul>
+                <li><code>nav</code> – obszar nawigacji,</li>
+                <li><code>ul</code> – lista pozycji menu,</li>
+                <li><code>li</code> – pojedyncza pozycja menu,</li>
+                <li><code>a</code> – odnośnik do strony lub sekcji.</li>
+            </ul>
+
+            <h3>Przykład HTML</h3>
+
+            <pre><code class="language-html">&lt;nav aria-label="Menu główne"&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;
+            &lt;a href="#start"&gt;Start&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="#oferta"&gt;Oferta&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="#galeria"&gt;Galeria&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+        &lt;/li&gt;
+
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>Dlaczego używamy listy?</h3>
+
+            <p>
+                Lista przedstawia
+                zbiór powiązanych
+                ze sobą pozycji.
+            </p>
+
+            <p>
+                Dzięki temu struktura
+                menu jest czytelna,
+                uporządkowana
+                i semantycznie poprawna.
+            </p>
+
+            <h3>Dlaczego nav?</h3>
+
+            <p>
+                Znacznik <code>nav</code>
+                informuje, że dany fragment
+                strony zawiera
+                ważne odnośniki nawigacyjne.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W menu nawigacyjnym
+                    odnośniki odpowiadają
+                    za przechodzenie
+                    między sekcjami lub stronami,
+                    a CSS określa ich wygląd.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 13 -->
+
+        <section id="menu-pionowe">
+
+            <h2>13. Tworzenie pionowego menu nawigacyjnego</h2>
+
+            <p>
+                Menu pionowe składa się
+                z pozycji ułożonych
+                jedna pod drugą.
+            </p>
+
+            <p>
+                Często jest wykorzystywane
+                w panelach bocznych
+                i spisach treści.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu-pionowe"
+     aria-label="Menu boczne"&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#start"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#oferta"&gt;Oferta&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#galeria"&gt;Galeria&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu-pionowe {
+    width: 250px;
+    max-width: 100%;
+}
+
+.menu-pionowe ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.menu-pionowe li {
+    margin-bottom: 5px;
+}
+
+.menu-pionowe a {
+    display: block;
+
+    padding: 15px;
+
+    color: white;
+    background-color: #1E3A8A;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu-pionowe a:hover {
+    background-color: #2563EB;
+}
+
+.menu-pionowe a:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+}</code></pre>
+
+            <h3>Dlaczego display: block?</h3>
+
+            <p>
+                Odnośnik staje się
+                elementem blokowym
+                i wypełnia szerokość
+                swojej pozycji menu.
+            </p>
+
+            <p>
+                Dzięki temu można
+                kliknąć nie tylko tekst,
+                ale również obszar
+                wokół niego.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    W pionowym menu
+                    bardzo często stosujemy
+                    <code>display: block</code>
+                    dla odnośników.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 14 -->
+
+        <section id="menu-poziome">
+
+            <h2>14. Tworzenie poziomego menu nawigacyjnego</h2>
+
+            <p>
+                Menu poziome zawiera
+                pozycje rozmieszczone
+                obok siebie.
+            </p>
+
+            <p>
+                Jest często stosowane
+                w górnej części strony.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu-poziome"
+     aria-label="Menu główne"&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#start"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#oferta"&gt;Oferta&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#galeria"&gt;Galeria&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu-poziome {
+    background-color: #1E3A8A;
+}
+
+.menu-poziome ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 10px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 12px;
+}
+
+.menu-poziome a {
+    display: block;
+
+    padding: 12px 20px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.menu-poziome a:hover {
+    background-color: #2563EB;
+}
+
+.menu-poziome a:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+}</code></pre>
+
+            <h3>Co oznacza display: flex?</h3>
+
+            <p>
+                <code>display: flex</code>
+                włącza układ Flexbox,
+                dzięki któremu elementy
+                listy można wygodnie
+                rozmieszczać obok siebie.
+            </p>
+
+            <h3>Co oznacza gap?</h3>
+
+            <pre><code class="language-css">gap: 10px;</code></pre>
+
+            <p>
+                Tworzy odstępy
+                między pozycjami menu.
+            </p>
+
+            <h3>Co oznacza justify-content?</h3>
+
+            <pre><code class="language-css">justify-content: center;</code></pre>
+
+            <p>
+                W tym przykładzie
+                wyśrodkowuje pozycje menu
+                wzdłuż osi poziomej.
+            </p>
+
+            <h3>Co oznacza flex-wrap?</h3>
+
+            <pre><code class="language-css">flex-wrap: wrap;</code></pre>
+
+            <p>
+                Pozwala przenosić pozycje
+                menu do kolejnego wiersza,
+                jeśli brakuje miejsca.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Ważne</h3>
+                <p>
+                    Flexbox zostanie szczegółowo
+                    omówiony w osobnej lekcji.
+                    Na tym etapie wykorzystujemy
+                    jego podstawowe właściwości
+                    do stworzenia menu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 15 -->
+
+        <section id="menu-aktywne">
+
+            <h2>15. Wyróżnienie aktywnej pozycji menu</h2>
+
+            <p>
+                Aktywna pozycja menu
+                informuje użytkownika,
+                na której stronie
+                lub w której części serwisu
+                aktualnie się znajduje.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu-glowne"&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;
+            &lt;a href="index.html"
+               class="aktywna"
+               aria-current="page"&gt;
+                Start
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="oferta.html"&gt;
+                Oferta
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            &lt;a href="kontakt.html"&gt;
+                Kontakt
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu-glowne a {
+    display: block;
+
+    padding: 12px 20px;
+
+    color: white;
+    text-decoration: none;
+}
+
+.menu-glowne a:hover {
+    background-color: #2563EB;
+}
+
+.menu-glowne a.aktywna {
+    background-color: #F59E0B;
+    color: #111827;
+
+    font-weight: bold;
+}</code></pre>
+
+            <h3>Do czego służy klasa aktywna?</h3>
+
+            <p>
+                Pozwala nadać
+                wyróżniony wygląd
+                wybranemu odnośnikowi.
+            </p>
+
+            <h3>Do czego służy aria-current="page"?</h3>
+
+            <p>
+                Informuje technologie
+                wspomagające, że odnośnik
+                wskazuje aktualną stronę.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Uwaga</h3>
+                <p>
+                    Klasa <code>aktywna</code>
+                    nie zmienia się automatycznie
+                    po kliknięciu odnośnika.
+                    Na osobnych podstronach
+                    trzeba odpowiednio oznaczyć
+                    bieżącą pozycję menu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 16 -->
+
+        <section id="menu-sticky">
+
+            <h2>16. Przyklejone menu – position: sticky</h2>
+
+            <p>
+                Menu może pozostawać
+                widoczne podczas
+                przewijania strony.
+            </p>
+
+            <p>
+                Wykorzystujemy do tego
+                właściwość
+                <code>position: sticky</code>.
+            </p>
+
+            <h3>HTML</h3>
+
+            <pre><code class="language-html">&lt;nav class="menu-sticky"&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#start"&gt;Start&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#oferta"&gt;Oferta&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <h3>CSS</h3>
+
+            <pre><code class="language-css">.menu-sticky {
+    position: sticky;
+
+    top: 0;
+    z-index: 100;
+
+    background-color: #1E3A8A;
+}
+
+.menu-sticky ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 10px;
+}
+
+.menu-sticky a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: white;
+    text-decoration: none;
+}</code></pre>
+
+            <h3>Dlaczego top: 0?</h3>
+
+            <p>
+                Określa granicę
+                przyklejenia menu
+                do górnej krawędzi
+                odpowiedniego obszaru przewijania.
+            </p>
+
+            <h3>Dlaczego z-index: 100?</h3>
+
+            <p>
+                Pomaga utrzymać
+                menu nad zwykłą
+                zawartością strony
+                w odpowiednim
+                kontekście nakładania.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>position: sticky</code>
+                    pozwala przygotować
+                    przyklejone menu
+                    bez użycia JavaScriptu.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 17 -->
+
+        <section id="responsywne">
+
+            <h2>17. Responsywne menu nawigacyjne</h2>
+
+            <p>
+                Responsywne menu
+                dostosowuje swój wygląd
+                do rozmiaru ekranu.
+            </p>
+
+            <p>
+                Na dużym ekranie
+                pozycje menu mogą
+                znajdować się obok siebie.
+            </p>
+
+            <p>
+                Na małym ekranie
+                można ustawić je
+                jedna pod drugą.
+            </p>
+
+            <h3>Menu na większym ekranie</h3>
+
+            <pre><code class="language-css">.menu ul {
+    display: flex;
+
+    justify-content: center;
+    gap: 10px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 10px;
+}</code></pre>
+
+            <h3>Zmiana układu na telefonie</h3>
+
+            <pre><code class="language-css">@media (max-width: 600px) {
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu a {
+        display: block;
+        text-align: center;
+    }
+
+}</code></pre>
+
+            <h3>Co oznacza max-width: 600px?</h3>
+
+            <p>
+                Reguły wewnątrz
+                <code>@media</code>
+                zostaną zastosowane,
+                gdy szerokość obszaru
+                wyświetlania nie przekracza 600 px.
+            </p>
+
+            <h3>Co oznacza flex-direction: column?</h3>
+
+            <p>
+                Elementy menu zostaną
+                ułożone pionowo.
+            </p>
+
+            <h3>Dlaczego to ważne?</h3>
+
+            <p>
+                Dzięki temu menu
+                pozostaje czytelne
+                również na mniejszych ekranach.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Dobra praktyka</h3>
+                <p>
+                    Sprawdzaj działanie menu
+                    na ekranach o różnych
+                    szerokościach.
+                    Pozycje nie powinny
+                    nachodzić na siebie
+                    ani wychodzić poza ekran.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 18 -->
+
+        <section id="bledy">
+
+            <h2>18. Najczęstsze błędy</h2>
+
+            <h3>Błąd 1 – usunięcie znaczników bez usunięcia odstępów</h3>
+
+            <pre><code class="language-css">.menu ul {
+    list-style: none;
+}</code></pre>
+
+            <p>
+                Lista może nadal
+                posiadać domyślne
+                marginesy i padding.
+            </p>
+
+            <p>Lepszy zapis:</p>
+
+            <pre><code class="language-css">.menu ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}</code></pre>
+
+            <h3>Błąd 2 – stylowanie wszystkich list na stronie</h3>
+
+            <pre><code class="language-css">ul {
+    list-style: none;
+}</code></pre>
+
+            <p>
+                Ten selektor usunie znaczniki
+                ze wszystkich list
+                nieuporządkowanych,
+                także z tych,
+                które powinny pozostać punktowane.
+            </p>
+
+            <p>Lepszy zapis:</p>
+
+            <pre><code class="language-css">.menu ul {
+    list-style: none;
+}</code></pre>
+
+            <h3>Błąd 3 – brak efektu hover</h3>
+
+            <p>
+                Użytkownik może mieć
+                trudność z rozpoznaniem,
+                który odnośnik
+                jest wskazywany kursorem.
+            </p>
+
+            <pre><code class="language-css">.menu a:hover {
+    background-color: #2563EB;
+}</code></pre>
+
+            <h3>Błąd 4 – usunięcie widocznego fokusu</h3>
+
+            <pre><code class="language-css">a:focus {
+    outline: none;
+}</code></pre>
+
+            <p>
+                Taki zapis bez
+                odpowiedniego zamiennika
+                utrudnia korzystanie
+                z nawigacji klawiaturą.
+            </p>
+
+            <p>Lepszy zapis:</p>
+
+            <pre><code class="language-css">.menu a:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+}</code></pre>
+
+            <h3>Błąd 5 – odnośniki bez prawidłowego href</h3>
+
+            <pre><code class="language-html">&lt;a href="#oferta"&gt;Oferta&lt;/a&gt;</code></pre>
+
+            <p>
+                Taki odnośnik wymaga
+                istnienia elementu
+                o identyfikatorze
+                <code>oferta</code>.
+            </p>
+
+            <pre><code class="language-html">&lt;section id="oferta"&gt;
+    &lt;h2&gt;Oferta&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            <h3>Błąd 6 – zbyt mały obszar klikania</h3>
+
+            <p>
+                Jeśli odnośnik
+                jest bardzo mały,
+                może być niewygodny
+                w obsłudze na telefonie.
+            </p>
+
+            <p>
+                Warto dodać padding
+                i zastosować
+                <code>display: block</code>.
+            </p>
+
+            <h3>Błąd 7 – brak responsywności</h3>
+
+            <p>
+                Poziome menu
+                z dużą liczbą pozycji
+                może nie mieścić się
+                na wąskim ekranie.
+            </p>
+
+            <p>
+                Można zastosować
+                <code>flex-wrap</code>
+                lub zmianę kierunku
+                za pomocą <code>@media</code>.
+            </p>
+
+            <h3>Błąd 8 – zbyt słaby kontrast</h3>
+
+            <p>
+                Kolor tekstu i tła
+                powinny być dobrane
+                tak, aby odnośniki
+                były czytelne.
+            </p>
+
+            <div class="remember">
+                <h3>📌 Wskazówka</h3>
+                <p>
+                    Podczas tworzenia menu
+                    sprawdzaj nie tylko wygląd,
+                    ale także działanie
+                    wszystkich odnośników
+                    oraz obsługę klawiaturą.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- 19 -->
+
+        <section id="przyklad">
+
+            <h2>19. Kompletny przykład – strona z menu nawigacyjnym</h2>
+
+            <p>
+                Przygotujemy stronę
+                <strong>„Moje kursy IT”</strong>,
+                zawierającą:
+            </p>
+
+            <ul>
+                <li>poziome menu nawigacyjne,</li>
+                <li>zmianę wyglądu odnośników po najechaniu myszą,</li>
+                <li>wyróżnioną pozycję menu,</li>
+                <li>listę punktowaną z własnymi znacznikami,</li>
+                <li>listę numerowaną,</li>
+                <li>odnośnik wyglądający jak przycisk,</li>
+                <li>responsywne menu na mniejszych ekranach.</li>
+            </ul>
+
+            <h3>Struktura projektu</h3>
+
+            <pre><code class="language-text">projekt/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+            <h3>Plik index.html</h3>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Moje kursy IT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header id="start"&gt;
+
+        &lt;h1&gt;Moje kursy IT&lt;/h1&gt;
+
+        &lt;p&gt;
+            Rozwijaj swoje umiejętności
+            programowania.
+        &lt;/p&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav class="menu"
+         aria-label="Menu główne"&gt;
+
+        &lt;ul&gt;
+
+            &lt;li&gt;
+                &lt;a href="#start" class="aktywna"&gt;
+                    Start
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#oferta"&gt;
+                    Oferta
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#zalety"&gt;
+                    Zalety
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href="#kontakt"&gt;
+                    Kontakt
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section class="powitanie"&gt;
+
+            &lt;h2&gt;Witaj na naszej stronie!&lt;/h2&gt;
+
+            &lt;p&gt;
+                Poznaj podstawy tworzenia
+                nowoczesnych stron WWW.
+            &lt;/p&gt;
+
+            &lt;a href="#oferta" class="przycisk"&gt;
+                Zobacz ofertę
+            &lt;/a&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="oferta"&gt;
+
+            &lt;h2&gt;Nasza oferta&lt;/h2&gt;
+
+            &lt;ul class="lista-kursow"&gt;
+
+                &lt;li&gt;HTML5 – struktura strony&lt;/li&gt;
+
+                &lt;li&gt;CSS3 – wygląd strony&lt;/li&gt;
+
+                &lt;li&gt;JavaScript – interaktywność&lt;/li&gt;
+
+            &lt;/ul&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="zalety"&gt;
+
+            &lt;h2&gt;Dlaczego warto się uczyć?&lt;/h2&gt;
+
+            &lt;ul class="lista-zalety"&gt;
+
+                &lt;li&gt;Rozwijasz umiejętności praktyczne.&lt;/li&gt;
+
+                &lt;li&gt;Tworzysz własne projekty.&lt;/li&gt;
+
+                &lt;li&gt;Poznajesz technologie internetowe.&lt;/li&gt;
+
+            &lt;/ul&gt;
+
+        &lt;/section&gt;
+
+        &lt;section class="etapy"&gt;
+
+            &lt;h2&gt;Etapy nauki&lt;/h2&gt;
+
+            &lt;ol&gt;
+
+                &lt;li&gt;Poznaj podstawy HTML.&lt;/li&gt;
+
+                &lt;li&gt;Naucz się formatowania CSS.&lt;/li&gt;
+
+                &lt;li&gt;Dodaj interaktywność JavaScript.&lt;/li&gt;
+
+            &lt;/ol&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="kontakt"&gt;
+
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+
+            &lt;p&gt;
+                Masz pytania dotyczące kursów?
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                Napisz:
+                &lt;a href="mailto:kontakt@example.com"&gt;
+                    kontakt@example.com
+                &lt;/a&gt;
+            &lt;/p&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;© 2026 Moje kursy IT&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            <h3>Plik style.css</h3>
+
+            <pre><code class="language-css">/* Model pudełkowy */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Płynne przewijanie */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* Strona */
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #1F2937;
+    background-color: #F1F5F9;
+}
+
+/* Nagłówek */
+
+header {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* Menu główne */
+
+.menu {
+    position: sticky;
+
+    top: 0;
+    z-index: 100;
+
+    background-color: #172554;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 8px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 12px;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    display: block;
+
+    padding: 12px 20px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: background-color 0.2s;
+}
+
+.menu a:hover {
+    background-color: #2563EB;
+}
+
+.menu a:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 2px;
+}
+
+.menu a.aktywna {
+    background-color: #F59E0B;
+    color: #111827;
+
+    font-weight: bold;
+}
+
+/* Zawartość */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 30px auto;
+}
+
+main section {
+    padding: 30px;
+    margin-bottom: 25px;
+
+    background-color: white;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+}
+
+main h2 {
+    color: #1E3A8A;
+}
+
+/* Powitanie */
+
+.powitanie {
+    text-align: center;
+}
+
+/* Odnośnik jako przycisk */
+
+.przycisk {
+    display: inline-block;
+
+    padding: 12px 24px;
+    margin-top: 15px;
+
+    color: white;
+    background-color: #2563EB;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 8px;
+}
+
+.przycisk:hover {
+    background-color: #1D4ED8;
+}
+
+.przycisk:focus-visible {
+    outline: 3px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+/* Lista kursów */
+
+.lista-kursow {
+    list-style-type: square;
+
+    padding-left: 30px;
+}
+
+.lista-kursow li {
+    padding: 10px;
+    margin-bottom: 10px;
+
+    background-color: #DBEAFE;
+
+    border-left: 4px solid #2563EB;
+    border-radius: 5px;
+}
+
+.lista-kursow li::marker {
+    color: #DC2626;
+}
+
+/* Lista zalet */
+
+.lista-zalety {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.lista-zalety li {
+    padding: 10px 0;
+}
+
+.lista-zalety li::before {
+    content: "✓";
+
+    margin-right: 10px;
+
+    color: #16A34A;
+    font-weight: bold;
+}
+
+/* Lista numerowana */
+
+.etapy ol {
+    list-style-type: upper-roman;
+
+    padding-left: 35px;
+}
+
+.etapy li {
+    margin-bottom: 10px;
+}
+
+.etapy li::marker {
+    color: #2563EB;
+    font-weight: bold;
+}
+
+/* Odnośniki w treści */
+
+main p a:not(.przycisk) {
+    color: #1D4ED8;
+    text-decoration: underline;
+}
+
+main p a:not(.przycisk):hover {
+    color: #DC2626;
+}
+
+/* Stopka */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+    background-color: #1E3A8A;
+}
+
+/* Menu na telefonie */
+
+@media (max-width: 600px) {
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    main section {
+        padding: 20px;
+    }
+
+}</code></pre>
+
+            <h3>Analiza zastosowanych właściwości</h3>
+
+            <table>
+                <tr>
+                    <th>Właściwość</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td><code>list-style: none</code></td>
+                    <td>Usunięcie znaczników listy w menu.</td>
+                </tr>
+                <tr>
+                    <td><code>display: flex</code></td>
+                    <td>Poziome rozmieszczenie pozycji menu.</td>
+                </tr>
+                <tr>
+                    <td><code>display: block</code></td>
+                    <td>Powiększenie obszaru klikania odnośników.</td>
+                </tr>
+                <tr>
+                    <td><code>:hover</code></td>
+                    <td>Zmiana wyglądu odnośnika po wskazaniu kursorem.</td>
+                </tr>
+                <tr>
+                    <td><code>:focus-visible</code></td>
+                    <td>Wyróżnienie odnośnika podczas nawigacji klawiaturą.</td>
+                </tr>
+                <tr>
+                    <td><code>::marker</code></td>
+                    <td>Zmiana wyglądu znacznika listy.</td>
+                </tr>
+                <tr>
+                    <td><code>::before</code></td>
+                    <td>Dodanie własnego symbolu przed elementem listy.</td>
+                </tr>
+                <tr>
+                    <td><code>position: sticky</code></td>
+                    <td>Przyklejenie menu podczas przewijania.</td>
+                </tr>
+                <tr>
+                    <td><code>@media</code></td>
+                    <td>Zmiana układu menu na małym ekranie.</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- ZAPAMIĘTAJ -->
+
+        <section id="zapamietaj">
+
+            <div class="remember">
+
+                <h2>📌 Zapamiętaj</h2>
+
+                <ul>
+
+                    <li>
+                        Listy HTML można
+                        formatować za pomocą CSS.
+                    </li>
+
+                    <li>
+                        <code>list-style-type</code>
+                        określa rodzaj znacznika listy.
+                    </li>
+
+                    <li>
+                        <code>list-style-position</code>
+                        określa położenie znacznika.
+                    </li>
+
+                    <li>
+                        <code>list-style-image</code>
+                        umożliwia użycie obrazu
+                        jako znacznika listy.
+                    </li>
+
+                    <li>
+                        <code>list-style</code>
+                        jest właściwością skróconą.
+                    </li>
+
+                    <li>
+                        <code>list-style: none</code>
+                        usuwa widoczne znaczniki listy.
+                    </li>
+
+                    <li>
+                        Usunięcie znaczników
+                        nie usuwa automatycznie
+                        marginesów i paddingu.
+                    </li>
+
+                    <li>
+                        <code>::marker</code>
+                        pozwala stylizować
+                        znacznik listy.
+                    </li>
+
+                    <li>
+                        <code>::before</code>
+                        może dodawać własne
+                        symbole przed elementami.
+                    </li>
+
+                    <li>
+                        Odnośniki HTML tworzymy
+                        za pomocą znacznika
+                        <code>a</code>.
+                    </li>
+
+                    <li>
+                        <code>text-decoration</code>
+                        pozwala zmieniać
+                        dekorację odnośników.
+                    </li>
+
+                    <li>
+                        <code>:link</code>
+                        dotyczy nieodwiedzonych
+                        odnośników.
+                    </li>
+
+                    <li>
+                        <code>:visited</code>
+                        dotyczy odwiedzonych
+                        adresów.
+                    </li>
+
+                    <li>
+                        <code>:hover</code>
+                        reaguje na wskazanie
+                        elementu kursorem.
+                    </li>
+
+                    <li>
+                        <code>:active</code>
+                        dotyczy elementu
+                        podczas jego aktywowania.
+                    </li>
+
+                    <li>
+                        <code>:focus-visible</code>
+                        pomaga wyróżnić
+                        element podczas
+                        nawigacji klawiaturą.
+                    </li>
+
+                    <li>
+                        Menu nawigacyjne
+                        można utworzyć
+                        za pomocą
+                        <code>nav</code>,
+                        <code>ul</code>,
+                        <code>li</code>
+                        i <code>a</code>.
+                    </li>
+
+                    <li>
+                        <code>display: block</code>
+                        pozwala powiększyć
+                        obszar klikania odnośnika.
+                    </li>
+
+                    <li>
+                        <code>display: flex</code>
+                        ułatwia tworzenie
+                        poziomego menu.
+                    </li>
+
+                    <li>
+                        <code>gap</code>
+                        tworzy odstępy
+                        między elementami Flexbox.
+                    </li>
+
+                    <li>
+                        <code>position: sticky</code>
+                        pozwala przykleić
+                        menu podczas przewijania.
+                    </li>
+
+                    <li>
+                        <code>@media</code>
+                        umożliwia zmianę
+                        układu menu
+                        na mniejszych ekranach.
+                    </li>
+
+                    <li>
+                        Wszystkie odnośniki
+                        w menu powinny
+                        prowadzić do istniejących
+                        stron lub sekcji.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ZADANIA -->
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania praktyczne</h2>
+
+            <p>
+                <strong>Cel:</strong>
+                formatowanie list i odnośników
+                oraz przygotowanie
+                własnego menu nawigacyjnego
+                za pomocą CSS.
+            </p>
+
+            <p>
+                Utwórz folder
+                <code>PSI_29</code>,
+                a w nim pliki
+                <code>index.html</code>
+                i <code>style.css</code>.
+            </p>
+
+            <p>
+                <strong>
+                    Wszystkie zadania wykonaj
+                    w ramach jednej strony WWW.
+                    Każde kolejne zadanie
+                    rozbudowuje ten sam projekt.
+                </strong>
+            </p>
+
+            <h3>Zadanie 1 – Formatowanie list</h3>
+
+            <p>
+                Utwórz stronę
+                <strong>„Moje zainteresowania”</strong>.
+            </p>
+
+            <ol>
+                <li>Przygotuj poprawny dokument HTML5.</li>
+                <li>Podłącz zewnętrzny arkusz <code>style.css</code>.</li>
+                <li>Dodaj nagłówek z tytułem strony.</li>
+                <li>Utwórz listę punktowaną zawierającą minimum pięć zainteresowań.</li>
+                <li>Utwórz listę numerowaną z pięcioma czynnościami związanymi z wybranym zainteresowaniem.</li>
+                <li>Liście punktowanej ustaw znaczniki <code>square</code>.</li>
+                <li>Liście numerowanej ustaw <code>upper-roman</code>.</li>
+                <li>Zmień kolor znaczników za pomocą <code>::marker</code>.</li>
+                <li>Dodaj odstępy między elementami list.</li>
+            </ol>
+
+            <h3>Zadanie 2 – Lista z własnymi znacznikami</h3>
+
+            <p>
+                Dodaj sekcję
+                <strong>„Moje umiejętności”</strong>.
+            </p>
+
+            <ol>
+                <li>Utwórz listę zawierającą minimum cztery umiejętności.</li>
+                <li>Nadaj jej własną klasę CSS.</li>
+                <li>Usuń domyślne znaczniki za pomocą <code>list-style: none</code>.</li>
+                <li>Usuń domyślne marginesy i padding.</li>
+                <li>Dodaj symbol ✓ przed każdym elementem za pomocą <code>::before</code>.</li>
+                <li>Ustaw zielony kolor symboli.</li>
+                <li>Dodaj odstępy między symbolami a tekstem.</li>
+                <li>Ustaw kolor tła i obramowanie elementów listy.</li>
+            </ol>
+
+            <h3>Zadanie 3 – Formatowanie odnośników</h3>
+
+            <p>
+                Dodaj sekcję
+                <strong>„Przydatne strony”</strong>.
+            </p>
+
+            <ol>
+                <li>Dodaj minimum trzy odnośniki do stron związanych z Twoimi zainteresowaniami.</li>
+                <li>Ustaw własny kolor odnośników.</li>
+                <li>Zmień grubość tekstu za pomocą <code>font-weight</code>.</li>
+                <li>Dodaj efekt <code>:hover</code>, który zmienia kolor tekstu.</li>
+                <li>Dodaj podkreślenie pojawiające się po wskazaniu kursorem.</li>
+                <li>Dodaj widoczny styl <code>:focus-visible</code>.</li>
+                <li>Sprawdź działanie odnośników.</li>
+                <li>Sprawdź, czy można przechodzić między nimi klawiszem Tab.</li>
+            </ol>
+
+            <h3>Zadanie 4 – Poziome menu nawigacyjne</h3>
+
+            <p>
+                Przygotuj menu
+                umożliwiające poruszanie się
+                po sekcjach strony.
+            </p>
+
+            <ol>
+                <li>Dodaj element <code>nav</code> pod nagłówkiem strony.</li>
+                <li>Wewnątrz utwórz listę <code>ul</code>.</li>
+                <li>Dodaj pozycje: Start, Zainteresowania, Umiejętności, Przydatne strony.</li>
+                <li>Każda pozycja powinna zawierać odnośnik do odpowiedniej sekcji.</li>
+                <li>Dodaj odpowiednie identyfikatory sekcji.</li>
+                <li>Usuń znaczniki listy oraz domyślne marginesy i padding.</li>
+                <li>Ustaw <code>display: flex</code> dla listy menu.</li>
+                <li>Dodaj odstępy między pozycjami za pomocą <code>gap</code>.</li>
+                <li>Odnośnikom ustaw <code>display: block</code> i odpowiedni padding.</li>
+                <li>Dodaj kolor tła menu i efekt <code>:hover</code>.</li>
+            </ol>
+
+            <h3>Zadanie 5 – Menu sticky i responsywność</h3>
+
+            <p>
+                Rozbuduj przygotowane menu.
+            </p>
+
+            <ol>
+                <li>Ustaw <code>position: sticky</code> dla elementu <code>nav</code>.</li>
+                <li>Dodaj <code>top: 0</code>.</li>
+                <li>Dodaj odpowiednią wartość <code>z-index</code>.</li>
+                <li>Wyróżnij pierwszą pozycję menu własną klasą CSS.</li>
+                <li>Dodaj regułę <code>@media (max-width: 600px)</code>.</li>
+                <li>Na małym ekranie ustaw menu pionowo za pomocą <code>flex-direction: column</code>.</li>
+                <li>Wyśrodkuj tekst odnośników na małych ekranach.</li>
+                <li>Sprawdź działanie menu podczas przewijania.</li>
+                <li>Sprawdź wygląd strony na wąskim ekranie.</li>
+            </ol>
+
+            <h3>Zadanie 6 – Odnośnik jako przycisk (dodatkowe)</h3>
+
+            <p>
+                Dodaj do strony
+                wyróżniony odnośnik
+                prowadzący do wybranej sekcji.
+            </p>
+
+            <ol>
+                <li>Dodaj odnośnik z tekstem „Poznaj moje zainteresowania”.</li>
+                <li>Ustaw adres odnośnika na identyfikator odpowiedniej sekcji.</li>
+                <li>Nadaj mu klasę <code>przycisk</code>.</li>
+                <li>Zastosuj <code>display: inline-block</code>.</li>
+                <li>Dodaj padding, kolor tła i zaokrąglenie narożników.</li>
+                <li>Usuń podkreślenie odnośnika.</li>
+                <li>Dodaj efekt <code>:hover</code>.</li>
+                <li>Dodaj widoczny efekt <code>:focus-visible</code>.</li>
+                <li>Sprawdź działanie odnośnika.</li>
+            </ol>
+
+            <div class="remember">
+
+                <h3>📁 Wymagana struktura projektu</h3>
+
+                <pre><code class="language-text">PSI_29/
+|
+|-- index.html
+|
+|-- style.css</code></pre>
+
+                <p>
+                    Wszystkie zadania wykonaj
+                    w jednym pliku HTML
+                    i jednym arkuszu CSS.
+                </p>
+
+            </div>
+
+            <div class="important">
+
+                <h3>📤 Oddanie pracy</h3>
+
+                <p>
+                    Spakuj cały folder
+                    <code>PSI_29</code>
+                    do archiwum ZIP
+                    i prześlij na odpowiednie
+                    <strong>Zadanie w Teams</strong>.
+                </p>
+
+                <p>
+                    Przed oddaniem pracy sprawdź:
+                    formatowanie list,
+                    działanie odnośników,
+                    efekty hover,
+                    działanie menu,
+                    przyklejanie podczas przewijania
+                    oraz wygląd na małym ekranie.
+                </p>
+
+                <p>
+                    <strong>
+                        Teksty i zainteresowania
+                        przedstawione na stronie
+                        powinny być własne.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PSI • LEKCJA 29
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
