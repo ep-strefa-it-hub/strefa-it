@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 46 – Obraz cyfrowy | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <h1>STREFA IT</h1>
+    <p>Projektowanie stron internetowych</p>
+</header>
+
+<nav>
+    <div>
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Obraz cyfrowy</a>
+        <a href="#piksel">2. Piksel</a>
+        <a href="#wymiary">3. Wymiary obrazu</a>
+        <a href="#rozdzielczosc">4. Rozdzielczość</a>
+        <a href="#proporcje">5. Proporcje obrazu</a>
+        <a href="#modele">6. Modele barw</a>
+        <a href="#kolory">7. Zapis koloru</a>
+        <a href="#gimp">8. Narzędzia GIMP</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#cwiczenia">📝 Ćwiczenia</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 46 • GRAFIKA WWW
+            </div>
+
+            <h2>
+                Obraz cyfrowy – rozdzielczość, wymiary,
+                proporcje, modele barw i sposoby zapisu koloru
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                poznanie podstawowych parametrów obrazu cyfrowego
+                oraz ich sprawdzanie i modyfikowanie
+                w programie GIMP 3.x.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Czym jest obraz cyfrowy?</h2>
+
+            <p>
+                <strong>Obraz cyfrowy</strong> to obraz zapisany
+                w postaci danych komputerowych.
+                W grafice rastrowej składa się z pikseli
+                rozmieszczonych w wierszach i kolumnach.
+            </p>
+
+            <p>
+                Każdy obraz rastrowy ma określone parametry:
+            </p>
+
+            <ul>
+                <li>wymiary w pikselach,</li>
+                <li>proporcje szerokości do wysokości,</li>
+                <li>rozdzielczość,</li>
+                <li>model barw,</li>
+                <li>głębię kolorów,</li>
+                <li>format zapisu.</li>
+            </ul>
+
+            <p>
+                Parametry te mają znaczenie podczas
+                przygotowywania grafik na strony WWW
+                oraz podczas wykonywania zadań INF.03.
+            </p>
+        </section>
+
+        <section id="piksel">
+            <h2>2. Piksel – podstawowy element obrazu</h2>
+
+            <p>
+                <strong>Piksel (px)</strong> to najmniejszy
+                element obrazu rastrowego,
+                któremu przypisano określoną wartość koloru.
+            </p>
+
+            <p>
+                Przykładowo obraz o wymiarach
+                <strong>800 × 600 px</strong>
+                składa się z:
+            </p>
+
+            <p>
+                <strong>800 × 600 = 480 000 pikseli</strong>
+            </p>
+
+            <p>
+                Im więcej pikseli zawiera obraz,
+                tym więcej szczegółów może przedstawiać.
+                Nie oznacza to jednak automatycznie,
+                że jego jakość zawsze będzie lepsza.
+            </p>
+
+            <h3>Co się dzieje podczas powiększania?</h3>
+
+            <p>
+                Jeśli mały obraz rastrowy zostanie
+                znacznie powiększony, program musi
+                wyliczyć dodatkowe piksele.
+                Obraz może stać się rozmyty
+                lub niewyraźny.
+            </p>
+        </section>
+
+        <section id="wymiary">
+            <h2>3. Wymiary obrazu</h2>
+
+            <p>
+                Wymiary obrazu cyfrowego określa się
+                najczęściej w pikselach.
+            </p>
+
+            <p>
+                Zapis <strong>1200 × 800 px</strong> oznacza:
+            </p>
+
+            <ul>
+                <li>szerokość: 1200 pikseli,</li>
+                <li>wysokość: 800 pikseli.</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>Wymiary</th>
+                    <th>Przykładowe zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>150 × 150 px</td>
+                    <td>Miniatura lub mała ikona rastrowa</td>
+                </tr>
+                <tr>
+                    <td>800 × 600 px</td>
+                    <td>Zdjęcie w artykule</td>
+                </tr>
+                <tr>
+                    <td>1200 × 400 px</td>
+                    <td>Baner internetowy</td>
+                </tr>
+                <tr>
+                    <td>1920 × 1080 px</td>
+                    <td>Grafika panoramiczna</td>
+                </tr>
+            </table>
+
+            <p>
+                Są to przykładowe rozmiary.
+                Na egzaminie INF.03 należy stosować
+                dokładnie wymiary podane w poleceniu.
+            </p>
+        </section>
+
+        <section id="rozdzielczosc">
+            <h2>4. Rozdzielczość obrazu</h2>
+
+            <p>
+                W grafice komputerowej słowo
+                <strong>rozdzielczość</strong>
+                może oznaczać różne parametry.
+            </p>
+
+            <h3>Rozdzielczość w pikselach</h3>
+
+            <p>
+                Określa liczbę pikseli obrazu,
+                np. 1920 × 1080 px.
+                Jest szczególnie istotna
+                przy przygotowywaniu grafiki na strony WWW.
+            </p>
+
+            <h3>PPI – Pixels Per Inch</h3>
+
+            <p>
+                PPI oznacza liczbę pikseli
+                przypadających na jeden cal.
+                Parametr ten ma znaczenie m.in.
+                podczas ustalania fizycznych wymiarów
+                obrazu przeznaczonego do druku.
+            </p>
+
+            <h3>DPI – Dots Per Inch</h3>
+
+            <p>
+                DPI określa liczbę punktów drukarki
+                przypadających na cal.
+                Jest parametrem związanym przede wszystkim
+                z drukowaniem.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Zmiana wartości PPI z 72 na 300,
+                bez zmiany liczby pikseli,
+                nie zwiększa ilości szczegółów obrazu.
+
+                Na stronach WWW najważniejsze są
+                odpowiednie wymiary w pikselach
+                i rozmiar pliku.
+            </div>
+        </section>
+
+        <section id="proporcje">
+            <h2>5. Proporcje obrazu</h2>
+
+            <p>
+                <strong>Proporcje obrazu</strong>
+                określają stosunek szerokości do wysokości.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Proporcje</th>
+                    <th>Przykładowe wymiary</th>
+                </tr>
+                <tr>
+                    <td>1:1</td>
+                    <td>600 × 600 px</td>
+                </tr>
+                <tr>
+                    <td>4:3</td>
+                    <td>800 × 600 px</td>
+                </tr>
+                <tr>
+                    <td>16:9</td>
+                    <td>1920 × 1080 px</td>
+                </tr>
+                <tr>
+                    <td>3:2</td>
+                    <td>1200 × 800 px</td>
+                </tr>
+            </table>
+
+            <h3>Dlaczego zachowanie proporcji jest ważne?</h3>
+
+            <p>
+                Jeśli zmienimy szerokość obrazu,
+                ale nie zmienimy odpowiednio jego wysokości,
+                obraz może zostać rozciągnięty
+                lub spłaszczony.
+            </p>
+
+            <h3>Przykład egzaminacyjny</h3>
+
+            <p>
+                Obraz ma wymiary 800 × 600 px.
+                Należy zmniejszyć jego szerokość
+                do 400 px z zachowaniem proporcji.
+            </p>
+
+            <p>
+                Nowa wysokość wynosi:
+            </p>
+
+            <p>
+                <strong>600 × 400 / 800 = 300 px</strong>
+            </p>
+
+            <p>
+                Wynik: <strong>400 × 300 px</strong>.
+            </p>
+
+            <div class="important">
+                <strong>Uwaga:</strong>
+                w GIMP-ie podczas skalowania obrazu
+                należy zachować połączenie
+                szerokości i wysokości (symbol łańcucha).
+                Dzięki temu program automatycznie
+                obliczy drugi wymiar.
+            </div>
+        </section>
+
+        <section id="modele">
+            <h2>6. Modele barw</h2>
+
+            <h3>RGB</h3>
+
+            <p>
+                Model RGB wykorzystuje trzy składowe:
+            </p>
+
+            <ul>
+                <li>R – Red (czerwony),</li>
+                <li>G – Green (zielony),</li>
+                <li>B – Blue (niebieski).</li>
+            </ul>
+
+            <p>
+                W typowym 8-bitowym zapisie
+                każda składowa przyjmuje wartości
+                od 0 do 255.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Kolor</th>
+                    <th>RGB</th>
+                </tr>
+                <tr>
+                    <td>Czerwony</td>
+                    <td>255, 0, 0</td>
+                </tr>
+                <tr>
+                    <td>Zielony</td>
+                    <td>0, 255, 0</td>
+                </tr>
+                <tr>
+                    <td>Niebieski</td>
+                    <td>0, 0, 255</td>
+                </tr>
+                <tr>
+                    <td>Biały</td>
+                    <td>255, 255, 255</td>
+                </tr>
+                <tr>
+                    <td>Czarny</td>
+                    <td>0, 0, 0</td>
+                </tr>
+            </table>
+
+            <p>
+                Model RGB jest podstawowym modelem
+                stosowanym do wyświetlania obrazów
+                na monitorach i stronach WWW.
+            </p>
+
+            <h3>CMYK</h3>
+
+            <p>
+                Model CMYK wykorzystuje cztery składowe:
+            </p>
+
+            <ul>
+                <li>C – Cyan,</li>
+                <li>M – Magenta,</li>
+                <li>Y – Yellow,</li>
+                <li>K – Black.</li>
+            </ul>
+
+            <p>
+                CMYK jest stosowany przede wszystkim
+                w poligrafii i przygotowaniu materiałów
+                do druku.
+            </p>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                grafiki na strony WWW przygotowujemy
+                najczęściej w modelu RGB.
+                GIMP jest przede wszystkim edytorem RGB
+                i skali szarości.
+            </div>
+
+            <h3>Skala szarości</h3>
+
+            <p>
+                Obraz w skali szarości przedstawia
+                różne odcienie od czerni do bieli,
+                bez informacji o barwie.
+            </p>
+        </section>
+
+        <section id="kolory">
+            <h2>7. Sposoby zapisu koloru</h2>
+
+            <h3>Nazwy kolorów</h3>
+
+            <p>
+                W HTML i CSS można używać nazw kolorów,
+                np.:
+            </p>
+
+            <pre><code>red
+green
+blue
+white
+black</code></pre>
+
+            <h3>Zapis HEX</h3>
+
+            <p>
+                Kolor można zapisać w systemie
+                szesnastkowym.
+            </p>
+
+            <pre><code>#RRGGBB</code></pre>
+
+            <p>
+                Każda para znaków odpowiada
+                jednej składowej RGB.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Kolor</th>
+                    <th>HEX</th>
+                </tr>
+                <tr>
+                    <td>Czerwony</td>
+                    <td>#FF0000</td>
+                </tr>
+                <tr>
+                    <td>Zielony</td>
+                    <td>#00FF00</td>
+                </tr>
+                <tr>
+                    <td>Niebieski</td>
+                    <td>#0000FF</td>
+                </tr>
+                <tr>
+                    <td>Biały</td>
+                    <td>#FFFFFF</td>
+                </tr>
+                <tr>
+                    <td>Czarny</td>
+                    <td>#000000</td>
+                </tr>
+            </table>
+
+            <h3>Zapis RGB w CSS</h3>
+
+            <pre><code>color: rgb(255, 0, 0);
+background-color: rgb(51, 102, 153);</code></pre>
+
+            <h3>Przezroczystość – kanał alfa</h3>
+
+            <p>
+                Kanał alfa określa stopień
+                przezroczystości piksela.
+            </p>
+
+            <p>
+                W CSS można użyć np.:
+            </p>
+
+            <pre><code>background-color: rgba(255, 0, 0, 0.5);</code></pre>
+
+            <p>
+                W tym przykładzie ostatnia wartość
+                0.5 oznacza 50% krycia.
+            </p>
+        </section>
+
+        <section id="gimp">
+            <h2>8. Sprawdzanie parametrów obrazu w GIMP 3.x</h2>
+
+            <h3>Sprawdzanie wymiarów obrazu</h3>
+
+            <ol>
+                <li>Uruchom GIMP.</li>
+                <li>Otwórz dowolny obraz.</li>
+                <li>
+                    Wybierz <strong>Obraz → Właściwości obrazu</strong>.
+                </li>
+                <li>Odczytaj szerokość i wysokość.</li>
+                <li>Sprawdź pozostałe dostępne informacje.</li>
+            </ol>
+
+            <h3>Zmiana wymiarów obrazu</h3>
+
+            <ol>
+                <li>Otwórz obraz w GIMP-ie.</li>
+                <li>Wybierz <strong>Obraz → Skaluj obraz</strong>.</li>
+                <li>Sprawdź symbol łańcucha przy wymiarach.</li>
+                <li>Wpisz nową szerokość w pikselach.</li>
+                <li>
+                    Naciśnij Tab, aby program
+                    przeliczył wysokość.
+                </li>
+                <li>Kliknij <strong>Skaluj</strong>.</li>
+            </ol>
+
+            <h3>Zmiana modelu barw</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>Wybierz <strong>Obraz → Tryb</strong>.</li>
+                <li>Sprawdź dostępne tryby.</li>
+                <li>
+                    Wybierz <strong>Odcienie szarości</strong>,
+                    aby zobaczyć efekt.
+                </li>
+                <li>
+                    Aby powrócić do koloru,
+                    wybierz <strong>Obraz → Tryb → RGB</strong>.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Uwaga:</strong>
+                samo przełączenie obrazu ze skali szarości
+                z powrotem na RGB nie przywróci
+                utraconych kolorów.
+                W tym celu należy użyć Cofnij
+                albo ponownie otworzyć oryginał.
+            </p>
+
+            <h3>Wpisywanie koloru HEX</h3>
+
+            <ol>
+                <li>
+                    Kliknij próbkę koloru pierwszoplanowego
+                    w przyborniku GIMP-a.
+                </li>
+                <li>
+                    W oknie wyboru koloru znajdź
+                    pole zapisu HTML/HEX.
+                </li>
+                <li>Wpisz <code>#336699</code>.</li>
+                <li>Zatwierdź wybór.</li>
+                <li>
+                    Wybrany kolor możesz wykorzystać
+                    do wypełnienia lub rysowania.
+                </li>
+            </ol>
+        </section>
+
+        <section id="zapamietaj">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Obraz rastrowy składa się z pikseli.</li>
+                <li>Wymiary obrazu podaje się w pikselach.</li>
+                <li>
+                    Zachowanie proporcji zapobiega
+                    rozciąganiu obrazu.
+                </li>
+                <li>
+                    PPI i DPI nie oznaczają tego samego.
+                </li>
+                <li>
+                    RGB jest podstawowym modelem barw
+                    wykorzystywanym na stronach WWW.
+                </li>
+                <li>CMYK stosuje się głównie w druku.</li>
+                <li>Kolor można zapisać jako HEX lub RGB.</li>
+                <li>Kanał alfa odpowiada za przezroczystość.</li>
+            </ul>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>📝 Ćwiczenia praktyczne – GIMP 3.x</h2>
+
+            <p>
+                Ćwiczenia są wzorowane na rodzaju operacji
+                spotykanych w części „Cechy grafiki”
+                arkuszy INF.03.
+            </p>
+
+            <h3>Ćwiczenie 1. Parametry obrazu cyfrowego</h3>
+
+            <p>
+                <strong>Cel:</strong>
+                odczytywanie parametrów obrazu.
+            </p>
+
+            <ol>
+                <li>
+                    Otwórz w GIMP-ie fotografię
+                    otrzymaną od nauczyciela.
+                </li>
+                <li>
+                    Otwórz okno właściwości obrazu.
+                </li>
+                <li>
+                    Odczytaj szerokość i wysokość w pikselach.
+                </li>
+                <li>
+                    Oblicz całkowitą liczbę pikseli.
+                </li>
+                <li>
+                    Ustal proporcje obrazu.
+                </li>
+                <li>
+                    Sprawdź rozdzielczość X i Y,
+                    jeśli jest dostępna.
+                </li>
+                <li>
+                    Zapisz odczytane informacje
+                    w pliku <code>cw1_parametry.txt</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 2. Skalowanie z zachowaniem proporcji</h3>
+
+            <p>
+                <strong>Specyfikacja zadania:</strong>
+            </p>
+
+            <ul>
+                <li>obraz źródłowy: 800 × 600 px,</li>
+                <li>szerokość wynikowa: 400 px,</li>
+                <li>zachowane proporcje obrazu,</li>
+                <li>format wynikowy: JPG,</li>
+                <li>nazwa pliku: <code>cw2_obraz.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Utwórz w GIMP-ie nowy obraz
+                    o wymiarach 800 × 600 px.
+                </li>
+                <li>
+                    Wypełnij go dowolnym kolorem
+                    i dodaj duży napis „GRAFIKA WWW”.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw2_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość na 400 px,
+                    zachowując proporcje.
+                </li>
+                <li>
+                    Sprawdź, czy wysokość wynosi 300 px.
+                </li>
+                <li>
+                    Wyeksportuj plik jako
+                    <code>cw2_obraz.jpg</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 3. Kolory RGB i HEX</h3>
+
+            <p>
+                <strong>Specyfikacja zadania:</strong>
+            </p>
+
+            <ul>
+                <li>wymiary: 600 × 300 px,</li>
+                <li>tło: <code>#336699</code>,</li>
+                <li>tekst: „STREFA IT”,</li>
+                <li>kolor tekstu: <code>#FFFFFF</code>,</li>
+                <li>format: PNG.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Utwórz nowy obraz 600 × 300 px.
+                </li>
+                <li>
+                    Ustaw kolor pierwszoplanowy
+                    na <code>#336699</code>.
+                </li>
+                <li>
+                    Wypełnij nim tło obrazu.
+                </li>
+                <li>
+                    Narzędziem Tekst wpisz
+                    „STREFA IT”.
+                </li>
+                <li>
+                    Ustaw kolor tekstu na biały
+                    <code>#FFFFFF</code>.
+                </li>
+                <li>
+                    Umieść napis w widocznym miejscu.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw3_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw3_kolory.png</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 4. Zmiana wymiarów według specyfikacji INF.03</h3>
+
+            <p>
+                <strong>Specyfikacja zadania:</strong>
+            </p>
+
+            <ul>
+                <li>obraz źródłowy: 1000 × 600 px,</li>
+                <li>nowa szerokość: dokładnie 350 px,</li>
+                <li>proporcje: zachowane,</li>
+                <li>format: JPG,</li>
+                <li>nazwa: <code>cw4_grafika.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Utwórz nowy obraz 1000 × 600 px.
+                </li>
+                <li>
+                    Dodaj do niego dowolne elementy
+                    graficzne lub tekst.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw4_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość 350 px
+                    przy połączonych wymiarach.
+                </li>
+                <li>
+                    Sprawdź, czy wysokość wynosi 210 px.
+                </li>
+                <li>
+                    Wyeksportuj wynik jako
+                    <code>cw4_grafika.jpg</code>.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Kontrola poprawności:</strong>
+                sprawdź wymiary wyeksportowanego pliku,
+                a nie tylko wartości wpisane
+                w oknie skalowania.
+
+                W egzaminie INF.03 liczy się
+                zgodność pliku wynikowego
+                z wymaganiami arkusza.
+            </div>
+        </section>
+
+        <section id="oddanie">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Utwórz folder:
+                <code>PSI_46_Nazwisko_Imie</code>.
+            </p>
+
+            <p>Umieść w nim następujące pliki:</p>
+
+            <ul>
+                <li><code>cw1_parametry.txt</code></li>
+                <li><code>cw2_projekt.xcf</code></li>
+                <li><code>cw2_obraz.jpg</code></li>
+                <li><code>cw3_projekt.xcf</code></li>
+                <li><code>cw3_kolory.png</code></li>
+                <li><code>cw4_projekt.xcf</code></li>
+                <li><code>cw4_grafika.jpg</code></li>
+            </ul>
+
+            <p>
+                <strong>
+                    Spakuj cały folder do ZIP
+                    i prześlij na Zadanie w Teams.
+                </strong>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 46
+</footer>
+
+</body>
+</html>
