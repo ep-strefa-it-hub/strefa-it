@@ -760,109 +760,309 @@ pre[class*="language-"] {
 }
 
 
-/* ROZWIJANE DZIAŁY PSI */
 
-.dzial {
-    margin-bottom: 16px;
-    border: 1px solid #dbe3ee;
-    border-radius: 12px;
-    background-color: #ffffff;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+/* =========================================
+   PSI – NOWOCZESNE ROZWIJANE DZIAŁY LEKCJI
+   ========================================= */
+
+:root {
+    --psi-tekst: #142b46;
+    --psi-opis: #55708b;
+    --psi-obramowanie: #dce6ee;
+    --psi-cien: 0 4px 16px rgba(31, 60, 85, 0.05);
 }
 
-/* Nagłówek rozwijanej listy */
-.dzial summary {
-    padding: 20px 24px;
-    background-color: #f1f5f9;
-    color: #1e3a8a;
-    font-size: 19px;
-    font-weight: bold;
-    cursor: pointer;
+/* Cały dział */
+.dzial {
+    margin: 0 0 12px;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid var(--psi-obramowanie);
+    border-radius: 14px;
+    box-shadow: var(--psi-cien);
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
 
+.dzial:hover {
+    border-color: #c5d6e4;
+    box-shadow: 0 6px 22px rgba(31, 60, 85, 0.09);
+}
+
+/* Nagłówek rozwijanego działu */
+.dzial > summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-
+    gap: 18px;
+    padding: 17px 20px;
+    cursor: pointer;
     list-style: none;
+    background: #ffffff;
+    color: var(--psi-tekst);
 }
 
-/* Ukrycie domyślnej strzałki */
-.dzial summary::-webkit-details-marker {
+.dzial > summary::-webkit-details-marker {
     display: none;
 }
 
-/* Informacja o numerach lekcji */
-.dzial summary span {
+.dzial > summary::marker {
+    content: "";
+}
+
+/* Kolorowa ikona */
+.dzial .ikona-dzialu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    font-size: 29px;
+    background: #e0edff;
+}
+
+/* Nazwa i opis działu */
+.dzial .opis-dzialu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.dzial .nazwa-dzialu {
+    color: #102744;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+.dzial .podtytul-dzialu {
+    color: var(--psi-opis);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Prawa część: zakres i liczba lekcji */
+.dzial .metadane-dzialu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.dzial .zakres-lekcji {
+    padding: 9px 15px;
+    border-radius: 30px;
+    background: #e0edff;
+    color: #155bb5;
     font-size: 13px;
-    font-weight: normal;
-    color: #64748b;
+    font-weight: 700;
     white-space: nowrap;
 }
 
-/* Strzałka */
-.dzial summary::after {
-    content: "▼";
-    font-size: 14px;
-    color: #2563eb;
+.dzial .liczba-lekcji {
+    color: #55708b;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* Strzałka po prawej */
+.dzial > summary::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-right: 2px solid #466681;
+    border-bottom: 2px solid #466681;
+    transform: rotate(45deg);
     transition: transform 0.2s;
+    margin: 0 7px 5px 8px;
 }
 
-/* Obrót strzałki po rozwinięciu */
-.dzial[open] summary::after {
-    transform: rotate(180deg);
+.dzial[open] > summary::after {
+    transform: rotate(225deg);
+    margin-bottom: -5px;
 }
 
-/* Nagłówek otwartego działu */
-.dzial[open] summary {
-    background-color: #dbeafe;
+/* Otwarty dział */
+.dzial[open] {
+    border-color: #bfd5e9;
 }
 
-/* Efekt najechania */
-.dzial summary:hover {
-    background-color: #e2e8f0;
+.dzial[open] > summary {
+    border-bottom: 1px solid #e5edf3;
 }
 
-/* Dostępność klawiaturowa */
-.dzial summary:focus-visible {
+/* Obsługa klawiatury */
+.dzial > summary:focus-visible {
     outline: 3px solid #2563eb;
-    outline-offset: -3px;
+    outline-offset: -4px;
+    border-radius: 12px;
 }
 
-/* Lista kafelków */
+/* =========================================
+   KOLORY POSZCZEGÓLNYCH DZIAŁÓW
+   ========================================= */
+
+/* HTML5 – niebieski */
+.dzial.html5 .ikona-dzialu,
+.dzial.html5 .zakres-lekcji {
+    background: #dfedff;
+    color: #075cc2;
+}
+
+/* CSS3 – zielony */
+.dzial.css3 .ikona-dzialu,
+.dzial.css3 .zakres-lekcji {
+    background: #dff6e9;
+    color: #087f43;
+}
+
+/* HTML5 + CSS3 – fioletowy */
+.dzial.html-css .ikona-dzialu,
+.dzial.html-css .zakres-lekcji {
+    background: #eee5ff;
+    color: #6633c4;
+}
+
+/* CMS – pomarańczowy */
+.dzial.cms .ikona-dzialu,
+.dzial.cms .zakres-lekcji {
+    background: #fff0d9;
+    color: #c66b00;
+}
+
+/* Testowanie i publikacja – czerwony */
+.dzial.publikacja .ikona-dzialu,
+.dzial.publikacja .zakres-lekcji {
+    background: #ffe4e8;
+    color: #c91635;
+}
+
+/* Ćwiczenia – turkusowy */
+.dzial.cwiczenia .ikona-dzialu,
+.dzial.cwiczenia .zakres-lekcji {
+    background: #ddf6f3;
+    color: #008e91;
+}
+
+/* =========================================
+   KAFELKI LEKCJI PO ROZWINIĘCIU
+   ========================================= */
+
 .dzial .lista-lekcji {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 12px;
     padding: 20px;
+    background: #f8fbfd;
 }
 
-/* Kafelki w rozwijanych działach */
 .dzial .lista-lekcji .lekcja {
+    display: block;
     min-width: 0;
     width: auto;
+    height: auto;
     margin: 0;
+    padding: 17px 19px;
+    border: 1px solid #e0e8ef;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: none;
+    text-decoration: none;
     box-sizing: border-box;
+    transition: transform 0.2s, border-color 0.2s,
+                box-shadow 0.2s;
 }
 
-/* Telefon */
-@media (max-width: 700px) {
+.dzial .lista-lekcji .lekcja:hover {
+    transform: translateY(-2px);
+    border-color: #a9c9e9;
+    box-shadow: 0 5px 14px rgba(31, 60, 85, 0.08);
+}
 
-    .dzial summary {
-        padding: 16px;
-        font-size: 16px;
+.dzial .lista-lekcji .lekcja .numer {
+    color: #49708b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.dzial .lista-lekcji .lekcja h3 {
+    margin: 0;
+    color: #28475b;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+/* =========================================
+   TELEFONY I TABLETY
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .dzial > summary {
         flex-wrap: wrap;
+        gap: 12px;
+        padding: 15px;
     }
 
-    .dzial summary span {
-        font-size: 12px;
+    .dzial .ikona-dzialu {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 24px;
+        border-radius: 12px;
     }
+
+    .dzial .nazwa-dzialu {
+        font-size: 17px;
+    }
+
+    .dzial .podtytul-dzialu {
+        font-size: 13px;
+    }
+
+    .dzial .metadane-dzialu {
+        margin-left: 60px;
+    }
+
+    .dzial > summary::after {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 600px) {
 
     .dzial .lista-lekcji {
         grid-template-columns: 1fr;
         padding: 12px;
+    }
+
+    .dzial .metadane-dzialu {
         gap: 10px;
+        margin-left: 0;
+    }
+
+    .dzial .zakres-lekcji {
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    .dzial .liczba-lekcji {
+        font-size: 12px;
+    }
+
+    .dzial .lista-lekcji .lekcja {
+        padding: 14px;
     }
 }
+
+
 
