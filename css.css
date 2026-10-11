@@ -758,3 +758,111 @@ pre[class*="language-"] {
     max-width: 1200px;
     margin: 30px auto;
 }
+
+
+/* ROZWIJANE DZIAŁY PSI */
+
+.dzial {
+    margin-bottom: 16px;
+    border: 1px solid #dbe3ee;
+    border-radius: 12px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Nagłówek rozwijanej listy */
+.dzial summary {
+    padding: 20px 24px;
+    background-color: #f1f5f9;
+    color: #1e3a8a;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    list-style: none;
+}
+
+/* Ukrycie domyślnej strzałki */
+.dzial summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Informacja o numerach lekcji */
+.dzial summary span {
+    font-size: 13px;
+    font-weight: normal;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+/* Strzałka */
+.dzial summary::after {
+    content: "▼";
+    font-size: 14px;
+    color: #2563eb;
+    transition: transform 0.2s;
+}
+
+/* Obrót strzałki po rozwinięciu */
+.dzial[open] summary::after {
+    transform: rotate(180deg);
+}
+
+/* Nagłówek otwartego działu */
+.dzial[open] summary {
+    background-color: #dbeafe;
+}
+
+/* Efekt najechania */
+.dzial summary:hover {
+    background-color: #e2e8f0;
+}
+
+/* Dostępność klawiaturowa */
+.dzial summary:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: -3px;
+}
+
+/* Lista kafelków */
+.dzial .lista-lekcji {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px;
+}
+
+/* Kafelki w rozwijanych działach */
+.dzial .lista-lekcji .lekcja {
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Telefon */
+@media (max-width: 700px) {
+
+    .dzial summary {
+        padding: 16px;
+        font-size: 16px;
+        flex-wrap: wrap;
+    }
+
+    .dzial summary span {
+        font-size: 12px;
+    }
+
+    .dzial .lista-lekcji {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 10px;
+    }
+}
+
