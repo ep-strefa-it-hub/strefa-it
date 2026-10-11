@@ -932,3 +932,77 @@ body > main > div.dzial > details.dzial > .lista-lekcji > a.lekcja h3 {
         padding: 12px;
     }
 }
+
+/* ==========================================
+   PSI – ZWARTA LISTA LEKCJI JAK LEKCJA 01
+   ========================================== */
+
+/* Jedna kolumna */
+details.dzial .lista-lekcji {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px;
+}
+
+/* Kafelek lekcji */
+details.dzial .lista-lekcji a.lekcja {
+    display: grid;
+    grid-template-columns: 95px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+
+    padding: 7px 14px;
+    margin: 0;
+    min-height: 0;
+
+    background: #fbfcfc;
+    border: 1px solid #dfe7e9;
+    border-radius: 6px;
+    box-shadow: none;
+
+    text-decoration: none;
+    transform: none;
+}
+
+/* Numer lekcji – jak w Lekcji 01 */
+details.dzial .lista-lekcji a.lekcja .numer {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #607983;
+    white-space: nowrap;
+}
+
+/* Temat lekcji – jak w Lekcji 01 */
+details.dzial .lista-lekcji a.lekcja h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #304b57;
+}
+
+/* Efekt najechania */
+details.dzial .lista-lekcji a.lekcja:hover {
+    background: #eaf1f3;
+    border-color: #cbdadd;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Telefon */
+@media (max-width: 600px) {
+    details.dzial .lista-lekcji a.lekcja {
+        grid-template-columns: 75px minmax(0, 1fr);
+        gap: 10px;
+        padding: 8px 10px;
+    }
+
+    details.dzial .lista-lekcji a.lekcja h3 {
+        font-size: 14px;
+    }
+}
