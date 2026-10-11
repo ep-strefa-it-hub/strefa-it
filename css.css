@@ -998,3 +998,11 @@ body > main > div.dzial > details.dzial > .lista-lekcji > a.lekcja:hover {
         font-size: 14px;
     }
 }
+
+
+/* PSI – kolor numeru lekcji zgodny z kolorem działu */
+
+body > main > div.dzial > details.dzial
+.lista-lekcji .lekcja .numer {
+    color: var(--akcent);
+}
