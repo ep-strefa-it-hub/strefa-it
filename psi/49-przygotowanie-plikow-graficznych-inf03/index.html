@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 41 – Przygotowanie plików graficznych INF.03 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <h1>STREFA IT</h1>
+    <p>Projektowanie stron internetowych</p>
+</header>
+
+<nav>
+    <div>
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Specyfikacja grafiki</a>
+        <a href="#format">2. Format pliku</a>
+        <a href="#wymiary">3. Wymiary i proporcje</a>
+        <a href="#jakosc">4. Jakość obrazu</a>
+        <a href="#optymalizacja">5. Optymalizacja</a>
+        <a href="#nazwy">6. Nazwy i foldery</a>
+        <a href="#gimp">7. Instrukcje GIMP</a>
+        <a href="#kontrola">8. Kontrola poprawności</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#cwiczenia">📝 Ćwiczenia praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 41 • GRAFIKA WWW
+            </div>
+
+            <h2>
+                Przygotowanie plików graficznych zgodnie
+                ze specyfikacją zadania INF.03 –
+                format, wymiary, jakość i optymalizacja
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                samodzielne przygotowywanie i kontrolowanie
+                plików graficznych w programie GIMP 3.x,
+                zgodnie z wymaganiami egzaminu INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Specyfikacja grafiki w zadaniu INF.03</h2>
+
+            <p>
+                <strong>Specyfikacja</strong> to zestaw wymagań,
+                które musi spełniać gotowy plik graficzny.
+            </p>
+
+            <p>
+                W arkuszach INF.03 wymagania dotyczące grafiki
+                mogą znajdować się w części
+                <strong>„Cechy grafiki”</strong>
+                lub w poleceniu dotyczącym przygotowania obrazów.
+            </p>
+
+            <p>Przed rozpoczęciem pracy sprawdź:</p>
+
+            <ul>
+                <li>nazwę pliku źródłowego,</li>
+                <li>rodzaj wymaganej modyfikacji,</li>
+                <li>wymiary obrazu w pikselach,</li>
+                <li>konieczność zachowania proporcji,</li>
+                <li>format pliku wynikowego,</li>
+                <li>wymaganą nazwę pliku,</li>
+                <li>folder, w którym należy zapisać wynik.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Na egzaminie INF.03 nie wystarczy,
+                że grafika wygląda poprawnie.
+                Musi spełniać wszystkie wymagania
+                podane w arkuszu.
+            </div>
+        </section>
+
+        <section id="format">
+            <h2>2. Format pliku graficznego</h2>
+
+            <p>
+                Format określa sposób zapisu danych obrazu.
+                Przy przygotowywaniu grafik na strony WWW
+                najczęściej spotykamy JPG, PNG i WebP.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Najważniejsze cechy</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Kompresja stratna, brak przezroczystości</td>
+                    <td>Fotografie</td>
+                </tr>
+                <tr>
+                    <td>PNG</td>
+                    <td>Kompresja bezstratna, obsługa przezroczystości</td>
+                    <td>Logotypy, grafiki z tekstem</td>
+                </tr>
+                <tr>
+                    <td>WebP</td>
+                    <td>Kompresja stratna lub bezstratna</td>
+                    <td>Grafiki internetowe</td>
+                </tr>
+                <tr>
+                    <td>XCF</td>
+                    <td>Zachowuje warstwy projektu GIMP</td>
+                    <td>Dalsza edycja grafiki</td>
+                </tr>
+            </table>
+
+            <h3>Przykład egzaminacyjny</h3>
+
+            <p>
+                Jeśli polecenie wymaga pliku
+                <code>logo.png</code>,
+                nie należy zastępować go plikiem
+                <code>logo.jpg</code>.
+            </p>
+
+            <p>
+                Sama zmiana rozszerzenia nazwy
+                nie oznacza zmiany formatu.
+                Należy użyć eksportu w GIMP-ie.
+            </p>
+        </section>
+
+        <section id="wymiary">
+            <h2>3. Wymiary i proporcje obrazu</h2>
+
+            <p>
+                Wymiary obrazu określamy
+                najczęściej w pikselach.
+            </p>
+
+            <p>
+                Przykładowo zapis
+                <strong>800 × 600 px</strong>
+                oznacza szerokość 800 pikseli
+                i wysokość 600 pikseli.
+            </p>
+
+            <h3>Dokładne wymiary</h3>
+
+            <p>
+                Jeżeli w poleceniu podano
+                szerokość 350 px, plik wynikowy
+                musi mieć dokładnie 350 px szerokości.
+            </p>
+
+            <h3>Zachowanie proporcji</h3>
+
+            <p>
+                Przy skalowaniu z zachowaniem proporcji
+                szerokość i wysokość zmieniają się
+                w tym samym stosunku.
+            </p>
+
+            <p>
+                Przykład:
+                obraz 1000 × 600 px
+                zmniejszamy do szerokości 350 px.
+            </p>
+
+            <pre><code>600 × 350 / 1000 = 210 px
+
+Wynik: 350 × 210 px</code></pre>
+
+            <div class="important">
+                <strong>Uwaga!</strong>
+                Jeśli zadanie wymaga zarówno dokładnej
+                szerokości, jak i wysokości,
+                a proporcje są inne niż w oryginale,
+                może być konieczne kadrowanie.
+                Nie należy rozciągać obrazu.
+            </div>
+        </section>
+
+        <section id="jakosc">
+            <h2>4. Jakość obrazu</h2>
+
+            <p>
+                <strong>Jakość obrazu</strong>
+                zależy m.in. od liczby pikseli,
+                stopnia kompresji i rodzaju grafiki.
+            </p>
+
+            <h3>Kompresja stratna</h3>
+
+            <p>
+                W formacie JPG można ustawić
+                poziom jakości eksportu.
+                Niższa jakość zazwyczaj oznacza
+                mniejszy rozmiar pliku,
+                ale może powodować widoczne zniekształcenia.
+            </p>
+
+            <h3>Kompresja bezstratna</h3>
+
+            <p>
+                PNG zachowuje informacje o pikselach
+                bez strat wynikających z kompresji.
+                Nie oznacza to jednak,
+                że każdy PNG będzie mniejszy
+                od odpowiadającego mu JPG.
+            </p>
+
+            <h3>Artefakty kompresji</h3>
+
+            <p>
+                Przy silnej kompresji stratnej
+                mogą pojawić się:
+            </p>
+
+            <ul>
+                <li>rozmyte szczegóły,</li>
+                <li>zniekształcenia przy krawędziach,</li>
+                <li>niepożądane bloki i przebarwienia.</li>
+            </ul>
+
+            <p>
+                Jeśli arkusz nie określa poziomu jakości,
+                należy dobrać ustawienia tak,
+                aby zachować czytelność grafiki.
+            </p>
+        </section>
+
+        <section id="optymalizacja">
+            <h2>5. Optymalizacja grafiki na strony WWW</h2>
+
+            <p>
+                <strong>Optymalizacja</strong>
+                polega na przygotowaniu obrazu
+                w taki sposób, aby miał odpowiednią jakość
+                i możliwie mały rozmiar pliku.
+            </p>
+
+            <h3>Podstawowe sposoby optymalizacji</h3>
+
+            <ol>
+                <li>
+                    Dopasuj wymiary obrazu
+                    do rzeczywistych potrzeb strony.
+                </li>
+                <li>
+                    Wybierz odpowiedni format.
+                </li>
+                <li>
+                    Ustaw rozsądny poziom jakości
+                    przy eksporcie stratnym.
+                </li>
+                <li>
+                    Usuń niepotrzebne fragmenty obrazu.
+                </li>
+                <li>
+                    Porównaj rozmiar i wygląd
+                    wyeksportowanych plików.
+                </li>
+            </ol>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Zdjęcie o wymiarach 4000 × 3000 px
+                nie zawsze musi być umieszczane
+                na stronie w pełnej rozdzielczości.
+            </p>
+
+            <p>
+                Jeśli ma być wyświetlane
+                w obszarze o szerokości 800 px,
+                można przygotować odpowiednio
+                zmniejszoną wersję.
+                Przy doborze rozmiaru warto również
+                uwzględnić ekrany o dużej gęstości pikseli.
+            </p>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                optymalizacja nie polega wyłącznie
+                na maksymalnym zmniejszeniu pliku.
+                Grafika musi pozostać czytelna
+                i zgodna ze specyfikacją.
+            </div>
+        </section>
+
+        <section id="nazwy">
+            <h2>6. Nazwy plików i organizacja folderów</h2>
+
+            <p>
+                W zadaniach INF.03 ważne jest
+                zapisywanie plików pod właściwymi nazwami
+                i we wskazanych folderach.
+            </p>
+
+            <h3>Przykładowa struktura</h3>
+
+            <pre><code>projekt/
+│
+├── index.html
+├── styl.css
+│
+└── img/
+    ├── logo.png
+    ├── baner.jpg
+    └── zdjecie.webp</code></pre>
+
+            <p>
+                W kodzie HTML można odwołać się
+                do przygotowanego obrazu:
+            </p>
+
+            <pre><code>&lt;img src="img/baner.jpg" alt="Baner strony"&gt;</code></pre>
+
+            <p>
+                Nazwy plików i ścieżki
+                muszą być ze sobą zgodne.
+            </p>
+
+            <p>
+                <strong>Uwaga:</strong>
+                systemy plików i serwery WWW
+                mogą rozróżniać wielkie i małe litery,
+                dlatego <code>Logo.png</code>
+                i <code>logo.png</code>
+                nie zawsze oznaczają ten sam plik.
+            </p>
+        </section>
+
+        <section id="gimp">
+            <h2>7. Instrukcje krok po kroku – GIMP 3.x</h2>
+
+            <h3>A. Sprawdzanie wymiarów</h3>
+
+            <ol>
+                <li>Uruchom GIMP.</li>
+                <li>Wybierz <strong>Plik → Otwórz</strong>.</li>
+                <li>Otwórz wybraną grafikę.</li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Właściwości obrazu</strong>.
+                </li>
+                <li>
+                    Odczytaj szerokość i wysokość.
+                </li>
+            </ol>
+
+            <h3>B. Skalowanie obrazu</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Sprawdź symbol łańcucha
+                    przy szerokości i wysokości.
+                </li>
+                <li>Wpisz wymaganą szerokość.</li>
+                <li>
+                    Naciśnij Tab i sprawdź
+                    przeliczoną wysokość.
+                </li>
+                <li>Kliknij <strong>Skaluj</strong>.</li>
+            </ol>
+
+            <h3>C. Eksport do JPG</h3>
+
+            <ol>
+                <li>
+                    Wybierz
+                    <strong>Plik → Wyeksportuj jako</strong>.
+                </li>
+                <li>
+                    Wpisz nazwę, np.
+                    <code>baner.jpg</code>.
+                </li>
+                <li>Wybierz folder docelowy.</li>
+                <li>Kliknij <strong>Wyeksportuj</strong>.</li>
+                <li>
+                    W oknie eksportu ustaw jakość,
+                    np. 85.
+                </li>
+                <li>Potwierdź eksport.</li>
+            </ol>
+
+            <h3>D. Eksport do PNG</h3>
+
+            <ol>
+                <li>
+                    Wybierz
+                    <strong>Plik → Wyeksportuj jako</strong>.
+                </li>
+                <li>
+                    Wpisz nazwę z rozszerzeniem
+                    <code>.png</code>.
+                </li>
+                <li>Wybierz folder docelowy.</li>
+                <li>Potwierdź eksport.</li>
+            </ol>
+
+            <h3>E. Eksport do WebP</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>
+                    Wybierz
+                    <strong>Plik → Wyeksportuj jako</strong>.
+                </li>
+                <li>
+                    Wpisz nazwę z rozszerzeniem
+                    <code>.webp</code>.
+                </li>
+                <li>Wybierz folder docelowy.</li>
+                <li>
+                    W oknie eksportu wybierz
+                    odpowiedni tryb kompresji
+                    i poziom jakości.
+                </li>
+                <li>Potwierdź eksport.</li>
+            </ol>
+
+            <h3>F. Sprawdzanie gotowego pliku</h3>
+
+            <ol>
+                <li>Otwórz folder z plikiem wynikowym.</li>
+                <li>Sprawdź jego nazwę i rozszerzenie.</li>
+                <li>Sprawdź rozmiar pliku.</li>
+                <li>Otwórz plik ponownie w GIMP-ie.</li>
+                <li>
+                    Sprawdź wymiary i wygląd obrazu.
+                </li>
+                <li>
+                    Porównaj wynik z wymaganiami zadania.
+                </li>
+            </ol>
+        </section>
+
+        <section id="kontrola">
+            <h2>8. Kontrola poprawności grafiki</h2>
+
+            <p>
+                Przed oddaniem zadania
+                sprawdź wszystkie wymagania.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Element kontroli</th>
+                    <th>Co sprawdzić?</th>
+                </tr>
+                <tr>
+                    <td>Nazwa pliku</td>
+                    <td>Czy jest zgodna z poleceniem?</td>
+                </tr>
+                <tr>
+                    <td>Format</td>
+                    <td>Czy plik jest zapisany jako JPG, PNG lub inny wymagany format?</td>
+                </tr>
+                <tr>
+                    <td>Szerokość</td>
+                    <td>Czy ma dokładnie wymaganą liczbę pikseli?</td>
+                </tr>
+                <tr>
+                    <td>Wysokość</td>
+                    <td>Czy jest zgodna ze specyfikacją?</td>
+                </tr>
+                <tr>
+                    <td>Proporcje</td>
+                    <td>Czy obraz nie został rozciągnięty?</td>
+                </tr>
+                <tr>
+                    <td>Jakość</td>
+                    <td>Czy obraz jest czytelny?</td>
+                </tr>
+                <tr>
+                    <td>Operacje</td>
+                    <td>Czy wykonano wszystkie wymagane modyfikacje?</td>
+                </tr>
+                <tr>
+                    <td>Folder</td>
+                    <td>Czy plik znajduje się we właściwym miejscu?</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="zapamietaj">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>
+                    Specyfikacja określa wymagania
+                    dotyczące pliku wynikowego.
+                </li>
+                <li>
+                    Format musi być zgodny z poleceniem.
+                </li>
+                <li>
+                    Wymiary sprawdzamy w pikselach.
+                </li>
+                <li>
+                    Skalowanie z zachowaniem proporcji
+                    zapobiega zniekształceniu obrazu.
+                </li>
+                <li>
+                    JPG wykorzystuje kompresję stratną.
+                </li>
+                <li>
+                    PNG obsługuje przezroczystość.
+                </li>
+                <li>
+                    Optymalizacja zmniejsza rozmiar pliku
+                    przy zachowaniu odpowiedniej jakości.
+                </li>
+                <li>
+                    Zawsze sprawdzaj plik po eksporcie.
+                </li>
+            </ul>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>📝 Ćwiczenia praktyczne – GIMP 3.x</h2>
+
+            <p>
+                Wykonaj zadania zgodnie z podanymi
+                specyfikacjami. Ćwiczenia 1–3
+                są opracowane w stylu INF.03.
+                Ćwiczenie 4 wykorzystuje wymagania
+                dotyczące grafiki z arkusza
+                INF.03 z czerwca 2024 r.
+            </p>
+
+            <h3>Ćwiczenie 1. Przygotowanie fotografii WWW</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: fotografia od nauczyciela,</li>
+                <li>szerokość wynikowa: 800 px,</li>
+                <li>zachowane proporcje,</li>
+                <li>format: JPG,</li>
+                <li>jakość eksportu: 85,</li>
+                <li>nazwa: <code>cw1_fotografia.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>Otwórz fotografię w GIMP-ie.</li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>Ustaw szerokość 800 px.</li>
+                <li>Zachowaj proporcje.</li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw1_fotografia.jpg</code>
+                    z jakością 85.
+                </li>
+                <li>Sprawdź plik wynikowy.</li>
+            </ol>
+
+            <h3>Ćwiczenie 2. Grafika PNG z przezroczystością</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>wymiary: 500 × 200 px,</li>
+                <li>tło: przezroczyste,</li>
+                <li>tekst: <strong>STREFA IT</strong>,</li>
+                <li>kolor tekstu: <code>#1F4E79</code>,</li>
+                <li>format: PNG,</li>
+                <li>nazwa: <code>cw2_logo.png</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Utwórz nowy obraz 500 × 200 px.
+                </li>
+                <li>
+                    Ustaw przezroczyste tło.
+                    Możesz utworzyć przezroczystą warstwę
+                    lub usunąć zawartość tła
+                    po dodaniu kanału alfa.
+                </li>
+                <li>
+                    Narzędziem Tekst wpisz „STREFA IT”.
+                </li>
+                <li>
+                    Ustaw kolor tekstu
+                    <code>#1F4E79</code>.
+                </li>
+                <li>Umieść napis na środku obrazu.</li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw2_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw2_logo.png</code>.
+                </li>
+                <li>
+                    Sprawdź, czy tło pozostało przezroczyste.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 3. Optymalizacja banera</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: 1600 × 800 px,</li>
+                <li>rozmiar wynikowy: 800 × 400 px,</li>
+                <li>formaty: JPG i WebP,</li>
+                <li>jakość eksportu: 80,</li>
+                <li>nazwy: <code>cw3_baner.jpg</code> i <code>cw3_baner.webp</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz obraz 1600 × 800 px
+                    lub utwórz go w GIMP-ie.
+                </li>
+                <li>
+                    Przeskaluj do 800 × 400 px.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw3_baner.jpg</code>
+                    z jakością 80.
+                </li>
+                <li>
+                    Wyeksportuj również jako
+                    <code>cw3_baner.webp</code>
+                    w trybie stratnym z jakością 80.
+                </li>
+                <li>
+                    Porównaj rozmiary plików.
+                </li>
+                <li>
+                    Porównaj wygląd obrazów
+                    w powiększeniu 100%.
+                </li>
+                <li>
+                    Zapisz wnioski w pliku
+                    <code>cw3_porownanie.txt</code>.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Odpowiedz:</strong>
+                który format dał mniejszy plik?
+                Czy widzisz różnice jakości?
+                Pamiętaj, że wartość jakości 80
+                w JPG i WebP nie oznacza identycznego
+                stopnia kompresji.
+            </p>
+
+            <h3>Ćwiczenie 4. Zadanie egzaminacyjne INF.03</h3>
+
+            <p>
+                <strong>Na podstawie arkusza
+                INF.03 – czerwiec 2024.</strong>
+            </p>
+
+            <p><strong>Wymagania:</strong></p>
+
+            <ul>
+                <li>
+                    w pliku <code>obraz1.png</code>
+                    zmień oznaczenie <strong>8T</strong>
+                    na <strong>5T</strong>,
+                </li>
+                <li>
+                    plik <code>obraz2.jpg</code>
+                    odbij względem osi pionowej,
+                </li>
+                <li>
+                    przeskaluj drugi obraz do szerokości
+                    dokładnie <strong>350 px</strong>,
+                </li>
+                <li>zachowaj proporcje drugiego obrazu,</li>
+                <li>
+                    porównaj rezultaty
+                    z obrazem wzorcowym z arkusza.
+                </li>
+            </ul>
+
+            <ol>
+                <li>
+                    Pobierz archiwum z materiałami
+                    do arkusza egzaminacyjnego.
+                </li>
+                <li>
+                    Otwórz <code>obraz1.png</code>
+                    w programie GIMP.
+                </li>
+                <li>
+                    Zmień oznaczenie 8T na 5T.
+                </li>
+                <li>
+                    Wyeksportuj obraz jako
+                    <code>obraz1.png</code>
+                    do folderu z wynikami.
+                </li>
+                <li>
+                    Otwórz <code>obraz2.jpg</code>.
+                </li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Przekształcenie
+                    → Odbij poziomo</strong>.
+                </li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość dokładnie 350 px,
+                    zachowując proporcje.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>obraz2.jpg</code>
+                    do folderu z wynikami.
+                </li>
+                <li>
+                    Sprawdź oba pliki
+                    i porównaj je ze specyfikacją.
+                </li>
+            </ol>
+
+            <p>
+                <a href="https://egzamin-informatyk.pl/arkusz-praktyczny-inf03-2024-06-07/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📘 Arkusz praktyczny INF.03 – czerwiec 2024
+                </a>
+            </p>
+
+            <div class="important">
+                <strong>Uwaga:</strong>
+                w ćwiczeniu 4 pracuj na kopiach
+                plików źródłowych.
+                Oryginalne materiały zachowaj
+                bez zmian.
+            </div>
+        </section>
+
+        <section id="oddanie">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Utwórz folder
+                <code>PSI_49_Nazwisko_Imie</code>.
+            </p>
+
+            <p>Umieść w nim:</p>
+
+            <ul>
+                <li><code>cw1_fotografia.jpg</code></li>
+                <li><code>cw2_projekt.xcf</code></li>
+                <li><code>cw2_logo.png</code></li>
+                <li><code>cw3_baner.jpg</code></li>
+                <li><code>cw3_baner.webp</code></li>
+                <li><code>cw3_porownanie.txt</code></li>
+                <li><code>obraz1.png</code></li>
+                <li><code>obraz2.jpg</code></li>
+            </ul>
+
+            <p>
+                <strong>
+                    Spakuj cały folder do ZIP
+                    i prześlij na Zadanie w Teams.
+                </strong>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 41
+</footer>
+
+</body>
+</html>
