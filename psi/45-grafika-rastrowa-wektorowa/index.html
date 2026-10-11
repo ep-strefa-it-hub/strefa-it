@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PSI 37 – Grafika rastrowa i wektorowa | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z projektowania stron internetowych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Grafika na stronach WWW</a>
+        <a href="#rastrowa">2. Grafika rastrowa</a>
+        <a href="#wektorowa">3. Grafika wektorowa</a>
+        <a href="#porownanie">4. Porównanie grafik</a>
+        <a href="#formaty">5. Formaty plików</a>
+        <a href="#dobor">6. Dobór formatu</a>
+        <a href="#gimp">7. GIMP – przygotowanie</a>
+        <a href="#eksport">8. Eksport plików</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Ćwiczenia praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 37 • GRAFIKA WWW
+            </div>
+
+            <h2>
+                Grafika rastrowa i wektorowa.
+                Formaty plików graficznych stosowanych
+                na stronach WWW
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                rozróżnianie grafiki rastrowej i wektorowej,
+                poznanie formatów plików graficznych
+                oraz przygotowanie i eksportowanie
+                obrazów w programie GIMP 3.x.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Grafika na stronach WWW</h2>
+
+            <p>
+                Grafika jest ważnym elementem stron internetowych.
+                Wykorzystuje się ją do prezentowania zdjęć,
+                logotypów, ikon, ilustracji i elementów dekoracyjnych.
+            </p>
+
+            <p>
+                Podczas przygotowywania grafiki na potrzeby WWW
+                należy zwrócić uwagę na:
+            </p>
+
+            <ul>
+                <li>rodzaj grafiki – rastrowa lub wektorowa,</li>
+                <li>format zapisu pliku,</li>
+                <li>wymiary obrazu w pikselach,</li>
+                <li>jakość obrazu,</li>
+                <li>rozmiar pliku,</li>
+                <li>obsługę przez przeglądarki internetowe.</li>
+            </ul>
+
+            <p>
+                W zadaniach egzaminacyjnych INF.03
+                często trzeba przygotować grafikę
+                zgodnie z podaną specyfikacją,
+                np. zmienić jej wymiary,
+                wykonać odbicie lub zapisać ją
+                w określonym formacie.
+            </p>
+        </section>
+
+        <section id="rastrowa">
+            <h2>2. Grafika rastrowa</h2>
+
+            <p>
+                <strong>Grafika rastrowa</strong> jest zbudowana
+                z pikseli, czyli małych punktów obrazu.
+                Każdy piksel ma określony kolor.
+            </p>
+
+            <p>
+                Obraz rastrowy ma określone wymiary,
+                np. 800 × 600 pikseli.
+            </p>
+
+            <h3>Przykłady zastosowania</h3>
+
+            <ul>
+                <li>fotografie produktów,</li>
+                <li>zdjęcia w galeriach,</li>
+                <li>banery internetowe,</li>
+                <li>zrzuty ekranu,</li>
+                <li>grafiki przygotowane w GIMP-ie.</li>
+            </ul>
+
+            <h3>Zalety</h3>
+
+            <ul>
+                <li>dobrze odwzorowuje fotografie,</li>
+                <li>umożliwia szczegółową edycję obrazu,</li>
+                <li>obsługuje wiele formatów WWW.</li>
+            </ul>
+
+            <h3>Wady</h3>
+
+            <ul>
+                <li>
+                    powiększanie ponad pierwotną rozdzielczość
+                    może powodować utratę ostrości,
+                </li>
+                <li>
+                    obrazy o dużych wymiarach
+                    mogą zajmować dużo miejsca.
+                </li>
+            </ul>
+        </section>
+
+        <section id="wektorowa">
+            <h2>3. Grafika wektorowa</h2>
+
+            <p>
+                <strong>Grafika wektorowa</strong>
+                jest opisana za pomocą obiektów geometrycznych,
+                takich jak linie, krzywe, figury i kształty.
+            </p>
+
+            <p>
+                Można ją powiększać bez utraty ostrości,
+                ponieważ obraz jest przeliczany
+                na podstawie opisanych kształtów.
+            </p>
+
+            <h3>Przykłady zastosowania</h3>
+
+            <ul>
+                <li>logotypy firm,</li>
+                <li>ikony,</li>
+                <li>piktogramy,</li>
+                <li>proste ilustracje,</li>
+                <li>elementy interfejsu strony WWW.</li>
+            </ul>
+
+            <p>
+                Popularnym formatem grafiki wektorowej
+                wykorzystywanym na stronach internetowych
+                jest <strong>SVG</strong>.
+            </p>
+
+            <p>
+                Do tworzenia i edycji grafiki wektorowej
+                służą m.in. Inkscape i Illustrator.
+                GIMP jest przede wszystkim edytorem rastrowym.
+                Może otworzyć plik SVG, ale zwykle
+                przekształca go w obraz rastrowy.
+            </p>
+        </section>
+
+        <section id="porownanie">
+            <h2>4. Porównanie grafiki rastrowej i wektorowej</h2>
+
+            <table>
+                <tr>
+                    <th>Cecha</th>
+                    <th>Grafika rastrowa</th>
+                    <th>Grafika wektorowa</th>
+                </tr>
+
+                <tr>
+                    <td>Budowa</td>
+                    <td>Piksele</td>
+                    <td>Obiekty geometryczne</td>
+                </tr>
+
+                <tr>
+                    <td>Powiększanie</td>
+                    <td>Możliwa utrata jakości</td>
+                    <td>Bez utraty ostrości</td>
+                </tr>
+
+                <tr>
+                    <td>Zastosowanie</td>
+                    <td>Zdjęcia, fotografie</td>
+                    <td>Logotypy, ikony</td>
+                </tr>
+
+                <tr>
+                    <td>Przykładowe formaty</td>
+                    <td>JPG, PNG, GIF, WebP</td>
+                    <td>SVG</td>
+                </tr>
+
+                <tr>
+                    <td>Przykładowy program</td>
+                    <td>GIMP</td>
+                    <td>Inkscape</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="formaty">
+            <h2>5. Formaty plików graficznych na stronach WWW</h2>
+
+            <h3>JPG / JPEG</h3>
+
+            <p>
+                Format rastrowy wykorzystujący
+                kompresję stratną.
+                Bardzo dobrze nadaje się do fotografii.
+            </p>
+
+            <ul>
+                <li>obsługuje miliony kolorów,</li>
+                <li>nie obsługuje przezroczystości,</li>
+                <li>
+                    ponowny zapis z kompresją stratną
+                    może pogorszyć jakość obrazu.
+                </li>
+            </ul>
+
+            <h3>PNG</h3>
+
+            <p>
+                Format rastrowy wykorzystujący
+                kompresję bezstratną.
+                Obsługuje przezroczystość.
+            </p>
+
+            <ul>
+                <li>dobry do grafik z tekstem i ostrymi krawędziami,</li>
+                <li>odpowiedni do logotypów rastrowych,</li>
+                <li>umożliwia zapis przezroczystego tła.</li>
+            </ul>
+
+            <h3>GIF</h3>
+
+            <p>
+                Format rastrowy obsługujący animacje.
+                Pojedyncza klatka wykorzystuje
+                paletę maksymalnie 256 kolorów.
+            </p>
+
+            <ul>
+                <li>umożliwia proste animacje,</li>
+                <li>ma ograniczoną paletę kolorów,</li>
+                <li>nie jest najlepszy do fotografii.</li>
+            </ul>
+
+            <h3>WebP</h3>
+
+            <p>
+                Nowoczesny format rastrowy przeznaczony
+                m.in. do wykorzystania w internecie.
+            </p>
+
+            <ul>
+                <li>obsługuje kompresję stratną i bezstratną,</li>
+                <li>obsługuje przezroczystość,</li>
+                <li>może obsługiwać animacje,</li>
+                <li>
+                    często pozwala uzyskać mniejsze pliki
+                    niż starsze formaty przy porównywalnej jakości.
+                </li>
+            </ul>
+
+            <h3>SVG</h3>
+
+            <p>
+                Format grafiki wektorowej oparty na XML.
+                Nadaje się szczególnie do ikon,
+                logotypów i prostych ilustracji.
+            </p>
+
+            <ul>
+                <li>można go skalować bez utraty ostrości,</li>
+                <li>jest obsługiwany przez przeglądarki,</li>
+                <li>może być używany w znaczniku img.</li>
+            </ul>
+
+            <h3>XCF</h3>
+
+            <p>
+                <strong>XCF</strong> to natywny format projektu GIMP.
+                Zachowuje warstwy i inne dane potrzebne
+                do dalszej edycji.
+            </p>
+
+            <p>
+                Plik XCF nie jest standardowym formatem
+                do wyświetlania grafiki na stronie WWW.
+                Gotowy obraz należy wyeksportować
+                np. do JPG, PNG lub WebP.
+            </p>
+        </section>
+
+        <section id="dobor">
+            <h2>6. Jak dobrać format grafiki?</h2>
+
+            <table>
+                <tr>
+                    <th>Rodzaj grafiki</th>
+                    <th>Zalecany format</th>
+                </tr>
+
+                <tr>
+                    <td>Fotografia</td>
+                    <td>JPG lub WebP</td>
+                </tr>
+
+                <tr>
+                    <td>Obraz z przezroczystym tłem</td>
+                    <td>PNG lub WebP</td>
+                </tr>
+
+                <tr>
+                    <td>Ikona wektorowa</td>
+                    <td>SVG</td>
+                </tr>
+
+                <tr>
+                    <td>Prosta animacja</td>
+                    <td>GIF lub animowany WebP</td>
+                </tr>
+
+                <tr>
+                    <td>Projekt do dalszej edycji w GIMP-ie</td>
+                    <td>XCF</td>
+                </tr>
+            </table>
+
+            <p>
+                <strong>Uwaga egzaminacyjna:</strong>
+                jeśli w arkuszu INF.03 podano wymagany
+                format pliku, należy zastosować
+                dokładnie ten format, nawet jeśli
+                inny wydaje się bardziej odpowiedni.
+            </p>
+        </section>
+
+        <section id="gimp">
+            <h2>7. Przygotowanie grafiki w GIMP 3.x</h2>
+
+            <p>
+                W tym dziale wszystkie ćwiczenia
+                z edycji grafiki wykonujemy
+                w programie <strong>GIMP 3.x</strong>.
+            </p>
+
+            <h3>Otwieranie obrazu</h3>
+
+            <ol>
+                <li>Uruchom program GIMP.</li>
+                <li>Wybierz <strong>Plik → Otwórz</strong>.</li>
+                <li>Wskaż plik graficzny.</li>
+                <li>Kliknij <strong>Otwórz</strong>.</li>
+            </ol>
+
+            <h3>Zapisywanie projektu</h3>
+
+            <ol>
+                <li>Wybierz <strong>Plik → Zapisz jako</strong>.</li>
+                <li>Wpisz nazwę, np. <code>projekt.xcf</code>.</li>
+                <li>Wybierz folder docelowy.</li>
+                <li>Kliknij <strong>Zapisz</strong>.</li>
+            </ol>
+
+            <p>
+                Zapis projektu w formacie XCF
+                pozwala wrócić do jego edycji.
+            </p>
+        </section>
+
+        <section id="eksport">
+            <h2>8. Eksport grafiki do formatu WWW</h2>
+
+            <p>
+                Aby wykorzystać obraz na stronie internetowej,
+                należy wyeksportować go do odpowiedniego formatu.
+            </p>
+
+            <ol>
+                <li>Otwórz obraz w GIMP-ie.</li>
+                <li>Wybierz <strong>Plik → Wyeksportuj jako</strong>.</li>
+                <li>
+                    Wpisz nazwę pliku wraz z rozszerzeniem,
+                    np. <code>zdjecie.jpg</code>.
+                </li>
+                <li>Wybierz folder docelowy.</li>
+                <li>Kliknij <strong>Wyeksportuj</strong>.</li>
+                <li>
+                    Jeśli pojawi się okno ustawień,
+                    wybierz parametry eksportu
+                    i zatwierdź operację.
+                </li>
+            </ol>
+
+            <p>
+                Aby uzyskać inny format, ponownie wybierz
+                <strong>Plik → Wyeksportuj jako</strong>
+                i zastosuj inne rozszerzenie,
+                np. <code>.png</code> lub <code>.webp</code>.
+            </p>
+        </section>
+
+        <section id="zapamietaj">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Grafika rastrowa składa się z pikseli.</li>
+                <li>Grafika wektorowa składa się z obiektów geometrycznych.</li>
+                <li>JPG nadaje się szczególnie do fotografii.</li>
+                <li>PNG obsługuje przezroczystość.</li>
+                <li>WebP obsługuje różne rodzaje kompresji.</li>
+                <li>SVG to format grafiki wektorowej.</li>
+                <li>XCF służy do zapisu projektu GIMP.</li>
+                <li>
+                    W zadaniach INF.03 zawsze należy przestrzegać
+                    parametrów podanych w specyfikacji.
+                </li>
+            </ul>
+        </section>
+
+        <section id="zadania">
+            <h2>📝 Ćwiczenia praktyczne – GIMP</h2>
+
+            <p>
+                Poniższe ćwiczenia utrwalają umiejętności
+                przydatne podczas egzaminu INF.03.
+                Są to zadania przygotowawcze,
+                a nie dosłowne polecenia z arkusza.
+            </p>
+
+            <h3>Ćwiczenie 1. Porównanie formatów graficznych</h3>
+
+            <p>
+                <strong>Cel:</strong>
+                sprawdzenie wpływu formatu zapisu
+                na rozmiar i jakość obrazu.
+            </p>
+
+            <ol>
+                <li>
+                    Pobierz dowolną fotografię udostępnioną
+                    przez nauczyciela.
+                </li>
+                <li>Otwórz ją w programie GIMP.</li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw1_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj obraz jako
+                    <code>cw1_jpg.jpg</code>
+                    z jakością 90.
+                </li>
+                <li>
+                    Ponownie wyeksportuj obraz jako
+                    <code>cw1_jpg_50.jpg</code>
+                    z jakością 50.
+                </li>
+                <li>
+                    Wyeksportuj obraz jako
+                    <code>cw1_png.png</code>.
+                </li>
+                <li>
+                    Wyeksportuj obraz jako
+                    <code>cw1_webp.webp</code>
+                    z ustawieniami domyślnymi.
+                </li>
+                <li>
+                    Sprawdź rozmiary wszystkich
+                    wyeksportowanych plików.
+                </li>
+                <li>
+                    Porównaj jakość obrazów,
+                    szczególnie w obszarach
+                    zawierających drobne szczegóły.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Odpowiedz:</strong>
+                który plik zajmuje najmniej miejsca?
+                Czy obniżenie jakości JPG
+                wpłynęło na wygląd fotografii?
+            </p>
+
+            <h3>Ćwiczenie 2. Grafika z przezroczystym tłem</h3>
+
+            <p>
+                <strong>Cel:</strong>
+                przygotowanie grafiki PNG
+                z przezroczystością.
+            </p>
+
+            <ol>
+                <li>W GIMP-ie wybierz <strong>Plik → Nowy</strong>.</li>
+                <li>Ustaw wymiary obrazu na 400 × 200 px.</li>
+                <li>
+                    Wybierz <strong>Warstwa → Przezroczystość
+                    → Dodaj kanał alfa</strong>,
+                    jeśli ta opcja jest dostępna.
+                </li>
+                <li>
+                    Usuń zawartość tła, tak aby widoczna
+                    była szachownica oznaczająca przezroczystość.
+                </li>
+                <li>
+                    Narzędziem Tekst wpisz
+                    <strong>STREFA IT</strong>.
+                </li>
+                <li>Ustaw dowolny kolor i rozmiar tekstu.</li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw2_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj grafikę jako
+                    <code>cw2_logo.png</code>.
+                </li>
+                <li>
+                    Otwórz wyeksportowany plik
+                    i sprawdź, czy tło jest przezroczyste.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Ważne:</strong>
+                szachownica w GIMP-ie oznacza
+                przezroczystość, a nie element obrazu.
+            </p>
+
+            <h3>Ćwiczenie 3. Dobór formatu – sytuacje egzaminacyjne</h3>
+
+            <p>
+                Dla każdego z poniższych przypadków
+                wybierz odpowiedni format
+                i krótko uzasadnij odpowiedź.
+            </p>
+
+            <ol>
+                <li>
+                    Zdjęcie krajobrazu przeznaczone
+                    do galerii internetowej.
+                </li>
+                <li>
+                    Logotyp, który ma być wyświetlany
+                    na różnych kolorach tła.
+                </li>
+                <li>
+                    Prosta ikona, którą trzeba powiększać
+                    bez utraty ostrości.
+                </li>
+                <li>
+                    Projekt graficzny, który będzie
+                    później edytowany w GIMP-ie.
+                </li>
+                <li>
+                    Grafika w zadaniu INF.03,
+                    którą zgodnie z poleceniem
+                    należy zapisać jako JPG.
+                </li>
+            </ol>
+
+            <p>
+                Zapisz odpowiedzi w pliku tekstowym
+                <code>cw3_odpowiedzi.txt</code>.
+            </p>
+        </section>
+
+        <section id="oddanie">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Utwórz folder o nazwie
+                <code>PSI_37_Nazwisko_Imie</code>.
+            </p>
+
+            <p>Umieść w nim:</p>
+
+            <ul>
+                <li><code>cw1_projekt.xcf</code></li>
+                <li><code>cw1_jpg.jpg</code></li>
+                <li><code>cw1_jpg_50.jpg</code></li>
+                <li><code>cw1_png.png</code></li>
+                <li><code>cw1_webp.webp</code></li>
+                <li><code>cw2_projekt.xcf</code></li>
+                <li><code>cw2_logo.png</code></li>
+                <li><code>cw3_odpowiedzi.txt</code></li>
+            </ul>
+
+            <p>
+                <strong>Spakuj cały folder do ZIP
+                i prześlij na Zadanie w Teams.</strong>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 37
+</footer>
+
+</body>
+</html>
