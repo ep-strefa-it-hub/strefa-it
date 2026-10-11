@@ -999,10 +999,10 @@ body > main > div.dzial > details.dzial > .lista-lekcji > a.lekcja:hover {
     }
 }
 
+/* PSI – kolor numerów lekcji zgodny z działem */
 
-/* PSI – kolor numeru lekcji zgodny z kolorem działu */
-
-body > main > div.dzial > details.dzial
-.lista-lekcji .lekcja .numer {
-    color: var(--akcent);
+body > main > div.dzial > details.dzial >
+.lista-lekcji > a.lekcja .numer {
+    color: var(--akcent) !important;
 }
+
