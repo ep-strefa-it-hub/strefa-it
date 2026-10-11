@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 39 – Przygotowanie grafiki rastrowej | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <h1>STREFA IT</h1>
+    <p>Projektowanie stron internetowych</p>
+</header>
+
+<nav>
+    <div>
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Przygotowanie grafiki WWW</a>
+        <a href="#skalowanie">2. Skalowanie obrazu</a>
+        <a href="#proporcje">3. Zachowanie proporcji</a>
+        <a href="#kadrowanie">4. Kadrowanie obrazu</a>
+        <a href="#plotno">5. Rozmiar płótna</a>
+        <a href="#jakosc">6. Jakość skalowania</a>
+        <a href="#gimp">7. Instrukcje GIMP</a>
+        <a href="#inf03">8. Wymagania INF.03</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#cwiczenia">📝 Ćwiczenia praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 39 • GRAFIKA WWW
+            </div>
+
+            <h2>
+                Przygotowanie grafiki rastrowej na potrzeby stron WWW –
+                skalowanie, kadrowanie, zmiana wymiarów
+                i zachowanie proporcji
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                samodzielne przygotowywanie obrazów rastrowych
+                zgodnie z wymaganiami strony internetowej
+                oraz specyfikacją zadań egzaminacyjnych INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Przygotowanie grafiki na strony WWW</h2>
+
+            <p>
+                Obrazy umieszczane na stronach internetowych
+                powinny mieć odpowiednie wymiary,
+                proporcje, format i rozmiar pliku.
+            </p>
+
+            <p>
+                Do najczęściej wykonywanych operacji należą:
+            </p>
+
+            <ul>
+                <li>skalowanie obrazu,</li>
+                <li>kadrowanie,</li>
+                <li>zmiana wymiarów,</li>
+                <li>zachowanie proporcji,</li>
+                <li>eksport do odpowiedniego formatu.</li>
+            </ul>
+
+            <p>
+                W zadaniach INF.03 często należy
+                zmodyfikować dostarczony plik graficzny
+                zgodnie z dokładną specyfikacją.
+            </p>
+        </section>
+
+        <section id="skalowanie">
+            <h2>2. Skalowanie obrazu</h2>
+
+            <p>
+                <strong>Skalowanie</strong> polega na zmianie
+                liczby pikseli tworzących obraz.
+            </p>
+
+            <p>
+                Przykładowo obraz o wymiarach
+                1200 × 800 px można zmniejszyć
+                do 600 × 400 px.
+            </p>
+
+            <p>
+                Skalowanie może polegać na:
+            </p>
+
+            <ul>
+                <li>zmniejszeniu obrazu,</li>
+                <li>powiększeniu obrazu.</li>
+            </ul>
+
+            <p>
+                Zmniejszanie obrazu jest często stosowane
+                podczas przygotowywania fotografii
+                na strony WWW.
+            </p>
+
+            <p>
+                Powiększanie obrazu rastrowego
+                może spowodować pogorszenie jego ostrości,
+                ponieważ program musi obliczyć
+                dodatkowe piksele.
+            </p>
+        </section>
+
+        <section id="proporcje">
+            <h2>3. Zachowanie proporcji obrazu</h2>
+
+            <p>
+                <strong>Zachowanie proporcji</strong>
+                oznacza zmianę szerokości i wysokości
+                w takim samym stosunku.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Obraz ma wymiary 1000 × 600 px.
+                Należy zmniejszyć jego szerokość
+                do 350 px.
+            </p>
+
+            <p>
+                Nową wysokość obliczamy:
+            </p>
+
+            <pre><code>600 × 350 / 1000 = 210 px</code></pre>
+
+            <p>
+                Wynikowy obraz będzie miał wymiary:
+                <strong>350 × 210 px</strong>.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                W oknie skalowania GIMP-a
+                symbol łańcucha powinien być połączony.
+                Dzięki temu zmiana szerokości
+                automatycznie zmieni wysokość.
+            </div>
+        </section>
+
+        <section id="kadrowanie">
+            <h2>4. Kadrowanie obrazu</h2>
+
+            <p>
+                <strong>Kadrowanie</strong> polega
+                na usunięciu niepotrzebnych fragmentów
+                obrazu i pozostawieniu wybranego obszaru.
+            </p>
+
+            <p>
+                Kadrowanie wykorzystuje się m.in. do:
+            </p>
+
+            <ul>
+                <li>usuwania zbędnego tła,</li>
+                <li>poprawiania kompozycji fotografii,</li>
+                <li>przygotowywania miniaturek,</li>
+                <li>tworzenia banerów o określonych proporcjach.</li>
+            </ul>
+
+            <h3>Skalowanie a kadrowanie</h3>
+
+            <table>
+                <tr>
+                    <th>Skalowanie</th>
+                    <th>Kadrowanie</th>
+                </tr>
+                <tr>
+                    <td>Zmienia liczbę pikseli obrazu.</td>
+                    <td>Usuwa fragmenty obrazu.</td>
+                </tr>
+                <tr>
+                    <td>Może zachować całą zawartość.</td>
+                    <td>Pozostawia wybrany fragment.</td>
+                </tr>
+                <tr>
+                    <td>Może pogorszyć ostrość przy powiększaniu.</td>
+                    <td>Nie wymaga powiększania pikseli.</td>
+                </tr>
+            </table>
+
+            <p>
+                Jeśli obraz ma mieć dokładne proporcje,
+                często najpierw się go kadruje,
+                a następnie skaluje.
+            </p>
+        </section>
+
+        <section id="plotno">
+            <h2>5. Zmiana rozmiaru płótna</h2>
+
+            <p>
+                <strong>Rozmiar płótna</strong>
+                określa obszar obrazu,
+                na którym mogą znajdować się warstwy.
+            </p>
+
+            <p>
+                Zmiana rozmiaru płótna
+                nie jest tym samym co skalowanie.
+            </p>
+
+            <p>
+                Po zwiększeniu płótna
+                może pojawić się dodatkowa przestrzeń
+                wokół dotychczasowego obrazu.
+            </p>
+
+            <p>
+                Po zmniejszeniu płótna
+                część warstwy może znaleźć się
+                poza widocznym obszarem obrazu.
+            </p>
+
+            <h3>Przykład</h3>
+
+            <p>
+                Obraz ma wymiary 600 × 400 px.
+                Zmieniamy płótno na 800 × 600 px.
+            </p>
+
+            <p>
+                Sam obraz nie zostaje automatycznie
+                powiększony do nowych wymiarów.
+                Zwiększa się jedynie dostępny obszar.
+            </p>
+        </section>
+
+        <section id="jakosc">
+            <h2>6. Jakość skalowania i interpolacja</h2>
+
+            <p>
+                Podczas skalowania GIMP oblicza
+                nowe wartości pikseli.
+                Proces ten nazywa się
+                <strong>interpolacją</strong>.
+            </p>
+
+            <p>
+                W zależności od wersji i ustawień
+                GIMP-a dostępne mogą być różne
+                metody interpolacji.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Brak</strong> –
+                    może powodować widoczne
+                    kwadratowe piksele.
+                </li>
+                <li>
+                    <strong>Liniowa</strong> –
+                    daje łagodniejsze przejścia.
+                </li>
+                <li>
+                    <strong>Sześcienna</strong> –
+                    często dobrze sprawdza się
+                    przy skalowaniu fotografii.
+                </li>
+                <li>
+                    <strong>NoHalo / LoHalo</strong> –
+                    zaawansowane metody,
+                    które mogą ograniczać
+                    niektóre artefakty skalowania.
+                </li>
+            </ul>
+
+            <p>
+                W typowych zadaniach INF.03
+                najważniejsze jest uzyskanie
+                wymaganych wymiarów obrazu,
+                zachowanie proporcji i poprawny eksport.
+            </p>
+        </section>
+
+        <section id="gimp">
+            <h2>7. Instrukcje krok po kroku – GIMP 3.x</h2>
+
+            <h3>A. Skalowanie obrazu</h3>
+
+            <ol>
+                <li>Uruchom GIMP.</li>
+                <li>Wybierz <strong>Plik → Otwórz</strong>.</li>
+                <li>Otwórz wybrany obraz.</li>
+                <li>Wybierz <strong>Obraz → Skaluj obraz</strong>.</li>
+                <li>Sprawdź, czy symbol łańcucha jest połączony.</li>
+                <li>Wpisz wymaganą szerokość.</li>
+                <li>
+                    Naciśnij Tab i sprawdź,
+                    czy wysokość została przeliczona.
+                </li>
+                <li>Kliknij <strong>Skaluj</strong>.</li>
+                <li>
+                    Sprawdź nowe wymiary obrazu.
+                </li>
+            </ol>
+
+            <h3>B. Kadrowanie obrazu</h3>
+
+            <ol>
+                <li>Otwórz obraz w GIMP-ie.</li>
+                <li>
+                    Wybierz narzędzie
+                    <strong>Kadrowanie</strong>
+                    (skrót Shift + C).
+                </li>
+                <li>
+                    Zaznacz obszar,
+                    który chcesz pozostawić.
+                </li>
+                <li>
+                    Przesuń lub dopasuj granice kadru.
+                </li>
+                <li>
+                    Naciśnij Enter,
+                    aby zatwierdzić kadrowanie.
+                </li>
+                <li>Sprawdź wynik.</li>
+            </ol>
+
+            <h3>C. Kadrowanie do dokładnych wymiarów</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>Wybierz narzędzie Kadrowanie.</li>
+                <li>
+                    W opcjach narzędzia włącz
+                    <strong>Stałe</strong>
+                    i wybierz ograniczenie
+                    <strong>Rozmiar</strong>.
+                </li>
+                <li>
+                    Wpisz wymagane wymiary,
+                    np. <code>600 × 400</code>.
+                </li>
+                <li>
+                    Ustaw obszar kadrowania
+                    w odpowiednim miejscu.
+                </li>
+                <li>Zatwierdź klawiszem Enter.</li>
+            </ol>
+
+            <p>
+                Jeśli obraz źródłowy jest zbyt mały
+                dla wymaganego kadru,
+                może być konieczne wcześniejsze
+                skalowanie.
+            </p>
+
+            <h3>D. Zmiana rozmiaru płótna</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Wymiary płótna</strong>
+                    (w niektórych tłumaczeniach:
+                    Rozmiar płótna).
+                </li>
+                <li>Wpisz nowe wymiary.</li>
+                <li>
+                    W razie potrzeby ustaw położenie
+                    istniejącego obrazu przyciskiem
+                    wyśrodkowania.
+                </li>
+                <li>
+                    Sprawdź opcje zmiany rozmiaru warstw.
+                </li>
+                <li>Zatwierdź operację.</li>
+            </ol>
+
+            <h3>E. Eksport grafiki</h3>
+
+            <ol>
+                <li>
+                    Wybierz <strong>Plik → Wyeksportuj jako</strong>.
+                </li>
+                <li>
+                    Wpisz nazwę pliku,
+                    np. <code>obraz.jpg</code>.
+                </li>
+                <li>Wybierz folder docelowy.</li>
+                <li>Kliknij <strong>Wyeksportuj</strong>.</li>
+                <li>
+                    Zatwierdź ustawienia formatu,
+                    jeśli pojawi się dodatkowe okno.
+                </li>
+            </ol>
+        </section>
+
+        <section id="inf03">
+            <h2>8. Grafika w zadaniach INF.03</h2>
+
+            <p>
+                W arkuszach egzaminacyjnych INF.03
+                występują polecenia wymagające
+                przygotowania grafiki na podstawie
+                dostarczonych plików źródłowych.
+            </p>
+
+            <p>
+                Przykładowe wymagania obejmują:
+            </p>
+
+            <ul>
+                <li>skalowanie do określonej szerokości,</li>
+                <li>zachowanie proporcji obrazu,</li>
+                <li>odbicie obrazu wzdłuż osi pionowej,</li>
+                <li>zapis w określonym formacie,</li>
+                <li>zachowanie wymaganej nazwy pliku.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Wskazówka egzaminacyjna:</strong>
+                przed wykonaniem zadania przeczytaj
+                całą specyfikację grafiki.
+                Sprawdź nazwę pliku, wymiary,
+                format oraz wszystkie wymagane operacje.
+            </div>
+        </section>
+
+        <section id="zapamietaj">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Skalowanie zmienia liczbę pikseli obrazu.</li>
+                <li>Kadrowanie usuwa niepotrzebne fragmenty.</li>
+                <li>
+                    Zmiana rozmiaru płótna
+                    nie oznacza skalowania zawartości.
+                </li>
+                <li>
+                    Zachowanie proporcji zapobiega
+                    zniekształceniu obrazu.
+                </li>
+                <li>
+                    Po edycji należy sprawdzić
+                    rzeczywiste wymiary pliku wynikowego.
+                </li>
+                <li>
+                    Na egzaminie INF.03
+                    trzeba dokładnie przestrzegać specyfikacji.
+                </li>
+            </ul>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>📝 Ćwiczenia praktyczne – GIMP 3.x</h2>
+
+            <p>
+                Poniższe zadania są przygotowane
+                w stylu poleceń spotykanych
+                w arkuszach INF.03.
+            </p>
+
+            <h3>Ćwiczenie 1. Skalowanie obrazu</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: 1200 × 800 px,</li>
+                <li>szerokość wynikowa: 600 px,</li>
+                <li>proporcje: zachowane,</li>
+                <li>format wynikowy: JPG,</li>
+                <li>nazwa pliku: <code>cw1_skalowanie.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz w GIMP-ie obraz o wymiarach
+                    1200 × 800 px.
+                    Jeśli nie masz takiego obrazu,
+                    utwórz go i dodaj dowolne elementy.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw1_projekt.xcf</code>.
+                </li>
+                <li>Wybierz <strong>Obraz → Skaluj obraz</strong>.</li>
+                <li>Ustaw szerokość na 600 px.</li>
+                <li>Zachowaj proporcje.</li>
+                <li>Sprawdź, czy wysokość wynosi 400 px.</li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw1_skalowanie.jpg</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 2. Kadrowanie obrazu</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: 1200 × 800 px,</li>
+                <li>wymiary wynikowe: 800 × 400 px,</li>
+                <li>format wynikowy: PNG,</li>
+                <li>nazwa pliku: <code>cw2_kadrowanie.png</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz obraz o wymiarach 1200 × 800 px.
+                </li>
+                <li>Wybierz narzędzie Kadrowanie.</li>
+                <li>
+                    Ustaw stały rozmiar kadru
+                    800 × 400 px.
+                </li>
+                <li>
+                    Wybierz najciekawszy fragment obrazu.
+                </li>
+                <li>Zatwierdź kadrowanie.</li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw2_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw2_kadrowanie.png</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 3. Grafika egzaminacyjna – szerokość 350 px</h3>
+
+            <p>
+                <strong>Specyfikacja w stylu INF.03:</strong>
+            </p>
+
+            <ul>
+                <li>obraz źródłowy: 1000 × 600 px,</li>
+                <li>odbicie względem osi pionowej,</li>
+                <li>nowa szerokość: dokładnie 350 px,</li>
+                <li>proporcje: zachowane,</li>
+                <li>format wynikowy: JPG,</li>
+                <li>nazwa pliku: <code>cw3_grafika.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz obraz o wymiarach 1000 × 600 px.
+                </li>
+                <li>
+                    Wybierz
+                    <strong>Obraz → Przekształcenie
+                    → Odbij poziomo</strong>.
+                </li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość 350 px,
+                    zachowując proporcje.
+                </li>
+                <li>
+                    Sprawdź, czy wysokość wynosi 210 px.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw3_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw3_grafika.jpg</code>.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Uwaga:</strong>
+                odbicie względem osi pionowej
+                oznacza zamianę lewej i prawej strony obrazu,
+                czyli w GIMP-ie polecenie
+                <strong>Odbij poziomo</strong>.
+            </p>
+
+            <h3>Ćwiczenie 4. Baner na stronę WWW</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: 1600 × 1000 px,</li>
+                <li>docelowy rozmiar: 1200 × 400 px,</li>
+                <li>bez rozciągania obrazu,</li>
+                <li>format wynikowy: JPG,</li>
+                <li>nazwa pliku: <code>cw4_baner.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz obraz o wymiarach 1600 × 1000 px.
+                </li>
+                <li>
+                    Wybierz narzędzie Kadrowanie.
+                </li>
+                <li>
+                    Ustaw stały rozmiar kadru
+                    1500 × 500 px.
+                </li>
+                <li>
+                    Wybierz fragment obrazu
+                    nadający się na baner.
+                </li>
+                <li>Zatwierdź kadrowanie.</li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość na 1200 px,
+                    zachowując proporcje.
+                </li>
+                <li>
+                    Sprawdź, czy wysokość wynosi 400 px.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw4_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw4_baner.jpg</code>.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Kontrola poprawności:</strong>
+                sprawdź każdy wyeksportowany obraz:
+                nazwę pliku, format, wymiary,
+                proporcje oraz wykonane operacje.
+            </div>
+        </section>
+
+        <section id="oddanie">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Utwórz folder
+                <code>PSI_47_Nazwisko_Imie</code>.
+            </p>
+
+            <p>Umieść w nim:</p>
+
+            <ul>
+                <li><code>cw1_projekt.xcf</code></li>
+                <li><code>cw1_skalowanie.jpg</code></li>
+                <li><code>cw2_projekt.xcf</code></li>
+                <li><code>cw2_kadrowanie.png</code></li>
+                <li><code>cw3_projekt.xcf</code></li>
+                <li><code>cw3_grafika.jpg</code></li>
+                <li><code>cw4_projekt.xcf</code></li>
+                <li><code>cw4_baner.jpg</code></li>
+            </ul>
+
+            <p>
+                <strong>
+                    Spakuj cały folder do ZIP
+                    i prześlij na Zadanie w Teams.
+                </strong>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 39
+</footer>
+
+</body>
+</html>
