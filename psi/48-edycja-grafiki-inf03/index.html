@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI 40 – Edycja grafiki na potrzeby INF.03 | Strefa IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <h1>STREFA IT</h1>
+    <p>Projektowanie stron internetowych</p>
+</header>
+
+<nav>
+    <div>
+        <a href="../index.html">← Powrót do PSI</a>
+        <a href="../../index.html">Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Edycja grafiki w INF.03</a>
+        <a href="#zaznaczenia">2. Narzędzia zaznaczania</a>
+        <a href="#warstwy">3. Praca na warstwach</a>
+        <a href="#alfa">4. Przezroczystość</a>
+        <a href="#tekst">5. Dodawanie tekstu</a>
+        <a href="#operacje">6. Operacje na obrazie</a>
+        <a href="#gimp">7. Instrukcje GIMP</a>
+        <a href="#egzamin">8. Grafika na egzaminie</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#cwiczenia">📝 Ćwiczenia praktyczne</a>
+        <a href="#oddanie">📤 Oddanie pracy</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">
+                PSI • LEKCJA 40 • GRAFIKA WWW
+            </div>
+
+            <h2>
+                Edycja grafiki na potrzeby INF.03 –
+                zaznaczenia, warstwy, przezroczystość,
+                tekst i podstawowe operacje na obrazie
+            </h2>
+
+            <p>
+                <strong>Cel lekcji:</strong>
+                samodzielne modyfikowanie grafiki
+                w programie GIMP 3.x,
+                z wykorzystaniem zaznaczeń, warstw,
+                przezroczystości i narzędzi tekstowych,
+                zgodnie ze specyfikacją zadania INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Edycja grafiki w zadaniach INF.03</h2>
+
+            <p>
+                W praktycznych zadaniach INF.03
+                często należy przygotować lub zmodyfikować
+                pliki graficzne dostarczone razem z arkuszem.
+            </p>
+
+            <p>Przykładowe operacje:</p>
+
+            <ul>
+                <li>zmiana napisu lub oznaczenia na obrazie,</li>
+                <li>usuwanie zbędnych elementów,</li>
+                <li>przygotowanie przezroczystego tła,</li>
+                <li>dodawanie tekstu,</li>
+                <li>odbicie lub obrót obrazu,</li>
+                <li>skalowanie do wymaganych wymiarów,</li>
+                <li>eksport do wskazanego formatu.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Na egzaminie liczy się zgodność
+                końcowego pliku z wymaganiami arkusza:
+                jego wygląd, wymiary, format i nazwa.
+            </div>
+        </section>
+
+        <section id="zaznaczenia">
+            <h2>2. Narzędzia zaznaczania w GIMP-ie</h2>
+
+            <p>
+                <strong>Zaznaczenie</strong> pozwala ograniczyć
+                działanie narzędzia do wybranego fragmentu obrazu.
+            </p>
+
+            <table>
+                <tr>
+                    <th>Narzędzie</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>Zaznaczenie prostokątne</td>
+                    <td>Wybór obszaru w kształcie prostokąta.</td>
+                </tr>
+                <tr>
+                    <td>Zaznaczenie eliptyczne</td>
+                    <td>Wybór koła lub elipsy.</td>
+                </tr>
+                <tr>
+                    <td>Odręczne zaznaczanie</td>
+                    <td>Zaznaczanie obszaru o nieregularnym kształcie.</td>
+                </tr>
+                <tr>
+                    <td>Rozmyte zaznaczenie</td>
+                    <td>Wybór sąsiadujących pikseli o podobnym kolorze.</td>
+                </tr>
+                <tr>
+                    <td>Zaznaczanie według koloru</td>
+                    <td>Wybór pikseli o podobnym kolorze w całej warstwie.</td>
+                </tr>
+            </table>
+
+            <h3>Przydatne skróty</h3>
+
+            <ul>
+                <li><strong>R</strong> – zaznaczenie prostokątne,</li>
+                <li><strong>E</strong> – zaznaczenie eliptyczne,</li>
+                <li><strong>F</strong> – odręczne zaznaczanie,</li>
+                <li><strong>Ctrl + Shift + A</strong> – brak zaznaczenia.</li>
+            </ul>
+
+            <p>
+                Skróty mogą zależeć od konfiguracji programu.
+                Wszystkie narzędzia można również wybrać z menu.
+            </p>
+        </section>
+
+        <section id="warstwy">
+            <h2>3. Praca na warstwach</h2>
+
+            <p>
+                <strong>Warstwy</strong> pozwalają umieszczać
+                różne elementy grafiki niezależnie od siebie.
+            </p>
+
+            <p>
+                Przykładowa grafika może zawierać:
+            </p>
+
+            <ul>
+                <li>warstwę tła,</li>
+                <li>warstwę ze zdjęciem,</li>
+                <li>warstwę z napisem,</li>
+                <li>warstwę z dodatkowym elementem.</li>
+            </ul>
+
+            <h3>Dlaczego warto stosować warstwy?</h3>
+
+            <ul>
+                <li>można przesuwać elementy osobno,</li>
+                <li>można zmieniać tekst bez naruszania tła,</li>
+                <li>można ukrywać i usuwać wybrane elementy,</li>
+                <li>łatwiej poprawiać błędy.</li>
+            </ul>
+
+            <h3>Podstawowe operacje</h3>
+
+            <ol>
+                <li>
+                    Aby utworzyć warstwę, wybierz
+                    <strong>Warstwa → Nowa warstwa</strong>.
+                </li>
+                <li>
+                    Aby zmienić jej nazwę,
+                    kliknij dwukrotnie nazwę warstwy.
+                </li>
+                <li>
+                    Aby ukryć warstwę,
+                    kliknij ikonę oka.
+                </li>
+                <li>
+                    Aby zmienić kolejność warstw,
+                    przeciągnij je na liście.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                plik XCF zachowuje warstwy,
+                natomiast eksport do JPG lub PNG
+                tworzy wynikowy obraz przeznaczony
+                do wykorzystania poza GIMP-em.
+            </div>
+        </section>
+
+        <section id="alfa">
+            <h2>4. Przezroczystość i kanał alfa</h2>
+
+            <p>
+                <strong>Przezroczystość</strong> pozwala
+                wyświetlać grafikę bez widocznego tła
+                lub z częściowo przezroczystymi elementami.
+            </p>
+
+            <p>
+                W GIMP-ie przezroczyste fragmenty
+                obrazu są zazwyczaj oznaczone
+                szaro-białą szachownicą.
+            </p>
+
+            <h3>Dodawanie kanału alfa</h3>
+
+            <ol>
+                <li>Otwórz obraz w GIMP-ie.</li>
+                <li>Wybierz odpowiednią warstwę.</li>
+                <li>
+                    Kliknij
+                    <strong>Warstwa → Przezroczystość
+                    → Dodaj kanał alfa</strong>.
+                </li>
+                <li>
+                    Jeżeli polecenie jest nieaktywne,
+                    warstwa może już mieć kanał alfa.
+                </li>
+            </ol>
+
+            <h3>Usuwanie jednolitego tła</h3>
+
+            <ol>
+                <li>Dodaj kanał alfa.</li>
+                <li>
+                    Wybierz narzędzie
+                    <strong>Rozmyte zaznaczenie</strong>.
+                </li>
+                <li>Kliknij jednolite tło.</li>
+                <li>
+                    W razie potrzeby dostosuj próg zaznaczania.
+                </li>
+                <li>Naciśnij Delete.</li>
+                <li>
+                    Usuń zaznaczenie:
+                    <strong>Zaznaczenie → Brak</strong>.
+                </li>
+                <li>
+                    Wyeksportuj obraz do formatu PNG.
+                </li>
+            </ol>
+
+            <p>
+                JPG nie obsługuje przezroczystości.
+                Do takich grafik wybieramy
+                najczęściej PNG lub WebP.
+            </p>
+        </section>
+
+        <section id="tekst">
+            <h2>5. Dodawanie i edycja tekstu</h2>
+
+            <p>
+                Narzędzie <strong>Tekst</strong>
+                umożliwia umieszczanie napisów
+                na obrazie.
+            </p>
+
+            <p>
+                Tekst w GIMP-ie może mieć:
+            </p>
+
+            <ul>
+                <li>określony krój czcionki,</li>
+                <li>rozmiar,</li>
+                <li>kolor,</li>
+                <li>wyrównanie,</li>
+                <li>położenie.</li>
+            </ul>
+
+            <h3>Dodawanie napisu</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>
+                    Wybierz narzędzie
+                    <strong>Tekst</strong> (skrót T).
+                </li>
+                <li>Ustaw czcionkę, rozmiar i kolor.</li>
+                <li>Kliknij wybrane miejsce obrazu.</li>
+                <li>Wpisz tekst.</li>
+                <li>
+                    Aby przesunąć napis,
+                    wybierz narzędzie Przesunięcie
+                    i upewnij się, że przesuwasz warstwę tekstową.
+                </li>
+            </ol>
+
+            <p>
+                Napis jest umieszczany na osobnej
+                warstwie tekstowej, dzięki czemu
+                można go później zmodyfikować.
+            </p>
+        </section>
+
+        <section id="operacje">
+            <h2>6. Podstawowe operacje na obrazie</h2>
+
+            <table>
+                <tr>
+                    <th>Operacja</th>
+                    <th>Zastosowanie</th>
+                </tr>
+                <tr>
+                    <td>Odbicie poziome</td>
+                    <td>Zamiana lewej i prawej strony obrazu.</td>
+                </tr>
+                <tr>
+                    <td>Odbicie pionowe</td>
+                    <td>Zamiana góry i dołu obrazu.</td>
+                </tr>
+                <tr>
+                    <td>Obrót</td>
+                    <td>Zmiana orientacji obrazu.</td>
+                </tr>
+                <tr>
+                    <td>Skalowanie</td>
+                    <td>Zmiana wymiarów obrazu.</td>
+                </tr>
+                <tr>
+                    <td>Kadrowanie</td>
+                    <td>Usunięcie niepotrzebnych fragmentów.</td>
+                </tr>
+                <tr>
+                    <td>Wypełnienie</td>
+                    <td>Nadanie koloru wybranemu obszarowi.</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Uwaga egzaminacyjna:</strong>
+                odbicie obrazu względem osi pionowej
+                oznacza zamianę lewej i prawej strony,
+                czyli polecenie
+                <strong>Odbij poziomo</strong> w GIMP-ie.
+            </div>
+        </section>
+
+        <section id="gimp">
+            <h2>7. Instrukcje praktyczne – GIMP 3.x</h2>
+
+            <h3>A. Usuwanie fragmentu obrazu</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>Dodaj kanał alfa do warstwy.</li>
+                <li>Wybierz narzędzie zaznaczania.</li>
+                <li>Zaznacz fragment przeznaczony do usunięcia.</li>
+                <li>Naciśnij Delete.</li>
+                <li>Usuń zaznaczenie.</li>
+            </ol>
+
+            <h3>B. Zastępowanie starego napisu nowym</h3>
+
+            <ol>
+                <li>Otwórz obraz z napisem.</li>
+                <li>
+                    Sprawdź, czy napis jest
+                    na osobnej warstwie.
+                </li>
+                <li>
+                    Jeśli jest na warstwie tekstowej,
+                    zmodyfikuj go narzędziem Tekst.
+                </li>
+                <li>
+                    Jeśli napis jest częścią obrazu,
+                    usuń lub zamaskuj stary napis,
+                    dopasowując sposób do tła.
+                </li>
+                <li>Dodaj nowy napis narzędziem Tekst.</li>
+                <li>
+                    Dopasuj jego rozmiar, kolor i położenie.
+                </li>
+                <li>Zapisz projekt i wyeksportuj grafikę.</li>
+            </ol>
+
+            <p>
+                Przy jednolitym tle stary napis można
+                zakryć odpowiednim kolorem.
+                Przy złożonym tle może być konieczne
+                użycie narzędzia Klonowanie
+                lub Naprawianie.
+            </p>
+
+            <h3>C. Odbicie całego obrazu</h3>
+
+            <ol>
+                <li>Otwórz obraz.</li>
+                <li>
+                    Wybierz <strong>Obraz → Przekształcenie
+                    → Odbij poziomo</strong>.
+                </li>
+                <li>Sprawdź rezultat.</li>
+                <li>Wyeksportuj plik.</li>
+            </ol>
+
+            <h3>D. Tworzenie grafiki z warstwami</h3>
+
+            <ol>
+                <li>Utwórz nowy obraz.</li>
+                <li>Dodaj warstwę tła.</li>
+                <li>Dodaj nową przezroczystą warstwę.</li>
+                <li>Umieść na niej dowolny element graficzny.</li>
+                <li>Dodaj napis na osobnej warstwie.</li>
+                <li>Zapisz projekt w formacie XCF.</li>
+                <li>Wyeksportuj obraz jako PNG.</li>
+            </ol>
+        </section>
+
+        <section id="egzamin">
+            <h2>8. Edycja grafiki w arkuszach INF.03</h2>
+
+            <p>
+                W arkuszach praktycznych INF.03
+                można spotkać zadania,
+                w których trzeba zmodyfikować
+                istniejące pliki graficzne.
+            </p>
+
+            <h3>Przykład z arkusza INF.03 – czerwiec 2024</h3>
+
+            <p>
+                W zadaniu z przygotowania grafiki
+                występowały m.in. następujące wymagania:
+            </p>
+
+            <ul>
+                <li>
+                    w pliku <code>obraz1.png</code>
+                    zmienić oznaczenie <strong>8T</strong>
+                    na <strong>5T</strong>,
+                </li>
+                <li>
+                    plik <code>obraz2.jpg</code>
+                    odbić względem osi pionowej,
+                </li>
+                <li>
+                    przeskalować drugi obraz
+                    do szerokości dokładnie
+                    <strong>350 px</strong>,
+                    zachowując proporcje.
+                </li>
+            </ul>
+
+            <p>
+                Materiał źródłowy:
+                <a href="https://egzamin-informatyk.pl/arkusz-praktyczny-inf03-2024-06-07/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Arkusz INF.03 – czerwiec 2024
+                </a>.
+            </p>
+
+            <p>
+                Podczas pracy z arkuszem należy korzystać
+                również z dostarczonych plików źródłowych
+                i obrazu wzorcowego.
+            </p>
+        </section>
+
+        <section id="zapamietaj">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Zaznaczenie ogranicza obszar edycji.</li>
+                <li>Warstwy pozwalają edytować elementy osobno.</li>
+                <li>Kanał alfa umożliwia przezroczystość.</li>
+                <li>Tekst warto umieszczać na osobnej warstwie.</li>
+                <li>Odbicie względem osi pionowej to odbicie poziome.</li>
+                <li>Plik XCF zachowuje projekt do dalszej edycji.</li>
+                <li>Na egzaminie należy sprawdzić plik wynikowy.</li>
+            </ul>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>📝 Ćwiczenia praktyczne – GIMP 3.x</h2>
+
+            <p>
+                Wszystkie ćwiczenia wykonaj
+                w programie GIMP.
+            </p>
+
+            <h3>Ćwiczenie 1. Usuwanie tła</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>obraz źródłowy: grafika z jednolitym tłem,</li>
+                <li>tło wynikowe: przezroczyste,</li>
+                <li>format: PNG,</li>
+                <li>nazwa: <code>cw1_bez_tla.png</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Otwórz w GIMP-ie grafikę
+                    z jednolitym tłem.
+                </li>
+                <li>Dodaj kanał alfa.</li>
+                <li>Wybierz Rozmyte zaznaczenie.</li>
+                <li>Kliknij tło.</li>
+                <li>Usuń zaznaczony fragment.</li>
+                <li>Usuń zaznaczenie.</li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw1_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj plik
+                    <code>cw1_bez_tla.png</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 2. Grafika z tekstem i warstwami</h3>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>wymiary: 600 × 300 px,</li>
+                <li>tło: <code>#1F4E79</code>,</li>
+                <li>tekst: <strong>STREFA IT</strong>,</li>
+                <li>kolor tekstu: biały,</li>
+                <li>co najmniej 2 warstwy,</li>
+                <li>format: PNG.</li>
+            </ul>
+
+            <ol>
+                <li>Utwórz obraz 600 × 300 px.</li>
+                <li>Wypełnij tło kolorem <code>#1F4E79</code>.</li>
+                <li>Dodaj napis „STREFA IT”.</li>
+                <li>Ustaw biały kolor tekstu.</li>
+                <li>Wyśrodkuj napis.</li>
+                <li>
+                    Sprawdź, czy napis znajduje się
+                    na osobnej warstwie.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw2_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw2_grafika.png</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 3. Zmiana oznaczenia na znaku</h3>
+
+            <p>
+                <strong>Zadanie oparte na arkuszu
+                INF.03 z czerwca 2024 r.</strong>
+            </p>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>plik źródłowy: <code>obraz1.png</code>,</li>
+                <li>zmiana oznaczenia: <strong>8T → 5T</strong>,</li>
+                <li>pozostałe elementy znaku bez zmian,</li>
+                <li>format wynikowy: PNG,</li>
+                <li>nazwa pliku: <code>cw3_znak.png</code>.</li>
+            </ul>
+
+            <ol>
+                <li>
+                    Pobierz plik <code>obraz1.png</code>
+                    z materiałów egzaminacyjnych.
+                </li>
+                <li>Otwórz go w GIMP-ie.</li>
+                <li>
+                    Powiększ widok obrazu,
+                    aby dokładnie zobaczyć napis.
+                </li>
+                <li>
+                    Usuń lub zakryj stare oznaczenie
+                    w sposób dopasowany do tła.
+                </li>
+                <li>
+                    Narzędziem Tekst wpisz <strong>5T</strong>.
+                </li>
+                <li>
+                    Dopasuj kolor, wielkość
+                    i położenie oznaczenia
+                    do obrazu wzorcowego.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw3_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw3_znak.png</code>.
+                </li>
+            </ol>
+
+            <h3>Ćwiczenie 4. Odbicie i skalowanie obrazu</h3>
+
+            <p>
+                <strong>Zadanie oparte na arkuszu
+                INF.03 z czerwca 2024 r.</strong>
+            </p>
+
+            <p><strong>Specyfikacja:</strong></p>
+
+            <ul>
+                <li>plik źródłowy: <code>obraz2.jpg</code>,</li>
+                <li>odbicie względem osi pionowej,</li>
+                <li>szerokość wynikowa: dokładnie 350 px,</li>
+                <li>zachowane proporcje,</li>
+                <li>format wynikowy: JPG,</li>
+                <li>nazwa: <code>cw4_obraz.jpg</code>.</li>
+            </ul>
+
+            <ol>
+                <li>Otwórz plik <code>obraz2.jpg</code>.</li>
+                <li>
+                    Wybierz <strong>Obraz → Przekształcenie
+                    → Odbij poziomo</strong>.
+                </li>
+                <li>
+                    Wybierz <strong>Obraz → Skaluj obraz</strong>.
+                </li>
+                <li>
+                    Ustaw szerokość na 350 px.
+                </li>
+                <li>
+                    Zachowaj proporcje obrazu.
+                </li>
+                <li>
+                    Zapisz projekt jako
+                    <code>cw4_projekt.xcf</code>.
+                </li>
+                <li>
+                    Wyeksportuj jako
+                    <code>cw4_obraz.jpg</code>.
+                </li>
+                <li>
+                    Sprawdź wymiary pliku wynikowego.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Kontrola pracy:</strong>
+                porównaj gotowe obrazy
+                ze specyfikacją oraz obrazami wzorcowymi
+                z arkusza INF.03.
+            </div>
+        </section>
+
+        <section id="oddanie">
+            <h2>📤 Oddanie pracy</h2>
+
+            <p>
+                Utwórz folder
+                <code>PSI_48_Nazwisko_Imie</code>.
+            </p>
+
+            <p>Umieść w nim:</p>
+
+            <ul>
+                <li><code>cw1_projekt.xcf</code></li>
+                <li><code>cw1_bez_tla.png</code></li>
+                <li><code>cw2_projekt.xcf</code></li>
+                <li><code>cw2_grafika.png</code></li>
+                <li><code>cw3_projekt.xcf</code></li>
+                <li><code>cw3_znak.png</code></li>
+                <li><code>cw4_projekt.xcf</code></li>
+                <li><code>cw4_obraz.jpg</code></li>
+            </ul>
+
+            <p>
+                <strong>
+                    Spakuj cały folder do ZIP
+                    i prześlij na Zadanie w Teams.
+                </strong>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PSI • Lekcja 40
+</footer>
+
+</body>
+</html>
