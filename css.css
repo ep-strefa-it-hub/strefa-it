@@ -796,13 +796,16 @@ body > main > div.dzial > details.dzial[open] {
     box-shadow: 0 6px 20px rgba(46, 74, 89, .09);
 }
 
-/* Każdy dział ma własny, stonowany kolor. */
-body > main > div.dzial > details.dzial:nth-of-type(1) { --akcent: #2464b7; --jasny: #e8f1ff; }
-body > main > div.dzial > details.dzial:nth-of-type(2) { --akcent: #147b55; --jasny: #e3f5eb; }
-body > main > div.dzial > details.dzial:nth-of-type(3) { --akcent: #7145ad; --jasny: #f0eaff; }
-body > main > div.dzial > details.dzial:nth-of-type(4) { --akcent: #a85d13; --jasny: #fff1dd; }
-body > main > div.dzial > details.dzial:nth-of-type(5) { --akcent: #b74356; --jasny: #ffedf0; }
-body > main > div.dzial > details.dzial:nth-of-type(6) { --akcent: #087c85; --jasny: #e2f6f5; }
+
+/* Kolory działów PSI */
+body > main > div.dzial > details.dzial:nth-of-type(1) { --akcent: #2464b7; --jasny: #e8f1ff; } /* HTML5 */
+body > main > div.dzial > details.dzial:nth-of-type(2) { --akcent: #147b55; --jasny: #e3f5eb; } /* CSS3 */
+body > main > div.dzial > details.dzial:nth-of-type(3) { --akcent: #7145ad; --jasny: #f0eaff; } /* HTML5 + CSS3 */
+body > main > div.dzial > details.dzial:nth-of-type(4) { --akcent: #b06a18; --jasny: #fff1dd; } /* Grafika WWW */
+body > main > div.dzial > details.dzial:nth-of-type(5) { --akcent: #b74356; --jasny: #ffedf0; } /* CMS */
+body > main > div.dzial > details.dzial:nth-of-type(6) { --akcent: #087c85; --jasny: #e2f6f5; } /* Publikacja */
+body > main > div.dzial > details.dzial:nth-of-type(7) { --akcent: #7455a8; --jasny: #f0eaff; } /* Ćwiczenia INF.03 */
+
 
 /* Nagłówek: istniejące emoji + nazwa, po prawej etykieta. */
 body > main > div.dzial > details.dzial > summary {
