@@ -715,52 +715,53 @@ Struktura folderów po wykonaniu ćwiczenia
 
         <section id="etap3">
 
-            <h2>ETAP 3 – Nadajemy stronie wygląd za pomocą CSS</h2>
 
-            <h3>22. Utwórz plik CSS</h3>
+<h2>ETAP 3 – Nadajemy stronie wygląd za pomocą CSS</h2>
 
-            <p>
-                W folderze <code>projekt-www</code> utwórz plik:
-            </p>
+<h3>22. Dodaj znaczniki CSS do pliku index.html</h3>
 
-            <pre><code class="language-text">style.css</code></pre>
+<p>
+    Otwórz plik <code>index.html</code>.
+    W sekcji <code>&lt;head&gt;</code>, przed znacznikiem
+    <code>&lt;/head&gt;</code>, dodaj znaczniki
+    <code>&lt;style&gt;</code> i <code>&lt;/style&gt;</code>.
+</p>
 
-            <p>Projekt wygląda teraz:</p>
+<p>
+    Wewnątrz tych znaczników będziemy wpisywać
+    reguły CSS odpowiedzialne za wygląd strony.
+</p>
 
-            <pre><code class="language-text">projekt-www
-│
-├── index.html
-├── style.css
-└── img
-    ├── zdjecie1.jpg
-    ├── zdjecie2.jpg
-    └── zdjecie3.jpg</code></pre>
-
-
-            <h3>23. Połącz CSS ze stroną</h3>
-
-            <p>
-                W części <code>&lt;head&gt;</code> dodaj:
-            </p>
-
-            <pre><code class="language-html">&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
-
-            <p>Fragment może wyglądać tak:</p>
-
-            <pre><code class="language-html">&lt;head&gt;
+<pre><code class="language-html">&lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Najciekawsze miejsca w Polsce&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;title&gt;Moja strona internetowa&lt;/title&gt;
+
+    &lt;style&gt;
+
+    &lt;/style&gt;
+
 &lt;/head&gt;</code></pre>
 
+<div class="important">
+    <strong>Zapamiętaj!</strong>
+    Kod CSS zapisujemy pomiędzy znacznikami
+    <code>&lt;style&gt;</code> i
+    <code>&lt;/style&gt;</code>.
+    Nie tworzymy osobnego pliku CSS.
+</div>
 
-            <h3>24. Dodaj podstawowy wygląd strony</h3>
 
-            <p>
-                Otwórz <code>style.css</code> i wpisz:
-            </p>
+<h3>23. Dodaj podstawowy wygląd strony</h3>
 
-            <pre><code class="language-css">body {
+<p>
+    W pliku <code>index.html</code>,
+    pomiędzy znacznikami
+    <code>&lt;style&gt;</code> i
+    <code>&lt;/style&gt;</code>,
+    wpisz poniższe reguły CSS:
+</p>
+
+<pre><code class="language-css">body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #f2f2f2;
@@ -781,53 +782,72 @@ img {
     max-width: 100%;
 }</code></pre>
 
-            <p>
-                Zapisz plik i odśwież stronę.
-            </p>
+<p>
+    Zapisz plik <code>index.html</code>
+    i odśwież stronę w przeglądarce.
+</p>
+
+<p>
+    Zwróć uwagę na kolor tła, wygląd tekstu
+    oraz odstępy pomiędzy elementami strony.
+</p>
 
 
-            <h3>25. Co oznacza CSS?</h3>
+<h3>24. Co oznaczają właściwości CSS?</h3>
 
-            <p>
-                Nie musisz zapamiętywać wszystkiego od razu,
-                ale powinieneś rozumieć podstawowe właściwości:
-            </p>
+<p>
+    Nie musisz zapamiętywać wszystkich właściwości od razu,
+    ale powinieneś rozumieć działanie tych,
+    które wykorzystujesz w swoim projekcie.
+</p>
 
-            <table>
-                <tr>
-                    <th>Właściwość</th>
-                    <th>Znaczenie</th>
-                </tr>
-                <tr>
-                    <td><code>background-color</code></td>
-                    <td>zmienia kolor tła</td>
-                </tr>
-                <tr>
-                    <td><code>color</code></td>
-                    <td>zmienia kolor tekstu</td>
-                </tr>
-                <tr>
-                    <td><code>font-family</code></td>
-                    <td>ustawia rodzaj czcionki</td>
-                </tr>
-                <tr>
-                    <td><code>margin</code></td>
-                    <td>ustawia odstęp na zewnątrz elementu</td>
-                </tr>
-                <tr>
-                    <td><code>padding</code></td>
-                    <td>ustawia odstęp wewnątrz elementu</td>
-                </tr>
-            </table>
+<table>
+    <tr>
+        <th>Właściwość</th>
+        <th>Znaczenie</th>
+    </tr>
+    <tr>
+        <td><code>background-color</code></td>
+        <td>Ustawia kolor tła elementu.</td>
+    </tr>
+    <tr>
+        <td><code>color</code></td>
+        <td>Ustawia kolor tekstu.</td>
+    </tr>
+    <tr>
+        <td><code>font-family</code></td>
+        <td>Określa rodzaj czcionki.</td>
+    </tr>
+    <tr>
+        <td><code>margin</code></td>
+        <td>Ustawia odstęp na zewnątrz elementu.</td>
+    </tr>
+    <tr>
+        <td><code>padding</code></td>
+        <td>Ustawia odstęp wewnątrz elementu.</td>
+    </tr>
+    <tr>
+        <td><code>text-align</code></td>
+        <td>Ustawia wyrównanie tekstu.</td>
+    </tr>
+    <tr>
+        <td><code>max-width</code></td>
+        <td>Określa maksymalną szerokość elementu.</td>
+    </tr>
+</table>
 
 
-            <h3>26. Dodaj styl menu</h3>
+<h3>25. Dodaj styl menu nawigacyjnego</h3>
 
-            <p>
-                Do <code>style.css</code> dodaj:
-            </p>
+<p>
+    W pliku <code>index.html</code>,
+    wewnątrz istniejących znaczników
+    <code>&lt;style&gt;</code>,
+    pod wcześniej wpisanymi regułami CSS
+    dodaj:
+</p>
 
-            <pre><code class="language-css">nav {
+<pre><code class="language-css">nav {
     text-align: center;
     padding: 15px;
 }
@@ -838,19 +858,101 @@ nav a {
     font-weight: bold;
 }</code></pre>
 
-            <p>
-                Odśwież stronę i sprawdź efekt.
-            </p>
+<p>
+    Zapisz plik i odśwież stronę.
+    Sprawdź, jak zmienił się wygląd menu.
+</p>
 
 
-            <h3>27. Dodaj styl stopki</h3>
+<h3>26. Dodaj styl stopki</h3>
 
-            <pre><code class="language-css">footer {
+<p>
+    W tym samym miejscu, wewnątrz znaczników
+    <code>&lt;style&gt;</code>,
+    dopisz regułę CSS dla stopki:
+</p>
+
+<pre><code class="language-css">footer {
     text-align: center;
     padding: 20px;
 }</code></pre>
 
-        </section>
+<p>
+    Zapisz zmiany i odśwież stronę.
+</p>
+
+
+<h3>27. Sprawdź poprawność kodu</h3>
+
+<p>
+    Po wykonaniu wszystkich kroków
+    sekcja <code>&lt;head&gt;</code>
+    w Twoim pliku <code>index.html</code>
+    powinna wyglądać podobnie do poniższego przykładu:
+</p>
+
+<pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja strona internetowa&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+            color: #222222;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        nav {
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;</code></pre>
+
+<div class="important">
+    <strong>Ważne!</strong>
+    Wszystkie reguły CSS znajdują się
+    w jednym miejscu – pomiędzy znacznikami
+    <code>&lt;style&gt;</code> i
+    <code>&lt;/style&gt;</code>,
+    wewnątrz sekcji <code>&lt;head&gt;</code>.
+
+    <p>
+        Nie twórz pliku <code>style.css</code>.
+        Całą stronę przygotowujesz w pliku
+        <code>index.html</code>.
+    </p>
+</div>
+
+</section>
+
 
 
         <section id="etap4">
