@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Excel – Formatowanie i konwersja danych | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← AB</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#cel">1. Organizacja pracy</a>
+        <a href="#formaty">2. Formatowanie danych</a>
+        <a href="#warunkowe">3. Formatowanie warunkowe</a>
+        <a href="#tekst">4. Liczby zapisane jako tekst</a>
+        <a href="#funkcje">5. Funkcje konwersji</a>
+        <a href="#zadania">6. Zadania w skoroszycie</a>
+        <a href="#kontrola">7. Kontrola wyników</a>
+        <a href="#oddanie">8. Oddanie pracy</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">AB • LEKCJA 04</div>
+            <h2>Formatowanie danych. Konwertowanie danych tekstowych na liczbowe</h2>
+            <p><strong>Cel główny:</strong> sformatujesz tabelę, ustawisz formaty liczb i rozpoznasz liczby zapisane jako tekst. Następnie przekształcisz je na liczby, aby wykonywać obliczenia.</p>
+        </div>
+
+        <section id="cel">
+            <h2>1. Organizacja pracy</h2>
+            <p>Pracuj w programie <strong>Microsoft Excel 2016 (polska wersja)</strong>. Wszystkie ćwiczenia wykonujesz w jednym skoroszycie. Na realizację przewidziano dwie lekcje po 45 minut.</p>
+            <ol>
+                <li><strong>Lekcja 1:</strong> formatowanie danych w arkuszu <code>Formatowanie</code>.</li>
+                <li><strong>Lekcja 2:</strong> konwersja tekstu na liczby w arkuszu <code>Konwersja</code>.</li>
+            </ol>
+            <div class="important"><strong>Ważne:</strong> korzystaj z arkuszy <code>Instrukcja 1</code> i <code>Instrukcja 2</code>, w których znajdują się szczegółowe polecenia. Nie zmieniaj danych źródłowych w kolumnach B–D arkusza <code>Konwersja</code>.</div>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>Pobierz plik z ćwiczeniami i wykonaj zadania zgodnie z instrukcjami znajdującymi się w skoroszycie. Pracuj w programie Microsoft Excel 2016.</p>
+            <a class="material-link" href="Excel04_Uczen_Formatowanie_danych_konwersja.xlsx" download>
+                ⬇ Pobierz zadania – MS Excel (.xlsx)
+            </a>
+            <p>Po pobraniu otwórz plik i zapisz własną kopię pod nazwą <code>Excel04_Nazwisko_Imie_Klasa.xlsx</code>.</p>
+        </section>
+
+        <section id="formaty">
+            <h2>2. Formatowanie danych – lekcja 1</h2>
+            <p><strong>Formatowanie</strong> zmienia sposób wyświetlania danych, ale nie zmienia ich wartości. Przykładowo liczba <code>0,10</code> po ustawieniu formatu procentowego jest wyświetlana jako <strong>10,0%</strong>.</p>
+            <div class="definition"><strong>Ścieżka:</strong> Narzędzia główne → Liczba → Format liczby lub Ctrl + 1 → Liczby</div>
+            <table>
+                <tr><th>Format</th><th>Przykładowa wartość</th><th>Wygląd po formatowaniu</th></tr>
+                <tr><td>Walutowy</td><td>3499</td><td>3 499,00 zł</td></tr>
+                <tr><td>Procentowy (1 miejsce)</td><td>0,10</td><td>10,0%</td></tr>
+                <tr><td>Liczbowy z separatorem tysięcy</td><td>125000</td><td>125 000</td></tr>
+            </table>
+            <h3>Ustawianie formatu komórek</h3>
+            <ol>
+                <li>Otwórz arkusz <code>Formatowanie</code>.</li>
+                <li>Zaznacz zakres <code>B6:B15</code>.</li>
+                <li>Naciśnij <strong>Ctrl + 1</strong>, aby otworzyć okno <strong>Formatowanie komórek</strong>.</li>
+                <li>Na karcie <strong>Liczby</strong> wybierz <strong>Walutowe</strong>, symbol <strong>zł</strong> i <strong>2 miejsca dziesiętne</strong>.</li>
+                <li>Kliknij <strong>OK</strong>.</li>
+                <li>Analogicznie ustaw <code>C6:C15</code> jako <strong>Procentowe</strong> z jednym miejscem po przecinku.</li>
+                <li>Dla <code>D6:D15</code> ustaw format liczbowy bez miejsc dziesiętnych, z separatorem tysięcy.</li>
+            </ol>
+            <p>W zakresie <code>A5:D5</code> ustaw pogrubienie, niebieskie tło i biały kolor czcionki. Dodaj obramowania do <code>A5:D15</code>, zgodnie z instrukcją w skoroszycie.</p>
+        </section>
+
+        <section id="warunkowe">
+            <h2>3. Formatowanie warunkowe</h2>
+            <p>Formatowanie warunkowe automatycznie wyróżnia komórki spełniające wskazany warunek. W tym zadaniu wyróżnisz ceny <strong>większe niż 1000 zł</strong>.</p>
+            <div class="definition"><strong>Ścieżka:</strong> Narzędzia główne → Style → Formatowanie warunkowe</div>
+            <ol>
+                <li>Zaznacz komórki <code>B6:B15</code> w arkuszu <code>Formatowanie</code>.</li>
+                <li>Przejdź do karty <strong>Narzędzia główne</strong>.</li>
+                <li>Kliknij <strong>Formatowanie warunkowe → Reguły wyróżniania komórek → Większe niż…</strong>.</li>
+                <li>Wpisz <code>1000</code>.</li>
+                <li>Wybierz <strong>Jasnoczerwone wypełnienie z ciemnoczerwonym tekstem</strong> i kliknij <strong>OK</strong>.</li>
+            </ol>
+            <p><strong>Sprawdź:</strong> wyróżnione powinny być tylko dwie ceny: 3499 zł i 1499 zł.</p>
+        </section>
+
+        <section id="tekst">
+            <h2>4. Liczby zapisane jako tekst – lekcja 2</h2>
+            <p>Nie każda wartość wyglądająca jak liczba jest liczbą dla Excela. Dane importowane z innych programów mogą być zapisane jako tekst, np. <code>"3499,00"</code> lub <code>"3499.00"</code>.</p>
+            <p>W arkuszu <code>Konwersja</code> kolumna B zawiera ceny zapisane jako tekst z odstępami, kolumna C – ceny tekstowe z kropką dziesiętną, a kolumna D – prawdziwe liczby określające ilość produktów.</p>
+            <p>W polskiej konfiguracji Excela separatorem dziesiętnym jest zwykle przecinek. Samo ustawienie formatu walutowego nie zawsze zamieni tekst na liczbę.</p>
+        </section>
+
+        <section id="funkcje">
+            <h2>5. Funkcje przydatne do konwersji</h2>
+            <table>
+                <tr><th>Funkcja</th><th>Działanie</th></tr>
+                <tr><td><code>CZY.LICZBA()</code></td><td>Sprawdza, czy wartość jest liczbą; zwraca PRAWDA lub FAŁSZ.</td></tr>
+                <tr><td><code>USUŃ.ZBĘDNE.ODSTĘPY()</code></td><td>Usuwa nadmiarowe zwykłe spacje w tekście.</td></tr>
+                <tr><td><code>PODSTAW()</code></td><td>Zastępuje wskazany fragment tekstu innym.</td></tr>
+                <tr><td><code>WARTOŚĆ()</code></td><td>Przekształca rozpoznawalny zapis tekstowy liczby na liczbę.</td></tr>
+                <tr><td><code>SUMA()</code></td><td>Dodaje wartości liczbowe z podanego zakresu.</td></tr>
+            </table>
+            <h3>Przykładowe formuły do arkusza „Konwersja”</h3>
+            <p>Wpisz formuły w wierszu 6, a następnie skopiuj je do wiersza 15.</p>
+            <table>
+                <tr><th>Komórka</th><th>Formuła</th><th>Cel</th></tr>
+                <tr><td>I6</td><td><code>=CZY.LICZBA(B6)</code></td><td>Sprawdzenie typu danych w B6</td></tr>
+                <tr><td>J6</td><td><code>=CZY.LICZBA(D6)</code></td><td>Sprawdzenie typu danych w D6</td></tr>
+                <tr><td>F6</td><td><code>=WARTOŚĆ(USUŃ.ZBĘDNE.ODSTĘPY(B6))</code></td><td>Usunięcie spacji i konwersja</td></tr>
+                <tr><td>G6</td><td><code>=WARTOŚĆ(PODSTAW(C6;".";","))</code></td><td>Zamiana kropki na przecinek i konwersja</td></tr>
+                <tr><td>H6</td><td><code>=G6*D6</code></td><td>Obliczenie wartości pozycji</td></tr>
+                <tr><td>H16</td><td><code>=SUMA(H6:H15)</code></td><td>Obliczenie łącznej wartości</td></tr>
+            </table>
+            <div class="important"><strong>Uwaga:</strong> w polskim Excelu 2016 argumenty funkcji rozdzielamy zwykle średnikami <code>;</code>. W przypadku błędu <code>#NAZWA?</code> sprawdź pisownię funkcji.</div>
+        </section>
+
+        <section id="zadania">
+            <h2>6. Zadania do wykonania w skoroszycie</h2>
+            <h3>Lekcja 1 – arkusz „Formatowanie”</h3>
+            <ol>
+                <li><strong>Zadanie 1.</strong> Sformatuj nagłówek i obramowania tabeli.</li>
+                <li><strong>Zadanie 2.</strong> Ustaw format walutowy, procentowy i liczbowy.</li>
+                <li><strong>Zadanie 3.</strong> Wyróżnij ceny większe niż 1000 zł.</li>
+                <li><strong>Zadanie 4.</strong> Wpisz w F6 „Zestawienie cen”, a w G6 oblicz sumę cen formułą <code>=SUMA(B6:B15)</code>.</li>
+            </ol>
+            <h3>Lekcja 2 – arkusz „Konwersja”</h3>
+            <ol start="5">
+                <li><strong>Zadanie 5.</strong> Sprawdź typ danych w kolumnach B i D za pomocą <code>CZY.LICZBA</code>.</li>
+                <li><strong>Zadanie 6.</strong> W kolumnie F zamień ceny tekstowe z odstępami na liczby.</li>
+                <li><strong>Zadanie 7.</strong> W kolumnie G zamień ceny tekstowe z kropką na liczby.</li>
+                <li><strong>Zadanie 8.</strong> W kolumnie H oblicz wartości produktów i ich sumę.</li>
+            </ol>
+            <p><strong>Pełne instrukcje kliknięcie po kliknięciu</strong> znajdziesz w arkuszach <code>Instrukcja 1</code> i <code>Instrukcja 2</code>. Wykonuj polecenia w podanej kolejności.</p>
+        </section>
+
+        <section id="kontrola">
+            <h2>7. Sprawdź swoje wyniki</h2>
+            <table>
+                <tr><th>Arkusz</th><th>Komórka lub zakres</th><th>Oczekiwany wynik</th></tr>
+                <tr><td>Formatowanie</td><td>B6</td><td>3 499,00 zł</td></tr>
+                <tr><td>Formatowanie</td><td>C6</td><td>10,0%</td></tr>
+                <tr><td>Formatowanie</td><td>G6</td><td>6 697,50 zł</td></tr>
+                <tr><td>Konwersja</td><td>I6</td><td>FAŁSZ</td></tr>
+                <tr><td>Konwersja</td><td>J6</td><td>PRAWDA</td></tr>
+                <tr><td>Konwersja</td><td>F6 i G6</td><td>3499,00</td></tr>
+                <tr><td>Konwersja</td><td>H6</td><td>6 998,00 zł</td></tr>
+                <tr><td>Konwersja</td><td>H16</td><td>17 086,70 zł</td></tr>
+            </table>
+            <p>Na koniec otwórz arkusz <code>Kontrola</code> i uzupełnij listę kontrolną. Upewnij się, że formuły działają, a dane źródłowe pozostały bez zmian.</p>
+        </section>
+
+        <section id="oddanie">
+            <h2>8. Oddanie pracy</h2>
+            <ol>
+                <li>Zapisz ukończony skoroszyt jako <code>Excel04_Nazwisko_Imie_Klasa.xlsx</code>.</li>
+                <li>Sprawdź, czy wszystkie arkusze pozostały w pliku.</li>
+                <li>Prześlij <strong>jeden plik XLSX</strong> w Zadaniu w Microsoft Teams. Nie musisz tworzyć archiwum ZIP.</li>
+            </ol>
+        </section>
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Formatowanie zmienia sposób wyświetlania danych, ale nie ich rzeczywistą wartość.</li>
+                <li>Format walutowy, procentowy i liczbowy ustawiamy w oknie Formatowanie komórek.</li>
+                <li>Formatowanie warunkowe wyróżnia komórki spełniające wskazane kryterium.</li>
+                <li>Liczba zapisana jako tekst może uniemożliwiać prawidłowe obliczenia.</li>
+                <li>Funkcja <code>CZY.LICZBA</code> pozwala sprawdzić typ wartości.</li>
+                <li>Funkcje <code>USUŃ.ZBĘDNE.ODSTĘPY</code>, <code>PODSTAW</code> i <code>WARTOŚĆ</code> pomagają przekształcać dane tekstowe na liczby.</li>
+                <li>Przed oddaniem pracy należy sprawdzić formuły i zapisać plik XLSX pod wskazaną nazwą.</li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+<footer>STREFA IT • AB • Lekcja 04</footer>
+</body>
+</html>
