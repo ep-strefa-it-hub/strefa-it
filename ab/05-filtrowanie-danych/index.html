@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 05 – MS Excel: Filtrowanie danych | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← AB</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#organizacja">1. Organizacja pracy</a>
+        <a href="#autofiltr">2. Włączanie filtrowania</a>
+        <a href="#lekcja1">3. Lekcja 1 – zadania 1–6</a>
+        <a href="#lekcja2">4. Lekcja 2 – zadania 7–12</a>
+        <a href="#wyczysc">5. Usuwanie filtrów</a>
+        <a href="#kontrola">6. Kontrola wykonania</a>
+        <a href="#oddanie">7. Oddanie pracy</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">AB • LEKCJA 05</div>
+            <h2>MS Excel – Filtrowanie danych</h2>
+            <p><strong>Program:</strong> Microsoft Excel 2026 PL<br>
+               <strong>Czas:</strong> 2 lekcje × 45 minut<br>
+               <strong>Cel główny:</strong> nauczysz się włączać autofiltr, filtrować tekst, liczby i daty, łączyć kryteria w kilku kolumnach oraz usuwać warunki filtrowania bez kasowania danych.</p>
+        </div>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>Pobierz skoroszyt Excel. Zawiera on dane magazynu sprzętu komputerowego, szczegółowe instrukcje do 12 zadań oraz arkusz do zapisania wyników.</p>
+            <a class="material-link" href="Excel05_Filtrowanie_2x45_UCZEN.xlsx" download>⬇ Pobierz zadania – MS Excel (.xlsx)</a>
+            <p>Otwórz pobrany plik w programie Excel i zapisz własną kopię pod nazwą <code>Excel05_Nazwisko_Imie_Klasa.xlsx</code>.</p>
+        </section>
+
+        <section id="organizacja">
+            <h2>1. Organizacja pracy</h2>
+            <p>W skoroszycie znajdują się cztery arkusze:</p>
+            <ul>
+                <li><strong>Start</strong> – cel zajęć, podział czasu i zasady oddania pracy.</li>
+                <li><strong>Instrukcja</strong> – 12 zadań z poleceniami i instrukcjami krok po kroku.</li>
+                <li><strong>Filtrowanie</strong> – tabela z 20 produktami, na której wykonujesz ćwiczenia.</li>
+                <li><strong>Kontrola</strong> – żółte pola do wpisania wyników po każdym zadaniu.</li>
+            </ul>
+            <div class="important"><strong>Ważne:</strong> pracuj na tabeli <code>A5:G25</code> w arkuszu <code>Filtrowanie</code>. Nagłówki znajdują się w <code>A5:G5</code>, a 20 rekordów w <code>A6:G25</code>. Nie zmieniaj danych źródłowych. Po każdym zadaniu przepisz widoczne identyfikatory produktów (np. P001, P002) do odpowiedniego żółtego pola w arkuszu <code>Kontrola</code>.</div>
+        </section>
+
+        <section id="autofiltr">
+            <h2>2. Włączanie filtrowania</h2>
+            <p><strong>Filtrowanie</strong> pozwala wyświetlać tylko te wiersze tabeli, które spełniają określone warunki. Pozostałe wiersze są tymczasowo ukrywane – nie są usuwane.</p>
+            <div class="definition"><strong>Ścieżka:</strong> Dane → Sortowanie i filtrowanie → Filtruj</div>
+            <ol>
+                <li>Otwórz arkusz <code>Filtrowanie</code>.</li>
+                <li>Kliknij komórkę <code>A6</code>, znajdującą się wewnątrz tabeli.</li>
+                <li>Na karcie <strong>Dane</strong> wybierz <strong>Filtruj</strong>.</li>
+                <li>Sprawdź, czy w siedmiu nagłówkach <code>A5:G5</code> pojawiły się strzałki filtrów.</li>
+            </ol>
+        </section>
+
+        <section id="lekcja1">
+            <h2>3. Lekcja 1 – zadania 1–6 (45 minut)</h2>
+            <p>W pierwszej lekcji poznasz filtrowanie według kategorii, ceny, fragmentu nazwy, statusu i daty.</p>
+            <table>
+                <tr><th>Zadanie</th><th>Polecenie</th><th>Sprawdzenie</th></tr>
+                <tr><td>1</td><td>Włącz filtrowanie tabeli <code>A5:G25</code>.</td><td>7 strzałek w nagłówkach</td></tr>
+                <tr><td>2</td><td>Pokaż wyłącznie kategorię <strong>Akcesoria</strong>.</td><td>5 produktów</td></tr>
+                <tr><td>3</td><td>Pokaż ceny <strong>większe niż 1000 zł</strong>.</td><td>6 produktów</td></tr>
+                <tr><td>4</td><td>Pokaż produkty z kategorii <strong>Peryferia</strong> ze statusem <strong>Dostępny</strong>.</td><td>3 produkty</td></tr>
+                <tr><td>5</td><td>Pokaż nazwy zawierające fragment <strong>USB</strong>.</td><td>4 produkty</td></tr>
+                <tr><td>6</td><td>Pokaż dostawy od <strong>01.10.2026</strong> do <strong>31.10.2026</strong> włącznie.</td><td>7 produktów</td></tr>
+            </table>
+            <h3>Przykład – filtrowanie według kategorii</h3>
+            <ol>
+                <li>Kliknij strzałkę filtru w komórce <code>C5</code> (<strong>Kategoria</strong>).</li>
+                <li>Odznacz <strong>Zaznacz wszystko</strong>.</li>
+                <li>Zaznacz tylko <strong>Akcesoria</strong> i kliknij <strong>OK</strong>.</li>
+                <li>Sprawdź, czy widzisz 5 produktów.</li>
+                <li>Wpisz widoczne identyfikatory do komórki <code>D7</code> arkusza <code>Kontrola</code>.</li>
+                <li>Przed kolejnym zadaniem wybierz <strong>Dane → Wyczyść</strong>.</li>
+            </ol>
+            <div class="important"><strong>Pamiętaj:</strong> szczegółowy opis każdego zadania znajdziesz w arkuszu <code>Instrukcja</code>, w wierszach <code>5–10</code>. Nie wystarczy wpisać liczby znalezionych produktów – trzeba zapisać ich identyfikatory.</div>
+        </section>
+
+        <section id="lekcja2">
+            <h2>4. Lekcja 2 – zadania 7–12 (45 minut)</h2>
+            <p>W drugiej lekcji wykorzystasz przedziały liczbowe, wybór kilku kategorii oraz jednoczesne filtrowanie według dwóch kolumn.</p>
+            <table>
+                <tr><th>Zadanie</th><th>Polecenie</th><th>Sprawdzenie</th></tr>
+                <tr><td>7</td><td>Pokaż produkty, których stan magazynowy <strong>nie przekracza 5 sztuk</strong>.</td><td>5 produktów</td></tr>
+                <tr><td>8</td><td>Pokaż ceny <strong>od 100 zł do 900 zł</strong> włącznie.</td><td>7 produktów</td></tr>
+                <tr><td>9</td><td>Pokaż kategorię <strong>Komputery</strong> lub <strong>Peryferia</strong>.</td><td>11 produktów</td></tr>
+                <tr><td>10</td><td>Pokaż produkty <strong>Na zamówienie</strong> o cenie <strong>większej niż 1000 zł</strong>.</td><td>5 produktów</td></tr>
+                <tr><td>11</td><td>Pokaż nazwy zaczynające się od słowa <strong>Dysk</strong>.</td><td>2 produkty</td></tr>
+                <tr><td>12</td><td>Pokaż dostawy z <strong>listopada 2026</strong> ze statusem <strong>Dostępny</strong>.</td><td>3 produkty</td></tr>
+            </table>
+            <h3>Przykład – dwa warunki jednocześnie</h3>
+            <ol>
+                <li>Kliknij filtr w <code>F5</code> (<strong>Status</strong>) i zaznacz wyłącznie <strong>Na zamówienie</strong>.</li>
+                <li>Kliknij filtr w <code>D5</code> (<strong>Cena [zł]</strong>).</li>
+                <li>Wybierz <strong>Filtry liczb → Większe niż…</strong>.</li>
+                <li>Wpisz <code>1000</code> i zatwierdź przyciskiem <strong>OK</strong>.</li>
+                <li>Sprawdź, czy pozostało 5 produktów, i wpisz ich identyfikatory do <code>Kontrola!D15</code>.</li>
+            </ol>
+            <div class="definition"><strong>Gdzie są szczegółowe instrukcje?</strong> W arkuszu <code>Instrukcja</code>, w wierszach <code>11–16</code>. Wykonuj polecenia kolejno i przed każdym nowym zadaniem wyczyść poprzednie filtry.</div>
+        </section>
+
+        <section id="wyczysc">
+            <h2>5. Usuwanie kryteriów filtrowania</h2>
+            <div class="definition"><strong>Ścieżka:</strong> Dane → Sortowanie i filtrowanie → Wyczyść</div>
+            <ol>
+                <li>Przejdź do arkusza <code>Filtrowanie</code>.</li>
+                <li>Na karcie <strong>Dane</strong> kliknij <strong>Wyczyść</strong>.</li>
+                <li>Sprawdź, czy ponownie widać wszystkie 20 produktów.</li>
+            </ol>
+            <div class="important"><strong>Uwaga:</strong> <strong>Wyczyść</strong> usuwa zastosowane warunki filtrowania, ale nie usuwa danych ani strzałek filtrów. Nie usuwaj ręcznie ukrytych wierszy.</div>
+        </section>
+
+        <section id="kontrola">
+            <h2>6. Kontrola wykonania zadań</h2>
+            <p>Po każdym zadaniu otwórz arkusz <code>Kontrola</code> i uzupełnij odpowiednią żółtą komórkę w kolumnie D:</p>
+            <ul>
+                <li><code>D6</code> – potwierdzenie włączenia filtru.</li>
+                <li><code>D7:D11</code> – identyfikatory produktów z zadań 2–6.</li>
+                <li><code>D12:D17</code> – identyfikatory produktów z zadań 7–12.</li>
+                <li><code>D18</code> – potwierdzenie przywrócenia wszystkich 20 produktów.</li>
+                <li><code>D19</code> – wpisz <strong>TAK</strong> po zapisaniu pliku.</li>
+            </ul>
+            <p>Identyfikatory przepisuj w kolejności widocznej w tabeli, np. <code>P001, P002</code>. Nie wpisuj wyłącznie liczby wyników.</p>
+        </section>
+
+        <section id="oddanie">
+            <h2>7. Zapisanie i oddanie pracy</h2>
+            <ol>
+                <li>W arkuszu <code>Filtrowanie</code> przywróć widok wszystkich 20 produktów.</li>
+                <li>Upewnij się, że żółte pola <code>D6:D19</code> w arkuszu <code>Kontrola</code> są uzupełnione.</li>
+                <li>Zapisz plik jako <code>Excel05_Nazwisko_Imie_Klasa.xlsx</code>.</li>
+                <li>Prześlij jeden ukończony skoroszyt XLSX w zadaniu wskazanym przez nauczyciela.</li>
+            </ol>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Autofiltr włączasz na karcie <strong>Dane → Filtruj</strong>.</li>
+                <li>Filtrowanie ukrywa wiersze niespełniające warunków, ale ich nie usuwa.</li>
+                <li>Możesz filtrować tekst, liczby, daty oraz łączyć kryteria w kilku kolumnach.</li>
+                <li>Warunki w różnych kolumnach działają łącznie – widoczne są rekordy spełniające wszystkie zastosowane filtry.</li>
+                <li>Przed kolejnym zadaniem użyj <strong>Dane → Wyczyść</strong>.</li>
+                <li>Wyniki zapisuj jako identyfikatory produktów w arkuszu <code>Kontrola</code>.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+<footer>STREFA IT • AB • Lekcja 05</footer>
+</body>
+</html>
