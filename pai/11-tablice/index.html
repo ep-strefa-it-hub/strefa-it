@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 11 – JavaScript: Tablice | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Czym jest tablica?</a>
+        <a href="#tworzenie">2. Tworzenie tablic</a>
+        <a href="#indeksy">3. Indeksy i elementy</a>
+        <a href="#length">4. Długość tablicy</a>
+        <a href="#petle">5. Odczyt tablicy w pętli</a>
+        <a href="#losowanie">6. Losowanie danych</a>
+        <a href="#obliczenia">7. Suma i średnia</a>
+        <a href="#ekstrema">8. Minimum i maksimum</a>
+        <a href="#join">9. Łączenie elementów – join()</a>
+        <a href="#sortowanie">10. Sortowanie i odwracanie</a>
+        <a href="#dodawanie">11. Dodawanie i usuwanie</a>
+        <a href="#splice">12. splice() i slice()</a>
+        <a href="#wyszukiwanie">13. Wyszukiwanie</a>
+        <a href="#foreach">14. forEach()</a>
+        <a href="#filtermap">15. filter(), map(), find()</a>
+        <a href="#obiekty">16. Tablice obiektów</a>
+        <a href="#dom">17. Tablica i HTML – INF.03</a>
+        <a href="#bledy">18. Typowe błędy</a>
+        <a href="#metody">19. Zestawienie metod</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 11</div>
+            <h2>JavaScript: Tablice</h2>
+            <p>
+                Tworzenie tablic, odczytywanie i zmienianie elementów,
+                przetwarzanie danych w pętlach oraz metody tablic.<br>
+                <strong>Cel główny:</strong> wykorzystanie tablic do przechowywania,
+                wyszukiwania, sortowania i prezentowania danych w aplikacjach
+                internetowych, w tym w zadaniach praktycznych INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Czym jest tablica?</h2>
+            <div class="definition">
+                <strong>Tablica (Array)</strong> to uporządkowana kolekcja danych.
+                Pozwala przechowywać wiele wartości pod jedną nazwą.
+                Każdy element ma swój numer, czyli <strong>indeks</strong>.
+            </div>
+            <p>Zamiast deklarować oddzielne zmienne:</p>
+            <pre><code class="language-javascript">let ocena1 = 5;
+let ocena2 = 4;
+let ocena3 = 3;</code></pre>
+            <p>możemy utworzyć jedną tablicę:</p>
+            <pre><code class="language-javascript">let oceny = [5, 4, 3];</code></pre>
+            <table>
+                <tr><th>Indeks</th><th>0</th><th>1</th><th>2</th></tr>
+                <tr><td>Wartość</td><td>5</td><td>4</td><td>3</td></tr>
+            </table>
+            <div class="important">
+                <strong>Ważne!</strong> Indeksy tablic rozpoczynają się od <code>0</code>,
+                nie od <code>1</code>.
+            </div>
+        </section>
+
+        <section id="tworzenie">
+            <h2>2. Tworzenie tablic</h2>
+            <h3>Tablica z gotowymi danymi</h3>
+            <pre><code class="language-javascript">const miasta = ["Lublin", "Lubartów", "Warszawa"];
+const liczby = [10, 20, 30, 40];</code></pre>
+            <h3>Pusta tablica</h3>
+            <pre><code class="language-javascript">const wyniki = [];
+wyniki.push(15);
+wyniki.push(27);
+console.log(wyniki); // [15, 27]</code></pre>
+            <h3>Tworzenie za pomocą new Array()</h3>
+            <pre><code class="language-javascript">const kolory = new Array("red", "green", "blue");</code></pre>
+            <p>W praktyce najczęściej stosujemy krótszy i czytelniejszy zapis <code>[]</code>.</p>
+            <div class="important">
+                <strong>Uwaga:</strong> <code>new Array(5)</code> tworzy tablicę
+                o długości 5 z pustymi miejscami, a nie tablicę zawierającą liczbę 5.
+                Dlatego do zwykłego tworzenia tablicy zalecany jest zapis <code>[]</code>.
+            </div>
+        </section>
+
+        <section id="indeksy">
+            <h2>3. Odczytywanie i zmiana elementów</h2>
+            <pre><code class="language-javascript">const owoce = ["jabłko", "gruszka", "śliwka"];
+
+console.log(owoce[0]); // jabłko
+console.log(owoce[2]); // śliwka</code></pre>
+            <p>Element tablicy można zmienić za pomocą indeksu:</p>
+            <pre><code class="language-javascript">owoce[1] = "banan";
+console.log(owoce); // ["jabłko", "banan", "śliwka"]</code></pre>
+            <p>Ostatni element można odczytać niezależnie od długości tablicy:</p>
+            <pre><code class="language-javascript">console.log(owoce[owoce.length - 1]); // śliwka</code></pre>
+            <div class="important">
+                Odczyt nieistniejącego elementu, np. <code>owoce[10]</code>,
+                zwraca <code>undefined</code>.
+            </div>
+        </section>
+
+        <section id="length">
+            <h2>4. Długość tablicy – length</h2>
+            <p>Właściwość <code>length</code> określa długość tablicy.</p>
+            <pre><code class="language-javascript">const dni = ["pon", "wt", "śr", "czw", "pt"];
+
+console.log(dni.length); // 5
+console.log(dni[dni.length - 1]); // pt</code></pre>
+            <div class="definition">
+                Dla tablicy zawierającej 5 kolejnych elementów indeksy mają wartości
+                <code>0, 1, 2, 3, 4</code>, a jej długość wynosi <code>5</code>.
+            </div>
+        </section>
+
+        <section id="petle">
+            <h2>5. Odczyt wszystkich elementów w pętli</h2>
+            <h3>Pętla for</h3>
+            <pre><code class="language-javascript">const liczby = [4, 8, 12, 16];
+
+for (let i = 0; i &lt; liczby.length; i++) {
+    console.log(liczby[i]);
+}</code></pre>
+            <p>Wynik:</p>
+            <pre><code class="language-none">4
+8
+12
+16</code></pre>
+            <h3>Pętla for...of</h3>
+            <p>Gdy nie potrzebujemy numeru indeksu, możemy użyć krótszego zapisu:</p>
+            <pre><code class="language-javascript">for (const liczba of liczby) {
+    console.log(liczba);
+}</code></pre>
+            <div class="important">
+                W pętli <code>for</code> używamy warunku
+                <code>i &lt; liczby.length</code>, a nie
+                <code>i &lt;= liczby.length</code>. Ten drugi zapis wykonałby
+                jedną iterację za dużo.
+            </div>
+        </section>
+
+        <section id="losowanie">
+            <h2>6. Wypełnianie tablicy liczbami losowymi</h2>
+            <p>Utwórzmy tablicę zawierającą 10 liczb całkowitych od 0 do 100.</p>
+            <pre><code class="language-javascript">const liczby = [];
+
+for (let i = 0; i &lt; 10; i++) {
+    let losowa = Math.floor(Math.random() * 101);
+    liczby.push(losowa);
+}
+
+console.log(liczby);</code></pre>
+            <table>
+                <tr><th>Zapis</th><th>Znaczenie</th></tr>
+                <tr><td><code>Math.random()</code></td><td>losuje liczbę od 0 (włącznie) do 1 (bez 1)</td></tr>
+                <tr><td><code>* 101</code></td><td>przekształca zakres na wartości od 0 do mniej niż 101</td></tr>
+                <tr><td><code>Math.floor()</code></td><td>zaokrągla w dół, dając liczbę całkowitą od 0 do 100</td></tr>
+                <tr><td><code>push()</code></td><td>dodaje nową liczbę na koniec tablicy</td></tr>
+            </table>
+            <p>Jeżeli chcemy losować liczby od 1 do 100:</p>
+            <pre><code class="language-javascript">let liczba = Math.floor(Math.random() * 100) + 1;</code></pre>
+        </section>
+
+        <section id="obliczenia">
+            <h2>7. Obliczenia na tablicy – suma i średnia</h2>
+            <pre><code class="language-javascript">const oceny = [5, 4, 3, 5, 4];
+let suma = 0;
+
+for (let i = 0; i &lt; oceny.length; i++) {
+    suma += oceny[i];
+}
+
+let srednia = suma / oceny.length;
+
+console.log("Suma: " + suma);       // 21
+console.log("Średnia: " + srednia); // 4.2</code></pre>
+            <div class="important">
+                <strong>Ważne!</strong> Przed obliczaniem średniej sprawdź,
+                czy tablica nie jest pusta. Dla pustej tablicy
+                <code>suma / 0</code> da wynik <code>NaN</code>.
+            </div>
+        </section>
+
+        <section id="ekstrema">
+            <h2>8. Wyszukiwanie minimum i maksimum</h2>
+            <p>Przechodzimy po tablicy i porównujemy każdy element z dotychczasowym wynikiem.</p>
+            <pre><code class="language-javascript">const liczby = [-8, -3, -15, -2, -10];
+
+let minimum = liczby[0];
+let maksimum = liczby[0];
+
+for (let i = 1; i &lt; liczby.length; i++) {
+    if (liczby[i] &lt; minimum) {
+        minimum = liczby[i];
+    }
+    if (liczby[i] &gt; maksimum) {
+        maksimum = liczby[i];
+    }
+}
+
+console.log("Minimum: " + minimum); // -15
+console.log("Maksimum: " + maksimum); // -2</code></pre>
+            <div class="important">
+                Nie ustawiaj automatycznie <code>maksimum = 0</code>.
+                Jeśli wszystkie liczby są ujemne, wynik będzie błędny.
+                W tym przykładzie tablica jest niepusta, więc zaczynamy od <code>liczby[0]</code>.
+            </div>
+            <h3>Wbudowane funkcje Math.min() i Math.max()</h3>
+            <pre><code class="language-javascript">console.log(Math.min(...liczby)); // -15
+console.log(Math.max(...liczby)); // -2</code></pre>
+            <p>Operator <code>...</code> przekazuje elementy tablicy jako osobne argumenty funkcji.</p>
+        </section>
+
+        <section id="join">
+            <h2>9. Łączenie elementów w tekst – join()</h2>
+            <p><code>join()</code> łączy wszystkie elementy tablicy w jeden napis.</p>
+            <pre><code class="language-javascript">const kolory = ["czerwony", "zielony", "niebieski"];
+
+console.log(kolory.join());
+console.log(kolory.join(" - "));</code></pre>
+            <p>Wynik:</p>
+            <pre><code class="language-none">czerwony,zielony,niebieski
+czerwony - zielony - niebieski</code></pre>
+            <div class="definition"><code>join()</code> nie zmienia tablicy – zwraca nowy tekst.</div>
+        </section>
+
+        <section id="sortowanie">
+            <h2>10. Sortowanie i odwracanie kolejności</h2>
+            <h3>sort() – sortowanie tekstu</h3>
+            <pre><code class="language-javascript">const owoce = ["śliwka", "banan", "jabłko"];
+owoce.sort();
+console.log(owoce);</code></pre>
+            <h3>sort() – sortowanie liczb</h3>
+            <p>Bez funkcji porównującej <code>sort()</code> porównuje elementy jako tekst, co może dać nieprawidłową kolejność liczb.</p>
+            <pre><code class="language-javascript">const liczby = [2, 15, 100, 8];
+
+liczby.sort();
+console.log(liczby); // [100, 15, 2, 8]</code></pre>
+            <p>Poprawne sortowanie rosnące i malejące:</p>
+            <pre><code class="language-javascript">liczby.sort(function(a, b) {
+    return a - b;
+});
+console.log(liczby); // [2, 8, 15, 100]
+
+liczby.sort(function(a, b) {
+    return b - a;
+});
+console.log(liczby); // [100, 15, 8, 2]</code></pre>
+            <h3>reverse() – odwrócenie aktualnej kolejności</h3>
+            <pre><code class="language-javascript">const litery = ["A", "B", "C"];
+litery.reverse();
+console.log(litery); // ["C", "B", "A"]</code></pre>
+            <div class="important">
+                <code>reverse()</code> <strong>nie sortuje</strong> danych, tylko
+                odwraca ich aktualną kolejność. Metody <code>sort()</code>
+                i <code>reverse()</code> zmieniają oryginalną tablicę.
+            </div>
+        </section>
+
+        <section id="dodawanie">
+            <h2>11. Dodawanie i usuwanie elementów</h2>
+            <pre><code class="language-javascript">const imiona = ["Anna", "Jan", "Ola"];
+
+imiona.push("Ewa");       // dodaje na końcu
+imiona.pop();              // usuwa ostatni element
+imiona.unshift("Adam");  // dodaje na początku
+imiona.shift();            // usuwa pierwszy element
+
+console.log(imiona); // ["Anna", "Jan", "Ola"]</code></pre>
+            <table>
+                <tr><th>Metoda</th><th>Działanie</th></tr>
+                <tr><td><code>push(element)</code></td><td>dodaje element na końcu</td></tr>
+                <tr><td><code>pop()</code></td><td>usuwa i zwraca ostatni element</td></tr>
+                <tr><td><code>unshift(element)</code></td><td>dodaje element na początku</td></tr>
+                <tr><td><code>shift()</code></td><td>usuwa i zwraca pierwszy element</td></tr>
+            </table>
+        </section>
+
+        <section id="splice">
+            <h2>12. Zmiana fragmentu tablicy – splice() i slice()</h2>
+            <h3>splice() – usuwa lub wstawia elementy</h3>
+            <pre><code class="language-javascript">const liczby = [10, 20, 30, 40, 50];
+
+liczby.splice(2, 1); // usuwa 1 element od indeksu 2
+console.log(liczby); // [10, 20, 40, 50]
+
+liczby.splice(2, 0, 30); // wstawia 30 pod indeks 2
+console.log(liczby); // [10, 20, 30, 40, 50]</code></pre>
+            <p>Ogólna postać: <code>tablica.splice(indeks, ileUsunac, noweElementy)</code>.</p>
+            <h3>slice() – pobiera fragment bez zmiany oryginału</h3>
+            <pre><code class="language-javascript">const dane = [10, 20, 30, 40, 50];
+const fragment = dane.slice(1, 4);
+
+console.log(fragment); // [20, 30, 40]
+console.log(dane);     // [10, 20, 30, 40, 50]</code></pre>
+            <div class="important">
+                <strong>Różnica:</strong> <code>splice()</code> zmienia tablicę,
+                a <code>slice()</code> zwraca wybrany fragment bez zmiany oryginału.
+                W <code>slice(1, 4)</code> indeks 4 nie jest uwzględniany.
+            </div>
+        </section>
+
+        <section id="wyszukiwanie">
+            <h2>13. Sprawdzanie i wyszukiwanie elementów</h2>
+            <pre><code class="language-javascript">const miasta = ["Lublin", "Kraków", "Warszawa"];
+
+console.log(miasta.includes("Kraków"));  // true
+console.log(miasta.includes("Gdańsk")); // false
+console.log(miasta.indexOf("Warszawa")); // 2
+console.log(miasta.indexOf("Poznań"));   // -1</code></pre>
+            <table>
+                <tr><th>Metoda</th><th>Wynik</th></tr>
+                <tr><td><code>includes(wartosc)</code></td><td><code>true</code> lub <code>false</code></td></tr>
+                <tr><td><code>indexOf(wartosc)</code></td><td>indeks pierwszego wystąpienia lub <code>-1</code></td></tr>
+            </table>
+        </section>
+
+        <section id="foreach">
+            <h2>14. Przechodzenie po elementach – forEach()</h2>
+            <p>Metoda <code>forEach()</code> wykonuje funkcję dla każdego elementu tablicy.</p>
+            <pre><code class="language-javascript">const produkty = ["Monitor", "Mysz", "Klawiatura"];
+
+produkty.forEach(function(produkt) {
+    console.log(produkt);
+});</code></pre>
+            <p>Możemy także odczytać indeks elementu:</p>
+            <pre><code class="language-javascript">produkty.forEach(function(produkt, indeks) {
+    console.log((indeks + 1) + ". " + produkt);
+});</code></pre>
+            <p>Wynik:</p>
+            <pre><code class="language-none">1. Monitor
+2. Mysz
+3. Klawiatura</code></pre>
+            <div class="definition">
+                Nazwa parametru <code>produkt</code> jest dowolna.
+                W każdej iteracji oznacza aktualnie przetwarzany element tablicy.
+            </div>
+        </section>
+
+        <section id="filtermap">
+            <h2>15. Wybieranie i przekształcanie danych</h2>
+            <h3>filter() – wybór elementów spełniających warunek</h3>
+            <pre><code class="language-javascript">const ceny = [40, 120, 75, 300, 20];
+
+const drogie = ceny.filter(function(cena) {
+    return cena &gt; 100;
+});
+
+console.log(drogie); // [120, 300]</code></pre>
+            <h3>map() – utworzenie nowej tablicy wyników</h3>
+            <pre><code class="language-javascript">const brutto = ceny.map(function(cena) {
+    return cena * 1.23;
+});
+
+console.log(brutto);</code></pre>
+            <h3>find() – znalezienie pierwszego pasującego elementu</h3>
+            <pre><code class="language-javascript">const znaleziona = ceny.find(function(cena) {
+    return cena &gt; 100;
+});
+
+console.log(znaleziona); // 120</code></pre>
+            <table>
+                <tr><th>Metoda</th><th>Zwraca</th></tr>
+                <tr><td><code>filter()</code></td><td>nową tablicę pasujących elementów</td></tr>
+                <tr><td><code>map()</code></td><td>nową tablicę przekształconych wartości</td></tr>
+                <tr><td><code>find()</code></td><td>pierwszy pasujący element albo <code>undefined</code></td></tr>
+            </table>
+        </section>
+
+        <section id="obiekty">
+            <h2>16. Tablice obiektów – powtórzenie z Lekcji 10</h2>
+            <p>Tablica może zawierać obiekty opisujące produkty, uczniów lub usługi.</p>
+            <pre><code class="language-javascript">const produkty = [
+    { nazwa: "Mysz", cena: 50, stan: 8 },
+    { nazwa: "Klawiatura", cena: 120, stan: 4 },
+    { nazwa: "Monitor", cena: 850, stan: 2 }
+];
+
+produkty.forEach(function(produkt) {
+    console.log(produkt.nazwa + " – " + produkt.cena + " zł");
+});</code></pre>
+            <h3>Filtrowanie dostępnych produktów</h3>
+            <pre><code class="language-javascript">const dostepne = produkty.filter(function(produkt) {
+    return produkt.stan &gt; 0;
+});
+
+console.log(dostepne);</code></pre>
+            <div class="important">
+                W zapisie <code>produkty[0].nazwa</code> najpierw wybieramy
+                pierwszy obiekt z tablicy, a potem jego właściwość <code>nazwa</code>.
+            </div>
+        </section>
+
+        <section id="dom">
+            <h2>17. Tablica i HTML – przykład w stylu INF.03</h2>
+            <p>Na egzaminie przydatna jest umiejętność wyświetlenia danych z JavaScript na stronie.</p>
+            <p>Skopiuj cały przykład do pliku <code>lista.html</code>:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Lista produktów&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Produkty&lt;/h1&gt;
+    &lt;button id="pokaz"&gt;Pokaż produkty&lt;/button&gt;
+    &lt;ul id="lista"&gt;&lt;/ul&gt;
+
+    &lt;script&gt;
+        const produkty = ["Mysz", "Monitor", "Klawiatura"];
+        const przycisk = document.getElementById("pokaz");
+        const lista = document.getElementById("lista");
+
+        przycisk.addEventListener("click", function() {
+            lista.replaceChildren();
+
+            produkty.forEach(function(produkt) {
+                const element = document.createElement("li");
+                element.textContent = produkt;
+                lista.appendChild(element);
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h3>Jak działa przykład?</h3>
+            <ol>
+                <li>Tablica <code>produkty</code> przechowuje trzy nazwy.</li>
+                <li>Przycisk uruchamia obsługę zdarzenia <code>click</code>.</li>
+                <li><code>replaceChildren()</code> usuwa poprzednią zawartość listy.</li>
+                <li><code>forEach()</code> przetwarza każdy produkt.</li>
+                <li><code>createElement("li")</code> tworzy element listy.</li>
+                <li><code>textContent</code> wstawia tekst, a <code>appendChild()</code> dodaje element do strony.</li>
+            </ol>
+        </section>
+
+        <section id="bledy">
+            <h2>18. Najczęstsze błędy w pracy z tablicami</h2>
+            <table>
+                <tr><th>Błąd</th><th>Wyjaśnienie</th></tr>
+                <tr><td><code>tablica[1]</code> jako pierwszy element</td><td>pierwszy element ma indeks <code>0</code></td></tr>
+                <tr><td><code>i &lt;= tablica.length</code></td><td>pętla wykona o jedną iterację za dużo</td></tr>
+                <tr><td><code>tablica.length()</code></td><td><code>length</code> to właściwość, bez nawiasów</td></tr>
+                <tr><td><code>liczby.sort()</code> do sortowania liczb</td><td>domyślnie porównuje elementy jako tekst</td></tr>
+                <tr><td><code>maksimum = 0</code> dla dowolnych liczb</td><td>zawiedzie przy tablicy zawierającej wyłącznie liczby ujemne</td></tr>
+                <tr><td>mylenie <code>slice()</code> i <code>splice()</code></td><td>pierwsza nie zmienia tablicy, druga ją zmienia</td></tr>
+                <tr><td>próba obliczenia średniej z pustej tablicy</td><td>najpierw sprawdź <code>length</code></td></tr>
+            </table>
+        </section>
+
+        <section id="metody">
+            <h2>19. Zestawienie metod tablic</h2>
+            <table>
+                <tr><th>Zapis</th><th>Zastosowanie</th><th>Zmienia tablicę?</th></tr>
+                <tr><td><code>length</code></td><td>długość tablicy</td><td>nie (odczyt)</td></tr>
+                <tr><td><code>push()</code></td><td>dodanie na końcu</td><td>tak</td></tr>
+                <tr><td><code>pop()</code></td><td>usunięcie z końca</td><td>tak</td></tr>
+                <tr><td><code>unshift()</code></td><td>dodanie na początku</td><td>tak</td></tr>
+                <tr><td><code>shift()</code></td><td>usunięcie z początku</td><td>tak</td></tr>
+                <tr><td><code>splice()</code></td><td>wstawianie lub usuwanie</td><td>tak</td></tr>
+                <tr><td><code>slice()</code></td><td>kopiowanie fragmentu</td><td>nie</td></tr>
+                <tr><td><code>sort()</code></td><td>sortowanie</td><td>tak</td></tr>
+                <tr><td><code>reverse()</code></td><td>odwrócenie kolejności</td><td>tak</td></tr>
+                <tr><td><code>join()</code></td><td>połączenie elementów w tekst</td><td>nie</td></tr>
+                <tr><td><code>includes()</code></td><td>sprawdzenie obecności</td><td>nie</td></tr>
+                <tr><td><code>indexOf()</code></td><td>wyszukanie indeksu</td><td>nie</td></tr>
+                <tr><td><code>forEach()</code></td><td>wykonanie funkcji dla elementów</td><td>nie samoistnie</td></tr>
+                <tr><td><code>filter()</code></td><td>wybór pasujących elementów</td><td>nie</td></tr>
+                <tr><td><code>map()</code></td><td>przekształcenie elementów</td><td>nie</td></tr>
+                <tr><td><code>find()</code></td><td>znalezienie pierwszego pasującego elementu</td><td>nie</td></tr>
+            </table>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Tablica przechowuje wiele wartości pod jedną nazwą.</li>
+                <li>Indeks pierwszego elementu to <code>0</code>.</li>
+                <li><code>length</code> określa długość tablicy.</li>
+                <li>Za pomocą <code>for</code>, <code>for...of</code> i <code>forEach()</code> możemy przechodzić po elementach.</li>
+                <li><code>push()</code> i <code>pop()</code> działają na końcu tablicy, a <code>unshift()</code> i <code>shift()</code> na początku.</li>
+                <li><code>splice()</code> zmienia tablicę, a <code>slice()</code> kopiuje jej fragment.</li>
+                <li><code>sort()</code> bez funkcji porównującej nie sortuje liczb według ich wartości.</li>
+                <li><code>reverse()</code> odwraca kolejność, a nie wykonuje sortowania.</li>
+                <li><code>filter()</code> wybiera elementy, <code>map()</code> je przekształca, a <code>find()</code> wyszukuje pierwszy pasujący.</li>
+                <li>Tablice można łączyć z obiektami, formularzami HTML i zdarzeniami JavaScript.</li>
+            </ul>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                W zadaniach 1–10 wyniki wyświetlaj w konsoli przeglądarki.
+                W zadaniach 11–15 utwórz stronę HTML, odczytuj dane z formularza
+                i wyświetlaj wyniki na stronie za pomocą DOM. Nie wpisuj wyników na stałe.
+            </p>
+            <h3>Część A – podstawy</h3>
+            <h3>Zadanie 1 – Plan lekcji</h3>
+            <p>Utwórz tablicę pięciu nazw przedmiotów. Wyświetl pierwszy, trzeci i ostatni element oraz długość tablicy.</p>
+            <h3>Zadanie 2 – Modyfikowanie tablicy</h3>
+            <p>Utwórz tablicę <code>[10, 20, 30, 40, 50]</code>. Zmień drugi element na <code>25</code>, dodaj na końcu <code>60</code> i wyświetl wszystkie elementy w pętli <code>for</code>.</p>
+            <h3>Zadanie 3 – Liczby losowe</h3>
+            <p>Utwórz pustą tablicę i wypełnij ją <strong>20 losowymi liczbami całkowitymi z przedziału od 1 do 100</strong>. Wyświetl liczby oddzielone przecinkami.</p>
+            <h3>Zadanie 4 – Suma i średnia</h3>
+            <p>Dla tablicy <code>[12, 5, 8, 15, 10]</code> oblicz sumę i średnią za pomocą pętli. Oczekiwane wyniki: <strong>suma 50</strong>, <strong>średnia 10</strong>.</p>
+            <h3>Zadanie 5 – Minimum i maksimum</h3>
+            <p>Dla tablicy <code>[-12, -5, -30, -2, -18]</code> znajdź minimum i maksimum za pomocą pętli. Oczekiwane wyniki: <strong>-30</strong> i <strong>-2</strong>.</p>
+            <h3>Zadanie 6 – Liczby parzyste</h3>
+            <p>Wykorzystaj liczby z zadania 3. Policz, ile z nich jest parzystych, a ile nieparzystych. Wyświetl również wszystkie liczby parzyste.</p>
+
+            <h3>Część B – metody tablic</h3>
+            <h3>Zadanie 7 – Sortowanie</h3>
+            <p>Dla tablicy <code>[45, 8, 120, 3, 22, 100]</code> pokaż wynik <code>sort()</code> bez argumentów, a następnie poprawne sortowanie rosnące i malejące według wartości liczbowych.</p>
+            <h3>Zadanie 8 – Lista uczestników</h3>
+            <p>Utwórz tablicę <code>["Anna", "Jan", "Ola"]</code>. Dodaj <code>Piotr</code> na końcu, dodaj <code>Ewa</code> na początku, usuń ostatni element, a następnie wstaw <code>Kasia</code> na indeksie 2 za pomocą <code>splice()</code>. Wyświetl końcową listę metodą <code>join(" - ")</code>.</p>
+            <h3>Zadanie 9 – Wyszukiwanie</h3>
+            <p>Utwórz tablicę nazw pięciu miast. Pobierz nazwę miasta przez <code>prompt()</code>. Sprawdź, czy występuje w tablicy. Jeżeli tak, wyświetl jego indeks, w przeciwnym razie komunikat „Nie znaleziono miasta”.</p>
+            <h3>Zadanie 10 – Filtrowanie cen</h3>
+            <p>Dla tablicy <code>[49, 120, 15, 249, 80, 300]</code> utwórz za pomocą <code>filter()</code> nową tablicę cen większych niż 100 zł, a za pomocą <code>map()</code> tablicę cen po rabacie 10%. Wyświetl obie tablice.</p>
+
+            <h3>Część C – zadania praktyczne INF.03</h3>
+            <h3>Zadanie 11 – Lista zakupów</h3>
+            <p>Utwórz plik <code>zakupy.html</code>. Dodaj pole tekstowe, przycisk „Dodaj”, przycisk „Usuń ostatni” i pustą listę <code>ul</code>. Produkty przechowuj w tablicy. Po dodaniu produktu aktualizuj listę za pomocą DOM. Nie dodawaj pustych nazw.</p>
+            <h3>Zadanie 12 – Analiza wyników</h3>
+            <p>Utwórz stronę z polem tekstowym, do którego użytkownik wpisuje liczby oddzielone przecinkami, np. <code>12, 8, 20, 4</code>. Po kliknięciu przycisku zamień tekst na tablicę liczb, oblicz sumę, średnią, minimum i maksimum oraz pokaż wyniki w akapitach. Sprawdź, czy podano poprawne liczby.</p>
+            <h3>Zadanie 13 – Generator losowań</h3>
+            <p>Utwórz stronę z polem podającym liczbę losowań od 1 do 30. Po kliknięciu przycisku wygeneruj odpowiednią tablicę losowych liczb od 1 do 100, wyświetl ją i podaj największą wartość oraz średnią. Nie pozwól wprowadzić liczby losowań spoza zakresu.</p>
+            <h3>Zadanie 14 – Cennik usług</h3>
+            <p>Utwórz tablicę obiektów opisujących usługi: <strong>Instalacja systemu – 120 zł</strong>, <strong>Konfiguracja routera – 80 zł</strong>, <strong>Czyszczenie komputera – 100 zł</strong>. Na stronie automatycznie utwórz listę usług z cenami na podstawie tablicy. Dodaj pole liczby usług i przycisk obliczający koszt wybranej usługi dla wskazanej liczby sztuk.</p>
+            <h3>Zadanie 15 – Miniarkusz praktyczny: sklep komputerowy</h3>
+            <p>Utwórz plik <code>sklep.html</code> zawierający nagłówek, tabelę produktów, pole ceny minimalnej i przyciski „Filtruj”, „Sortuj rosnąco” oraz „Pokaż wszystkie”.</p>
+            <ol>
+                <li>W skrypcie utwórz tablicę obiektów z co najmniej sześcioma produktami. Każdy ma posiadać <code>nazwa</code>, <code>cena</code> i <code>stan</code>.</li>
+                <li>Po otwarciu strony wyświetl wszystkie produkty w tabeli.</li>
+                <li>Przycisk „Filtruj” ma wyświetlać produkty, których cena jest większa lub równa cenie minimalnej.</li>
+                <li>Przycisk „Sortuj rosnąco” ma wyświetlać produkty od najtańszego do najdroższego.</li>
+                <li>Przycisk „Pokaż wszystkie” ma przywracać widok całej listy.</li>
+                <li>Pod tabelą wyświetl liczbę widocznych produktów oraz sumę wartości ich stanów magazynowych (<code>cena * stan</code>).</li>
+                <li>Wyniki aktualizuj bez przeładowania strony. Zdarzenia przypisz metodą <code>addEventListener()</code>.</li>
+            </ol>
+            <div class="important">
+                <strong>Wskazówka do INF.03:</strong> nie wpisuj wyników ani wierszy tabeli
+                na stałe. Przygotuj funkcję wyświetlającą dane na podstawie aktualnej tablicy.
+                Użyj <code>createElement()</code>, <code>textContent</code> i <code>appendChild()</code>.
+            </div>
+        </section>
+
+        <section id="sprawdz" class="check">
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+            <ul>
+                <li>utworzyć pustą i wypełnioną tablicę,</li>
+                <li>odczytać element po indeksie i obliczyć indeks ostatniego elementu,</li>
+                <li>wykorzystać <code>length</code> w pętli,</li>
+                <li>wypełnić tablicę liczbami losowymi,</li>
+                <li>obliczyć sumę, średnią, minimum i maksimum,</li>
+                <li>zastosować <code>join()</code>, <code>sort()</code> i <code>reverse()</code>,</li>
+                <li>dodawać i usuwać elementy metodami <code>push()</code>, <code>pop()</code>, <code>shift()</code>, <code>unshift()</code> i <code>splice()</code>,</li>
+                <li>wykorzystać <code>includes()</code>, <code>indexOf()</code> i <code>forEach()</code>,</li>
+                <li>zastosować <code>filter()</code>, <code>map()</code> i <code>find()</code>,</li>
+                <li>odczytywać dane z tablicy obiektów,</li>
+                <li>wyświetlać wyniki na stronie za pomocą DOM i zdarzeń JavaScript.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<footer>STREFA IT • PAI • Lekcja 11</footer>
+
+<script src="../../prism.js"></script>
+</body>
+</html>
