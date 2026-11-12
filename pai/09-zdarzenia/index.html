@@ -1,3 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 05 – Zdarzenia w JavaScript | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#selektory">1. Wybieranie elementów</a>
+        <a href="#zdarzenia">2. Zdarzenia</a>
+        <a href="#obsluga">3. Przypisywanie zdarzeń</a>
+        <a href="#event">4. Obiekt zdarzenia</a>
+        <a href="#classlist">5. Zmiana klas – classList</a>
+        <a href="#wiele">6. Zdarzenia wielu elementów</a>
+        <a href="#porownanie">7. Podsumowanie</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 09</div>
+            <h2>Zdarzenia w JavaScript</h2>
+            <p><strong>Cel główny:</strong> nauczysz się wybierać elementy strony, przypisywać im zdarzenia i zmieniać ich wygląd za pomocą klas CSS.</p>
+        </div>
+
 <section id="selektory">
 
     <h2>Wybieranie elementów strony</h2>
@@ -229,13 +269,14 @@ pole.addEventListener("click", function() {
 <section id="event">
 
     <h2>Obiekt zdarzenia</h2>
+    <p>W poniższym przykładzie zakładamy, że w HTML znajduje się pole <code>&lt;input id="poleTekstowe"&gt;</code>, które może otrzymywać fokus klawiatury.</p>
 
     <p>
         Funkcja obsługująca zdarzenie może otrzymać informacje
         o zdarzeniu, które właśnie wystąpiło.
     </p>
 
-    <pre><code class="language-javascript">let pole = document.getElementById("artykul");
+    <pre><code class="language-javascript">let pole = document.getElementById("poleTekstowe");
 
 pole.addEventListener("keyup", function(e) {
     console.log(e.key);
@@ -471,3 +512,18 @@ przyciski.forEach(function(przycisk) {
     </table>
 
 </section>
+<section id="zapamietaj" class="remember">
+    <h2>📌 Zapamiętaj</h2>
+    <ul>
+        <li><code>getElementById()</code> wyszukuje element po identyfikatorze, bez znaku <code>#</code>.</li>
+        <li><code>querySelector()</code> zwraca pierwszy pasujący element, a <code>querySelectorAll()</code> wszystkie pasujące elementy.</li>
+        <li><code>addEventListener()</code> przypisuje funkcję reagującą na wskazane zdarzenie.</li>
+        <li><code>e.key</code> pozwala odczytać klawisz użyty podczas zdarzenia klawiatury.</li>
+        <li><code>classList</code> umożliwia dodawanie, usuwanie, przełączanie i sprawdzanie klas CSS.</li>
+    </ul>
+</section>
+    </main>
+</div>
+<footer>STREFA IT • PAI • Lekcja 09</footer>
+</body>
+</html>
