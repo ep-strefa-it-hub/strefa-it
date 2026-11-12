@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 10 – JavaScript: Obiekty | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Czym jest obiekt?</a>
+        <a href="#budowa">2. Budowa obiektu</a>
+        <a href="#odczyt">3. Odczytywanie właściwości</a>
+        <a href="#modyfikacja">4. Zmiana i dodawanie danych</a>
+        <a href="#usuwanie">5. Usuwanie i sprawdzanie</a>
+        <a href="#metody">6. Metody obiektu</a>
+        <a href="#this">7. Słowo kluczowe this</a>
+        <a href="#const">8. Obiekt zadeklarowany przez const</a>
+        <a href="#zagniezdzone">9. Obiekty zagnieżdżone</a>
+        <a href="#tablice">10. Obiekt a tablica</a>
+        <a href="#tablica-obiektow">11. Tablica obiektów</a>
+        <a href="#wbudowane">12. Obiekty wbudowane</a>
+        <a href="#dom">13. Obiekty i DOM</a>
+        <a href="#przyklad">14. Przykład INF.03</a>
+        <a href="#bledy">15. Typowe błędy</a>
+        <a href="#porownanie">16. Podsumowanie metod</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 10</div>
+            <h2>JavaScript: Obiekty</h2>
+            <p>
+                Tworzenie obiektów, właściwości i metody, <code>this</code>,
+                tablice obiektów oraz wykorzystanie obiektów w aplikacjach internetowych.<br>
+                <strong>Cel główny:</strong> nauczyć się przechowywać powiązane dane
+                w obiekcie JavaScript i wykorzystywać je w skryptach współpracujących
+                z HTML i DOM, zgodnie z praktycznymi umiejętnościami przydatnymi na INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Czym jest obiekt?</h2>
+            <div class="definition">
+                <strong>Obiekt</strong> to struktura danych, która przechowuje
+                powiązane ze sobą informacje w postaci <strong>właściwości</strong>
+                i może zawierać <strong>metody</strong>, czyli funkcje.
+            </div>
+            <p>Przykładowy produkt ma nazwę, cenę i dostępność. Może także obliczać wartość zamówienia.</p>
+            <table>
+                <tr><th>Element obiektu</th><th>Przykład</th><th>Znaczenie</th></tr>
+                <tr><td>Właściwość</td><td><code>nazwa: "Monitor"</code></td><td>przechowuje tekst</td></tr>
+                <tr><td>Właściwość</td><td><code>cena: 850</code></td><td>przechowuje liczbę</td></tr>
+                <tr><td>Właściwość</td><td><code>dostepny: true</code></td><td>przechowuje wartość logiczną</td></tr>
+                <tr><td>Metoda</td><td><code>przedstaw()</code></td><td>wykonuje określone instrukcje</td></tr>
+            </table>
+        </section>
+
+        <section id="budowa">
+            <h2>2. Budowa obiektu</h2>
+            <p>Obiekt można utworzyć za pomocą <strong>literału obiektowego</strong>, czyli nawiasów klamrowych <code>{ }</code>.</p>
+            <pre><code class="language-javascript">const produkt = {
+    nazwa: "Monitor",
+    cena: 850,
+    dostepny: true
+};</code></pre>
+            <table>
+                <tr><th>Fragment</th><th>Znaczenie</th></tr>
+                <tr><td><code>const produkt</code></td><td>utworzenie zmiennej przechowującej obiekt</td></tr>
+                <tr><td><code>{ ... }</code></td><td>zawartość obiektu</td></tr>
+                <tr><td><code>nazwa</code></td><td>klucz (nazwa właściwości)</td></tr>
+                <tr><td><code>:</code></td><td>oddziela klucz od wartości</td></tr>
+                <tr><td><code>,</code></td><td>oddziela kolejne właściwości</td></tr>
+            </table>
+            <div class="important">
+                <strong>Ważne!</strong> Właściwości jednego obiektu mogą przechowywać
+                różne typy danych: tekst, liczbę, wartość logiczną, tablicę, inny obiekt lub funkcję.
+            </div>
+        </section>
+
+        <section id="odczyt">
+            <h2>3. Odczytywanie właściwości</h2>
+            <h3>Zapis z kropką</h3>
+            <pre><code class="language-javascript">console.log(produkt.nazwa);      // Monitor
+console.log(produkt.cena);       // 850
+console.log(produkt.dostepny);   // true</code></pre>
+            <h3>Zapis z nawiasami kwadratowymi</h3>
+            <pre><code class="language-javascript">console.log(produkt["nazwa"]);  // Monitor
+console.log(produkt["cena"]);   // 850</code></pre>
+            <h3>Nazwa właściwości w zmiennej</h3>
+            <pre><code class="language-javascript">let pole = "cena";
+console.log(produkt[pole]);      // 850</code></pre>
+            <div class="important">
+                <strong>Nie pomyl zapisów:</strong> <code>produkt.pole</code> szuka
+                właściwości o nazwie <code>pole</code>, a <code>produkt[pole]</code>
+                korzysta z wartości zmiennej <code>pole</code>, czyli w tym przykładzie z nazwy <code>cena</code>.
+            </div>
+        </section>
+
+        <section id="modyfikacja">
+            <h2>4. Zmiana i dodawanie właściwości</h2>
+            <p>Po utworzeniu obiektu można zmieniać istniejące właściwości:</p>
+            <pre><code class="language-javascript">produkt.cena = 799;
+produkt.dostepny = false;
+console.log(produkt.cena); // 799</code></pre>
+            <p>Można też dodać nową właściwość:</p>
+            <pre><code class="language-javascript">produkt.producent = "ABC";
+produkt["gwarancja"] = 24;
+
+console.log(produkt.producent); // ABC
+console.log(produkt.gwarancja); // 24</code></pre>
+            <div class="definition">Przypisanie do istniejącego klucza <strong>zmienia wartość</strong>, a przypisanie do nowego klucza <strong>dodaje właściwość</strong>.</div>
+        </section>
+
+        <section id="usuwanie">
+            <h2>5. Usuwanie i sprawdzanie właściwości</h2>
+            <h3>Usuwanie – delete</h3>
+            <pre><code class="language-javascript">delete produkt.gwarancja;
+console.log(produkt.gwarancja); // undefined</code></pre>
+            <p><code>delete</code> usuwa wskazaną właściwość, nie usuwa całego obiektu.</p>
+            <h3>Sprawdzanie obecności właściwości</h3>
+            <pre><code class="language-javascript">console.log("cena" in produkt);      // true
+console.log("gwarancja" in produkt); // false</code></pre>
+            <p>Operator <code>in</code> sprawdza, czy właściwość jest dostępna w obiekcie (także odziedziczona).</p>
+            <div class="important">
+                <strong>Uwaga:</strong> Odczyt nieistniejącej właściwości zwykle zwraca
+                <code>undefined</code>. Nie jest to to samo co wartość <code>0</code>,
+                <code>false</code> lub pusty tekst.
+            </div>
+        </section>
+
+        <section id="metody">
+            <h2>6. Metody obiektu</h2>
+            <p>Jeżeli właściwość obiektu przechowuje funkcję, możemy wywołać ją jako <strong>metodę</strong>.</p>
+            <pre><code class="language-javascript">const uczen = {
+    imie: "Anna",
+    klasa: "3TI",
+    przedstaw: function() {
+        console.log("Cześć! Jestem Anna.");
+    }
+};
+
+uczen.przedstaw(); // Cześć! Jestem Anna.</code></pre>
+            <p>Metodę można też dodać później:</p>
+            <pre><code class="language-javascript">uczen.pozegnaj = function() {
+    console.log("Do zobaczenia!");
+};
+
+uczen.pozegnaj();</code></pre>
+            <div class="important">
+                <strong>Zapamiętaj:</strong> <code>uczen.imie</code> odczytuje właściwość,
+                natomiast <code>uczen.przedstaw()</code> <strong>wywołuje metodę</strong>.
+                Nawiasy <code>()</code> mają tutaj znaczenie.
+            </div>
+        </section>
+
+        <section id="this">
+            <h2>7. Słowo kluczowe this</h2>
+            <p>W zwykłej metodzie wywołanej jako <code>obiekt.metoda()</code> słowo <code>this</code> odwołuje się do tego obiektu.</p>
+            <pre><code class="language-javascript">const samochod = {
+    marka: "Toyota",
+    predkosc: 90,
+    pokazDane: function() {
+        console.log(this.marka + " jedzie " + this.predkosc + " km/h");
+    }
+};
+
+samochod.pokazDane();
+// Toyota jedzie 90 km/h</code></pre>
+            <h3>Metoda wykonująca obliczenia</h3>
+            <pre><code class="language-javascript">const prostokat = {
+    szerokosc: 5,
+    wysokosc: 3,
+    pole: function() {
+        return this.szerokosc * this.wysokosc;
+    }
+};
+
+console.log(prostokat.pole()); // 15</code></pre>
+            <div class="important">
+                <strong>Ważne!</strong> W tym zastosowaniu piszemy metodę jako
+                <code>function() { ... }</code> lub skróconą metodę <code>pole() { ... }</code>.
+                Funkcja strzałkowa nie tworzy własnego <code>this</code>, dlatego nie jest
+                zamiennikiem zwykłej metody w każdym przypadku.
+            </div>
+        </section>
+
+        <section id="const">
+            <h2>8. Obiekt zadeklarowany przez const</h2>
+            <p>Deklaracja <code>const</code> nie oznacza, że właściwości obiektu są niezmienne.</p>
+            <pre><code class="language-javascript">const komputer = { cena: 3000 };
+
+komputer.cena = 2800;  // poprawne
+komputer.ram = 16;     // poprawne
+
+// komputer = { cena: 1000 }; // błąd: próba przypisania nowego obiektu</code></pre>
+            <div class="definition"><code>const</code> blokuje ponowne przypisanie zmiennej, ale nie blokuje zwykłych zmian właściwości obiektu.</div>
+        </section>
+
+        <section id="zagniezdzone">
+            <h2>9. Obiekty zagnieżdżone</h2>
+            <p>Właściwość może przechowywać inny obiekt, co ułatwia porządkowanie danych.</p>
+            <pre><code class="language-javascript">const klient = {
+    imie: "Maria",
+    adres: {
+        miasto: "Lubartów",
+        kod: "21-100"
+    }
+};
+
+console.log(klient.adres.miasto); // Lubartów
+console.log(klient["adres"]["kod"]); // 21-100</code></pre>
+        </section>
+
+        <section id="tablice">
+            <h2>10. Obiekt a tablica</h2>
+            <p>Obiekt opisuje jedną rzecz za pomocą nazwanych właściwości, a tablica przechowuje kolejne elementy, do których odwołujemy się indeksami.</p>
+            <pre><code class="language-javascript">const produkt = { nazwa: "Mysz", cena: 50 };
+const ceny = [50, 120, 300];
+
+console.log(produkt.nazwa); // Mysz
+console.log(ceny[0]);       // 50</code></pre>
+            <table>
+                <tr><th>Obiekt</th><th>Tablica</th></tr>
+                <tr><td><code>produkt.cena</code></td><td><code>ceny[0]</code></td></tr>
+                <tr><td>właściwości mają nazwy</td><td>elementy mają indeksy od 0</td></tr>
+                <tr><td>opisuje np. jeden produkt</td><td>przechowuje np. listę produktów</td></tr>
+            </table>
+        </section>
+
+        <section id="tablica-obiektow">
+            <h2>11. Tablica obiektów – zastosowanie w praktyce</h2>
+            <p>W aplikacji internetowej często przechowujemy wiele produktów jako <strong>tablicę obiektów</strong>.</p>
+            <pre><code class="language-javascript">const produkty = [
+    { nazwa: "Mysz", cena: 50, stan: 8 },
+    { nazwa: "Klawiatura", cena: 120, stan: 4 },
+    { nazwa: "Monitor", cena: 850, stan: 2 }
+];
+
+console.log(produkty[1].nazwa); // Klawiatura</code></pre>
+            <h3>Wypisywanie wszystkich produktów</h3>
+            <pre><code class="language-javascript">produkty.forEach(function(produkt) {
+    console.log(produkt.nazwa + " – " + produkt.cena + " zł");
+});</code></pre>
+            <h3>Obliczanie wartości magazynu</h3>
+            <pre><code class="language-javascript">let suma = 0;
+
+produkty.forEach(function(produkt) {
+    suma += produkt.cena * produkt.stan;
+});
+
+console.log("Wartość magazynu: " + suma + " zł"); // 2580 zł</code></pre>
+            <div class="important">W tablicy obiektów <code>produkty[1]</code> oznacza drugi obiekt, a <code>produkty[1].cena</code> – cenę z drugiego obiektu.</div>
+        </section>
+
+        <section id="wbudowane">
+            <h2>12. Obiekty wbudowane w JavaScript</h2>
+            <p>Niektóre obiekty są dostępne od razu w przeglądarce. Korzystaliśmy już z nich na poprzednich lekcjach.</p>
+            <h3>Math – obliczenia matematyczne</h3>
+            <pre><code class="language-javascript">console.log(Math.round(8.6)); // 9
+console.log(Math.max(4, 9, 2)); // 9
+console.log(Math.sqrt(81));     // 9
+
+let los = Math.floor(Math.random() * 10) + 1;
+console.log(los); // liczba całkowita od 1 do 10</code></pre>
+            <h3>Date – data i czas</h3>
+            <pre><code class="language-javascript">const dzisiaj = new Date();
+
+console.log(dzisiaj.getFullYear());
+console.log(dzisiaj.getMonth() + 1);
+console.log(dzisiaj.getDate());</code></pre>
+            <div class="important">Metoda <code>getMonth()</code> zwraca miesiąc w zakresie od <code>0</code> (styczeń) do <code>11</code> (grudzień), dlatego dodajemy <code>1</code>.</div>
+            <h3>document i window – przeglądarka</h3>
+            <pre><code class="language-javascript">console.log(window.innerWidth); // szerokość obszaru okna
+console.log(document.title);     // tytuł dokumentu HTML</code></pre>
+        </section>
+
+        <section id="dom">
+            <h2>13. Obiekty a model DOM</h2>
+            <p>Elementy HTML pobrane przez JavaScript są reprezentowane jako obiekty DOM. Mają właściwości i metody.</p>
+            <pre><code class="language-html">&lt;p id="opis"&gt;Tekst początkowy&lt;/p&gt;
+&lt;button id="zmien"&gt;Zmień tekst&lt;/button&gt;</code></pre>
+            <pre><code class="language-javascript">const opis = document.getElementById("opis");
+const zmien = document.getElementById("zmien");
+
+zmien.addEventListener("click", function() {
+    opis.textContent = "Nowa treść akapitu";
+    opis.style.color = "green";
+});</code></pre>
+            <table>
+                <tr><th>Zapis</th><th>Znaczenie</th></tr>
+                <tr><td><code>opis.textContent</code></td><td>właściwość przechowująca tekst elementu</td></tr>
+                <tr><td><code>opis.style.color</code></td><td>właściwość określająca kolor tekstu</td></tr>
+                <tr><td><code>zmien.addEventListener(...)</code></td><td>wywołanie metody przypisującej zdarzenie</td></tr>
+            </table>
+            <div class="definition">To połączenie obiektów, DOM i zdarzeń jest szczególnie przydatne w zadaniach praktycznych z aplikacji internetowych.</div>
+        </section>
+
+        <section id="przyklad">
+            <h2>14. Kompletny przykład INF.03 – kalkulator zamówienia</h2>
+            <p>Przykład łączy obiekt produktu, jego metodę, formularz HTML, zdarzenie <code>click</code> oraz wyświetlanie wyniku na stronie.</p>
+            <p>Utwórz plik <code>zamowienie.html</code> i wklej poniższy kod:</p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Kalkulator zamówienia&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial; }
+        .wynik { font-weight: bold; color: darkgreen; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Kalkulator zamówienia&lt;/h1&gt;
+    &lt;p&gt;Produkt: Klawiatura, cena: 120 zł&lt;/p&gt;
+    &lt;label for="ilosc"&gt;Liczba sztuk:&lt;/label&gt;
+    &lt;input type="number" id="ilosc" min="1" value="1"&gt;
+    &lt;button type="button" id="oblicz"&gt;Oblicz&lt;/button&gt;
+    &lt;p id="wynik"&gt;&lt;/p&gt;
+
+    &lt;script&gt;
+        const produkt = {
+            nazwa: "Klawiatura",
+            cena: 120,
+            wartosc: function(ilosc) {
+                return this.cena * ilosc;
+            }
+        };
+
+        const przycisk = document.getElementById("oblicz");
+        const wynik = document.getElementById("wynik");
+
+        przycisk.addEventListener("click", function() {
+            const ilosc = Number(document.getElementById("ilosc").value);
+
+            if (!Number.isInteger(ilosc) || ilosc &lt; 1) {
+                wynik.textContent = "Podaj dodatnią liczbę całkowitą.";
+                wynik.classList.remove("wynik");
+                return;
+            }
+
+            const suma = produkt.wartosc(ilosc);
+            wynik.textContent = "Do zapłaty: " + suma.toFixed(2) + " zł";
+            wynik.classList.add("wynik");
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h3>Jak działa program?</h3>
+            <ol>
+                <li>Obiekt <code>produkt</code> przechowuje nazwę i cenę.</li>
+                <li>Metoda <code>wartosc(ilosc)</code> oblicza wartość zamówienia.</li>
+                <li>Po kliknięciu przycisku skrypt odczytuje liczbę sztuk.</li>
+                <li>Warunek sprawdza, czy użytkownik podał dodatnią liczbę całkowitą.</li>
+                <li>Wynik jest wyświetlany w akapicie bez przeładowania strony.</li>
+            </ol>
+        </section>
+
+        <section id="bledy">
+            <h2>15. Najczęstsze błędy</h2>
+            <table>
+                <tr><th>Niepoprawnie</th><th>Poprawnie / wyjaśnienie</th></tr>
+                <tr><td><code>produkt[cena]</code></td><td><code>produkt["cena"]</code> – gdy nazwa właściwości jest tekstem</td></tr>
+                <tr><td><code>produkt.nazwa()</code></td><td><code>produkt.nazwa</code> – właściwość tekstowa nie jest funkcją</td></tr>
+                <tr><td><code>produkt.wartosc</code></td><td><code>produkt.wartosc(2)</code> – aby wywołać metodę z argumentem</td></tr>
+                <tr><td><code>produkty[1].nazwa</code> jako pierwszy element</td><td><code>produkty[0].nazwa</code> – indeksy tablic rozpoczynają się od 0</td></tr>
+                <tr><td><code>this.cena</code> poza właściwym kontekstem</td><td>używaj <code>this</code> w zwykłej metodzie wywołanej przez obiekt</td></tr>
+            </table>
+            <div class="important">W trakcie pracy otwórz narzędzia deweloperskie przeglądarki (<strong>F12 → Konsola</strong>) i sprawdzaj błędy JavaScript oraz wyniki <code>console.log()</code>.</div>
+        </section>
+
+        <section id="porownanie">
+            <h2>16. Podsumowanie – najważniejsze zapisy</h2>
+            <table>
+                <tr><th>Zapis</th><th>Zastosowanie</th></tr>
+                <tr><td><code>const obiekt = { ... };</code></td><td>utworzenie obiektu</td></tr>
+                <tr><td><code>obiekt.nazwa</code></td><td>odczyt właściwości</td></tr>
+                <tr><td><code>obiekt["nazwa"]</code></td><td>odczyt właściwości przez klucz tekstowy</td></tr>
+                <tr><td><code>obiekt.nazwa = "Nowa";</code></td><td>zmiana lub dodanie właściwości</td></tr>
+                <tr><td><code>delete obiekt.nazwa;</code></td><td>usunięcie właściwości</td></tr>
+                <tr><td><code>"nazwa" in obiekt</code></td><td>sprawdzenie dostępności właściwości</td></tr>
+                <tr><td><code>obiekt.metoda()</code></td><td>wywołanie metody</td></tr>
+                <tr><td><code>this.nazwa</code></td><td>odwołanie do właściwości obiektu w jego metodzie</td></tr>
+                <tr><td><code>tablica[0].nazwa</code></td><td>odczyt pola pierwszego obiektu w tablicy</td></tr>
+            </table>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Obiekt przechowuje powiązane dane w nazwanych właściwościach.</li>
+                <li>Właściwość odczytujemy przez kropkę albo nawiasy kwadratowe.</li>
+                <li>Obiekt może zawierać metodę, czyli funkcję.</li>
+                <li>Metodę wywołujemy z nawiasami <code>()</code>.</li>
+                <li>W zwykłej metodzie wywołanej przez obiekt <code>this</code> wskazuje ten obiekt.</li>
+                <li>Właściwości można zmieniać, dodawać i usuwać.</li>
+                <li><code>const</code> nie blokuje zmian właściwości obiektu.</li>
+                <li>Tablica obiektów pozwala przechowywać listy produktów, uczniów lub usług.</li>
+                <li>Elementy strony pobrane przez DOM również są obiektami.</li>
+                <li>Na INF.03 ważne jest łączenie danych, obliczeń, zdarzeń i zmian treści HTML.</li>
+            </ul>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                Wykonuj zadania kolejno. W zadaniach 1–9 wyniki możesz wyświetlać
+                w konsoli. W zadaniach 10–13 przygotuj pliki HTML, zastosuj
+                <code>addEventListener()</code> i wyświetl wyniki na stronie.
+                Nie wpisuj rozwiązań na stałe – wynik powinien wynikać z danych obiektu.
+            </p>
+
+            <h3>Część A – podstawy obiektów</h3>
+            <h3>Zadanie 1 – Wizytówka ucznia</h3>
+            <p>Utwórz obiekt <code>uczen</code> z właściwościami <code>imie</code>, <code>nazwisko</code>, <code>klasa</code> i <code>wiek</code>. Wyświetl komunikat: „Anna Kowalska, klasa 3TI, 17 lat”, korzystając wyłącznie z właściwości obiektu.</p>
+
+            <h3>Zadanie 2 – Karta produktu</h3>
+            <p>Utwórz obiekt <code>produkt</code> zawierający nazwę, cenę, liczbę sztuk i dostępność (<code>true</code>/<code>false</code>). Wyświetl jego właściwości raz przez kropkę, a raz przez nawiasy kwadratowe. Wyświetl też komunikat „Dostępny” lub „Niedostępny” na podstawie wartości logicznej.</p>
+
+            <h3>Zadanie 3 – Właściwość wskazana przez użytkownika</h3>
+            <p>Korzystając z obiektu z zadania 2, pobierz za pomocą <code>prompt()</code> nazwę właściwości (<code>nazwa</code>, <code>cena</code>, <code>ilosc</code> lub <code>dostepny</code>). Odczytaj ją przez zapis <code>produkt[klucz]</code>. Jeśli właściwość nie istnieje, wyświetl odpowiedni komunikat.</p>
+
+            <h3>Zadanie 4 – Aktualizacja obiektu</h3>
+            <p>Utwórz obiekt <code>telefon</code> z nazwą i ceną. Zmień cenę, dodaj właściwość <code>gwarancja</code> (24 miesiące), a następnie ją usuń. Wyświetl wartości przed zmianami i po nich. Sprawdź obecność właściwości operatorem <code>in</code>.</p>
+
+            <h3>Zadanie 5 – Metoda i this</h3>
+            <p>Utwórz obiekt <code>prostokat</code> z właściwościami <code>a = 6</code> i <code>b = 4</code>. Dodaj metody <code>pole()</code> i <code>obwod()</code>, korzystające z <code>this</code>. Oczekiwane wyniki: pole <strong>24</strong>, obwód <strong>20</strong>.</p>
+
+            <h3>Część B – obliczenia i tablice obiektów</h3>
+            <h3>Zadanie 6 – Koszt przejazdu</h3>
+            <p>Utwórz obiekt <code>samochod</code> z właściwościami <code>spalanie = 6.5</code> (l/100 km) i <code>cenaPaliwa = 6.20</code> (zł/l). Dodaj metodę <code>koszt(trasa)</code>, obliczającą koszt przejechania określonej liczby kilometrów. Dla 200 km wynik powinien wynieść <strong>80,60 zł</strong>.</p>
+
+            <h3>Zadanie 7 – Oceny ucznia</h3>
+            <p>Utwórz obiekt <code>uczen</code> z imieniem i tablicą ocen <code>[3, 5, 4, 5]</code>. Dodaj metodę <code>srednia()</code>, która obliczy średnią z ocen za pomocą pętli i zwróci wynik. Oczekiwana średnia: <strong>4,25</strong>.</p>
+
+            <h3>Zadanie 8 – Magazyn</h3>
+            <p>Utwórz tablicę co najmniej pięciu obiektów <code>produkty</code>. Każdy produkt ma mieć <code>nazwa</code>, <code>cena</code> i <code>stan</code>. Za pomocą <code>forEach()</code> wyświetl nazwy i ceny, policz łączną wartość magazynu (<code>cena * stan</code>) oraz liczbę produktów o stanie mniejszym niż 5 sztuk.</p>
+
+            <h3>Zadanie 9 – Najdroższy produkt</h3>
+            <p>Wykorzystaj tablicę z zadania 8. Znajdź produkt o najwyższej cenie bez wpisywania jego nazwy na stałe. Wyświetl nazwę i cenę produktu. Rozwiązanie powinno działać także po zmianie cen w tablicy.</p>
+
+            <h3>Część C – zadania praktyczne w stylu INF.03</h3>
+            <h3>Zadanie 10 – Konfigurator zamówienia</h3>
+            <p>Utwórz plik <code>zamowienie.html</code>. Na stronie umieść nagłówek, pole liczbowe <code>id="ilosc"</code>, przycisk <code>id="oblicz"</code> i akapit <code>id="wynik"</code>. W skrypcie utwórz obiekt <code>towar</code> z nazwą, ceną 75 zł i metodą <code>wartosc(ilosc)</code>. Po kliknięciu oblicz wartość zamówienia. Dla 4 sztuk wynik ma wynosić <strong>300,00 zł</strong>. Nie dopuszczaj wartości 0 ani liczb ujemnych.</p>
+
+            <h3>Zadanie 11 – Cennik usług komputerowych</h3>
+            <p>Utwórz tablicę trzech obiektów opisujących usługi: <strong>Instalacja systemu – 120 zł</strong>, <strong>Czyszczenie komputera – 80 zł</strong> i <strong>Wymiana dysku – 150 zł</strong>. W pliku <code>serwis.html</code> wyświetl nazwy usług w elemencie <code>select</code>, dodaj przycisk i akapit wyniku. Po wybraniu usługi i kliknięciu przycisku pokaż jej cenę. Opcje listy mają powstawać w JavaScript na podstawie tablicy obiektów.</p>
+
+            <h3>Zadanie 12 – Koszyk zakupowy</h3>
+            <p>Utwórz stronę z trzema przyciskami „Dodaj do koszyka”, po jednym przy każdym produkcie. Produkty przechowuj w tablicy obiektów (nazwa, cena). Kliknięcie ma zwiększać łączną kwotę koszyka i liczbę dodanych sztuk, widoczne w dwóch akapitach. Dodaj przycisk „Wyczyść koszyk”. Do przypisania zdarzeń wielu przyciskom użyj <code>querySelectorAll()</code> i <code>forEach()</code>.</p>
+
+            <h3>Zadanie 13 – Miniarkusz praktyczny: wypożyczalnia rowerów</h3>
+            <p>Utwórz plik <code>rowery.html</code> oraz kod CSS i JavaScript. Witryna ma zawierać nagłówek, formularz z listą rodzaju roweru (<code>id="rower"</code>), pole liczby godzin (<code>id="godziny"</code>), przycisk (<code>id="policz"</code>) i blok wyniku (<code>id="wynik"</code>).</p>
+            <ol>
+                <li>W JavaScript utwórz tablicę obiektów: <code>{ nazwa: "Miejski", cena: 15 }</code>, <code>{ nazwa: "Górski", cena: 20 }</code> oraz <code>{ nazwa: "Elektryczny", cena: 35 }</code>. Cena oznacza koszt jednej godziny.</li>
+                <li>Wypełnij listę wyboru danymi z tablicy za pomocą DOM.</li>
+                <li>Po kliknięciu przycisku odczytaj rodzaj roweru i liczbę godzin.</li>
+                <li>Oblicz koszt wypożyczenia jako iloczyn ceny i liczby godzin.</li>
+                <li>Jeżeli liczba godzin jest mniejsza niż 1 lub nie jest liczbą całkowitą, wyświetl komunikat błędu.</li>
+                <li>Dla roweru górskiego i 3 godzin pokaż: <strong>Do zapłaty: 60,00 zł</strong>.</li>
+                <li>Poprawny wynik wyróżnij klasą CSS <code>poprawny</code>, a błędny klasą <code>blad</code>, używając <code>classList</code>.</li>
+            </ol>
+            <div class="important"><strong>Wskazówka egzaminacyjna:</strong> pracuj na danych przechowywanych w obiektach, użyj <code>addEventListener()</code>, nie wyświetlaj wyniku przez <code>alert()</code> i nie wpisuj cen bezpośrednio do warunków <code>if</code>.</div>
+        </section>
+
+        <section id="sprawdz" class="check">
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+            <ul>
+                <li>wyjaśnić różnicę między właściwością a metodą,</li>
+                <li>utworzyć obiekt i odczytać jego dane na dwa sposoby,</li>
+                <li>zmodyfikować, dodać i usunąć właściwość,</li>
+                <li>sprawdzić istnienie właściwości,</li>
+                <li>napisać metodę obiektu wykorzystującą <code>this</code>,</li>
+                <li>wyjaśnić zachowanie obiektu zadeklarowanego przez <code>const</code>,</li>
+                <li>odczytać dane z obiektu zagnieżdżonego i tablicy obiektów,</li>
+                <li>wykorzystać <code>Math</code> i <code>Date</code>,</li>
+                <li>połączyć obiekty, formularz HTML i zdarzenie <code>click</code>,</li>
+                <li>wyświetlić obliczony wynik na stronie za pomocą DOM,</li>
+                <li>sprawdzić i poprawić błędy w konsoli przeglądarki.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<footer>STREFA IT • PAI • Lekcja 10</footer>
+
+<script src="../../prism.js"></script>
+</body>
+</html>
