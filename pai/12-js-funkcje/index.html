@@ -1,0 +1,1591 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 12 – JavaScript: Funkcje | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">1. Czym jest funkcja?</a>
+        <a href="#deklaracja">2. Deklaracja i wywołanie</a>
+        <a href="#parametry">3. Parametry i argumenty</a>
+        <a href="#return">4. Zwracanie wartości</a>
+        <a href="#domyslne">5. Parametry domyślne</a>
+        <a href="#zakres">6. Zakres zmiennych</a>
+        <a href="#anonimowe">7. Funkcje anonimowe</a>
+        <a href="#strzalkowe">8. Funkcje strzałkowe</a>
+        <a href="#porownanie">9. Sposoby zapisu funkcji</a>
+        <a href="#callback">10. Funkcje callback</a>
+        <a href="#foreach">11. Metoda forEach()</a>
+        <a href="#map">12. Metoda map()</a>
+        <a href="#filter">13. Metoda filter()</a>
+        <a href="#find">14. Metoda find()</a>
+        <a href="#reduce">15. Metoda reduce()</a>
+        <a href="#obiekty">16. Funkcje w obiektach</a>
+        <a href="#zdarzenia">17. Funkcje i zdarzenia</a>
+        <a href="#walidacja">18. Funkcje i sprawdzanie danych</a>
+        <a href="#rekurencja">19. Rekurencja</a>
+        <a href="#praktyka">20. Przykład praktyczny INF.03</a>
+        <a href="#bledy">21. Typowe błędy</a>
+        <a href="#zestawienie">22. Zestawienie metod</a>
+
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 12</div>
+
+            <h2>JavaScript: Funkcje</h2>
+
+            <p>
+                Deklarowanie i wywoływanie funkcji, parametry,
+                zwracanie wartości, funkcje anonimowe i strzałkowe,
+                callbacki oraz przetwarzanie tablic.<br>
+
+                <strong>Cel główny:</strong>
+                poznanie zasad tworzenia funkcji w JavaScript
+                i wykorzystanie ich do organizowania kodu,
+                wykonywania obliczeń oraz obsługi aplikacji internetowych
+                zgodnie z umiejętnościami przydatnymi na egzaminie INF.03.
+            </p>
+        </div>
+
+
+        <section id="wprowadzenie">
+
+            <h2>1. Czym jest funkcja?</h2>
+
+            <div class="definition">
+                <strong>Funkcja</strong> to wydzielony fragment programu,
+                który realizuje określone zadanie i może być
+                wielokrotnie wywoływany w różnych miejscach kodu.
+            </div>
+
+            <p>
+                Funkcje pozwalają unikać powtarzania tych samych
+                instrukcji, ułatwiają poprawianie błędów
+                i zwiększają czytelność programu.
+            </p>
+
+            <p>Przykład bez funkcji:</p>
+
+            <pre><code class="language-javascript">console.log("Witaj, Anno!");
+console.log("Witaj, Janie!");
+console.log("Witaj, Olu!");</code></pre>
+
+            <p>Przykład z funkcją:</p>
+
+            <pre><code class="language-javascript">function przywitaj(imie) {
+    console.log("Witaj, " + imie + "!");
+}
+
+przywitaj("Anno");
+przywitaj("Janie");
+przywitaj("Olu");</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Witaj, Anno!
+Witaj, Janie!
+Witaj, Olu!</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Funkcję definiujemy jeden raz, ale możemy
+                wywoływać ją wielokrotnie z różnymi danymi.
+            </div>
+
+        </section>
+
+
+        <section id="deklaracja">
+
+            <h2>2. Deklaracja i wywołanie funkcji</h2>
+
+            <p>
+                Podstawowy sposób tworzenia funkcji polega na użyciu
+                słowa kluczowego <code>function</code>.
+            </p>
+
+            <pre><code class="language-javascript">function powitanie() {
+    console.log("Cześć!");
+}</code></pre>
+
+            <p>
+                Samo zdefiniowanie funkcji nie powoduje
+                wykonania jej instrukcji.
+            </p>
+
+            <p>Aby ją uruchomić, należy ją wywołać:</p>
+
+            <pre><code class="language-javascript">powitanie();</code></pre>
+
+            <h3>Ogólna budowa funkcji</h3>
+
+            <pre><code class="language-javascript">function nazwaFunkcji() {
+    // instrukcje
+}
+
+nazwaFunkcji();</code></pre>
+
+            <table>
+                <tr>
+                    <th>Fragment</th>
+                    <th>Znaczenie</th>
+                </tr>
+                <tr>
+                    <td><code>function</code></td>
+                    <td>słowo kluczowe służące do deklarowania funkcji</td>
+                </tr>
+                <tr>
+                    <td><code>nazwaFunkcji</code></td>
+                    <td>nazwa, za pomocą której wywołujemy funkcję</td>
+                </tr>
+                <tr>
+                    <td><code>()</code></td>
+                    <td>miejsce na parametry funkcji</td>
+                </tr>
+                <tr>
+                    <td><code>{ }</code></td>
+                    <td>blok instrukcji wykonywanych przez funkcję</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                <code>powitanie</code> oznacza odwołanie do funkcji,
+                a <code>powitanie()</code> oznacza jej wywołanie.
+            </div>
+
+        </section>
+
+
+        <section id="parametry">
+
+            <h2>3. Parametry i argumenty funkcji</h2>
+
+            <p>
+                Funkcje mogą przyjmować dane przekazywane
+                podczas wywołania.
+            </p>
+
+            <pre><code class="language-javascript">function powitaj(imie) {
+    console.log("Cześć, " + imie);
+}
+
+powitaj("Anna");</code></pre>
+
+            <p>
+                <code>imie</code> jest parametrem funkcji,
+                natomiast <code>"Anna"</code> jest argumentem
+                przekazanym podczas jej wywołania.
+            </p>
+
+            <h3>Funkcja z dwoma parametrami</h3>
+
+            <pre><code class="language-javascript">function dodaj(a, b) {
+    console.log(a + b);
+}
+
+dodaj(5, 3);
+dodaj(10, 20);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">8
+30</code></pre>
+
+            <div class="definition">
+                <strong>Parametr</strong> to nazwa zmiennej występująca
+                w definicji funkcji.<br>
+                <strong>Argument</strong> to konkretna wartość
+                przekazana podczas wywołania funkcji.
+            </div>
+
+        </section>
+
+
+        <section id="return">
+
+            <h2>4. Zwracanie wartości – return</h2>
+
+            <p>
+                Funkcja może nie tylko wykonywać instrukcje,
+                lecz także zwracać wynik obliczeń.
+            </p>
+
+            <pre><code class="language-javascript">function suma(a, b) {
+    return a + b;
+}
+
+let wynik = suma(5, 3);
+
+console.log(wynik); // 8</code></pre>
+
+            <p>
+                Słowo kluczowe <code>return</code> zwraca
+                wynik działania funkcji do miejsca jej wywołania.
+            </p>
+
+            <h3>Wykorzystanie wyniku funkcji</h3>
+
+            <pre><code class="language-javascript">function poleProstokata(a, b) {
+    return a * b;
+}
+
+let pole = poleProstokata(5, 4);
+
+console.log("Pole: " + pole); // Pole: 20</code></pre>
+
+            <h3>Funkcja zwracająca wartość logiczną</h3>
+
+            <pre><code class="language-javascript">function czyParzysta(liczba) {
+    return liczba % 2 === 0;
+}
+
+console.log(czyParzysta(8)); // true
+console.log(czyParzysta(5)); // false</code></pre>
+
+            <h3>return kończy działanie funkcji</h3>
+
+            <pre><code class="language-javascript">function sprawdzWiek(wiek) {
+    if (wiek &lt; 18) {
+        return "Niepełnoletni";
+    }
+
+    return "Pełnoletni";
+}
+
+console.log(sprawdzWiek(16));</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Instrukcje znajdujące się po wykonanym
+                <code>return</code> nie zostaną wykonane.
+                Jeżeli funkcja kończy się bez zwrócenia wartości,
+                jej wynikiem jest <code>undefined</code>.
+            </div>
+
+        </section>
+
+
+        <section id="domyslne">
+
+            <h2>5. Parametry domyślne</h2>
+
+            <p>
+                Funkcja może posiadać parametr, który otrzyma
+                wartość domyślną, jeśli podczas wywołania
+                nie zostanie przekazany odpowiedni argument
+                lub przekazana będzie wartość <code>undefined</code>.
+            </p>
+
+            <pre><code class="language-javascript">function powitaj(imie = "Gościu") {
+    console.log("Witaj, " + imie + "!");
+}
+
+powitaj("Anna");
+powitaj();</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">Witaj, Anna!
+Witaj, Gościu!</code></pre>
+
+            <h3>Parametry domyślne w obliczeniach</h3>
+
+            <pre><code class="language-javascript">function obliczCene(cena, ilosc = 1) {
+    return cena * ilosc;
+}
+
+console.log(obliczCene(50));    // 50
+console.log(obliczCene(50, 3)); // 150</code></pre>
+
+        </section>
+
+
+        <section id="zakres">
+
+            <h2>6. Zakres zmiennych w funkcjach</h2>
+
+            <p>
+                Zmienne zadeklarowane wewnątrz funkcji za pomocą
+                <code>let</code> lub <code>const</code>
+                nie są dostępne poza jej zakresem.
+            </p>
+
+            <pre><code class="language-javascript">function oblicz() {
+    let wynik = 10 + 5;
+    console.log(wynik);
+}
+
+oblicz(); // 15
+
+// console.log(wynik); // ReferenceError</code></pre>
+
+            <h3>Zmienna globalna i lokalna</h3>
+
+            <pre><code class="language-javascript">let nazwaSzkoly = "STREFA IT";
+
+function pokaz() {
+    let klasa = "3TI";
+
+    console.log(nazwaSzkoly);
+    console.log(klasa);
+}
+
+pokaz();</code></pre>
+
+            <div class="important">
+                <strong>Dobra praktyka:</strong>
+                unikaj niepotrzebnego tworzenia zmiennych globalnych.
+                Przekazuj dane do funkcji za pomocą parametrów
+                i odbieraj wynik przez <code>return</code>.
+            </div>
+
+        </section>
+
+
+        <section id="anonimowe">
+
+            <h2>7. Funkcje anonimowe</h2>
+
+            <div class="definition">
+                <strong>Funkcja anonimowa</strong> to funkcja,
+                która nie posiada własnej nazwy w miejscu
+                jej utworzenia.
+            </div>
+
+            <p>
+                Funkcję anonimową możemy przypisać do zmiennej.
+            </p>
+
+            <pre><code class="language-javascript">const dodaj = function(a, b) {
+    return a + b;
+};
+
+console.log(dodaj(5, 3)); // 8</code></pre>
+
+            <p>
+                Mimo że funkcja nie ma własnej nazwy,
+                możemy ją wywołać za pomocą zmiennej
+                <code>dodaj</code>.
+            </p>
+
+            <h3>Funkcja anonimowa w obsłudze zdarzenia</h3>
+
+            <pre><code class="language-javascript">const przycisk = document.getElementById("przycisk");
+
+przycisk.addEventListener("click", function() {
+    alert("Kliknięto przycisk");
+});</code></pre>
+
+            <p>
+                Funkcje anonimowe często przekazujemy
+                bezpośrednio jako argumenty innych funkcji.
+            </p>
+
+        </section>
+
+
+        <section id="strzalkowe">
+
+            <h2>8. Funkcje strzałkowe – arrow functions</h2>
+
+            <p>
+                Funkcje strzałkowe to krótszy sposób
+                zapisywania funkcji w JavaScript.
+                Wykorzystują operator <code>=&gt;</code>.
+            </p>
+
+            <h3>Tradycyjny zapis</h3>
+
+            <pre><code class="language-javascript">const suma = function(a, b) {
+    return a + b;
+};</code></pre>
+
+            <h3>Funkcja strzałkowa</h3>
+
+            <pre><code class="language-javascript">const suma = (a, b) =&gt; {
+    return a + b;
+};</code></pre>
+
+            <h3>Skrócony zapis</h3>
+
+            <pre><code class="language-javascript">const suma = (a, b) =&gt; a + b;
+
+console.log(suma(5, 3)); // 8</code></pre>
+
+            <p>
+                Jeżeli funkcja składa się z jednego wyrażenia,
+                możemy pominąć nawiasy klamrowe i słowo
+                <code>return</code>. Wtedy wartość wyrażenia
+                jest zwracana automatycznie.
+            </p>
+
+            <h3>Jeden parametr</h3>
+
+            <pre><code class="language-javascript">const kwadrat = x =&gt; x * x;
+
+console.log(kwadrat(5)); // 25</code></pre>
+
+            <h3>Brak parametrów</h3>
+
+            <pre><code class="language-javascript">const powitanie = () =&gt; "Cześć!";
+
+console.log(powitanie());</code></pre>
+
+            <h3>Więcej instrukcji</h3>
+
+            <pre><code class="language-javascript">const sprawdzLiczbe = liczba =&gt; {
+    if (liczba &gt; 0) {
+        return "Dodatnia";
+    }
+
+    return "Niedodatnia";
+};</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Funkcje strzałkowe nie mają własnego
+                <code>this</code>. Dlatego nie zawsze
+                nadają się do zastępowania zwykłych metod obiektu.
+                Ten temat poznaliśmy w Lekcji 10.
+            </div>
+
+        </section>
+
+
+        <section id="porownanie">
+
+            <h2>9. Trzy sposoby tworzenia funkcji</h2>
+
+            <h3>1. Deklaracja funkcji</h3>
+
+            <pre><code class="language-javascript">function dodaj(a, b) {
+    return a + b;
+}</code></pre>
+
+            <h3>2. Funkcja przypisana do zmiennej</h3>
+
+            <pre><code class="language-javascript">const dodaj = function(a, b) {
+    return a + b;
+};</code></pre>
+
+            <h3>3. Funkcja strzałkowa</h3>
+
+            <pre><code class="language-javascript">const dodaj = (a, b) =&gt; a + b;</code></pre>
+
+            <table>
+                <tr>
+                    <th>Rodzaj</th>
+                    <th>Cechy</th>
+                </tr>
+                <tr>
+                    <td>Deklaracja</td>
+                    <td>czytelny zapis, można ją wywołać również przed miejscem deklaracji</td>
+                </tr>
+                <tr>
+                    <td>Funkcja anonimowa</td>
+                    <td>często przypisywana do zmiennej lub przekazywana jako argument</td>
+                </tr>
+                <tr>
+                    <td>Funkcja strzałkowa</td>
+                    <td>krótsza składnia, nie posiada własnego this</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Uwaga:</strong>
+                Wszystkie trzy przykłady przedstawiają
+                alternatywne sposoby utworzenia funkcji.
+                Nie należy deklarować ich jednocześnie
+                pod tą samą nazwą <code>dodaj</code>
+                w jednym zakresie.
+            </div>
+
+        </section>
+
+
+        <section id="callback">
+
+            <h2>10. Funkcja przekazywana jako argument – callback</h2>
+
+            <div class="definition">
+                <strong>Callback</strong> to funkcja przekazywana
+                do innej funkcji, która może ją następnie wywołać.
+            </div>
+
+            <pre><code class="language-javascript">function wykonajDzialanie(a, b, dzialanie) {
+    return dzialanie(a, b);
+}
+
+function suma(a, b) {
+    return a + b;
+}
+
+console.log(wykonajDzialanie(5, 3, suma)); // 8</code></pre>
+
+            <p>
+                Funkcja <code>suma</code> została przekazana
+                jako argument do funkcji <code>wykonajDzialanie</code>.
+            </p>
+
+            <h3>Callback jako funkcja anonimowa</h3>
+
+            <pre><code class="language-javascript">let wynik = wykonajDzialanie(5, 3, function(a, b) {
+    return a * b;
+});
+
+console.log(wynik); // 15</code></pre>
+
+            <h3>Callback jako funkcja strzałkowa</h3>
+
+            <pre><code class="language-javascript">let wynik = wykonajDzialanie(5, 3, (a, b) =&gt; a - b);
+
+console.log(wynik); // 2</code></pre>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                przekazując funkcję jako argument, używamy
+                jej nazwy bez nawiasów, np. <code>suma</code>.
+                Zapis <code>suma()</code> oznacza wywołanie funkcji.
+            </div>
+
+        </section>
+
+
+        <section id="foreach">
+
+            <h2>11. Metoda forEach()</h2>
+
+            <p>
+                Metoda <code>forEach()</code> wykonuje
+                przekazaną funkcję dla każdego elementu tablicy.
+            </p>
+
+            <pre><code class="language-javascript">const liczby = [10, 20, 30];
+
+liczby.forEach(function(liczba) {
+    console.log(liczba);
+});</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">10
+20
+30</code></pre>
+
+            <h3>forEach() z funkcją strzałkową</h3>
+
+            <pre><code class="language-javascript">const liczby = [10, 20, 30];
+
+liczby.forEach(liczba =&gt; {
+    console.log(liczba);
+});</code></pre>
+
+            <h3>Element i jego indeks</h3>
+
+            <pre><code class="language-javascript">const imiona = ["Anna", "Jan", "Ola"];
+
+imiona.forEach((imie, indeks) =&gt; {
+    console.log((indeks + 1) + ". " + imie);
+});</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">1. Anna
+2. Jan
+3. Ola</code></pre>
+
+            <div class="important">
+                <code>forEach()</code> służy przede wszystkim
+                do wykonywania operacji na elementach tablicy.
+                Sama metoda nie tworzy nowej tablicy
+                i zwraca <code>undefined</code>.
+            </div>
+
+        </section>
+
+
+        <section id="map">
+
+            <h2>12. Metoda map()</h2>
+
+            <p>
+                Metoda <code>map()</code> przetwarza
+                każdy element tablicy i tworzy
+                <strong>nową tablicę</strong> wyników.
+            </p>
+
+            <pre><code class="language-javascript">const liczby = [2, 4, 6, 8];
+
+const kwadraty = liczby.map(function(liczba) {
+    return liczba * liczba;
+});
+
+console.log(kwadraty);</code></pre>
+
+            <p>Wynik:</p>
+
+            <pre><code class="language-none">[4, 16, 36, 64]</code></pre>
+
+            <h3>map() z funkcją strzałkową</h3>
+
+            <pre><code class="language-javascript">const liczby = [2, 4, 6, 8];
+
+const kwadraty = liczby.map(liczba =&gt; liczba * liczba);
+
+console.log(kwadraty);</code></pre>
+
+            <h3>Przeliczanie cen</h3>
+
+            <pre><code class="language-javascript">const ceny = [100, 200, 300];
+
+const poRabacie = ceny.map(cena =&gt; cena * 0.9);
+
+console.log(poRabacie); // [90, 180, 270]</code></pre>
+
+            <div class="definition">
+                <code>map()</code> służy do przekształcania danych,
+                np. obliczenia kwadratów liczb, zmiany cen
+                lub przygotowania nowej listy wartości.
+            </div>
+
+        </section>
+
+
+        <section id="filter">
+
+            <h2>13. Metoda filter()</h2>
+
+            <p>
+                Metoda <code>filter()</code> wybiera
+                elementy spełniające określony warunek
+                i zwraca nową tablicę.
+            </p>
+
+            <pre><code class="language-javascript">const liczby = [5, 12, 7, 20, 3];
+
+const duze = liczby.filter(function(liczba) {
+    return liczba &gt; 10;
+});
+
+console.log(duze); // [12, 20]</code></pre>
+
+            <h3>filter() z funkcją strzałkową</h3>
+
+            <pre><code class="language-javascript">const liczby = [5, 12, 7, 20, 3];
+
+const duze = liczby.filter(liczba =&gt; liczba &gt; 10);
+
+console.log(duze); // [12, 20]</code></pre>
+
+            <h3>Wybieranie liczb parzystych</h3>
+
+            <pre><code class="language-javascript">const liczby = [1, 2, 3, 4, 5, 6];
+
+const parzyste = liczby.filter(liczba =&gt; liczba % 2 === 0);
+
+console.log(parzyste); // [2, 4, 6]</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Funkcja przekazana do <code>filter()</code>
+                powinna zwracać warunek. Element zostanie
+                zachowany, jeśli wynik warunku jest prawdziwy.
+            </div>
+
+        </section>
+
+
+        <section id="find">
+
+            <h2>14. Metoda find()</h2>
+
+            <p>
+                Metoda <code>find()</code> zwraca
+                <strong>pierwszy element</strong>
+                spełniający podany warunek.
+            </p>
+
+            <pre><code class="language-javascript">const liczby = [5, 12, 7, 20, 3];
+
+const wynik = liczby.find(liczba =&gt; liczba &gt; 10);
+
+console.log(wynik); // 12</code></pre>
+
+            <h3>Wyszukiwanie obiektu</h3>
+
+            <pre><code class="language-javascript">const produkty = [
+    { nazwa: "Mysz", cena: 50 },
+    { nazwa: "Klawiatura", cena: 120 },
+    { nazwa: "Monitor", cena: 850 }
+];
+
+const znaleziony = produkty.find(produkt =&gt; {
+    return produkt.nazwa === "Klawiatura";
+});
+
+console.log(znaleziony.cena); // 120</code></pre>
+
+            <div class="important">
+                <strong>Różnica:</strong>
+                <code>filter()</code> zwraca tablicę wszystkich
+                pasujących elementów, a <code>find()</code>
+                zwraca pierwszy pasujący element.
+                Jeśli nic nie znajdzie, zwraca <code>undefined</code>.
+            </div>
+
+        </section>
+
+
+        <section id="reduce">
+
+            <h2>15. Metoda reduce()</h2>
+
+            <p>
+                Metoda <code>reduce()</code> pozwala
+                przetworzyć wszystkie elementy tablicy
+                i obliczyć jeden wynik, np. sumę.
+            </p>
+
+            <pre><code class="language-javascript">const liczby = [10, 20, 30, 40];
+
+const suma = liczby.reduce(function(wynik, liczba) {
+    return wynik + liczba;
+}, 0);
+
+console.log(suma); // 100</code></pre>
+
+            <p>
+                Parametr <code>wynik</code> przechowuje
+                dotychczas obliczoną wartość,
+                a <code>liczba</code> oznacza
+                aktualny element tablicy.
+            </p>
+
+            <p>
+                Wartość <code>0</code> jest wartością początkową.
+            </p>
+
+            <h3>Skrócony zapis strzałkowy</h3>
+
+            <pre><code class="language-javascript">const liczby = [10, 20, 30, 40];
+
+const suma = liczby.reduce((wynik, liczba) =&gt; wynik + liczba, 0);
+
+console.log(suma); // 100</code></pre>
+
+            <h3>Obliczanie wartości zamówienia</h3>
+
+            <pre><code class="language-javascript">const koszyk = [
+    { nazwa: "Mysz", cena: 50, ilosc: 2 },
+    { nazwa: "Monitor", cena: 850, ilosc: 1 }
+];
+
+const suma = koszyk.reduce((wynik, produkt) =&gt; {
+    return wynik + produkt.cena * produkt.ilosc;
+}, 0);
+
+console.log(suma); // 950</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Podawanie wartości początkowej, np. <code>0</code>,
+                ułatwia przewidywanie wyniku i pozwala bezpiecznie
+                sumować także pustą tablicę.
+            </div>
+
+        </section>
+
+
+        <section id="obiekty">
+
+            <h2>16. Funkcje jako metody obiektów</h2>
+
+            <p>
+                Funkcja przechowywana jako właściwość obiektu
+                może być wywoływana jako jego metoda.
+            </p>
+
+            <pre><code class="language-javascript">const produkt = {
+    nazwa: "Monitor",
+    cena: 850,
+
+    pokazDane: function() {
+        return this.nazwa + " – " + this.cena + " zł";
+    }
+};
+
+console.log(produkt.pokazDane());</code></pre>
+
+            <h3>Skrócony zapis metody</h3>
+
+            <pre><code class="language-javascript">const produkt = {
+    nazwa: "Monitor",
+    cena: 850,
+
+    pokazDane() {
+        return this.nazwa + " – " + this.cena + " zł";
+    }
+};</code></pre>
+
+            <p>
+                W metodzie wywołanej przez
+                <code>produkt.pokazDane()</code>
+                słowo <code>this</code> wskazuje obiekt
+                <code>produkt</code>.
+            </p>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Funkcji strzałkowej nie należy automatycznie
+                używać zamiast zwykłej metody, która
+                korzysta z <code>this</code>.
+                Funkcje strzałkowe nie tworzą własnego
+                kontekstu <code>this</code>.
+            </div>
+
+        </section>
+
+
+        <section id="zdarzenia">
+
+            <h2>17. Funkcje w obsłudze zdarzeń</h2>
+
+            <p>
+                Funkcje wykorzystujemy do określania,
+                co ma się wydarzyć po kliknięciu przycisku,
+                zmianie pola formularza lub innym zdarzeniu.
+            </p>
+
+            <p>Kod HTML:</p>
+
+            <pre><code class="language-html">&lt;button id="przycisk"&gt;Kliknij&lt;/button&gt;</code></pre>
+
+            <h3>Funkcja nazwana</h3>
+
+            <pre><code class="language-javascript">const przycisk = document.getElementById("przycisk");
+
+function pokazKomunikat() {
+    alert("Witaj!");
+}
+
+przycisk.addEventListener("click", pokazKomunikat);</code></pre>
+
+            <h3>Funkcja anonimowa</h3>
+
+            <pre><code class="language-javascript">przycisk.addEventListener("click", function() {
+    alert("Witaj!");
+});</code></pre>
+
+            <h3>Funkcja strzałkowa</h3>
+
+            <pre><code class="language-javascript">przycisk.addEventListener("click", () =&gt; {
+    alert("Witaj!");
+});</code></pre>
+
+            <div class="important">
+                <strong>Uwaga:</strong>
+                wszystkie trzy sposoby przedstawiają
+                alternatywne rozwiązania tego samego zadania.
+                W ćwiczeniu wybierz jeden z nich.
+            </div>
+
+        </section>
+
+
+        <section id="walidacja">
+
+            <h2>18. Funkcje i sprawdzanie danych</h2>
+
+            <p>
+                Przy tworzeniu formularzy ważne jest sprawdzenie
+                poprawności danych wprowadzonych przez użytkownika.
+            </p>
+
+            <h3>Funkcja sprawdzająca liczbę</h3>
+
+            <pre><code class="language-javascript">function czyDodatnia(liczba) {
+    return Number.isFinite(liczba) &amp;&amp; liczba &gt; 0;
+}
+
+console.log(czyDodatnia(5));  // true
+console.log(czyDodatnia(-2)); // false</code></pre>
+
+            <h3>Funkcja obliczająca rabat</h3>
+
+            <pre><code class="language-javascript">function obliczRabat(cena, procent) {
+    return cena - cena * procent / 100;
+}
+
+console.log(obliczRabat(200, 10)); // 180</code></pre>
+
+            <p>
+                Dzięki oddzielnym funkcjom łatwiej przetestować
+                obliczenia i wykorzystać je w kilku miejscach witryny.
+            </p>
+
+            <div class="definition">
+                <strong>Dobra praktyka:</strong>
+                funkcja obliczeniowa powinna otrzymywać dane
+                jako parametry i zwracać wynik przez
+                <code>return</code>. Osobny kod powinien
+                pobierać dane z HTML i wyświetlać wynik.
+            </div>
+
+        </section>
+
+
+        <section id="rekurencja">
+
+            <h2>19. Funkcja rekurencyjna</h2>
+
+            <div class="definition">
+                <strong>Rekurencja</strong> polega na tym,
+                że funkcja wywołuje samą siebie.
+            </div>
+
+            <p>
+                Przykładem jest obliczanie silni liczby naturalnej.
+            </p>
+
+            <pre><code class="language-javascript">function silnia(n) {
+    if (n === 0) {
+        return 1;
+    }
+
+    return n * silnia(n - 1);
+}
+
+console.log(silnia(5)); // 120</code></pre>
+
+            <p>
+                Obliczenie przebiega następująco:
+            </p>
+
+            <pre><code class="language-none">5! = 5 × 4 × 3 × 2 × 1 = 120</code></pre>
+
+            <div class="important">
+                <strong>Ważne!</strong>
+                Funkcja rekurencyjna musi posiadać warunek
+                zakończenia. Powyższy przykład zakłada,
+                że przekazujemy nieujemną liczbę całkowitą.
+                Dla innych danych trzeba dodać walidację.
+            </div>
+
+        </section>
+
+
+        <section id="praktyka">
+
+            <h2>20. Kompletny przykład INF.03 – kalkulator rabatu</h2>
+
+            <p>
+                Przykład łączy funkcje, formularz HTML,
+                obsługę zdarzeń i wyświetlanie wyniku na stronie.
+            </p>
+
+            <p>
+                Utwórz plik <code>rabat.html</code>
+                i wklej poniższy kod.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Kalkulator rabatu&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial;
+        }
+
+        .wynik {
+            color: darkgreen;
+            font-weight: bold;
+        }
+
+        .blad {
+            color: red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Kalkulator rabatu&lt;/h1&gt;
+
+    &lt;label for="cena"&gt;Cena produktu:&lt;/label&gt;
+    &lt;input type="number" id="cena" min="0" step="0.01"&gt;
+
+    &lt;label for="rabat"&gt;Rabat (%):&lt;/label&gt;
+    &lt;input type="number" id="rabat" min="0" max="100"&gt;
+
+    &lt;button type="button" id="oblicz"&gt;Oblicz&lt;/button&gt;
+
+    &lt;p id="wynik"&gt;&lt;/p&gt;
+
+    &lt;script&gt;
+        function obliczRabat(cena, procent) {
+            return cena - cena * procent / 100;
+        }
+
+        const przycisk = document.getElementById("oblicz");
+        const wynik = document.getElementById("wynik");
+
+        przycisk.addEventListener("click", function() {
+            const cena = Number(document.getElementById("cena").value);
+            const rabat = Number(document.getElementById("rabat").value);
+
+            const cenaPole = document.getElementById("cena");
+            const rabatPole = document.getElementById("rabat");
+
+            if (
+                cenaPole.value.trim() === "" ||
+                rabatPole.value.trim() === "" ||
+                !Number.isFinite(cena) ||
+                !Number.isFinite(rabat) ||
+                cena &lt; 0 ||
+                rabat &lt; 0 ||
+                rabat &gt; 100
+            ) {
+                wynik.textContent = "Podaj poprawne dane.";
+                wynik.className = "blad";
+                return;
+            }
+
+            const cenaKoncowa = obliczRabat(cena, rabat);
+
+            wynik.textContent =
+                "Cena po rabacie: " + cenaKoncowa.toFixed(2) + " zł";
+
+            wynik.className = "wynik";
+        });
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Jak działa program?</h3>
+
+            <ol>
+                <li>Użytkownik podaje cenę produktu oraz wysokość rabatu.</li>
+                <li>Po kliknięciu przycisku uruchamia się funkcja obsługująca zdarzenie.</li>
+                <li>Skrypt odczytuje wartości z formularza.</li>
+                <li>Sprawdza, czy podano poprawne dane.</li>
+                <li>Funkcja <code>obliczRabat()</code> oblicza cenę końcową.</li>
+                <li>Wynik zostaje wyświetlony w akapicie bez przeładowania strony.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Na egzaminie INF.03:</strong>
+                zwracaj uwagę na nazwy identyfikatorów,
+                sposób pobierania danych, walidację,
+                prawidłowe obliczenia i miejsce wyświetlania wyniku.
+            </div>
+
+        </section>
+
+
+        <section id="bledy">
+
+            <h2>21. Najczęstsze błędy</h2>
+
+            <table>
+                <tr>
+                    <th>Błąd</th>
+                    <th>Wyjaśnienie</th>
+                </tr>
+
+                <tr>
+                    <td><code>funkcja</code> zamiast <code>funkcja()</code></td>
+                    <td>odwołanie do funkcji zamiast jej wywołania</td>
+                </tr>
+
+                <tr>
+                    <td>brak <code>return</code></td>
+                    <td>funkcja nie zwraca obliczonego wyniku</td>
+                </tr>
+
+                <tr>
+                    <td><code>return</code> przed dalszym kodem</td>
+                    <td>instrukcje po wykonanym return nie działają</td>
+                </tr>
+
+                <tr>
+                    <td>pominięcie parametrów</td>
+                    <td>funkcja może otrzymać undefined zamiast oczekiwanej wartości</td>
+                </tr>
+
+                <tr>
+                    <td>mylenie <code>forEach()</code> i <code>map()</code></td>
+                    <td>forEach nie zwraca nowej tablicy, map ją tworzy</td>
+                </tr>
+
+                <tr>
+                    <td>mylenie <code>filter()</code> i <code>find()</code></td>
+                    <td>filter zwraca tablicę, find pierwszy pasujący element</td>
+                </tr>
+
+                <tr>
+                    <td><code>addEventListener("click", funkcja())</code></td>
+                    <td>funkcja zostaje wywołana od razu, zamiast przekazana do obsługi zdarzenia</td>
+                </tr>
+
+                <tr>
+                    <td>brak warunku zakończenia rekurencji</td>
+                    <td>może prowadzić do niekończących się wywołań i błędu stosu</td>
+                </tr>
+
+                <tr>
+                    <td>traktowanie danych z input jako liczb</td>
+                    <td>wartość input jest tekstem, dlatego często trzeba użyć Number()</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <section id="zestawienie">
+
+            <h2>22. Zestawienie najważniejszych zapisów</h2>
+
+            <table>
+                <tr>
+                    <th>Zapis</th>
+                    <th>Zastosowanie</th>
+                </tr>
+
+                <tr>
+                    <td><code>function nazwa() { }</code></td>
+                    <td>deklarowanie funkcji</td>
+                </tr>
+
+                <tr>
+                    <td><code>nazwa()</code></td>
+                    <td>wywołanie funkcji</td>
+                </tr>
+
+                <tr>
+                    <td><code>return</code></td>
+                    <td>zwrócenie wartości i zakończenie funkcji</td>
+                </tr>
+
+                <tr>
+                    <td><code>function(a, b) { }</code></td>
+                    <td>funkcja anonimowa</td>
+                </tr>
+
+                <tr>
+                    <td><code>(a, b) =&gt; a + b</code></td>
+                    <td>funkcja strzałkowa</td>
+                </tr>
+
+                <tr>
+                    <td><code>forEach()</code></td>
+                    <td>wykonanie funkcji dla każdego elementu</td>
+                </tr>
+
+                <tr>
+                    <td><code>map()</code></td>
+                    <td>utworzenie nowej tablicy przekształconych wartości</td>
+                </tr>
+
+                <tr>
+                    <td><code>filter()</code></td>
+                    <td>wybór elementów spełniających warunek</td>
+                </tr>
+
+                <tr>
+                    <td><code>find()</code></td>
+                    <td>wyszukanie pierwszego pasującego elementu</td>
+                </tr>
+
+                <tr>
+                    <td><code>reduce()</code></td>
+                    <td>obliczenie wyniku na podstawie elementów tablicy</td>
+                </tr>
+
+                <tr>
+                    <td><code>addEventListener()</code></td>
+                    <td>przypisanie funkcji obsługującej zdarzenie</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <section id="zapamietaj" class="remember">
+
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Funkcja to fragment programu przeznaczony do wielokrotnego wykorzystania.</li>
+                <li>Funkcję można utworzyć za pomocą słowa <code>function</code>.</li>
+                <li>Parametry umożliwiają przekazywanie danych do funkcji.</li>
+                <li><code>return</code> zwraca wynik i kończy działanie funkcji.</li>
+                <li>Funkcja anonimowa nie ma własnej nazwy w miejscu utworzenia.</li>
+                <li>Funkcja strzałkowa wykorzystuje operator <code>=&gt;</code>.</li>
+                <li>Callback to funkcja przekazana jako argument innej funkcji.</li>
+                <li><code>forEach()</code> wykonuje funkcję dla każdego elementu tablicy.</li>
+                <li><code>map()</code> przekształca elementy w nową tablicę.</li>
+                <li><code>filter()</code> wybiera elementy spełniające warunek.</li>
+                <li><code>find()</code> wyszukuje pierwszy pasujący element.</li>
+                <li><code>reduce()</code> pozwala obliczyć wynik na podstawie całej tablicy.</li>
+                <li>Funkcje są wykorzystywane w obsłudze zdarzeń i formularzy HTML.</li>
+                <li>Rekurencja to wywoływanie funkcji przez samą siebie.</li>
+                <li>Dobra funkcja powinna mieć jasno określone zadanie.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="zadania" class="tasks">
+
+            <h2>📝 Zadania</h2>
+
+            <p>
+                W zadaniach 1–10 wyniki wyświetlaj w konsoli
+                przeglądarki, chyba że polecenie stanowi inaczej.
+                W zadaniach 11–16 utwórz stronę HTML i wyświetl
+                wyniki na stronie za pomocą DOM.
+            </p>
+
+            <p>
+                Wykorzystuj funkcje z parametrami i <code>return</code>.
+                Nie wpisuj wyników na stałe.
+            </p>
+
+            <h3>Część A – podstawy funkcji</h3>
+
+            <h3>Zadanie 1 – Powitanie</h3>
+            <p>
+                Napisz funkcję <code>powitanie(imie)</code>,
+                która przyjmuje imię i wyświetla komunikat
+                „Witaj, [imię]!”.
+                Wywołaj ją trzykrotnie dla różnych imion.
+            </p>
+
+            <h3>Zadanie 2 – Pole i obwód prostokąta</h3>
+            <p>
+                Napisz dwie funkcje:
+                <code>pole(a, b)</code> i <code>obwod(a, b)</code>.
+                Każda funkcja ma zwracać wynik przez <code>return</code>.
+                Dla boków 6 i 4 oczekiwane wyniki to
+                <strong>24</strong> i <strong>20</strong>.
+            </p>
+
+            <h3>Zadanie 3 – Parzystość liczby</h3>
+            <p>
+                Utwórz funkcję <code>czyParzysta(liczba)</code>,
+                która zwraca <code>true</code> dla liczby parzystej
+                i <code>false</code> dla nieparzystej.
+                Przetestuj ją dla liczb 8, 13 i 0.
+            </p>
+
+            <h3>Zadanie 4 – Wartość bezwzględna</h3>
+            <p>
+                Napisz funkcję <code>wartoscBezwzgledna(x)</code>,
+                która zwróci wartość bezwzględną liczby
+                bez korzystania z <code>Math.abs()</code>.
+                Sprawdź wyniki dla -7, 0 i 12.
+            </p>
+
+            <h3>Zadanie 5 – Cena z rabatem</h3>
+            <p>
+                Utwórz funkcję <code>rabat(cena, procent = 10)</code>.
+                Funkcja ma obliczać cenę po rabacie.
+                Przetestuj ją dla ceny 200 zł z rabatem
+                domyślnym oraz rabatem 25%.
+                Oczekiwane wyniki: <strong>180 zł</strong>
+                i <strong>150 zł</strong>.
+            </p>
+
+            <h3>Część B – funkcje anonimowe i strzałkowe</h3>
+
+            <h3>Zadanie 6 – Trzy sposoby zapisu funkcji</h3>
+            <p>
+                Utwórz funkcję obliczającą sześcian liczby:
+                najpierw jako deklarację funkcji,
+                następnie jako funkcję anonimową przypisaną
+                do zmiennej, a na końcu jako funkcję strzałkową.
+                Zastosuj różne nazwy i porównaj wyniki dla liczby 4.
+            </p>
+
+            <h3>Zadanie 7 – Kalkulator działań</h3>
+            <p>
+                Utwórz funkcję <code>oblicz(a, b, dzialanie)</code>,
+                która przyjmuje dwie liczby i funkcję
+                wykonującą działanie matematyczne.
+                Wywołaj ją dla dodawania, odejmowania
+                i mnożenia, przekazując odpowiednie callbacki.
+            </p>
+
+            <h3>Zadanie 8 – forEach()</h3>
+            <p>
+                Utwórz tablicę pięciu imion.
+                Za pomocą <code>forEach()</code>
+                wyświetl każde imię z numerem porządkowym,
+                np. „1. Anna”, „2. Jan”.
+                Zastosuj funkcję strzałkową.
+            </p>
+
+            <h3>Zadanie 9 – map() i filter()</h3>
+            <p>
+                Dla tablicy <code>[5, 12, 8, 20, 3, 15]</code>
+                utwórz za pomocą <code>filter()</code>
+                tablicę liczb większych niż 10,
+                a następnie za pomocą <code>map()</code>
+                oblicz ich kwadraty.
+                Oczekiwane wyniki: <code>[12, 20, 15]</code>
+                oraz <code>[144, 400, 225]</code>.
+            </p>
+
+            <h3>Zadanie 10 – reduce()</h3>
+            <p>
+                Dla tablicy <code>[10, 20, 30, 40, 50]</code>
+                oblicz sumę elementów metodą <code>reduce()</code>.
+                Następnie oblicz średnią, wykorzystując
+                długość tablicy.
+                Oczekiwane wyniki: <strong>150</strong> i <strong>30</strong>.
+            </p>
+
+            <h3>Część C – funkcje w aplikacjach internetowych</h3>
+
+            <h3>Zadanie 11 – Kalkulator pola</h3>
+            <p>
+                Utwórz plik <code>prostokat.html</code>.
+                Dodaj dwa pola liczbowe na długości boków,
+                przycisk i akapit wyniku.
+                Funkcja <code>obliczPole(a, b)</code>
+                ma zwracać pole prostokąta.
+                Po kliknięciu przycisku wyświetl wynik na stronie.
+                Sprawdź, czy oba boki są większe od zera.
+            </p>
+
+            <h3>Zadanie 12 – Sprawdzanie wieku</h3>
+            <p>
+                Utwórz stronę z polem do wpisania wieku
+                i przyciskiem „Sprawdź”.
+                Funkcja <code>sprawdzWiek(wiek)</code>
+                ma zwracać komunikat „Osoba pełnoletnia”
+                lub „Osoba niepełnoletnia”.
+                Nie dopuszczaj ujemnego wieku,
+                wartości niecałkowitych ani pustego pola.
+            </p>
+
+            <h3>Zadanie 13 – Lista produktów</h3>
+            <p>
+                Utwórz tablicę obiektów opisujących pięć produktów.
+                Każdy obiekt zawiera nazwę i cenę.
+                Na stronie dodaj przycisk „Pokaż produkty”
+                oraz pustą listę <code>ul</code>.
+                Napisz funkcję <code>wyswietlProdukty(tablica)</code>,
+                która utworzy elementy <code>li</code>
+                za pomocą DOM i <code>forEach()</code>.
+            </p>
+
+            <h3>Zadanie 14 – Filtr cen</h3>
+            <p>
+                Rozbuduj zadanie 13 o pole ceny minimalnej
+                i przycisk „Filtruj”.
+                Napisz funkcję <code>filtrujProdukty(tablica, cenaMin)</code>,
+                która za pomocą <code>filter()</code>
+                zwróci produkty o cenie większej lub równej
+                wskazanej wartości.
+                Wynik wyświetl na stronie bez przeładowania.
+            </p>
+
+            <h3>Zadanie 15 – Kalkulator kosztów zamówienia</h3>
+            <p>
+                Utwórz stronę <code>zamowienie.html</code>,
+                która pozwala wybrać produkt z listy,
+                podać liczbę sztuk i obliczyć koszt zamówienia.
+                Dane produktów umieść w tablicy obiektów.
+            </p>
+
+            <ol>
+                <li>
+                    Utwórz funkcję <code>znajdzProdukt(id)</code>,
+                    wykorzystującą <code>find()</code>.
+                </li>
+                <li>
+                    Utwórz funkcję <code>obliczKoszt(cena, ilosc)</code>,
+                    zwracającą wynik przez <code>return</code>.
+                </li>
+                <li>
+                    Utwórz funkcję <code>pokazWynik(tekst)</code>,
+                    która wyświetla komunikat w odpowiednim elemencie HTML.
+                </li>
+                <li>
+                    Obsłuż przycisk za pomocą <code>addEventListener()</code>.
+                </li>
+                <li>
+                    Nie dopuszczaj zerowej, ujemnej ani niecałkowitej
+                    liczby sztuk.
+                </li>
+            </ol>
+
+            <h3>Zadanie 16 – Miniarkusz praktyczny INF.03: serwis komputerowy</h3>
+
+            <p>
+                Utwórz plik <code>serwis.html</code> zawierający
+                formularz zgłoszenia usługi oraz podsumowanie kosztów.
+                Do rozwiązania wykorzystaj funkcje, tablicę obiektów,
+                metody tablic i obsługę zdarzeń.
+            </p>
+
+            <p>
+                W tablicy <code>uslugi</code> umieść następujące dane:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Usługa</th>
+                    <th>Cena</th>
+                </tr>
+                <tr>
+                    <td>Instalacja systemu</td>
+                    <td>120 zł</td>
+                </tr>
+                <tr>
+                    <td>Konfiguracja routera</td>
+                    <td>80 zł</td>
+                </tr>
+                <tr>
+                    <td>Czyszczenie komputera</td>
+                    <td>100 zł</td>
+                </tr>
+                <tr>
+                    <td>Wymiana dysku</td>
+                    <td>150 zł</td>
+                </tr>
+            </table>
+
+            <p>Wymagania:</p>
+
+            <ol>
+                <li>
+                    Przygotuj formularz zawierający wybór usługi,
+                    liczbę urządzeń i przycisk „Oblicz”.
+                </li>
+                <li>
+                    Opcje listy wyboru utwórz na podstawie
+                    tablicy obiektów, wykorzystując <code>forEach()</code>.
+                </li>
+                <li>
+                    Napisz funkcję <code>znajdzUsluge(id)</code>,
+                    która wyszukuje usługę metodą <code>find()</code>.
+                </li>
+                <li>
+                    Napisz funkcję <code>obliczKoszt(cena, ilosc)</code>.
+                </li>
+                <li>
+                    Utwórz funkcję <code>sprawdzIlosc(ilosc)</code>,
+                    która zwraca informację, czy podano
+                    dodatnią liczbę całkowitą.
+                </li>
+                <li>
+                    Po kliknięciu przycisku wyświetl nazwę usługi,
+                    liczbę urządzeń oraz koszt całkowity.
+                </li>
+                <li>
+                    W razie błędnych danych wyświetl komunikat
+                    za pomocą klasy CSS <code>blad</code>.
+                </li>
+                <li>
+                    Dla poprawnego wyniku zastosuj klasę CSS
+                    <code>wynik</code>.
+                </li>
+                <li>
+                    Wynik ma się aktualizować bez przeładowania strony.
+                </li>
+                <li>
+                    Kod JavaScript podziel na funkcje
+                    o jasno określonych zadaniach.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Wskazówka INF.03:</strong>
+                nie wpisuj kosztów ani wyników na stałe
+                w kodzie obsługującym przycisk.
+                Pobieraj dane z tablicy obiektów,
+                obliczaj wyniki w funkcjach i wyświetlaj
+                je za pomocą DOM.
+            </div>
+
+        </section>
+
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>wyjaśnić, do czego służą funkcje,</li>
+                <li>zadeklarować i wywołać funkcję,</li>
+                <li>rozróżnić parametr i argument funkcji,</li>
+                <li>zastosować <code>return</code>,</li>
+                <li>użyć parametrów domyślnych,</li>
+                <li>wyjaśnić zakres zmiennych lokalnych,</li>
+                <li>zapisać funkcję anonimową,</li>
+                <li>zapisać funkcję strzałkową,</li>
+                <li>przekazać funkcję jako callback,</li>
+                <li>zastosować <code>forEach()</code>,</li>
+                <li>przekształcić tablicę za pomocą <code>map()</code>,</li>
+                <li>filtrować elementy metodą <code>filter()</code>,</li>
+                <li>wyszukać element metodą <code>find()</code>,</li>
+                <li>obliczyć sumę za pomocą <code>reduce()</code>,</li>
+                <li>przypisać funkcję do zdarzenia,</li>
+                <li>sprawdzić poprawność danych formularza,</li>
+                <li>wykorzystać funkcje do tworzenia aplikacji internetowych.</li>
+            </ul>
+
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 12
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
