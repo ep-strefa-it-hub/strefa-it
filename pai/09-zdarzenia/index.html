@@ -1,529 +1,542 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lekcja 05 – Zdarzenia w JavaScript | STREFA IT</title>
+    <title>Lekcja 09 – JavaScript: Zdarzenia | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
     <link rel="stylesheet" href="../../css.css">
 </head>
 <body>
+
 <header>
     <div class="header-container">
         <h1>STREFA IT</h1>
         <p>Materiały do zajęć z przedmiotów informatycznych</p>
     </div>
 </header>
+
 <nav>
     <div class="nav-container">
         <a href="../index.html">← PAI</a>
         <a href="../../index.html">⌂ Strona główna</a>
     </div>
 </nav>
+
 <div class="layout">
     <aside>
         <h3>Spis treści</h3>
-        <a href="#selektory">1. Wybieranie elementów</a>
-        <a href="#zdarzenia">2. Zdarzenia</a>
-        <a href="#obsluga">3. Przypisywanie zdarzeń</a>
-        <a href="#event">4. Obiekt zdarzenia</a>
-        <a href="#classlist">5. Zmiana klas – classList</a>
-        <a href="#wiele">6. Zdarzenia wielu elementów</a>
-        <a href="#porownanie">7. Podsumowanie</a>
+        <a href="#wprowadzenie">1. Czym są zdarzenia?</a>
+        <a href="#rodzaje">2. Rodzaje zdarzeń</a>
+        <a href="#wybieranie">3. Wybieranie elementów</a>
+        <a href="#uruchamianie">4. Kiedy uruchamiać skrypt?</a>
+        <a href="#przypisywanie">5. Przypisywanie zdarzeń</a>
+        <a href="#kilka">6. Kilka reakcji na zdarzenie</a>
+        <a href="#obiekt">7. Obiekt zdarzenia</a>
+        <a href="#klawiatura">8. Zdarzenia klawiatury</a>
+        <a href="#formularze">9. Zdarzenia formularzy</a>
+        <a href="#classlist">10. Zmiana klas CSS</a>
+        <a href="#wiele">11. Zdarzenia wielu elementów</a>
+        <a href="#pelny-przyklad">12. Kompletny przykład</a>
         <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
     </aside>
+
     <main>
         <div class="lesson-title">
             <div class="lesson-number">PAI • LEKCJA 09</div>
-            <h2>Zdarzenia w JavaScript</h2>
-            <p><strong>Cel główny:</strong> nauczysz się wybierać elementy strony, przypisywać im zdarzenia i zmieniać ich wygląd za pomocą klas CSS.</p>
+            <h2>JavaScript: Zdarzenia</h2>
+            <p>
+                Reagowanie na działania użytkownika, obsługa myszy,
+                klawiatury i formularzy oraz zmiana wyglądu elementów strony.<br>
+                <strong>Cel główny:</strong> Poznanie zasad obsługi zdarzeń
+                w JavaScript i samodzielne tworzenie interaktywnych elementów strony.
+            </p>
         </div>
 
-<section id="selektory">
+        <section id="wprowadzenie">
+            <h2>1. Czym są zdarzenia?</h2>
+            <div class="definition">
+                <strong>Zdarzenie (event)</strong> to sytuacja, na którą może
+                zareagować kod JavaScript, np. kliknięcie przycisku,
+                naciśnięcie klawisza lub wpisanie tekstu do pola formularza.
+            </div>
+            <p>
+                Dzięki zdarzeniom strona może reagować na działania użytkownika
+                bez konieczności jej ponownego wczytywania.
+            </p>
+            <p>Typowy schemat działania:</p>
+            <ol>
+                <li>Wybieramy element HTML.</li>
+                <li>Określamy zdarzenie, np. <code>click</code>.</li>
+                <li>Podajemy funkcję wykonywaną po wystąpieniu zdarzenia.</li>
+            </ol>
+        </section>
 
-    <h2>Wybieranie elementów strony</h2>
+        <section id="rodzaje">
+            <h2>2. Najczęściej wykorzystywane zdarzenia</h2>
+            <table>
+                <tr><th>Zdarzenie</th><th>Kiedy występuje?</th></tr>
+                <tr><td><code>click</code></td><td>kliknięcie elementu</td></tr>
+                <tr><td><code>dblclick</code></td><td>podwójne kliknięcie elementu</td></tr>
+                <tr><td><code>mouseover</code></td><td>najechanie kursorem na element lub jego element potomny</td></tr>
+                <tr><td><code>mouseout</code></td><td>opuszczenie elementu lub przejście z niego na element potomny</td></tr>
+                <tr><td><code>mouseenter</code></td><td>wejście kursora na element</td></tr>
+                <tr><td><code>mouseleave</code></td><td>wyjście kursora poza element</td></tr>
+                <tr><td><code>keydown</code></td><td>naciśnięcie klawisza</td></tr>
+                <tr><td><code>keyup</code></td><td>zwolnienie klawisza</td></tr>
+                <tr><td><code>focus</code></td><td>uzyskanie aktywności przez element, np. pole tekstowe</td></tr>
+                <tr><td><code>blur</code></td><td>utrata aktywności przez element</td></tr>
+                <tr><td><code>input</code></td><td>zmiana wartości pola podczas wprowadzania danych</td></tr>
+                <tr><td><code>change</code></td><td>zatwierdzenie zmiany wartości, np. wybór opcji z listy</td></tr>
+                <tr><td><code>submit</code></td><td>próba wysłania formularza</td></tr>
+                <tr><td><code>load</code></td><td>zakończenie ładowania zasobu, np. strony lub obrazka</td></tr>
+                <tr><td><code>resize</code></td><td>zmiana rozmiaru okna przeglądarki</td></tr>
+                <tr><td><code>contextmenu</code></td><td>próba otwarcia menu kontekstowego</td></tr>
+            </table>
+            <div class="important">
+                <strong>Ważne!</strong> Zdarzenie <code>input</code> jest przydatne,
+                gdy chcemy reagować na wpisywanie tekstu na bieżąco.
+                Zdarzenie <code>change</code> zwykle występuje po zatwierdzeniu zmiany,
+                np. po opuszczeniu zmodyfikowanego pola tekstowego.
+            </div>
+        </section>
 
-    <p>
-        Aby JavaScript mógł reagować na zdarzenie, najpierw musimy
-        wskazać element lub elementy HTML, których zdarzenie będzie dotyczyć.
-    </p>
+        <section id="wybieranie">
+            <h2>3. Wybieranie elementów HTML</h2>
+            <p>Aby przypisać zdarzenie, trzeba najpierw wskazać element strony.</p>
 
-    <h3>getElementById()</h3>
+            <h3>getElementById()</h3>
+            <p>Wyszukuje element po identyfikatorze <code>id</code>.</p>
+            <pre><code class="language-html">&lt;button id="przycisk"&gt;Kliknij mnie&lt;/button&gt;</code></pre>
+            <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");</code></pre>
+            <p>W <code>getElementById()</code> nazwę identyfikatora zapisujemy <strong>bez</strong> znaku <code>#</code>.</p>
 
-    <p>
-        Metoda <code>getElementById()</code> wyszukuje element
-        na podstawie jego identyfikatora <code>id</code>.
-    </p>
+            <h3>querySelector()</h3>
+            <p>Wyszukuje <strong>pierwszy</strong> element pasujący do selektora CSS.</p>
+            <pre><code class="language-javascript">document.querySelector("#przycisk"); // element o id
+document.querySelector(".karta");    // pierwszy element klasy karta
+document.querySelector("h2");        // pierwszy nagłówek h2</code></pre>
 
-    <pre><code class="language-html">&lt;div id="kontener"&gt;Jan Kowalski&lt;/div&gt;</code></pre>
-
-    <pre><code class="language-javascript">let element = document.getElementById("kontener");</code></pre>
-
-    <p>
-        W metodzie <code>getElementById()</code> podajemy samą nazwę
-        identyfikatora – bez znaku <code>#</code>.
-    </p>
-
-
-    <h3>querySelector()</h3>
-
-    <p>
-        Metoda <code>querySelector()</code> pozwala wyszukiwać elementy
-        za pomocą selektorów CSS.
-    </p>
-
-    <p>Element o id:</p>
-
-    <pre><code class="language-javascript">let element = document.querySelector("#kontener");</code></pre>
-
-    <p>Element należący do klasy:</p>
-
-    <pre><code class="language-javascript">let paragraf = document.querySelector(".wyroznione");</code></pre>
-
-    <p>Element określonego typu:</p>
-
-    <pre><code class="language-javascript">let naglowek = document.querySelector("h1");</code></pre>
-
-    <div class="remember">
-        <h3>📌 Zapamiętaj</h3>
-
-        <p>
-            <code>querySelector()</code> zwraca
-            <strong>pierwszy element</strong> pasujący do podanego selektora.
-        </p>
-    </div>
-
-
-    <h3>querySelectorAll()</h3>
-
-    <p>
-        Jeśli chcemy pobrać <strong>wszystkie elementy</strong>
-        pasujące do selektora, używamy:
-    </p>
-
-    <pre><code class="language-javascript">document.querySelectorAll()</code></pre>
-
-    <p>Przykład:</p>
-
-    <pre><code class="language-html">&lt;p class="tekst"&gt;Pierwszy paragraf&lt;/p&gt;
-&lt;p class="tekst"&gt;Drugi paragraf&lt;/p&gt;
-&lt;p class="tekst"&gt;Trzeci paragraf&lt;/p&gt;</code></pre>
-
-    <pre><code class="language-javascript">let paragrafy = document.querySelectorAll(".tekst");</code></pre>
-
-    <p>
-        Zmienna <code>paragrafy</code> przechowuje kolekcję wszystkich
-        elementów posiadających klasę <code>tekst</code>.
-    </p>
-
-    <p>
-        Do poszczególnych elementów możemy odwołać się za pomocą indeksu:
-    </p>
-
-    <pre><code class="language-javascript">paragrafy[0].style.color = "red";
+            <h3>querySelectorAll()</h3>
+            <p>Wyszukuje <strong>wszystkie</strong> elementy pasujące do selektora CSS.</p>
+            <pre><code class="language-html">&lt;p class="tekst"&gt;Pierwszy&lt;/p&gt;
+&lt;p class="tekst"&gt;Drugi&lt;/p&gt;
+&lt;p class="tekst"&gt;Trzeci&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">let paragrafy = document.querySelectorAll(".tekst");
+paragrafy[0].style.color = "red";
 paragrafy[1].style.color = "blue";</code></pre>
+            <div class="remember">
+                <h3>📌 Zapamiętaj</h3>
+                <p>
+                    <code>querySelectorAll()</code> zwraca kolekcję elementów
+                    (<code>NodeList</code>). Jej elementy są numerowane od <code>0</code>.
+                </p>
+            </div>
+        </section>
 
-    <p>
-        Pamiętaj, że numerowanie elementów rozpoczyna się od
-        <strong>0</strong>.
-    </p>
+        <section id="uruchamianie">
+            <h2>4. Kiedy uruchamiać skrypt?</h2>
+            <p>
+                JavaScript musi mieć dostęp do elementów HTML, do których się odwołuje.
+                Jeśli skrypt wykona się przed utworzeniem przycisku, jego wyszukanie
+                może zwrócić <code>null</code>.
+            </p>
 
-</section>
+            <h3>Sposób 1 – skrypt na końcu strony</h3>
+            <pre><code class="language-html">&lt;button id="start"&gt;Start&lt;/button&gt;
 
+&lt;script&gt;
+    let start = document.getElementById("start");
+    start.addEventListener("click", function() {
+        alert("Uruchomiono!");
+    });
+&lt;/script&gt;
+&lt;/body&gt;</code></pre>
 
-<section id="zdarzenia">
+            <h3>Sposób 2 – DOMContentLoaded</h3>
+            <p>
+                Zdarzenie <code>DOMContentLoaded</code> występuje, gdy przeglądarka
+                zakończy budowanie struktury HTML dokumentu (DOM).
+            </p>
+            <pre><code class="language-javascript">document.addEventListener("DOMContentLoaded", function() {
+    let start = document.getElementById("start");
 
-    <h2>Zdarzenia</h2>
+    start.addEventListener("click", function() {
+        alert("Dokument jest gotowy!");
+    });
+});</code></pre>
+            <div class="important">
+                <strong>W tej lekcji:</strong> w ćwiczeniach umieszczaj własny kod
+                JavaScript tuż przed <code>&lt;/body&gt;</code> albo korzystaj
+                z <code>DOMContentLoaded</code>.
+            </div>
+        </section>
 
-    <p>
-        <strong>Zdarzenie</strong> to czynność występująca na stronie,
-        na którą może zareagować JavaScript.
-    </p>
+        <section id="przypisywanie">
+            <h2>5. Trzy sposoby przypisywania zdarzeń</h2>
 
-    <table>
-        <tr>
-            <th>Zdarzenie</th>
-            <th>Znaczenie</th>
-        </tr>
-        <tr>
-            <td><code>click</code></td>
-            <td>kliknięcie elementu</td>
-        </tr>
-        <tr>
-            <td><code>dblclick</code></td>
-            <td>podwójne kliknięcie</td>
-        </tr>
-        <tr>
-            <td><code>mouseover</code></td>
-            <td>najechanie kursorem</td>
-        </tr>
-        <tr>
-            <td><code>mouseout</code></td>
-            <td>opuszczenie elementu przez kursor</td>
-        </tr>
-        <tr>
-            <td><code>keydown</code></td>
-            <td>naciśnięcie klawisza</td>
-        </tr>
-        <tr>
-            <td><code>keyup</code></td>
-            <td>puszczenie klawisza</td>
-        </tr>
-        <tr>
-            <td><code>focus</code></td>
-            <td>uzyskanie aktywności przez element</td>
-        </tr>
-        <tr>
-            <td><code>blur</code></td>
-            <td>utrata aktywności przez element</td>
-        </tr>
-        <tr>
-            <td><code>change</code></td>
-            <td>zmiana wartości elementu formularza</td>
-        </tr>
-        <tr>
-            <td><code>submit</code></td>
-            <td>wysłanie formularza</td>
-        </tr>
-    </table>
+            <h3>Sposób 1 – atrybut zdarzenia w HTML</h3>
+            <pre><code class="language-html">&lt;button onclick="alert('Kliknięto!')"&gt;Kliknij&lt;/button&gt;</code></pre>
+            <p>
+                Zapis jest prosty, ale miesza JavaScript z HTML. Poznajemy go,
+                aby rozumieć istniejący kod; do nowych projektów preferujemy
+                oddzielenie JavaScript od HTML.
+            </p>
 
-</section>
-
-
-<section id="obsluga">
-
-    <h2>Przypisywanie zdarzeń</h2>
-
-    <p>
-        Zdarzenie możemy przypisać do elementu na kilka sposobów.
-    </p>
-
-
-    <h3>Sposób 1 – właściwość zdarzenia</h3>
-
-    <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
+            <h3>Sposób 2 – właściwość onclick</h3>
+            <p>Kod HTML:</p>
+            <pre><code class="language-html">&lt;button id="przycisk"&gt;Kliknij&lt;/button&gt;</code></pre>
+            <p>Kod JavaScript:</p>
+            <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
 
 przycisk.onclick = function() {
-    alert("Kliknięto przycisk");
+    alert("Kliknięto przycisk!");
 };</code></pre>
+            <p>
+                Podobnie można używać <code>ondblclick</code>,
+                <code>onmouseover</code> lub <code>onkeyup</code>.
+                Ponowne przypisanie do <code>onclick</code> zastępuje poprzednią funkcję.
+            </p>
 
-    <p>
-        W podobny sposób możemy korzystać z właściwości
-        <code>ondblclick</code>, <code>onmouseover</code>,
-        <code>onmouseout</code> czy <code>onkeyup</code>.
-    </p>
-
-
-    <h3>Sposób 2 – addEventListener()</h3>
-
-    <p>
-        Bardziej uniwersalnym sposobem obsługi zdarzeń jest metoda:
-    </p>
-
-    <pre><code class="language-javascript">addEventListener()</code></pre>
-
-    <p>Przykład:</p>
-
-    <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
+            <h3>Sposób 3 – addEventListener()</h3>
+            <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
 
 przycisk.addEventListener("click", function() {
-    alert("Kliknięto przycisk");
+    alert("Kliknięto przycisk!");
 });</code></pre>
-
-    <p>
-        Metoda przyjmuje między innymi dwa argumenty:
-    </p>
-
-    <pre><code class="language-javascript">element.addEventListener("zdarzenie", function() {
-    // instrukcje
+            <p>Ogólna postać:</p>
+            <pre><code class="language-javascript">element.addEventListener("nazwaZdarzenia", function() {
+    // instrukcje wykonywane po zdarzeniu
 });</code></pre>
+            <table>
+                <tr><th>Fragment</th><th>Znaczenie</th></tr>
+                <tr><td><code>element</code></td><td>wybrany element HTML</td></tr>
+                <tr><td><code>"click"</code></td><td>nazwa zdarzenia, bez przedrostka „on”</td></tr>
+                <tr><td><code>function() { ... }</code></td><td>funkcja reagująca na zdarzenie</td></tr>
+            </table>
+            <div class="definition">
+                <strong>Najczęściej wybieramy <code>addEventListener()</code></strong>,
+                ponieważ pozwala wygodnie dodawać kilka funkcji obsługujących
+                zdarzenia i oddzielić kod JS od HTML.
+            </div>
+        </section>
 
-    <p>
-        Pierwszy argument określa <strong>rodzaj zdarzenia</strong>,
-        a drugi – <strong>co ma zostać wykonane</strong>.
-    </p>
+        <section id="kilka">
+            <h2>6. Kilka zdarzeń i kilka reakcji</h2>
+            <h3>Różne zdarzenia dla jednego elementu</h3>
+            <pre><code class="language-html">&lt;div id="pole"&gt;Najedź na mnie lub kliknij&lt;/div&gt;</code></pre>
+            <pre><code class="language-javascript">let pole = document.getElementById("pole");
 
-
-    <h3>Wiele zdarzeń dla jednego elementu</h3>
-
-    <p>
-        Do jednego elementu możemy przypisać kilka różnych zdarzeń.
-    </p>
-
-    <pre><code class="language-javascript">let pole = document.getElementById("pole");
-
-pole.addEventListener("mouseover", function() {
+pole.addEventListener("mouseenter", function() {
     pole.style.backgroundColor = "yellow";
 });
 
-pole.addEventListener("mouseout", function() {
+pole.addEventListener("mouseleave", function() {
     pole.style.backgroundColor = "white";
 });
 
 pole.addEventListener("click", function() {
-    pole.innerHTML = "Kliknięto!";
+    pole.textContent = "Kliknięto!";
 });</code></pre>
 
-</section>
+            <h3>Dwie funkcje dla tego samego kliknięcia</h3>
+            <pre><code class="language-javascript">let przycisk = document.getElementById("przycisk");
 
+przycisk.addEventListener("click", function() {
+    console.log("Kliknięcie przycisku");
+});
 
-<section id="event">
+przycisk.addEventListener("click", function() {
+    przycisk.style.color = "red";
+});</code></pre>
+            <p>
+                Po kliknięciu wykonają się obie funkcje. To ważna różnica
+                w porównaniu z wielokrotnym przypisaniem do <code>onclick</code>.
+            </p>
+        </section>
 
-    <h2>Obiekt zdarzenia</h2>
-    <p>W poniższym przykładzie zakładamy, że w HTML znajduje się pole <code>&lt;input id="poleTekstowe"&gt;</code>, które może otrzymywać fokus klawiatury.</p>
+        <section id="obiekt">
+            <h2>7. Obiekt zdarzenia</h2>
+            <p>
+                Funkcja obsługująca zdarzenie może otrzymać obiekt zawierający
+                informacje o tym, co się wydarzyło. Najczęściej nazywamy go
+                <code>e</code> lub <code>event</code>.
+            </p>
+            <pre><code class="language-html">&lt;button id="info"&gt;Sprawdź zdarzenie&lt;/button&gt;</code></pre>
+            <pre><code class="language-javascript">let przycisk = document.getElementById("info");
 
-    <p>
-        Funkcja obsługująca zdarzenie może otrzymać informacje
-        o zdarzeniu, które właśnie wystąpiło.
-    </p>
+przycisk.addEventListener("click", function(e) {
+    console.log(e.type);   // click
+    console.log(e.target); // element, który wywołał zdarzenie
+});</code></pre>
+            <table>
+                <tr><th>Właściwość</th><th>Znaczenie</th></tr>
+                <tr><td><code>e.type</code></td><td>rodzaj zdarzenia</td></tr>
+                <tr><td><code>e.target</code></td><td>element, od którego pochodzi zdarzenie</td></tr>
+                <tr><td><code>e.key</code></td><td>wartość klawisza w zdarzeniach klawiatury</td></tr>
+            </table>
+        </section>
 
-    <pre><code class="language-javascript">let pole = document.getElementById("poleTekstowe");
+        <section id="klawiatura">
+            <h2>8. Zdarzenia klawiatury</h2>
+            <p>
+                Do obsługi klawiatury najczęściej wykorzystujemy
+                <code>keydown</code> (naciśnięcie) i <code>keyup</code>
+                (zwolnienie klawisza).
+            </p>
+            <h3>Odczyt naciśniętego klawisza</h3>
+            <pre><code class="language-html">&lt;input type="text" id="poleTekstowe" placeholder="Naciśnij klawisz"&gt;</code></pre>
+            <pre><code class="language-javascript">let pole = document.getElementById("poleTekstowe");
 
 pole.addEventListener("keyup", function(e) {
-    console.log(e.key);
+    console.log("Klawisz:", e.key);
 });</code></pre>
 
-    <p>
-        Parametr <code>e</code> oznacza obiekt zdarzenia.
-        Zawiera on dodatkowe informacje dotyczące zdarzenia.
-    </p>
-
-    <p>
-        W przypadku klawiatury bardzo przydatna jest właściwość:
-    </p>
-
-    <pre><code class="language-javascript">e.key</code></pre>
-
-    <p>
-        Informuje ona, jaki klawisz został naciśnięty.
-    </p>
-
-    <p>Przykład:</p>
-
-    <pre><code class="language-javascript">pole.addEventListener("keyup", function(e) {
-
-    if (e.key == "Enter") {
+            <h3>Wykrywanie klawisza Enter</h3>
+            <pre><code class="language-javascript">pole.addEventListener("keyup", function(e) {
+    if (e.key === "Enter") {
         console.log("Naciśnięto Enter");
     }
-
 });</code></pre>
 
-</section>
+            <h3>Klawisze modyfikujące</h3>
+            <table>
+                <tr><th>Właściwość</th><th>Znaczenie</th></tr>
+                <tr><td><code>e.altKey</code></td><td>czy jest wciśnięty Alt</td></tr>
+                <tr><td><code>e.ctrlKey</code></td><td>czy jest wciśnięty Ctrl</td></tr>
+                <tr><td><code>e.shiftKey</code></td><td>czy jest wciśnięty Shift</td></tr>
+            </table>
+            <pre><code class="language-javascript">pole.addEventListener("keydown", function(e) {
+    if (e.shiftKey &amp;&amp; e.key === "Enter") {
+        console.log("Shift + Enter");
+    }
+});</code></pre>
+            <div class="important">
+                <strong>Ważne!</strong> Do rozpoznawania klawiszy używaj
+                <code>e.key</code>. Starsza właściwość <code>keyCode</code>
+                jest przestarzała i nie należy jej stosować w nowych skryptach.
+            </div>
+        </section>
 
+        <section id="formularze">
+            <h2>9. Zdarzenia formularzy</h2>
+            <h3>input – reagowanie na każdą zmianę tekstu</h3>
+            <pre><code class="language-html">&lt;input type="text" id="imie"&gt;
+&lt;p id="podglad"&gt;&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">let imie = document.getElementById("imie");
+let podglad = document.getElementById("podglad");
 
-<section id="classlist">
+imie.addEventListener("input", function() {
+    podglad.textContent = "Wpisujesz: " + imie.value;
+});</code></pre>
 
-    <h2>Zmiana klas elementu – classList</h2>
+            <h3>submit – obsługa wysłania formularza</h3>
+            <pre><code class="language-html">&lt;form id="formularz"&gt;
+    &lt;input type="text" id="nazwisko" required&gt;
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">let formularz = document.getElementById("formularz");
 
-    <p>
-        Nie zawsze musimy zmieniać wygląd elementu bezpośrednio
-        w JavaScript za pomocą <code>style</code>.
-    </p>
+formularz.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    <p>
-        Możemy przygotować odpowiednią klasę w CSS, a następnie
-        dodawać ją lub usuwać za pomocą JavaScript.
-    </p>
+    let nazwisko = document.getElementById("nazwisko").value;
+    document.getElementById("wynik").textContent =
+        "Witaj, " + nazwisko + "!";
+});</code></pre>
+            <div class="definition">
+                <code>e.preventDefault()</code> zatrzymuje domyślną akcję
+                zdarzenia – w tym przykładzie wysłanie formularza
+                i przejście do innego adresu lub ponowne wczytanie strony.
+            </div>
+        </section>
 
-    <p>Przykładowa klasa CSS:</p>
-
-    <pre><code class="language-css">.aktywny {
-    background-color: yellow;
-    font-size: 24px;
+        <section id="classlist">
+            <h2>10. Zmiana klas CSS – classList</h2>
+            <p>
+                Zamiast zmieniać pojedyncze style w JavaScript, możemy
+                przygotować klasę w CSS i dodawać ją do elementu.
+            </p>
+            <p>Kod CSS:</p>
+            <pre><code class="language-css">.aktywny {
+    background-color: lightblue;
     font-weight: bold;
+    border: 2px solid navy;
 }</code></pre>
+            <p>Kod HTML:</p>
+            <pre><code class="language-html">&lt;p id="komunikat"&gt;Kliknij przycisk, aby mnie wyróżnić.&lt;/p&gt;
+&lt;button id="zmien"&gt;Zmień wygląd&lt;/button&gt;</code></pre>
+            <p>Kod JavaScript:</p>
+            <pre><code class="language-javascript">let komunikat = document.getElementById("komunikat");
+let zmien = document.getElementById("zmien");
 
-    <p>
-        Do pracy z klasami elementu służy właściwość
-        <code>classList</code>.
-    </p>
-
-
-    <h3>Dodawanie klasy – add()</h3>
-
-    <pre><code class="language-javascript">let element = document.getElementById("kontener");
-
-element.classList.add("aktywny");</code></pre>
-
-
-    <h3>Usuwanie klasy – remove()</h3>
-
-    <pre><code class="language-javascript">element.classList.remove("aktywny");</code></pre>
-
-
-    <h3>Dodawanie lub usuwanie klasy – toggle()</h3>
-
-    <pre><code class="language-javascript">element.classList.toggle("aktywny");</code></pre>
-
-    <p>
-        <code>toggle()</code> działa jak przełącznik:
-        jeżeli element nie ma danej klasy – dodaje ją,
-        a jeżeli już ją ma – usuwa ją.
-    </p>
-
-
-    <h3>Sprawdzenie klasy – contains()</h3>
-
-    <pre><code class="language-javascript">if (element.classList.contains("aktywny")) {
-    console.log("Element ma klasę aktywny");
+zmien.addEventListener("click", function() {
+    komunikat.classList.toggle("aktywny");
+});</code></pre>
+            <table>
+                <tr><th>Metoda</th><th>Zastosowanie</th></tr>
+                <tr><td><code>classList.add("aktywny")</code></td><td>dodaje klasę</td></tr>
+                <tr><td><code>classList.remove("aktywny")</code></td><td>usuwa klasę</td></tr>
+                <tr><td><code>classList.toggle("aktywny")</code></td><td>dodaje lub usuwa klasę</td></tr>
+                <tr><td><code>classList.contains("aktywny")</code></td><td>sprawdza, czy klasa istnieje</td></tr>
+            </table>
+            <pre><code class="language-javascript">if (komunikat.classList.contains("aktywny")) {
+    console.log("Element jest wyróżniony");
 }</code></pre>
+        </section>
 
-    <div class="remember">
-
-        <h3>📌 classList – zapamiętaj</h3>
-
-        <ul>
-            <li><code>classList.add()</code> – dodaje klasę,</li>
-            <li><code>classList.remove()</code> – usuwa klasę,</li>
-            <li><code>classList.toggle()</code> – przełącza klasę,</li>
-            <li><code>classList.contains()</code> – sprawdza, czy element ma klasę.</li>
-        </ul>
-
-    </div>
-
-</section>
-
-
-<section id="wiele">
-
-    <h2>Zdarzenia dla wielu elementów</h2>
-
-    <p>
-        <code>querySelectorAll()</code> jest szczególnie przydatne,
-        gdy chcemy przypisać zdarzenie do wielu podobnych elementów.
-    </p>
-
-    <p>Przykładowy kod HTML:</p>
-
-    <pre><code class="language-html">&lt;button class="przycisk"&gt;Przycisk 1&lt;/button&gt;
-&lt;button class="przycisk"&gt;Przycisk 2&lt;/button&gt;
-&lt;button class="przycisk"&gt;Przycisk 3&lt;/button&gt;</code></pre>
-
-    <p>Pobieramy wszystkie przyciski:</p>
-
-    <pre><code class="language-javascript">let przyciski = document.querySelectorAll(".przycisk");</code></pre>
-
-    <p>
-        Następnie możemy przejść przez pobrane elementy
-        i każdemu z nich przypisać zdarzenie:
-    </p>
-
-    <pre><code class="language-javascript">let przyciski = document.querySelectorAll(".przycisk");
+        <section id="wiele">
+            <h2>11. Zdarzenia dla wielu elementów</h2>
+            <p>
+                Gdy kilka elementów ma reagować podobnie, możemy pobrać je
+                przez <code>querySelectorAll()</code>, a następnie użyć
+                <code>forEach()</code>.
+            </p>
+            <p>Kod HTML:</p>
+            <pre><code class="language-html">&lt;button class="wybor"&gt;Przycisk 1&lt;/button&gt;
+&lt;button class="wybor"&gt;Przycisk 2&lt;/button&gt;
+&lt;button class="wybor"&gt;Przycisk 3&lt;/button&gt;</code></pre>
+            <p>Kod JavaScript:</p>
+            <pre><code class="language-javascript">let przyciski = document.querySelectorAll(".wybor");
 
 przyciski.forEach(function(przycisk) {
-
     przycisk.addEventListener("click", function() {
         przycisk.classList.toggle("aktywny");
     });
-
 });</code></pre>
+            <div class="remember">
+                <h3>📌 Jak to działa?</h3>
+                <ol>
+                    <li><code>querySelectorAll()</code> pobiera trzy przyciski.</li>
+                    <li><code>forEach()</code> przechodzi po każdym przycisku.</li>
+                    <li><code>addEventListener()</code> przypisuje reakcję na kliknięcie.</li>
+                    <li><code>classList.toggle()</code> zmienia klasę tylko klikniętego przycisku.</li>
+                </ol>
+            </div>
+        </section>
 
-    <p>
-        Dzięki temu nie musimy osobno przypisywać zdarzenia
-        do każdego przycisku.
-    </p>
+        <section id="pelny-przyklad">
+            <h2>12. Kompletny przykład – interaktywna wiadomość</h2>
+            <p>
+                Poniższy program łączy HTML, CSS i JavaScript.
+                Skopiuj cały kod do pliku <code>zdarzenia.html</code> i uruchom w przeglądarce.
+            </p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Zdarzenia – przykład&lt;/title&gt;
+    &lt;style&gt;
+        .aktywny { background: lightblue; font-weight: bold; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Zdarzenia w JavaScript&lt;/h1&gt;
+    &lt;p id="tekst"&gt;Przykładowa wiadomość&lt;/p&gt;
+    &lt;button id="przycisk"&gt;Zmień wygląd&lt;/button&gt;
 
-    <div class="remember">
+    &lt;script&gt;
+        let przycisk = document.getElementById("przycisk");
+        let tekst = document.getElementById("tekst");
 
-        <h3>📌 Jak działa ten przykład?</h3>
+        przycisk.addEventListener("click", function() {
+            tekst.classList.toggle("aktywny");
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>
+                Każde kliknięcie przełącza klasę <code>aktywny</code> akapitu.
+                Element nie musi być ponownie wczytywany.
+            </p>
+        </section>
 
-        <ol>
-            <li>
-                <code>querySelectorAll()</code> pobiera wszystkie przyciski
-                klasy <code>przycisk</code>.
-            </li>
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Zdarzenie pozwala uruchomić kod w reakcji na działanie użytkownika.</li>
+                <li><code>getElementById()</code> wybiera element po identyfikatorze.</li>
+                <li><code>querySelector()</code> wybiera pierwszy pasujący element.</li>
+                <li><code>querySelectorAll()</code> wybiera wszystkie pasujące elementy.</li>
+                <li><code>DOMContentLoaded</code> oznacza, że struktura dokumentu jest gotowa.</li>
+                <li><code>addEventListener()</code> jest zalecanym sposobem przypisywania zdarzeń.</li>
+                <li><code>e.target</code> wskazuje element, od którego pochodzi zdarzenie.</li>
+                <li><code>e.key</code> umożliwia odczytanie klawisza.</li>
+                <li><code>input</code> umożliwia reagowanie na zmiany w polu na bieżąco.</li>
+                <li><code>e.preventDefault()</code> zatrzymuje domyślną akcję zdarzenia.</li>
+                <li><code>classList</code> pozwala dodawać, usuwać i przełączać klasy CSS.</li>
+                <li><code>forEach()</code> ułatwia przypisywanie zdarzeń wielu elementom.</li>
+            </ul>
+        </section>
 
-            <li>
-                <code>forEach()</code> przechodzi kolejno przez każdy
-                pobrany przycisk.
-            </li>
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                Każde zadanie wykonaj w osobnym pliku HTML lub w wyraźnie
+                wydzielonej części własnego projektu. Skrypty umieszczaj
+                przed znacznikiem <code>&lt;/body&gt;</code>.
+            </p>
 
-            <li>
-                <code>addEventListener()</code> przypisuje do niego
-                zdarzenie kliknięcia.
-            </li>
+            <h3>Zadanie 1 – Kliknięcie</h3>
+            <p>Dodaj przycisk i akapit. Po kliknięciu przycisku zmień tekst akapitu na „Witaj w JavaScript!”.</p>
 
-            <li>
-                <code>classList.toggle()</code> dodaje lub usuwa
-                klasę <code>aktywny</code>.
-            </li>
-        </ol>
+            <h3>Zadanie 2 – Podwójne kliknięcie</h3>
+            <p>Utwórz nagłówek. Po jego podwójnym kliknięciu zmień jego treść na „Kliknięto dwa razy”.</p>
 
-    </div>
+            <h3>Zadanie 3 – Najechanie kursorem</h3>
+            <p>Utwórz element <code>div</code>. Po najechaniu zmień jego kolor tła, a po opuszczeniu przywróć pierwotny.</p>
 
-</section>
+            <h3>Zadanie 4 – Podgląd wpisywanego tekstu</h3>
+            <p>Dodaj pole tekstowe. Pod nim na bieżąco wyświetlaj jego aktualną zawartość, używając zdarzenia <code>input</code>.</p>
 
+            <h3>Zadanie 5 – Licznik znaków</h3>
+            <p>Dodaj pole tekstowe i licznik pokazujący liczbę wpisanych znaków. Aktualizuj licznik po każdej zmianie.</p>
 
-<section id="porownanie">
+            <h3>Zadanie 6 – Klawisz Enter</h3>
+            <p>Po naciśnięciu klawisza Enter w polu tekstowym wyświetl komunikat w akapicie.</p>
 
-    <h2>Podsumowanie – co wybrać?</h2>
+            <h3>Zadanie 7 – Przełączanie klasy</h3>
+            <p>Przygotuj klasę CSS <code>aktywny</code>. Przycisk ma dodawać i usuwać ją z wybranego akapitu po kolejnych kliknięciach.</p>
 
-    <table>
+            <h3>Zadanie 8 – Wiele przycisków</h3>
+            <p>Dodaj pięć przycisków o wspólnej klasie. Po kliknięciu zmieniaj wygląd tylko klikniętego przycisku. Użyj <code>querySelectorAll()</code> i <code>forEach()</code>.</p>
 
-        <tr>
-            <th>Zapis</th>
-            <th>Zastosowanie</th>
-        </tr>
+            <h3>Zadanie 9 – Formularz</h3>
+            <p>Utwórz formularz z polem na imię. Po wysłaniu wyświetl „Cześć, [imię]!” bez przeładowania strony.</p>
 
-        <tr>
-            <td><code>getElementById()</code></td>
-            <td>pobranie elementu o konkretnym id</td>
-        </tr>
+            <h3>Zadanie 10 – Licznik kliknięć</h3>
+            <p>Utwórz przycisk i licznik. Każde kliknięcie ma zwiększać wartość licznika o 1.</p>
+        </section>
 
-        <tr>
-            <td><code>querySelector()</code></td>
-            <td>pobranie pierwszego elementu pasującego do selektora CSS</td>
-        </tr>
+        <section id="sprawdz" class="check">
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+            <ul>
+                <li>wyjaśnić, czym jest zdarzenie w JavaScript,</li>
+                <li>rozróżnić zdarzenia myszy, klawiatury i formularzy,</li>
+                <li>wybrać element za pomocą <code>getElementById()</code> lub <code>querySelector()</code>,</li>
+                <li>wyjaśnić zastosowanie <code>DOMContentLoaded</code>,</li>
+                <li>przypisać zdarzenie za pomocą <code>addEventListener()</code>,</li>
+                <li>przypisać kilka funkcji obsługujących to samo zdarzenie,</li>
+                <li>odczytać <code>e.key</code> i sprawdzić klawisze modyfikujące,</li>
+                <li>obsłużyć zdarzenia <code>input</code> i <code>submit</code>,</li>
+                <li>wykorzystać <code>classList.add()</code>, <code>remove()</code> i <code>toggle()</code>,</li>
+                <li>przypisać zdarzenia wielu elementom za pomocą <code>forEach()</code>.</li>
+            </ul>
+        </section>
 
-        <tr>
-            <td><code>querySelectorAll()</code></td>
-            <td>pobranie wszystkich elementów pasujących do selektora CSS</td>
-        </tr>
-
-        <tr>
-            <td><code>onclick</code></td>
-            <td>proste przypisanie zdarzenia kliknięcia</td>
-        </tr>
-
-        <tr>
-            <td><code>addEventListener()</code></td>
-            <td>uniwersalne przypisywanie zdarzeń</td>
-        </tr>
-
-        <tr>
-            <td><code>classList.add()</code></td>
-            <td>dodanie klasy CSS</td>
-        </tr>
-
-        <tr>
-            <td><code>classList.remove()</code></td>
-            <td>usunięcie klasy CSS</td>
-        </tr>
-
-        <tr>
-            <td><code>classList.toggle()</code></td>
-            <td>przełączanie klasy CSS</td>
-        </tr>
-
-        <tr>
-            <td><code>classList.contains()</code></td>
-            <td>sprawdzenie, czy element posiada klasę</td>
-        </tr>
-
-    </table>
-
-</section>
-<section id="zapamietaj" class="remember">
-    <h2>📌 Zapamiętaj</h2>
-    <ul>
-        <li><code>getElementById()</code> wyszukuje element po identyfikatorze, bez znaku <code>#</code>.</li>
-        <li><code>querySelector()</code> zwraca pierwszy pasujący element, a <code>querySelectorAll()</code> wszystkie pasujące elementy.</li>
-        <li><code>addEventListener()</code> przypisuje funkcję reagującą na wskazane zdarzenie.</li>
-        <li><code>e.key</code> pozwala odczytać klawisz użyty podczas zdarzenia klawiatury.</li>
-        <li><code>classList</code> umożliwia dodawanie, usuwanie, przełączanie i sprawdzanie klas CSS.</li>
-    </ul>
-</section>
     </main>
 </div>
-<footer>STREFA IT • PAI • Lekcja 09</footer>
+
+<footer>
+    STREFA IT • PAI • Lekcja 09
+</footer>
+
+<script src="../../prism.js"></script>
 </body>
 </html>
