@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 13 – JavaScript: Formularze | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#wprowadzenie">1. Formularz i jego elementy</a>
+        <a href="#pola">2. Rodzaje pól</a>
+        <a href="#wybieranie">3. Wybieranie pól w JS</a>
+        <a href="#value">4. Odczyt i zmiana value</a>
+        <a href="#checkbox">5. Checkbox – checked</a>
+        <a href="#radio">6. Przyciski radio</a>
+        <a href="#select">7. Lista select</a>
+        <a href="#textarea">8. Pole textarea</a>
+        <a href="#zdarzenia">9. Zdarzenia formularzy</a>
+        <a href="#submit">10. Wysyłanie formularza</a>
+        <a href="#html-walidacja">11. Walidacja HTML5</a>
+        <a href="#js-walidacja">12. Walidacja JavaScript</a>
+        <a href="#blokowanie">13. disabled i readOnly</a>
+        <a href="#formdata">14. FormData</a>
+        <a href="#wyniki">15. Wyświetlanie wyników</a>
+        <a href="#przyklad">16. Przykład w stylu INF.03</a>
+        <a href="#bledy">17. Typowe błędy</a>
+        <a href="#podsumowanie">18. Podsumowanie właściwości</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 13</div>
+            <h2>JavaScript: Formularze</h2>
+            <p>
+                Pobieranie i sprawdzanie danych użytkownika, obsługa pól tekstowych,
+                checkboxów, przycisków radio i list wyboru oraz przetwarzanie formularza
+                bez przeładowania strony.<br>
+                <strong>Cel główny:</strong> tworzenie interaktywnych formularzy HTML
+                obsługiwanych przez JavaScript – umiejętność przydatna podczas
+                realizacji zadań praktycznych INF.03.
+            </p>
+        </div>
+
+        <section id="wprowadzenie">
+            <h2>1. Formularz i jego elementy</h2>
+            <div class="definition">
+                <strong>Formularz HTML</strong> służy do wprowadzania i przekazywania danych.
+                JavaScript może odczytywać jego pola, sprawdzać wartości,
+                wykonywać obliczenia i wyświetlać informacje na stronie.
+            </div>
+            <pre><code class="language-html">&lt;form id="formularz"&gt;
+    &lt;label for="imie"&gt;Imię:&lt;/label&gt;
+    &lt;input type="text" id="imie" name="imie" required&gt;
+    &lt;button type="submit"&gt;Zapisz&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <table>
+                <tr><th>Element</th><th>Znaczenie</th></tr>
+                <tr><td><code>&lt;form&gt;</code></td><td>grupuje pola formularza</td></tr>
+                <tr><td><code>&lt;label&gt;</code></td><td>opisuje pole; atrybut <code>for</code> wskazuje jego <code>id</code></td></tr>
+                <tr><td><code>id</code></td><td>identyfikuje element na stronie, np. dla JavaScript</td></tr>
+                <tr><td><code>name</code></td><td>nazwa pola używana przy przesyłaniu danych i w <code>FormData</code></td></tr>
+                <tr><td><code>type="submit"</code></td><td>uruchamia wysyłanie formularza</td></tr>
+            </table>
+            <div class="important">
+                <strong>Ważne:</strong> <code>id</code> i <code>name</code> pełnią różne funkcje.
+                Pole może mieć oba atrybuty. Etykietę najlepiej połączyć z polem przez
+                <code>for</code> i <code>id</code>.
+            </div>
+        </section>
+
+        <section id="pola">
+            <h2>2. Najważniejsze rodzaje pól</h2>
+            <table>
+                <tr><th>Element</th><th>Zastosowanie</th></tr>
+                <tr><td><code>type="text"</code></td><td>krótki tekst</td></tr>
+                <tr><td><code>type="number"</code></td><td>wprowadzanie liczby</td></tr>
+                <tr><td><code>type="email"</code></td><td>adres e-mail z podstawową kontrolą formatu</td></tr>
+                <tr><td><code>type="date"</code></td><td>data</td></tr>
+                <tr><td><code>type="checkbox"</code></td><td>zaznaczona lub niezaznaczona opcja</td></tr>
+                <tr><td><code>type="radio"</code></td><td>jedna opcja z grupy o tej samej nazwie <code>name</code></td></tr>
+                <tr><td><code>&lt;select&gt;</code></td><td>lista wyboru</td></tr>
+                <tr><td><code>&lt;textarea&gt;</code></td><td>dłuższy tekst</td></tr>
+                <tr><td><code>type="submit"</code></td><td>przycisk wysyłający formularz</td></tr>
+                <tr><td><code>type="reset"</code></td><td>przywrócenie początkowych wartości pól</td></tr>
+                <tr><td><code>type="button"</code></td><td>zwykły przycisk, bez automatycznego wysyłania</td></tr>
+            </table>
+            <pre><code class="language-html">&lt;input type="number" id="ilosc" min="1" step="1"&gt;
+&lt;input type="email" id="email" required&gt;
+&lt;input type="date" id="termin"&gt;
+&lt;button type="button" id="policz"&gt;Oblicz&lt;/button&gt;</code></pre>
+        </section>
+
+        <section id="wybieranie">
+            <h2>3. Wybieranie pól w JavaScript</h2>
+            <p>Najczęściej używamy poznanych wcześniej metod DOM:</p>
+            <pre><code class="language-javascript">const imie = document.getElementById("imie");
+const pole = document.querySelector("#imie");
+const formularz = document.querySelector("#formularz");</code></pre>
+            <p>Można także pobrać formularz i jego pola na podstawie nazw:</p>
+            <pre><code class="language-javascript">const formularz = document.forms["formularz"];
+const imie = formularz.elements["imie"];</code></pre>
+            <p>Drugi przykład wymaga formularza z <code>name="formularz"</code> oraz pola z <code>name="imie"</code>.</p>
+            <div class="important">
+                <strong>Dobra praktyka:</strong> do wyszukania konkretnego pola wygodne jest
+                <code>getElementById()</code>, a do grupy pól – <code>querySelectorAll()</code>.
+                Skrypt uruchamiaj po utworzeniu elementów HTML, np. przed <code>&lt;/body&gt;</code>.
+            </div>
+        </section>
+
+        <section id="value">
+            <h2>4. Odczytywanie i zmiana wartości – value</h2>
+            <pre><code class="language-html">&lt;label for="imie"&gt;Imię:&lt;/label&gt;
+&lt;input type="text" id="imie" value="Anna"&gt;</code></pre>
+            <pre><code class="language-javascript">const imie = document.getElementById("imie");
+console.log(imie.value);  // Anna
+imie.value = "Ola";      // zmiana zawartości pola</code></pre>
+            <h3>Usuwanie zbędnych spacji – trim()</h3>
+            <pre><code class="language-javascript">const tekst = imie.value.trim();
+console.log(tekst);</code></pre>
+            <h3>Zamiana tekstu na liczbę</h3>
+            <pre><code class="language-html">&lt;input type="number" id="cena" value="125.50"&gt;</code></pre>
+            <pre><code class="language-javascript">const poleCena = document.getElementById("cena");
+const cena = Number(poleCena.value);
+console.log(cena * 2); // 251</code></pre>
+            <div class="important">
+                <strong>Ważne:</strong> <code>value</code> z pola <code>input</code>
+                jest tekstem, także przy <code>type="number"</code>.
+                <code>Number("")</code> daje <code>0</code>, dlatego przed obliczeniami
+                sprawdzaj, czy pole nie jest puste.
+            </div>
+        </section>
+
+        <section id="checkbox">
+            <h2>5. Checkbox – checked</h2>
+            <p>Checkbox jest polem, które może być zaznaczone lub niezaznaczone.</p>
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="checkbox" id="poprawiny"&gt;
+    Organizujemy poprawiny
+&lt;/label&gt;</code></pre>
+            <pre><code class="language-javascript">const poprawiny = document.getElementById("poprawiny");
+
+if (poprawiny.checked) {
+    console.log("Zaznaczono poprawiny");
+} else {
+    console.log("Bez poprawin");
+}</code></pre>
+            <p>Właściwość <code>checked</code> zwraca <code>true</code> lub <code>false</code>.</p>
+            <h3>Ustawienie zaznaczenia z poziomu JavaScript</h3>
+            <pre><code class="language-javascript">poprawiny.checked = true;  // zaznacza
+poprawiny.checked = false; // odznacza</code></pre>
+            <div class="important">
+                <strong>Nie myl:</strong> <code>checked</code> informuje, czy checkbox
+                jest zaznaczony, natomiast <code>value</code> przechowuje wartość przypisaną opcji.
+            </div>
+        </section>
+
+        <section id="radio">
+            <h2>6. Przyciski radio – wybór jednej opcji</h2>
+            <p>Pola <code>radio</code> mają wspólną nazwę <code>name</code>. Z danej grupy można wybrać tylko jedną opcję.</p>
+            <pre><code class="language-html">&lt;label&gt;
+    &lt;input type="radio" name="dostawa" value="kurier"&gt;
+    Kurier
+&lt;/label&gt;
+&lt;label&gt;
+    &lt;input type="radio" name="dostawa" value="odbior"&gt;
+    Odbiór osobisty
+&lt;/label&gt;</code></pre>
+            <pre><code class="language-javascript">const wybor = document.querySelector('input[name="dostawa"]:checked');
+
+if (wybor !== null) {
+    console.log(wybor.value);
+} else {
+    console.log("Nie wybrano sposobu dostawy");
+}</code></pre>
+            <div class="definition">
+                Selektor <code>:checked</code> wskazuje zaznaczone pole.
+                Jeśli użytkownik niczego nie zaznaczył, <code>querySelector()</code>
+                zwróci <code>null</code>.
+            </div>
+        </section>
+
+        <section id="select">
+            <h2>7. Lista rozwijana – select</h2>
+            <pre><code class="language-html">&lt;label for="usluga"&gt;Usługa:&lt;/label&gt;
+&lt;select id="usluga"&gt;
+    &lt;option value=""&gt;-- wybierz --&lt;/option&gt;
+    &lt;option value="80"&gt;Czyszczenie – 80 zł&lt;/option&gt;
+    &lt;option value="120"&gt;Instalacja – 120 zł&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+            <pre><code class="language-javascript">const lista = document.getElementById("usluga");
+const cena = Number(lista.value);
+console.log(cena);</code></pre>
+            <p><code>lista.value</code> zwraca wartość atrybutu <code>value</code> wybranej opcji.</p>
+            <div class="important">
+                Jeśli pierwsza opcja ma <code>value=""</code>, przed obliczeniami
+                sprawdź, czy wybrano właściwą usługę – pusta wartość
+                zamieniona przez <code>Number()</code> da <code>0</code>.
+            </div>
+        </section>
+
+        <section id="textarea">
+            <h2>8. Wielowierszowe pole tekstowe – textarea</h2>
+            <pre><code class="language-html">&lt;label for="uwagi"&gt;Uwagi:&lt;/label&gt;
+&lt;textarea id="uwagi" rows="4"&gt;&lt;/textarea&gt;
+&lt;p id="licznik"&gt;Znaków: 0&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">const uwagi = document.getElementById("uwagi");
+const licznik = document.getElementById("licznik");
+
+uwagi.addEventListener("input", function() {
+    licznik.textContent = "Znaków: " + uwagi.value.length;
+});</code></pre>
+            <p>W <code>textarea</code> odczytujemy aktualnie wpisany tekst także przez <code>value</code>.</p>
+        </section>
+
+        <section id="zdarzenia">
+            <h2>9. Zdarzenia formularzy</h2>
+            <table>
+                <tr><th>Zdarzenie</th><th>Kiedy występuje?</th></tr>
+                <tr><td><code>input</code></td><td>podczas zmiany wartości, np. wpisywania tekstu</td></tr>
+                <tr><td><code>change</code></td><td>po zatwierdzeniu zmiany; np. wybór opcji lub zaznaczenie checkboxa</td></tr>
+                <tr><td><code>click</code></td><td>kliknięcie przycisku</td></tr>
+                <tr><td><code>submit</code></td><td>próba wysłania formularza</td></tr>
+                <tr><td><code>focus</code></td><td>uzyskanie aktywności przez pole</td></tr>
+                <tr><td><code>blur</code></td><td>utrata aktywności przez pole</td></tr>
+                <tr><td><code>reset</code></td><td>przywracanie początkowych wartości formularza</td></tr>
+            </table>
+            <h3>Przeliczanie wyniku na bieżąco</h3>
+            <pre><code class="language-html">&lt;input type="number" id="liczba" min="0"&gt;
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">const liczba = document.getElementById("liczba");
+const wynik = document.getElementById("wynik");
+
+liczba.addEventListener("input", function() {
+    if (liczba.value === "") {
+        wynik.textContent = "Wpisz liczbę";
+        return;
+    }
+    wynik.textContent = "Podwojenie: " + Number(liczba.value) * 2;
+});</code></pre>
+            <div class="important">
+                W nowych projektach stosuj <code>addEventListener()</code>
+                zamiast wpisywania kodu w atrybutach takich jak <code>onclick</code>
+                czy <code>onchange</code> w HTML.
+            </div>
+        </section>
+
+        <section id="submit">
+            <h2>10. Obsługa wysyłania formularza – submit</h2>
+            <p>Zdarzenie <code>submit</code> obsługujemy na elemencie <code>form</code>, nie na przycisku.</p>
+            <pre><code class="language-html">&lt;form id="kontakt"&gt;
+    &lt;label for="nazwisko"&gt;Nazwisko:&lt;/label&gt;
+    &lt;input type="text" id="nazwisko" required&gt;
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id="komunikat"&gt;&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">const formularz = document.getElementById("kontakt");
+const komunikat = document.getElementById("komunikat");
+
+formularz.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nazwisko = document.getElementById("nazwisko").value.trim();
+    komunikat.textContent = "Dziękujemy, " + nazwisko + "!";
+});</code></pre>
+            <div class="definition">
+                <code>e.preventDefault()</code> zatrzymuje domyślne wysłanie formularza.
+                Dzięki temu można wykonać obliczenia i wyświetlić wynik na tej samej stronie.
+            </div>
+        </section>
+
+        <section id="html-walidacja">
+            <h2>11. Walidacja HTML5</h2>
+            <p>HTML udostępnia atrybuty pozwalające przeglądarce sprawdzić część danych bez pisania JavaScript.</p>
+            <pre><code class="language-html">&lt;form id="rejestracja"&gt;
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+    &lt;input type="email" id="email" required&gt;
+
+    &lt;label for="wiek"&gt;Wiek:&lt;/label&gt;
+    &lt;input type="number" id="wiek" min="18" max="120" step="1" required&gt;
+
+    &lt;button type="submit"&gt;Zarejestruj&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <table>
+                <tr><th>Atrybut</th><th>Zastosowanie</th></tr>
+                <tr><td><code>required</code></td><td>pole obowiązkowe</td></tr>
+                <tr><td><code>min</code>, <code>max</code></td><td>zakres wartości liczbowej lub daty</td></tr>
+                <tr><td><code>step</code></td><td>dozwolony krok wartości liczbowej</td></tr>
+                <tr><td><code>minlength</code>, <code>maxlength</code></td><td>długość tekstu</td></tr>
+                <tr><td><code>pattern</code></td><td>wzorzec tekstu w obsługiwanych polach</td></tr>
+            </table>
+            <p>Stan formularza można dodatkowo sprawdzić w JavaScript:</p>
+            <pre><code class="language-javascript">const formularz = document.getElementById("rejestracja");
+
+console.log(formularz.checkValidity());
+// true, jeżeli pola spełniają ograniczenia HTML</code></pre>
+            <div class="important">
+                <strong>Uwaga:</strong> walidacja po stronie przeglądarki
+                ułatwia pracę użytkownikowi, ale nie zastępuje sprawdzania danych
+                po stronie serwera (np. w PHP).
+            </div>
+        </section>
+
+        <section id="js-walidacja">
+            <h2>12. Sprawdzanie danych w JavaScript</h2>
+            <p>Walidację najlepiej umieścić w osobnej funkcji, aby łatwo używać jej w kilku miejscach.</p>
+            <pre><code class="language-javascript">function poprawnaIlosc(pole) {
+    const wartosc = pole.value.trim();
+
+    if (wartosc === "") {
+        return false;
+    }
+
+    const liczba = Number(wartosc);
+    return Number.isInteger(liczba) &amp;&amp; liczba &gt; 0;
+}</code></pre>
+            <p>Przykład użycia:</p>
+            <pre><code class="language-javascript">const poleIlosc = document.getElementById("ilosc");
+
+if (!poprawnaIlosc(poleIlosc)) {
+    console.log("Podaj dodatnią liczbę całkowitą");
+} else {
+    console.log(Number(poleIlosc.value));
+}</code></pre>
+            <div class="important">
+                <strong>Ważne:</strong> <code>Number.isInteger()</code> sprawdza,
+                czy liczba jest całkowita, a <code>Number.isFinite()</code> –
+                czy jest skończoną liczbą. Kontroluj także puste pola i przedziały wartości.
+            </div>
+        </section>
+
+        <section id="blokowanie">
+            <h2>13. Włączanie i blokowanie pól – disabled i readOnly</h2>
+            <pre><code class="language-html">&lt;label for="nick"&gt;Nazwa użytkownika:&lt;/label&gt;
+&lt;input type="text" id="nick"&gt;
+&lt;label&gt;
+    &lt;input type="checkbox" id="blokada"&gt; Zablokuj pole
+&lt;/label&gt;</code></pre>
+            <pre><code class="language-javascript">const nick = document.getElementById("nick");
+const blokada = document.getElementById("blokada");
+
+blokada.addEventListener("change", function() {
+    nick.disabled = blokada.checked;
+});</code></pre>
+            <h3>Właściwość readOnly</h3>
+            <pre><code class="language-javascript">nick.readOnly = true;  // odczyt, bez edycji
+nick.readOnly = false; // ponowna możliwość edycji</code></pre>
+            <table>
+                <tr><th>Właściwość</th><th>Znaczenie</th></tr>
+                <tr><td><code>disabled</code></td><td>blokuje pole; nie jest ono przesyłane z formularzem</td></tr>
+                <tr><td><code>readOnly</code></td><td>uniemożliwia edycję pola, ale jego wartość może zostać przesłana</td></tr>
+            </table>
+            <div class="important">
+                <code>readOnly</code> dotyczy odpowiednich pól edytowalnych,
+                np. pola tekstowego, a nie checkboxów czy list wyboru.
+            </div>
+        </section>
+
+        <section id="formdata">
+            <h2>14. Odczytywanie danych formularza – FormData</h2>
+            <p><code>FormData</code> pozwala odczytać wiele pól na podstawie ich atrybutów <code>name</code>.</p>
+            <pre><code class="language-html">&lt;form id="ankieta"&gt;
+    &lt;input type="text" name="imie" value="Anna"&gt;
+    &lt;label&gt;&lt;input type="checkbox" name="zgoda" value="tak" checked&gt; Zgoda&lt;/label&gt;
+    &lt;button type="submit"&gt;Zapisz&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            <pre><code class="language-javascript">const ankieta = document.getElementById("ankieta");
+
+ankieta.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const dane = new FormData(ankieta);
+    console.log(dane.get("imie"));  // Anna
+    console.log(dane.has("zgoda")); // true, gdy zaznaczono
+});</code></pre>
+            <div class="important">
+                <strong>Zapamiętaj:</strong> niezaznaczone checkboxy i pola
+                <code>disabled</code> nie są uwzględniane w <code>FormData</code>.
+                Dla wielu zaznaczonych checkboxów o tej samej nazwie przydatne jest
+                <code>dane.getAll("nazwa")</code>.
+            </div>
+        </section>
+
+        <section id="wyniki">
+            <h2>15. Bezpieczne wyświetlanie wyników i zmiana klas</h2>
+            <p>Teksty wpisane przez użytkownika najprościej prezentować przez <code>textContent</code>.</p>
+            <pre><code class="language-html">&lt;p id="komunikat"&gt;&lt;/p&gt;</code></pre>
+            <pre><code class="language-javascript">const komunikat = document.getElementById("komunikat");
+komunikat.textContent = "Wprowadzone dane zostały sprawdzone";
+komunikat.classList.add("poprawny");
+komunikat.classList.remove("blad");</code></pre>
+            <p>Przykładowe klasy CSS dla własnego projektu:</p>
+            <pre><code class="language-css">.poprawny { color: darkgreen; font-weight: bold; }
+.blad { color: darkred; font-weight: bold; }</code></pre>
+            <div class="important">
+                Nie wstawiaj bezpośrednio tekstu użytkownika przez
+                <code>innerHTML</code>. Jeśli chcesz wyświetlić zwykły tekst,
+                użyj <code>textContent</code> – nie interpretuje go jako kodu HTML.
+            </div>
+        </section>
+
+        <section id="przyklad">
+            <h2>16. Kompletny przykład w stylu INF.03 – zamówienie usługi</h2>
+            <p>
+                Utwórz plik <code>usluga.html</code>. Formularz korzysta z listy
+                <code>select</code>, pola liczbowego, checkboxa, zdarzenia
+                <code>submit</code>, osobnej funkcji obliczeniowej i walidacji.
+            </p>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Zamówienie usługi&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; }
+        .poprawny { color: darkgreen; font-weight: bold; }
+        .blad { color: darkred; font-weight: bold; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Serwis komputerowy&lt;/h1&gt;
+    &lt;form id="zamowienie"&gt;
+        &lt;label for="usluga"&gt;Wybierz usługę:&lt;/label&gt;
+        &lt;select id="usluga" required&gt;
+            &lt;option value=""&gt;-- wybierz --&lt;/option&gt;
+            &lt;option value="80"&gt;Czyszczenie – 80 zł&lt;/option&gt;
+            &lt;option value="120"&gt;Instalacja – 120 zł&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label for="ilosc"&gt;Liczba urządzeń:&lt;/label&gt;
+        &lt;input type="number" id="ilosc" min="1" step="1" required&gt;
+
+        &lt;label&gt;
+            &lt;input type="checkbox" id="ekspres"&gt;
+            Tryb ekspresowy (+20%)
+        &lt;/label&gt;
+
+        &lt;button type="submit"&gt;Oblicz koszt&lt;/button&gt;
+        &lt;button type="reset"&gt;Wyczyść pola&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;p id="wynik" aria-live="polite"&gt;&lt;/p&gt;
+
+    &lt;script&gt;
+        const formularz = document.getElementById("zamowienie");
+        const usluga = document.getElementById("usluga");
+        const ilosc = document.getElementById("ilosc");
+        const ekspres = document.getElementById("ekspres");
+        const wynik = document.getElementById("wynik");
+
+        function kosztZamowienia(cena, sztuki, ekspresowy) {
+            let koszt = cena * sztuki;
+            if (ekspresowy) {
+                koszt *= 1.20;
+            }
+            return koszt;
+        }
+
+        formularz.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const cena = Number(usluga.value);
+            const sztuki = Number(ilosc.value);
+
+            if (usluga.value === "" || ilosc.value.trim() === "" ||
+                !Number.isInteger(sztuki) || sztuki &lt; 1) {
+                wynik.textContent = "Wybierz usługę i podaj poprawną liczbę urządzeń.";
+                wynik.className = "blad";
+                return;
+            }
+
+            const koszt = kosztZamowienia(cena, sztuki, ekspres.checked);
+            wynik.textContent = "Do zapłaty: " + koszt.toFixed(2) + " zł";
+            wynik.className = "poprawny";
+        });
+
+        formularz.addEventListener("reset", function() {
+            wynik.textContent = "";
+            wynik.className = "";
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <h3>Prześledź działanie programu</h3>
+            <ol>
+                <li>Użytkownik wybiera usługę, liczbę urządzeń i opcję ekspresową.</li>
+                <li>Po wysłaniu formularza zdarzenie <code>submit</code> uruchamia funkcję.</li>
+                <li><code>preventDefault()</code> zatrzymuje przejście na inną stronę.</li>
+                <li>Skrypt odczytuje <code>value</code> i <code>checked</code>, a następnie sprawdza dane.</li>
+                <li>Funkcja <code>kosztZamowienia()</code> oblicza należność.</li>
+                <li>Wynik pojawia się w akapicie bez przeładowania dokumentu.</li>
+            </ol>
+            <div class="definition">
+                <strong>Przykład kontrolny:</strong> instalacja systemu na 2 urządzeniach
+                w trybie ekspresowym kosztuje <strong>288,00 zł</strong>
+                (120 × 2 × 1,20).
+            </div>
+        </section>
+
+        <section id="bledy">
+            <h2>17. Najczęstsze błędy</h2>
+            <table>
+                <tr><th>Błąd</th><th>Poprawne podejście</th></tr>
+                <tr><td><code>pole.value + 2</code></td><td>do obliczeń użyj <code>Number(pole.value) + 2</code></td></tr>
+                <tr><td><code>checkbox.value</code> do sprawdzania zaznaczenia</td><td>odczytaj <code>checkbox.checked</code></td></tr>
+                <tr><td>odczyt <code>wybor.value</code>, gdy nie zaznaczono radio</td><td>najpierw sprawdź, czy <code>wybor !== null</code></td></tr>
+                <tr><td><code>Number("")</code> traktowane jako błąd</td><td>pamiętaj, że daje <code>0</code>; sprawdź puste pole osobno</td></tr>
+                <tr><td>przycisk w formularzu bez określonego typu</td><td>dla obliczeń niezwiązanych z wysyłaniem użyj <code>type="button"</code></td></tr>
+                <tr><td>brak <code>preventDefault()</code> przy obsłudze submit</td><td>zatrzymaj domyślną wysyłkę, jeśli wynik ma pozostać na stronie</td></tr>
+                <tr><td>tekst użytkownika w <code>innerHTML</code></td><td>użyj <code>textContent</code></td></tr>
+                <tr><td>pole <code>disabled</code> a oczekiwanie, że zostanie wysłane</td><td>pole zablokowane nie trafia do <code>FormData</code></td></tr>
+            </table>
+        </section>
+
+        <section id="podsumowanie">
+            <h2>18. Podsumowanie właściwości i metod</h2>
+            <table>
+                <tr><th>Zapis</th><th>Zastosowanie</th></tr>
+                <tr><td><code>element.value</code></td><td>odczyt lub zmiana wartości pola</td></tr>
+                <tr><td><code>element.checked</code></td><td>stan zaznaczenia checkboxa lub radio</td></tr>
+                <tr><td><code>element.disabled</code></td><td>blokowanie i odblokowywanie pola</td></tr>
+                <tr><td><code>element.readOnly</code></td><td>ustawianie pola tylko do odczytu</td></tr>
+                <tr><td><code>element.addEventListener()</code></td><td>przypisywanie obsługi zdarzenia</td></tr>
+                <tr><td><code>e.preventDefault()</code></td><td>zatrzymanie domyślnej akcji zdarzenia</td></tr>
+                <tr><td><code>formularz.checkValidity()</code></td><td>sprawdzenie ograniczeń walidacji HTML</td></tr>
+                <tr><td><code>new FormData(formularz)</code></td><td>pobranie danych nazwanych pól</td></tr>
+                <tr><td><code>element.textContent</code></td><td>bezpieczne wyświetlanie tekstu</td></tr>
+                <tr><td><code>element.classList</code></td><td>zmiana klas CSS</td></tr>
+            </table>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Formularz zawiera pola umożliwiające wprowadzanie danych.</li>
+                <li><code>value</code> odczytuje dane tekstowe; do obliczeń zwykle potrzebne jest <code>Number()</code>.</li>
+                <li><code>checked</code> odczytuje stan checkboxa lub radio.</li>
+                <li><code>select</code> i <code>textarea</code> także mają właściwość <code>value</code>.</li>
+                <li><code>input</code> reaguje na zmiany na bieżąco, a <code>change</code> na zatwierdzone zmiany.</li>
+                <li><code>submit</code> obsługujemy na formularzu, a nie na samym przycisku.</li>
+                <li><code>preventDefault()</code> zatrzymuje domyślne wysyłanie formularza.</li>
+                <li>Sprawdzaj puste pola, zakres i poprawność liczb.</li>
+                <li><code>disabled</code> blokuje pole; <code>readOnly</code> nie pozwala go edytować.</li>
+                <li><code>textContent</code> nadaje się do wyświetlania tekstu wpisanego przez użytkownika.</li>
+                <li>Walidacja przeglądarkowa nie zastępuje walidacji na serwerze.</li>
+            </ul>
+        </section>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                Przygotuj osobny plik HTML dla każdego zadania lub wyraźnie
+                oddzielone części projektu. Korzystaj z <code>addEventListener()</code>,
+                pobieraj dane za pomocą DOM i wyświetlaj wyniki na stronie,
+                nie w oknie <code>alert()</code>. Tam, gdzie występują obliczenia,
+                sprawdzaj poprawność wprowadzonych wartości.
+            </p>
+
+            <h3>Część A – podstawy formularzy</h3>
+            <h3>Zadanie 1 – Powitanie na bieżąco</h3>
+            <p>Utwórz pole na imię i akapit. Podczas pisania wyświetlaj komunikat „Witaj, ...!”. Usuń spacje z początku i końca. Jeśli pole jest puste, pokaż „Wpisz imię”. Użyj zdarzenia <code>input</code>.</p>
+
+            <h3>Zadanie 2 – Checkbox i koszt opcji</h3>
+            <p>Dodaj checkbox „Pakowanie prezentowe (+15 zł)” i akapit ceny. Cena bazowa wynosi 80 zł. Po każdej zmianie zaznaczenia wyświetl aktualną cenę. Użyj <code>checked</code> i <code>change</code>.</p>
+
+            <h3>Zadanie 3 – Wybór sposobu dostawy</h3>
+            <p>Przygotuj trzy pola radio o wspólnej nazwie: odbiór osobisty (0 zł), paczkomat (12 zł), kurier (18 zł). Po zaznaczeniu opcji wyświetl nazwę i cenę dostawy. Początkowo żadna opcja nie powinna być wybrana.</p>
+
+            <h3>Zadanie 4 – Lista usług</h3>
+            <p>Utwórz listę <code>select</code> z usługami: czyszczenie (80 zł), instalacja systemu (120 zł), konfiguracja routera (100 zł). Dodaj pole liczby urządzeń i przycisk „Oblicz”. Wynik pokaż pod formularzem. Nie dopuszczaj pustego wyboru i liczby sztuk mniejszej od 1.</p>
+
+            <h3>Zadanie 5 – Licznik znaków</h3>
+            <p>Dodaj <code>textarea</code> i licznik znaków aktualizowany podczas pisania. Maksymalna długość tekstu wynosi 200 znaków. Wyświetl także liczbę pozostałych znaków.</p>
+
+            <h3>Zadanie 6 – Blokowanie pola</h3>
+            <p>Dodaj pole tekstowe „Nazwa firmy” i checkbox „Osoba prywatna”. Zaznaczenie checkboxa ma blokować pole nazwy firmy, a odznaczenie ponownie je aktywować. Zastosuj <code>disabled</code>.</p>
+
+            <h3>Część B – obliczenia i walidacja</h3>
+            <h3>Zadanie 7 – Kalkulator sześciu działań</h3>
+            <p>Utwórz dwa pola liczbowe oraz sześć przycisków: dodawanie, odejmowanie, mnożenie, dzielenie, reszta z dzielenia i dzielenie całkowite. Po kliknięciu wyświetl wynik. Sprawdź puste pola i dzielenie przez zero. W dzieleniu całkowitym odrzuć część ułamkową wyniku za pomocą <code>Math.trunc()</code>.</p>
+
+            <h3>Zadanie 8 – Suma zaznaczonych liczb</h3>
+            <p>Przygotuj pięć pól na liczby całkowite. Przy każdym umieść checkbox. Oblicz i wyświetl sumę tylko zaznaczonych pól. Puste lub niepoprawne wartości w zaznaczonych polach mają powodować komunikat o błędzie. Aktualizuj sumę po zmianie danych.</p>
+
+            <h3>Zadanie 9 – Koszt przyjęcia weselnego</h3>
+            <p>Dodaj pole liczby gości i checkbox „Poprawiny”. Koszt jednej osoby wynosi <strong>100 zł</strong>. Zaznaczenie poprawin zwiększa łączny koszt o <strong>30%</strong>. Wynik aktualizuj na bieżąco po zmianie któregokolwiek pola. Dla 80 gości z poprawinami wynik wynosi <strong>10 400 zł</strong>.</p>
+
+            <h3>Zadanie 10 – Dostawa pizzy</h3>
+            <p>Dodaj pole odległości od pizzerii w kilometrach i checkbox „Mieszkam w Gdańsku”. Dla osób z Gdańska dostawa jest bezpłatna. W pozostałych przypadkach koszt wynosi <strong>1 zł za kilometr w każdą stronę</strong>, czyli <code>2 × odległość</code>. Dla 5 km koszt wynosi <strong>10 zł</strong>. Odrzuć ujemną odległość.</p>
+
+            <h3>Zadanie 11 – Koszt publikacji ogłoszeń</h3>
+            <p>Utwórz pole liczby ogłoszeń, checkbox „Stały klient” i przycisk „Oblicz”. Zastosuj naliczanie progowe: pierwsze 50 ogłoszeń po <strong>2 zł</strong>, kolejne 50 po <strong>1,50 zł</strong>, każde następne po <strong>1 zł</strong>. Stały klient otrzymuje <strong>20% rabatu</strong> od całości. Dla 120 ogłoszeń bez rabatu wynik wynosi <strong>195 zł</strong>.</p>
+
+            <h3>Zadanie 12 – Zamówienie cegieł</h3>
+            <p>Przygotuj pole liczby cegieł, checkbox „Cegła premium” i przycisk. Cegła zwykła kosztuje <strong>2 zł</strong> i waży <strong>1,5 kg</strong>. Premium jest o <strong>30% droższa</strong> i waży <strong>1,75 kg</strong>. Wyświetl rodzaj cegły, koszt zamówienia i całkowitą masę. Wyniki obliczaj za pomocą osobnej funkcji.</p>
+
+            <h3>Część C – zadania praktyczne w stylu INF.03</h3>
+            <h3>Zadanie 13 – Cegły i transport</h3>
+            <p>Rozbuduj zadanie 12 o pole odległości transportu. Za każde rozpoczęte <strong>10 kg</strong> ładunku naliczaj <strong>0,50 zł za kilometr</strong>. Liczbę jednostek masy oblicz przez <code>Math.ceil(masa / 10)</code>. Wyświetl osobno koszt cegieł, koszt transportu i sumę. Sprawdź, czy odległość i liczba cegieł są poprawne.</p>
+
+            <h3>Zadanie 14 – Bilety do aquaparku</h3>
+            <p>Utwórz formularz z liczbą biletów normalnych, ulgowych i godzin oraz checkboxem „Karta Dużej Rodziny”. Ceny: normalny <strong>10 zł/h</strong>, ulgowy <strong>5 zł/h</strong>. Powyżej 4 godzin zastosuj bilet całodzienny: odpowiednio <strong>50 zł</strong> i <strong>25 zł</strong>. Za każde 15 biletów ulgowych przyznaj jeden normalny gratis (nie więcej niż kupowana liczba normalnych). Karta Dużej Rodziny obniża końcową kwotę o <strong>10%</strong>. Wyświetl cenę końcową i liczbę przyznanych darmowych biletów.</p>
+
+            <h3>Zadanie 15 – Formularz rejestracyjny</h3>
+            <p>Utwórz formularz zawierający imię, e-mail, hasło, powtórzenie hasła i checkbox zgody na regulamin. Wykorzystaj <code>required</code>, <code>type="email"</code> i <code>minlength</code>. Dodatkowo w JavaScript sprawdź zgodność haseł i zaznaczenie zgody. Po poprawnym wysłaniu pokaż potwierdzenie w elemencie strony. Nie wyświetlaj ani nie zapisuj hasła w komunikacie.</p>
+
+            <h3>Zadanie 16 – Miniarkusz: formularz rezerwacji</h3>
+            <p>Wykonaj plik <code>rezerwacja.html</code> zawierający formularz rezerwacji pokoju. Strona ma umożliwiać wybór rodzaju pokoju i obliczenie kosztu pobytu bez przeładowania.</p>
+            <ol>
+                <li>Dodaj pola: imię, liczba noclegów, lista rodzaju pokoju, dwa pola radio sposobu wyżywienia i checkbox „Parking”.</li>
+                <li>Rodzaje pokoi w <code>select</code>: jednoosobowy – 160 zł/noc, dwuosobowy – 240 zł/noc, apartament – 390 zł/noc.</li>
+                <li>Wyżywienie: bez wyżywienia – 0 zł/noc lub śniadanie – 35 zł/noc. Opcja parkingu kosztuje 20 zł/noc.</li>
+                <li>W JavaScript utwórz tablicę obiektów zawierającą rodzaje pokoi i ceny. Wybór pokoju odszukaj za pomocą <code>find()</code>.</li>
+                <li>Dodaj funkcję <code>obliczKoszt(cenaPokoju, noclegi, wyzywienie, parking)</code>, zwracającą całkowity koszt.</li>
+                <li>Sprawdź, czy imię nie jest puste, liczba noclegów jest dodatnią liczbą całkowitą, a pokój i wyżywienie zostały wybrane.</li>
+                <li>Po kliknięciu przycisku „Oblicz” wyświetl pod formularzem imię, liczbę noclegów, wybrany pokój i całkowitą należność.</li>
+                <li>Dodaj przycisk „Wyczyść”, który zresetuje formularz i usunie poprzedni wynik.</li>
+                <li>Komunikaty błędów wyróżnij klasą <code>blad</code>, a poprawne wyniki klasą <code>poprawny</code>.</li>
+                <li>Przykład kontrolny: pokój dwuosobowy, 3 noce, śniadanie i parking – <strong>885,00 zł</strong>.</li>
+            </ol>
+            <div class="important">
+                <strong>Wskazówka INF.03:</strong> rozdziel funkcję obliczeniową od kodu
+                pobierającego dane z formularza. Używaj identyfikatorów zgodnych
+                z poleceniem, obsługuj zdarzenia przez <code>addEventListener()</code>
+                i wyświetlaj wynik za pomocą <code>textContent</code>.
+            </div>
+        </section>
+
+        <section id="sprawdz" class="check">
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+            <ul>
+                <li>zbudować formularz HTML z etykietami i różnymi typami pól,</li>
+                <li>odczytać wartość pola przez <code>value</code> i przekształcić ją na liczbę,</li>
+                <li>sprawdzić checkbox przez <code>checked</code>,</li>
+                <li>odczytać zaznaczoną opcję radio oraz <code>select</code>,</li>
+                <li>obsłużyć <code>input</code>, <code>change</code> i <code>submit</code>,</li>
+                <li>zastosować <code>preventDefault()</code>,</li>
+                <li>sprawdzić puste pola, liczby całkowite i dozwolone zakresy,</li>
+                <li>zablokować pole przez <code>disabled</code> i <code>readOnly</code>,</li>
+                <li>odczytać dane przez <code>FormData</code>,</li>
+                <li>napisać funkcję obliczeniową z parametrami i <code>return</code>,</li>
+                <li>wyświetlić wynik lub komunikat błędu za pomocą DOM,</li>
+                <li>wykonać samodzielnie formularz obliczeniowy w stylu INF.03.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<footer>STREFA IT • PAI • Lekcja 13</footer>
+<script src="../../prism.js"></script>
+</body>
+</html>
