@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 06 – MS Excel: Formuły w arkuszu kalkulacyjnym | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+   
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← AB</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+        <a href="../05-filtrowanie-danych/index.html">← Poprzedni</a>
+        <!-- Dopasuj nazwę folderu następnej lekcji, jeśli będzie inna. -->
+        <a href="../07-adresowanie/index.html">Następny →</a>
+        <a href="#zadania">Zadania ↓</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#zadania">📝 Zadania do pobrania</a>
+        <a href="#organizacja">1. Organizacja pracy</a>
+        <a href="#formula">2. Jak tworzyć formuły?</a>
+        <a href="#dzialania">3. Operatory i nawiasy</a>
+        <a href="#cwiczenia">4. Zakres zadań 1–18</a>
+        <a href="#procenty">5. Obliczenia procentowe</a>
+        <a href="#kontrola">6. Kontrola wykonania</a>
+        <a href="#oddanie">7. Oddanie pracy</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">AB • LEKCJA 06</div>
+            <h2>MS Excel – Formuły w arkuszu kalkulacyjnym</h2>
+            <p><strong>Cel główny:</strong> nauczysz się samodzielnie tworzyć formuły w programie MS Excel 2016 PL, wykonywać działania na wartościach z komórek, używać nawiasów oraz obliczać rabaty, VAT i inne wielkości praktyczne.</p>
+        </div>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>Pobierz skoroszyt Excel zawierający <strong>18 zadań</strong>. W każdym zadaniu wykonasz 5 obliczeń, czyli łącznie <strong>90 obliczeń</strong>. Plik zawiera dane, instrukcje krok po kroku oraz arkusz do kontroli wyników.</p>
+            <a class="material-link" href="Excel06_Formuly_2016_18_zadan_2x45_UCZEN.xlsx" download>⬇ Pobierz zadania – MS Excel (.xlsx)</a>
+            <p>Otwórz plik w programie <strong>MS Excel 2016 PL</strong> i zapisz własną kopię pod nazwą <code>klasa_nazwisko.xlsx</code>. Gotową pracę prześlij jako zadanie w Teams.</p>
+        </section>
+
+        <section id="organizacja">
+            <h2>1. Organizacja pracy</h2>
+            <p>W skoroszycie znajduje się sześć arkuszy:</p>
+            <ul>
+                <li><strong>Start</strong> – zasady wykonywania i oddawania pracy.</li>
+                <li><strong>Lekcja 1</strong> – zadania 1–9.</li>
+                <li><strong>Lekcja 2</strong> – zadania 10–18.</li>
+                <li><strong>Instrukcje 1</strong> – wskazówki do zadań 1–9.</li>
+                <li><strong>Instrukcje 2</strong> – wskazówki do zadań 10–18.</li>
+                <li><strong>Kontrola</strong> – potwierdzenie wykonania zadań i miejsce na wyniki.</li>
+            </ul>
+            <div class="important"><strong>Ważne:</strong> dane do obliczeń znajdują się w kolumnach <code>C–E</code>, a formuły wpisuj wyłącznie do <strong>żółtych komórek w kolumnie F</strong>. Nie zmieniaj podanych danych. W każdym zadaniu wpisz <strong>5 osobnych formuł</strong> – bez przeciągania i kopiowania formuły w dół.</div>
+        </section>
+
+        <section id="formula">
+            <h2>2. Jak tworzyć formuły w Excelu?</h2>
+            <p>Formuła to zapis obliczenia wykonywanego przez Excel. Każda formuła rozpoczyna się od znaku <code>=</code>. Zamiast wpisywać liczby na stałe, odwołuj się do komórek zawierających dane.</p>
+            <h3>Przykład – dodawanie dwóch wartości</h3>
+            <ol>
+                <li>Przejdź do arkusza <strong>Lekcja 1</strong>.</li>
+                <li>Odszukaj <strong>Zadanie 1 – Dodawanie wpływów</strong>.</li>
+                <li>Kliknij żółtą komórkę <code>F9</code>.</li>
+                <li>Wpisz formułę <code>=C9+D9</code> i naciśnij <strong>Enter</strong>.</li>
+                <li>Sprawdź wynik: <strong>185</strong>.</li>
+                <li>Utwórz samodzielnie formuły także w komórkach <code>F10:F13</code>, używając adresów odpowiednich wierszy.</li>
+            </ol>
+            <div class="definition"><strong>Dlaczego używamy adresów komórek?</strong> Po zmianie wartości w komórce źródłowej Excel automatycznie przelicza wynik formuły.</div>
+        </section>
+
+        <section id="dzialania">
+            <h2>3. Operatory matematyczne i nawiasy</h2>
+            <p>W formułach Excela używamy następujących operatorów:</p>
+            <ul>
+                <li><code>+</code> – dodawanie, np. <code>=C9+D9</code>.</li>
+                <li><code>-</code> – odejmowanie, np. <code>=C18-D18</code>.</li>
+                <li><code>*</code> – mnożenie, np. <code>=C27*D27</code>.</li>
+                <li><code>/</code> – dzielenie, np. <code>=C36/D36</code>.</li>
+                <li><code>( )</code> – ustalanie kolejności wykonywania działań.</li>
+            </ul>
+            <h3>Przykład – nawias i mnożenie</h3>
+            <p>W zadaniu 7 trzeba najpierw dodać dwie liczby, a następnie pomnożyć sumę przez kolejną wartość. Przykładowy zapis w komórce <code>F63</code>:</p>
+            <div class="definition"><code>=(C63+D63)*E63</code></div>
+            <div class="important"><strong>Uwaga:</strong> Excel najpierw wykonuje działania w nawiasach, później mnożenie i dzielenie, a na końcu dodawanie i odejmowanie. Nie używamy znaku <code>x</code> ani dwukropka <code>:</code> do mnożenia i dzielenia.</div>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>4. Zakres zadań 1–18</h2>
+            <p>Wykonaj kolejno wszystkie ćwiczenia ze skoroszytu. Szczegółowe polecenia znajdziesz w arkuszach <code>Instrukcje 1</code> oraz <code>Instrukcje 2</code>.</p>
+            <ol>
+                <li><strong>Dodawanie wpływów</strong> – dodawanie dwóch wartości.</li>
+                <li><strong>Odejmowanie zużycia</strong> – obliczanie stanu po zużyciu.</li>
+                <li><strong>Cena razy liczba sztuk</strong> – mnożenie ceny przez ilość.</li>
+                <li><strong>Podział rachunku</strong> – dzielenie kwoty przez liczbę osób.</li>
+                <li><strong>Obliczanie zysku</strong> – odejmowanie kosztów od przychodu.</li>
+                <li><strong>Stan magazynu</strong> – dodawanie dostawy i odejmowanie sprzedaży.</li>
+                <li><strong>Nawias i mnożenie</strong> – kolejność wykonywania działań.</li>
+                <li><strong>Powierzchnia prostokąta</strong> – obliczanie pola.</li>
+                <li><strong>Obwód prostokąta</strong> – dwukrotność sumy boków.</li>
+                <li><strong>Wartość rabatu</strong> – obliczanie kwoty obniżki.</li>
+                <li><strong>Cena po rabacie</strong> – obliczanie ceny po obniżce.</li>
+                <li><strong>Cena brutto</strong> – doliczanie podatku VAT.</li>
+                <li><strong>Koszty podróży</strong> – sumowanie trzech wydatków.</li>
+                <li><strong>Pozostały budżet</strong> – odejmowanie wydatków od budżetu.</li>
+                <li><strong>Średni koszt dnia (bez funkcji)</strong> – dzielenie wydatków przez liczbę dni.</li>
+                <li><strong>Podwyżka i rabat</strong> – dwa kolejne działania procentowe.</li>
+                <li><strong>Wynagrodzenie</strong> – mnożenie godzin przez stawkę i dodawanie dodatku.</li>
+                <li><strong>Zakup z dostawą</strong> – koszt produktów powiększony o dostawę.</li>
+            </ol>
+        </section>
+
+        <section id="procenty">
+            <h2>5. Obliczenia procentowe</h2>
+            <p>W Excelu zapis <code>10%</code> oznacza wartość <code>0,10</code>. Można więc mnożyć cenę bezpośrednio przez komórkę zawierającą procent.</p>
+            <h3>Przykłady formuł</h3>
+            <ul>
+                <li><strong>Wartość rabatu:</strong> <code>=C9*D9</code> – w arkuszu <code>Lekcja 2</code>, zadanie 10.</li>
+                <li><strong>Cena po rabacie:</strong> <code>=C18*(1-D18)</code> – w arkuszu <code>Lekcja 2</code>, zadanie 11.</li>
+                <li><strong>Cena brutto:</strong> <code>=C27*(1+D27)</code> – w arkuszu <code>Lekcja 2</code>, zadanie 12.</li>
+            </ul>
+            <div class="definition"><strong>Zapamiętaj:</strong> rabat zmniejsza cenę, a doliczenie VAT ją zwiększa. W bardziej rozbudowanych zadaniach zadbaj o właściwe użycie nawiasów.</div>
+        </section>
+
+        <section id="kontrola">
+            <h2>6. Kontrola wykonania zadań</h2>
+            <p>Po wykonaniu każdego zadania przejdź do arkusza <code>Kontrola</code> i uzupełnij dwa pola w odpowiednim wierszu:</p>
+            <ul>
+                <li><strong>Kolumna D</strong> – wpisz <code>TAK</code>, jeżeli wykonałeś wszystkie 5 obliczeń.</li>
+                <li><strong>Kolumna E</strong> – wpisz <strong>wynik z pierwszej komórki F</strong> danego zadania (samą wartość, nie formułę).</li>
+                <li><strong>Wiersze 6–23</strong> – odpowiadają kolejno zadaniom 1–18.</li>
+            </ul>
+            <div class="important"><strong>Przykład:</strong> po wykonaniu zadania 1 wpisz <code>TAK</code> do <code>Kontrola!D6</code>, a wynik <code>185</code> do <code>Kontrola!E6</code>. Nie wpisuj do kolumny E pięciu wyników – wystarczy pierwszy.</div>
+        </section>
+
+        <section id="oddanie">
+            <h2>7. Zapisanie i oddanie pracy</h2>
+            <ol>
+                <li>Sprawdź, czy w arkuszach <code>Lekcja 1</code> i <code>Lekcja 2</code> uzupełniono wszystkie żółte komórki z zadaniami.</li>
+                <li>Upewnij się, że w arkuszu <code>Kontrola</code> wypełniono komórki <code>D6:E23</code>.</li>
+                <li>Zapisz plik jako <code>klasa_nazwisko.xlsx</code>.</li>
+                <li>Prześlij <strong>jeden ukończony skoroszyt XLSX</strong> w zadaniu na Teams.</li>
+            </ol>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+            <ul>
+                <li>Każda formuła w Excelu zaczyna się od znaku <code>=</code>.</li>
+                <li>Adresy komórek pozwalają automatycznie przeliczać wyniki po zmianie danych.</li>
+                <li>Mnożenie zapisujemy znakiem <code>*</code>, a dzielenie znakiem <code>/</code>.</li>
+                <li>Nawiasy pozwalają zmienić kolejność wykonywania działań.</li>
+                <li>W tym ćwiczeniu formuły wpisujemy <strong>samodzielnie, bez przeciągania</strong>.</li>
+                <li>Każde zadanie ma 5 wyników, a do arkusza <code>Kontrola</code> przepisujemy pierwszy z nich.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<footer>STREFA IT • AB • Lekcja 06</footer>
+</body>
+</html>
