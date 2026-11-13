@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 08 – MS Excel: Tabele przestawne | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← AB</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#organizacja">1. Organizacja pracy</a>
+        <a href="#co-to">2. Czym jest tabela przestawna?</a>
+        <a href="#tworzenie">3. Tworzenie tabeli</a>
+        <a href="#pola">4. Pola i obliczenia</a>
+        <a href="#analiza">5. Analiza i filtrowanie</a>
+        <a href="#cwiczenia">6. Zadania 1–20</a>
+        <a href="#dodatkowe">7. Zadania dodatkowe</a>
+        <a href="#kontrola">8. Kontrola wykonania</a>
+        <a href="#oddanie">9. Oddanie pracy</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">AB • LEKCJA 08</div>
+            <h2>MS Excel – Tabele przestawne</h2>
+            <p>
+                <strong>Cel główny:</strong> nauczysz się tworzyć
+                tabele przestawne w Excelu 2016 PL,
+                analizować dane za pomocą sumy, licznika,
+                średniej, minimum i maksimum, zestawiać wyniki
+                według dwóch kryteriów oraz stosować filtry,
+                rankingi i udziały procentowe.
+            </p>
+        </div>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                Pobierz skoroszyt Excel zawierający
+                <strong>20 zadań podstawowych</strong> i
+                <strong>8 zadań dodatkowych</strong>.
+                W pliku znajdziesz bazę 240 zamówień sprzętu
+                komputerowego, instrukcje krok po kroku
+                oraz arkusz do zapisania wyników.
+            </p>
+
+            <a class="material-link"
+               href="Excel08_Tabele_przestawne_2016_20plus8_KROK_PO_KROKU_UCZEN.xlsx"
+               download>
+                ⬇ Pobierz zadania – MS Excel (.xlsx)
+            </a>
+
+            <p>
+                Otwórz plik w programie
+                <strong>MS Excel 2016 PL</strong>
+                i zapisz własną kopię pod nazwą
+                <code>Excel08_Nazwisko_Imie_Klasa.xlsx</code>.
+                Gotowy skoroszyt prześlij na ZADANIE w Teams.
+            </p>
+        </section>
+
+        <section id="organizacja">
+            <h2>1. Organizacja pracy</h2>
+            <p>Skoroszyt zawiera sześć arkuszy:</p>
+
+            <ul>
+                <li><strong>Start</strong> – temat, czas pracy i zasady oddania zadań.</li>
+                <li><strong>Jak pracować</strong> – instrukcja tworzenia tabel przestawnych.</li>
+                <li><strong>Instrukcje</strong> – szczegółowe polecenia do zadań 1–20.</li>
+                <li><strong>Dodatkowe</strong> – osiem zadań na około 30 minut.</li>
+                <li><strong>Kontrola</strong> – pola do potwierdzenia wykonania i wpisania odpowiedzi.</li>
+                <li><strong>Dane</strong> – tabela <code>tblZamowienia</code> z 240 rekordami.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Ważne:</strong>
+                nie modyfikuj danych ani formuł w arkuszu
+                <code>Dane</code>. Każde zadanie wykonuj jako
+                <strong>nową tabelę przestawną w osobnym arkuszu</strong>,
+                któremu nadaj nazwę
+                <code>Pivot01</code>, <code>Pivot02</code>,
+                …, <code>Pivot28</code>.
+            </div>
+        </section>
+
+        <section id="co-to">
+            <h2>2. Czym jest tabela przestawna?</h2>
+
+            <p>
+                <strong>Tabela przestawna</strong> służy do szybkiego
+                podsumowywania i analizowania wielu rekordów
+                bez ręcznego tworzenia formuł.
+                Pozwala na przykład sprawdzić liczbę zamówień
+                w regionach, sumę ich wartości albo średnią
+                wartość zamówienia w danym kanale sprzedaży.
+            </p>
+
+            <div class="definition">
+                <strong>Przykład:</strong>
+                w bazie znajduje się 240 zamówień.
+                Zamiast liczyć każde zamówienie osobno,
+                możesz przeciągnąć pole <code>Region</code>
+                do obszaru <strong>Wiersze</strong>,
+                a pole <code>ID</code> do obszaru
+                <strong>Wartości</strong> i ustawić
+                obliczenie <strong>Licznik</strong>.
+            </div>
+
+            <p>
+                <strong>Uwaga:</strong> pola
+                <code>Wartość [zł]</code> i
+                <code>Zysk [zł]</code> zawierają
+                wartości planowane także dla zamówień
+                anulowanych. Aby analizować wyłącznie
+                zamówienia zrealizowane, zastosuj filtr
+                <code>Status = Zrealizowane</code>.
+            </p>
+        </section>
+
+        <section id="tworzenie">
+            <h2>3. Tworzenie tabeli przestawnej</h2>
+
+            <div class="definition">
+                <strong>Ścieżka:</strong>
+                Wstawianie → Tabela przestawna →
+                Nowy arkusz → OK
+            </div>
+
+            <ol>
+                <li>Przejdź do arkusza <code>Dane</code>.</li>
+                <li>Kliknij dowolną komórkę tabeli <code>tblZamowienia</code>.</li>
+                <li>Na karcie <strong>Wstawianie</strong> wybierz <strong>Tabela przestawna</strong>.</li>
+                <li>Sprawdź, czy źródłem danych jest tabela <code>tblZamowienia</code>.</li>
+                <li>Wybierz <strong>Nowy arkusz</strong> i kliknij <strong>OK</strong>.</li>
+                <li>Zmień nazwę utworzonego arkusza na <code>Pivot01</code>.</li>
+                <li>Przeciągnij pola do odpowiednich obszarów panelu <strong>Pola tabeli przestawnej</strong>.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Pamiętaj:</strong> w następnym
+                zadaniu wróć do arkusza <code>Dane</code>
+                i utwórz kolejną tabelę w
+                <strong>nowym</strong> arkuszu.
+                Nie zastępuj tabeli z poprzedniego zadania.
+            </div>
+        </section>
+
+        <section id="pola">
+            <h2>4. Obszary tabeli przestawnej i rodzaje obliczeń</h2>
+
+            <ul>
+                <li><strong>Wiersze</strong> – grupowanie danych, np. według regionu lub kategorii.</li>
+                <li><strong>Kolumny</strong> – drugi podział danych, np. kanał sprzedaży.</li>
+                <li><strong>Wartości</strong> – wykonywanie obliczeń, np. suma kwot albo licznik zamówień.</li>
+                <li><strong>Filtry</strong> – ograniczanie wyników, np. tylko do zrealizowanych zamówień.</li>
+            </ul>
+
+            <h3>Zmiana rodzaju obliczenia</h3>
+
+            <ol>
+                <li>W obszarze <strong>Wartości</strong> kliknij strzałkę przy wybranym polu.</li>
+                <li>Wybierz <strong>Ustawienia pola wartości</strong>.</li>
+                <li>Wskaż odpowiednią funkcję: <strong>Suma, Licznik, Średnia, Maksimum</strong> lub <strong>Minimum</strong>.</li>
+                <li>W razie potrzeby kliknij <strong>Format liczby</strong> i ustaw odpowiedni format.</li>
+            </ol>
+
+            <div class="definition">
+                <strong>Formatowanie:</strong>
+                kwoty wyświetlaj z dwoma miejscami po przecinku,
+                liczniki jako liczby całkowite,
+                a rabaty i udziały jako procenty
+                z dwoma miejscami po przecinku.
+            </div>
+        </section>
+
+        <section id="analiza">
+            <h2>5. Analiza danych, filtry i procenty</h2>
+
+            <h3>Przykład – zestawienie według dwóch kryteriów</h3>
+
+            <ol>
+                <li>Utwórz nową tabelę przestawną na podstawie <code>tblZamowienia</code>.</li>
+                <li>Przeciągnij <code>Region</code> do obszaru <strong>Wiersze</strong>.</li>
+                <li>Przeciągnij <code>Kanał</code> do obszaru <strong>Kolumny</strong>.</li>
+                <li>Przeciągnij <code>Wartość [zł]</code> do obszaru <strong>Wartości</strong> i ustaw <strong>Suma</strong>.</li>
+                <li>Odczytaj kwotę dla wybranego połączenia regionu i kanału.</li>
+            </ol>
+
+            <h3>Przykład – udział procentowy (zadanie 20)</h3>
+
+            <ol>
+                <li>Ustaw pole <code>Region</code> w obszarze <strong>Wiersze</strong>.</li>
+                <li>Dodaj <code>Wartość [zł]</code> do obszaru <strong>Wartości</strong> dwa razy.</li>
+                <li>Pierwsze pole pozostaw jako <strong>Suma</strong>.</li>
+                <li>Dla drugiego pola wybierz <strong>Ustawienia pola wartości → Pokaż wartości jako → % sumy końcowej</strong>.</li>
+                <li>Ustaw format procentowy z dwoma miejscami i odczytaj udział regionu Wschód.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Uwaga:</strong> przy tworzeniu rankingów
+                TOP 5 lub TOP 3 użyj
+                <strong>Filtry wartości → 10 pierwszych…</strong>,
+                zmień liczbę wyświetlanych elementów
+                i posortuj sumy malejąco.
+            </div>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>6. Zadania podstawowe 1–20</h2>
+
+            <p>
+                Wszystkie polecenia z dokładną instrukcją
+                krok po kroku znajdują się w arkuszu
+                <code>Instrukcje</code>, w wierszach
+                <code>6–25</code>.
+                Każde zadanie wykonaj w osobnym arkuszu
+                <code>Pivot01</code>–<code>Pivot20</code>.
+            </p>
+
+            <ol>
+                <li><strong>Liczba zamówień w regionach</strong> – zliczanie identyfikatorów.</li>
+                <li><strong>Liczba sztuk według kategorii</strong> – sumowanie ilości.</li>
+                <li><strong>Wartość zamówień w regionach</strong> – suma kwot.</li>
+                <li><strong>Wartość zamówień w kategoriach</strong> – porównanie kategorii.</li>
+                <li><strong>Średnia wartość według kanału</strong> – obliczanie średniej.</li>
+                <li><strong>Zamówienia według statusu</strong> – zliczanie rekordów.</li>
+                <li><strong>Największe zamówienie według typu klienta</strong> – maksimum.</li>
+                <li><strong>Najmniejsze zamówienie w regionie</strong> – minimum.</li>
+                <li><strong>Suma planowanego zysku</strong> – sumowanie zysku.</li>
+                <li><strong>Wartość według handlowca</strong> – porównanie wyników.</li>
+                <li><strong>Region i kanał sprzedaży</strong> – tabela dwuwymiarowa.</li>
+                <li><strong>Kategoria i typ klienta</strong> – tabela dwuwymiarowa.</li>
+                <li><strong>Status zamówień w regionach</strong> – tabela dwuwymiarowa.</li>
+                <li><strong>Miesiąc i kanał</strong> – analiza wartości w czasie.</li>
+                <li><strong>Tylko zrealizowane zamówienia</strong> – filtr statusu.</li>
+                <li><strong>Online – liczba sztuk</strong> – filtr kanału.</li>
+                <li><strong>Średni rabat handlowców</strong> – średnia procentowa.</li>
+                <li><strong>Średnia liczba sztuk w kategorii</strong> – średnia ilości.</li>
+                <li><strong>TOP 5 produktów według wartości</strong> – ranking.</li>
+                <li><strong>Udział regionów w całości</strong> – procent sumy końcowej.</li>
+            </ol>
+        </section>
+
+        <section id="dodatkowe">
+            <h2>7. Ćwiczenia dodatkowe – około 30 minut</h2>
+
+            <p>
+                Po zakończeniu 20 zadań podstawowych
+                wykonaj ćwiczenia 21–28 z arkusza
+                <code>Dodatkowe</code> (wiersze <code>6–13</code>).
+                Każde wykonaj w kolejnym osobnym arkuszu
+                <code>Pivot21</code>–<code>Pivot28</code>.
+            </p>
+
+            <ol start="21">
+                <li><strong>Największa kategoria</strong> – porównaj sumy wartości.</li>
+                <li><strong>Zrealizowane zamówienia Online</strong> – zastosuj jednocześnie dwa filtry.</li>
+                <li><strong>Kanał i płatność</strong> – zlicz zamówienia w tabeli dwuwymiarowej.</li>
+                <li><strong>Zysk: miesiąc × kategoria</strong> – podsumuj planowany zysk.</li>
+                <li><strong>TOP 3 miast</strong> – przygotuj ranking.</li>
+                <li><strong>Maksymalny rabat</strong> – znajdź największy procent.</li>
+                <li><strong>Dwie miary w jednej tabeli</strong> – porównaj wartości i zysk.</li>
+                <li><strong>Wykres przestawny</strong> – utwórz wykres kolumnowy.</li>
+            </ol>
+
+            <div class="definition">
+                <strong>Wykres przestawny:</strong>
+                zaznacz tabelę przestawną i wybierz
+                <strong>Analiza → Wykres przestawny → Kolumnowy</strong>.
+                W zadaniu 28 potwierdź wykonanie wykresu
+                w arkuszu <code>Kontrola</code>.
+            </div>
+        </section>
+
+        <section id="kontrola">
+            <h2>8. Kontrola wykonania zadań</h2>
+
+            <p>
+                Po każdym zadaniu przejdź do arkusza
+                <code>Kontrola</code> i uzupełnij odpowiedni wiersz:
+            </p>
+
+            <ul>
+                <li><code>E6:E25</code> – wpisz <strong>TAK</strong> lub <strong>NIE</strong> dla zadań 1–20.</li>
+                <li><code>F6:F25</code> – wpisz odpowiedzi na pytania kontrolne do zadań 1–20.</li>
+                <li><code>E26:E33</code> – oznacz wykonanie zadań dodatkowych 21–28.</li>
+                <li><code>F26:F33</code> – wpisz odpowiedzi do zadań dodatkowych.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Przykład:</strong>
+                po wykonaniu zadania 1 w arkuszu
+                <code>Pivot01</code> wpisz
+                <code>TAK</code> w <code>Kontrola!E6</code>,
+                a liczbę zamówień z regionu Wschód
+                w <code>Kontrola!F6</code>.
+            </div>
+        </section>
+
+        <section id="oddanie">
+            <h2>9. Zapisanie i oddanie pracy</h2>
+
+            <ol>
+                <li>Sprawdź, czy powstały osobne arkusze <code>Pivot01</code>–<code>Pivot20</code>.</li>
+                <li>Jeśli wykonałeś zadania dodatkowe, sprawdź także arkusze <code>Pivot21</code>–<code>Pivot28</code>.</li>
+                <li>W arkuszu <code>Kontrola</code> uzupełnij kolumny <code>E</code> i <code>F</code> dla wykonanych zadań.</li>
+                <li>Nie usuwaj arkusza <code>Dane</code> ani nie modyfikuj tabeli <code>tblZamowienia</code>.</li>
+                <li>Zapisz plik jako <code>Excel08_Nazwisko_Imie_Klasa.xlsx</code>.</li>
+                <li>Prześlij jeden ukończony skoroszyt XLSX na ZADANIE w Teams.</li>
+            </ol>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Tabelę przestawną tworzysz przez <strong>Wstawianie → Tabela przestawna</strong>.</li>
+                <li>Obszary <strong>Wiersze</strong> i <strong>Kolumny</strong> służą do grupowania danych.</li>
+                <li>Obszar <strong>Wartości</strong> pozwala obliczać sumę, licznik, średnią, minimum i maksimum.</li>
+                <li>Obszar <strong>Filtry</strong> pozwala ograniczyć dane do wybranych warunków.</li>
+                <li>To samo pole można dodać do <strong>Wartości</strong> więcej niż raz.</li>
+                <li>Po zmianie danych źródłowych tabelę przestawną trzeba <strong>odświeżyć</strong>.</li>
+                <li>W tym ćwiczeniu każda tabela przestawna powinna znaleźć się w osobnym arkuszu.</li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+
+<footer>STREFA IT • AB • Lekcja 08</footer>
+</body>
+</html>
