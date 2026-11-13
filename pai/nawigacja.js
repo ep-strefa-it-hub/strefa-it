@@ -12,7 +12,7 @@ const lekcje = [
     "10-js-obiekty",
     "11-js-tablice",
     "12-js-funkcje",
-    "13-formularze",
+    "13-js-formularze",
     "14-powtorzenie"
 ];
 
