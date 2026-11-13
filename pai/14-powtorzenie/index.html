@@ -1,0 +1,1680 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lekcja 14 – JavaScript: Powtórzenie egzaminacyjne | STREFA IT</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← PAI</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <aside>
+        <h3>Spis treści</h3>
+
+        <a href="#wprowadzenie">O powtórzeniu</a>
+        <a href="#schemat">Schemat rozwiązania</a>
+        <a href="#szablon">Szablon pliku HTML</a>
+        <a href="#sciaga">Kompendium JavaScript</a>
+
+        <a href="#obliczenia">A. Obliczenia (01–08)</a>
+        <a href="#formularze">B. Formularze (09–14)</a>
+        <a href="#dom">C. DOM i CSS (15–21)</a>
+        <a href="#algorytmy">D. Tablice i algorytmy (22–28)</a>
+        <a href="#miniarkusze">E. Miniarkusze (29–30)</a>
+
+        <a href="#checklista">📌 Lista kontrolna</a>
+        <a href="#sprawdz">🎯 Sprawdź, czy potrafisz</a>
+    </aside>
+
+    <main>
+
+        <div class="lesson-title">
+            <div class="lesson-number">PAI • LEKCJA 14</div>
+
+            <h2>JavaScript: Powtórzenie egzaminacyjne</h2>
+
+            <p>
+                Kompendium praktyczne przygotowujące do egzaminu
+                INF.03 i wcześniejszej kwalifikacji EE.09.
+                Formularze, obliczenia, walidacja, zdarzenia,
+                modyfikowanie DOM, galerie oraz tablice.<br>
+
+                <strong>Cel główny:</strong>
+                samodzielne tworzenie skryptów JavaScript
+                na podstawie wymagań zadania egzaminacyjnego.
+            </p>
+        </div>
+
+
+        <section id="wprowadzenie">
+
+            <h2>O powtórzeniu</h2>
+
+            <div class="definition">
+                Zestaw zawiera <strong>30 autorskich zadań praktycznych</strong>
+                wzorowanych na typowych wymaganiach arkuszy INF.03
+                oraz EE.09. Zadania nie są dosłownymi kopiami arkuszy CKE.
+            </div>
+
+            <p>
+                Ćwiczenia zostały podzielone na pięć części:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Część</th>
+                    <th>Zakres</th>
+                    <th>Zadania</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>Obliczenia z formularzy</td>
+                    <td>01–08</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>Formularze i walidacja</td>
+                    <td>09–14</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>Zdarzenia, DOM, CSS i galerie</td>
+                    <td>15–21</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>Tablice, losowanie i algorytmy</td>
+                    <td>22–28</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>Rozbudowane zadania egzaminacyjne</td>
+                    <td>29–30</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Zasady pracy:</strong>
+                <ul>
+                    <li>Każde zadanie wykonaj w osobnym pliku HTML.</li>
+                    <li>Otrzymujesz potrzebne elementy HTML i wybrane style CSS.</li>
+                    <li>Twoim zadaniem jest napisanie działającego JavaScript.</li>
+                    <li>Nie korzystaj z PHP ani bazy danych.</li>
+                    <li>Wyniki wyświetlaj w wyznaczonych elementach strony.</li>
+                    <li>Sprawdź działanie skryptu na danych kontrolnych.</li>
+                    <li>Nie wpisuj wyników obliczeń na stałe.</li>
+                </ul>
+            </div>
+
+            <p>
+                Jeżeli przy zadaniu nie zamieszczono osobnego CSS,
+                wystarczy wspólny szablon znajdujący się poniżej.
+                Fragmenty HTML wstawiaj do znacznika
+                <code>&lt;main&gt;</code> własnego pliku.
+            </p>
+
+        </section>
+
+
+        <section id="schemat">
+
+            <h2>Schemat rozwiązywania zadania egzaminacyjnego</h2>
+
+            <ol>
+                <li>
+                    <strong>Przeczytaj wymagania skryptu.</strong>
+                    Zaznacz, jakie dane ma pobrać i gdzie wyświetlić wynik.
+                </li>
+                <li>
+                    <strong>Sprawdź identyfikatory HTML.</strong>
+                    Ustal, z jakich elementów korzysta skrypt.
+                </li>
+                <li>
+                    <strong>Pobierz dane.</strong>
+                    Zastosuj <code>getElementById()</code>
+                    lub <code>querySelector()</code>.
+                </li>
+                <li>
+                    <strong>Zamień typ danych.</strong>
+                    W obliczeniach często konieczne jest
+                    <code>Number()</code>.
+                </li>
+                <li>
+                    <strong>Wykonaj obliczenia lub instrukcje warunkowe.</strong>
+                    Nie pomijaj szczególnych przypadków.
+                </li>
+                <li>
+                    <strong>Wyświetl rezultat.</strong>
+                    Użyj odpowiedniego elementu HTML.
+                </li>
+                <li>
+                    <strong>Przetestuj działanie.</strong>
+                    Sprawdź przykład poprawny, błędne dane
+                    oraz wartości graniczne.
+                </li>
+            </ol>
+
+            <div class="important">
+                <strong>Ważne dla INF.03:</strong>
+                arkusz może wymagać konkretnego sposobu wyświetlania
+                wyniku lub przypisania zdarzenia.
+                Na egzaminie zawsze pierwszeństwo mają
+                dokładne wymagania danego arkusza.
+            </div>
+
+        </section>
+
+
+        <section id="szablon">
+
+            <h2>Szablon strony do wykonywania zadań</h2>
+
+            <p>
+                Skopiuj szablon do nowego pliku HTML.
+                Następnie zamień przykładową zawartość
+                bloku <code>main</code> na HTML wybranego zadania.
+            </p>
+
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Powtórzenie JavaScript&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f6fb;
+            margin: 30px;
+            color: #20324a;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #d6e0ed;
+            border-radius: 8px;
+        }
+
+        input, select, textarea, button {
+            font: inherit;
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .wynik {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #edf5ed;
+        }
+
+        .blad {
+            color: darkred;
+            font-weight: bold;
+        }
+
+        .poprawny {
+            color: darkgreen;
+            font-weight: bold;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;main&gt;
+        &lt;h1&gt;Zadanie egzaminacyjne&lt;/h1&gt;
+
+        &lt;!-- Tutaj umieść HTML wybranego zadania --&gt;
+
+    &lt;/main&gt;
+
+    &lt;script&gt;
+        // Tutaj napisz rozwiązanie JavaScript.
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <div class="definition">
+                W poniższych ćwiczeniach podaję jedynie
+                <strong>fragmenty HTML do umieszczenia w main</strong>.
+                Nie trzeba przepisywać całego szablonu
+                dla każdego zadania.
+            </div>
+
+        </section>
+
+
+        <section id="sciaga">
+
+            <h2>Kompendium JavaScript – najważniejsze zapisy</h2>
+
+            <h3>Pobieranie i wyświetlanie danych</h3>
+
+            <table>
+                <tr><th>Zapis</th><th>Zastosowanie</th></tr>
+                <tr>
+                    <td><code>document.getElementById("id")</code></td>
+                    <td>pobranie elementu o identyfikatorze</td>
+                </tr>
+                <tr>
+                    <td><code>document.querySelector(".klasa")</code></td>
+                    <td>pobranie pierwszego pasującego elementu</td>
+                </tr>
+                <tr>
+                    <td><code>document.querySelectorAll(".klasa")</code></td>
+                    <td>pobranie wszystkich pasujących elementów</td>
+                </tr>
+                <tr>
+                    <td><code>element.value</code></td>
+                    <td>odczyt wartości pola formularza</td>
+                </tr>
+                <tr>
+                    <td><code>element.checked</code></td>
+                    <td>sprawdzenie checkboxa lub radio</td>
+                </tr>
+                <tr>
+                    <td><code>element.textContent</code></td>
+                    <td>odczyt lub zmiana zawartości tekstowej</td>
+                </tr>
+                <tr>
+                    <td><code>element.style.color</code></td>
+                    <td>zmiana koloru tekstu</td>
+                </tr>
+                <tr>
+                    <td><code>element.style.backgroundColor</code></td>
+                    <td>zmiana koloru tła</td>
+                </tr>
+                <tr>
+                    <td><code>element.style.display</code></td>
+                    <td>zmiana sposobu wyświetlania elementu</td>
+                </tr>
+                <tr>
+                    <td><code>element.classList.toggle("klasa")</code></td>
+                    <td>przełączanie klasy CSS</td>
+                </tr>
+                <tr>
+                    <td><code>addEventListener("click", funkcja)</code></td>
+                    <td>obsługa zdarzenia kliknięcia</td>
+                </tr>
+            </table>
+
+            <h3>Obliczenia i przetwarzanie danych</h3>
+
+            <table>
+                <tr><th>Zapis</th><th>Zastosowanie</th></tr>
+                <tr><td><code>Number(tekst)</code></td><td>zamiana tekstu na liczbę</td></tr>
+                <tr><td><code>Number.isInteger(x)</code></td><td>sprawdzenie liczby całkowitej</td></tr>
+                <tr><td><code>Math.round(x)</code></td><td>zaokrąglenie do najbliższej liczby całkowitej</td></tr>
+                <tr><td><code>Math.ceil(x)</code></td><td>zaokrąglenie w górę</td></tr>
+                <tr><td><code>Math.floor(x)</code></td><td>zaokrąglenie w dół</td></tr>
+                <tr><td><code>Math.sqrt(x)</code></td><td>pierwiastek kwadratowy</td></tr>
+                <tr><td><code>Math.random()</code></td><td>losowanie liczby od 0 do mniej niż 1</td></tr>
+                <tr><td><code>liczba.toFixed(2)</code></td><td>formatowanie liczby do dwóch miejsc po przecinku</td></tr>
+                <tr><td><code>tablica.push(x)</code></td><td>dodanie elementu do tablicy</td></tr>
+                <tr><td><code>tablica.forEach()</code></td><td>przetwarzanie kolejnych elementów tablicy</td></tr>
+                <tr><td><code>tablica.filter()</code></td><td>wybór elementów spełniających warunek</td></tr>
+                <tr><td><code>tablica.sort()</code></td><td>sortowanie tablicy</td></tr>
+            </table>
+
+            <div class="important">
+                <strong>Zapamiętaj:</strong>
+                przed rozpoczęciem obliczeń sprawdź,
+                czy pole nie jest puste. Wyrażenie
+                <code>Number("")</code> daje wartość
+                <code>0</code>, co może prowadzić do błędnego wyniku.
+            </div>
+
+        </section>
+
+
+        <section id="obliczenia" class="tasks">
+
+            <h2>Część A – obliczenia i formularze</h2>
+
+            <p>
+                Zadania 01–08 obejmują obliczenia uruchamiane
+                po kliknięciu przycisku. To podstawowy schemat
+                wielu zadań egzaminacyjnych.
+            </p>
+
+
+            <h3 id="z01">Zadanie 01 – Pola figur geometrycznych</h3>
+
+            <p>
+                Utwórz skrypt, który odczytuje długości boków
+                prostokąta i oblicza jego pole oraz obwód.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Prostokąt&lt;/h2&gt;
+
+&lt;label for="a"&gt;Bok a:&lt;/label&gt;
+&lt;input type="number" id="a" step="any"&gt;
+
+&lt;label for="b"&gt;Bok b:&lt;/label&gt;
+&lt;input type="number" id="b" step="any"&gt;
+
+&lt;button id="oblicz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="pole"&gt;&lt;/p&gt;
+&lt;p id="obwod"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Pobierz wartości obu pól.</li>
+                <li>Sprawdź, czy są dodatnimi liczbami.</li>
+                <li>Oblicz pole i obwód.</li>
+                <li>Wyświetl oba wyniki w osobnych akapitach.</li>
+            </ul>
+
+            <p><strong>Test:</strong> dla boków 5 i 3 pole wynosi 15, a obwód 16.</p>
+
+
+            <h3 id="z02">Zadanie 02 – Przelicznik temperatury</h3>
+
+            <p>
+                Przygotuj kalkulator zamieniający stopnie Celsjusza
+                na stopnie Fahrenheita.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Przeliczanie temperatury&lt;/h2&gt;
+
+&lt;label for="celsius"&gt;Temperatura °C:&lt;/label&gt;
+&lt;input type="number" id="celsius" step="any"&gt;
+
+&lt;button id="przelicz"&gt;Przelicz&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p>
+                Zastosuj wzór:
+                <strong>F = C × 1,8 + 32</strong>.
+                Wyświetl wynik z dokładnością do dwóch miejsc.
+            </p>
+
+            <p><strong>Test:</strong> 20°C odpowiada 68°F.</p>
+
+
+            <h3 id="z03">Zadanie 03 – Kalkulator kosztu paliwa</h3>
+
+            <p>
+                Oblicz koszt paliwa potrzebnego na przejechanie
+                określonego dystansu.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Koszt przejazdu&lt;/h2&gt;
+
+&lt;label for="km"&gt;Dystans (km):&lt;/label&gt;
+&lt;input type="number" id="km"&gt;
+
+&lt;label for="spalanie"&gt;Spalanie (l/100 km):&lt;/label&gt;
+&lt;input type="number" id="spalanie" step="0.1"&gt;
+
+&lt;label for="cena"&gt;Cena paliwa (zł/l):&lt;/label&gt;
+&lt;input type="number" id="cena" step="0.01"&gt;
+
+&lt;button id="policz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Odczytaj trzy wartości liczbowe.</li>
+                <li>Oblicz liczbę litrów potrzebnego paliwa.</li>
+                <li>Oblicz koszt przejazdu.</li>
+                <li>Wynik wyświetl do dwóch miejsc po przecinku.</li>
+                <li>Odrzuć wartości ujemne i puste pola.</li>
+            </ul>
+
+            <p>
+                <strong>Test:</strong> 150 km, spalanie 6 l/100 km,
+                cena 6,50 zł/l – koszt wynosi <strong>58,50 zł</strong>.
+            </p>
+
+
+            <h3 id="z04">Zadanie 04 – Koszt kursów i raty</h3>
+
+            <p>
+                Oblicz koszt wybranych kursów komputerowych
+                i wysokość miesięcznej raty.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Kursy komputerowe&lt;/h2&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="kurs1"&gt;
+    Kurs JavaScript – 600 zł
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="kurs2"&gt;
+    Kurs HTML i CSS – 400 zł
+&lt;/label&gt;
+
+&lt;p&gt;
+    &lt;label for="raty"&gt;Liczba rat:&lt;/label&gt;
+    &lt;input type="number" id="raty" min="1"&gt;
+&lt;/p&gt;
+
+&lt;label for="miasto"&gt;Miasto:&lt;/label&gt;
+&lt;select id="miasto"&gt;
+    &lt;option&gt;Lublin&lt;/option&gt;
+    &lt;option&gt;Warszawa&lt;/option&gt;
+    &lt;option&gt;Kraków&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button id="oblicz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Odczytaj stan obu checkboxów.</li>
+                <li>Oblicz łączny koszt wybranych kursów.</li>
+                <li>Podziel koszt przez liczbę rat.</li>
+                <li>W komunikacie uwzględnij wybrane miasto.</li>
+                <li>Nie pozwól na brak kursu ani niepoprawną liczbę rat.</li>
+            </ul>
+
+            <p>
+                <strong>Test:</strong> dwa kursy, 4 raty –
+                koszt całkowity 1000 zł, jedna rata 250 zł.
+            </p>
+
+
+            <h3 id="z05">Zadanie 05 – Koszt wesela</h3>
+
+            <p>
+                Oblicz koszt przyjęcia weselnego z uwzględnieniem
+                opcjonalnych poprawin.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Organizacja wesela&lt;/h2&gt;
+
+&lt;label for="goscie"&gt;Liczba gości:&lt;/label&gt;
+&lt;input type="number" id="goscie"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="poprawiny"&gt;
+    Poprawiny (+30%)
+&lt;/label&gt;
+
+&lt;button id="koszt"&gt;Oblicz koszt&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p>
+                Koszt jednej osoby to <strong>130 zł</strong>.
+                Poprawiny zwiększają koszt o 30%.
+                Liczba gości musi być dodatnią liczbą całkowitą.
+            </p>
+
+            <p>
+                <strong>Test:</strong> 80 gości z poprawinami –
+                <strong>13 520 zł</strong>.
+            </p>
+
+
+            <h3 id="z06">Zadanie 06 – Dostawa pizzy</h3>
+
+            <p>
+                Skrypt oblicza koszt dostawy pizzy w zależności
+                od odległości i miejsca zamieszkania.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Dostawa pizzy&lt;/h2&gt;
+
+&lt;label for="odleglosc"&gt;Odległość (km):&lt;/label&gt;
+&lt;input type="number" id="odleglosc" step="0.1"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="miasto"&gt;
+    Mieszkam w mieście
+&lt;/label&gt;
+
+&lt;button id="policz"&gt;Oblicz dostawę&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Dostawa w mieście jest bezpłatna.</li>
+                <li>Poza miastem koszt wynosi 2 zł za kilometr.</li>
+                <li>Nie dopuszczaj ujemnej odległości.</li>
+                <li>Wyświetl koszt lub odpowiedni komunikat.</li>
+            </ul>
+
+            <p><strong>Test:</strong> 8 km poza miastem – 16 zł.</p>
+
+
+            <h3 id="z07">Zadanie 07 – Zamówienie cegieł</h3>
+
+            <p>
+                Oblicz koszt i masę zamówionych cegieł.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Skład budowlany&lt;/h2&gt;
+
+&lt;label for="ilosc"&gt;Liczba cegieł:&lt;/label&gt;
+&lt;input type="number" id="ilosc"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="premium"&gt;
+    Cegła premium
+&lt;/label&gt;
+
+&lt;button id="policz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="koszt"&gt;&lt;/p&gt;
+&lt;p id="masa"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Dane:</strong></p>
+            <ul>
+                <li>Cegła zwykła kosztuje 2 zł i waży 1,5 kg.</li>
+                <li>Cegła premium kosztuje 2,60 zł i waży 1,75 kg.</li>
+                <li>Oblicz koszt zamówienia i jego masę.</li>
+                <li>Wyniki wyświetl w dwóch akapitach.</li>
+            </ul>
+
+            <p>
+                <strong>Test:</strong> 100 cegieł premium –
+                koszt 260 zł, masa 175 kg.
+            </p>
+
+
+            <h3 id="z08">Zadanie 08 – Zamówienie hurtowe</h3>
+
+            <p>
+                Napisz skrypt, który obliczy koszt zakupu towaru
+                na podstawie liczby sztuk.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Hurtownia&lt;/h2&gt;
+
+&lt;label for="ilosc"&gt;Liczba sztuk:&lt;/label&gt;
+&lt;input type="number" id="ilosc"&gt;
+
+&lt;button id="oblicz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="cena"&gt;&lt;/p&gt;
+&lt;p id="razem"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Cennik:</strong></p>
+            <ul>
+                <li>Od 1 do 10 sztuk – 20 zł za sztukę.</li>
+                <li>Od 11 do 50 sztuk – 18 zł za sztukę.</li>
+                <li>Powyżej 50 sztuk – 15 zł za sztukę.</li>
+                <li>Cena z odpowiedniego progu dotyczy wszystkich sztuk.</li>
+                <li>Wyświetl cenę jednostkową i koszt całkowity.</li>
+            </ul>
+
+            <p><strong>Test:</strong> 12 sztuk – 216 zł.</p>
+
+        </section>
+
+
+        <section id="formularze" class="tasks">
+
+            <h2>Część B – formularze i walidacja</h2>
+
+            <p>
+                Zadania 09–14 sprawdzają odczyt pól,
+                obsługę zdarzeń oraz kontrolę poprawności danych.
+            </p>
+
+
+            <h3 id="z09">Zadanie 09 – Wybór dostawy i dodatków</h3>
+
+            <p>
+                Użytkownik wybiera sposób dostawy i opcjonalne
+                pakowanie prezentowe.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Opcje zamówienia&lt;/h2&gt;
+
+&lt;label&gt;
+    &lt;input type="radio" name="dostawa" value="0"&gt;
+    Odbiór osobisty – 0 zł
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio" name="dostawa" value="12"&gt;
+    Paczkomat – 12 zł
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio" name="dostawa" value="20"&gt;
+    Kurier – 20 zł
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="prezent"&gt;
+    Pakowanie prezentowe (+15 zł)
+&lt;/label&gt;
+
+&lt;button id="policz"&gt;Oblicz dodatki&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p>
+                Pobierz zaznaczone pole radio,
+                odczytaj jego wartość i stan checkboxa.
+                Wyświetl sumę kosztów.
+                Jeżeli użytkownik nie wybrał dostawy,
+                pokaż komunikat o błędzie.
+            </p>
+
+            <p><strong>Test:</strong> kurier z pakowaniem – 35 zł.</p>
+
+
+            <h3 id="z10">Zadanie 10 – Rejestracja użytkownika</h3>
+
+            <p>
+                Utwórz walidację formularza rejestracyjnego.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Rejestracja&lt;/h2&gt;
+
+&lt;form id="rejestracja" novalidate&gt;
+    &lt;label for="login"&gt;Login:&lt;/label&gt;
+    &lt;input type="text" id="login"&gt;
+
+    &lt;label for="haslo1"&gt;Hasło:&lt;/label&gt;
+    &lt;input type="password" id="haslo1"&gt;
+
+    &lt;label for="haslo2"&gt;Powtórz hasło:&lt;/label&gt;
+    &lt;input type="password" id="haslo2"&gt;
+
+    &lt;button type="submit"&gt;Zarejestruj&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Login musi mieć minimum 3 znaki.</li>
+                <li>Hasło musi mieć minimum 8 znaków.</li>
+                <li>Oba hasła muszą być identyczne.</li>
+                <li>Nie dopuszczaj pustych pól.</li>
+                <li>Obsłuż zdarzenie <code>submit</code>.</li>
+                <li>Wyświetl komunikat bez przeładowania strony.</li>
+            </ul>
+
+
+            <h3 id="z11">Zadanie 11 – Pokazywanie i ukrywanie hasła</h3>
+
+            <p>
+                Przygotuj przycisk zmieniający widoczność hasła.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Hasło&lt;/h2&gt;
+
+&lt;label for="haslo"&gt;Podaj hasło:&lt;/label&gt;
+&lt;input type="password" id="haslo"&gt;
+
+&lt;button type="button" id="pokaz"&gt;Pokaż hasło&lt;/button&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Pierwsze kliknięcie zmienia typ pola na <code>text</code>.</li>
+                <li>Drugie kliknięcie przywraca <code>password</code>.</li>
+                <li>Tekst przycisku zmienia się odpowiednio.</li>
+                <li>Zawartość pola nie może zostać usunięta.</li>
+            </ul>
+
+
+            <h3 id="z12">Zadanie 12 – Licznik znaków</h3>
+
+            <p>
+                Na bieżąco wyświetlaj liczbę wpisanych znaków
+                i pozostały limit.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Wiadomość&lt;/h2&gt;
+
+&lt;label for="tresc"&gt;Treść wiadomości:&lt;/label&gt;
+
+&lt;textarea id="tresc"
+          rows="5"
+          maxlength="200"&gt;&lt;/textarea&gt;
+
+&lt;p id="licznik"&gt;Wpisano: 0&lt;/p&gt;
+&lt;p id="pozostalo"&gt;Pozostało: 200&lt;/p&gt;</code></pre>
+
+            <p>
+                Zastosuj zdarzenie <code>input</code>
+                oraz właściwość <code>length</code>.
+            </p>
+
+            <p>
+                <strong>Test:</strong> po wpisaniu 35 znaków
+                pozostały limit wynosi 165.
+            </p>
+
+
+            <h3 id="z13">Zadanie 13 – Kontrola danych kontaktowych</h3>
+
+            <p>
+                Formularz ma sprawdzać poprawność adresu e-mail
+                i numeru telefonu.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Dane kontaktowe&lt;/h2&gt;
+
+&lt;form id="kontakt" novalidate&gt;
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+    &lt;input type="email" id="email"&gt;
+
+    &lt;label for="telefon"&gt;Telefon:&lt;/label&gt;
+    &lt;input type="text" id="telefon"&gt;
+
+    &lt;button type="submit"&gt;Sprawdź&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>E-mail musi zawierać znak <code>@</code> oraz kropkę w części domenowej.</li>
+                <li>Telefon musi składać się z dokładnie 9 cyfr.</li>
+                <li>Sprawdź, czy pola nie są puste.</li>
+                <li>Komunikat poprawności wyświetl pod formularzem.</li>
+                <li>Nie używaj <code>alert()</code>.</li>
+            </ul>
+
+            <div class="important">
+                Jest to uproszczona walidacja ćwiczeniowa.
+                W rzeczywistej aplikacji sprawdzanie adresu e-mail
+                wymaga dokładniejszych zasad.
+            </div>
+
+
+            <h3 id="z14">Zadanie 14 – Rezerwacja noclegu</h3>
+
+            <p>
+                Utwórz formularz obliczający koszt pobytu
+                w wybranym pokoju.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Rezerwacja pokoju&lt;/h2&gt;
+
+&lt;label for="pokoj"&gt;Rodzaj pokoju:&lt;/label&gt;
+&lt;select id="pokoj"&gt;
+    &lt;option value=""&gt;Wybierz pokój&lt;/option&gt;
+    &lt;option value="160"&gt;Jednoosobowy&lt;/option&gt;
+    &lt;option value="240"&gt;Dwuosobowy&lt;/option&gt;
+    &lt;option value="390"&gt;Apartament&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label for="noce"&gt;Liczba nocy:&lt;/label&gt;
+&lt;input type="number" id="noce"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="parking"&gt;
+    Parking (+20 zł za noc)
+&lt;/label&gt;
+
+&lt;button id="oblicz"&gt;Oblicz&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p>
+                Skrypt ma pobrać cenę pokoju, liczbę nocy
+                i opcję parkingu.
+                Wyświetl całkowity koszt pobytu.
+            </p>
+
+            <p>
+                <strong>Test:</strong> pokój dwuosobowy,
+                3 noce z parkingiem – <strong>780 zł</strong>.
+            </p>
+
+        </section>
+
+
+        <section id="dom" class="tasks">
+
+            <h2>Część C – zdarzenia, DOM, CSS i galerie</h2>
+
+            <p>
+                W tej części skrypty modyfikują wygląd strony,
+                zmieniają treść i reagują na działania użytkownika.
+            </p>
+
+
+            <h3 id="z15">Zadanie 15 – Edytor wyglądu tekstu</h3>
+
+            <p>
+                Po kliknięciu przycisku skrypt ma zmieniać
+                wygląd akapitu zgodnie z wyborem użytkownika.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Edytor tekstu&lt;/h2&gt;
+
+&lt;p id="tekst"&gt;Przykładowy tekst do formatowania.&lt;/p&gt;
+
+&lt;label for="kolor"&gt;Kolor tekstu:&lt;/label&gt;
+&lt;select id="kolor"&gt;
+    &lt;option value="black"&gt;Czarny&lt;/option&gt;
+    &lt;option value="red"&gt;Czerwony&lt;/option&gt;
+    &lt;option value="blue"&gt;Niebieski&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label for="rozmiar"&gt;Rozmiar czcionki:&lt;/label&gt;
+&lt;input type="number" id="rozmiar" value="18"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="pogrubienie"&gt;
+    Pogrubienie
+&lt;/label&gt;
+
+&lt;button id="zastosuj"&gt;Zastosuj&lt;/button&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Zmień kolor czcionki.</li>
+                <li>Zmień jej rozmiar w pikselach.</li>
+                <li>Ustaw lub wyłącz pogrubienie.</li>
+                <li>Nie zmieniaj treści akapitu.</li>
+            </ul>
+
+
+            <h3 id="z16">Zadanie 16 – Przełączanie motywu strony</h3>
+
+            <p>
+                Utwórz przycisk przełączający jasny
+                i ciemny wygląd strony.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Motyw strony&lt;/h2&gt;
+
+&lt;div id="panel"&gt;
+    &lt;p&gt;Witaj na stronie internetowej.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;button id="motyw"&gt;Zmień motyw&lt;/button&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#panel {
+    padding: 30px;
+    background-color: white;
+    color: black;
+    border: 1px solid #999;
+}
+
+#panel.ciemny {
+    background-color: #222;
+    color: white;
+}</code></pre>
+
+            <p>
+                Przełączaj klasę <code>ciemny</code>
+                za pomocą <code>classList.toggle()</code>.
+                Każde kliknięcie ma zmieniać motyw.
+            </p>
+
+
+            <h3 id="z17">Zadanie 17 – Przełączanie widocznych sekcji</h3>
+
+            <p>
+                Po kliknięciu odpowiedniego przycisku
+                ma zostać pokazana tylko jedna sekcja.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Informacje&lt;/h2&gt;
+
+&lt;button class="zakladka" data-sekcja="sekcja1"&gt;Oferta&lt;/button&gt;
+&lt;button class="zakladka" data-sekcja="sekcja2"&gt;Cennik&lt;/button&gt;
+&lt;button class="zakladka" data-sekcja="sekcja3"&gt;Kontakt&lt;/button&gt;
+
+&lt;div id="sekcja1" class="sekcja"&gt;
+    &lt;h3&gt;Oferta&lt;/h3&gt;
+    &lt;p&gt;Nasze usługi&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="sekcja2" class="sekcja"&gt;
+    &lt;h3&gt;Cennik&lt;/h3&gt;
+    &lt;p&gt;Ceny usług&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="sekcja3" class="sekcja"&gt;
+    &lt;h3&gt;Kontakt&lt;/h3&gt;
+    &lt;p&gt;Dane kontaktowe&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.sekcja {
+    display: none;
+    padding: 20px;
+    background-color: #eef3fa;
+}
+
+.aktywna {
+    display: block;
+}
+
+.zakladka.wybrana {
+    background-color: lightblue;
+    font-weight: bold;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Początkowo widoczna jest tylko pierwsza sekcja.</li>
+                <li>Kliknięcie przycisku pokazuje odpowiadającą mu sekcję.</li>
+                <li>Pozostałe sekcje są ukrywane.</li>
+                <li>Aktywny przycisk otrzymuje klasę <code>wybrana</code>.</li>
+                <li>Zastosuj <code>querySelectorAll()</code> i <code>forEach()</code>.</li>
+            </ul>
+
+
+            <h3 id="z18">Zadanie 18 – Rozwijane odpowiedzi</h3>
+
+            <p>
+                Utwórz prosty zestaw pytań i odpowiedzi.
+                Kliknięcie pytania ma pokazywać lub ukrywać odpowiedź.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Najczęstsze pytania&lt;/h2&gt;
+
+&lt;button class="pytanie"&gt;Co to jest HTML?&lt;/button&gt;
+&lt;p class="odpowiedz"&gt;Język znaczników.&lt;/p&gt;
+
+&lt;button class="pytanie"&gt;Co to jest CSS?&lt;/button&gt;
+&lt;p class="odpowiedz"&gt;Język stylów.&lt;/p&gt;
+
+&lt;button class="pytanie"&gt;Co to jest JavaScript?&lt;/button&gt;
+&lt;p class="odpowiedz"&gt;Język programowania.&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.pytanie {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.odpowiedz {
+    display: none;
+    padding: 15px;
+    background-color: #eef3fa;
+}</code></pre>
+
+            <p>
+                Po kliknięciu pytania zmień sposób
+                wyświetlania odpowiadającego mu paragrafu.
+                Ponowne kliknięcie ma go ukryć.
+            </p>
+
+
+            <h3 id="z19">Zadanie 19 – Filtry CSS</h3>
+
+            <p>
+                Przygotuj skrypt zmieniający wygląd obrazu
+                przy użyciu filtrów CSS.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Efekty graficzne&lt;/h2&gt;
+
+&lt;img src="obraz.jpg" alt="Przykładowy obraz" id="zdjecie"&gt;
+
+&lt;button id="szarosc"&gt;Czarno-biały&lt;/button&gt;
+&lt;button id="sepia"&gt;Sepia&lt;/button&gt;
+&lt;button id="rozmycie"&gt;Rozmycie&lt;/button&gt;
+&lt;button id="reset"&gt;Bez filtra&lt;/button&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#zdjecie {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Przycisk 1 ustawia <code>grayscale(100%)</code>.</li>
+                <li>Przycisk 2 ustawia <code>sepia(100%)</code>.</li>
+                <li>Przycisk 3 ustawia <code>blur(3px)</code>.</li>
+                <li>Przycisk 4 przywraca oryginalny obraz.</li>
+            </ul>
+
+            <div class="important">
+                Do przetestowania zadania umieść obok pliku HTML
+                własny obraz o nazwie <code>obraz.jpg</code>.
+            </div>
+
+
+            <h3 id="z20">Zadanie 20 – Galeria miniatur</h3>
+
+            <p>
+                Kliknięcie miniatury ma zmieniać główny obraz galerii.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Galeria zdjęć&lt;/h2&gt;
+
+&lt;img id="duze" src="foto1.jpg" alt="Duże zdjęcie"&gt;
+
+&lt;div id="miniatury"&gt;
+    &lt;img class="miniatura" src="foto1.jpg" alt="Zdjęcie 1"&gt;
+    &lt;img class="miniatura" src="foto2.jpg" alt="Zdjęcie 2"&gt;
+    &lt;img class="miniatura" src="foto3.jpg" alt="Zdjęcie 3"&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#duze {
+    width: 500px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.miniatura {
+    width: 120px;
+    cursor: pointer;
+    margin: 5px;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Pobierz wszystkie miniatury.</li>
+                <li>Każdej przypisz zdarzenie kliknięcia.</li>
+                <li>Po kliknięciu zmień <code>src</code> dużego obrazu.</li>
+                <li>Zaktualizuj również jego tekst alternatywny.</li>
+            </ul>
+
+            <p>
+                Do wykonania zadania użyj trzech własnych zdjęć:
+                <code>foto1.jpg</code>, <code>foto2.jpg</code>
+                i <code>foto3.jpg</code>.
+            </p>
+
+
+            <h3 id="z21">Zadanie 21 – Pokaz slajdów</h3>
+
+            <p>
+                Zbuduj galerię z przyciskami „Poprzednie”
+                i „Następne”.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Pokaz zdjęć&lt;/h2&gt;
+
+&lt;img id="slajd" src="foto1.jpg" alt="Zdjęcie 1"&gt;
+
+&lt;p&gt;
+    &lt;button id="poprzednie"&gt;Poprzednie&lt;/button&gt;
+    &lt;button id="nastepne"&gt;Następne&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p id="numer"&gt;Zdjęcie 1 z 3&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#slajd {
+    display: block;
+    width: 450px;
+    max-width: 100%;
+    margin-bottom: 15px;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Przechowuj nazwy trzech zdjęć w tablicy.</li>
+                <li>Zastosuj zmienną numeru aktualnego zdjęcia.</li>
+                <li>Przyciski zmieniają wyświetlany obraz.</li>
+                <li>Po ostatnim zdjęciu pojawia się pierwsze.</li>
+                <li>Po pierwszym zdjęciu przy cofaniu pojawia się ostatnie.</li>
+                <li>Aktualizuj licznik zdjęć.</li>
+            </ul>
+
+        </section>
+
+
+        <section id="algorytmy" class="tasks">
+
+            <h2>Część D – tablice, DOM i algorytmy</h2>
+
+            <p>
+                Zadania 22–28 wymagają połączenia pętli,
+                funkcji, tablic i tworzenia elementów HTML.
+            </p>
+
+
+            <h3 id="z22">Zadanie 22 – Zaznaczanie kart</h3>
+
+            <p>
+                Użytkownik może zaznaczać i odznaczać karty
+                po kliknięciu.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Wybierz produkty&lt;/h2&gt;
+
+&lt;div class="karta"&gt;Monitor&lt;/div&gt;
+&lt;div class="karta"&gt;Klawiatura&lt;/div&gt;
+&lt;div class="karta"&gt;Mysz&lt;/div&gt;
+
+&lt;p id="ile"&gt;Zaznaczono: 0&lt;/p&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">.karta {
+    display: inline-block;
+    padding: 25px;
+    margin: 10px;
+    background-color: #dce8f7;
+    cursor: pointer;
+}
+
+.karta.zaznaczona {
+    background-color: #82c4a4;
+    font-weight: bold;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Każda karta reaguje na kliknięcie.</li>
+                <li>Zmieniaj klasę <code>zaznaczona</code>.</li>
+                <li>Obliczaj i wyświetlaj liczbę zaznaczonych kart.</li>
+                <li>Nie twórz osobnej funkcji dla każdej karty.</li>
+            </ul>
+
+
+            <h3 id="z23">Zadanie 23 – Prosty czat</h3>
+
+            <p>
+                Utwórz formularz umożliwiający dodawanie
+                kolejnych wiadomości do strony.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Czat&lt;/h2&gt;
+
+&lt;div id="wiadomosci"&gt;&lt;/div&gt;
+
+&lt;label for="tekst"&gt;Wiadomość:&lt;/label&gt;
+&lt;input type="text" id="tekst"&gt;
+
+&lt;button id="wyslij"&gt;Wyślij&lt;/button&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#wiadomosci {
+    min-height: 200px;
+    padding: 15px;
+    border: 1px solid #999;
+    background-color: #f3f6fb;
+}
+
+.wiadomosc {
+    padding: 8px;
+    margin: 5px;
+    background-color: #dce8f7;
+}</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Po kliknięciu odczytaj treść wiadomości.</li>
+                <li>Utwórz nowy akapit za pomocą <code>createElement()</code>.</li>
+                <li>Dodaj go do bloku wiadomości.</li>
+                <li>Wyczyść pole tekstowe.</li>
+                <li>Nie dodawaj pustych wiadomości.</li>
+                <li>Nie usuwaj wcześniej dodanych wpisów.</li>
+            </ul>
+
+
+            <h3 id="z24">Zadanie 24 – Dynamiczna tabela</h3>
+
+            <p>
+                Wyświetl produkty w tabeli HTML na podstawie
+                przygotowanej tablicy obiektów.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Lista produktów&lt;/h2&gt;
+
+&lt;button id="pokaz"&gt;Pokaż produkty&lt;/button&gt;
+
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nazwa&lt;/th&gt;
+            &lt;th&gt;Cena&lt;/th&gt;
+            &lt;th&gt;Ilość&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id="produkty"&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">table {
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+td, th {
+    border: 1px solid #777;
+    padding: 10px;
+}</code></pre>
+
+            <p>W skrypcie wykorzystaj dane:</p>
+
+            <pre><code class="language-javascript">const dane = [
+    { nazwa: "Mysz", cena: 50, ilosc: 5 },
+    { nazwa: "Monitor", cena: 800, ilosc: 2 },
+    { nazwa: "Klawiatura", cena: 120, ilosc: 4 }
+];</code></pre>
+
+            <p>
+                <strong>Wymagania:</strong>
+                po kliknięciu przycisku utwórz trzy wiersze
+                tabeli. Nie wpisuj ich na stałe w HTML.
+                Ponowne kliknięcie nie może dublować wierszy.
+            </p>
+
+
+            <h3 id="z25">Zadanie 25 – Losowanie liczb i statystyki</h3>
+
+            <p>
+                Użytkownik podaje liczbę losowań.
+                Skrypt generuje tablicę liczb i oblicza statystyki.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Losowanie liczb&lt;/h2&gt;
+
+&lt;label for="ilosc"&gt;Ile liczb wylosować?&lt;/label&gt;
+&lt;input type="number" id="ilosc"&gt;
+
+&lt;button id="losuj"&gt;Losuj&lt;/button&gt;
+
+&lt;p id="liczby"&gt;&lt;/p&gt;
+&lt;p id="suma"&gt;&lt;/p&gt;
+&lt;p id="srednia"&gt;&lt;/p&gt;
+&lt;p id="minimum"&gt;&lt;/p&gt;
+&lt;p id="maksimum"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Użytkownik może wylosować od 1 do 30 liczb.</li>
+                <li>Losuj liczby całkowite od 1 do 100.</li>
+                <li>Przechowuj liczby w tablicy.</li>
+                <li>Wyświetl liczby, sumę, średnią, minimum i maksimum.</li>
+                <li>Przy każdym kliknięciu wykonaj nowe losowanie.</li>
+            </ul>
+
+
+            <h3 id="z26">Zadanie 26 – Losowanie bez powtórzeń</h3>
+
+            <p>
+                Napisz skrypt losujący sześć różnych liczb
+                z przedziału od 1 do 49.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Losowanie 6 z 49&lt;/h2&gt;
+
+&lt;button id="losuj"&gt;Losuj liczby&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Wylosuj sześć liczb całkowitych.</li>
+                <li>Żadna liczba nie może się powtarzać.</li>
+                <li>Zapisz wyniki w tablicy.</li>
+                <li>Posortuj liczby rosnąco.</li>
+                <li>Wyświetl je w jednym akapicie.</li>
+            </ul>
+
+
+            <h3 id="z27">Zadanie 27 – Filtrowanie i sortowanie produktów</h3>
+
+            <p>
+                Użytkownik może wyświetlić wszystkie produkty,
+                przefiltrować je według ceny albo posortować.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Katalog produktów&lt;/h2&gt;
+
+&lt;label for="cena"&gt;Cena minimalna:&lt;/label&gt;
+&lt;input type="number" id="cena" value="0"&gt;
+
+&lt;button id="filtruj"&gt;Filtruj&lt;/button&gt;
+&lt;button id="sortuj"&gt;Sortuj rosnąco&lt;/button&gt;
+&lt;button id="wszystkie"&gt;Pokaż wszystkie&lt;/button&gt;
+
+&lt;ul id="lista"&gt;&lt;/ul&gt;
+
+&lt;p id="licznik"&gt;&lt;/p&gt;</code></pre>
+
+            <p>Dane produktów:</p>
+
+            <pre><code class="language-javascript">const produkty = [
+    { nazwa: "Mysz", cena: 49 },
+    { nazwa: "Monitor", cena: 850 },
+    { nazwa: "Klawiatura", cena: 120 },
+    { nazwa: "Pendrive", cena: 35 },
+    { nazwa: "Drukarka", cena: 650 }
+];</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Wyświetl produkty jako elementy listy.</li>
+                <li>Filtruj ceny większe lub równe podanej wartości.</li>
+                <li>Sortuj według ceny, nie alfabetycznie.</li>
+                <li>Przycisk „Pokaż wszystkie” przywraca pełną listę.</li>
+                <li>Wyświetl liczbę widocznych produktów.</li>
+            </ul>
+
+            <p>
+                <strong>Test:</strong> dla ceny minimalnej 100 zł
+                widoczne powinny być 3 produkty.
+            </p>
+
+
+            <h3 id="z28">Zadanie 28 – Zamiana na system binarny</h3>
+
+            <p>
+                Przygotuj skrypt zamieniający liczbę dziesiętną
+                na jej zapis binarny.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Konwerter systemów liczbowych&lt;/h2&gt;
+
+&lt;label for="liczba"&gt;Liczba dziesiętna:&lt;/label&gt;
+&lt;input type="number" id="liczba" min="0" step="1"&gt;
+
+&lt;button id="przelicz"&gt;Konwertuj&lt;/button&gt;
+
+&lt;p id="wynik"&gt;&lt;/p&gt;</code></pre>
+
+            <p><strong>Wymagania:</strong></p>
+            <ul>
+                <li>Pobierz nieujemną liczbę całkowitą.</li>
+                <li>Zamień ją na system binarny.</li>
+                <li>Podziel zapis na grupy po cztery cyfry od prawej strony.</li>
+                <li>Między grupami umieść spacje.</li>
+                <li>Dodaj oznaczenie podstawy systemu jako indeks dolny.</li>
+                <li>Nie dopuść do wpisania liczby ujemnej lub ułamkowej.</li>
+            </ul>
+
+            <p>
+                <strong>Test:</strong> dla liczby 170
+                wynik ma wyglądać tak:
+                <strong>1010 1010<sub>(2)</sub></strong>.
+            </p>
+
+        </section>
+
+
+        <section id="miniarkusze" class="tasks">
+
+            <h2>Część E – rozbudowane miniarkusze INF.03</h2>
+
+            <p>
+                Ostatnie dwa zadania wymagają samodzielnego
+                zaplanowania większego skryptu.
+                Łączą kilka zagadnień z poprzednich lekcji.
+            </p>
+
+
+            <h3 id="z29">Zadanie 29 – Konfigurator sklepu komputerowego</h3>
+
+            <p>
+                Utwórz aplikację do przygotowania zamówienia
+                sprzętu komputerowego.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Konfigurator zamówienia&lt;/h2&gt;
+
+&lt;label for="produkt"&gt;Produkt:&lt;/label&gt;
+&lt;select id="produkt"&gt;
+    &lt;option value=""&gt;Wybierz produkt&lt;/option&gt;
+    &lt;option value="mysz"&gt;Mysz&lt;/option&gt;
+    &lt;option value="klawiatura"&gt;Klawiatura&lt;/option&gt;
+    &lt;option value="monitor"&gt;Monitor&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label for="ilosc"&gt;Liczba sztuk:&lt;/label&gt;
+&lt;input type="number" id="ilosc" min="1"&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox" id="gwarancja"&gt;
+    Dodatkowa gwarancja (+10%)
+&lt;/label&gt;
+
+&lt;label for="dostawa"&gt;Dostawa:&lt;/label&gt;
+&lt;select id="dostawa"&gt;
+    &lt;option value="0"&gt;Odbiór osobisty&lt;/option&gt;
+    &lt;option value="15"&gt;Paczkomat&lt;/option&gt;
+    &lt;option value="25"&gt;Kurier&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button id="oblicz"&gt;Oblicz zamówienie&lt;/button&gt;
+&lt;button id="wyczysc"&gt;Wyczyść&lt;/button&gt;
+
+&lt;div id="wynik"&gt;&lt;/div&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#wynik {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #edf3fa;
+}
+
+.blad {
+    color: darkred;
+}
+
+.poprawny {
+    color: darkgreen;
+}</code></pre>
+
+            <p>
+                W JavaScript utwórz tablicę obiektów:
+            </p>
+
+            <pre><code class="language-javascript">const produkty = [
+    { id: "mysz", nazwa: "Mysz", cena: 50 },
+    { id: "klawiatura", nazwa: "Klawiatura", cena: 120 },
+    { id: "monitor", nazwa: "Monitor", cena: 850 }
+];</code></pre>
+
+            <h3>Wymagania dotyczące skryptu</h3>
+
+            <ol>
+                <li>Po kliknięciu „Oblicz zamówienie” odczytaj dane z formularza.</li>
+                <li>Wyszukaj produkt w tablicy metodą <code>find()</code>.</li>
+                <li>Oblicz koszt produktów jako cena × ilość.</li>
+                <li>Jeżeli zaznaczono dodatkową gwarancję, zwiększ koszt produktów o 10%.</li>
+                <li>Dodaj koszt wybranej dostawy.</li>
+                <li>Sprawdź, czy wybrano produkt i podano dodatnią liczbę całkowitą sztuk.</li>
+                <li>Wyświetl nazwę produktu, liczbę sztuk, koszt produktów, dodatki, dostawę i kwotę do zapłaty.</li>
+                <li>Wynik wyświetl do dwóch miejsc po przecinku.</li>
+                <li>W razie błędnych danych wyświetl komunikat w klasie <code>blad</code>.</li>
+                <li>Przycisk „Wyczyść” ma przywracać początkowe wartości formularza i usuwać wynik.</li>
+            </ol>
+
+            <div class="definition">
+                <strong>Dane kontrolne:</strong>
+                2 klawiatury z gwarancją i dostawą kurierem:
+                240 zł + 24 zł + 25 zł =
+                <strong>289,00 zł</strong>.
+            </div>
+
+
+            <h3 id="z30">Zadanie 30 – Gra „Kółko i krzyżyk”</h3>
+
+            <p>
+                Ostatnie zadanie polega na utworzeniu prostej
+                gry dla dwóch graczy.
+                Wymaga obsługi wielu zdarzeń, tablicy,
+                instrukcji warunkowych i modyfikowania DOM.
+            </p>
+
+            <pre><code class="language-html">&lt;h2&gt;Kółko i krzyżyk&lt;/h2&gt;
+
+&lt;p id="status"&gt;Ruch gracza X&lt;/p&gt;
+
+&lt;div id="plansza"&gt;
+    &lt;button class="pole" data-index="0"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="1"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="2"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="3"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="4"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="5"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="6"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="7"&gt;&lt;/button&gt;
+    &lt;button class="pole" data-index="8"&gt;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;button id="reset"&gt;Nowa gra&lt;/button&gt;</code></pre>
+
+            <p>CSS:</p>
+
+            <pre><code class="language-css">#plansza {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.pole {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+    font-weight: bold;
+    border: 2px solid #345;
+    background-color: #edf3fa;
+    cursor: pointer;
+}
+
+.pole:hover {
+    background-color: #d1e4ff;
+}
+
+#reset {
+    padding: 12px 20px;
+}</code></pre>
+
+            <h3>Wymagania dotyczące skryptu</h3>
+
+            <ol>
+                <li>Gra jest przeznaczona dla dwóch graczy: X i O.</li>
+                <li>Gracz X rozpoczyna rozgrywkę.</li>
+                <li>Kliknięcie pustego pola umieszcza w nim znak aktualnego gracza.</li>
+                <li>Po każdym poprawnym ruchu następuje zmiana gracza.</li>
+                <li>Nie można ponownie zaznaczyć zajętego pola.</li>
+                <li>Zapisuj stan planszy w tablicy dziewięciu elementów.</li>
+                <li>Po każdym ruchu sprawdź, czy ktoś wygrał.</li>
+                <li>Wygrana następuje po ułożeniu trzech jednakowych znaków w jednym wierszu, kolumnie lub na przekątnej.</li>
+                <li>Po wygranej wyświetl komunikat z oznaczeniem zwycięzcy.</li>
+                <li>Po zakończeniu rozgrywki dalsze kliknięcia nie mogą zmieniać planszy.</li>
+                <li>Jeśli plansza zostanie zapełniona bez zwycięzcy, wyświetl „Remis”.</li>
+                <li>Przycisk „Nowa gra” ma wyczyścić planszę i ustawić gracza X.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Wskazówka:</strong>
+                opracuj osobne funkcje do wykonania ruchu,
+                sprawdzania zwycięstwa, zmiany gracza
+                i rozpoczęcia nowej rozgrywki.
+                Nie umieszczaj całej logiki w jednej funkcji.
+            </div>
+
+        </section>
+
+
+        <section id="checklista" class="remember">
+
+            <h2>📌 Lista kontrolna przed egzaminem</h2>
+
+            <p>
+                Przed oddaniem każdego zadania sprawdź:
+            </p>
+
+            <ul>
+                <li>Czy skrypt uruchamia się po wymaganym zdarzeniu?</li>
+                <li>Czy identyfikatory w JavaScript są zgodne z HTML?</li>
+                <li>Czy dane liczbowe zostały odpowiednio przekonwertowane?</li>
+                <li>Czy zastosowano właściwy wzór i kolejność obliczeń?</li>
+                <li>Czy sprawdzono wszystkie wymagane warunki?</li>
+                <li>Czy wynik pojawia się we wskazanym elemencie?</li>
+                <li>Czy format komunikatu jest zgodny z poleceniem?</li>
+                <li>Czy liczby mają wymaganą dokładność?</li>
+                <li>Czy zmiany CSS działają na właściwym elemencie?</li>
+                <li>Czy ponowne kliknięcie nie powoduje niepożądanych efektów?</li>
+                <li>Czy skrypt działa dla danych granicznych?</li>
+                <li>Czy konsola przeglądarki nie pokazuje błędów JavaScript?</li>
+            </ul>
+
+        </section>
+
+
+        <section id="sprawdz" class="check">
+
+            <h2>🎯 Sprawdź, czy potrafisz</h2>
+
+            <ul>
+                <li>pobrać wartości z formularza HTML,</li>
+                <li>wykorzystać pola <code>text</code>, <code>number</code>, <code>checkbox</code>, <code>radio</code> i <code>select</code>,</li>
+                <li>obsłużyć zdarzenia przez <code>addEventListener()</code>,</li>
+                <li>napisać funkcję z parametrami i <code>return</code>,</li>
+                <li>zastosować instrukcje <code>if</code> i <code>else</code>,</li>
+                <li>obliczać ceny, rabaty, koszty i raty,</li>
+                <li>sprawdzać poprawność danych wejściowych,</li>
+                <li>zmienić zawartość tekstową elementu HTML,</li>
+                <li>zmieniać właściwości CSS i klasy elementów,</li>
+                <li>przełączać widoczność elementów strony,</li>
+                <li>obsłużyć galerię zdjęć,</li>
+                <li>utworzyć nowe elementy HTML przez JavaScript,</li>
+                <li>przetwarzać tablice i tablice obiektów,</li>
+                <li>losować liczby całkowite w określonym przedziale,</li>
+                <li>wyszukiwać, filtrować i sortować dane,</li>
+                <li>zamienić liczbę na inny system liczbowy,</li>
+                <li>samodzielnie napisać większy skrypt bez gotowego rozwiązania.</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    STREFA IT • PAI • Lekcja 14
+</footer>
+
+<script src="../../prism.js"></script>
+
+</body>
+</html>
