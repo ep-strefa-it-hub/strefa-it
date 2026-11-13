@@ -1,1 +1,315 @@
-jjjh
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 07 – MS Excel: Adresowanie względne i bezwzględne | STREFA IT</title>
+    <link rel="stylesheet" href="../../css.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>STREFA IT</h1>
+        <p>Materiały do zajęć z przedmiotów informatycznych</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html">← AB</a>
+        <a href="../../index.html">⌂ Strona główna</a>
+    </div>
+</nav>
+
+<div class="layout">
+    <aside>
+        <h3>Spis treści</h3>
+        <a href="#zadania">📝 Zadania</a>
+        <a href="#organizacja">1. Organizacja pracy</a>
+        <a href="#wzgledne">2. Adresowanie względne</a>
+        <a href="#bezwzgledne">3. Adresowanie bezwzględne</a>
+        <a href="#kopiowanie">4. Kopiowanie formuł</a>
+        <a href="#cwiczenia">5. Zestaw 18 zadań</a>
+        <a href="#kontrola">6. Kontrola wykonania</a>
+        <a href="#oddanie">7. Oddanie pracy</a>
+        <a href="#zapamietaj">📌 Zapamiętaj</a>
+    </aside>
+
+    <main>
+        <div class="lesson-title">
+            <div class="lesson-number">AB • LEKCJA 07</div>
+            <h2>MS Excel – Adresowanie względne i bezwzględne</h2>
+            <p>
+                <strong>Cel główny:</strong> nauczysz się stosować
+                adresowanie względne i bezwzględne komórek,
+                korzystać ze znaku <code>$</code>, kopiować formuły
+                oraz łączyć zmieniające się dane ze stałymi wartościami.
+            </p>
+        </div>
+
+        <section id="zadania" class="tasks">
+            <h2>📝 Zadania</h2>
+            <p>
+                Pobierz skoroszyt Excel zawierający 18 zadań
+                dotyczących adresowania komórek.
+                W każdym zadaniu wykonasz 5 obliczeń.
+                W pliku znajdują się dane, szczegółowe instrukcje
+                oraz arkusz do kontroli wyników.
+            </p>
+
+            <a class="material-link"
+               href="Excel07_Adresowanie_2016_18_zadan_2x45_UCZEN.xlsx"
+               download>
+                ⬇ Pobierz zadania – MS Excel (.xlsx)
+            </a>
+
+            <p>
+                Otwórz plik w programie <strong>MS Excel 2016 PL</strong>.
+                Zapisz własną kopię jako
+                <code>Excel07_Nazwisko_Imie_Klasa.xlsx</code>.
+                Ukończoną pracę prześlij na ZADANIE do Teams.
+            </p>
+        </section>
+
+        <section id="organizacja">
+            <h2>1. Organizacja pracy</h2>
+            <p>W skoroszycie znajduje się sześć arkuszy:</p>
+
+            <ul>
+                <li><strong>Start</strong> – informacje o ćwiczeniach i sposobie oddania pracy.</li>
+                <li><strong>Lekcja 1</strong> – dane do zadań 1–9.</li>
+                <li><strong>Lekcja 2</strong> – dane do zadań 10–18.</li>
+                <li><strong>Instrukcje 1</strong> – polecenia do zadań 1–9.</li>
+                <li><strong>Instrukcje 2</strong> – polecenia do zadań 10–18.</li>
+                <li><strong>Kontrola</strong> – potwierdzenie wykonania zadań i zapis wyników.</li>
+            </ul>
+
+            <div class="important">
+                <strong>Ważne:</strong> wpisuj formuły w żółtych
+                komórkach kolumny <code>F</code>.
+                Dane znajdują się w kolumnach <code>C–E</code>.
+                Nie zmieniaj danych źródłowych.
+                Każde zadanie wymaga wykonania pięciu obliczeń.
+            </div>
+        </section>
+
+        <section id="wzgledne">
+            <h2>2. Adresowanie względne</h2>
+
+            <p>
+                <strong>Adresowanie względne</strong> polega na tym,
+                że adresy komórek w formule automatycznie zmieniają się
+                podczas jej kopiowania do innych komórek.
+            </p>
+
+            <div class="definition">
+                <strong>Przykład:</strong>
+                w komórce <code>F9</code> wpisz formułę
+                <code>=C9*D9</code>.
+                Po skopiowaniu jej do komórki <code>F10</code>
+                Excel automatycznie zmieni ją na
+                <code>=C10*D10</code>.
+            </div>
+
+            <h3>Jak wykonać obliczenie?</h3>
+            <ol>
+                <li>Otwórz arkusz <code>Lekcja 1</code>.</li>
+                <li>Kliknij pierwszą żółtą komórkę <code>F9</code>.</li>
+                <li>Wpisz formułę <code>=C9*D9</code>.</li>
+                <li>Naciśnij <strong>Enter</strong>.</li>
+                <li>Skopiuj formułę do kolejnych czterech wierszy.</li>
+                <li>Sprawdź wyniki w zakresie <code>F9:F13</code>.</li>
+            </ol>
+
+            <p>
+                Adresy względne wykorzystujemy między innymi
+                do obliczania wartości produktów, kosztów,
+                przychodów, rabatów i podwyżek.
+            </p>
+        </section>
+
+        <section id="bezwzgledne">
+            <h2>3. Adresowanie bezwzględne</h2>
+
+            <p>
+                <strong>Adresowanie bezwzględne</strong> pozwala
+                zablokować adres komórki, aby nie zmieniał się
+                podczas kopiowania formuły.
+            </p>
+
+            <div class="definition">
+                <strong>Przykład:</strong>
+                adres <code>$D$9</code> oznacza, że zarówno
+                kolumna D, jak i wiersz 9 pozostają niezmienne
+                podczas kopiowania formuły.
+            </div>
+
+            <h3>Jak zablokować adres komórki?</h3>
+            <ol>
+                <li>Rozpocznij wpisywanie formuły.</li>
+                <li>Wskaż komórkę zawierającą stałą wartość.</li>
+                <li>Zaznacz jej adres w formule.</li>
+                <li>Naciśnij klawisz <strong>F4</strong>, aby dodać znaki <code>$</code>.</li>
+                <li>Sprawdź, czy adres ma postać np. <code>$D$9</code>.</li>
+                <li>Skopiuj formułę do kolejnych wierszy.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Pamiętaj:</strong> adresowanie bezwzględne
+                jest przydatne wtedy, gdy wiele obliczeń korzysta
+                z jednej wspólnej wartości, np. stawki VAT,
+                kursu waluty, rabatu lub opłaty.
+            </div>
+
+            <h3>Rodzaje adresowania</h3>
+            <ul>
+                <li><code>A1</code> – adres względny.</li>
+                <li><code>$A$1</code> – adres bezwzględny.</li>
+                <li><code>$A1</code> – zablokowana kolumna.</li>
+                <li><code>A$1</code> – zablokowany wiersz.</li>
+            </ul>
+        </section>
+
+        <section id="kopiowanie">
+            <h2>4. Kopiowanie formuł</h2>
+
+            <p>
+                Excel umożliwia szybkie kopiowanie formuł
+                za pomocą uchwytu wypełniania.
+            </p>
+
+            <ol>
+                <li>Wpisz formułę w pierwszej żółtej komórce zadania.</li>
+                <li>Naciśnij <strong>Enter</strong>.</li>
+                <li>Ponownie zaznacz komórkę z formułą.</li>
+                <li>Ustaw wskaźnik myszy na małym kwadracie w prawym dolnym rogu zaznaczenia.</li>
+                <li>Przeciągnij uchwyt o cztery wiersze w dół.</li>
+                <li>Sprawdź, czy wszystkie pięć wyników jest poprawnych.</li>
+            </ol>
+
+            <div class="definition">
+                <strong>Przykład:</strong>
+                w zadaniu 1 uzupełniasz zakres <code>F9:F13</code>,
+                natomiast w zadaniu 2 zakres <code>F18:F22</code>.
+            </div>
+
+            <p>
+                Podczas kopiowania formuły zwróć uwagę, które
+                adresy powinny się zmieniać, a które mają
+                pozostać stałe.
+            </p>
+        </section>
+
+        <section id="cwiczenia">
+            <h2>5. Zestaw zadań 1–18</h2>
+
+            <p>
+                Wykonaj wszystkie zadania w kolejności podanej
+                w skoroszycie. Szczegółowe polecenia znajdują się
+                w arkuszach <code>Instrukcje 1</code>
+                i <code>Instrukcje 2</code>.
+            </p>
+
+            <ol>
+                <li><strong>Iloczyn – adresy względne</strong> – obliczanie wartości produktów.</li>
+                <li><strong>Różnice między kolumnami</strong> – odejmowanie kosztów od przychodów.</li>
+                <li><strong>Suma trzech kolumn</strong> – dodawanie wartości.</li>
+                <li><strong>Koszt na osobę</strong> – dzielenie wartości.</li>
+                <li><strong>Nawias w kopii</strong> – stosowanie kolejności działań.</li>
+                <li><strong>Podwyżka z wiersza</strong> – obliczanie nowej ceny.</li>
+                <li><strong>Rabat z wiersza</strong> – obliczanie ceny po obniżce.</li>
+                <li><strong>Koszt z opłatą w wierszu</strong> – uwzględnienie dodatkowej opłaty.</li>
+                <li><strong>Porównanie dwóch metod</strong> – obliczenia z trzema adresami.</li>
+                <li><strong>VAT wspólny dla produktów</strong> – zastosowanie jednej stawki VAT.</li>
+                <li><strong>Rabat wspólny</strong> – wykorzystanie stałej wartości rabatu.</li>
+                <li><strong>Opłata stała</strong> – dodawanie wspólnej opłaty.</li>
+                <li><strong>Wspólny kurs walut</strong> – przeliczanie wartości.</li>
+                <li><strong>Wspólny mnożnik</strong> – wykorzystanie stałego współczynnika.</li>
+                <li><strong>VAT i liczba sztuk</strong> – łączenie różnych typów adresowania.</li>
+                <li><strong>Rabat od zamówienia</strong> – stały rabat i zmieniające się wartości.</li>
+                <li><strong>Próg premii jako stała</strong> – zastosowanie wspólnej wartości premii.</li>
+                <li><strong>Podwyżka i wspólna opłata</strong> – wykonywanie obliczeń z kilkoma wartościami.</li>
+            </ol>
+
+            <div class="important">
+                <strong>Ważne:</strong> w zadaniach 10–18
+                zwróć szczególną uwagę na adresy bezwzględne.
+                Nie wpisuj stałych liczb bezpośrednio do formuł,
+                jeśli w poleceniu wskazano komórkę zawierającą
+                daną wartość.
+            </div>
+        </section>
+
+        <section id="kontrola">
+            <h2>6. Kontrola wykonania zadań</h2>
+
+            <p>
+                Po wykonaniu każdego zadania przejdź do arkusza
+                <code>Kontrola</code>.
+                Uzupełnij wiersze <code>6–23</code>,
+                odpowiadające zadaniom 1–18.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Kolumna D (<code>D6:D23</code>)</strong> –
+                    wpisz <code>TAK</code> po wykonaniu zadania.
+                </li>
+                <li>
+                    <strong>Kolumna E (<code>E6:E23</code>)</strong> –
+                    wpisz pierwszy wynik z kolumny F danego zadania.
+                </li>
+            </ul>
+
+            <div class="definition">
+                <strong>Przykład:</strong>
+                po zadaniu 1 wpisz <code>TAK</code> w komórce
+                <code>D6</code> i przepisz wynik z
+                <code>F9</code> arkusza <code>Lekcja 1</code>
+                do komórki <code>E6</code> arkusza
+                <code>Kontrola</code>.
+            </div>
+
+            <p>
+                Nie wpisuj samych formuł do arkusza
+                <code>Kontrola</code> – zapisz obliczone wyniki.
+            </p>
+        </section>
+
+        <section id="oddanie">
+            <h2>7. Zapisanie i oddanie pracy</h2>
+
+            <ol>
+                <li>Sprawdź wykonanie wszystkich 18 zadań.</li>
+                <li>Upewnij się, że wszystkie wymagane żółte komórki kolumny F zostały uzupełnione.</li>
+                <li>Sprawdź arkusz <code>Kontrola</code>.</li>
+                <li>Uzupełnij zakresy <code>D6:D23</code> oraz <code>E6:E23</code>.</li>
+                <li>Zapisz plik jako <code>Excel07_Nazwisko_Imie_Klasa.xlsx</code>.</li>
+                <li>Prześlij jeden ukończony skoroszyt XLSX w zadaniu na Teams.</li>
+            </ol>
+        </section>
+
+        <section id="zapamietaj" class="remember">
+            <h2>📌 Zapamiętaj</h2>
+
+            <ul>
+                <li>Adres względny, np. <code>A1</code>, zmienia się podczas kopiowania formuły.</li>
+                <li>Adres bezwzględny, np. <code>$A$1</code>, pozostaje niezmieniony.</li>
+                <li>Znak <code>$</code> blokuje kolumnę lub wiersz.</li>
+                <li>Klawisz <strong>F4</strong> umożliwia zmianę rodzaju adresowania podczas edycji formuły.</li>
+                <li>W jednej formule można jednocześnie wykorzystać adresy względne i bezwzględne.</li>
+                <li>Formuły rozpoczynamy od znaku <code>=</code>.</li>
+                <li>Do kopiowania formuł można wykorzystać uchwyt wypełniania.</li>
+                <li>Wyniki obliczaj za pomocą formuł, nie wpisuj ich ręcznie.</li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+
+<footer>STREFA IT • AB • Lekcja 07</footer>
+
+</body>
+</html>
