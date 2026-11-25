@@ -778,6 +778,592 @@ if (b !== 0) {
             </p>
 
         </section>
+    
+<section class="js-zadania-dodatkowe" id="zadania-dodatkowe">
+
+    <h2>🧩 Zadania dodatkowe – utrwalenie materiału z lekcji 01–07</h2>
+
+    <div class="js-zasady">
+        <strong>Cel:</strong> utrwalenie poznanych umiejętności
+        programowania w JavaScript poprzez tworzenie bardziej
+        rozbudowanych programów.
+
+        <p><strong>Zasady wykonywania zadań:</strong></p>
+
+        <ul>
+            <li>Dane pobieraj od użytkownika za pomocą
+                <code>prompt()</code> lub <code>confirm()</code>.</li>
+            <li>W razie potrzeby dokonaj konwersji typów danych.</li>
+            <li>Stosuj poznane operatory, metody i instrukcje warunkowe.</li>
+            <li>Wyniki wyświetlaj na stronie internetowej wraz
+                z odpowiednimi komunikatami.</li>
+            <li>Zadbaj o czytelność kodu i odpowiednie nazwy zmiennych.</li>
+            <li>Nie korzystaj z pętli ani tablic.</li>
+        </ul>
+    </div>
+
+    <h2 class="js-naglowek-utrwalajace">
+        🟢 Zadania utrwalające
+    </h2>
+
+    <!-- ZADANIE 8 -->
+
+    <div class="js-zadanie js-utrwalajace">
+        <h3>Zadanie 8 – Zakupy z rabatem</h3>
+
+        <p>Napisz program obliczający koszt zakupów.</p>
+
+        <ol>
+            <li>Wczytaj nazwę produktu, jego cenę jednostkową
+                oraz liczbę zakupionych sztuk.</li>
+
+            <li>Oblicz wartość zakupów przed rabatem.</li>
+
+            <li>Ustal wysokość rabatu:
+                <ul>
+                    <li>co najmniej 500 zł – rabat 15%,</li>
+                    <li>od 200 zł do poniżej 500 zł – rabat 10%,</li>
+                    <li>poniżej 200 zł – brak rabatu.</li>
+                </ul>
+            </li>
+
+            <li>Oblicz kwotę rabatu oraz końcową kwotę do zapłaty.</li>
+
+            <li>Wyświetl:
+                <ul>
+                    <li>nazwę produktu wielkimi literami,</li>
+                    <li>wartość zakupów przed rabatem,</li>
+                    <li>wysokość rabatu w procentach,</li>
+                    <li>kwotę rabatu,</li>
+                    <li>końcową kwotę do zapłaty.</li>
+                </ul>
+            </li>
+
+            <li>Kwoty wyświetl z dokładnością do dwóch
+                miejsc po przecinku.</li>
+        </ol>
+
+        <div class="js-przyklad">
+            <strong>Przykładowy wynik:</strong>
+            <p>
+                Produkt: SŁUCHAWKI<br>
+                Wartość zakupów: 300.00 zł<br>
+                Rabat: 10%<br>
+                Kwota rabatu: 30.00 zł<br>
+                Do zapłaty: 270.00 zł
+            </p>
+        </div>
+    </div>
+
+    <!-- ZADANIE 9 -->
+
+    <div class="js-zadanie js-utrwalajace">
+        <h3>Zadanie 9 – Generator loginu</h3>
+
+        <p>Napisz program generujący login użytkownika.</p>
+
+        <ol>
+            <li>Wczytaj imię, nazwisko oraz czterocyfrowy
+                rok urodzenia użytkownika.</li>
+
+            <li>Usuń zbędne spacje z początku i końca
+                imienia oraz nazwiska.</li>
+
+            <li>Sprawdź, czy imię i nazwisko zawierają
+                przynajmniej po trzy znaki.</li>
+
+            <li>Jeżeli warunek jest spełniony, utwórz login
+                składający się z:
+                <ul>
+                    <li>trzech pierwszych znaków imienia,</li>
+                    <li>trzech pierwszych znaków nazwiska,</li>
+                    <li>dwóch ostatnich cyfr roku urodzenia.</li>
+                </ul>
+            </li>
+
+            <li>Login powinien zawierać małe litery.</li>
+
+            <li>Wyświetl wygenerowany login.</li>
+
+            <li>Jeżeli imię lub nazwisko jest za krótkie,
+                wyświetl odpowiedni komunikat.</li>
+        </ol>
+
+        <div class="js-przyklad">
+            <strong>Przykład:</strong>
+            Jan Kowalski, 2008 &rarr; <code>jankow08</code>
+        </div>
+    </div>
+
+    <!-- ZADANIE 10 -->
+
+    <div class="js-zadanie js-utrwalajace">
+        <h3>Zadanie 10 – Kalkulator kosztów podróży</h3>
+
+        <p>Napisz program obliczający koszt przejazdu samochodem.</p>
+
+        <ol>
+            <li>Wczytaj:
+                <ul>
+                    <li>długość trasy w kilometrach,</li>
+                    <li>średnie spalanie samochodu na 100 km,</li>
+                    <li>cenę litra paliwa,</li>
+                    <li>liczbę podróżujących osób.</li>
+                </ul>
+            </li>
+
+            <li>Sprawdź, czy wszystkie wprowadzone liczby
+                są większe od zera.</li>
+
+            <li>Jeżeli dane są poprawne:
+                <ul>
+                    <li>oblicz ilość potrzebnego paliwa,</li>
+                    <li>oblicz całkowity koszt podróży,</li>
+                    <li>oblicz koszt przypadający na jedną osobę.</li>
+                </ul>
+            </li>
+
+            <li>Jeżeli koszt na osobę przekracza 100 zł,
+                wyświetl komunikat „Droga podróż”.
+                W przeciwnym przypadku wyświetl
+                „Ekonomiczna podróż”.</li>
+
+            <li>Wyświetl obliczone wyniki z dokładnością
+                do dwóch miejsc po przecinku.</li>
+
+            <li>Jeżeli dane są niepoprawne, wyświetl
+                odpowiedni komunikat zamiast wyników.</li>
+        </ol>
+    </div>
+
+    <!-- ZADANIE 11 -->
+
+    <div class="js-zadanie js-utrwalajace">
+        <h3>Zadanie 11 – Weryfikacja hasła</h3>
+
+        <p>Napisz program sprawdzający poprawność hasła użytkownika.</p>
+
+        <ol>
+            <li>Wczytaj hasło użytkownika.</li>
+
+            <li>Sprawdź, czy hasło spełnia wszystkie
+                poniższe wymagania:
+                <ul>
+                    <li>zawiera przynajmniej 8 znaków,</li>
+                    <li>zawiera przynajmniej jedną wielką literę,</li>
+                    <li>zawiera przynajmniej jedną małą literę,</li>
+                    <li>nie zawiera spacji,</li>
+                    <li>zawiera znak <code>!</code>
+                        lub <code>#</code>.</li>
+                </ul>
+            </li>
+
+            <li>Dla każdego niespełnionego warunku wyświetl
+                odpowiedni komunikat.</li>
+
+            <li>Jeżeli wszystkie warunki zostały spełnione,
+                wyświetl komunikat „Hasło spełnia wymagania”.</li>
+        </ol>
+
+        <div class="js-przyklad">
+            <strong>Wskazówka:</strong>
+            Porównaj wprowadzone hasło z jego wersją zapisaną
+            wyłącznie wielkimi lub wyłącznie małymi literami.
+            Wykorzystaj poznane metody operujące na ciągach znaków.
+        </div>
+    </div>
+
+    <!-- ZADANIE 12 -->
+
+    <div class="js-zadanie js-utrwalajace">
+        <h3>Zadanie 12 – Gra w zgadywanie liczby</h3>
+
+        <p>Napisz prostą grę polegającą na odgadnięciu
+            wylosowanej liczby.</p>
+
+        <ol>
+            <li>Wylosuj liczbę całkowitą z przedziału od 1 do 20.</li>
+
+            <li>Poproś użytkownika o podanie liczby całkowitej
+                z tego samego przedziału.</li>
+
+            <li>Sprawdź, czy użytkownik podał poprawną liczbę.</li>
+
+            <li>Oblicz wartość bezwzględną różnicy pomiędzy
+                wylosowaną a podaną liczbą.</li>
+
+            <li>Wyświetl odpowiedni komunikat:
+                <ul>
+                    <li>jeżeli użytkownik odgadł liczbę –
+                        „Brawo! Wygrana!”,</li>
+                    <li>jeżeli różnica wynosi 1 lub 2 –
+                        „Bardzo blisko!”,</li>
+                    <li>w pozostałych przypadkach –
+                        „Nie udało się!”.</li>
+                </ul>
+            </li>
+
+            <li>Przy poprawnych danych wyświetl wylosowaną
+                liczbę, liczbę użytkownika oraz różnicę
+                pomiędzy nimi.</li>
+
+            <li>Jeżeli użytkownik podał niepoprawną liczbę,
+                wyświetl komunikat o błędzie zamiast wyniku gry.</li>
+        </ol>
+
+        <p><strong>Uwaga:</strong> użytkownik ma tylko jedną próbę.</p>
+    </div>
+
+    <!-- ZADANIA ROZSZERZONE -->
+
+    <h2 class="js-naglowek-rozszerzone">
+        🟣 Zadania rozszerzone
+    </h2>
+
+    <!-- ZADANIE 13 -->
+
+    <div class="js-zadanie js-rozszerzone">
+        <h3>Zadanie 13 – Rezerwacja biletu do kina</h3>
+
+        <p>Napisz program obliczający koszt zakupu biletów do kina.</p>
+
+        <ol>
+            <li>Wczytaj tytuł filmu, wiek kupującego
+                oraz liczbę biletów.</li>
+
+            <li>Za pomocą <code>confirm()</code> zapytaj,
+                czy kupujący posiada kartę stałego klienta.</li>
+
+            <li>Ustal cenę jednostkową biletu według tabeli:</li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Wiek</th>
+                    <th>Cena biletu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Poniżej 7 lat</td>
+                    <td>12 zł</td>
+                </tr>
+                <tr>
+                    <td>Od 7 do 18 lat włącznie</td>
+                    <td>18 zł</td>
+                </tr>
+                <tr>
+                    <td>Od 19 do 64 lat włącznie</td>
+                    <td>25 zł</td>
+                </tr>
+                <tr>
+                    <td>Od 65 lat</td>
+                    <td>15 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ol start="4">
+            <li>Przyjmij, że wszystkie kupowane bilety
+                należą do tej samej kategorii wiekowej.</li>
+
+            <li>Oblicz całkowity koszt biletów.</li>
+
+            <li>Jeżeli kupujący posiada kartę stałego klienta
+                lub kupuje co najmniej 5 biletów,
+                przyznaj rabat 10%.</li>
+
+            <li>Rabat nalicz tylko raz, nawet jeżeli
+                oba warunki zostały spełnione.</li>
+
+            <li>Wyświetl:
+                <ul>
+                    <li>tytuł filmu wielkimi literami,</li>
+                    <li>liczbę zakupionych biletów,</li>
+                    <li>cenę jednostkową biletu,</li>
+                    <li>wartość zamówienia przed rabatem,</li>
+                    <li>kwotę rabatu,</li>
+                    <li>końcową kwotę do zapłaty.</li>
+                </ul>
+            </li>
+
+            <li>Kwoty wyświetl z dokładnością do dwóch
+                miejsc po przecinku.</li>
+        </ol>
+    </div>
+
+    <!-- ZADANIE 14 -->
+
+    <div class="js-zadanie js-rozszerzone">
+        <h3>Zadanie 14 – Kalkulator matematyczny</h3>
+
+        <p>Napisz program wykonujący wybrane działanie matematyczne.</p>
+
+        <ol>
+            <li>Wczytaj dwie liczby.</li>
+
+            <li>Wczytaj symbol działania matematycznego.</li>
+
+            <li>Za pomocą instrukcji <code>switch</code>
+                wykonaj odpowiednie działanie.</li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Działanie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>+</code></td>
+                    <td>Dodawanie</td>
+                </tr>
+                <tr>
+                    <td><code>-</code></td>
+                    <td>Odejmowanie</td>
+                </tr>
+                <tr>
+                    <td><code>*</code></td>
+                    <td>Mnożenie</td>
+                </tr>
+                <tr>
+                    <td><code>/</code></td>
+                    <td>Dzielenie</td>
+                </tr>
+                <tr>
+                    <td><code>%</code></td>
+                    <td>Reszta z dzielenia</td>
+                </tr>
+                <tr>
+                    <td><code>**</code></td>
+                    <td>Potęgowanie</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ol start="4">
+            <li>Zabezpiecz program przed dzieleniem przez zero
+                oraz obliczaniem reszty z dzielenia przez zero.</li>
+
+            <li>Obsłuż przypadek podania nieprawidłowego symbolu.</li>
+
+            <li>Jeżeli działanie zostało poprawnie wykonane,
+                wyświetl działanie wraz z wynikiem.</li>
+
+            <li>Jeżeli wynik jest skończoną liczbą, określ,
+                czy jest dodatni, ujemny czy równy zero.</li>
+        </ol>
+
+        <div class="js-przyklad">
+            <strong>Przykładowy wynik:</strong>
+            <p>
+                5 ** 2 = 25<br>
+                Wynik jest liczbą dodatnią.
+            </p>
+        </div>
+    </div>
+
+    <!-- ZADANIE 15 -->
+
+    <div class="js-zadanie js-rozszerzone">
+        <h3>Zadanie 15 – Analizator tekstu</h3>
+
+        <p>Napisz program analizujący tekst wprowadzony
+            przez użytkownika.</p>
+
+        <ol>
+            <li>Wczytaj dowolny tekst.</li>
+
+            <li>Usuń zbędne spacje z jego początku i końca.</li>
+
+            <li>Jeżeli tekst jest pusty, wyświetl
+                odpowiedni komunikat.</li>
+
+            <li>W przeciwnym przypadku wyświetl:
+                <ul>
+                    <li>liczbę znaków,</li>
+                    <li>pierwszy znak,</li>
+                    <li>ostatni znak,</li>
+                    <li>tekst zapisany wielkimi literami,</li>
+                    <li>tekst zapisany małymi literami.</li>
+                </ul>
+            </li>
+
+            <li>Sprawdź, czy tekst zawiera ciąg znaków
+                „JavaScript”, niezależnie od wielkości liter.</li>
+
+            <li>Sprawdź, czy pierwszy i ostatni znak
+                są takie same, niezależnie od wielkości liter.</li>
+
+            <li>Określ długość tekstu:
+                <ul>
+                    <li>do 10 znaków – tekst krótki,</li>
+                    <li>od 11 do 30 znaków – tekst średni,</li>
+                    <li>powyżej 30 znaków – tekst długi.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- ZADANIE 16 -->
+
+    <div class="js-zadanie js-rozszerzone">
+        <h3>Zadanie 16 – Obliczanie ocen ucznia</h3>
+
+        <p>Napisz program obliczający średnią ocen ucznia.</p>
+
+        <ol>
+            <li>Wczytaj imię, nazwisko oraz trzy oceny ucznia.</li>
+
+            <li>Sprawdź, czy wszystkie oceny są liczbami
+                całkowitymi z przedziału od 1 do 6.</li>
+
+            <li>Jeżeli dane są poprawne:
+                <ul>
+                    <li>oblicz średnią arytmetyczną ocen,</li>
+                    <li>wyznacz najwyższą ocenę,</li>
+                    <li>wyznacz najniższą ocenę.</li>
+                </ul>
+            </li>
+
+            <li>Wyświetl odpowiedni komunikat:
+                <ul>
+                    <li>jeżeli przynajmniej jedna ocena
+                        jest niedostateczna –
+                        „Wymagana poprawa”,</li>
+
+                    <li>jeżeli średnia wynosi co najmniej 4,75
+                        i żadna ocena nie jest niższa niż 4 –
+                        „Bardzo dobre wyniki”,</li>
+
+                    <li>w pozostałych przypadkach –
+                        „Wynik pozytywny”.</li>
+                </ul>
+            </li>
+
+            <li>Wyświetl:
+                <ul>
+                    <li>imię i nazwisko ucznia,</li>
+                    <li>wszystkie wprowadzone oceny,</li>
+                    <li>średnią ocen z dokładnością do dwóch
+                        miejsc po przecinku,</li>
+                    <li>najwyższą i najniższą ocenę,</li>
+                    <li>komunikat dotyczący wyników ucznia.</li>
+                </ul>
+            </li>
+
+            <li>Jeżeli oceny są niepoprawne, wyświetl komunikat
+                o błędzie zamiast wyników.</li>
+        </ol>
+    </div>
+
+    <!-- ZADANIE 17 -->
+
+    <div class="js-zadanie js-rozszerzone">
+        <h3>Zadanie 17 – Konfigurator komputera</h3>
+
+        <p>Napisz program obliczający koszt zakupu zestawu
+            komputerowego.</p>
+
+        <ol>
+            <li>Wczytaj nazwę klienta.</li>
+
+            <li>Wczytaj rodzaj komputera.</li>
+
+            <li>Rodzaj komputera powinien być rozpoznawany
+                niezależnie od wielkości wprowadzonych liter.</li>
+
+            <li>Za pomocą instrukcji <code>switch</code>
+                ustal cenę podstawową komputera według tabeli:</li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rodzaj komputera</th>
+                    <th>Cena podstawowa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>biurowy</td>
+                    <td>1800 zł</td>
+                </tr>
+                <tr>
+                    <td>domowy</td>
+                    <td>2500 zł</td>
+                </tr>
+                <tr>
+                    <td>gamingowy</td>
+                    <td>4500 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ol start="5">
+            <li>Jeżeli wybrano poprawny rodzaj komputera,
+                za pomocą <code>confirm()</code> zapytaj
+                użytkownika, czy chce dokupić:
+                <ul>
+                    <li>monitor – 600 zł,</li>
+                    <li>klawiaturę – 120 zł,</li>
+                    <li>mysz – 80 zł.</li>
+                </ul>
+            </li>
+
+            <li>Oblicz całkowity koszt zestawu wraz
+                z dodatkowym wyposażeniem.</li>
+
+            <li>Jeżeli wartość zestawu wynosi co najmniej
+                3000 zł, nalicz rabat 5%.</li>
+
+            <li>Jeżeli wartość zestawu przed rabatem wynosi
+                co najmniej 2000 zł, dostawa jest darmowa.
+                W przeciwnym przypadku dolicz 30 zł.</li>
+
+            <li>Oblicz końcową kwotę do zapłaty.</li>
+
+            <li>Wyświetl podsumowanie zamówienia:
+                <ul>
+                    <li>nazwę klienta,</li>
+                    <li>rodzaj komputera,</li>
+                    <li>cenę podstawową,</li>
+                    <li>wybrane dodatkowe wyposażenie,</li>
+                    <li>wartość zestawu przed rabatem,</li>
+                    <li>kwotę rabatu,</li>
+                    <li>koszt dostawy,</li>
+                    <li>końcową kwotę do zapłaty.</li>
+                </ul>
+            </li>
+
+            <li>Kwoty wyświetl z dokładnością do dwóch
+                miejsc po przecinku.</li>
+
+            <li>Obsłuż przypadek wprowadzenia nieprawidłowego
+                rodzaju komputera. W takim przypadku nie
+                obliczaj kosztów zamówienia.</li>
+        </ol>
+
+        <div class="js-przyklad">
+            <strong>Przykładowy wynik:</strong>
+            <p>
+                Klient: Jan Kowalski<br>
+                Komputer: gamingowy<br>
+                Cena podstawowa: 4500.00 zł<br>
+                Dodatkowe wyposażenie: monitor, mysz<br>
+                Wartość zestawu: 5180.00 zł<br>
+                Rabat: 259.00 zł<br>
+                Dostawa: 0.00 zł<br>
+                <strong>Do zapłaty: 4921.00 zł</strong>
+            </p>
+        </div>
+    </div>
+
+</section>
+
 
 
         <section id="sprawdz" class="check">
